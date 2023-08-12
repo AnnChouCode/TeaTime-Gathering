@@ -1,16 +1,8 @@
-@import './base/_reset.css';
-@import './utils/_variables.scss';
-@import './base/_base.scss';
-@import './base/_fontStyle.scss';
-@import './base/_utility.scss';
+@import "../../node_modules/bootstrap/scss/functions";
+@import './utils/variables';  //copy 出來可以修改的檔案
+@import "../../node_modules/bootstrap";
 
-/* LAYOUT 共同 */
-@import './layout/header.scss';
-@import './layout/footer.scss';
+/* 其他 */
 
-/* PAGES 專頁 */
-@import './pages/index.scss';
-
-/* COMPONENTS 元件 */
 
 
