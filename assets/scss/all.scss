@@ -1,5 +1,10 @@
 @import './base/_reset.css';
+
+/* BOOTSTRAP */
+@import "../../node_modules/bootstrap/scss/functions";
 @import './utils/_variables.scss';
+@import "../../node_modules/bootstrap";
+
 @import './base/_base.scss';
 @import './base/_fontStyle.scss';
 @import './base/_utility.scss';
