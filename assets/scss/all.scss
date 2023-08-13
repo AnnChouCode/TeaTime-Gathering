@@ -1,8 +1,11 @@
+@import './base/_reset.css';
+
+/* BOOTSTRAP */
 @import "../../node_modules/bootstrap/scss/functions";
-@import './utils/variables';  //copy 出來可以修改的檔案
+@import './utils/_variables.scss';
 @import "../../node_modules/bootstrap";
 
-/* 其他 */
-
-
-
+// CUSTOM
+@import './base/_base.scss';
+@import './base/_fontStyle.scss';
+@import './base/_utility.scss';
