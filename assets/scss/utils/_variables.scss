@@ -671,13 +671,8 @@ $h6-font-size:                $font-size-base !default;
 
 // scss-docs-start font-sizes
 $font-sizes: (
-  1: $h1-font-size, // 40
-  2: $h2-font-size, // 32
-  3: $h3-font-size, // 28
-  4: $h4-font-size, // 24
-  5: $h5-font-size, // 20
-  6: $h6-font-size, // 16
-  14: 14px,
+  12: 12px, // 星星 icon
+  14: 14px, // 分頁文字
   16: 16px,
   20: 20px,
   24: 24px,
