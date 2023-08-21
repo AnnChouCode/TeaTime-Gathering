@@ -1,0 +1,30 @@
+.search {
+  &-icon {
+    top: 10px;
+    left: 16px;
+  }
+
+  &-bar {
+    width: 100%;
+
+    &:focus {
+      border-color: $gray-03;
+    }
+  }
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $gray-03 !important;
+  opacity: .4;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: $gray-03;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: $gray-03;
+}
