@@ -1,0 +1,12 @@
+.navigation-menu{
+  color: var(--gray-02, #8B8B8A);
+}
+
+.box_fixed {
+  width: 100px;
+  height: 100px;
+  background: blue;
+  position: fixed; 
+  right: 10px;
+  bottom: 10px;
+}
