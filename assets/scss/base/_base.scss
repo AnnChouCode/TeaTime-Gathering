@@ -1,12 +1,16 @@
-
 img {
   max-width: 100%;
   height: auto;
-  vertical-align: middle;
 }
 
 html, body {
   font-family: 'Noto Sans TC', sans-serif;
+}
+
+.container{
+  max-width: 1320px;
+  padding:0 12px;
+  margin:0 auto;
 }
 
 .border-radius-8 {
