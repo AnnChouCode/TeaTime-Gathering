@@ -13,12 +13,14 @@
   <meta property="og:title" content="揪團下午茶">
   <meta property="og:description" content="共享美味，打造回憶">
   <meta property="og:url" content="https://annchoucode.github.io/TeaTime-Gathering/">
-  <meta property="og:image" content="https://github.com/AnnChouCode/TeaTime-Gathering/blob/f/Ann/assets/images/store-01.jpg" />
+  <meta property="og:image"
+    content="https://github.com/AnnChouCode/TeaTime-Gathering/blob/f/Ann/assets/images/store-01.jpg" />
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="揪團下午茶" />
   <meta name="twitter:description" content="共享美味，打造回憶" />
-  <meta name="twitter:image" content="https://github.com/AnnChouCode/TeaTime-Gathering/blob/f/Ann/assets/images/store-01.jpg" />
+  <meta name="twitter:image"
+    content="https://github.com/AnnChouCode/TeaTime-Gathering/blob/f/Ann/assets/images/store-01.jpg" />
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,77 +32,19 @@
 <body>
   <%- include('./layout/nav'); -%>
 
-    <h1 class="index-title">我是首頁</h1>    
-    <div class="card" style="width: 18rem">
-      <img src="../assets/images/store-01-s.jpg" class="card-img-top" alt="store" />
-      <div class="card-body">
-        <h5 class="card-title">卡片元件</h5>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, odit, iusto odio assumenda alias id
-          nobis earum!
-        </p>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <img src="../assets/images/store-01-s.jpg" class="card-img-top" alt="store" />
-      <div class="card-body">
-        <h5 class="card-title">卡片元件</h5>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, odit, iusto odio assumenda alias id
-          nobis earum!
-        </p>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <img src="../assets/images/store-01-s.jpg" class="card-img-top" alt="store" />
-      <div class="card-body">
-        <h5 class="card-title">卡片元件</h5>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, odit, iusto odio assumenda alias id
-          nobis earum!
-        </p>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <img src="../assets/images/store-01-s.jpg" class="card-img-top" alt="store" />
-      <div class="card-body">
-        <h5 class="card-title">卡片元件</h5>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, odit, iusto odio assumenda alias id
-          nobis earum!
-        </p>
-      </div>
-    </div>
-    
+    <h1 class="index-title">我是首頁</h1>
 
-    <!-- Modal 按鈕 -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      打開 modal
-    </button>
 
-    <!-- Modal 元件 -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal 標題</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">內容</div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
-            <button type="button" class="btn btn-primary">確定</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <%- include('./layout/footer'); -%>
+    <!-- btn-notification -->
+    <%- include('./layout/btn-notification'); -%>
+    <!-- footer -->
+    <%- include('./layout/footer'); -%>    
 
-      <!-- ICONGIFY -->      
-      <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-      <!-- JS -->
-      <script type="module" src="../main.js"></script>
+    <!-- ICONGIFY -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <!-- JS -->
+    <script type="module" src="../main.js"></script>
 </body>
 
 </html>

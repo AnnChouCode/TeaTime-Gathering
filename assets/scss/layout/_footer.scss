@@ -1,4 +1,22 @@
 .footer{
-  background: #69F0AE;
-  font-size: 64px;
+  &-logo{
+    width: 196px;
+    height: 32px;
+
+    @include media-breakpoint-up(md) {
+      width: 248px;
+      height: 40px;
+    }
+
+  }
+
+  &-radius {
+    border-top-right-radius: 5rem; // 80
+    border-top-left-radius: 5rem; // 80
+  
+    @include media-breakpoint-up(md) {
+      border-top-right-radius: 18.75rem; // 300
+      border-top-left-radius: 18.75rem; // 300
+    }
+  }
 }
