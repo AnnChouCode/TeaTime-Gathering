@@ -8,7 +8,8 @@
     width: 100%;
 
     &:focus {
-      border-color: $gray-03;
+      border-color: transparent;
+      outline: 1px solid red;
     }
   }
 }
@@ -16,7 +17,7 @@
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: $gray-03 !important;
-  opacity: .4;
+  opacity: 0.4;
 }
 
 :-ms-input-placeholder {
