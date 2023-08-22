@@ -4,6 +4,7 @@
 @import "../../node_modules/bootstrap/scss/functions";
 @import './utils/_variables.scss';
 @import "../../node_modules/bootstrap";
+@import './utils/_reboot.scss';
 
 // CUSTOM
 @import './base/_base.scss';
@@ -16,3 +17,4 @@
 
 // CUSTOM LAYOUT
 @import './layout/_nav.scss';
+@import './layout/_footer.scss';

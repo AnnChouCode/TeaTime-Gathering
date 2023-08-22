@@ -1,6 +1,6 @@
 <nav class="fixed-top bg-white">
     <div class="py-md-16 py-8 container d-flex gap-8 align-items-center justify-content-between">
-        <ul class="m-0 d-md-flex d-none p-0">
+        <ul class="d-md-flex d-none">
             <li><a class="text-gray-01 me-xl-48 me-24" href="#">點餐</a></li>
             <li><a class="text-gray-01 me-xl-48 me-24" href="#">投票</a></li>
             <li><a class="text-gray-01 me-xl-48 me-24" href="#">訂餐月曆</a></li>
@@ -8,7 +8,7 @@
         </ul>
         <h1 class="nav-logo me-md-8"><a href="index.html">下午茶揪團去</a></h1>
         <!-- nav-icon -->
-        <ul class="m-0 d-md-flex d-none gap-16">
+        <ul class="d-md-flex d-none gap-16">
             <li>
                 <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ant-design:message-outlined"
                         style="color: #bfa373;" width="28"></iconify-icon></a>
@@ -20,7 +20,7 @@
             </li>
             <li>
                 <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
-                        style="color: #bfa373;" width="28"></iconify-icon></a>
+                        style="color: #bfa373;" width="28"  data-bs-toggle="modal"></iconify-icon></a>
             </li>
         </ul>
         <!-- search-bar  -->
@@ -51,15 +51,15 @@
                         data-bs-dismiss="offcanvas" aria-label="Close"></iconify-icon></a>
             </div>
             <div class="offcanvas-body py-24 px-12 d-flex flex-column justify-content-between ">
-                <ul class="m-0 fs-32 p-0 offcanvas-list">
+                <ul class="fs-32 offcanvas-list">
                     <li><a class="p-16 fw-bold d-block" href="">點餐</a></li>
                     <li><a class="p-16 fw-bold d-block" href="">投票</a></li>
                     <li><a class="p-16 fw-bold d-block" href="">訂餐月曆</a></li>
                     <li><a class="p-16 fw-bold d-block" href="">訂單</a></li>
                 </ul>
-                <ul class="m-0 d-flex gap-20 p-0 justify-content-center">
+                <ul class="d-flex gap-20 justify-content-center">
                     <li>
-                        <a class="position-relative btn-notification d-block" href="#">
+                        <a class="position-relative d-block" href="#">
                             <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline"
                                 style="color: white;" width="28" height="28"></iconify-icon>
                             <div class="btn-notification-alert rounded-circle bg-white position-absolute "></div>

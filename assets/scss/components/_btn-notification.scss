@@ -1,6 +1,16 @@
-.btn-notification-alert{
-    top:10px;
-    right:10px;
-    width: 8px;
-    height: 8px;
+.btn-notification {
+    right: 28px;
+    bottom: 28px;
+
+    @include media-breakpoint-up(md) {
+        right: 108px;
+        bottom: 164px;
+    }
+
+    &-alert {
+        top: 10px;
+        right: 10px;
+        width: 8px;
+        height: 8px;
+    }
 }
