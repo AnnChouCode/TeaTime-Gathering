@@ -6,10 +6,13 @@
 @import "../../node_modules/bootstrap";
 @import "./utils/_reboot.scss";
 
+// CUSTOM Utility
+@import "./base/_utility.scss";
+@import "../../node_modules/bootstrap/scss/utilities/api";
+
 // CUSTOM
 @import "./base/_base.scss";
 @import "./base/_fontStyle.scss";
-@import "./base/_utility.scss";
 
 // CUSTOM COMPONENTS
 @import "./components/search-bar";
@@ -17,5 +20,10 @@
 
 // CUSTOM LAYOUT
 @import "./layout/_nav.scss";
-@import "./layout/_footer.scss";
+@import "./layout/_navigation-menu.scss";
+@import "./layout/navigation-menu";
 @import "./layout/noviceTeaching";
+
+// CUSTOM PAGES
+@import "./pages/_index.scss";
+@import "./layout/_footer.scss";

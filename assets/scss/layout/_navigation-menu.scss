@@ -1,0 +1,25 @@
+.layout-left-ul{
+  a{    
+    color: $gray-05;
+  }
+  a:hover,a:focus{
+    color: $brand-03;
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .layout-left-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    opacity: 0; /* 初始時將透明度設置為 0 */
+    transition: opacity 0.3s ease; /* 添加過渡效果 */
+  }
+  a:hover .layout-left-img,a:focus .layout-left-img{
+    opacity: 1;
+  }
+}
+:target:before {
+  content: "";
+  display: block;
+  height: 82px;
+}
