@@ -13,12 +13,14 @@
   <meta property="og:title" content="揪團下午茶">
   <meta property="og:description" content="共享美味，打造回憶">
   <meta property="og:url" content="https://annchoucode.github.io/TeaTime-Gathering/">
-  <meta property="og:image" content="https://github.com/AnnChouCode/TeaTime-Gathering/blob/f/Ann/assets/images/store-01.jpg" />
+  <meta property="og:image"
+    content="https://github.com/AnnChouCode/TeaTime-Gathering/blob/f/Ann/assets/images/store-01.jpg" />
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="揪團下午茶" />
   <meta name="twitter:description" content="共享美味，打造回憶" />
-  <meta name="twitter:image" content="https://github.com/AnnChouCode/TeaTime-Gathering/blob/f/Ann/assets/images/store-01.jpg" />
+  <meta name="twitter:image"
+    content="https://github.com/AnnChouCode/TeaTime-Gathering/blob/f/Ann/assets/images/store-01.jpg" />
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,9 +31,7 @@
 
 <body class="pt-64 pt-md-82">
   <%- include('./layout/nav'); -%>
-  <div id="navbar-placeholder"></div>
-  
-  <div class="layout d-flex ">
+   <div class="layout d-flex ">
     <div class="layout-left d-none d-md-block">
       <%- include('./layout/navigation-menu'); -%>
     </div>
@@ -42,12 +42,15 @@
     <div class="layout-right d-none d-md-block"></div>
   </div>
 
-  <%- include('./layout/footer'); -%>
+    <!-- btn-notification -->
+    <%- include('./layout/btn-notification'); -%>
+    <!-- footer -->
+    <%- include('./layout/footer'); -%>    
 
-  <!-- ICONGIFY -->      
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-  <!-- JS -->
-  <script type="module" src="../main.js"></script>
+    <!-- ICONGIFY -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <!-- JS -->
+    <script type="module" src="../main.js"></script>
 </body>
 
 </html>

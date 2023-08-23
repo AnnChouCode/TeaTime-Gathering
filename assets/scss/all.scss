@@ -4,6 +4,7 @@
 @import "../../node_modules/bootstrap/scss/functions";
 @import './utils/_variables.scss';
 @import "../../node_modules/bootstrap";
+@import './utils/_reboot.scss';
 
 // CUSTOM Utility
 @import './base/_utility.scss';
@@ -22,4 +23,5 @@
 @import './layout/_navigation-menu.scss';
 
 // CUSTOM PAGES
-@import './pages/_index.scss'
+@import './pages/_index.scss';
+@import './layout/_footer.scss';
