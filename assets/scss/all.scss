@@ -12,3 +12,14 @@
 // CUSTOM
 @import './base/_base.scss';
 @import './base/_fontStyle.scss';
+
+// CUSTOM COMPONENTS
+@import './components/search-bar';
+@import './components/btn-notification';
+
+// CUSTOM LAYOUT
+@import './layout/_nav.scss';
+@import './layout/_navigation-menu.scss';
+
+// CUSTOM PAGES
+@import './pages/_index.scss'
