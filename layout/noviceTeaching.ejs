@@ -1,0 +1,116 @@
+<div class="container py-80">
+    <div class="d-flex justify-content-between align-items-center ">
+        <h2 class="fs-32">新手教學</h2>
+        <span>看更多&raquo;</span>
+    </div>
+    <div class="row mt-32">
+        <div class="col-md-2">
+            <ul class="d-flex d-md-block">
+                <li><button class="fw-medium p-16 btn-active w-100 text-start border-0 bg-transparent actived"
+                        id="QA1">點餐步驟</button>
+                </li>
+                <li><button class="fw-medium p-16 btn-active w-100 text-start border-0 bg-transparent" id="QA2">投票 /
+                        舉辦投票</button>
+                </li>
+                <li><button class="fw-medium p-16 btn-active w-100 text-start border-0 bg-transparent"
+                        id="QA3">許願留言</button>
+                </li>
+                <li><button class="fw-medium p-16 btn-active w-100 text-start border-0 bg-transparent"
+                        id="QA4">訂單問題</button>
+                </li>
+                <li><button class="fw-medium p-16 btn-active w-100 text-start border-0 bg-transparent"
+                        id="QA5">常見問題</button>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10 px-24" id="showAns">
+            <ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">如何點餐（跟團）</h3>
+                <p class="fs-20 mt-24">您可藉由以下三種路徑查看開團中項目</p>
+                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+                <li class="mt-4 fs-20">3. 『點餐月曆』</li>
+            </ul>
+            <ul class="pb-40 mt-40">
+                <h3 class="fs-24 text-brand-03">如何邀請他人點餐（開團）</h3>
+                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
+                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+            </ul>
+        </div>
+        <div id="instructions"></div>
+    </div>
+</div>
+<script>
+    // 獲取所有按鈕元素
+    var buttons = document.querySelectorAll('.btn-active');
+    // var btn2 = document.querySelector('#btn2');
+
+    var showAns = document.getElementById('showAns');
+    var QA1 = document.querySelector('#QA1');
+    var QA2 = document.querySelector('#QA2');
+    var QA3 = document.querySelector('#QA3');
+    var QA4 = document.querySelector('#QA4');
+    var QA5 = document.querySelector('#QA5');
+
+    // 添加點擊事件處理程序
+    buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            // 移除所有按鈕的背景色
+            buttons.forEach(function (btn) {
+                btn.classList.remove('actived');
+            });
+            // 將當前按鈕設置為灰色背景
+            button.classList.add('actived');
+
+            if (button === QA1) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">如何點餐（跟團）</h3>
+                <p class="fs-20 mt-24">您可藉由以下三種路徑查看開團中項目</p>
+                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+                <li class="mt-4 fs-20">3. 『點餐月曆』</li>
+            </ul>
+            <ul class="pb-40 mt-40">
+                <h3 class="fs-24 text-brand-03">如何邀請他人點餐（開團）</h3>
+                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
+                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+            </ul>`
+            } else if (button === QA2) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">我想投票</h3>
+                <p class="fs-20 mt-24">您可藉由以下三種路徑查看投票中的項目</p>
+                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-4 fs-20">2. 『投票』頁面</li>
+                <li class="mt-4 fs-20">3. 『點餐月曆』頁面</li>
+            </ul>
+            <ul class="pb-40 mt-40">
+                <h3 class="fs-24 text-brand-03">我想舉辦投票</h3>
+                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後，點選「舉辦投票」按鈕</p>
+                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+            </ul>`
+            } else if (button === QA3) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">我想許願</h3>
+                <p class="fs-20 mt-24">店家清單中沒有您的愛店嗎？或是有任何心得感想呢？請至『留言』頁面留下您的想法</p>`
+            } else if (button === QA4) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">如何查看訂單歷史記錄？</h3>
+                <p class="fs-20 mt-24">至『首頁』上方點選『訂單』可查看跟團中訂單以及歷史訂單</p>
+                </ul>
+                <ul class="pb-40 mt-40">
+                <h3 class="fs-24 text-brand-03">如何取消或修改已經下單的訂單？</h3>
+                <li class="fs-20 mt-20">1. 至『首頁』上方點選『訂單』即可看到『修改訂單』</li>
+                <li class="mt-4 fs-20">2. 請注意 : 僅於點餐期限截止前仍可取消 or 修改已送出的內容，截止後恕不異動</li>
+            </ul>
+                `
+            } else if (button === QA5) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">我想發問</h3>
+                <p class="fs-20 mt-24">直接連結到專頁</p>`
+            }
+        });
+    });
+</script>

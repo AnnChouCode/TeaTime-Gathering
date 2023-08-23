@@ -1,18 +1,21 @@
-@import './base/_reset.css';
+@import "./base/_reset.css";
 
 /* BOOTSTRAP */
 @import "../../node_modules/bootstrap/scss/functions";
-@import './utils/_variables.scss';
+@import "./utils/_variables.scss";
 @import "../../node_modules/bootstrap";
+@import "./utils/_reboot.scss";
 
 // CUSTOM
-@import './base/_base.scss';
-@import './base/_fontStyle.scss';
-@import './base/_utility.scss';
+@import "./base/_base.scss";
+@import "./base/_fontStyle.scss";
+@import "./base/_utility.scss";
 
 // CUSTOM COMPONENTS
-@import './components/search-bar';
-@import './components/btn-notification';
+@import "./components/search-bar";
+@import "./components/btn-notification";
 
 // CUSTOM LAYOUT
-@import './layout/_nav.scss';
+@import "./layout/_nav.scss";
+@import "./layout/_footer.scss";
+@import "./layout/noviceTeaching";

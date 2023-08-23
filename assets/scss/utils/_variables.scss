@@ -450,6 +450,8 @@ $spacers: (
   // 40
   48: $spacer * 3,
   // 48
+  80: $spacer * 5,
+  // 80
 ) !default;
 // scss-docs-end spacer-variables-maps
 
@@ -507,7 +509,7 @@ $icon-link-icon-transform: translate3d(0.25em, 0, 0) !default;
 //
 // Style p element.
 
-$paragraph-margin-bottom: 1rem !default;
+$paragraph-margin-bottom: 0 !default;
 
 // Grid breakpoints
 //

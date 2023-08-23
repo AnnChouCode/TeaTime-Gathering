@@ -33,84 +33,20 @@
   <%- include('./layout/nav'); -%>
 
     <h1 class="index-title">我是首頁</h1>
-    <div class="card" style="width: 18rem">
-      <img src="../assets/images/store-01-s.jpg" class="card-img-top" alt="store" />
-      <div class="card-body">
-        <h5 class="card-title">卡片元件</h5>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, odit, iusto odio assumenda alias id
-          nobis earum!
-        </p>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <img src="../assets/images/store-01-s.jpg" class="card-img-top" alt="store" />
-      <div class="card-body">
-        <h5 class="card-title">卡片元件</h5>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, odit, iusto odio assumenda alias id
-          nobis earum!
-        </p>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <img src="../assets/images/store-01-s.jpg" class="card-img-top" alt="store" />
-      <div class="card-body">
-        <h5 class="card-title">卡片元件</h5>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, odit, iusto odio assumenda alias id
-          nobis earum!
-        </p>
-      </div>
-    </div>
-    <div class="card" style="width: 18rem">
-      <img src="../assets/images/store-01-s.jpg" class="card-img-top" alt="store" />
-      <div class="card-body">
-        <h5 class="card-title">卡片元件</h5>
-        <p class="card-text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, odit, iusto odio assumenda alias id
-          nobis earum!
-        </p>
-      </div>
-    </div>
 
 
-    <!-- Modal 按鈕 -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      打開 modal
-    </button>
 
-    <!-- Modal 元件 -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal 標題</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">內容</div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
-            <button type="button" class="btn btn-primary">確定</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="btn btn-brand-01">123</div>
-    <div class="position-relative me-md-16 d-md-none d-block">
-      <iconify-icon class="position-absolute search-icon" icon="iconamoon:search" style="color: #8b8b8a;"
-        width="24"></iconify-icon>
-      <input type="text" class="search-bar border border-2 border-gray-04 border-radius-28 py-10 px-16 ps-48"
-        placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
-    </div>
-    <input type="text">
-    <%- include('./layout/footer'); -%>
+    <!-- btn-notification -->
+    <%- include('./layout/btn-notification'); -%>
+      <!-- novice Teaching -->
+      <%- include('./layout/noviceTeaching'); -%>
+        <!-- footer -->
+        <%- include('./layout/footer'); -%>
 
-      <!-- ICONGIFY -->
-      <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-      <script src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"></script>
-      <!-- JS -->
-      <script type="module" src="../main.js"></script>
+          <!-- ICONGIFY -->
+          <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+          <!-- JS -->
+          <script type="module" src="../main.js"></script>
 </body>
 
 </html>
