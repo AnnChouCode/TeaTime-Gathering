@@ -1,7 +1,11 @@
 .nav-logo {
   left: 12px;
 
-  @include media-breakpoint-up(md) {
+  // @include media-breakpoint-up(md) {
+  //   left: 16.25%;
+  // }
+
+  @include media-breakpoint-up(lg) {
     transform: translate(-50%, -50%) !important;
     top: 50%;
     left: 50%;
@@ -18,7 +22,7 @@
     overflow: hidden;
 
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(xl) {
       width: 248px;
       height: 40px;
     }
