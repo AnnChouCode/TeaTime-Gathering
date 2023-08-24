@@ -1,12 +1,14 @@
 <nav class="fixed-top bg-white">
     <div class="py-md-16 py-8 container d-flex gap-8 align-items-center justify-content-between">
+        <!-- nav list -->
         <ul class="d-md-flex d-none">
-            <li><a class="text-gray-01 me-xl-48 me-24" href="#">點餐</a></li>
-            <li><a class="text-gray-01 me-xl-48 me-24" href="#">投票</a></li>
-            <li><a class="text-gray-01 me-xl-48 me-24" href="#">訂餐月曆</a></li>
+            <li><a class="text-gray-01 me-xl-48 me-16" href="#">點餐</a></li>
+            <li><a class="text-gray-01 me-xl-48 me-16" href="#">投票</a></li>
+            <li><a class="text-gray-01 me-xl-48 me-16" href="#">訂餐月曆</a></li>
             <li><a class="text-gray-01" href="#">訂單</a></li>
         </ul>
-        <h1 class="nav-logo me-md-8"><a href="index.html">下午茶揪團去</a></h1>
+        <!-- nav logo -->
+        <h1 class="nav-logo me-md-8 position-absolute"><a href="index.html">下午茶揪團去</a></h1>
         <!-- nav-icon -->
         <ul class="d-md-flex d-none gap-16">
             <li>
@@ -19,12 +21,13 @@
                         width="28"></iconify-icon></a>
             </li>
             <li>
-                <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
-                        style="color: #bfa373;" width="28"  data-bs-toggle="modal"></iconify-icon></a>
+                <!-- <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
+                        style="color: #bfa373;" width="28"  data-bs-toggle="modal"></iconify-icon></a> -->
+                <%- include('./layout/btn-account.ejs'); -%>
             </li>
         </ul>
         <!-- search-bar  -->
-        <div class="position-relative me-md-16 d-md-none d-block">
+        <div class="position-relative me-md-16 d-md-none ms-156">
             <iconify-icon class="position-absolute search-icon" icon="iconamoon:search" style="color: #8b8b8a;"
                 width="24"></iconify-icon>
             <input type="text" class="search-bar border border-2 border-gray-04 border-radius-28 py-10 px-16 ps-48"
@@ -76,8 +79,9 @@
                                 width="28"></iconify-icon></a>
                     </li>
                     <li>
-                        <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
-                                style="color: #bfa373;" width="28"></iconify-icon></a>
+                        <!-- <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
+                                style="color: #bfa373;" width="28"></iconify-icon></a> -->
+                        <%- include('./layout/btn-account.ejs'); -%>
                     </li>
                 </ul>
             </div>
