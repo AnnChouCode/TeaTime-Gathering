@@ -27,20 +27,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- ICONS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/index-ccaff6b9.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/index-ba2477b4.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/index-51d04d11.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/index-61979aaf.css">
 </head>
 
-<body>
+<body class="pt-64 pt-md-82">
   <nav class="fixed-top bg-white">
     <div class="py-md-16 py-8 container d-flex gap-8 align-items-center justify-content-between">
+        <!-- nav list -->
         <ul class="d-md-flex d-none">
-            <li><a class="text-gray-01 me-xl-48 me-24" href="#">點餐</a></li>
-            <li><a class="text-gray-01 me-xl-48 me-24" href="#">投票</a></li>
-            <li><a class="text-gray-01 me-xl-48 me-24" href="#">訂餐月曆</a></li>
+            <li><a class="text-gray-01 me-xl-48 me-16" href="#">點餐</a></li>
+            <li><a class="text-gray-01 me-xl-48 me-16" href="#">投票</a></li>
+            <li><a class="text-gray-01 me-xl-48 me-16" href="#">訂餐月曆</a></li>
             <li><a class="text-gray-01" href="#">訂單</a></li>
         </ul>
-        <h1 class="nav-logo me-md-8"><a href="index.html">下午茶揪團去</a></h1>
+        <!-- nav logo -->
+        <h1 class="nav-logo me-md-8 position-absolute"><a href="index.html">下午茶揪團去</a></h1>
         <!-- nav-icon -->
         <ul class="d-md-flex d-none gap-16">
             <li>
@@ -53,12 +55,32 @@
                         width="28"></iconify-icon></a>
             </li>
             <li>
-                <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
-                        style="color: #bfa373;" width="28"  data-bs-toggle="modal"></iconify-icon></a>
-            </li>
+                <!-- <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
+                        style="color: #bfa373;" width="28"  data-bs-toggle="modal"></iconify-icon></a> -->
+                <a href="#" data-bs-toggle="modal" data-bs-target="#accountModal"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
+    style="color: #bfa373;" width="28"></iconify-icon></a>
+
+<!-- Modal -->
+<div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+</div>            </li>
         </ul>
         <!-- search-bar  -->
-        <div class="position-relative me-md-16 d-md-none d-block">
+        <div class="position-relative me-md-16 d-md-none ms-156">
             <iconify-icon class="position-absolute search-icon" icon="iconamoon:search" style="color: #8b8b8a;"
                 width="24"></iconify-icon>
             <input type="text" class="search-bar border border-2 border-gray-04 border-radius-28 py-10 px-16 ps-48"
@@ -110,32 +132,303 @@
                                 width="28"></iconify-icon></a>
                     </li>
                     <li>
-                        <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
-                                style="color: #bfa373;" width="28"></iconify-icon></a>
-                    </li>
+                        <!-- <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
+                                style="color: #bfa373;" width="28"></iconify-icon></a> -->
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#accountModal"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
+    style="color: #bfa373;" width="28"></iconify-icon></a>
+
+<!-- Modal -->
+<div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+</div>                    </li>
                 </ul>
             </div>
         </div>
     </div>
-</nav>
-    <h1 class="index-title">我是首頁</h1>
+</nav>    <div class="layout d-flex ">
+      <div class="layout-left d-none d-md-block">
+        <ul class="layout-left-ul p-0 mt-40">
+  <li class="mb-12"> 
+    <a href="#" class="d-flex align-items-center"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMUSURBVHgB7Vg7UhtBEH09kgEHNqsTeH0CxAnMWhAQAScAIovIugHiBMaBS3JkOAFkDihAPoHFCRifYEVRLmwQ0+5ZAqP9aFe/tcrFC7t2Rk89Pf1eD/CE/xyEIeGfVJdUkRdgqPxouw6U0aZLF+hCl1abGiNiIIL+ec2B+VUj4vdgcjItImqDjSYoPQz5zAT902p9IGKZfv2BvFLq+KXXOIz9JG0P/7zqEtMRmMuYJIQs06xX8vY7j8MKqeRwPnFyFvIb6v5mMxxOJPiXHFzkBCYshWOJBJXBbp7kAsTUdyxBuRBbDGwhO7Ts3sGIIHtpQijGfxhkrz8YrYKievdq9qK08VDY/lHNKc7/XpCjctmwy0HtKhdkXNk17fZrc8sfI1zCAZs9CX5Bn40KRFsv3ja+YQAkk2dH/qzmO2zH9cYIwc5Z9bJP7Wm+hTcOhciKniO28tXvYgSZW21o5IiAoG0pCrzGjPWk2pNUHwx6rOMA2axRgY/SJYyPCdQ2LFrKo9/YHhRFm734sqHO2c73XJQiBXJwe6VKsx6Oq2kgZyEltBvcgRAUpghK0VokhikCwzb0XkwVwcDUhjBVBOOkTgntFv45uEPMtTiFKvI99khFfVh0D7TERLRIkRafqDFGdK/mLpyN/djeGmix/1WUZAabzLQu4l1O+PBgvtLcRs7oMQuBqihx0QlgI0ZhpdlCjoi6mdN3fqJ3I3EzJCS9/NxMhODVaXVXZKfeZ4WWut0eNJPBTH3300WhUJbW8UpCLpMd+tmRmm4ZJVLnZfCDdiMyN5dpDtjWpDE4fEw0mYQ04DQzEpzO3GJ47Iydi/2TnRop/oCsoGAmcUYd6m2rmV/+3NMLYxt1aaWxP1B/tCZ3HC8ORJEOkqgkku4NYLz9bhgkErS1YOcP5EhSnlhakVjaItvEaSbojS4mCaa2s9xYDIdTzYLVR6fSfE39Ws9wjOxt1WKYj+3efD3rxX012PvggyTaPrmE7Bm1JNpEYqXsO6Eq6GeSreeVTz+yLB76hfX6bOeNYe4dU0leWIcg8YRJ4g9I+12l5CU7EgAAAABJRU5ErkJggg==" class="layout-left-img" alt="icon">今日餐點</a></li>
+  <li class="mb-12">
+    <a href="#section2" class="d-flex align-items-center"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMUSURBVHgB7Vg7UhtBEH09kgEHNqsTeH0CxAnMWhAQAScAIovIugHiBMaBS3JkOAFkDihAPoHFCRifYEVRLmwQ0+5ZAqP9aFe/tcrFC7t2Rk89Pf1eD/CE/xyEIeGfVJdUkRdgqPxouw6U0aZLF+hCl1abGiNiIIL+ec2B+VUj4vdgcjItImqDjSYoPQz5zAT902p9IGKZfv2BvFLq+KXXOIz9JG0P/7zqEtMRmMuYJIQs06xX8vY7j8MKqeRwPnFyFvIb6v5mMxxOJPiXHFzkBCYshWOJBJXBbp7kAsTUdyxBuRBbDGwhO7Ts3sGIIHtpQijGfxhkrz8YrYKievdq9qK08VDY/lHNKc7/XpCjctmwy0HtKhdkXNk17fZrc8sfI1zCAZs9CX5Bn40KRFsv3ja+YQAkk2dH/qzmO2zH9cYIwc5Z9bJP7Wm+hTcOhciKniO28tXvYgSZW21o5IiAoG0pCrzGjPWk2pNUHwx6rOMA2axRgY/SJYyPCdQ2LFrKo9/YHhRFm734sqHO2c73XJQiBXJwe6VKsx6Oq2kgZyEltBvcgRAUpghK0VokhikCwzb0XkwVwcDUhjBVBOOkTgntFv45uEPMtTiFKvI99khFfVh0D7TERLRIkRafqDFGdK/mLpyN/djeGmix/1WUZAabzLQu4l1O+PBgvtLcRs7oMQuBqihx0QlgI0ZhpdlCjoi6mdN3fqJ3I3EzJCS9/NxMhODVaXVXZKfeZ4WWut0eNJPBTH3300WhUJbW8UpCLpMd+tmRmm4ZJVLnZfCDdiMyN5dpDtjWpDE4fEw0mYQ04DQzEpzO3GJ47Iydi/2TnRop/oCsoGAmcUYd6m2rmV/+3NMLYxt1aaWxP1B/tCZ3HC8ORJEOkqgkku4NYLz9bhgkErS1YOcP5EhSnlhakVjaItvEaSbojS4mCaa2s9xYDIdTzYLVR6fSfE39Ws9wjOxt1WKYj+3efD3rxX012PvggyTaPrmE7Bm1JNpEYqXsO6Eq6GeSreeVTz+yLB76hfX6bOeNYe4dU0leWIcg8YRJ4g9I+12l5CU7EgAAAABJRU5ErkJggg==" class="layout-left-img" alt="icon">行事曆</a></li>
+  <li class="mb-12">
+    <a href="#section3" class="d-flex align-items-center"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMUSURBVHgB7Vg7UhtBEH09kgEHNqsTeH0CxAnMWhAQAScAIovIugHiBMaBS3JkOAFkDihAPoHFCRifYEVRLmwQ0+5ZAqP9aFe/tcrFC7t2Rk89Pf1eD/CE/xyEIeGfVJdUkRdgqPxouw6U0aZLF+hCl1abGiNiIIL+ec2B+VUj4vdgcjItImqDjSYoPQz5zAT902p9IGKZfv2BvFLq+KXXOIz9JG0P/7zqEtMRmMuYJIQs06xX8vY7j8MKqeRwPnFyFvIb6v5mMxxOJPiXHFzkBCYshWOJBJXBbp7kAsTUdyxBuRBbDGwhO7Ts3sGIIHtpQijGfxhkrz8YrYKievdq9qK08VDY/lHNKc7/XpCjctmwy0HtKhdkXNk17fZrc8sfI1zCAZs9CX5Bn40KRFsv3ja+YQAkk2dH/qzmO2zH9cYIwc5Z9bJP7Wm+hTcOhciKniO28tXvYgSZW21o5IiAoG0pCrzGjPWk2pNUHwx6rOMA2axRgY/SJYyPCdQ2LFrKo9/YHhRFm734sqHO2c73XJQiBXJwe6VKsx6Oq2kgZyEltBvcgRAUpghK0VokhikCwzb0XkwVwcDUhjBVBOOkTgntFv45uEPMtTiFKvI99khFfVh0D7TERLRIkRafqDFGdK/mLpyN/djeGmix/1WUZAabzLQu4l1O+PBgvtLcRs7oMQuBqihx0QlgI0ZhpdlCjoi6mdN3fqJ3I3EzJCS9/NxMhODVaXVXZKfeZ4WWut0eNJPBTH3300WhUJbW8UpCLpMd+tmRmm4ZJVLnZfCDdiMyN5dpDtjWpDE4fEw0mYQ04DQzEpzO3GJ47Iydi/2TnRop/oCsoGAmcUYd6m2rmV/+3NMLYxt1aaWxP1B/tCZ3HC8ORJEOkqgkku4NYLz9bhgkErS1YOcP5EhSnlhakVjaItvEaSbojS4mCaa2s9xYDIdTzYLVR6fSfE39Ws9wjOxt1WKYj+3efD3rxX012PvggyTaPrmE7Bm1JNpEYqXsO6Eq6GeSreeVTz+yLB76hfX6bOeNYe4dU0leWIcg8YRJ4g9I+12l5CU7EgAAAABJRU5ErkJggg==" class="layout-left-img" alt="icon">找店家</a></li>
+  <li class="mb-12">
+    <a href="#section4" class="d-flex align-items-center"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMUSURBVHgB7Vg7UhtBEH09kgEHNqsTeH0CxAnMWhAQAScAIovIugHiBMaBS3JkOAFkDihAPoHFCRifYEVRLmwQ0+5ZAqP9aFe/tcrFC7t2Rk89Pf1eD/CE/xyEIeGfVJdUkRdgqPxouw6U0aZLF+hCl1abGiNiIIL+ec2B+VUj4vdgcjItImqDjSYoPQz5zAT902p9IGKZfv2BvFLq+KXXOIz9JG0P/7zqEtMRmMuYJIQs06xX8vY7j8MKqeRwPnFyFvIb6v5mMxxOJPiXHFzkBCYshWOJBJXBbp7kAsTUdyxBuRBbDGwhO7Ts3sGIIHtpQijGfxhkrz8YrYKievdq9qK08VDY/lHNKc7/XpCjctmwy0HtKhdkXNk17fZrc8sfI1zCAZs9CX5Bn40KRFsv3ja+YQAkk2dH/qzmO2zH9cYIwc5Z9bJP7Wm+hTcOhciKniO28tXvYgSZW21o5IiAoG0pCrzGjPWk2pNUHwx6rOMA2axRgY/SJYyPCdQ2LFrKo9/YHhRFm734sqHO2c73XJQiBXJwe6VKsx6Oq2kgZyEltBvcgRAUpghK0VokhikCwzb0XkwVwcDUhjBVBOOkTgntFv45uEPMtTiFKvI99khFfVh0D7TERLRIkRafqDFGdK/mLpyN/djeGmix/1WUZAabzLQu4l1O+PBgvtLcRs7oMQuBqihx0QlgI0ZhpdlCjoi6mdN3fqJ3I3EzJCS9/NxMhODVaXVXZKfeZ4WWut0eNJPBTH3300WhUJbW8UpCLpMd+tmRmm4ZJVLnZfCDdiMyN5dpDtjWpDE4fEw0mYQ04DQzEpzO3GJ47Iydi/2TnRop/oCsoGAmcUYd6m2rmV/+3NMLYxt1aaWxP1B/tCZ3HC8ORJEOkqgkku4NYLz9bhgkErS1YOcP5EhSnlhakVjaItvEaSbojS4mCaa2s9xYDIdTzYLVR6fSfE39Ws9wjOxt1WKYj+3efD3rxX012PvggyTaPrmE7Bm1JNpEYqXsO6Eq6GeSreeVTz+yLB76hfX6bOeNYe4dU0leWIcg8YRJ4g9I+12l5CU7EgAAAABJRU5ErkJggg==" class="layout-left-img" alt="icon">看評價留言</a></li>
+  <li>
+    <a href="#section5" class="d-flex align-items-center"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMUSURBVHgB7Vg7UhtBEH09kgEHNqsTeH0CxAnMWhAQAScAIovIugHiBMaBS3JkOAFkDihAPoHFCRifYEVRLmwQ0+5ZAqP9aFe/tcrFC7t2Rk89Pf1eD/CE/xyEIeGfVJdUkRdgqPxouw6U0aZLF+hCl1abGiNiIIL+ec2B+VUj4vdgcjItImqDjSYoPQz5zAT902p9IGKZfv2BvFLq+KXXOIz9JG0P/7zqEtMRmMuYJIQs06xX8vY7j8MKqeRwPnFyFvIb6v5mMxxOJPiXHFzkBCYshWOJBJXBbp7kAsTUdyxBuRBbDGwhO7Ts3sGIIHtpQijGfxhkrz8YrYKievdq9qK08VDY/lHNKc7/XpCjctmwy0HtKhdkXNk17fZrc8sfI1zCAZs9CX5Bn40KRFsv3ja+YQAkk2dH/qzmO2zH9cYIwc5Z9bJP7Wm+hTcOhciKniO28tXvYgSZW21o5IiAoG0pCrzGjPWk2pNUHwx6rOMA2axRgY/SJYyPCdQ2LFrKo9/YHhRFm734sqHO2c73XJQiBXJwe6VKsx6Oq2kgZyEltBvcgRAUpghK0VokhikCwzb0XkwVwcDUhjBVBOOkTgntFv45uEPMtTiFKvI99khFfVh0D7TERLRIkRafqDFGdK/mLpyN/djeGmix/1WUZAabzLQu4l1O+PBgvtLcRs7oMQuBqihx0QlgI0ZhpdlCjoi6mdN3fqJ3I3EzJCS9/NxMhODVaXVXZKfeZ4WWut0eNJPBTH3300WhUJbW8UpCLpMd+tmRmm4ZJVLnZfCDdiMyN5dpDtjWpDE4fEw0mYQ04DQzEpzO3GJ47Iydi/2TnRop/oCsoGAmcUYd6m2rmV/+3NMLYxt1aaWxP1B/tCZ3HC8ORJEOkqgkku4NYLz9bhgkErS1YOcP5EhSnlhakVjaItvEaSbojS4mCaa2s9xYDIdTzYLVR6fSfE39Ws9wjOxt1WKYj+3efD3rxX012PvggyTaPrmE7Bm1JNpEYqXsO6Eq6GeSreeVTz+yLB76hfX6bOeNYe4dU0leWIcg8YRJ4g9I+12l5CU7EgAAAABJRU5ErkJggg==" class="layout-left-img" alt="icon">新手教學</a></li>
+  </li>
+</ul>      </div>
+      <div class="layout-content">
+        <!-- 開啟以下註解方便了解首頁內容區塊，後續版本可刪 -->
+        <!-- <div class="container bg-line">
+  <section id="section1">
+    <h2>Section 1</h2>
+    <p>This is the content of section 1.lorem100        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.
+    <p>This is the content of section 1.lorem100        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.
+    <p>This is the content of section 1.lorem100        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.
+    <p>This is the content of section 1.lorem100        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.
+    <p>This is the content of section 1.lorem100        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.
+    <p>This is the content of section 1.lorem100        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.
+    <p>This is the content of section 1.lorem100        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.
+    <p>This is the content of section 1.lorem100        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.
+    <p>This is the content of section 1.lorem100        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.
+    </p>
+  </section>
 
+  <section id="section2">
+    <h2>Section 2</h2>
+    <p>This is the content of section 2.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+    <p>This is the content of section 2.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+    <p>This is the content of section 2.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+    <p>This is the content of section 2.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+    <p>This is the content of section 2.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+  </section>
 
+  <section id="section3">
+    <h2>Section 3</h2>
+    <p>This is the content of section 3.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+    <p>This is the content of section 3.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+    <p>This is the content of section 3.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+    <p>This is the content of section 3.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+  </section>
+
+  <section id="section4">
+    <h2>Section 4</h2>
+    <p>This is the content of section 4.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+    <p>This is the content of section 4.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+    <p>This is the content of section 4.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+    <p>This is the content of section 4.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+  </section>
+
+  <section id="section5">
+    <h2>Section 5</h2>
+    <p>This is the content of section 5.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+    <p>This is the content of section 5.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+    <p>This is the content of section 5.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+    <p>This is the content of section 5.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
+  </section>
+</div> -->
+      </div>
+      <div class="layout-right d-none d-md-block"></div>
+    </div>
 
     <!-- btn-notification -->
-    <div class="position-fixed btn-notification">
-    <a class="position-relative d-block" href="#">
-        <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline"
-            style="color: white;" width="28" height="28"></iconify-icon>
-        <div class="btn-notification-alert rounded-circle bg-white position-absolute "></div>
-    </a>
-</div>    <!-- footer -->
-    <footer class="pt-md-48 pb-md-32 py-32 bg-bg-1 footer-radius text-gray-02">
+    <a class="btn-notification position-fixed d-block" data-bs-toggle="collapse" href="#collapseNotification" role="button"
+    aria-expanded="false" aria-controls="collapseNotification">
+    <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline" style="color: white;"
+        width="28" height="28"></iconify-icon>
+    <div class="btn-notification-alert rounded-circle bg-white position-absolute "></div>
+</a>
+
+<!-- notification-container -->
+<div class="position-fixed collapse notification-container" id="collapseNotification">
+    <div class="notification-body border-2 border-brand-05 border overflow-hidden bg-white">
+        <div class="py-md-20 px-md-24 p-16 d-flex justify-content-between align-items-center bg-brand-05">
+            <span class="fs-md-24 fs-20 fw-bold lh-sm ">通知</span>
+            <a class="d-block" data-bs-toggle="collapse" href="#collapseNotification" role="button"
+                aria-expanded="false" aria-controls="collapseNotification">
+                <iconify-icon icon="ic:round-close" style="color: #8B8B8A;" width="32"></iconify-icon>
+            </a>
+        </div>
+        <div class="px-md-20 py-md-24 p-16">
+            <ul class=" notification-messages">
+                <li><a href="#" class="d-block">
+                        <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的投票結果已開票！請前往跟團點餐</p>
+                        <div class="d-flex justify-content-between mb-8">
+                            <span class="text-gray-02">店家</span>
+                            <span>飲舞者</span>
+                        </div>
+                        <div class="d-flex justify-content-between ">
+                            <span class="text-gray-02">預定訂購時間</span>
+                            <time>2023/08/14</time>
+                        </div>
+                    </a></li>
+                <li><a href="#" class="d-block">
+                        <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的跟團已確認成團！請盡速向團主付款</p>
+                        <div class="d-flex justify-content-between mb-8">
+                            <span class="text-gray-02">店家</span>
+                            <span>飛餐</span>
+                        </div>
+                        <div class="d-flex justify-content-between ">
+                            <span class="text-gray-02">預定訂購時間</span>
+                            <time>2023/08/12</time>
+                        </div>
+                    </a></li>
+                <li><a href="#" class="d-block">
+                        <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您主辦的開團失敗！謝謝您的發起</p>
+                        <div class="d-flex justify-content-between mb-8">
+                            <span class="text-gray-02">店家</span>
+                            <span>速食窩</span>
+                        </div>
+                        <div class="d-flex justify-content-between ">
+                            <span class="text-gray-02">預定訂購時間</span>
+                            <time>無</time>
+                        </div>
+                    </a></li>
+                <li><a href="#" class="d-block">
+                        <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">跟團訂單「編號 11111」已付款</p>
+                        <div class="d-flex justify-content-between mb-8">
+                            <span class="text-gray-02">店家</span>
+                            <span>飛餐</span>
+                        </div>
+                        <div class="d-flex justify-content-between ">
+                            <span class="text-gray-02">預定訂購時間</span>
+                            <time>2023/08/12</time>
+                        </div>
+                    </a></li>
+                <li><a href="#" class="d-block">
+                        <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的投票結果已開票！請前往跟團點餐</p>
+                        <div class="d-flex justify-content-between mb-8">
+                            <span class="text-gray-02">店家</span>
+                            <span>茶源 ChaSource</span>
+                        </div>
+                        <div class="d-flex justify-content-between ">
+                            <span class="text-gray-02">預定訂購時間</span>
+                            <time>2023/08/18</time>
+                        </div>
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+</div>      <!-- novice Teaching -->
+      <div class="container py-80">
+    <div class="d-flex justify-content-between align-items-center ">
+        <h2 class="fs-32">新手教學</h2>
+        <span>看更多&raquo;</span>
+    </div>
+    <div class="row mt-32">
+        <div class="col-md-2">
+            <ul class="d-flex d-md-block">
+                <li><button class="fw-medium p-16 btn-active w-100 text-start border-0 bg-transparent actived"
+                        id="QA1">點餐步驟</button>
+                </li>
+                <li><button class="fw-medium p-16 btn-active w-100 text-start border-0 bg-transparent" id="QA2">投票 /
+                        舉辦投票</button>
+                </li>
+                <li><button class="fw-medium p-16 btn-active w-100 text-start border-0 bg-transparent"
+                        id="QA3">許願留言</button>
+                </li>
+                <li><button class="fw-medium p-16 btn-active w-100 text-start border-0 bg-transparent"
+                        id="QA4">訂單問題</button>
+                </li>
+                <li><button class="fw-medium p-16 btn-active w-100 text-start border-0 bg-transparent"
+                        id="QA5">常見問題</button>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10 px-24" id="showAns">
+            <ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">如何點餐（跟團）</h3>
+                <p class="fs-20 mt-24">您可藉由以下三種路徑查看開團中項目</p>
+                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+                <li class="mt-4 fs-20">3. 『點餐月曆』</li>
+            </ul>
+            <ul class="pb-40 mt-40">
+                <h3 class="fs-24 text-brand-03">如何邀請他人點餐（開團）</h3>
+                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
+                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+            </ul>
+        </div>
+        <div id="instructions"></div>
+    </div>
+</div>
+<script>
+    // 獲取所有按鈕元素
+    var buttons = document.querySelectorAll('.btn-active');
+    // var btn2 = document.querySelector('#btn2');
+
+    var showAns = document.getElementById('showAns');
+    var QA1 = document.querySelector('#QA1');
+    var QA2 = document.querySelector('#QA2');
+    var QA3 = document.querySelector('#QA3');
+    var QA4 = document.querySelector('#QA4');
+    var QA5 = document.querySelector('#QA5');
+
+    // 添加點擊事件處理程序
+    buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            // 移除所有按鈕的背景色
+            buttons.forEach(function (btn) {
+                btn.classList.remove('actived');
+            });
+            // 將當前按鈕設置為灰色背景
+            button.classList.add('actived');
+
+            if (button === QA1) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">如何點餐（跟團）</h3>
+                <p class="fs-20 mt-24">您可藉由以下三種路徑查看開團中項目</p>
+                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+                <li class="mt-4 fs-20">3. 『點餐月曆』</li>
+            </ul>
+            <ul class="pb-40 mt-40">
+                <h3 class="fs-24 text-brand-03">如何邀請他人點餐（開團）</h3>
+                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
+                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+            </ul>`
+            } else if (button === QA2) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">我想投票</h3>
+                <p class="fs-20 mt-24">您可藉由以下三種路徑查看投票中的項目</p>
+                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-4 fs-20">2. 『投票』頁面</li>
+                <li class="mt-4 fs-20">3. 『點餐月曆』頁面</li>
+            </ul>
+            <ul class="pb-40 mt-40">
+                <h3 class="fs-24 text-brand-03">我想舉辦投票</h3>
+                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後，點選「舉辦投票」按鈕</p>
+                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+            </ul>`
+            } else if (button === QA3) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">我想許願</h3>
+                <p class="fs-20 mt-24">店家清單中沒有您的愛店嗎？或是有任何心得感想呢？請至『留言』頁面留下您的想法</p>`
+            } else if (button === QA4) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">如何查看訂單歷史記錄？</h3>
+                <p class="fs-20 mt-24">至『首頁』上方點選『訂單』可查看跟團中訂單以及歷史訂單</p>
+                </ul>
+                <ul class="pb-40 mt-40">
+                <h3 class="fs-24 text-brand-03">如何取消或修改已經下單的訂單？</h3>
+                <li class="fs-20 mt-20">1. 至『首頁』上方點選『訂單』即可看到『修改訂單』</li>
+                <li class="mt-4 fs-20">2. 請注意 : 僅於點餐期限截止前仍可取消 or 修改已送出的內容，截止後恕不異動</li>
+            </ul>
+                `
+            } else if (button === QA5) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">我想發問</h3>
+                <p class="fs-20 mt-24">直接連結到專頁</p>`
+            }
+        });
+    });
+</script>        <!-- footer -->
+        <footer class="pt-md-48 pb-md-32 py-32 bg-bg-1 footer-radius text-gray-02">
     <div class="d-flex flex-column align-items-center container">
         <img class="mb-md-24 mb-16 footer-logo" src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="logo">
         <p class="mb-md-24 mb-16 lh-sm fw-medium">管理員：Ann Chou、Billy Ti、Mark、WA</p>
         <ul class="mb-md-32 mb-16 d-flex gap-24">
-            <li><a href="#"><iconify-icon icon="ic:round-email" style="color: #bfa373;" width="24" height="24"></iconify-icon></a></li>
+            <li><a href="mailto:service@gmail.com?subject=用戶來信&body=哈囉您好我是"><iconify-icon icon="ic:round-email" style="color: #bfa373;" width="24" height="24"></iconify-icon></a></li>
             <li><a href="#"><iconify-icon icon="mdi:facebook" style="color: #bfa373;" width="24" height="24"></iconify-icon></a></li>
             <li><a href="#"><iconify-icon icon="ant-design:instagram-filled" style="color: #bfa373;" width="24" height="24"></iconify-icon></a></li>
         </ul>
@@ -144,12 +437,11 @@
             <p>© 2023 一起發胖團</p>
         </div>
     </div>
-</footer>    
-
-    <!-- ICONGIFY -->
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <!-- JS -->
-    
+</footer>
+          <!-- ICONGIFY -->
+          <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+          <!-- JS -->
+          
 </body>
 
 </html>
