@@ -10,7 +10,7 @@
 .layout-content{
   width: 67.5%;
   margin-left: 16.25%;
-  @include media-breakpoint-down(md){
+  @include media-breakpoint-down(lg){
     margin: 0;
     width: 100%;
   }
