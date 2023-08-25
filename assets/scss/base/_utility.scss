@@ -1,23 +1,17 @@
-$utilities: map-merge(
-  $utilities,
-  (
-    "font-size":
-      map-merge(
-        map-get($utilities, "font-size"),
-        (
-          responsive: true,
-        )
-      ),
-  )
-);
+$utilities: map-merge($utilities,
+    ("font-size": map-merge(map-get($utilities, "font-size"),
+        (responsive: true,
+        )),
+    ));
 
-.ms-170{
-    margin-left: 170px;
+.ms-170 {
+  margin-left: 170px;
 }
 
-.z-index-1{
+.z-index-1 {
   z-index: 1;
 }
-.z-index-2{
+
+.z-index-2 {
   z-index: 2;
 }

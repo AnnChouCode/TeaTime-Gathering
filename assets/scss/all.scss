@@ -14,12 +14,18 @@
 @import "./base/_base.scss";
 @import "./base/_fontStyle.scss";
 
+// BOOTSTRAP utilities api，for font-size RWD
+@import "../../node_modules/bootstrap/scss/utilities/api";
+
 // CUSTOM COMPONENTS
 @import "./components/search-bar";
 @import "./components/btn-notification";
 @import "./components/btn-account";
 
 // CUSTOM LAYOUT
+@import './layout/_nav.scss';
+@import './layout/_feedback.scss';
+@import './layout/_footer.scss';
 @import "./layout/_nav.scss";
 @import "./layout/_navigation-menu.scss";
 @import "./layout/navigation-menu";

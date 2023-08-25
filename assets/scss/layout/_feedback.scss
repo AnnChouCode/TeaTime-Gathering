@@ -1,0 +1,136 @@
+// evaluate
+.evaluate {
+    @include media-breakpoint-up(md) {
+        background-image: url('/assets/images/feedback/evaluate-star.png');
+        background-repeat: no-repeat;
+    }
+
+    @include media-breakpoint-up(lg) {
+        border-radius: 0px 80px 80px 0px;
+    }
+
+    // 店家 logo 定位
+    &-store {
+        max-width: 64px;
+        max-height: 64px;
+        border-radius: 24px;
+        top: -32px;
+        left: 12px;
+
+        @include media-breakpoint-up(md) {
+            max-width: 96px;
+            max-height: 96px;
+            top: -48px;
+            left: 24px;
+        }
+    }
+
+    &-user {
+        width: 100%;
+        padding-right: 24px;
+        padding-left: 90px;
+
+        @include media-breakpoint-up(md) {
+            padding-left: 136px;
+        }
+    }
+
+    &-card {
+        border-radius: 16px;
+    }
+
+    // 星等
+    .star-icon {
+        width: 12px;
+        height: 12px;
+        margin-right: 4px;
+
+        @include media-breakpoint-up(md) {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    // 星等定位
+    .star-group {
+        padding-left: 90px;
+        position: absolute;
+        top: -16px;
+
+        @include media-breakpoint-up(md) {
+            padding-left: 136px;
+            top: -18px;
+        }
+    }
+
+    .user-name {
+        @include media-breakpoint-up(md) {
+            line-height: 30px;
+        }
+    }
+}
+
+// message
+.message {
+    @include media-breakpoint-up(lg) {
+        border-radius: 80px 0px 0px 80px;
+        background-image: url('/assets/images/feedback/message-bg.png');
+        background-repeat: no-repeat;
+        background-position: right bottom;
+    }
+
+    &-bg {
+        width: 400px;
+        height: 400px;
+        // 看留言背景圖定位
+        right: 0;
+        bottom: 0;
+
+        @include media-breakpoint-up(md) {
+            padding: 25.001px 24.998px 24.999px 24.998px;
+        }
+    }
+
+    &-more {
+        transition: .5s;
+
+        &:hover {
+            opacity: .5;
+        }
+    }
+
+    // 星等
+    .star-icon {
+        width: 12px;
+        height: 12px;
+        margin-right: 4px;
+
+        @include media-breakpoint-up(md) {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
+
+// 全域設定 scroll bar
+
+.horizontal-scroll {
+    @include media-breakpoint-up(lg) {
+        overflow-x: visible;
+        flex-direction: column;
+    }
+}
+
+// 清除滾動條樣式
+.horizontal-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+// scroll bar 分配空間
+.evaluate-card {
+    flex: 1 0 80%;
+
+    @include media-breakpoint-up(lg) {
+        flex: 0 0 auto;
+    }
+}
