@@ -61,11 +61,21 @@
         <!-- footer -->
         <%- include('./layout/footer'); -%>
 
-          <!-- ICONGIFY -->
-          <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-
-          <!-- JS -->
-          <script type="module" src="../main.js"></script>
+        <!-- ICONGIFY -->
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <!-- JS -->
+        <script type="module" src="../main.js"></script>
+        <!-- Validation jQuery-->
+        <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+          integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+        <script>
+          $('.needs-validation').each(function (index) {
+            $(this).on('submit', function (e) {
+              e.preventDefault();
+              $(this).addClass('was-validated');
+            });
+          });
+        </script>
 </body>
 
 </html>

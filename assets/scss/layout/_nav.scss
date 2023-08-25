@@ -1,34 +1,68 @@
-.nav-logo {
-  left: 12px;
-
-  // @include media-breakpoint-up(md) {
-  //   left: 16.25%;
-  // }
-
-  @include media-breakpoint-up(lg) {
-    transform: translate(-50%, -50%) !important;
-    top: 50%;
-    left: 50%;
+.nav{
+  &-logo {
+    left: 12px;
+  
+    @include media-breakpoint-up(lg) {
+      transform: translate(-50%, -50%) !important;
+      top: 50%;
+      left: 50%;
+    }
+  
+    a {
+      display: block;
+      background-image: url(../images/logo/logo-teatime.svg);
+      background-size: cover;
+      width: 148px;
+      height: 24px;
+      text-indent: 101%;
+      white-space: nowrap;
+      overflow: hidden;
+  
+      @include media-breakpoint-up(xl) {
+        width: 248px;
+        height: 40px;
+      }
+    }
   }
 
-  a {
-    display: block;
-    background-image: url(../images/logo/logo-teatime.svg);
-    background-size: cover;
-    width: 148px;
-    height: 24px;
-    text-indent: 101%;
-    white-space: nowrap;
-    overflow: hidden;
+  &-list{
+    color:$gray-01;
+  
+    &:hover{
+      color:$brand-03;
+    }
+  }
 
+  &-icon-hover{
+    position: relative;
+    display: inline-block;
 
-    @include media-breakpoint-up(xl) {
-      width: 248px;
-      height: 40px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border: 1px solid transparent;
+      border-radius: 50%;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover::before {
+      width: 52px;
+      height: 52px;
+      border: 1px solid $brand-03;
+      opacity: 0.5;
     }
   }
 }
 
+
+/* custom nav menu offcanvas ===
+================================*/
 .offcanvas {
   &-body {
     overflow-y: unset;
