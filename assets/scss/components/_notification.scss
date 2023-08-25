@@ -1,7 +1,6 @@
 .btn-notification {
     right: 28px;
     bottom: 28px;
-    z-index: 1;
 
     &-alert {
         top: 10px;
@@ -15,15 +14,8 @@
     &-container {
         right: 28px;
         bottom: 96px;
-        z-index: 1100;
-        position: sticky; // 測試高度用，還沒驗證
-        top: 20px; /* 測試高度用，設置與頂部的距離 */
-    }
-
-    @include media-breakpoint-up(md) {
-        max-height: 80vh; /* 測試高度用，限制最大高度 */
-        top: auto; /* 測試高度用，取消 sticky 定位 */
-        bottom: 0; /* 測試高度用，底部對齊 */
+        z-index: 1010;
+        max-height: 614.72px;
     }
 
     &-body {
@@ -74,5 +66,28 @@
         li a:hover {
             border-bottom: 1px solid $brand-02;
         }
+    }
+}
+
+.notification-hover {
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 44px;
+        height: 44px;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &:hover::before {
+        width: 52px;
+        height: 52px;
+        border: 1px solid $brand-02;
+        opacity: 0.5;
     }
 }
