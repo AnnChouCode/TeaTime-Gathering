@@ -7,8 +7,8 @@
   &-bar {
     width: 100%;
 
-    &:focus {
-      border-color: $gray-03;
+    &:focus-visible{
+      outline:2px solid $gray-03;
     }
   }
 }
@@ -16,7 +16,7 @@
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: $gray-03 !important;
-  opacity: .4;
+  opacity: 0.4;
 }
 
 :-ms-input-placeholder {

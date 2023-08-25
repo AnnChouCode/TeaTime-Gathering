@@ -29,7 +29,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body>
+<body class="pt-64 pt-md-82">
   <%- include('./layout/nav'); -%>
     <div class="container">
 
@@ -40,8 +40,24 @@
 
     <!-- btn-notification -->
     <%- include('./layout/btn-notification'); -%>
-      <!-- feedback -->
-      <%- include('./layout/feedback'); -%>
+
+      <div class="layout d-flex ">
+        <div class="layout-left d-none d-lg-block">
+          <%- include('./layout/navigation-menu'); -%>
+        </div>
+        <div class="layout-content">
+          <!-- 開啟以下註解方便了解首頁內容區塊，後續版本可刪 -->
+          <!-- <%- include('./layout/container-lorem.ejs'); -%> -->
+          <!-- feedback -->
+          <%- include('./layout/feedback'); -%>
+            <!-- novice Teaching -->
+            <%- include('./layout/noviceTeaching'); -%>
+        </div>
+        <div class="layout-right d-none d-lg-block"></div>
+      </div>
+
+      <!-- btn-notification -->
+      <%- include('./layout/btn-notification'); -%>
         <!-- footer -->
         <%- include('./layout/footer'); -%>
 
