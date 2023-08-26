@@ -15,3 +15,12 @@ $utilities: map-merge($utilities,
 .z-index-2 {
   z-index: 2;
 }
+
+.modal-sm-mx12{
+  margin-left:12px;
+  margin-right:12px;
+@include media-breakpoint-up(sm) {
+  margin-left:0px;
+  margin-right:0px;    
+}
+}

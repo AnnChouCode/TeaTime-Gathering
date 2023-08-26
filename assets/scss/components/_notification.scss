@@ -1,6 +1,7 @@
 .btn-notification {
     right: 28px;
     bottom: 28px;
+    z-index: 1;
 
     &-alert {
         top: 10px;
@@ -12,17 +13,27 @@
 
 .notification {
     &-container {
-        right: 28px;
         bottom: 96px;
-        z-index: 1010;
-        max-height: 614.72px;
-    }
+        z-index: 1030;
+        position: sticky;
+        padding-left:12px;
+
+        @include media-breakpoint-up(md) {
+            margin:0;
+        }
+    }   
 
     &-body {
         border-radius: 24px;
+        max-width: 351px;
+        margin-right:12px;
+        margin-left: auto;
 
-        @include media-breakpoint-up(md) {
-            width: 416px;
+        @include media-breakpoint-up(sm) {
+            max-width: 416px;
+            max-height:351px; //測試高度伸縮
+            margin-right:28px;
+            max-height:80vh;
         }
     }
 
