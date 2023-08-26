@@ -1,16 +1,22 @@
-.layout-left,.layout-right{
+.layout-left,
+.layout-right {
   width: 16.25%;
-  height: 100vh; /* 將高度設定為 viewport 高度的 100% */
+  height: 100vh;
+  /* 將高度設定為 viewport 高度的 100% */
   position: fixed;
   top: 82px;
 }
-.layout-right{
+
+.layout-right {
   right: 0;
 }
-.layout-content{
+
+.layout-content {
   width: 67.5%;
+
   margin-left: 16.25%;
-  @include media-breakpoint-down(lg){
+
+  @include media-breakpoint-down(lg) {
     margin: 0;
     width: 100%;
   }

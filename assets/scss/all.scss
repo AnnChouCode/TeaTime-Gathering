@@ -8,7 +8,6 @@
 
 // CUSTOM Utility
 @import "./base/_utility.scss";
-@import "../../node_modules/bootstrap/scss/utilities/api";
 
 // CUSTOM
 @import "./base/_base.scss";
@@ -23,6 +22,7 @@
 
 // CUSTOM LAYOUT
 @import './layout/_nav.scss';
+@import './layout/tea-calendar';
 @import './layout/_feedback.scss';
 @import './layout/_footer.scss';
 @import "./layout/_nav.scss";

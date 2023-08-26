@@ -16,11 +16,22 @@ $utilities: map-merge($utilities,
   z-index: 2;
 }
 
-.modal-sm-mx12{
-  margin-left:12px;
-  margin-right:12px;
-@include media-breakpoint-up(sm) {
-  margin-left:0px;
-  margin-right:0px;    
-}
+
+// "看更多" 連結的 CSS
+.see-more {
+  transition: .5s;
+
+  &:hover {
+    color: $gray-01 !important;
+  }
+
+  .modal-sm-mx12 {
+    margin-left: 12px;
+    margin-right: 12px;
+
+    @include media-breakpoint-up(sm) {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
 }
