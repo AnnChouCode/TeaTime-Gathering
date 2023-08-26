@@ -1,94 +1,268 @@
 <nav>
     <div class="fixed-top bg-white">
-        <div class="layout-content">
-        <div class="py-lg-16 py-8 container d-flex gap-8 align-items-center justify-content-between">
-            <!-- nav list -->
-            <ul class="d-lg-flex d-none gap-xxl-48 gap-16">
-                <li><a class="text-gray-01" href="#">點餐</a></li>
-                <li><a class="text-gray-01" href="#">投票</a></li>
-                <li><a class="text-gray-01" href="#">訂餐月曆</a></li>
-                <li><a class="text-gray-01" href="#">訂單</a></li>
-            </ul>
-            <!-- nav logo -->
-            <h1 class="nav-logo me-lg-8 position-absolute"><a href="index.html">下午茶揪團去</a></h1>
-            <!-- nav-icon -->
-            <ul class="d-lg-flex d-none gap-lg-16 gap-8">
-                <li>
-                    <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ant-design:message-outlined"
-                            style="color: #bfa373;" width="28"></iconify-icon></a>
-                </li>
-                <li>
-                    <a href="#">
-                        <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ion:help" style="color: #bfa373;"
-                            width="28"></iconify-icon></a>
-                </li>
-                <li>
-                    <!-- <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
-                            style="color: #bfa373;" width="28"  data-bs-toggle="modal"></iconify-icon></a> -->
-                    <%- include('./layout/btn-account.ejs'); -%>
-                </li>
-            </ul>
-            <!-- search-bar  -->
-            <div class="position-relative me-lg-16 d-lg-none ms-170">
-                <iconify-icon class="position-absolute search-icon" icon="iconamoon:search" style="color: #8b8b8a;"
-                    width="24"></iconify-icon>
-                <input type="text" class="search-bar border border-2 border-gray-04 border-radius-28 py-10 px-16 ps-48"
-                    placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
-            </div>
-            <!-- btn-menu -->
-            <a class="d-lg-none d-block" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
-                aria-controls="offcanvasTop">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <mask id="path-1-inside-1_2108_1855" fill="white">
-                        <path
-                            d="M4.375 12.25C4.14294 12.25 3.92038 12.1578 3.75628 11.9937C3.59219 11.8296 3.5 11.6071 3.5 11.375V4.37675C3.5 4.14469 3.59219 3.92213 3.75628 3.75804C3.92038 3.59394 4.14294 3.50175 4.375 3.50175H11.375C11.6071 3.50175 11.8296 3.59394 11.9937 3.75804C12.1578 3.92213 12.25 4.14469 12.25 4.37675V11.375C12.25 11.6071 12.1578 11.8296 11.9937 11.9937C11.8296 12.1578 11.6071 12.25 11.375 12.25H4.375ZM16.625 12.25C16.3929 12.25 16.1704 12.1578 16.0063 11.9937C15.8422 11.8296 15.75 11.6071 15.75 11.375V4.37675C15.75 4.14469 15.8422 3.92213 16.0063 3.75804C16.1704 3.59394 16.3929 3.50175 16.625 3.50175H23.6232C23.8553 3.50175 24.0779 3.59394 24.242 3.75804C24.4061 3.92213 24.4982 4.14469 24.4982 4.37675V11.375C24.4982 11.6071 24.4061 11.8296 24.242 11.9937C24.0779 12.1578 23.8553 12.25 23.6232 12.25H16.625ZM4.375 24.5C4.14294 24.5 3.92038 24.4078 3.75628 24.2437C3.59219 24.0796 3.5 23.8571 3.5 23.625V16.625C3.5 16.3929 3.59219 16.1704 3.75628 16.0063C3.92038 15.8422 4.14294 15.75 4.375 15.75H11.375C11.6071 15.75 11.8296 15.8422 11.9937 16.0063C12.1578 16.1704 12.25 16.3929 12.25 16.625V23.625C12.25 23.8571 12.1578 24.0796 11.9937 24.2437C11.8296 24.4078 11.6071 24.5 11.375 24.5H4.375ZM16.625 24.5C16.3929 24.5 16.1704 24.4078 16.0063 24.2437C15.8422 24.0796 15.75 23.8571 15.75 23.625V16.625C15.75 16.3929 15.8422 16.1704 16.0063 16.0063C16.1704 15.8422 16.3929 15.75 16.625 15.75H23.6232C23.8553 15.75 24.0779 15.8422 24.242 16.0063C24.4061 16.1704 24.4982 16.3929 24.4982 16.625V23.625C24.4982 23.8571 24.4061 24.0796 24.242 24.2437C24.0779 24.4078 23.8553 24.5 23.6232 24.5H16.625Z" />
-                    </mask>
-                    <path
-                        d="M4.375 10.25C4.67337 10.25 4.95952 10.3685 5.1705 10.5795L2.34207 13.4079C2.88123 13.9471 3.6125 14.25 4.375 14.25V10.25ZM5.1705 10.5795C5.38147 10.7905 5.5 11.0766 5.5 11.375H1.5C1.5 12.1375 1.8029 12.8688 2.34207 13.4079L5.1705 10.5795ZM5.5 11.375V4.37675H1.5V11.375H5.5ZM5.5 4.37675C5.5 4.67512 5.38147 4.96127 5.1705 5.17225L2.34207 2.34382C1.8029 2.88299 1.5 3.61426 1.5 4.37675H5.5ZM5.1705 5.17225C4.95952 5.38323 4.67337 5.50175 4.375 5.50175V1.50175C3.6125 1.50175 2.88123 1.80466 2.34207 2.34382L5.1705 5.17225ZM4.375 5.50175H11.375V1.50175H4.375V5.50175ZM11.375 5.50175C11.0766 5.50175 10.7905 5.38323 10.5795 5.17225L13.4079 2.34382C12.8688 1.80466 12.1375 1.50175 11.375 1.50175V5.50175ZM10.5795 5.17225C10.3685 4.96127 10.25 4.67512 10.25 4.37675H14.25C14.25 3.61426 13.9471 2.88299 13.4079 2.34382L10.5795 5.17225ZM10.25 4.37675V11.375H14.25V4.37675H10.25ZM10.25 11.375C10.25 11.0766 10.3685 10.7905 10.5795 10.5795L13.4079 13.4079C13.9471 12.8688 14.25 12.1375 14.25 11.375H10.25ZM10.5795 10.5795C10.7905 10.3685 11.0766 10.25 11.375 10.25V14.25C12.1375 14.25 12.8688 13.9471 13.4079 13.4079L10.5795 10.5795ZM11.375 10.25H4.375V14.25H11.375V10.25ZM16.625 10.25C16.9234 10.25 17.2095 10.3685 17.4205 10.5795L14.5921 13.4079C15.1312 13.9471 15.8625 14.25 16.625 14.25V10.25ZM17.4205 10.5795C17.6315 10.7905 17.75 11.0766 17.75 11.375H13.75C13.75 12.1375 14.0529 12.8688 14.5921 13.4079L17.4205 10.5795ZM17.75 11.375V4.37675H13.75V11.375H17.75ZM17.75 4.37675C17.75 4.67512 17.6315 4.96127 17.4205 5.17225L14.5921 2.34382C14.0529 2.88299 13.75 3.61426 13.75 4.37675H17.75ZM17.4205 5.17225C17.2095 5.38323 16.9234 5.50175 16.625 5.50175V1.50175C15.8625 1.50175 15.1312 1.80466 14.5921 2.34382L17.4205 5.17225ZM16.625 5.50175H23.6232V1.50175H16.625V5.50175ZM23.6232 5.50175C23.3249 5.50175 23.0387 5.38323 22.8278 5.17225L25.6562 2.34382C25.117 1.80466 24.3857 1.50175 23.6232 1.50175V5.50175ZM22.8278 5.17225C22.6168 4.96127 22.4982 4.67512 22.4982 4.37675H26.4982C26.4982 3.61426 26.1954 2.88299 25.6562 2.34382L22.8278 5.17225ZM22.4982 4.37675V11.375H26.4982V4.37675H22.4982ZM22.4982 11.375C22.4982 11.0766 22.6168 10.7905 22.8278 10.5795L25.6562 13.4079C26.1954 12.8688 26.4982 12.1375 26.4982 11.375H22.4982ZM22.8278 10.5795C23.0387 10.3685 23.3249 10.25 23.6232 10.25V14.25C24.3857 14.25 25.117 13.9471 25.6562 13.4079L22.8278 10.5795ZM23.6232 10.25H16.625V14.25H23.6232V10.25ZM4.375 22.5C4.67336 22.5 4.95951 22.6185 5.1705 22.8295L2.34207 25.6579C2.88124 26.1971 3.61251 26.5 4.375 26.5V22.5ZM5.1705 22.8295C5.38147 23.0405 5.5 23.3266 5.5 23.625H1.5C1.5 24.3875 1.8029 25.1188 2.34207 25.6579L5.1705 22.8295ZM5.5 23.625V16.625H1.5V23.625H5.5ZM5.5 16.625C5.5 16.9234 5.38147 17.2095 5.1705 17.4205L2.34207 14.5921C1.8029 15.1312 1.5 15.8625 1.5 16.625H5.5ZM5.1705 17.4205C4.95951 17.6315 4.67336 17.75 4.375 17.75V13.75C3.61251 13.75 2.88124 14.0529 2.34207 14.5921L5.1705 17.4205ZM4.375 17.75H11.375V13.75H4.375V17.75ZM11.375 17.75C11.0766 17.75 10.7905 17.6315 10.5795 17.4205L13.4079 14.5921C12.8688 14.0529 12.1375 13.75 11.375 13.75V17.75ZM10.5795 17.4205C10.3685 17.2095 10.25 16.9234 10.25 16.625H14.25C14.25 15.8625 13.9471 15.1312 13.4079 14.5921L10.5795 17.4205ZM10.25 16.625V23.625H14.25V16.625H10.25ZM10.25 23.625C10.25 23.3266 10.3685 23.0405 10.5795 22.8295L13.4079 25.6579C13.9471 25.1188 14.25 24.3875 14.25 23.625H10.25ZM10.5795 22.8295C10.7905 22.6185 11.0766 22.5 11.375 22.5V26.5C12.1375 26.5 12.8688 26.1971 13.4079 25.6579L10.5795 22.8295ZM11.375 22.5H4.375V26.5H11.375V22.5ZM16.625 22.5C16.9234 22.5 17.2095 22.6185 17.4205 22.8295L14.5921 25.6579C15.1312 26.1971 15.8625 26.5 16.625 26.5V22.5ZM17.4205 22.8295C17.6315 23.0405 17.75 23.3266 17.75 23.625H13.75C13.75 24.3875 14.0529 25.1188 14.5921 25.6579L17.4205 22.8295ZM17.75 23.625V16.625H13.75V23.625H17.75ZM17.75 16.625C17.75 16.9234 17.6315 17.2095 17.4205 17.4205L14.5921 14.5921C14.0529 15.1312 13.75 15.8625 13.75 16.625H17.75ZM17.4205 17.4205C17.2095 17.6315 16.9234 17.75 16.625 17.75V13.75C15.8625 13.75 15.1312 14.0529 14.5921 14.5921L17.4205 17.4205ZM16.625 17.75H23.6232V13.75H16.625V17.75ZM23.6232 17.75C23.3249 17.75 23.0387 17.6315 22.8278 17.4205L25.6562 14.5921C25.117 14.0529 24.3857 13.75 23.6232 13.75V17.75ZM22.8278 17.4205C22.6168 17.2095 22.4982 16.9234 22.4982 16.625H26.4982C26.4982 15.8625 26.1954 15.1312 25.6562 14.5921L22.8278 17.4205ZM22.4982 16.625V23.625H26.4982V16.625H22.4982ZM22.4982 23.625C22.4982 23.3266 22.6168 23.0405 22.8278 22.8295L25.6562 25.6579C26.1954 25.1188 26.4982 24.3875 26.4982 23.625H22.4982ZM22.8278 22.8295C23.0387 22.6185 23.3249 22.5 23.6232 22.5V26.5C24.3857 26.5 25.117 26.1971 25.6562 25.6579L22.8278 22.8295ZM23.6232 22.5H16.625V26.5H23.6232V22.5Z"
-                        fill="#BFA373" mask="url(#path-1-inside-1_2108_1855)" />
-                </svg></iconify-icon>
-            </a>
-            <!-- offcanvas -->
-            <div class="offcanvas offcanvas-top vh-100" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                <div class="offcanvas-header py-16 px-12">
-                    <img style="width: 148px; height: 24px;" src="../assets/images/logo/logo-teatime.svg" alt="">
-                    <a href="#"><iconify-icon icon="ic:round-close" style="color: #bfa373;" width="28"
-                            data-bs-dismiss="offcanvas" aria-label="Close"></iconify-icon></a>
+        <div class="layout-content position-relative">
+            <div class="py-lg-16 py-8 container d-flex gap-8 align-items-center justify-content-between">
+                <!-- nav list left -->
+                <ul class="d-lg-flex d-none gap-xxl-48 gap-16">
+                    <li><a class="nav-list" href="#">點餐</a></li>
+                    <li><a class="nav-list" href="#">投票</a></li>
+                    <li><a class="nav-list" href="#">訂餐月曆</a></li>
+                    <li><a class="nav-list" href="#">訂單</a></li>
+                </ul>
+                <!-- nav logo -->
+                <h1 class="nav-logo me-lg-8 position-absolute"><a href="index.html">下午茶揪團去</a></h1>
+                <!-- nav-icon right-->
+                <ul class="d-lg-flex d-none gap-lg-16 gap-8">
+                    <li>
+                        <a class="nav-icon-hover" href="#">
+                            <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ant-design:message-outlined"
+                                style="color: #bfa373;" width="28"></iconify-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-icon-hover">
+                            <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ion:help" style="color: #bfa373;"
+                                width="28"></iconify-icon></a>
+                    </li>
+                    <!-- nav-button account modal -->
+                    <li>
+                        <a href="#accountModal" data-bs-toggle="modal" class="nav-icon-hover"><iconify-icon
+                                class="p-8 bg-brand-04 rounded-circle" icon="line-md:account" style="color: #bfa373;"
+                                width="28"></iconify-icon></a>
+                    </li>
+                </ul>
+                <!-- search-bar  -->
+                <div class="position-relative me-lg-16 d-lg-none ms-170">
+                    <iconify-icon class="position-absolute search-icon" icon="iconamoon:search" style="color: #8b8b8a;"
+                        width="24"></iconify-icon>
+                    <input type="text"
+                        class="search-bar border border-2 border-gray-04 border-radius-28 py-10 px-16 ps-48"
+                        placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
                 </div>
-                <div class="offcanvas-body py-24 px-12 d-flex flex-column justify-content-between ">
-                    <ul class="fs-32 offcanvas-list">
-                        <li><a class="p-16 fw-bold d-block" href="#">點餐</a></li>
-                        <li><a class="p-16 fw-bold d-block" href="#">投票</a></li>
-                        <li><a class="p-16 fw-bold d-block" href="#">訂餐月曆</a></li>
-                        <li><a class="p-16 fw-bold d-block" href="#">訂單</a></li>
-                    </ul>
-                    <ul class="d-flex gap-20 justify-content-center">
-                        <li>
-                            <a class="position-relative d-block" href="#">
-                                <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline"
-                                    style="color: white;" width="28" height="28"></iconify-icon>
-                                <div class="btn-notification-alert rounded-circle bg-white position-absolute "></div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle"
-                                    icon="ant-design:message-outlined" style="color: #bfa373;"
-                                    width="28"></iconify-icon></a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ion:help" style="color: #bfa373;"
-                                    width="28"></iconify-icon></a>
-                        </li>
-                        <li>
-                            <!-- <a href="#"><iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
-                                    style="color: #bfa373;" width="28"></iconify-icon></a> -->
-                            <%- include('./layout/btn-account.ejs'); -%>
-                        </li>
-                    </ul>
+                <!-- btn-menu -->
+                <a class="d-lg-none d-block" data-bs-toggle="offcanvas" href="#offcanvasTop"
+                    aria-controls="offcanvasTop">
+                    <iconify-icon icon="uil:apps" style="color: #f0bd68;" width="28"></iconify-icon>
+                </a>
+                <!-- nav menu offcanvas -->
+                <div class="offcanvas offcanvas-top vh-100" data-bs-scroll="true" tabindex="-1" id="offcanvasTop"
+                    aria-labelledby="offcanvasTopLabel">
+                    <div class="offcanvas-header py-16 px-12">
+                        <img style="width: 148px; height: 24px;" src="../assets/images/logo/logo-teatime.svg" alt="">
+                        <a href="#" data-bs-dismiss="offcanvas" aria-label="Close"><iconify-icon icon="ic:round-close"
+                                style="color: #bfa373;" width="28"></iconify-icon></a>
+                    </div>
+                    <div class="offcanvas-body py-24 px-12 d-flex flex-column justify-content-between ">
+                        <ul class="fs-32 offcanvas-list">
+                            <li><a class="p-16 fw-bold d-block" href="#">點餐</a></li>
+                            <li><a class="p-16 fw-bold d-block" href="#">投票</a></li>
+                            <li><a class="p-16 fw-bold d-block" href="#">訂餐月曆</a></li>
+                            <li><a class="p-16 fw-bold d-block" href="#">訂單</a></li>
+                        </ul>
+                        <ul class="d-flex gap-20 justify-content-center">
+                            <li>
+                                <a href="#notificationCollapseModal"
+                                    class="position-relative d-block notification-hover" data-bs-toggle="modal">
+                                    <iconify-icon class="p-8 bg-brand-02 rounded-circle"
+                                        icon="ion:notifications-outline" style="color: white;" width="28"
+                                        height="28"></iconify-icon>
+                                    <div class="btn-notification-alert rounded-circle bg-white position-absolute ">
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-icon-hover"><iconify-icon class="p-8 bg-brand-04 rounded-circle"
+                                        icon="ant-design:message-outlined" style="color: #bfa373;"
+                                        width="28"></iconify-icon></a>
+                            </li>
+                            <li>
+                                <a href="#" class="nav-icon-hover">
+                                    <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ion:help"
+                                        style="color: #bfa373;" width="28"></iconify-icon></a>
+                            </li>
+                            <li>
+                                <a href="#accountCollapseModal" class="nav-icon-hover"
+                                    data-bs-toggle="modal"><iconify-icon class="p-8 bg-brand-04 rounded-circle"
+                                        icon="line-md:account" style="color: #bfa373;" width="28"></iconify-icon></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 </nav>
+
+<!-- nav account modal -->
+<div class="modal fade account-login-modal" id="accountModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered account-modal-dialog border-radius-24">
+        <div class="modal-content border-radius-24 d-flex">
+            <div class="modal-header py-lg-24 px-lg-40 p-16 border-0">
+                <h5 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">登入</h5>
+                <a href="#accountModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
+                        style="color: #8B8B8A;" width="32"></iconify-icon></a>
+            </div>
+            <div class="modal-body p-lg-40 pt-lg-16 p-16 pt-8 d-flex flex-column gap-lg-20 gap-12">
+                <!-- switch user & admin login -->
+                <ul class="d-flex p-8 rounded-pill bg-brand-05">
+                    <li class="w-50"><a
+                            class="fw-medium lh-sm py-lg-12 py-10 text-center d-block rounded-pill btn-login"
+                            href="#">會員登入</a></li>
+                    <li class="w-50"><a
+                            class="fw-medium lh-sm py-lg-12 py-10 text-center d-block rounded-pill btn-login"
+                            href="#">管理員登入</a></li>
+                </ul>
+                <!-- input - account & password -->
+                <form class="needs-validation" action="#" method="post" novalidate>
+                    <div class="mb-lg-20 mb-12">
+                        <input
+                            class="login-bar border border-2 border-gray-04 border-radius-28 p-16 form-control mb-lg-20 mb-12"
+                            type="email" id="form-account" name="form-account" placeholder="請輸入信箱"
+                            aria-describedby="form-account" required>
+                        <input class="login-bar border border-2 border-gray-04 border-radius-28 p-16 form-control"
+                            type="password" id="form-password" name="form-password" placeholder="請輸入密碼"
+                            aria-describedby="form-password" required>
+                        <div class="invalid-feedback ms-16">
+                            電子郵件帳號或密碼輸入錯誤
+                        </div>
+                    </div>
+                    <!-- option -->
+                    <div class="d-flex justify-content-between mb-lg-20 mb-12">
+                        <label class="remember-content text-brand-01 fw-medium lh-sm" for="remember-check">記住我
+                            <input class="remember-checkbox" type="checkbox" id="remember-check" name="remember-me">
+                            <span class="remember-checkmark"></span>
+                        </label>
+                        <a href="#" class="text-brand-01 fw-medium lh-sm">忘記密碼？</a>
+                    </div>
+                    <!-- submit -->
+                    <button type="submit"
+                        class="fs-20 fw-medium lh-sm rounded-pill text-white p-lg-14 p-12 border-0 w-100  btn-login-submit">登入</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- nav account modal in collapse -->
+<div class="modal fade account-login-modal" id="accountCollapseModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered account-modal-dialog border-radius-24">
+        <div class="modal-content border-radius-24 d-flex">
+            <div class="modal-header py-lg-24 px-lg-40 p-16 border-0">
+                <h5 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">登入</h5>
+                <a href="#accountCollapseModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
+                        style="color: #8B8B8A;" width="32"></iconify-icon></a>
+            </div>
+            <div class="modal-body p-lg-40 pt-lg-16 p-16 pt-8 d-flex flex-column gap-lg-20 gap-12">
+                <!-- switch user & admin login -->
+                <ul class="d-flex p-8 rounded-pill bg-brand-05">
+                    <li class="w-50"><a
+                            class="fw-medium lh-sm py-lg-12 py-10 text-center d-block rounded-pill btn-login"
+                            href="#">會員登入</a></li>
+                    <li class="w-50"><a
+                            class="fw-medium lh-sm py-lg-12 py-10 text-center d-block rounded-pill btn-login"
+                            href="#">管理員登入</a></li>
+                </ul>
+                <!-- input - account & password -->
+                <form class="needs-validation" action="#" method="post" novalidate>
+                    <div class="mb-lg-20 mb-12">
+                        <input
+                            class="login-bar border border-2 border-gray-04 border-radius-28 p-16 form-control mb-lg-20 mb-12"
+                            type="email" id="form-account" name="form-account" placeholder="請輸入信箱"
+                            aria-describedby="form-account" required>
+                        <input class="login-bar border border-2 border-gray-04 border-radius-28 p-16 form-control"
+                            type="password" id="form-password" name="form-password" placeholder="請輸入密碼"
+                            aria-describedby="form-password" required>
+                        <div class="invalid-feedback ms-16">
+                            電子郵件帳號或密碼輸入錯誤
+                        </div>
+                    </div>
+                    <!-- option -->
+                    <div class="d-flex justify-content-between mb-lg-20 mb-12">
+                        <label class="remember-content text-brand-01 fw-medium lh-sm" for="remember-checkme">記住我
+                            <input class="remember-checkbox" type="checkbox" id="remember-checkme" name="remember-me">
+                            <span class="remember-checkmark"></span>
+                        </label>
+                        <a href="#" class="text-brand-01 fw-medium lh-sm">忘記密碼？</a>
+                    </div>
+                    <!-- submit -->
+                    <button type="submit"
+                        class="fs-20 fw-medium lh-sm rounded-pill text-white p-lg-14 p-12 border-0 w-100 btn-login-submit">登入</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- notification modal in collapse -->
+<div class="modal fade account-login-modal" id="notificationCollapseModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered account-modal-dialog border-radius-24">
+        <div class="modal-content border-radius-24 overflow-hidden modal-sm-mx12">
+            <div class="py-md-20 px-md-24 p-16 d-flex justify-content-between align-items-center bg-brand-05">
+                <span class="fs-md-24 fs-20 fw-bold lh-sm ">通知</span>
+                <a href="#notificationCollapseModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
+                        style="color: #8B8B8A;" width="32"></iconify-icon></a>
+            </div>
+            <div class="modal-body px-md-20 py-md-24 p-16">
+                <ul class=" notification-messages">
+                    <li><a href="#" class="d-block">
+                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的投票結果已開票！請前往跟團點餐</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>飲舞者</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>2023/08/14</time>
+                            </div>
+                        </a></li>
+                    <li><a href="#" class="d-block">
+                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的跟團已確認成團！請盡速向團主付款</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>飛餐</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>2023/08/12</time>
+                            </div>
+                        </a></li>
+                    <li><a href="#" class="d-block">
+                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您主辦的開團失敗！謝謝您的發起</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>速食窩</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>無</time>
+                            </div>
+                        </a></li>
+                    <li><a href="#" class="d-block">
+                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">跟團訂單「編號 11111」已付款</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>飛餐</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>2023/08/12</time>
+                            </div>
+                        </a></li>
+                    <li><a href="#" class="d-block">
+                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的投票結果已開票！請前往跟團點餐</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>茶源 ChaSource</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>2023/08/18</time>
+                            </div>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

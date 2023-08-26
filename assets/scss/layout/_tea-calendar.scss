@@ -1,4 +1,4 @@
-.tea-calendar {
+.tea-container {
     border-radius: 0px 200px 0px 0px;
 
     @include media-breakpoint-up(lg) {
@@ -28,6 +28,7 @@
 
     .event-rounded {
         border-radius: 80px 80px 16px 16px;
+        // max-width: 306px;
     }
 
     .event-pic {
@@ -50,4 +51,8 @@
 .active {
     background-color: $brand-02 !important;
     color: $white !important;
+}
+
+.gap-24 {
+    gap: 24px;
 }

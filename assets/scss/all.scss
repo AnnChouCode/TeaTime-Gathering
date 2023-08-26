@@ -11,15 +11,14 @@
 
 // CUSTOM
 @import "./base/_base.scss";
-@import "./base/_fontStyle.scss";
 
 // BOOTSTRAP utilities api，for font-size RWD
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
 // CUSTOM COMPONENTS
-@import "./components/search-bar";
-@import "./components/btn-notification";
-@import "./components/btn-account";
+@import "./components/_search-bar.scss";
+@import "./components/_notification.scss";
+@import "./components/_account-login.scss";
 
 // CUSTOM LAYOUT
 @import './layout/_nav.scss';

@@ -1,0 +1,130 @@
+/* custom nav menu offcanvas ===
+================================*/
+.account-modal-dialog {
+  max-width: 351px;
+
+  @include media-breakpoint-up(lg) {
+    max-width: 416px;
+  }
+}
+
+/* custom btn - switch user & admin login ==========
+================================*/
+.btn-login {
+  color: $brand-02;
+
+  &:hover {
+    background-color: $bg-2;
+  }
+
+  &:active {
+    background-color: $brand-02;
+    color: white;
+  }
+}
+
+/* custom input - account & password ==========
+================================*/
+.login-bar {
+  width: 100%;
+
+  &:focus-visible {
+    outline: 2px solid $gray-03;
+  }
+}
+
+/* custom checkbox - remember me ==========
+================================*/
+.remember {
+  &-content {
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+  }
+
+  // 隱藏預設的 checkbox
+  &-checkbox {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  // 當 content 被點選，checkmark改變背景色
+  &-content input:checked~.remember-checkmark {
+    background-color: $brand-01;
+    border: none; // 測試加的
+  }
+
+  // content 被點選，checkmark:after 改為 block 屬性
+  &-content input:checked+.remember-checkmark:after {
+    display: block;
+  }
+
+  // 客製 checkmark 樣式
+  &-checkmark {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    border: 2px solid $brand-01;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: $brand-04;
+    }
+
+    // 創造勾勾樣式
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 0px;
+      top: 0px;
+      background-image: url("https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/2cc3b6b8ad2327e3398878f083b9feb29754c7f0/assets/images/icon/icon-checkbox-check.svg");
+      width: 24px; // 測試加的
+      height: 24px; // 測試加的
+      // width: 7px;
+      // height: 10px;
+      // border: solid white;
+      // border-width: 0 3px 3px 0;
+      // -webkit-transform: rotate(45deg);
+      // -ms-transform: rotate(45deg);
+      // transform: rotate(45deg);
+    }
+  }
+}
+
+.btn-login-submit {
+  background-color: $brand-03;
+
+  &:hover {
+    background-color: $brand-01;
+  }
+}
+
+/* custom input - login ==========
+================================*/
+.account-login-modal {
+
+  .was-validated .form-control:valid,
+  .was-validated .form-control:invalid {
+    background-image: none;
+    box-shadow: none;
+  }
+
+  .was-validated .form-control:invalid {
+    outline: 2px solid $brand-02;
+  }
+
+  .form-control:focus {
+    background-color: white;
+    color: $gray-01;
+    box-shadow: none;
+  }
+
+  .modal-dialog {
+    margin: 0 auto;
+  }
+}

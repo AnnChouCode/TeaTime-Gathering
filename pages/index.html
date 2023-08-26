@@ -14,13 +14,13 @@
   <meta property="og:description" content="共享美味，打造回憶">
   <meta property="og:url" content="https://annchoucode.github.io/TeaTime-Gathering/">
   <meta property="og:image"
-    content="https://github.com/AnnChouCode/TeaTime-Gathering/blob/f/Ann/assets/images/store-01.jpg" />
+    content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-01.jpg" />
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="揪團下午茶" />
   <meta name="twitter:description" content="共享美味，打造回憶" />
   <meta name="twitter:image"
-    content="https://github.com/AnnChouCode/TeaTime-Gathering/blob/f/Ann/assets/images/store-01.jpg" />
+    content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-01.jpg" />
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,44 +32,50 @@
 <body class="pt-64 pt-md-82">
   <%- include('./layout/nav'); -%>
     <div class="container">
-
     </div>
+    <!-- tea-calendar -->
+    <%- include('./layout/tea-calendar'); -%>
 
+      <!-- feedback -->
+      <%- include('./layout/feedback'); -%>
 
-
-
-    <!-- btn-notification -->
-    <%- include('./layout/btn-notification'); -%>
-
-      <!-- tea-calendar -->
-      <%- include('./layout/tea-calendar'); -%>
-
-        <!-- feedback -->
-        <%- include('./layout/feedback'); -%>
-
-          <div class="layout ">
-            <div class="layout-left d-none d-lg-block">
-              <%- include('./layout/navigation-menu'); -%>
-            </div>
-            <div class="layout-content container-fluid">
-              <!-- 開啟以下註解方便了解首頁內容區塊，後續版本可刪 -->
-              <!-- <%- include('./layout/container-lorem.ejs'); -%> -->
+        <div class="layout d-flex ">
+          <div class="layout-left d-none d-lg-block">
+            <%- include('./layout/navigation-menu'); -%>
+          </div>
+          <div class="layout-content">
+            <!-- 開啟以下註解方便了解首頁內容區塊，後續版本可刪 -->
+            <!-- <%- include('./layout/container-lorem.ejs'); -%> -->
+            <!-- feedback -->
+            <%- include('./layout/feedback'); -%>
               <!-- novice Teaching -->
               <%- include('./layout/noviceTeaching'); -%>
-            </div>
-            <div class="layout-right d-none d-lg-block"></div>
           </div>
+          <div class="layout-right d-none d-lg-block"></div>
+        </div>
 
-          <!-- btn-notification -->
-          <%- include('./layout/btn-notification'); -%>
-            <!-- footer -->
-            <%- include('./layout/footer'); -%>
+        <!-- notification -->
+        <%- include('./layout/notification'); -%>
 
-              <!-- ICONGIFY -->
-              <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+          <!-- footer -->
+          <%- include('./layout/footer'); -%>
 
-              <!-- JS -->
-              <script type="module" src="../main.js"></script>
+            <!-- ICONGIFY -->
+            <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+            <!-- JS -->
+            <script type="module" src="../main.js"></script>
+            <!-- Validation jQuery-->
+            <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+              integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+            <script>
+              $('.needs-validation').each(function (index) {
+                $(this).on('submit', function (e) {
+                  e.preventDefault();
+                  $(this).addClass('was-validated');
+                });
+              });
+            </script>
+            >>>>>>> 51f5036bebd811385de48c839878d1324f45dc65
 </body>
 
 </html>

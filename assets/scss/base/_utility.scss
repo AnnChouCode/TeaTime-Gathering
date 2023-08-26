@@ -24,4 +24,14 @@ $utilities: map-merge($utilities,
   &:hover {
     color: $gray-01 !important;
   }
+
+  .modal-sm-mx12 {
+    margin-left: 12px;
+    margin-right: 12px;
+
+    @include media-breakpoint-up(sm) {
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
 }
