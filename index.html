@@ -14,21 +14,21 @@
   <meta property="og:description" content="共享美味，打造回憶">
   <meta property="og:url" content="https://annchoucode.github.io/TeaTime-Gathering/">
   <meta property="og:image"
-    content="https://github.com/AnnChouCode/TeaTime-Gathering/blob/f/Ann/assets/images/store-01.jpg" />
+    content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-01.jpg" />
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="揪團下午茶" />
   <meta name="twitter:description" content="共享美味，打造回憶" />
   <meta name="twitter:image"
-    content="https://github.com/AnnChouCode/TeaTime-Gathering/blob/f/Ann/assets/images/store-01.jpg" />
+    content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-01.jpg" />
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- ICONS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/index-71f77210.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/index-d1f20e28.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/index-400826b5.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/index-f15e3e1b.css">
 </head>
 
 <body class="pt-64 pt-md-82">
@@ -95,7 +95,8 @@
                         </ul>
                         <ul class="d-flex gap-20 justify-content-center">
                             <li>
-                                <a class="position-relative d-block notification-hover" href="#">
+                                <a href="#notificationCollapseModal"
+                                    class="position-relative d-block notification-hover" data-bs-toggle="modal">
                                     <iconify-icon class="p-8 bg-brand-02 rounded-circle"
                                         icon="ion:notifications-outline" style="color: white;" width="28"
                                         height="28"></iconify-icon>
@@ -114,8 +115,9 @@
                                         style="color: #bfa373;" width="28"></iconify-icon></a>
                             </li>
                             <li>
-                                <a href="#accountCollapseModal" class="nav-icon-hover"  data-bs-toggle="modal"><iconify-icon class="p-8 bg-brand-04 rounded-circle"
-                                        icon="line-md:account" style="color: #bfa373;" width="28"></iconify-icon></a>                                
+                                <a href="#accountCollapseModal" class="nav-icon-hover"
+                                    data-bs-toggle="modal"><iconify-icon class="p-8 bg-brand-04 rounded-circle"
+                                        icon="line-md:account" style="color: #bfa373;" width="28"></iconify-icon></a>
                             </li>
                         </ul>
                     </div>
@@ -175,7 +177,7 @@
     </div>
 </div>
 
-<!-- nav account modal -->
+<!-- nav account modal in collapse -->
 <div class="modal fade account-login-modal" id="accountCollapseModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-dialog-centered account-modal-dialog border-radius-24">
@@ -211,8 +213,8 @@
                     </div>
                     <!-- option -->
                     <div class="d-flex justify-content-between mb-lg-20 mb-12">
-                        <label class="remember-content text-brand-01 fw-medium lh-sm" for="remember-check">記住我
-                            <input class="remember-checkbox" type="checkbox" id="remember-check" name="remember-me">
+                        <label class="remember-content text-brand-01 fw-medium lh-sm" for="remember-checkme">記住我
+                            <input class="remember-checkbox" type="checkbox" id="remember-checkme" name="remember-me">
                             <span class="remember-checkmark"></span>
                         </label>
                         <a href="#" class="text-brand-01 fw-medium lh-sm">忘記密碼？</a>
@@ -224,92 +226,82 @@
             </div>
         </div>
     </div>
-</div>    <div class="container">
-
-    </div>
-
-
-
-
-    <!-- btn-notification -->
-    <a class="btn-notification position-fixed d-block notification-hover" data-bs-toggle="collapse" href="#collapseNotification" role="button"
-    aria-expanded="false" aria-controls="collapseNotification">
-    <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline" style="color: white;"
-        width="28" height="28"></iconify-icon>
-    <div class="btn-notification-alert rounded-circle bg-white position-absolute "></div>
-</a>
-
-<!-- notification-container -->
-<div class="position-fixed collapse notification-container" id="collapseNotification">
-    <div class="notification-body border-2 border-brand-05 border overflow-hidden bg-white">
-        <div class="py-md-20 px-md-24 p-16 d-flex justify-content-between align-items-center bg-brand-05">
-            <span class="fs-md-24 fs-20 fw-bold lh-sm ">通知</span>
-            <a class="d-block" data-bs-toggle="collapse" href="#collapseNotification" role="button"
-                aria-expanded="false" aria-controls="collapseNotification">
-                <iconify-icon icon="ic:round-close" style="color: #8B8B8A;" width="32"></iconify-icon>
-            </a>
-        </div>
-        <div class="px-md-20 py-md-24 p-16">
-            <ul class=" notification-messages">
-                <li><a href="#" class="d-block">
-                        <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的投票結果已開票！請前往跟團點餐</p>
-                        <div class="d-flex justify-content-between mb-8">
-                            <span class="text-gray-02">店家</span>
-                            <span>飲舞者</span>
-                        </div>
-                        <div class="d-flex justify-content-between ">
-                            <span class="text-gray-02">預定訂購時間</span>
-                            <time>2023/08/14</time>
-                        </div>
-                    </a></li>
-                <li><a href="#" class="d-block">
-                        <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的跟團已確認成團！請盡速向團主付款</p>
-                        <div class="d-flex justify-content-between mb-8">
-                            <span class="text-gray-02">店家</span>
-                            <span>飛餐</span>
-                        </div>
-                        <div class="d-flex justify-content-between ">
-                            <span class="text-gray-02">預定訂購時間</span>
-                            <time>2023/08/12</time>
-                        </div>
-                    </a></li>
-                <li><a href="#" class="d-block">
-                        <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您主辦的開團失敗！謝謝您的發起</p>
-                        <div class="d-flex justify-content-between mb-8">
-                            <span class="text-gray-02">店家</span>
-                            <span>速食窩</span>
-                        </div>
-                        <div class="d-flex justify-content-between ">
-                            <span class="text-gray-02">預定訂購時間</span>
-                            <time>無</time>
-                        </div>
-                    </a></li>
-                <li><a href="#" class="d-block">
-                        <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">跟團訂單「編號 11111」已付款</p>
-                        <div class="d-flex justify-content-between mb-8">
-                            <span class="text-gray-02">店家</span>
-                            <span>飛餐</span>
-                        </div>
-                        <div class="d-flex justify-content-between ">
-                            <span class="text-gray-02">預定訂購時間</span>
-                            <time>2023/08/12</time>
-                        </div>
-                    </a></li>
-                <li><a href="#" class="d-block">
-                        <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的投票結果已開票！請前往跟團點餐</p>
-                        <div class="d-flex justify-content-between mb-8">
-                            <span class="text-gray-02">店家</span>
-                            <span>茶源 ChaSource</span>
-                        </div>
-                        <div class="d-flex justify-content-between ">
-                            <span class="text-gray-02">預定訂購時間</span>
-                            <time>2023/08/18</time>
-                        </div>
-                    </a></li>
-            </ul>
-        </div>
-    </div>
 </div>
+
+<!-- notification modal in collapse -->
+<div class="modal fade account-login-modal" id="notificationCollapseModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered account-modal-dialog border-radius-24">
+        <div class="modal-content border-radius-24 overflow-hidden modal-sm-mx12">
+            <div class="py-md-20 px-md-24 p-16 d-flex justify-content-between align-items-center bg-brand-05">
+                <span class="fs-md-24 fs-20 fw-bold lh-sm ">通知</span>
+                <a href="#notificationCollapseModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
+                        style="color: #8B8B8A;" width="32"></iconify-icon></a>
+            </div>
+            <div class="modal-body px-md-20 py-md-24 p-16">
+                <ul class=" notification-messages">
+                    <li><a href="#" class="d-block">
+                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的投票結果已開票！請前往跟團點餐</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>飲舞者</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>2023/08/14</time>
+                            </div>
+                        </a></li>
+                    <li><a href="#" class="d-block">
+                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的跟團已確認成團！請盡速向團主付款</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>飛餐</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>2023/08/12</time>
+                            </div>
+                        </a></li>
+                    <li><a href="#" class="d-block">
+                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您主辦的開團失敗！謝謝您的發起</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>速食窩</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>無</time>
+                            </div>
+                        </a></li>
+                    <li><a href="#" class="d-block">
+                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">跟團訂單「編號 11111」已付款</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>飛餐</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>2023/08/12</time>
+                            </div>
+                        </a></li>
+                    <li><a href="#" class="d-block">
+                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的投票結果已開票！請前往跟團點餐</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>茶源 ChaSource</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>2023/08/18</time>
+                            </div>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>    <div class="container">
+    </div>
+
       <div class="layout d-flex ">
         <div class="layout-left d-none d-lg-block">
           <ul class="layout-left-ul p-0 mt-40">
@@ -2122,7 +2114,7 @@
         <div class="layout-right d-none d-lg-block"></div>
       </div>
 
-      <!-- btn-notification -->
+      <!-- notification -->
       <a class="btn-notification position-fixed d-block notification-hover" data-bs-toggle="collapse" href="#collapseNotification" role="button"
     aria-expanded="false" aria-controls="collapseNotification">
     <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline" style="color: white;"
@@ -2131,7 +2123,7 @@
 </a>
 
 <!-- notification-container -->
-<div class="position-fixed collapse notification-container" id="collapseNotification">
+<div class="collapse notification-container" id="collapseNotification">
     <div class="notification-body border-2 border-brand-05 border overflow-hidden bg-white">
         <div class="py-md-20 px-md-24 p-16 d-flex justify-content-between align-items-center bg-brand-05">
             <span class="fs-md-24 fs-20 fw-bold lh-sm ">通知</span>
