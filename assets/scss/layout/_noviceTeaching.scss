@@ -2,3 +2,19 @@
     border-radius: 16px;
     background: $gray-04 !important;
 }
+.QA-sidebar {
+    overflow-x: scroll;
+    // 或者overflow-x: hidden;
+    position: relative;
+    -ms-overflow-style: none; /* hide for IE and Edge */
+    scrollbar-width: none; /* hide for Firefox */
+    &::-webkit-scrollbar {
+        //Hide scrollbar for Chrome, Safari and Opera
+        display: none; //隱藏 x 軸
+    }
+}
+.QA {
+    @media (max-width: 767.98px) {
+        white-space: nowrap;
+    }
+}
