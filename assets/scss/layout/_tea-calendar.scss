@@ -12,8 +12,9 @@
 
     .type-link {
         border-radius: 40px;
-        transition: all 0.3s;
+        transition: all .3s;
         background-color: $brand-05;
+
 
         &:hover {
             background-color: #fff;
