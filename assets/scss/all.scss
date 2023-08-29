@@ -22,14 +22,12 @@
 @import "./components/_select-bar.scss";
 
 // CUSTOM LAYOUT
-@import "./layout/_nav.scss";
-@import "./layout/tea-calendar";
-@import "./layout/_feedback.scss";
-@import "./layout/_footer.scss";
-@import "./layout/_nav.scss";
+@import './layout/_nav.scss';
+@import './layout/_tea-calendar';
+@import './layout/_feedback.scss';
+@import './layout/_footer.scss';
 @import "./layout/_navigation-menu.scss";
-@import "./layout/navigation-menu";
-@import "./layout/noviceTeaching";
+@import "./layout/_noviceTeaching.scss";
 
 // CUSTOM PAGES
 @import "./pages/_index.scss";
