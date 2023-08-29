@@ -1,7 +1,7 @@
 <nav>
     <div class="fixed-top bg-white">
-        <div class="layout-content position-relative">
-            <div class="py-lg-16 py-8 container d-flex gap-8 align-items-center justify-content-between">
+        <div class="position-relative layout-content">
+            <div class="d-flex align-items-center justify-content-between gap-8 py-lg-16 py-8 container">
                 <!-- nav list left -->
                 <ul class="d-lg-flex d-none gap-xxl-48 gap-16">
                     <li><a class="nav-list" href="#">點餐</a></li>
@@ -10,7 +10,7 @@
                     <li><a class="nav-list" href="#">訂單</a></li>
                 </ul>
                 <!-- nav logo -->
-                <h1 class="nav-logo me-lg-8 position-absolute"><a href="index.html">下午茶揪團去</a></h1>
+                <h1 class="position-absolute me-lg-8 nav-logo"><a href="index.html">下午茶揪團去</a></h1>
                 <!-- nav-icon right-->
                 <ul class="d-lg-flex d-none gap-lg-16 gap-8">
                     <li>
@@ -32,11 +32,11 @@
                     </li>
                 </ul>
                 <!-- search-bar  -->
-                <div class="position-relative me-lg-16 d-lg-none ms-170">
+                <div class="position-relative d-lg-none me-lg-16 ms-170">
                     <iconify-icon class="position-absolute search-icon" icon="iconamoon:search" style="color: #8b8b8a;"
                         width="24"></iconify-icon>
                     <input type="text"
-                        class="search-bar border border-2 border-gray-04 border-radius-28 py-10 px-16 ps-48"
+                        class="py-10 px-16 ps-48 border border-2 border-gray-04 border-radius-28 search-bar"
                         placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
                 </div>
                 <!-- btn-menu -->
@@ -47,26 +47,26 @@
                 <!-- nav menu offcanvas -->
                 <div class="offcanvas offcanvas-top vh-100" data-bs-scroll="true" tabindex="-1" id="offcanvasTop"
                     aria-labelledby="offcanvasTopLabel">
-                    <div class="offcanvas-header py-16 px-12">
+                    <div class="py-16 px-12 offcanvas-header">
                         <img style="width: 148px; height: 24px;" src="../assets/images/logo/logo-teatime.svg" alt="">
                         <a href="#" data-bs-dismiss="offcanvas" aria-label="Close"><iconify-icon icon="ic:round-close"
                                 style="color: #bfa373;" width="28"></iconify-icon></a>
                     </div>
-                    <div class="offcanvas-body py-24 px-12 d-flex flex-column justify-content-between ">
+                    <div class="offcanvas-body d-flex flex-column justify-content-between py-24 px-12">
                         <ul class="fs-32 offcanvas-list">
                             <li><a class="p-16 fw-bold d-block" href="#">點餐</a></li>
                             <li><a class="p-16 fw-bold d-block" href="#">投票</a></li>
                             <li><a class="p-16 fw-bold d-block" href="#">訂餐月曆</a></li>
                             <li><a class="p-16 fw-bold d-block" href="#">訂單</a></li>
                         </ul>
-                        <ul class="d-flex gap-20 justify-content-center">
+                        <ul class="d-flex justify-content-center gap-20">
                             <li>
                                 <a href="#notificationCollapseModal"
                                     class="position-relative d-block notification-hover" data-bs-toggle="modal">
                                     <iconify-icon class="p-8 bg-brand-02 rounded-circle"
                                         icon="ion:notifications-outline" style="color: white;" width="28"
                                         height="28"></iconify-icon>
-                                    <div class="btn-notification-alert rounded-circle bg-white position-absolute ">
+                                    <div class="position-absolute rounded-circle bg-white btn-notification-alert">
                                     </div>
                                 </a>
                             </li>
@@ -96,30 +96,30 @@
 <div class="modal fade account-login-modal" id="accountModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-dialog-centered account-modal-dialog border-radius-24">
-        <div class="modal-content border-radius-24 d-flex">
+        <div class="d-flex modal-content border-radius-24">
             <div class="modal-header py-lg-24 px-lg-40 p-16 border-0">
                 <h5 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">登入</h5>
                 <a href="#accountModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
                         style="color: #8B8B8A;" width="32"></iconify-icon></a>
             </div>
-            <div class="modal-body p-lg-40 pt-lg-16 p-16 pt-8 d-flex flex-column gap-lg-20 gap-12">
+            <div class="modal-body d-flex flex-column gap-lg-20 gap-12 p-lg-40 pt-lg-16 p-16 pt-8">
                 <!-- switch user & admin login -->
                 <ul class="d-flex p-8 rounded-pill bg-brand-05">
                     <li class="w-50"><a
-                            class="fw-medium lh-sm py-lg-12 py-10 text-center d-block rounded-pill btn-login"
+                            class="d-blockfw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-login"
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
-                            class="fw-medium lh-sm py-lg-12 py-10 text-center d-block rounded-pill btn-login"
+                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-login"
                             href="#">管理員登入</a></li>
                 </ul>
                 <!-- input - account & password -->
                 <form class="needs-validation" action="#" method="post" novalidate>
                     <div class="mb-lg-20 mb-12">
                         <input
-                            class="login-bar border border-2 border-gray-04 border-radius-28 p-16 form-control mb-lg-20 mb-12"
+                            class="form-control mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
                             type="email" id="form-account" name="form-account" placeholder="請輸入信箱"
                             aria-describedby="form-account" required>
-                        <input class="login-bar border border-2 border-gray-04 border-radius-28 p-16 form-control"
+                        <input class="form-control p-16 border border-2 border-gray-04 border-radius-28 login-bar "
                             type="password" id="form-password" name="form-password" placeholder="請輸入密碼"
                             aria-describedby="form-password" required>
                         <div class="invalid-feedback ms-16">
@@ -136,7 +136,7 @@
                     </div>
                     <!-- submit -->
                     <button type="submit"
-                        class="fs-20 fw-medium lh-sm rounded-pill text-white p-lg-14 p-12 border-0 w-100  btn-login-submit">登入</button>
+                        class="p-lg-14 p-12 fs-20 fw-medium lh-sm rounded-pill text-white border-0 w-100 btn-login-submit">登入</button>
                 </form>
             </div>
         </div>
@@ -147,30 +147,30 @@
 <div class="modal fade account-login-modal" id="accountCollapseModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-dialog-centered account-modal-dialog border-radius-24">
-        <div class="modal-content border-radius-24 d-flex">
+        <div class="modal-content d-flex border-radius-24">
             <div class="modal-header py-lg-24 px-lg-40 p-16 border-0">
-                <h5 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">登入</h5>
+                <h5 class="modal-title fs-lg-24 fs-20 fw-lg-bold lh-sm fw-medium ">登入</h5>
                 <a href="#accountCollapseModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
                         style="color: #8B8B8A;" width="32"></iconify-icon></a>
             </div>
-            <div class="modal-body p-lg-40 pt-lg-16 p-16 pt-8 d-flex flex-column gap-lg-20 gap-12">
+            <div class="modal-body d-flex flex-column gap-lg-20 gap-12 p-lg-40 pt-lg-16 p-16 pt-8">
                 <!-- switch user & admin login -->
                 <ul class="d-flex p-8 rounded-pill bg-brand-05">
                     <li class="w-50"><a
-                            class="fw-medium lh-sm py-lg-12 py-10 text-center d-block rounded-pill btn-login"
+                            class="d-block py-lg-12 py-10 text-center fw-medium lh-sm rounded-pill btn-login"
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
-                            class="fw-medium lh-sm py-lg-12 py-10 text-center d-block rounded-pill btn-login"
+                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-login"
                             href="#">管理員登入</a></li>
                 </ul>
                 <!-- input - account & password -->
                 <form class="needs-validation" action="#" method="post" novalidate>
                     <div class="mb-lg-20 mb-12">
                         <input
-                            class="login-bar border border-2 border-gray-04 border-radius-28 p-16 form-control mb-lg-20 mb-12"
+                            class="form-control mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
                             type="email" id="form-account" name="form-account" placeholder="請輸入信箱"
                             aria-describedby="form-account" required>
-                        <input class="login-bar border border-2 border-gray-04 border-radius-28 p-16 form-control"
+                        <input class="form-control p-16 border border-2 border-gray-04 border-radius-28 login-bar"
                             type="password" id="form-password" name="form-password" placeholder="請輸入密碼"
                             aria-describedby="form-password" required>
                         <div class="invalid-feedback ms-16">
@@ -179,7 +179,7 @@
                     </div>
                     <!-- option -->
                     <div class="d-flex justify-content-between mb-lg-20 mb-12">
-                        <label class="remember-content text-brand-01 fw-medium lh-sm" for="remember-checkme">記住我
+                        <label class="text-brand-01 fw-medium lh-sm remember-content" for="remember-checkme">記住我
                             <input class="remember-checkbox" type="checkbox" id="remember-checkme" name="remember-me">
                             <span class="remember-checkmark"></span>
                         </label>
@@ -187,7 +187,7 @@
                     </div>
                     <!-- submit -->
                     <button type="submit"
-                        class="fs-20 fw-medium lh-sm rounded-pill text-white p-lg-14 p-12 border-0 w-100 btn-login-submit">登入</button>
+                        class="p-lg-14 p-12 w-100 fs-20 fw-medium lh-sm rounded-pill text-white border-0 btn-login-submit">登入</button>
                 </form>
             </div>
         </div>
@@ -198,8 +198,8 @@
 <div class="modal fade account-login-modal" id="notificationCollapseModal" tabindex="-1"
     aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-dialog-centered account-modal-dialog border-radius-24">
-        <div class="modal-content border-radius-24 overflow-hidden modal-sm-mx12">
-            <div class="py-md-20 px-md-24 p-16 d-flex justify-content-between align-items-center bg-brand-05">
+        <div class="modal-content overflow-hidden modal-sm-mx12 border-radius-24">
+            <div class="d-flex justify-content-between align-items-center py-md-20 px-md-24 p-16 bg-brand-05">
                 <span class="fs-md-24 fs-20 fw-bold lh-sm ">通知</span>
                 <a href="#notificationCollapseModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
                         style="color: #8B8B8A;" width="32"></iconify-icon></a>
@@ -207,7 +207,7 @@
             <div class="modal-body px-md-20 py-md-24 p-16">
                 <ul class=" notification-messages">
                     <li><a href="#" class="d-block">
-                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的投票結果已開票！請前往跟團點餐</p>
+                            <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
                             <div class="d-flex justify-content-between mb-8">
                                 <span class="text-gray-02">店家</span>
                                 <span>飲舞者</span>
@@ -218,7 +218,7 @@
                             </div>
                         </a></li>
                     <li><a href="#" class="d-block">
-                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的跟團已確認成團！請盡速向團主付款</p>
+                            <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的跟團已確認成團！請盡速向團主付款</p>
                             <div class="d-flex justify-content-between mb-8">
                                 <span class="text-gray-02">店家</span>
                                 <span>飛餐</span>
@@ -229,7 +229,7 @@
                             </div>
                         </a></li>
                     <li><a href="#" class="d-block">
-                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您主辦的開團失敗！謝謝您的發起</p>
+                            <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您主辦的開團失敗！謝謝您的發起</p>
                             <div class="d-flex justify-content-between mb-8">
                                 <span class="text-gray-02">店家</span>
                                 <span>速食窩</span>
@@ -240,7 +240,7 @@
                             </div>
                         </a></li>
                     <li><a href="#" class="d-block">
-                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">跟團訂單「編號 11111」已付款</p>
+                            <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">跟團訂單「編號 11111」已付款</p>
                             <div class="d-flex justify-content-between mb-8">
                                 <span class="text-gray-02">店家</span>
                                 <span>飛餐</span>
@@ -251,7 +251,7 @@
                             </div>
                         </a></li>
                     <li><a href="#" class="d-block">
-                            <p class="text-brand-02 fw-medium fs-md-20 fs-16 lh-sm mb-12">您的投票結果已開票！請前往跟團點餐</p>
+                            <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
                             <div class="d-flex justify-content-between mb-8">
                                 <span class="text-gray-02">店家</span>
                                 <span>茶源 ChaSource</span>
