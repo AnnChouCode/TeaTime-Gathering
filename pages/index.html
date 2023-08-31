@@ -37,6 +37,7 @@
     <%- include('./layout/tea-calendar'); -%>
 
 
+
       <div class="layout d-flex ">
         <div class="layout-left d-none d-lg-block">
           <%- include('./layout/navigation-menu'); -%>
@@ -44,13 +45,18 @@
         <div class="layout-content">
           <!-- 開啟以下註解方便了解首頁內容區塊，後續版本可刪 -->
           <!-- <%- include('./layout/container-lorem.ejs'); -%> -->
-          <!-- novice Teaching -->
-          <%- include('./layout/noviceTeaching'); -%>
+          <!-- find-store -->
+          <%- include('./layout/find-store'); -%>
         </div>
         <div class="layout-right d-none d-lg-block"></div>
       </div>
       <!-- feedback -->
       <%- include('./layout/feedback'); -%>
+
+        <div class="layout-content">
+          <!-- novice Teaching -->
+          <%- include('./layout/noviceTeaching'); -%>
+        </div>
 
         <!-- notification -->
         <%- include('./layout/notification'); -%>

@@ -1,0 +1,17 @@
+.x-slide {
+    overflow-x: scroll;
+
+    //隱藏各瀏覽器 x 軸
+    //Hide scrollbar for Chrome, Safari and Opera
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    -ms-overflow-style: none; /* hide for IE and Edge */
+    scrollbar-width: none; /* hide for Firefox */
+}
+
+.x-silde-btn {
+    @media (max-width: 767.98px) {
+        white-space: nowrap;
+    }
+}

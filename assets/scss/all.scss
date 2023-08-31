@@ -20,14 +20,16 @@
 @import "./components/_notification.scss";
 @import "./components/_account-login.scss";
 @import "./components/_select-bar.scss";
+@import "./components/_xaxis-slide.scss";
 
 // CUSTOM LAYOUT
-@import './layout/_nav.scss';
-@import './layout/_tea-calendar';
-@import './layout/_feedback.scss';
-@import './layout/_footer.scss';
+@import "./layout/_nav.scss";
+@import "./layout/_tea-calendar";
+@import "./layout/_feedback.scss";
+@import "./layout/_footer.scss";
 @import "./layout/_navigation-menu.scss";
 @import "./layout/_noviceTeaching.scss";
+@import "./layout/_find-store.scss";
 
 // CUSTOM PAGES
 @import "./pages/_index.scss";
