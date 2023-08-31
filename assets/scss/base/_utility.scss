@@ -18,11 +18,16 @@ $utilities: map-merge($utilities,
 
 
 // "看更多" 連結的 CSS
-.see-more {
+.see-more,
+.svg-hover path {
   transition: .5s;
 
   &:hover {
     color: $gray-01 !important;
+
+    .svg-hover path {
+      fill: $gray-01 !important;
+    }
   }
 
   .modal-sm-mx12 {
