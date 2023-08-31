@@ -1,7 +1,5 @@
 // evaluate
 .evaluate {
-    padding-left: 16.25%;
-
     @include media-breakpoint-up(md) {
         background-image: url('/assets/images/feedback/evaluate-star.png');
         background-repeat: no-repeat;
@@ -9,6 +7,8 @@
 
     @include media-breakpoint-up(lg) {
         border-radius: 0px 80px 80px 0px;
+        padding-left: 16.25%;
+
     }
 
     // 店家 logo 定位
@@ -74,13 +74,13 @@
 
 // message
 .message {
-    padding-right: 16.25%;
-
     @include media-breakpoint-up(lg) {
         border-radius: 80px 0px 0px 80px;
         background-image: url('/assets/images/feedback/message-bg.png');
         background-repeat: no-repeat;
         background-position: right bottom;
+        padding-right: 16.25%;
+
     }
 
     &-bg {
