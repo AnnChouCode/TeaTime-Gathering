@@ -53,7 +53,7 @@
   // 當 content 被點選，checkmark改變背景色
   &-content input:checked~.remember-checkmark {
     background-color: $brand-01;
-    border: none; // 測試加的
+    border: none;
   }
 
   // content 被點選，checkmark:after 改為 block 屬性
@@ -83,15 +83,8 @@
       left: 0px;
       top: 0px;
       background-image: url("https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/2cc3b6b8ad2327e3398878f083b9feb29754c7f0/assets/images/icon/icon-checkbox-check.svg");
-      width: 24px; // 測試加的
-      height: 24px; // 測試加的
-      // width: 7px;
-      // height: 10px;
-      // border: solid white;
-      // border-width: 0 3px 3px 0;
-      // -webkit-transform: rotate(45deg);
-      // -ms-transform: rotate(45deg);
-      // transform: rotate(45deg);
+      width: 24px;
+      height: 24px;
     }
   }
 }

@@ -27,7 +27,11 @@
 
     .event-rounded {
         border-radius: 80px 80px 16px 16px;
-        // max-width: 306px;
+        width: 100%;
+
+        @include media-breakpoint-up(md) {
+            max-width: 306px;
+        }
     }
 
     .event-pic {
