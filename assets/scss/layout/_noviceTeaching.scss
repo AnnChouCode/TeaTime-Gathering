@@ -45,6 +45,8 @@
     width: calc((100% - 72px) / 4);
     @media (max-width: 767.98px) {
         width: calc((100% - 12px) / 2);
+        height: 170px;
+        border-radius: 40px 40px 16px 16px;
     }
 }
 .findStore-card-img {
