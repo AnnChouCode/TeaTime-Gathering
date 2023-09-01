@@ -25,3 +25,15 @@
         color: white;
     }
 }
+
+// 區塊位移
+@media (max-width: 767.98px) {
+    .find-store {
+        .select-bar {
+            transform: translateY(96px);
+        }
+        .x-slide {
+            transform: translateY(-80px);
+        }
+    }
+}
