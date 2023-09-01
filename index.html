@@ -27,8 +27,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- ICONS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/index-ce6da8ae.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/index-4410ff51.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-a49a9115.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-355ec3ed.css">
 </head>
 
 <body class="pt-64 pt-md-82">
@@ -166,7 +166,7 @@
                             <input class="remember-checkbox" type="checkbox" id="remember-check" name="remember-me">
                             <span class="remember-checkmark"></span>
                         </label>
-                        <a href="#" class="text-brand-01 fw-medium lh-sm">忘記密碼？</a>
+                        <a href="reset-password.html" class="text-brand-01 fw-medium lh-sm btn-reset-password">忘記密碼？</a>
                     </div>
                     <!-- submit -->
                     <button type="submit"
@@ -208,7 +208,7 @@
                             type="password" id="form-password" name="form-password" placeholder="請輸入密碼"
                             aria-describedby="form-password" required>
                         <div class="invalid-feedback ms-16">
-                            電子郵件帳號或密碼輸入錯誤
+                            電子信箱帳號或密碼輸入錯誤
                         </div>
                     </div>
                     <!-- option -->
@@ -217,7 +217,7 @@
                             <input class="remember-checkbox" type="checkbox" id="remember-checkme" name="remember-me">
                             <span class="remember-checkmark"></span>
                         </label>
-                        <a href="#" class="text-brand-01 fw-medium lh-sm">忘記密碼？</a>
+                        <a href="reset-password.html" class="text-brand-01 fw-medium lh-sm btn-reset-password">忘記密碼？</a>
                     </div>
                     <!-- submit -->
                     <button type="submit"
@@ -299,7 +299,31 @@
             </div>
         </div>
     </div>
-</div>    <div class="container">
+</div>
+
+
+<script> //參考 Billy
+    const buttonLogin = document.querySelectorAll('.btn-login');
+    const buttonOffcavasList = document.querySelectorAll('.offcanvas-list a');
+
+    buttonLogin.forEach(btnType => {
+        btnType.addEventListener('click', () => {
+            buttonLogin.forEach(btn => {
+                btn.classList.remove('active');
+            })
+            btnType.classList.add('active');
+        })
+    })
+
+    buttonOffcavasList.forEach(btnType => {
+        btnType.addEventListener('click', () => {
+            buttonOffcavasList.forEach(btn => {
+                btn.classList.remove('nav-offcanvas-active');
+            })
+            btnType.classList.add('nav-offcanvas-active');
+        })
+    })
+</script>    <div class="container">
     </div>
     <!-- tea-calendar -->
     <div class="tea-calendar bg-bg-2 py-32 py-md-80">
@@ -493,7 +517,6 @@
     })
 </script>
 
-
       <div class="layout d-flex ">
         <div class="layout-left d-none d-lg-block">
           <ul class="layout-left-ul p-0 mt-40">
@@ -559,7 +582,7 @@
     <p>This is the content of section 5.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil odio eius possimus unde, saepe, explicabo hic, blanditiis dolorem pariatur quibusdam enim! Quisquam incidunt possimus voluptates qui quidem adipisci iure porro.</p>
   </section>
 </div> -->
-          <!-- find-store -->
+          <!-- novice Teaching -->
           <div class="container py-32 py-lg-80">
     <div class="d-flex justify-content-between align-items-center ">
         <h2 class="fs-32" id="novice-teaching">找店家</h2>
@@ -587,48 +610,40 @@
             <ul class="select-bar d-flex text-center bg-brand-05 mt-16 mt-md-0">
                 <li class="text-center w-100 pt-8 pb-8 ps-8">
                     <button type="button"
-                        class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-12 py-md-8 px-24 w-100 active border-0">最新店家</button>
+                        class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 active border-0">最新店家</button>
                 </li>
                 <li class="text-center w-100 pt-8 pb-8 pe-8">
                     <button type="button"
-                        class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-24 w-100 border-0">最高評價</button>
+                        class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 border-0">最高評價</button>
                 </li>
                 <li class="text-center w-100 pt-8 pb-8 pe-8">
                     <button type="button"
-                        class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-24 w-100 border-0">最低評價</button>
+                        class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 border-0">最低評價</button>
                 </li>
             </ul>
         </div>
         <div class="col-md-2 order-3 order-md-4 mt-16 mt-md-32">
-            <ul class=" x-slide d-flex d-md-block gap-md-5">
-                <li>
-                    <button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent actived">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAG3SURBVHgB7VZdTsJAEJ4t20cTjsARegPhBHoDygmkAWoaH7RPjW0TygmoJ/AIcgS8QY/QF32h23HWtpEQKwU2arTfy+zuzGQ+hvkpQIv/DlanmM+93mbTuQXYLGz7Zi3fguB+LOVsdh0VNr6RZTjk/NW1LDfd9g+CoA+QX8jzZ/oKvI6AELrBWG4i6vI6KvnOS3VU2MAVvZlCnEmCDxXxLONLAOxXv29bvwutjkCe5104AlnWeZTBETGh63qfvQYKEYbhJQlDBhciHzD2zQQo8HlxYpHjOEkTH6UEGMP3v03TtLSpj1ICx6CWAGMsKY9GnQ0i60lJBZuAagKcc1lAKRWS4Xlef1cvZ0DRagC6/vIMqglYlpVqGosKMp0lVfiw0vm+T73Pnoob3tUNmZMISEwmM5cCyAHSQ8zj6p2ysqSK75KMaSq6cAL2FiEFoGkoaBKy1ccrrqjizenUHsGJ4E2MbNuJScRB4GNJagCK8ONt2CgDh0LWC2UrRtxvq3oUH9yOSjNQfidE1T0MfeoWML/y+b2juCXQElAJas/aZXVQG9LyGdPub2xPpgsphciOXtct/j7eAHWircn5lmg5AAAAAElFTkSuQmCC" alt="全部" class="me-8">全部
-                    </button>
-                </li>
+            <ul class=" store-selection d-flex d-md-block">
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent "><img
+                        class="fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent actived"><img
+                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAG3SURBVHgB7VZdTsJAEJ4t20cTjsARegPhBHoDygmkAWoaH7RPjW0TygmoJ/AIcgS8QY/QF32h23HWtpEQKwU2arTfy+zuzGQ+hvkpQIv/DlanmM+93mbTuQXYLGz7Zi3fguB+LOVsdh0VNr6RZTjk/NW1LDfd9g+CoA+QX8jzZ/oKvI6AELrBWG4i6vI6KvnOS3VU2MAVvZlCnEmCDxXxLONLAOxXv29bvwutjkCe5104AlnWeZTBETGh63qfvQYKEYbhJQlDBhciHzD2zQQo8HlxYpHjOEkTH6UEGMP3v03TtLSpj1ICx6CWAGMsKY9GnQ0i60lJBZuAagKcc1lAKRWS4Xlef1cvZ0DRagC6/vIMqglYlpVqGosKMp0lVfiw0vm+T73Pnoob3tUNmZMISEwmM5cCyAHSQ8zj6p2ysqSK75KMaSq6cAL2FiEFoGkoaBKy1ccrrqjizenUHsGJ4E2MbNuJScRB4GNJagCK8ONt2CgDh0LWC2UrRtxvq3oUH9yOSjNQfidE1T0MfeoWML/y+b2juCXQElAJas/aZXVQG9LyGdPub2xPpgsphciOXtct/j7eAHWircn5lmg5AAAAAElFTkSuQmCC" alt="全部" class="me-8">全部</button>
+                </li>
+                <li><button class="fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent "><img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKJSURBVHgB7VZdbtpAEJ71OlHVvPgGdU/QHMFHyBHoCRIiDOIJ/ISMI9wb1L1Be4LQE5ScIO4NkEglJGOmM/5BNsYOsh3ykHwS2mF2d3Y8++23C/DWIaBluK6rBUFwxfbZ2b+f3a61rBqvQstYr9eaqsrvbAfBxSM1v6vGK/DKeE+gNgmZbJvN5vpAlwaAN2wggieE8PcH0Lwfw+Ew8tcmYUK2cdUYIaBDaRT8Uso5NT7btbcg+YIl1ICiKH5qt64DZZhOpx2qSHQ8TbO/W/dkJCQufErMXNWe5YDjOAZN/oIY6ohCS4L52+324fx8u+h2YzIdgWguEdM/KgHHsW+EUEaIqNGPl2VSJUDaR0FslnB3N/WkDK3nEhECdQ5Dba4ChS1w3YnuONM/NNTlxTNdPvnm1C4gU0YK2qFEHm17MoYKpNWj1s/61fziIzrb8p5MPZk2F0J6q9Xql2XlLxUi1SU11/FRY2bLkW3by8Fg8K0khSjmvi7kEgjDi3Fm8bFpDiwoQb/f50p8nUwmlpTKPQXWaVtG9BFeyQ2oR1ERD5MwVrYgVTYeZBAPDDgKO3JQjI8cI5d4EjseWVYBksfLjJ/2SxhQD8Z+AvQ+0FMCl1ZASsTNBjxoCFpoWfQxAWNJzqpgLoHb2z4/HCofD3VBX72rQK/X+5vtO4kSlqkgY1eBrFY3ASsdnZDPe+6DKsg4UQVSDcDyCkCkcGIMjVFcJFZBLKhgLoFEWBbwIjisgrkEWIbX6w8atID0uUUqqSeuqN3XgFwC9Ia/UtV2SEhNREJVVSkeGmlfZQXiToSmIKL5cDAx9MMwfICyBEzTnM9mM4MeGjo0AN+cmb8WvSk8Np6eijfqOxj/AcT/FnseoidvAAAAAElFTkSuQmCC" alt="速食" class="me-8">速食</button>
                 </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"><img
+                <li><button class="fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"><img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAIrSURBVHgB1VfdbdswED7SNfyqDcIR3AnqDZoNkk5QFLAkGH6I+2TUMhxv0HSCphs4G2SDMhPUfdUf+1GWgASIfadahpEPsI6QP1If73hHkujMUHQkFovFEMb/yDm3jeP4vk3/owQkybcZhrh5/i5Ns/fT6fRROsY7Ogrqyj+do7vmjdZ6Sy1wpAAy/hFF0Sf6T4hDkCTJCDE2Lzor+u4tPPBCQFEUdjKZbEgAkYDlcrHGRz5TK7h1GMZfOBYr4PZ2bvK89xvNLUSIVjg8cwkTKKXNeDx+OsRl10BR9JFiJVruMYpiUazhsQBiLxEyn54HBez1QBNzremjHwwCNs6pHySA1uoKfUfwxF1Z0sOh+qBen8ES6suf1CH21YdXQ9Dr9TZpWqyVUgFmPoQdYhborIQFxs9emed99tUHdhEiFKh0bgbqLAzDryRAmz6azgxWANz4VFtDQii14yIMluOeygOBf/jVzxFZAc0smllJgHTtTkCe57Ye1JAclYAsy/5yxBOFwFUCBoPBH47JCsCuZr1FVTMkR8Xl9gGRgFNDKsD6B0r0BUecz+fGW+wflgTo3AMo40HdFB3NhAJ2qViWpWGZapeCSNvuBGAwW5G1Njy3qQGdekAOeKkOgepOAIqQ3Vm+GsIDF7W1JMDZ01B0L/A7oqpODu4aVzHDsEd1Q3R4EQno9/v3WZbe+FMOhFxzfH8SwmXlFwnQ6m64Wq0+cKmI/y0+/kBvBf8Abkbp1w5FcbMAAAAASUVORK5CYII=" alt="飲品" class="me-8">飲品</button>
                 </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"><img
+                <li><button class="fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"><img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKHSURBVHgB7VZRbtpAEJ21tz+JKuUI5gb0BnCD9gThBokVbIT4AH+hFglzhHKCcoOaE4SeoO4JStUkUmKvNzPYDsbC9poQ5Ycngdf27M7bt563C3DCO4PVCXbd4YUQHy+jKGoxBk18ZCSvfADpM6Z/1/VgaZp9X3VMJQKUOAzPrhnTrqSUF1XxUSScXq8/AgVUEnDdsRGG+k94ma30aKbY8Lrd7h8iFwTnLiryGZ9lyfmci3aVGkw1Oc7cx/CObdvL+J2SKpUkNChBJvnq/v7h0zY5ETu/RULDODmponXwZ1iWzTBpgzG2pr40BpGtTWAy+TpKZ47J247jrGGPKlJCy7J6bVyOua7//0f9hOC3GVUw/uyqFgFKQrOjthDRS/K6qmgaG8W92HWRCnsJBIHeoisOtOj3t+tXV5WbG8vB5B4+pw/1UpkArt8mWNNg8RpVkknMk1ZLmQAGG/T/+Bj+ggNVSSGE8JJpNfdl2inDyeTbb9i621vBx0pppDd5BQx4exjZG5576VMA1TO5HBwR4/HY4FwnhXeWKKcA8+kf17MJRwbn3IhbclVIAL96L25FLTgyGJNpGRYTiCJIyod1yuzzEJA30PXpKZwXErAsy0uNo8w+6yItVXLHwWBQrEACJ76QfZL5vA5ZA5MyteYSAokKM9ioQDvZ4SQyFk3pZ1mHLCRAwC+WVCCpjENJ5PaH1d3dg7MvrvBAktTtD2xuSlL1mJU/qFBy3Du+ZO07i8LzAHXg/EM7WQ4sUX2YWHUpclvyjPaHouQEXjaYaZrkWuZ0Ol0IEXqgZtWbGCo72+4tq4KVj+U4+7+we+gsBO2MmLyhEquBIqQUZnwwrcQaHXUEJ5ygiGeyEKcIglNtCAAAAABJRU5ErkJggg==" alt="小吃" class="me-8">小吃</button>
                 </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"><img
+                <li><button class="fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"><img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALcSURBVHgB1VfRcdpAEL2TRCZj50PpAHcgV2ClArsDqwMjxsDwBf5iIjTIVGC5A1xB5AriVBBK4Af/6CTlrTgIIQLdMZ5k/GaYW6HV7d67d7sSY/8ZnB2JIAgcDE5RFAvO+bzb7b6wI6CVQBQNbCFOWpwbNwhs79ye53n22Ov1h0wDyglE0agphPkNZnMdsCiYXHXhgIXN/5aVffH9/lxlXqUEtoNj5XM85oHy522fyWRyIUQay0SQxPLc9+8WdXMbTAFZZg5k8Jfl8vV8Nzih3W4/NxofzmESK80sO41U5q5lQK7+J9lCZGf9/mFqR6NR07LM7zBtsPC5joVaBrD6Sxqx33FdcAL5cM5mZKfp6XWd/8EEoijAMWOevFQ+ZnnOyi1CIh4xyI5JIAhGnhCMqHRWk/E5U8SWr0PbF4Zf9zJRqYEoinDeUwreBPn3RcFnVcI7hPF4fAnRXhELuFxAD2dVerCqHhZCODJ40un0fHYEOp3OE4YnJNLEPK4Qny7oetevcgtAoc3eGFSyq/6vZMA0zUSIHA9wNwyDh7WodGEYZa9wqXg1Gq8/qnz21gESIefmA3sDcF54t7e9x8p7hx6kogI2IgjpCpcLHMkZUwpY+ttUOzBOD3VKhUpYngiqhEqVTbdy1lZC3/dJC/FqwpObOn/ZN5Qrp1IzYpvjw1t1jgjsSjNmClBKAGc6QXD8mA1duPv8wjCkvS9btmrhUmWAjlRCo2UZg/1e+bX0HTLVeZUdDWuKoawN9Gq2e5/EB/qJAXTBXLluKCdAYkSAhOwqMea5Va5eVXzaCRBQoqfSav2dQOFJM2Ya0EpgJUbahj/FiIZDtpb4jkqgfMDg9zRuixGlVlt8a1ia/qUY8zwd/hbjR1TK1VuTjvg28zFNyMqYkE1iTFPTJVtXfGtoMyBxh59LYsSWUK8ngSo1ql1oM0BYibGg9mrTJxq6XyzfgP4t6GtIfqS+X/wC4l9aLj7Viy8AAAAASUVORK5CYII=" alt="甜點" class="me-8">甜點</button>
                 </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"><img
+                <li><button class="fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"><img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKPSURBVHgB7VZdbtNAEJ61g4T4EeEEhBv4BpgblBNgTtDwEKOIhyRPEXYlpydoe4KWE9CeAB/B3MBSC6pUb5Zv7DUJidfZtOkL9JOiie3xfPPvJXrA/w5Bd8B0Ou25rus7jvNCKdlTSnTb37g5DMPP6fKdDm2BJBl1pXz+Xim1JwR5kCWhUnPiWMSGcJR6xOLD1g4wcVE86Uvp7INMk5aPMsgUjmSuKzIiJ296fz6f+3AuaHq20YEkibyioFP8RYqZVZ0LIc4uL3+eTCaTnCwQRRHnJtjagSiaBiA/4v8gR+1EPww/XdAOYXRAR35UXakZiD/SLYGMvYINSLWWMcf0kk47k48Hg9uTa+i+4T6xcAA1C6iqeQbyCd0dnpYp2TiAjh1V0unTTqBKB6SUP2iTA4ielXX0g6/UgjiO/SSZ9tp0tL0u2xsOh9nq87UmdBx6U824ODcZrRpUJIjMLwqXG+ulSXeTvTUH0Cg97lhqqBfj4CCaoUH3tU6OxTSmFoC8LuOxlQMYlS57jP3+18hU2/DZKVLpa9Ozq6tfk7ZltNzMpv2xxSp++h2kpTG4GdgspLqZUYaxScfKAY68Jpdy/rapmVYRx1/GtBjlE5Pe2hSgB/JKSm9hSPlbkqPuYlRdiXdtuk17oB49rxqxP4YC+8h5QsowxmEYpm36ayXodDppUdwgC4JHrFzHaMpjGLpoJ459iBFnqya32aKi2ViZwqS+Lgr5ejl6bsrr68ddTIrHcw7dPdzuVc7WTRpafTWNZxhE9G0RjRVyPZqHtucEhnEK+NOpTz0GMl5C1WmIDyi2EVs7AOM+y9X07xqmz3H5AcEvv09yowNIqT5eq5TuGY0lQF25oTL8zugB/zp+A+YmXd8WpPHhAAAAAElFTkSuQmCC" alt="素食" class="me-8">素食</button>
                 </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"><img
+                <li><button class="fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"><img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALKSURBVHgB7VZdTttAEJ7ddVSpfckR3BMQTtBwAsIN0hMEI+wo6kPip4g4yOUEwAkgJ6g5ARwhvUEkEA+119tv7JoKcBrcOGqR+CRrV/vjmZ355ofoDf8YgioiCI72ca1nTLzneV9uaE1IqgghxBYGW8p3W1QDliowmUxaYTi2qQLCsPqdUgWm02lHCLqOYzWkCkgSukgSdV3ljlW2mKZpU1RmRwabKqIyB+pGqQVAtDmRwWgWyy4aU7q3WLK+FKUWcF03ghqdu7t7/+leHGvfGNrGmdnTvSTR27i3R68JgkMnjqlHGwS70rLufcfxn7nH0pp6YHyXNgoB97zn3HLued6j7Cmm08kpfNrFdyaljKhmGJOO6HF4ztNUn/f7A14nyxixYMYDN4eHh+dUM4Ig6OL/Nr4Ij7QRYUjjahgEk13X9bYl/DPngxht2ghMK/+/6npe/6NSVhuhOsdSCy7pIQzl918nW1QzwjBsYuBvAetmcg4ODq6gThHeLamUivK5qF0BrXU7n5mb30oNm1LSbiYR0ZFlfPjpmk2FRLIzGAwiqgkFwRFll2lKMwjcEkKC8KbJbtA63ckyITS65FEpWVs+YPNDeJvnGLm6nuLN+yycCcnC8di5lStgnaRpPAJDO1zPHWcwpzWRJD+6EGjnhBNRrghMLsQlyHhVnHsoumDkaZ6QTOS6/R1aA/wI9AXfKIt/0SmrGwUeilGj0XAwICeI9tHReERrAMIvWDgntz8Jf6SA4zgwj/mcLSJR/I0SzHA0rWeYtnKSaX/VnWd9z/FxMExTM8o2BZ0ppf2XcAKR1Ib7QDSyC4YzyVbdE+U/y1pv7gebhSJamxk3KkUx4dfG8QekVfkJAjsQ3ub1KsKXKsAYj8c2ktSwQqXkmvIVTcyJ7/sv7opWtp6sSKOhdlG0OnlReahsLAQtGEVcRW9vb2dVBL/hv8FPFtJRj0ujnQkAAAAASUVORK5CYII=" alt="咖啡" class="me-8">咖啡</button>
                 </li>
             </ul>
@@ -805,38 +820,134 @@
                 </li>
             </ul>
         </div>
+
     </div>
-    <div class="mt-16 mt-md-32"></div>
-    <nav aria-label="Page navigation ">
-        <ul class="pagination justify-content-end gap-8">
-            <li class="page-item ">
-                <a class="page-link rounded-3 " href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li class="page-item ">
-                <a class="page-link rounded-3 " href="#" aria-label="Previous">
-                    <span aria-hidden="true">&lt;</span>
-                </a>
-            </li>
-            <li class="page-item"><a class="page-link rounded-3" href="#">1</a></li>
-            <li class="page-item"><a class="page-link rounded-3" href="#">2</a></li>
-            <li class="page-item"><a class="page-link rounded-3" href="#">3</a></li>
-            <li class="page-item"><a class="page-link border-0" href="#">...</a></li>
-            <li class="page-item"><a class="page-link rounded-3" href="#">10</a></li>
-            <li class="page-item ">
-                <a class="page-link rounded-3 " href="#" aria-label="Previous">
-                    <span aria-hidden="true">&gt;</span>
-                </a>
-            </li>
-            <li class="page-item">
-                <a class="page-link rounded-3" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</div>        </div>
+</div>
+
+<div class="container py-32 py-lg-80">
+    <div class="d-flex justify-content-between align-items-center ">
+        <h2 class="fs-32" id="novice-teaching">新手教學</h2>
+        <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05" href="#">看更多
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 8 11" fill="none">
+                <path
+                    d="M0.284731 9.00931L0.284731 1.99264C0.28433 1.71563 0.362386 1.44417 0.509864 1.20968C0.657341 0.975188 0.868211 0.787258 1.11806 0.66764C1.41452 0.527612 1.74434 0.47368 2.06995 0.511987C2.39557 0.550295 2.70387 0.679301 2.95973 0.884306L7.20973 4.39264C7.36859 4.53032 7.49599 4.70054 7.58331 4.89177C7.67063 5.08299 7.71582 5.29075 7.71582 5.50097C7.71582 5.71119 7.67063 5.91895 7.58331 6.11018C7.49599 6.30141 7.36859 6.47163 7.20973 6.60931L2.95973 10.1176C2.70387 10.3226 2.39557 10.4517 2.06995 10.49C1.74434 10.5283 1.41452 10.4743 1.11806 10.3343C0.86821 10.2147 0.657341 10.0268 0.509863 9.79227C0.362385 9.55778 0.28433 9.28632 0.284731 9.00931Z"
+                    fill="#8B8B8A" />
+            </svg>
+        </a>
+    </div>
+    <div class="row mt-32">
+        <div class="col-md-2">
+            <ul class="QA-sidebar d-flex d-md-block">
+                <li><button
+                        class="QA fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent actived"
+                        id="QA1">點餐步驟</button>
+                </li>
+                <li><button class="QA fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"
+                        id="QA2">投票 /
+                        舉辦投票</button>
+                </li>
+                <li><button class="QA fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"
+                        id="QA3">許願留言</button>
+                </li>
+                <li><button class="QA fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"
+                        id="QA4">訂單問題</button>
+                </li>
+                <li><button class="QA fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"
+                        id="QA5">常見問題</button>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10 px-24 mt-24 mt-md-0" id="showAns">
+            <ul class="pb-40  border-bottom border-1 border-brand-03">
+                <h3 class="fs-24 text-brand-03">如何點餐（跟團）</h3>
+                <p class="fs-20 mt-24">您可藉由以下三種路徑查看開團中項目</p>
+                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+                <li class="mt-4 fs-20">3. 『點餐月曆』</li>
+            </ul>
+            <ul class="pb-40 mt-40">
+                <h3 class="fs-24 text-brand-03">如何邀請他人點餐（開團）</h3>
+                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
+                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+            </ul>
+        </div>
+        <div id="instructions"></div>
+    </div>
+</div>
+<script>
+    // 獲取所有按鈕元素
+    var buttons = document.querySelectorAll('.btn-active');
+    // var btn2 = document.querySelector('#btn2');
+
+    var showAns = document.getElementById('showAns');
+    var QA1 = document.querySelector('#QA1');
+    var QA2 = document.querySelector('#QA2');
+    var QA3 = document.querySelector('#QA3');
+    var QA4 = document.querySelector('#QA4');
+    var QA5 = document.querySelector('#QA5');
+
+    // 添加點擊事件處理程序
+    buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            // 移除所有按鈕的背景色
+            buttons.forEach(function (btn) {
+                btn.classList.remove('actived');
+            });
+            // 將當前按鈕設置為灰色背景
+            button.classList.add('actived');
+
+            if (button === QA1) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">如何點餐（跟團）</h3>
+                <p class="fs-20 mt-24">您可藉由以下三種路徑查看開團中項目</p>
+                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+                <li class="mt-4 fs-20">3. 『點餐月曆』</li>
+            </ul>
+            <ul class="pb-40 mt-40">
+                <h3 class="fs-24 text-brand-03">如何邀請他人點餐（開團）</h3>
+                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
+                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+            </ul>`
+            } else if (button === QA2) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">我想投票</h3>
+                <p class="fs-20 mt-24">您可藉由以下三種路徑查看投票中的項目</p>
+                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-4 fs-20">2. 『投票』頁面</li>
+                <li class="mt-4 fs-20">3. 『點餐月曆』頁面</li>
+            </ul>
+            <ul class="pb-40 mt-40">
+                <h3 class="fs-24 text-brand-03">我想舉辦投票</h3>
+                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後，點選「舉辦投票」按鈕</p>
+                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
+                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+            </ul>`
+            } else if (button === QA3) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">我想許願</h3>
+                <p class="fs-20 mt-24">店家清單中沒有您的愛店嗎？或是有任何心得感想呢？請至『留言』頁面留下您的想法</p>`
+            } else if (button === QA4) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">如何查看訂單歷史記錄？</h3>
+                <p class="fs-20 mt-24">至『首頁』上方點選『訂單』可查看跟團中訂單以及歷史訂單</p>
+                </ul>
+                <ul class="pb-40 mt-40">
+                <h3 class="fs-24 text-brand-03">如何取消或修改已經下單的訂單？</h3>
+                <li class="fs-20 mt-20">1. 至『首頁』上方點選『訂單』即可看到『修改訂單』</li>
+                <li class="mt-4 fs-20">2. 請注意 : 僅於點餐期限截止前仍可取消 or 修改已送出的內容，截止後恕不異動</li>
+            </ul>
+                `
+            } else if (button === QA5) {
+                showAns.innerHTML = `<ul class="pb-40">
+                <h3 class="fs-24 text-brand-03">我想發問</h3>
+                <p class="fs-20 mt-24">直接連結到專頁</p>`
+            }
+        });
+    });
+</script>        </div>
         <div class="layout-right d-none d-lg-block"></div>
       </div>
       <!-- feedback -->
@@ -2467,137 +2578,6 @@
         </div>
     </div>
 </div>
-        <div class="layout-content">
-          <!-- novice Teaching -->
-          <div class="container py-32 py-lg-80">
-    <div class="d-flex justify-content-between align-items-center ">
-        <h2 class="fs-32" id="novice-teaching">新手教學</h2>
-        <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05" href="#">看更多
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 8 11" fill="none">
-                <path
-                    d="M0.284731 9.00931L0.284731 1.99264C0.28433 1.71563 0.362386 1.44417 0.509864 1.20968C0.657341 0.975188 0.868211 0.787258 1.11806 0.66764C1.41452 0.527612 1.74434 0.47368 2.06995 0.511987C2.39557 0.550295 2.70387 0.679301 2.95973 0.884306L7.20973 4.39264C7.36859 4.53032 7.49599 4.70054 7.58331 4.89177C7.67063 5.08299 7.71582 5.29075 7.71582 5.50097C7.71582 5.71119 7.67063 5.91895 7.58331 6.11018C7.49599 6.30141 7.36859 6.47163 7.20973 6.60931L2.95973 10.1176C2.70387 10.3226 2.39557 10.4517 2.06995 10.49C1.74434 10.5283 1.41452 10.4743 1.11806 10.3343C0.86821 10.2147 0.657341 10.0268 0.509863 9.79227C0.362385 9.55778 0.28433 9.28632 0.284731 9.00931Z"
-                    fill="#8B8B8A" />
-            </svg>
-        </a>
-    </div>
-    <div class="row mt-32">
-        <div class="col-md-2">
-            <ul class="x-slide d-flex d-md-block">
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent actived"
-                        id="QA1">點餐步驟</button>
-                </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"
-                        id="QA2">投票 /
-                        舉辦投票</button>
-                </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"
-                        id="QA3">許願留言</button>
-                </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"
-                        id="QA4">訂單問題</button>
-                </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent"
-                        id="QA5">常見問題</button>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-10 px-24 mt-24 mt-md-0" id="showAns">
-            <ul class="pb-40  border-bottom border-1 border-brand-03">
-                <h3 class="fs-24 text-brand-03">如何點餐（跟團）</h3>
-                <p class="fs-20 mt-24">您可藉由以下三種路徑查看開團中項目</p>
-                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
-                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
-                <li class="mt-4 fs-20">3. 『點餐月曆』</li>
-            </ul>
-            <ul class="pb-40 mt-40">
-                <h3 class="fs-24 text-brand-03">如何邀請他人點餐（開團）</h3>
-                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
-                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
-                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
-            </ul>
-        </div>
-        <div id="instructions"></div>
-    </div>
-</div>
-<script>
-    // 獲取所有按鈕元素
-    var buttons = document.querySelectorAll('.btn-active');
-    // var btn2 = document.querySelector('#btn2');
-
-    var showAns = document.getElementById('showAns');
-    var QA1 = document.querySelector('#QA1');
-    var QA2 = document.querySelector('#QA2');
-    var QA3 = document.querySelector('#QA3');
-    var QA4 = document.querySelector('#QA4');
-    var QA5 = document.querySelector('#QA5');
-
-    // 添加點擊事件處理程序
-    buttons.forEach(function (button) {
-        button.addEventListener('click', function () {
-            // 移除所有按鈕的背景色
-            buttons.forEach(function (btn) {
-                btn.classList.remove('actived');
-            });
-            // 將當前按鈕設置為灰色背景
-            button.classList.add('actived');
-
-            if (button === QA1) {
-                showAns.innerHTML = `<ul class="pb-40">
-                <h3 class="fs-24 text-brand-03">如何點餐（跟團）</h3>
-                <p class="fs-20 mt-24">您可藉由以下三種路徑查看開團中項目</p>
-                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
-                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
-                <li class="mt-4 fs-20">3. 『點餐月曆』</li>
-            </ul>
-            <ul class="pb-40 mt-40">
-                <h3 class="fs-24 text-brand-03">如何邀請他人點餐（開團）</h3>
-                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
-                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
-                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
-            </ul>`
-            } else if (button === QA2) {
-                showAns.innerHTML = `<ul class="pb-40">
-                <h3 class="fs-24 text-brand-03">我想投票</h3>
-                <p class="fs-20 mt-24">您可藉由以下三種路徑查看投票中的項目</p>
-                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
-                <li class="mt-4 fs-20">2. 『投票』頁面</li>
-                <li class="mt-4 fs-20">3. 『點餐月曆』頁面</li>
-            </ul>
-            <ul class="pb-40 mt-40">
-                <h3 class="fs-24 text-brand-03">我想舉辦投票</h3>
-                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後，點選「舉辦投票」按鈕</p>
-                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
-                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
-            </ul>`
-            } else if (button === QA3) {
-                showAns.innerHTML = `<ul class="pb-40">
-                <h3 class="fs-24 text-brand-03">我想許願</h3>
-                <p class="fs-20 mt-24">店家清單中沒有您的愛店嗎？或是有任何心得感想呢？請至『留言』頁面留下您的想法</p>`
-            } else if (button === QA4) {
-                showAns.innerHTML = `<ul class="pb-40">
-                <h3 class="fs-24 text-brand-03">如何查看訂單歷史記錄？</h3>
-                <p class="fs-20 mt-24">至『首頁』上方點選『訂單』可查看跟團中訂單以及歷史訂單</p>
-                </ul>
-                <ul class="pb-40 mt-40">
-                <h3 class="fs-24 text-brand-03">如何取消或修改已經下單的訂單？</h3>
-                <li class="fs-20 mt-20">1. 至『首頁』上方點選『訂單』即可看到『修改訂單』</li>
-                <li class="mt-4 fs-20">2. 請注意 : 僅於點餐期限截止前仍可取消 or 修改已送出的內容，截止後恕不異動</li>
-            </ul>
-                `
-            } else if (button === QA5) {
-                showAns.innerHTML = `<ul class="pb-40">
-                <h3 class="fs-24 text-brand-03">我想發問</h3>
-                <p class="fs-20 mt-24">直接連結到專頁</p>`
-            }
-        });
-    });
-</script>        </div>
-
         <!-- notification -->
         <a class="position-fixed z-1 d-block btn-notification notification-hover" data-bs-toggle="collapse" href="#collapseNotification" role="button"
     aria-expanded="false" aria-controls="collapseNotification">
@@ -2708,7 +2688,6 @@
                 });
               });
             </script>
-            >>>>>>> 51f5036bebd811385de48c839878d1324f45dc65
 </body>
 
 </html>
