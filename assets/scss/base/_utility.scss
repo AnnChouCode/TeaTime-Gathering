@@ -35,3 +35,54 @@ $utilities: map-merge($utilities,
     }
   }
 }
+
+/* CUSTOM 圖片取代文字技巧 */
+.pictures-replace-text{
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/* CUSTOM 圖片取代文字技巧 END*/
+
+/* CUSTOM weight、height */
+.height-400{
+  height: 400px;
+}
+.height-618 {
+  height: 618px;
+}
+.width-32{
+  height: 32px;
+}
+.max-width-1296{
+  max-width: 1296px;
+}
+/* CUSTOM weight、height END */
+
+/*CUSTOM border-radius */
+.border-radius-16161640 {
+  border-radius: 16px 16px 16px 40px;
+}
+.border-radius-16164016 {
+  border-radius: 16px 16px 40px 16px;
+}
+.border-radius-80804040 {
+  border-radius: 80px 80px 40px 40px;
+}
+/* CUSTOM border-radius END*/
+
+/* CUSTOM 文字 */
+// 文字 陰影
+.custom-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+// 文字 不斷行
+.no-wrap-text {
+  white-space: nowrap;
+}
+
+.word-break-keep-all{
+  word-break: keep-all;
+}
+/* CUSTOM 文字 END*/
