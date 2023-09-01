@@ -132,7 +132,7 @@
                             <input class="remember-checkbox" type="checkbox" id="remember-check" name="remember-me">
                             <span class="remember-checkmark"></span>
                         </label>
-                        <a href="#" class="text-brand-01 fw-medium lh-sm">忘記密碼？</a>
+                        <a href="reset-password.html" class="text-brand-01 fw-medium lh-sm btn-reset-password">忘記密碼？</a>
                     </div>
                     <!-- submit -->
                     <button type="submit"
@@ -174,7 +174,7 @@
                             type="password" id="form-password" name="form-password" placeholder="請輸入密碼"
                             aria-describedby="form-password" required>
                         <div class="invalid-feedback ms-16">
-                            電子郵件帳號或密碼輸入錯誤
+                            電子信箱帳號或密碼輸入錯誤
                         </div>
                     </div>
                     <!-- option -->
@@ -183,7 +183,7 @@
                             <input class="remember-checkbox" type="checkbox" id="remember-checkme" name="remember-me">
                             <span class="remember-checkmark"></span>
                         </label>
-                        <a href="#" class="text-brand-01 fw-medium lh-sm">忘記密碼？</a>
+                        <a href="reset-password.html" class="text-brand-01 fw-medium lh-sm btn-reset-password">忘記密碼？</a>
                     </div>
                     <!-- submit -->
                     <button type="submit"
@@ -266,3 +266,27 @@
         </div>
     </div>
 </div>
+
+
+<script> //參考 Billy
+    const buttonLogin = document.querySelectorAll('.btn-login');
+    const buttonOffcavasList = document.querySelectorAll('.offcanvas-list a');
+
+    buttonLogin.forEach(btnType => {
+        btnType.addEventListener('click', () => {
+            buttonLogin.forEach(btn => {
+                btn.classList.remove('active');
+            })
+            btnType.classList.add('active');
+        })
+    })
+
+    buttonOffcavasList.forEach(btnType => {
+        btnType.addEventListener('click', () => {
+            buttonOffcavasList.forEach(btn => {
+                btn.classList.remove('nav-offcanvas-active');
+            })
+            btnType.classList.add('nav-offcanvas-active');
+        })
+    })
+</script>

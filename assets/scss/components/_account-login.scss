@@ -16,11 +16,6 @@
   &:hover {
     background-color: $bg-2;
   }
-
-  &:active {
-    background-color: $brand-02;
-    color: white;
-  }
 }
 
 /* custom input - account & password ==========
@@ -120,4 +115,8 @@
   .modal-dialog {
     margin: 0 auto;
   }
+}
+
+.btn-reset-password:hover{
+  text-decoration: underline;
 }
