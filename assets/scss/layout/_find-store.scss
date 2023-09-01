@@ -1,0 +1,39 @@
+.x-slide-btn {
+    @media (max-width: 767.98px) {
+        white-space: nowrap;
+        margin-right: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            margin-right: 0 !important;
+        }
+    }
+}
+
+.page-link {
+    align-items: center;
+    align-self: center;
+    &:hover {
+        background-color: $brand-01;
+        color: white;
+    }
+    &:focus {
+        border: 0;
+        box-shadow: none;
+        background-color: $brand-01;
+        color: white;
+    }
+}
+
+// 區塊位移
+@media (max-width: 767.98px) {
+    .find-store {
+        .select-bar {
+            transform: translateY(96px);
+        }
+        .x-slide {
+            transform: translateY(-80px);
+        }
+    }
+}

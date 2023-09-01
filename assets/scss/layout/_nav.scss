@@ -1,13 +1,13 @@
-.nav{
+.nav {
   &-logo {
     left: 12px;
-  
+
     @include media-breakpoint-up(lg) {
       transform: translate(-50%, -50%) !important;
       top: 50%;
       left: 50%;
     }
-  
+
     a {
       display: block;
       background-image: url(../images/logo/logo-teatime.svg);
@@ -17,7 +17,7 @@
       text-indent: 101%;
       white-space: nowrap;
       overflow: hidden;
-  
+
       @include media-breakpoint-up(xl) {
         width: 248px;
         height: 40px;
@@ -25,15 +25,15 @@
     }
   }
 
-  &-list{
-    color:$gray-01;
-  
-    &:hover{
-      color:$brand-03;
+  &-list {
+    color: $gray-01;
+
+    &:hover {
+      color: $brand-03;
     }
   }
 
-  &-icon-hover{
+  &-icon-hover {
     position: relative;
     display: inline-block;
 
@@ -68,10 +68,15 @@
     overflow-y: unset;
   }
 
-  &-list a:hover {
-    background-color: $brand-04;
-    border-radius: 16px;
-    color: $brand-03;
-  }
+  // &-list a:hover {
+  //   background-color: $brand-04;
+  //   border-radius: 16px;
+  //   color: $brand-03;
+  // }
 }
 
+.nav-offcanvas-active {
+  background-color: $brand-04;
+  border-radius: 16px;
+  color: $brand-03;
+}

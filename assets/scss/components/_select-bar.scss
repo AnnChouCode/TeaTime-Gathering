@@ -1,0 +1,18 @@
+.select-bar {
+    border-radius: 40px;
+}
+
+.select-bar-link {
+    border-radius: 40px;
+    transition: all 0.3s;
+    background-color: $brand-05;
+
+    &:hover {
+        background-color: #fff;
+    }
+
+    &:active {
+        background-color: $brand-02;
+        color: white !important;
+    }
+}

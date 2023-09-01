@@ -3,51 +3,60 @@ img {
   height: auto;
 }
 
-html, body {
+html,
+body {
   font-family: 'Noto Sans TC', sans-serif;
 }
 
-.container{
+.container {
   max-width: 100%; //cover BS default
-  width:100%;
-  padding:0 12px;
+  width: 100%;
+  padding: 0 12px;
 
-  @include media-breakpoint-up(lg){ 
-    margin:0 auto;
-    padding:0;     
+  @include media-breakpoint-up(lg) {
+    margin: 0 auto;
+    padding: 0;
   }
 }
 
 .border-radius-8 {
   border-radius: 0.5rem; // 8
 }
+
 .border-radius-16 {
   border-radius: 1rem; // 16
 }
 .border-radius-20 {
   border-radius: 1.25rem; // 20
 }
+
 .border-radius-24 {
   border-radius: 1.5rem; // 24
 }
+
 .border-radius-28 {
   border-radius: 1.75rem; // 28
 }
 .border-radius-36 {
   border-radius: 2.25rem; // 36
 }
+
 .border-radius-40 {
   border-radius: 2.5rem; // 40
 }
+
 .border-radius-48 {
   border-radius: 3rem; // 48
 }
+
 .border-radius-64 {
   border-radius: 4rem; // 64
 }
+
 .border-radius-80 {
   border-radius: 5rem; // 80
 }
+
 .border-radius-300 {
   border-radius: 18.75rem; // 300
 }
