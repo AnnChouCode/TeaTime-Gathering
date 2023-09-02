@@ -8,6 +8,8 @@
   <title>揪團下午茶｜共享美味，打造回憶</title>
   <!-- Favicon -->
   <link rel="icon" href="../assets/images/logo/logo-favicon.png" type="image/x-icon" />
+  <!-- Swiper Css CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
   <!-- Open Graph Tag -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="揪團下午茶">
@@ -33,6 +35,12 @@
   <%- include('./layout/nav'); -%>
     <div class="container">
     </div>
+
+    <div class="layout-content">
+      <!-- novice Teaching -->
+      <%- include('./layout/banner'); -%>
+    </div>
+
     <!-- tea-calendar -->
     <%- include('./layout/tea-calendar'); -%>
 
@@ -43,8 +51,6 @@
           <%- include('./layout/navigation-menu'); -%>
         </div>
         <div class="layout-content">
-          <!-- 開啟以下註解方便了解首頁內容區塊，後續版本可刪 -->
-          <!-- <%- include('./layout/container-lorem.ejs'); -%> -->
           <!-- find-store -->
           <%- include('./layout/find-store'); -%>
         </div>

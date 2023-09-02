@@ -311,6 +311,7 @@ $brand-02: #fd909f !default;
 $brand-03: #bfa373 !default;
 $brand-04: #fef7e7 !default;
 $brand-05: #fdf1ef !default;
+$brand-06: rgb(253, 243, 239) !default;
 $white: #ffffff !default;
 $bg-1: #fffbf3 !default;
 $bg-2: #fffaf9 !default;
@@ -337,6 +338,7 @@ $theme-colors: (
   "brand-03": $brand-03,
   "brand-04": $brand-04,
   "brand-05": $brand-05,
+  "brand-06": $brand-06,
   "white": $white,
   "bg-1": $bg-1,
   "bg-2": $bg-2,
@@ -458,10 +460,14 @@ $spacers: (
   // 60
   64: $spacer * 4,
   // 64
+  76: $spacer * 4.75,
+  // 76
   80: $spacer * 5,
   // 80
   82: $spacer * 5.125,
   // 82
+  104: $spacer * 6.5,
+  // 104
   312: $spacer * 19.5,
   // 312
 ) !default;
