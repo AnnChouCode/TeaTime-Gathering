@@ -30,6 +30,10 @@
         width: 100%;
 
         @include media-breakpoint-up(md) {
+            max-width: 350px;
+        }
+
+        @include media-breakpoint-up(lg) {
             max-width: 306px;
         }
     }
