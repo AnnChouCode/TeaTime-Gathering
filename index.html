@@ -29,8 +29,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- ICONS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-b741b32b.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-2675d0f2.css">
+  <!-- AOS EFFECT -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-55b6d486.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-fd7101cd.css">
 </head>
 
 <body class="pt-64 pt-md-82">
@@ -654,7 +656,7 @@
     </div>
 
     <!-- tea-calendar -->
-    <div class="tea-calendar bg-bg-2 py-32 py-md-80" id="tea-calendar">
+    <div class="tea-calendar bg-bg-2 py-32 py-md-80" id="tea-calendar" data-aos="fade-up">
     <div class="tea-container d-flex flex-column  container">
         <div class="d-flex justify-content-between align-items-center mb-12 mb-md-32">
             <h2 class="fs-24 fs-md-32 text-gray-01 fw-bold lh-sm">午茶行事曆</h2>
@@ -679,10 +681,11 @@
                 </li>
             </ul>
         </div>
-        <div class="row gap-14 gap-lg-24 justify-content-md-between ">
-            <div
-                class="event-rounded w-100 col-md-6 col-lg-3 bg-white d-flex flex-md-column py-14 py-lg-16 align-items-center justify-content-center ">
-                <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 " src="/TeaTime-Gathering/assets/store-02-s-343f1fc8.jpg" alt="">
+        <div class="row gap-14 gap-lg-24 justify-content-md-around justify-content-xxl-start me-0 ms-0">
+            <div class="event-rounded w-100 col-md-6 col-lg-3 bg-white d-flex flex-md-column py-14 py-lg-16 align-items-center justify-content-center"
+                data-aos="flip-left" data-aos="flip-left" data-aos-delay="400">
+                <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 cursor-pointer"
+                    src="/TeaTime-Gathering/assets/store-02-s-343f1fc8.jpg" alt="">
                 <div class="d-flex flex-column justify-content-between w-100 pe-12 pe-md-0 pt-12 pt-md-0">
                     <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16 flex-grow-1 ">
                         <p class="fs-20 fs-xl-24 fw-bold lh-sm text-brand-03">呆呆亭</p>
@@ -717,9 +720,10 @@
                     </div>
                 </div>
             </div>
-            <div
-                class="event-rounded w-100 col-md-6 col-lg-3 bg-white d-flex flex-md-column align-items-center justify-content-center  py-14 py-lg-16">
-                <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 " src="/TeaTime-Gathering/assets/store-03-s-d1df3769.jpg" alt="">
+            <div class="event-rounded w-100 col-md-6 col-lg-3 bg-white d-flex flex-md-column align-items-center justify-content-center  py-14 py-lg-16"
+                data-aos="flip-left" data-aos-delay="500">
+                <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 cursor-pointer"
+                    src="/TeaTime-Gathering/assets/store-03-s-d1df3769.jpg" alt="">
                 <div class="d-flex flex-column justify-content-between w-100 pe-12 pe-md-0 pt-12 pt-md-0">
                     <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16 flex-grow-1 ">
                         <p class="fs-20 fs-xl-24 fw-bold lh-sm text-brand-03 flex-grow-1 ">Fruit Fusion</p>
@@ -754,9 +758,10 @@
                     </div>
                 </div>
             </div>
-            <div
-                class="event-rounded w-100 col-md-6 col-lg-3 bg-white d-flex flex-md-column py-14 py-lg-16 align-items-center justify-content-center ">
-                <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 " src="/TeaTime-Gathering/assets/store-04-s-b6dab2de.jpg" alt="">
+            <div class="event-rounded w-100 col-md-6 col-lg-3 bg-white d-flex flex-md-column py-14 py-lg-16 align-items-center justify-content-center"
+                data-aos="flip-left" data-aos-delay="600">
+                <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 cursor-pointer"
+                    src="/TeaTime-Gathering/assets/store-04-s-b6dab2de.jpg" alt="">
                 <div class="d-flex flex-column justify-content-between w-100 pe-12 pe-md-0 pt-12 pt-md-0">
                     <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16 flex-grow-1 ">
                         <p class="fs-20 fs-xl-24 fw-bold lh-sm text-brand-03">阿婆米餅</p>
@@ -791,9 +796,10 @@
                     </div>
                 </div>
             </div>
-            <div
-                class="event-rounded w-100 col-md-6 col-lg-3  py-14 py-lg-16 bg-white d-flex flex-md-column align-items-center justify-content-center ">
-                <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 " src="/TeaTime-Gathering/assets/store-06-s-74449e5f.jpg" alt="">
+            <div class="event-rounded w-100 col-md-6 col-lg-3  py-14 py-lg-16 bg-white d-flex flex-md-column align-items-center justify-content-center"
+                data-aos="flip-left" data-aos-delay="700">
+                <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 cursor-pointer"
+                    src="/TeaTime-Gathering/assets/store-06-s-74449e5f.jpg" alt="">
                 <div class="d-flex flex-column justify-content-between w-100 pe-12 pe-md-0 pt-12 pt-md-0">
                     <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16 flex-grow-1 ">
                         <p class="fs-20 fs-xl-24 fw-bold lh-sm text-brand-03">Flavorful oasis</p>
@@ -1175,11 +1181,12 @@
       <!-- feedback -->
 
 <div class="d-lg-flex" id="feedback">
-    <div class="evaluate container-fluid bg-bg-1 position-relative me-md-24 pt-24 pb-24 pt-lg-80 pb-lg-80 pe-xl-80">
+    <div class="evaluate container-fluid bg-bg-1 position-relative me-md-24 pt-24 pb-24 pt-lg-80 pb-lg-80 pe-xl-80 z-n1"
+        data-aos="fade-right" data-aos-offset="150">
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <div class="evaluate-star d-flex align-items-center position-relative ">
+                    <div class="evaluate-star d-flex align-items-center position-relative">
                         <div class="evaluate-txt">
                             <h3 id="comment" class="mb-24 fs-24 fs-md-32 fw-bold lh-lg">看評價</h3>
                             <p class="fs-16 fs-md-24 mb-16 mb-md-32 text-gray-05">對店家的最新評價</p>
@@ -2473,7 +2480,8 @@
             </div>
         </div>
     </div>
-    <div class="message container-fluid bg-bg-2 mt-16 mt-lg-80 pt-24 pb-24 pt-lg-80 pb-lg-80 ps-12 ps-xl-80">
+    <div class="message container-fluid bg-bg-2 mt-16 mt-lg-80 pt-24 pb-24 pt-lg-80 pb-lg-80 ps-12 ps-xl-80"
+        data-aos="fade-left" data-aos-delay="800">
         <div class="container">
             <div class="row">
                 <div class="col">
@@ -3041,6 +3049,8 @@
                 });
               });
             </script>
+            <!-- AOS EFFECT -->
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 
 </html>
