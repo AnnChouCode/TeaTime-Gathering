@@ -113,12 +113,18 @@
   color: #c2c1bd;
   opacity: 1;
   background: rgba(0, 0, 0, 0.2);
-  padding: 5px 10px;
+  @include media-breakpoint-down(xl){
+    width: 20px;
+    height: 4px;
+  }
 }
 .swiper-pagination-bullet-active {
   color: #fff;
   background: #007aff;
   width: 48px;
   background: var(--brand-02, #fd909f);
+  @include media-breakpoint-down(xl){
+    width: 40px;
+  }
 }
 /*Swiper pagination END*/
