@@ -1,11 +1,15 @@
 import './assets/scss/all.scss';
-import 'bootstrap/dist/js/bootstrap.min.js';
+import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
 
 console.log("Hello world!");
 
-// AOS INIT
-AOS.init({
-    // offset: 180,
-    duration: 800,
-    delay: 500,
-})
+
+// Notification Boostrap Toasts
+const toastTrigger = document.getElementById("notificationToastBtn");
+const toastLiveContent = document.getElementById("notificationToast");
+if (toastTrigger) {
+  toastTrigger.addEventListener("click", function () {
+    let toast = new bootstrap.Toast(toastLiveContent);
+    toast.show();
+  });
+}

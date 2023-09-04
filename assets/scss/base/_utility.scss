@@ -1,8 +1,20 @@
+//Generate utilites for Font Size
 $utilities: map-merge($utilities,
     ("font-size": map-merge(map-get($utilities, "font-size"),
         (responsive: true,
         )),
     ));
+
+//Generate utilites for Cursor
+$utilities: map-merge(
+  $utilities,
+  (
+    "cursor": (
+      property: cursor,
+      values: auto default pointer wait text move help not-allowed
+    ),
+  )
+);
 
 .ms-170 {
   margin-left: 170px;
@@ -87,11 +99,18 @@ $utilities: map-merge($utilities,
 }
 
 // 文字 不斷行
-.no-wrap-text {
-  white-space: nowrap;
-}
-
+// .no-wrap-text {
+//   white-space: nowrap;
+// }
 .word-break-keep-all{
   word-break: keep-all;
 }
+//文字單行省略
+.single-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* CUSTOM 文字 END*/
+
