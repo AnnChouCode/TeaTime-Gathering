@@ -31,8 +31,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- AOS EFFECT -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-05c3b11e.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-76c46429.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-6ea7e316.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-35765429.css">
 </head>
 
 <body class="pt-64 pt-md-82">
@@ -133,7 +133,7 @@
 <!-- nav account modal -->
 <div class="modal fade account-login-modal" id="accountModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true" data-backdrop="false">
-    <div class="modal-dialog modal-dialog-centered account-modal-dialog">
+    <div class="modal-dialog modal-dialog-centered account-modal-dialog border-radius-24">
         <div class="d-flex modal-content border-radius-24">
             <div class="modal-header py-lg-24 px-lg-40 p-16 border-0">
                 <h5 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">登入</h5>
@@ -144,7 +144,7 @@
                 <!-- switch user & admin login -->
                 <ul class="d-flex p-8 rounded-pill bg-brand-05">
                     <li class="w-50"><a
-                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-login active"
+                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-login"
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
                             class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-login"
@@ -155,11 +155,11 @@
                     <div class="mb-lg-20 mb-12">
                         <input
                             class="form-control mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
-                            type="email" id="nav-account" name="nav-account" placeholder="請輸入信箱"
-                            aria-describedby="nav-account" required>
+                            type="email" id="form-account" name="form-account" placeholder="請輸入信箱"
+                            aria-describedby="form-account" required>
                         <input class="form-control p-16 border border-2 border-gray-04 border-radius-28 login-bar "
-                            type="password" id="nav-password" name="nav-password" placeholder="請輸入密碼"
-                            aria-describedby="nav-password" required>
+                            type="password" id="form-password" name="form-password" placeholder="請輸入密碼"
+                            aria-describedby="form-password" required>
                         <div class="invalid-feedback ms-16">
                             電子郵件帳號或密碼輸入錯誤
                         </div>
@@ -184,7 +184,7 @@
 <!-- nav account modal in collapse -->
 <div class="modal fade account-login-modal" id="accountCollapseModal" tabindex="-1" aria-labelledby="exampleModalLabel"
     aria-hidden="true" data-backdrop="false">
-    <div class="modal-dialog modal-dialog-centered account-modal-dialog">
+    <div class="modal-dialog modal-dialog-centered account-modal-dialog border-radius-24">
         <div class="modal-content d-flex border-radius-24">
             <div class="modal-header py-lg-24 px-lg-40 p-16 border-0">
                 <h5 class="modal-title fs-lg-24 fs-20 fw-lg-bold lh-sm fw-medium ">登入</h5>
@@ -195,7 +195,7 @@
                 <!-- switch user & admin login -->
                 <ul class="d-flex p-8 rounded-pill bg-brand-05">
                     <li class="w-50"><a
-                            class="d-block py-lg-12 py-10 text-center fw-medium lh-sm rounded-pill btn-login active"
+                            class="d-block py-lg-12 py-10 text-center fw-medium lh-sm rounded-pill btn-login"
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
                             class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-login"
@@ -235,7 +235,7 @@
 <!-- notification modal in collapse -->
 <div class="modal fade account-login-modal" id="notificationCollapseModal" tabindex="-1"
     aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
-    <div class="modal-dialog modal-dialog-centered account-modal-dialog">
+    <div class="modal-dialog modal-dialog-centered account-modal-dialog border-radius-24">
         <div class="modal-content overflow-hidden modal-sm-mx12 border-radius-24">
             <div class="d-flex justify-content-between align-items-center py-md-20 px-md-24 p-16 bg-brand-05">
                 <span class="fs-md-24 fs-20 fw-bold lh-sm ">通知</span>
@@ -327,7 +327,9 @@
             btnType.classList.add('nav-offcanvas-active');
         })
     })
-</script>
+</script>    <div class="container">
+    </div>
+
     <div class="layout-content">
       <!-- novice Teaching -->
       <div class="container mb-48 mb-md-104 mt-40 mt-md-76">
@@ -663,8 +665,8 @@
 </script>    </div>
 
     <!-- tea-calendar -->
-    <div class="tea-calendar py-32 py-md-80 bg-bg-2" id="tea-calendar" data-aos="fade-up">
-    <div class="d-flex flex-column container">
+    <div class="tea-calendar bg-bg-2 py-32 py-md-80" id="tea-calendar" data-aos="fade-up">
+    <div class="tea-container d-flex flex-column  container">
         <div class="d-flex justify-content-between align-items-center mb-12 mb-md-32">
             <h2 class="fs-24 fs-md-32 text-gray-01 fw-bold lh-sm">午茶行事曆</h2>
             <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05" href="#">看更多
@@ -678,26 +680,25 @@
         </div>
         <div class="d-md-flex justify-content-md-between align-items-center flex-wrap mb-16 mb-md-40">
             <p class="fs-16 fs-md-24 mb-24 mb-md-0 text-gray-05">所有午茶活動總覽，一起幸福肥</p>
-            <ul class="d-flex text-center bg-brand-05 border-radius-40">
+            <ul class="tea-type d-flex text-center bg-brand-05">
                 <li class="test1 text-center w-100 pt-8 pb-8 ps-8">
                     <button type="button"
-                        class="type-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 active border-0 border-radius-40">開團中</button>
+                        class="type-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 active border-0">開團中</button>
                 </li>
                 <li class="text-center w-100 pt-8 pb-8 pe-8"><button type="button"
-                        class="type-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 border-0 border-radius-40">投票中</button>
+                        class="type-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 border-0">投票中</button>
                 </li>
             </ul>
         </div>
-        <div class="row justify-content-md-around justify-content-xl-start gy-12">
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <div class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white"
-                data-aos="flip-left" data-aos="flip-left" data-aos-delay="400">
+        <div class="row gap-14 gap-lg-24 justify-content-md-around justify-content-xxl-start me-0 ms-0">
+            <div class="event-rounded w-100 col-md-6 col-lg-3 bg-white d-flex flex-md-column py-14 py-lg-16 align-items-center justify-content-center"
+                data-aos="flip-left" data-aos-delay="400">
                 <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 cursor-pointer"
-                    src="/TeaTime-Gathering/assets/store-02-s-343f1fc8.jpg" alt="calendar-img">
-                <div class="d-flex flex-column justify-content-between w-100 ">
+                    src="/TeaTime-Gathering/assets/store-02-s-343f1fc8.jpg" alt="">
+                <div class="d-flex flex-column justify-content-between w-100 pe-12 pe-md-0 pt-12 pt-md-0">
                     <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16 flex-grow-1 ">
-                        <p class="fs-20 fs-xl-24 fw-bold lh-sm text-brand-03 single-ellipsis">呆呆亭</p>
-                        <div class="d-flex align-items-center ms-8">
+                        <p class="fs-20 fs-xl-24 fw-bold lh-sm text-brand-03">呆呆亭</p>
+                        <div class="d-flex align-items-center">
                             <svg class="me-4 me-md-8" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
                                 viewBox="0 0 26 26" fill="none">
                                 <path
@@ -728,124 +729,117 @@
                     </div>
                 </div>
             </div>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <div class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white"
-                    data-aos="flip-left" data-aos-delay="500">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 cursor-pointer"
-                        src="/TeaTime-Gathering/assets/store-03-s-d1df3769.jpg" alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16 flex-grow-1 ">
-                            <p class="fs-20 fs-xl-24 fw-bold lh-sm text-brand-03  single-ellipsis text-sm-nowrap">Fruit Fusion</p>
-                            <div class="d-flex align-items-center  ms-8">
-                                <svg class="me-4 me-md-8" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
-                                    viewBox="0 0 26 26" fill="none">
-                                    <path
-                                        d="M1.33325 12.5C1.33325 8.10046 1.33325 5.90013 2.70059 4.53396C4.06675 3.16663 6.26709 3.16663 10.6666 3.16663H15.3333C19.7328 3.16663 21.9331 3.16663 23.2993 4.53396C24.6666 5.90013 24.6666 8.10046 24.6666 12.5V14.8333C24.6666 19.2328 24.6666 21.4331 23.2993 22.7993C21.9331 24.1666 19.7328 24.1666 15.3333 24.1666H10.6666C6.26709 24.1666 4.06675 24.1666 2.70059 22.7993C1.33325 21.4331 1.33325 19.2328 1.33325 14.8333V12.5Z"
-                                        stroke="#1E1E1E" stroke-width="2" />
-                                    <path d="M7.1665 3.16663V1.41663M18.8332 3.16663V1.41663M1.9165 8.99996H24.0832"
-                                        stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
-                                    <path
-                                        d="M20 18.3333C20 18.6428 19.8771 18.9395 19.6583 19.1583C19.4395 19.3771 19.1428 19.5 18.8333 19.5C18.5239 19.5 18.2272 19.3771 18.0084 19.1583C17.7896 18.9395 17.6667 18.6428 17.6667 18.3333C17.6667 18.0239 17.7896 17.7272 18.0084 17.5084C18.2272 17.2896 18.5239 17.1667 18.8333 17.1667C19.1428 17.1667 19.4395 17.2896 19.6583 17.5084C19.8771 17.7272 20 18.0239 20 18.3333ZM20 13.6667C20 13.9761 19.8771 14.2728 19.6583 14.4916C19.4395 14.7104 19.1428 14.8333 18.8333 14.8333C18.5239 14.8333 18.2272 14.7104 18.0084 14.4916C17.7896 14.2728 17.6667 13.9761 17.6667 13.6667C17.6667 13.3572 17.7896 13.0605 18.0084 12.8417C18.2272 12.6229 18.5239 12.5 18.8333 12.5C19.1428 12.5 19.4395 12.6229 19.6583 12.8417C19.8771 13.0605 20 13.3572 20 13.6667ZM14.1667 18.3333C14.1667 18.6428 14.0437 18.9395 13.825 19.1583C13.6062 19.3771 13.3094 19.5 13 19.5C12.6906 19.5 12.3938 19.3771 12.175 19.1583C11.9562 18.9395 11.8333 18.6428 11.8333 18.3333C11.8333 18.0239 11.9562 17.7272 12.175 17.5084C12.3938 17.2896 12.6906 17.1667 13 17.1667C13.3094 17.1667 13.6062 17.2896 13.825 17.5084C14.0437 17.7272 14.1667 18.0239 14.1667 18.3333ZM14.1667 13.6667C14.1667 13.9761 14.0437 14.2728 13.825 14.4916C13.6062 14.7104 13.3094 14.8333 13 14.8333C12.6906 14.8333 12.3938 14.7104 12.175 14.4916C11.9562 14.2728 11.8333 13.9761 11.8333 13.6667C11.8333 13.3572 11.9562 13.0605 12.175 12.8417C12.3938 12.6229 12.6906 12.5 13 12.5C13.3094 12.5 13.6062 12.6229 13.825 12.8417C14.0437 13.0605 14.1667 13.3572 14.1667 13.6667ZM8.33333 18.3333C8.33333 18.6428 8.21042 18.9395 7.99162 19.1583C7.77283 19.3771 7.47609 19.5 7.16667 19.5C6.85725 19.5 6.5605 19.3771 6.34171 19.1583C6.12292 18.9395 6 18.6428 6 18.3333C6 18.0239 6.12292 17.7272 6.34171 17.5084C6.5605 17.2896 6.85725 17.1667 7.16667 17.1667C7.47609 17.1667 7.77283 17.2896 7.99162 17.5084C8.21042 17.7272 8.33333 18.0239 8.33333 18.3333ZM8.33333 13.6667C8.33333 13.9761 8.21042 14.2728 7.99162 14.4916C7.77283 14.7104 7.47609 14.8333 7.16667 14.8333C6.85725 14.8333 6.5605 14.7104 6.34171 14.4916C6.12292 14.2728 6 13.9761 6 13.6667C6 13.3572 6.12292 13.0605 6.34171 12.8417C6.5605 12.6229 6.85725 12.5 7.16667 12.5C7.47609 12.5 7.77283 12.6229 7.99162 12.8417C8.21042 13.0605 8.33333 13.3572 8.33333 13.6667Z"
-                                        fill="#1E1E1E" />
-                                </svg>
-                                <span class="fw-medium lh-sm fs-16 fs-xl-20">08/09</span>
-                            </div>
+            <div class="event-rounded w-100 col-md-6 col-lg-3 bg-white d-flex flex-md-column align-items-center justify-content-center  py-14 py-lg-16"
+                data-aos="flip-left" data-aos-delay="500">
+                <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 cursor-pointer"
+                    src="/TeaTime-Gathering/assets/store-03-s-d1df3769.jpg" alt="">
+                <div class="d-flex flex-column justify-content-between w-100 pe-12 pe-md-0 pt-12 pt-md-0">
+                    <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16 flex-grow-1 ">
+                        <p class="fs-20 fs-xl-24 fw-bold lh-sm text-brand-03 flex-grow-1 ">Fruit Fusion</p>
+                        <div class="d-flex align-items-center ">
+                            <svg class="me-4 me-md-8" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                                viewBox="0 0 26 26" fill="none">
+                                <path
+                                    d="M1.33325 12.5C1.33325 8.10046 1.33325 5.90013 2.70059 4.53396C4.06675 3.16663 6.26709 3.16663 10.6666 3.16663H15.3333C19.7328 3.16663 21.9331 3.16663 23.2993 4.53396C24.6666 5.90013 24.6666 8.10046 24.6666 12.5V14.8333C24.6666 19.2328 24.6666 21.4331 23.2993 22.7993C21.9331 24.1666 19.7328 24.1666 15.3333 24.1666H10.6666C6.26709 24.1666 4.06675 24.1666 2.70059 22.7993C1.33325 21.4331 1.33325 19.2328 1.33325 14.8333V12.5Z"
+                                    stroke="#1E1E1E" stroke-width="2" />
+                                <path d="M7.1665 3.16663V1.41663M18.8332 3.16663V1.41663M1.9165 8.99996H24.0832"
+                                    stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
+                                <path
+                                    d="M20 18.3333C20 18.6428 19.8771 18.9395 19.6583 19.1583C19.4395 19.3771 19.1428 19.5 18.8333 19.5C18.5239 19.5 18.2272 19.3771 18.0084 19.1583C17.7896 18.9395 17.6667 18.6428 17.6667 18.3333C17.6667 18.0239 17.7896 17.7272 18.0084 17.5084C18.2272 17.2896 18.5239 17.1667 18.8333 17.1667C19.1428 17.1667 19.4395 17.2896 19.6583 17.5084C19.8771 17.7272 20 18.0239 20 18.3333ZM20 13.6667C20 13.9761 19.8771 14.2728 19.6583 14.4916C19.4395 14.7104 19.1428 14.8333 18.8333 14.8333C18.5239 14.8333 18.2272 14.7104 18.0084 14.4916C17.7896 14.2728 17.6667 13.9761 17.6667 13.6667C17.6667 13.3572 17.7896 13.0605 18.0084 12.8417C18.2272 12.6229 18.5239 12.5 18.8333 12.5C19.1428 12.5 19.4395 12.6229 19.6583 12.8417C19.8771 13.0605 20 13.3572 20 13.6667ZM14.1667 18.3333C14.1667 18.6428 14.0437 18.9395 13.825 19.1583C13.6062 19.3771 13.3094 19.5 13 19.5C12.6906 19.5 12.3938 19.3771 12.175 19.1583C11.9562 18.9395 11.8333 18.6428 11.8333 18.3333C11.8333 18.0239 11.9562 17.7272 12.175 17.5084C12.3938 17.2896 12.6906 17.1667 13 17.1667C13.3094 17.1667 13.6062 17.2896 13.825 17.5084C14.0437 17.7272 14.1667 18.0239 14.1667 18.3333ZM14.1667 13.6667C14.1667 13.9761 14.0437 14.2728 13.825 14.4916C13.6062 14.7104 13.3094 14.8333 13 14.8333C12.6906 14.8333 12.3938 14.7104 12.175 14.4916C11.9562 14.2728 11.8333 13.9761 11.8333 13.6667C11.8333 13.3572 11.9562 13.0605 12.175 12.8417C12.3938 12.6229 12.6906 12.5 13 12.5C13.3094 12.5 13.6062 12.6229 13.825 12.8417C14.0437 13.0605 14.1667 13.3572 14.1667 13.6667ZM8.33333 18.3333C8.33333 18.6428 8.21042 18.9395 7.99162 19.1583C7.77283 19.3771 7.47609 19.5 7.16667 19.5C6.85725 19.5 6.5605 19.3771 6.34171 19.1583C6.12292 18.9395 6 18.6428 6 18.3333C6 18.0239 6.12292 17.7272 6.34171 17.5084C6.5605 17.2896 6.85725 17.1667 7.16667 17.1667C7.47609 17.1667 7.77283 17.2896 7.99162 17.5084C8.21042 17.7272 8.33333 18.0239 8.33333 18.3333ZM8.33333 13.6667C8.33333 13.9761 8.21042 14.2728 7.99162 14.4916C7.77283 14.7104 7.47609 14.8333 7.16667 14.8333C6.85725 14.8333 6.5605 14.7104 6.34171 14.4916C6.12292 14.2728 6 13.9761 6 13.6667C6 13.3572 6.12292 13.0605 6.34171 12.8417C6.5605 12.6229 6.85725 12.5 7.16667 12.5C7.47609 12.5 7.77283 12.6229 7.99162 12.8417C8.21042 13.0605 8.33333 13.3572 8.33333 13.6667Z"
+                                    fill="#1E1E1E" />
+                            </svg>
+                            <span class="fw-medium lh-sm fs-16 fs-xl-20">08/09</span>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div>
-                                <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
-                                <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                                <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
-                                <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                                <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
-                            </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16">
+                        <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                        <div>
+                            <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                            <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                            <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center mb-12 mb-md-0">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">方雅雯</span>
-                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-12 mb-md-0">
+                        <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                        <span class="fs-16 fs-md-20 lh-sm fw-medium">方雅雯</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <div class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white"
-                    data-aos="flip-left" data-aos-delay="600">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 cursor-pointer"
-                        src="/TeaTime-Gathering/assets/store-04-s-b6dab2de.jpg" alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16 flex-grow-1 ">
-                            <p class="fs-20 fs-xl-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap text-sm-nowrap text-sm-nowrap">阿婆米餅</p>
-                            <div class="d-flex align-items-center  ms-8">
-                                <svg class="me-4 me-md-8" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
-                                    viewBox="0 0 26 26" fill="none">
-                                    <path
-                                        d="M1.33325 12.5C1.33325 8.10046 1.33325 5.90013 2.70059 4.53396C4.06675 3.16663 6.26709 3.16663 10.6666 3.16663H15.3333C19.7328 3.16663 21.9331 3.16663 23.2993 4.53396C24.6666 5.90013 24.6666 8.10046 24.6666 12.5V14.8333C24.6666 19.2328 24.6666 21.4331 23.2993 22.7993C21.9331 24.1666 19.7328 24.1666 15.3333 24.1666H10.6666C6.26709 24.1666 4.06675 24.1666 2.70059 22.7993C1.33325 21.4331 1.33325 19.2328 1.33325 14.8333V12.5Z"
-                                        stroke="#1E1E1E" stroke-width="2" />
-                                    <path d="M7.1665 3.16663V1.41663M18.8332 3.16663V1.41663M1.9165 8.99996H24.0832"
-                                        stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
-                                    <path
-                                        d="M20 18.3333C20 18.6428 19.8771 18.9395 19.6583 19.1583C19.4395 19.3771 19.1428 19.5 18.8333 19.5C18.5239 19.5 18.2272 19.3771 18.0084 19.1583C17.7896 18.9395 17.6667 18.6428 17.6667 18.3333C17.6667 18.0239 17.7896 17.7272 18.0084 17.5084C18.2272 17.2896 18.5239 17.1667 18.8333 17.1667C19.1428 17.1667 19.4395 17.2896 19.6583 17.5084C19.8771 17.7272 20 18.0239 20 18.3333ZM20 13.6667C20 13.9761 19.8771 14.2728 19.6583 14.4916C19.4395 14.7104 19.1428 14.8333 18.8333 14.8333C18.5239 14.8333 18.2272 14.7104 18.0084 14.4916C17.7896 14.2728 17.6667 13.9761 17.6667 13.6667C17.6667 13.3572 17.7896 13.0605 18.0084 12.8417C18.2272 12.6229 18.5239 12.5 18.8333 12.5C19.1428 12.5 19.4395 12.6229 19.6583 12.8417C19.8771 13.0605 20 13.3572 20 13.6667ZM14.1667 18.3333C14.1667 18.6428 14.0437 18.9395 13.825 19.1583C13.6062 19.3771 13.3094 19.5 13 19.5C12.6906 19.5 12.3938 19.3771 12.175 19.1583C11.9562 18.9395 11.8333 18.6428 11.8333 18.3333C11.8333 18.0239 11.9562 17.7272 12.175 17.5084C12.3938 17.2896 12.6906 17.1667 13 17.1667C13.3094 17.1667 13.6062 17.2896 13.825 17.5084C14.0437 17.7272 14.1667 18.0239 14.1667 18.3333ZM14.1667 13.6667C14.1667 13.9761 14.0437 14.2728 13.825 14.4916C13.6062 14.7104 13.3094 14.8333 13 14.8333C12.6906 14.8333 12.3938 14.7104 12.175 14.4916C11.9562 14.2728 11.8333 13.9761 11.8333 13.6667C11.8333 13.3572 11.9562 13.0605 12.175 12.8417C12.3938 12.6229 12.6906 12.5 13 12.5C13.3094 12.5 13.6062 12.6229 13.825 12.8417C14.0437 13.0605 14.1667 13.3572 14.1667 13.6667ZM8.33333 18.3333C8.33333 18.6428 8.21042 18.9395 7.99162 19.1583C7.77283 19.3771 7.47609 19.5 7.16667 19.5C6.85725 19.5 6.5605 19.3771 6.34171 19.1583C6.12292 18.9395 6 18.6428 6 18.3333C6 18.0239 6.12292 17.7272 6.34171 17.5084C6.5605 17.2896 6.85725 17.1667 7.16667 17.1667C7.47609 17.1667 7.77283 17.2896 7.99162 17.5084C8.21042 17.7272 8.33333 18.0239 8.33333 18.3333ZM8.33333 13.6667C8.33333 13.9761 8.21042 14.2728 7.99162 14.4916C7.77283 14.7104 7.47609 14.8333 7.16667 14.8333C6.85725 14.8333 6.5605 14.7104 6.34171 14.4916C6.12292 14.2728 6 13.9761 6 13.6667C6 13.3572 6.12292 13.0605 6.34171 12.8417C6.5605 12.6229 6.85725 12.5 7.16667 12.5C7.47609 12.5 7.77283 12.6229 7.99162 12.8417C8.21042 13.0605 8.33333 13.3572 8.33333 13.6667Z"
-                                        fill="#1E1E1E" />
-                                </svg>
-                                <span class="fw-medium lh-sm fs-16 fs-xl-20">08/10</span>
-                            </div>
+            <div class="event-rounded w-100 col-md-6 col-lg-3 bg-white d-flex flex-md-column py-14 py-lg-16 align-items-center justify-content-center"
+                data-aos="flip-left" data-aos-delay="600">
+                <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 cursor-pointer"
+                    src="/TeaTime-Gathering/assets/store-04-s-b6dab2de.jpg" alt="">
+                <div class="d-flex flex-column justify-content-between w-100 pe-12 pe-md-0 pt-12 pt-md-0">
+                    <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16 flex-grow-1 ">
+                        <p class="fs-20 fs-xl-24 fw-bold lh-sm text-brand-03">阿婆米餅</p>
+                        <div class="d-flex align-items-center ">
+                            <svg class="me-4 me-md-8" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                                viewBox="0 0 26 26" fill="none">
+                                <path
+                                    d="M1.33325 12.5C1.33325 8.10046 1.33325 5.90013 2.70059 4.53396C4.06675 3.16663 6.26709 3.16663 10.6666 3.16663H15.3333C19.7328 3.16663 21.9331 3.16663 23.2993 4.53396C24.6666 5.90013 24.6666 8.10046 24.6666 12.5V14.8333C24.6666 19.2328 24.6666 21.4331 23.2993 22.7993C21.9331 24.1666 19.7328 24.1666 15.3333 24.1666H10.6666C6.26709 24.1666 4.06675 24.1666 2.70059 22.7993C1.33325 21.4331 1.33325 19.2328 1.33325 14.8333V12.5Z"
+                                    stroke="#1E1E1E" stroke-width="2" />
+                                <path d="M7.1665 3.16663V1.41663M18.8332 3.16663V1.41663M1.9165 8.99996H24.0832"
+                                    stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
+                                <path
+                                    d="M20 18.3333C20 18.6428 19.8771 18.9395 19.6583 19.1583C19.4395 19.3771 19.1428 19.5 18.8333 19.5C18.5239 19.5 18.2272 19.3771 18.0084 19.1583C17.7896 18.9395 17.6667 18.6428 17.6667 18.3333C17.6667 18.0239 17.7896 17.7272 18.0084 17.5084C18.2272 17.2896 18.5239 17.1667 18.8333 17.1667C19.1428 17.1667 19.4395 17.2896 19.6583 17.5084C19.8771 17.7272 20 18.0239 20 18.3333ZM20 13.6667C20 13.9761 19.8771 14.2728 19.6583 14.4916C19.4395 14.7104 19.1428 14.8333 18.8333 14.8333C18.5239 14.8333 18.2272 14.7104 18.0084 14.4916C17.7896 14.2728 17.6667 13.9761 17.6667 13.6667C17.6667 13.3572 17.7896 13.0605 18.0084 12.8417C18.2272 12.6229 18.5239 12.5 18.8333 12.5C19.1428 12.5 19.4395 12.6229 19.6583 12.8417C19.8771 13.0605 20 13.3572 20 13.6667ZM14.1667 18.3333C14.1667 18.6428 14.0437 18.9395 13.825 19.1583C13.6062 19.3771 13.3094 19.5 13 19.5C12.6906 19.5 12.3938 19.3771 12.175 19.1583C11.9562 18.9395 11.8333 18.6428 11.8333 18.3333C11.8333 18.0239 11.9562 17.7272 12.175 17.5084C12.3938 17.2896 12.6906 17.1667 13 17.1667C13.3094 17.1667 13.6062 17.2896 13.825 17.5084C14.0437 17.7272 14.1667 18.0239 14.1667 18.3333ZM14.1667 13.6667C14.1667 13.9761 14.0437 14.2728 13.825 14.4916C13.6062 14.7104 13.3094 14.8333 13 14.8333C12.6906 14.8333 12.3938 14.7104 12.175 14.4916C11.9562 14.2728 11.8333 13.9761 11.8333 13.6667C11.8333 13.3572 11.9562 13.0605 12.175 12.8417C12.3938 12.6229 12.6906 12.5 13 12.5C13.3094 12.5 13.6062 12.6229 13.825 12.8417C14.0437 13.0605 14.1667 13.3572 14.1667 13.6667ZM8.33333 18.3333C8.33333 18.6428 8.21042 18.9395 7.99162 19.1583C7.77283 19.3771 7.47609 19.5 7.16667 19.5C6.85725 19.5 6.5605 19.3771 6.34171 19.1583C6.12292 18.9395 6 18.6428 6 18.3333C6 18.0239 6.12292 17.7272 6.34171 17.5084C6.5605 17.2896 6.85725 17.1667 7.16667 17.1667C7.47609 17.1667 7.77283 17.2896 7.99162 17.5084C8.21042 17.7272 8.33333 18.0239 8.33333 18.3333ZM8.33333 13.6667C8.33333 13.9761 8.21042 14.2728 7.99162 14.4916C7.77283 14.7104 7.47609 14.8333 7.16667 14.8333C6.85725 14.8333 6.5605 14.7104 6.34171 14.4916C6.12292 14.2728 6 13.9761 6 13.6667C6 13.3572 6.12292 13.0605 6.34171 12.8417C6.5605 12.6229 6.85725 12.5 7.16667 12.5C7.47609 12.5 7.77283 12.6229 7.99162 12.8417C8.21042 13.0605 8.33333 13.3572 8.33333 13.6667Z"
+                                    fill="#1E1E1E" />
+                            </svg>
+                            <span class="fw-medium lh-sm fs-16 fs-xl-20">08/10</span>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div>
-                                <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
-                                <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                                <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
-                                <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                                <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
-                            </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16">
+                        <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                        <div>
+                            <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                            <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                            <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center mb-12 mb-md-0">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-12 mb-md-0">
+                        <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                        <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <div class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white"
-                    data-aos="flip-left" data-aos-delay="700">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 cursor-pointer"
-                        src="/TeaTime-Gathering/assets/store-06-s-74449e5f.jpg" alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16 flex-grow-1 ">
-                            <p class="fs-20 fs-xl-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">Flavorful oasis</p>
-                            <div class="d-flex align-items-center  ms-8">
-                                <svg class="me-4 me-md-8" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
-                                    viewBox="0 0 26 26" fill="none">
-                                    <path
-                                        d="M1.33325 12.5C1.33325 8.10046 1.33325 5.90013 2.70059 4.53396C4.06675 3.16663 6.26709 3.16663 10.6666 3.16663H15.3333C19.7328 3.16663 21.9331 3.16663 23.2993 4.53396C24.6666 5.90013 24.6666 8.10046 24.6666 12.5V14.8333C24.6666 19.2328 24.6666 21.4331 23.2993 22.7993C21.9331 24.1666 19.7328 24.1666 15.3333 24.1666H10.6666C6.26709 24.1666 4.06675 24.1666 2.70059 22.7993C1.33325 21.4331 1.33325 19.2328 1.33325 14.8333V12.5Z"
-                                        stroke="#1E1E1E" stroke-width="2" />
-                                    <path d="M7.1665 3.16663V1.41663M18.8332 3.16663V1.41663M1.9165 8.99996H24.0832"
-                                        stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
-                                    <path
-                                        d="M20 18.3333C20 18.6428 19.8771 18.9395 19.6583 19.1583C19.4395 19.3771 19.1428 19.5 18.8333 19.5C18.5239 19.5 18.2272 19.3771 18.0084 19.1583C17.7896 18.9395 17.6667 18.6428 17.6667 18.3333C17.6667 18.0239 17.7896 17.7272 18.0084 17.5084C18.2272 17.2896 18.5239 17.1667 18.8333 17.1667C19.1428 17.1667 19.4395 17.2896 19.6583 17.5084C19.8771 17.7272 20 18.0239 20 18.3333ZM20 13.6667C20 13.9761 19.8771 14.2728 19.6583 14.4916C19.4395 14.7104 19.1428 14.8333 18.8333 14.8333C18.5239 14.8333 18.2272 14.7104 18.0084 14.4916C17.7896 14.2728 17.6667 13.9761 17.6667 13.6667C17.6667 13.3572 17.7896 13.0605 18.0084 12.8417C18.2272 12.6229 18.5239 12.5 18.8333 12.5C19.1428 12.5 19.4395 12.6229 19.6583 12.8417C19.8771 13.0605 20 13.3572 20 13.6667ZM14.1667 18.3333C14.1667 18.6428 14.0437 18.9395 13.825 19.1583C13.6062 19.3771 13.3094 19.5 13 19.5C12.6906 19.5 12.3938 19.3771 12.175 19.1583C11.9562 18.9395 11.8333 18.6428 11.8333 18.3333C11.8333 18.0239 11.9562 17.7272 12.175 17.5084C12.3938 17.2896 12.6906 17.1667 13 17.1667C13.3094 17.1667 13.6062 17.2896 13.825 17.5084C14.0437 17.7272 14.1667 18.0239 14.1667 18.3333ZM14.1667 13.6667C14.1667 13.9761 14.0437 14.2728 13.825 14.4916C13.6062 14.7104 13.3094 14.8333 13 14.8333C12.6906 14.8333 12.3938 14.7104 12.175 14.4916C11.9562 14.2728 11.8333 13.9761 11.8333 13.6667C11.8333 13.3572 11.9562 13.0605 12.175 12.8417C12.3938 12.6229 12.6906 12.5 13 12.5C13.3094 12.5 13.6062 12.6229 13.825 12.8417C14.0437 13.0605 14.1667 13.3572 14.1667 13.6667ZM8.33333 18.3333C8.33333 18.6428 8.21042 18.9395 7.99162 19.1583C7.77283 19.3771 7.47609 19.5 7.16667 19.5C6.85725 19.5 6.5605 19.3771 6.34171 19.1583C6.12292 18.9395 6 18.6428 6 18.3333C6 18.0239 6.12292 17.7272 6.34171 17.5084C6.5605 17.2896 6.85725 17.1667 7.16667 17.1667C7.47609 17.1667 7.77283 17.2896 7.99162 17.5084C8.21042 17.7272 8.33333 18.0239 8.33333 18.3333ZM8.33333 13.6667C8.33333 13.9761 8.21042 14.2728 7.99162 14.4916C7.77283 14.7104 7.47609 14.8333 7.16667 14.8333C6.85725 14.8333 6.5605 14.7104 6.34171 14.4916C6.12292 14.2728 6 13.9761 6 13.6667C6 13.3572 6.12292 13.0605 6.34171 12.8417C6.5605 12.6229 6.85725 12.5 7.16667 12.5C7.47609 12.5 7.77283 12.6229 7.99162 12.8417C8.21042 13.0605 8.33333 13.3572 8.33333 13.6667Z"
-                                        fill="#1E1E1E" />
-                                </svg>
-                                <span class="fw-medium lh-sm fs-16 fs-xl-20">08/12</span>
-                            </div>
+            <div class="event-rounded w-100 col-md-6 col-lg-3  py-14 py-lg-16 bg-white d-flex flex-md-column align-items-center justify-content-center"
+                data-aos="flip-left" data-aos-delay="700">
+                <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1 cursor-pointer"
+                    src="/TeaTime-Gathering/assets/store-06-s-74449e5f.jpg" alt="">
+                <div class="d-flex flex-column justify-content-between w-100 pe-12 pe-md-0 pt-12 pt-md-0">
+                    <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16 flex-grow-1 ">
+                        <p class="fs-20 fs-xl-24 fw-bold lh-sm text-brand-03">Flavorful oasis</p>
+                        <div class="d-flex align-items-center ">
+                            <svg class="me-4 me-md-8" xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                                viewBox="0 0 26 26" fill="none">
+                                <path
+                                    d="M1.33325 12.5C1.33325 8.10046 1.33325 5.90013 2.70059 4.53396C4.06675 3.16663 6.26709 3.16663 10.6666 3.16663H15.3333C19.7328 3.16663 21.9331 3.16663 23.2993 4.53396C24.6666 5.90013 24.6666 8.10046 24.6666 12.5V14.8333C24.6666 19.2328 24.6666 21.4331 23.2993 22.7993C21.9331 24.1666 19.7328 24.1666 15.3333 24.1666H10.6666C6.26709 24.1666 4.06675 24.1666 2.70059 22.7993C1.33325 21.4331 1.33325 19.2328 1.33325 14.8333V12.5Z"
+                                    stroke="#1E1E1E" stroke-width="2" />
+                                <path d="M7.1665 3.16663V1.41663M18.8332 3.16663V1.41663M1.9165 8.99996H24.0832"
+                                    stroke="#1E1E1E" stroke-width="2" stroke-linecap="round" />
+                                <path
+                                    d="M20 18.3333C20 18.6428 19.8771 18.9395 19.6583 19.1583C19.4395 19.3771 19.1428 19.5 18.8333 19.5C18.5239 19.5 18.2272 19.3771 18.0084 19.1583C17.7896 18.9395 17.6667 18.6428 17.6667 18.3333C17.6667 18.0239 17.7896 17.7272 18.0084 17.5084C18.2272 17.2896 18.5239 17.1667 18.8333 17.1667C19.1428 17.1667 19.4395 17.2896 19.6583 17.5084C19.8771 17.7272 20 18.0239 20 18.3333ZM20 13.6667C20 13.9761 19.8771 14.2728 19.6583 14.4916C19.4395 14.7104 19.1428 14.8333 18.8333 14.8333C18.5239 14.8333 18.2272 14.7104 18.0084 14.4916C17.7896 14.2728 17.6667 13.9761 17.6667 13.6667C17.6667 13.3572 17.7896 13.0605 18.0084 12.8417C18.2272 12.6229 18.5239 12.5 18.8333 12.5C19.1428 12.5 19.4395 12.6229 19.6583 12.8417C19.8771 13.0605 20 13.3572 20 13.6667ZM14.1667 18.3333C14.1667 18.6428 14.0437 18.9395 13.825 19.1583C13.6062 19.3771 13.3094 19.5 13 19.5C12.6906 19.5 12.3938 19.3771 12.175 19.1583C11.9562 18.9395 11.8333 18.6428 11.8333 18.3333C11.8333 18.0239 11.9562 17.7272 12.175 17.5084C12.3938 17.2896 12.6906 17.1667 13 17.1667C13.3094 17.1667 13.6062 17.2896 13.825 17.5084C14.0437 17.7272 14.1667 18.0239 14.1667 18.3333ZM14.1667 13.6667C14.1667 13.9761 14.0437 14.2728 13.825 14.4916C13.6062 14.7104 13.3094 14.8333 13 14.8333C12.6906 14.8333 12.3938 14.7104 12.175 14.4916C11.9562 14.2728 11.8333 13.9761 11.8333 13.6667C11.8333 13.3572 11.9562 13.0605 12.175 12.8417C12.3938 12.6229 12.6906 12.5 13 12.5C13.3094 12.5 13.6062 12.6229 13.825 12.8417C14.0437 13.0605 14.1667 13.3572 14.1667 13.6667ZM8.33333 18.3333C8.33333 18.6428 8.21042 18.9395 7.99162 19.1583C7.77283 19.3771 7.47609 19.5 7.16667 19.5C6.85725 19.5 6.5605 19.3771 6.34171 19.1583C6.12292 18.9395 6 18.6428 6 18.3333C6 18.0239 6.12292 17.7272 6.34171 17.5084C6.5605 17.2896 6.85725 17.1667 7.16667 17.1667C7.47609 17.1667 7.77283 17.2896 7.99162 17.5084C8.21042 17.7272 8.33333 18.0239 8.33333 18.3333ZM8.33333 13.6667C8.33333 13.9761 8.21042 14.2728 7.99162 14.4916C7.77283 14.7104 7.47609 14.8333 7.16667 14.8333C6.85725 14.8333 6.5605 14.7104 6.34171 14.4916C6.12292 14.2728 6 13.9761 6 13.6667C6 13.3572 6.12292 13.0605 6.34171 12.8417C6.5605 12.6229 6.85725 12.5 7.16667 12.5C7.47609 12.5 7.77283 12.6229 7.99162 12.8417C8.21042 13.0605 8.33333 13.3572 8.33333 13.6667Z"
+                                    fill="#1E1E1E" />
+                            </svg>
+                            <span class="fw-medium lh-sm fs-16 fs-xl-20">08/12</span>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div>
-                                <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
-                                <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                                <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
-                                <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                                <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
-                            </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-12 mb-md-16">
+                        <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                        <div>
+                            <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                            <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                            <span class="time-rounded bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
                         </div>
-                        <div class="d-flex justify-content-between align-items-center mb-12 mb-md-0">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">張雅琪</span>
-                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-12 mb-md-0">
+                        <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                        <span class="fs-16 fs-md-20 lh-sm fw-medium">張雅琪</span>
                     </div>
                 </div>
             </div>
@@ -865,6 +859,8 @@
         })
     })
 </script>
+
+
       <div class="layout d-flex ">
         <div class="layout-left d-none d-lg-block">
           <ul class="layout-left-ul p-0 mt-40">
@@ -909,7 +905,7 @@
         <ul class="select-bar d-flex text-center bg-brand-05 mt-20 mt-md-0 mb-16 mb-md-0">
             <li class="text-center w-100 pt-8 pb-8 ps-8">
                 <button type="button"
-                    class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-12 py-md-8 px-24 active border-0">最新店家</button>
+                    class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-24 active border-0">最新店家</button>
             </li>
             <li class="text-center w-100 pt-8 pb-8 pe-8">
                 <button type="button"
@@ -929,37 +925,46 @@
                 <li>
                     <button
                         class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 actived">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAG3SURBVHgB7VZdTsJAEJ4t20cTjsARegPhBHoDygmkAWoaH7RPjW0TygmoJ/AIcgS8QY/QF32h23HWtpEQKwU2arTfy+zuzGQ+hvkpQIv/DlanmM+93mbTuQXYLGz7Zi3fguB+LOVsdh0VNr6RZTjk/NW1LDfd9g+CoA+QX8jzZ/oKvI6AELrBWG4i6vI6KvnOS3VU2MAVvZlCnEmCDxXxLONLAOxXv29bvwutjkCe5104AlnWeZTBETGh63qfvQYKEYbhJQlDBhciHzD2zQQo8HlxYpHjOEkTH6UEGMP3v03TtLSpj1ICx6CWAGMsKY9GnQ0i60lJBZuAagKcc1lAKRWS4Xlef1cvZ0DRagC6/vIMqglYlpVqGosKMp0lVfiw0vm+T73Pnoob3tUNmZMISEwmM5cCyAHSQ8zj6p2ysqSK75KMaSq6cAL2FiEFoGkoaBKy1ccrrqjizenUHsGJ4E2MbNuJScRB4GNJagCK8ONt2CgDh0LWC2UrRtxvq3oUH9yOSjNQfidE1T0MfeoWML/y+b2juCXQElAJas/aZXVQG9LyGdPub2xPpgsphciOXtct/j7eAHWircn5lmg5AAAAAElFTkSuQmCC" alt="全部" class="me-8">全部
+                        <!-- <img src="/assets/images/store-selection/全部.png" alt="全部" class="me-8">全部 -->
+                        <iconify-icon icon="fluent:food-24-regular" style="color: #8b8b8a;" width="32" height="32"
+                            class="me-8"></iconify-icon>全部
                     </button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 "><img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKJSURBVHgB7VZdbtpAEJ71OlHVvPgGdU/QHMFHyBHoCRIiDOIJ/ISMI9wb1L1Be4LQE5ScIO4NkEglJGOmM/5BNsYOsh3ykHwS2mF2d3Y8++23C/DWIaBluK6rBUFwxfbZ2b+f3a61rBqvQstYr9eaqsrvbAfBxSM1v6vGK/DKeE+gNgmZbJvN5vpAlwaAN2wggieE8PcH0Lwfw+Ew8tcmYUK2cdUYIaBDaRT8Uso5NT7btbcg+YIl1ICiKH5qt64DZZhOpx2qSHQ8TbO/W/dkJCQufErMXNWe5YDjOAZN/oIY6ohCS4L52+324fx8u+h2YzIdgWguEdM/KgHHsW+EUEaIqNGPl2VSJUDaR0FslnB3N/WkDK3nEhECdQ5Dba4ChS1w3YnuONM/NNTlxTNdPvnm1C4gU0YK2qFEHm17MoYKpNWj1s/61fziIzrb8p5MPZk2F0J6q9Xql2XlLxUi1SU11/FRY2bLkW3by8Fg8K0khSjmvi7kEgjDi3Fm8bFpDiwoQb/f50p8nUwmlpTKPQXWaVtG9BFeyQ2oR1ERD5MwVrYgVTYeZBAPDDgKO3JQjI8cI5d4EjseWVYBksfLjJ/2SxhQD8Z+AvQ+0FMCl1ZASsTNBjxoCFpoWfQxAWNJzqpgLoHb2z4/HCofD3VBX72rQK/X+5vtO4kSlqkgY1eBrFY3ASsdnZDPe+6DKsg4UQVSDcDyCkCkcGIMjVFcJFZBLKhgLoFEWBbwIjisgrkEWIbX6w8atID0uUUqqSeuqN3XgFwC9Ia/UtV2SEhNREJVVSkeGmlfZQXiToSmIKL5cDAx9MMwfICyBEzTnM9mM4MeGjo0AN+cmb8WvSk8Np6eijfqOxj/AcT/FnseoidvAAAAAElFTkSuQmCC" alt="速食" class="me-8">速食</button>
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 ">
+                        <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="32" height="32"
+                            class="me-8"></iconify-icon>
+                        速食</button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAIrSURBVHgB1VfdbdswED7SNfyqDcIR3AnqDZoNkk5QFLAkGH6I+2TUMhxv0HSCphs4G2SDMhPUfdUf+1GWgASIfadahpEPsI6QP1If73hHkujMUHQkFovFEMb/yDm3jeP4vk3/owQkybcZhrh5/i5Ns/fT6fRROsY7Ogrqyj+do7vmjdZ6Sy1wpAAy/hFF0Sf6T4hDkCTJCDE2Lzor+u4tPPBCQFEUdjKZbEgAkYDlcrHGRz5TK7h1GMZfOBYr4PZ2bvK89xvNLUSIVjg8cwkTKKXNeDx+OsRl10BR9JFiJVruMYpiUazhsQBiLxEyn54HBez1QBNzremjHwwCNs6pHySA1uoKfUfwxF1Z0sOh+qBen8ES6suf1CH21YdXQ9Dr9TZpWqyVUgFmPoQdYhborIQFxs9emed99tUHdhEiFKh0bgbqLAzDryRAmz6azgxWANz4VFtDQii14yIMluOeygOBf/jVzxFZAc0smllJgHTtTkCe57Ye1JAclYAsy/5yxBOFwFUCBoPBH47JCsCuZr1FVTMkR8Xl9gGRgFNDKsD6B0r0BUecz+fGW+wflgTo3AMo40HdFB3NhAJ2qViWpWGZapeCSNvuBGAwW5G1Njy3qQGdekAOeKkOgepOAIqQ3Vm+GsIDF7W1JMDZ01B0L/A7oqpODu4aVzHDsEd1Q3R4EQno9/v3WZbe+FMOhFxzfH8SwmXlFwnQ6m64Wq0+cKmI/y0+/kBvBf8Abkbp1w5FcbMAAAAASUVORK5CYII=" alt="飲品" class="me-8">飲品</button>
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><iconify-icon
+                            icon="icon-park-outline:drink" style="color: #8b8b8a;" width="32" height="32"
+                            class="me-8"></iconify-icon>飲品</button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKHSURBVHgB7VZRbtpAEJ21tz+JKuUI5gb0BnCD9gThBokVbIT4AH+hFglzhHKCcoOaE4SeoO4JStUkUmKvNzPYDsbC9poQ5Ycngdf27M7bt563C3DCO4PVCXbd4YUQHy+jKGoxBk18ZCSvfADpM6Z/1/VgaZp9X3VMJQKUOAzPrhnTrqSUF1XxUSScXq8/AgVUEnDdsRGG+k94ma30aKbY8Lrd7h8iFwTnLiryGZ9lyfmci3aVGkw1Oc7cx/CObdvL+J2SKpUkNChBJvnq/v7h0zY5ETu/RULDODmponXwZ1iWzTBpgzG2pr40BpGtTWAy+TpKZ47J247jrGGPKlJCy7J6bVyOua7//0f9hOC3GVUw/uyqFgFKQrOjthDRS/K6qmgaG8W92HWRCnsJBIHeoisOtOj3t+tXV5WbG8vB5B4+pw/1UpkArt8mWNNg8RpVkknMk1ZLmQAGG/T/+Bj+ggNVSSGE8JJpNfdl2inDyeTbb9i621vBx0pppDd5BQx4exjZG5576VMA1TO5HBwR4/HY4FwnhXeWKKcA8+kf17MJRwbn3IhbclVIAL96L25FLTgyGJNpGRYTiCJIyod1yuzzEJA30PXpKZwXErAsy0uNo8w+6yItVXLHwWBQrEACJ76QfZL5vA5ZA5MyteYSAokKM9ioQDvZ4SQyFk3pZ1mHLCRAwC+WVCCpjENJ5PaH1d3dg7MvrvBAktTtD2xuSlL1mJU/qFBy3Du+ZO07i8LzAHXg/EM7WQ4sUX2YWHUpclvyjPaHouQEXjaYaZrkWuZ0Ol0IEXqgZtWbGCo72+4tq4KVj+U4+7+we+gsBO2MmLyhEquBIqQUZnwwrcQaHXUEJ5ygiGeyEKcIglNtCAAAAABJRU5ErkJggg==" alt="小吃" class="me-8">小吃</button>
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><iconify-icon
+                            icon="ph:bowl-food" style="color: #8b8b8a;" width="32" height="32"
+                            class="me-8"></iconify-icon>小吃</button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALcSURBVHgB1VfRcdpAEL2TRCZj50PpAHcgV2ClArsDqwMjxsDwBf5iIjTIVGC5A1xB5AriVBBK4Af/6CTlrTgIIQLdMZ5k/GaYW6HV7d67d7sSY/8ZnB2JIAgcDE5RFAvO+bzb7b6wI6CVQBQNbCFOWpwbNwhs79ye53n22Ov1h0wDyglE0agphPkNZnMdsCiYXHXhgIXN/5aVffH9/lxlXqUEtoNj5XM85oHy522fyWRyIUQay0SQxPLc9+8WdXMbTAFZZg5k8Jfl8vV8Nzih3W4/NxofzmESK80sO41U5q5lQK7+J9lCZGf9/mFqR6NR07LM7zBtsPC5joVaBrD6Sxqx33FdcAL5cM5mZKfp6XWd/8EEoijAMWOevFQ+ZnnOyi1CIh4xyI5JIAhGnhCMqHRWk/E5U8SWr0PbF4Zf9zJRqYEoinDeUwreBPn3RcFnVcI7hPF4fAnRXhELuFxAD2dVerCqHhZCODJ40un0fHYEOp3OE4YnJNLEPK4Qny7oetevcgtAoc3eGFSyq/6vZMA0zUSIHA9wNwyDh7WodGEYZa9wqXg1Gq8/qnz21gESIefmA3sDcF54t7e9x8p7hx6kogI2IgjpCpcLHMkZUwpY+ttUOzBOD3VKhUpYngiqhEqVTbdy1lZC3/dJC/FqwpObOn/ZN5Qrp1IzYpvjw1t1jgjsSjNmClBKAGc6QXD8mA1duPv8wjCkvS9btmrhUmWAjlRCo2UZg/1e+bX0HTLVeZUdDWuKoawN9Gq2e5/EB/qJAXTBXLluKCdAYkSAhOwqMea5Va5eVXzaCRBQoqfSav2dQOFJM2Ya0EpgJUbahj/FiIZDtpb4jkqgfMDg9zRuixGlVlt8a1ia/qUY8zwd/hbjR1TK1VuTjvg28zFNyMqYkE1iTFPTJVtXfGtoMyBxh59LYsSWUK8ngSo1ql1oM0BYibGg9mrTJxq6XyzfgP4t6GtIfqS+X/wC4l9aLj7Viy8AAAAASUVORK5CYII=" alt="甜點" class="me-8">甜點</button>
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><iconify-icon
+                            icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;" width="32"
+                            height="32" class="me-8"></iconify-icon>甜點</button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKPSURBVHgB7VZdbtNAEJ61g4T4EeEEhBv4BpgblBNgTtDwEKOIhyRPEXYlpydoe4KWE9CeAB/B3MBSC6pUb5Zv7DUJidfZtOkL9JOiie3xfPPvJXrA/w5Bd8B0Ou25rus7jvNCKdlTSnTb37g5DMPP6fKdDm2BJBl1pXz+Xim1JwR5kCWhUnPiWMSGcJR6xOLD1g4wcVE86Uvp7INMk5aPMsgUjmSuKzIiJ296fz6f+3AuaHq20YEkibyioFP8RYqZVZ0LIc4uL3+eTCaTnCwQRRHnJtjagSiaBiA/4v8gR+1EPww/XdAOYXRAR35UXakZiD/SLYGMvYINSLWWMcf0kk47k48Hg9uTa+i+4T6xcAA1C6iqeQbyCd0dnpYp2TiAjh1V0unTTqBKB6SUP2iTA4ielXX0g6/UgjiO/SSZ9tp0tL0u2xsOh9nq87UmdBx6U824ODcZrRpUJIjMLwqXG+ulSXeTvTUH0Cg97lhqqBfj4CCaoUH3tU6OxTSmFoC8LuOxlQMYlS57jP3+18hU2/DZKVLpa9Ozq6tfk7ZltNzMpv2xxSp++h2kpTG4GdgspLqZUYaxScfKAY68Jpdy/rapmVYRx1/GtBjlE5Pe2hSgB/JKSm9hSPlbkqPuYlRdiXdtuk17oB49rxqxP4YC+8h5QsowxmEYpm36ayXodDppUdwgC4JHrFzHaMpjGLpoJ459iBFnqya32aKi2ViZwqS+Lgr5ejl6bsrr68ddTIrHcw7dPdzuVc7WTRpafTWNZxhE9G0RjRVyPZqHtucEhnEK+NOpTz0GMl5C1WmIDyi2EVs7AOM+y9X07xqmz3H5AcEvv09yowNIqT5eq5TuGY0lQF25oTL8zugB/zp+A+YmXd8WpPHhAAAAAElFTkSuQmCC" alt="素食" class="me-8">素食</button>
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><iconify-icon
+                            icon="tabler:leaf" style="color: #8b8b8a;" width="32" height="32"></iconify-icon>素食</button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALKSURBVHgB7VZdTttAEJ7ddVSpfckR3BMQTtBwAsIN0hMEI+wo6kPip4g4yOUEwAkgJ6g5ARwhvUEkEA+119tv7JoKcBrcOGqR+CRrV/vjmZ355ofoDf8YgioiCI72ca1nTLzneV9uaE1IqgghxBYGW8p3W1QDliowmUxaYTi2qQLCsPqdUgWm02lHCLqOYzWkCkgSukgSdV3ljlW2mKZpU1RmRwabKqIyB+pGqQVAtDmRwWgWyy4aU7q3WLK+FKUWcF03ghqdu7t7/+leHGvfGNrGmdnTvSTR27i3R68JgkMnjqlHGwS70rLufcfxn7nH0pp6YHyXNgoB97zn3HLued6j7Cmm08kpfNrFdyaljKhmGJOO6HF4ztNUn/f7A14nyxixYMYDN4eHh+dUM4Ig6OL/Nr4Ij7QRYUjjahgEk13X9bYl/DPngxht2ghMK/+/6npe/6NSVhuhOsdSCy7pIQzl918nW1QzwjBsYuBvAetmcg4ODq6gThHeLamUivK5qF0BrXU7n5mb30oNm1LSbiYR0ZFlfPjpmk2FRLIzGAwiqgkFwRFll2lKMwjcEkKC8KbJbtA63ckyITS65FEpWVs+YPNDeJvnGLm6nuLN+yycCcnC8di5lStgnaRpPAJDO1zPHWcwpzWRJD+6EGjnhBNRrghMLsQlyHhVnHsoumDkaZ6QTOS6/R1aA/wI9AXfKIt/0SmrGwUeilGj0XAwICeI9tHReERrAMIvWDgntz8Jf6SA4zgwj/mcLSJR/I0SzHA0rWeYtnKSaX/VnWd9z/FxMExTM8o2BZ0ppf2XcAKR1Ib7QDSyC4YzyVbdE+U/y1pv7gebhSJamxk3KkUx4dfG8QekVfkJAjsQ3ub1KsKXKsAYj8c2ktSwQqXkmvIVTcyJ7/sv7opWtp6sSKOhdlG0OnlReahsLAQtGEVcRW9vb2dVBL/hv8FPFtJRj0ujnQkAAAAASUVORK5CYII=" alt="咖啡" class="me-8">咖啡</button>
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><iconify-icon
+                            icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="32" height="32"
+                            class="me-8"></iconify-icon>
+                        咖啡</button>
                 </li>
             </ul>
         </div>
         <div class="col-md-10 px-24 ">
-            <ul class="row row-cols-2 row-cols-lg-4 gap-12 gap-md-24">
+            <ul class="row row-cols-2 gap-12 gap-xxl-24 ">
                 <li style="background-image: url(/TeaTime-Gathering/assets/store-05-s-db8e0227.jpg);"
                     class="col position-relative findStore-img d-flex justify-content-center ">
                     <div class="position-absolute d-flex justify-content-between  findStore-card">
@@ -978,7 +983,8 @@
                                     alt="star-dark">
                             </div>
                         </div>
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALcSURBVHgB1VfRcdpAEL2TRCZj50PpAHcgV2ClArsDqwMjxsDwBf5iIjTIVGC5A1xB5AriVBBK4Af/6CTlrTgIIQLdMZ5k/GaYW6HV7d67d7sSY/8ZnB2JIAgcDE5RFAvO+bzb7b6wI6CVQBQNbCFOWpwbNwhs79ye53n22Ov1h0wDyglE0agphPkNZnMdsCiYXHXhgIXN/5aVffH9/lxlXqUEtoNj5XM85oHy522fyWRyIUQay0SQxPLc9+8WdXMbTAFZZg5k8Jfl8vV8Nzih3W4/NxofzmESK80sO41U5q5lQK7+J9lCZGf9/mFqR6NR07LM7zBtsPC5joVaBrD6Sxqx33FdcAL5cM5mZKfp6XWd/8EEoijAMWOevFQ+ZnnOyi1CIh4xyI5JIAhGnhCMqHRWk/E5U8SWr0PbF4Zf9zJRqYEoinDeUwreBPn3RcFnVcI7hPF4fAnRXhELuFxAD2dVerCqHhZCODJ40un0fHYEOp3OE4YnJNLEPK4Qny7oetevcgtAoc3eGFSyq/6vZMA0zUSIHA9wNwyDh7WodGEYZa9wqXg1Gq8/qnz21gESIefmA3sDcF54t7e9x8p7hx6kogI2IgjpCpcLHMkZUwpY+ttUOzBOD3VKhUpYngiqhEqVTbdy1lZC3/dJC/FqwpObOn/ZN5Qrp1IzYpvjw1t1jgjsSjNmClBKAGc6QXD8mA1duPv8wjCkvS9btmrhUmWAjlRCo2UZg/1e+bX0HTLVeZUdDWuKoawN9Gq2e5/EB/qJAXTBXLluKCdAYkSAhOwqMea5Va5eVXzaCRBQoqfSav2dQOFJM2Ya0EpgJUbahj/FiIZDtpb4jkqgfMDg9zRuixGlVlt8a1ia/qUY8zwd/hbjR1TK1VuTjvg28zFNyMqYkE1iTFPTJVtXfGtoMyBxh59LYsSWUK8ngSo1ql1oM0BYibGg9mrTJxq6XyzfgP4t6GtIfqS+X/wC4l9aLj7Viy8AAAAASUVORK5CYII=" alt="甜點" class="findStore-card-img">
+                        <iconify-icon icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;"
+                            width="24" height="24" class="findStore-card-img"></iconify-icon>
                     </div>
                 </li>
                 <li style="background-image: url(/TeaTime-Gathering/assets/store-07-s-4f60961b.jpg);"
@@ -999,7 +1005,8 @@
                                     alt="star-dark">
                             </div>
                         </div>
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKJSURBVHgB7VZdbtpAEJ71OlHVvPgGdU/QHMFHyBHoCRIiDOIJ/ISMI9wb1L1Be4LQE5ScIO4NkEglJGOmM/5BNsYOsh3ykHwS2mF2d3Y8++23C/DWIaBluK6rBUFwxfbZ2b+f3a61rBqvQstYr9eaqsrvbAfBxSM1v6vGK/DKeE+gNgmZbJvN5vpAlwaAN2wggieE8PcH0Lwfw+Ew8tcmYUK2cdUYIaBDaRT8Uso5NT7btbcg+YIl1ICiKH5qt64DZZhOpx2qSHQ8TbO/W/dkJCQufErMXNWe5YDjOAZN/oIY6ohCS4L52+324fx8u+h2YzIdgWguEdM/KgHHsW+EUEaIqNGPl2VSJUDaR0FslnB3N/WkDK3nEhECdQ5Dba4ChS1w3YnuONM/NNTlxTNdPvnm1C4gU0YK2qFEHm17MoYKpNWj1s/61fziIzrb8p5MPZk2F0J6q9Xql2XlLxUi1SU11/FRY2bLkW3by8Fg8K0khSjmvi7kEgjDi3Fm8bFpDiwoQb/f50p8nUwmlpTKPQXWaVtG9BFeyQ2oR1ERD5MwVrYgVTYeZBAPDDgKO3JQjI8cI5d4EjseWVYBksfLjJ/2SxhQD8Z+AvQ+0FMCl1ZASsTNBjxoCFpoWfQxAWNJzqpgLoHb2z4/HCofD3VBX72rQK/X+5vtO4kSlqkgY1eBrFY3ASsdnZDPe+6DKsg4UQVSDcDyCkCkcGIMjVFcJFZBLKhgLoFEWBbwIjisgrkEWIbX6w8atID0uUUqqSeuqN3XgFwC9Ia/UtV2SEhNREJVVSkeGmlfZQXiToSmIKL5cDAx9MMwfICyBEzTnM9mM4MeGjo0AN+cmb8WvSk8Np6eijfqOxj/AcT/FnseoidvAAAAAElFTkSuQmCC" alt="速食" class="findStore-card-img">
+                        <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="24" height="24"
+                            class="findStore-card-img"></iconify-icon>
                     </div>
                 </li>
                 <li style="background-image: url(/TeaTime-Gathering/assets/store-08-s-78d0d63e.jpg);"
@@ -1020,7 +1027,8 @@
                                     alt="star-dark">
                             </div>
                         </div>
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALKSURBVHgB7VZdTttAEJ7ddVSpfckR3BMQTtBwAsIN0hMEI+wo6kPip4g4yOUEwAkgJ6g5ARwhvUEkEA+119tv7JoKcBrcOGqR+CRrV/vjmZ355ofoDf8YgioiCI72ca1nTLzneV9uaE1IqgghxBYGW8p3W1QDliowmUxaYTi2qQLCsPqdUgWm02lHCLqOYzWkCkgSukgSdV3ljlW2mKZpU1RmRwabKqIyB+pGqQVAtDmRwWgWyy4aU7q3WLK+FKUWcF03ghqdu7t7/+leHGvfGNrGmdnTvSTR27i3R68JgkMnjqlHGwS70rLufcfxn7nH0pp6YHyXNgoB97zn3HLued6j7Cmm08kpfNrFdyaljKhmGJOO6HF4ztNUn/f7A14nyxixYMYDN4eHh+dUM4Ig6OL/Nr4Ij7QRYUjjahgEk13X9bYl/DPngxht2ghMK/+/6npe/6NSVhuhOsdSCy7pIQzl918nW1QzwjBsYuBvAetmcg4ODq6gThHeLamUivK5qF0BrXU7n5mb30oNm1LSbiYR0ZFlfPjpmk2FRLIzGAwiqgkFwRFll2lKMwjcEkKC8KbJbtA63ckyITS65FEpWVs+YPNDeJvnGLm6nuLN+yycCcnC8di5lStgnaRpPAJDO1zPHWcwpzWRJD+6EGjnhBNRrghMLsQlyHhVnHsoumDkaZ6QTOS6/R1aA/wI9AXfKIt/0SmrGwUeilGj0XAwICeI9tHReERrAMIvWDgntz8Jf6SA4zgwj/mcLSJR/I0SzHA0rWeYtnKSaX/VnWd9z/FxMExTM8o2BZ0ppf2XcAKR1Ib7QDSyC4YzyVbdE+U/y1pv7gebhSJamxk3KkUx4dfG8QekVfkJAjsQ3ub1KsKXKsAYj8c2ktSwQqXkmvIVTcyJ7/sv7opWtp6sSKOhdlG0OnlReahsLAQtGEVcRW9vb2dVBL/hv8FPFtJRj0ujnQkAAAAASUVORK5CYII=" alt="咖啡" class="findStore-card-img">
+                        <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24" height="24"
+                            class="findStore-card-img"></iconify-icon>
                     </div>
                 </li>
                 <li style="background-image: url(/TeaTime-Gathering/assets/store-09-s-8a4d9e2f.jpg);"
@@ -1041,7 +1049,8 @@
                                     alt="star-dark">
                             </div>
                         </div>
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKPSURBVHgB7VZdbtNAEJ61g4T4EeEEhBv4BpgblBNgTtDwEKOIhyRPEXYlpydoe4KWE9CeAB/B3MBSC6pUb5Zv7DUJidfZtOkL9JOiie3xfPPvJXrA/w5Bd8B0Ou25rus7jvNCKdlTSnTb37g5DMPP6fKdDm2BJBl1pXz+Xim1JwR5kCWhUnPiWMSGcJR6xOLD1g4wcVE86Uvp7INMk5aPMsgUjmSuKzIiJ296fz6f+3AuaHq20YEkibyioFP8RYqZVZ0LIc4uL3+eTCaTnCwQRRHnJtjagSiaBiA/4v8gR+1EPww/XdAOYXRAR35UXakZiD/SLYGMvYINSLWWMcf0kk47k48Hg9uTa+i+4T6xcAA1C6iqeQbyCd0dnpYp2TiAjh1V0unTTqBKB6SUP2iTA4ielXX0g6/UgjiO/SSZ9tp0tL0u2xsOh9nq87UmdBx6U824ODcZrRpUJIjMLwqXG+ulSXeTvTUH0Cg97lhqqBfj4CCaoUH3tU6OxTSmFoC8LuOxlQMYlS57jP3+18hU2/DZKVLpa9Ozq6tfk7ZltNzMpv2xxSp++h2kpTG4GdgspLqZUYaxScfKAY68Jpdy/rapmVYRx1/GtBjlE5Pe2hSgB/JKSm9hSPlbkqPuYlRdiXdtuk17oB49rxqxP4YC+8h5QsowxmEYpm36ayXodDppUdwgC4JHrFzHaMpjGLpoJ459iBFnqya32aKi2ViZwqS+Lgr5ejl6bsrr68ddTIrHcw7dPdzuVc7WTRpafTWNZxhE9G0RjRVyPZqHtucEhnEK+NOpTz0GMl5C1WmIDyi2EVs7AOM+y9X07xqmz3H5AcEvv09yowNIqT5eq5TuGY0lQF25oTL8zugB/zp+A+YmXd8WpPHhAAAAAElFTkSuQmCC" alt="素食" class="findStore-card-img">
+                        <iconify-icon icon="tabler:leaf" style="color: #8b8b8a;" width="24" height="24"
+                            class="findStore-card-img"></iconify-icon>
                     </div>
                 </li>
                 <li style="background-image: url(/TeaTime-Gathering/assets/store-10-s-4392ccb3.jpg);"
@@ -1062,7 +1071,8 @@
                                     alt="star-dark">
                             </div>
                         </div>
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKJSURBVHgB7VZdbtpAEJ71OlHVvPgGdU/QHMFHyBHoCRIiDOIJ/ISMI9wb1L1Be4LQE5ScIO4NkEglJGOmM/5BNsYOsh3ykHwS2mF2d3Y8++23C/DWIaBluK6rBUFwxfbZ2b+f3a61rBqvQstYr9eaqsrvbAfBxSM1v6vGK/DKeE+gNgmZbJvN5vpAlwaAN2wggieE8PcH0Lwfw+Ew8tcmYUK2cdUYIaBDaRT8Uso5NT7btbcg+YIl1ICiKH5qt64DZZhOpx2qSHQ8TbO/W/dkJCQufErMXNWe5YDjOAZN/oIY6ohCS4L52+324fx8u+h2YzIdgWguEdM/KgHHsW+EUEaIqNGPl2VSJUDaR0FslnB3N/WkDK3nEhECdQ5Dba4ChS1w3YnuONM/NNTlxTNdPvnm1C4gU0YK2qFEHm17MoYKpNWj1s/61fziIzrb8p5MPZk2F0J6q9Xql2XlLxUi1SU11/FRY2bLkW3by8Fg8K0khSjmvi7kEgjDi3Fm8bFpDiwoQb/f50p8nUwmlpTKPQXWaVtG9BFeyQ2oR1ERD5MwVrYgVTYeZBAPDDgKO3JQjI8cI5d4EjseWVYBksfLjJ/2SxhQD8Z+AvQ+0FMCl1ZASsTNBjxoCFpoWfQxAWNJzqpgLoHb2z4/HCofD3VBX72rQK/X+5vtO4kSlqkgY1eBrFY3ASsdnZDPe+6DKsg4UQVSDcDyCkCkcGIMjVFcJFZBLKhgLoFEWBbwIjisgrkEWIbX6w8atID0uUUqqSeuqN3XgFwC9Ia/UtV2SEhNREJVVSkeGmlfZQXiToSmIKL5cDAx9MMwfICyBEzTnM9mM4MeGjo0AN+cmb8WvSk8Np6eijfqOxj/AcT/FnseoidvAAAAAElFTkSuQmCC" alt="速食" class="findStore-card-img">
+                        <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="24" height="24"
+                            class="findStore-card-img"></iconify-icon>
                     </div>
                 </li>
                 <li style="background-image: url(/TeaTime-Gathering/assets/store-11-s-c585c683.jpg);"
@@ -1083,7 +1093,8 @@
                                     alt="star-dark">
                             </div>
                         </div>
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALcSURBVHgB1VfRcdpAEL2TRCZj50PpAHcgV2ClArsDqwMjxsDwBf5iIjTIVGC5A1xB5AriVBBK4Af/6CTlrTgIIQLdMZ5k/GaYW6HV7d67d7sSY/8ZnB2JIAgcDE5RFAvO+bzb7b6wI6CVQBQNbCFOWpwbNwhs79ye53n22Ov1h0wDyglE0agphPkNZnMdsCiYXHXhgIXN/5aVffH9/lxlXqUEtoNj5XM85oHy522fyWRyIUQay0SQxPLc9+8WdXMbTAFZZg5k8Jfl8vV8Nzih3W4/NxofzmESK80sO41U5q5lQK7+J9lCZGf9/mFqR6NR07LM7zBtsPC5joVaBrD6Sxqx33FdcAL5cM5mZKfp6XWd/8EEoijAMWOevFQ+ZnnOyi1CIh4xyI5JIAhGnhCMqHRWk/E5U8SWr0PbF4Zf9zJRqYEoinDeUwreBPn3RcFnVcI7hPF4fAnRXhELuFxAD2dVerCqHhZCODJ40un0fHYEOp3OE4YnJNLEPK4Qny7oetevcgtAoc3eGFSyq/6vZMA0zUSIHA9wNwyDh7WodGEYZa9wqXg1Gq8/qnz21gESIefmA3sDcF54t7e9x8p7hx6kogI2IgjpCpcLHMkZUwpY+ttUOzBOD3VKhUpYngiqhEqVTbdy1lZC3/dJC/FqwpObOn/ZN5Qrp1IzYpvjw1t1jgjsSjNmClBKAGc6QXD8mA1duPv8wjCkvS9btmrhUmWAjlRCo2UZg/1e+bX0HTLVeZUdDWuKoawN9Gq2e5/EB/qJAXTBXLluKCdAYkSAhOwqMea5Va5eVXzaCRBQoqfSav2dQOFJM2Ya0EpgJUbahj/FiIZDtpb4jkqgfMDg9zRuixGlVlt8a1ia/qUY8zwd/hbjR1TK1VuTjvg28zFNyMqYkE1iTFPTJVtXfGtoMyBxh59LYsSWUK8ngSo1ql1oM0BYibGg9mrTJxq6XyzfgP4t6GtIfqS+X/wC4l9aLj7Viy8AAAAASUVORK5CYII=" alt="甜點" class="findStore-card-img">
+                        <iconify-icon icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;"
+                            width="24" height="24" class="findStore-card-img"></iconify-icon>
                     </div>
                 </li>
                 <li style="background-image: url(/TeaTime-Gathering/assets/store-12-s-5fac9c88.jpg);"
@@ -1104,7 +1115,8 @@
                                     alt="star-dark">
                             </div>
                         </div>
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAKPSURBVHgB7VZdbtNAEJ61g4T4EeEEhBv4BpgblBNgTtDwEKOIhyRPEXYlpydoe4KWE9CeAB/B3MBSC6pUb5Zv7DUJidfZtOkL9JOiie3xfPPvJXrA/w5Bd8B0Ou25rus7jvNCKdlTSnTb37g5DMPP6fKdDm2BJBl1pXz+Xim1JwR5kCWhUnPiWMSGcJR6xOLD1g4wcVE86Uvp7INMk5aPMsgUjmSuKzIiJ296fz6f+3AuaHq20YEkibyioFP8RYqZVZ0LIc4uL3+eTCaTnCwQRRHnJtjagSiaBiA/4v8gR+1EPww/XdAOYXRAR35UXakZiD/SLYGMvYINSLWWMcf0kk47k48Hg9uTa+i+4T6xcAA1C6iqeQbyCd0dnpYp2TiAjh1V0unTTqBKB6SUP2iTA4ielXX0g6/UgjiO/SSZ9tp0tL0u2xsOh9nq87UmdBx6U824ODcZrRpUJIjMLwqXG+ulSXeTvTUH0Cg97lhqqBfj4CCaoUH3tU6OxTSmFoC8LuOxlQMYlS57jP3+18hU2/DZKVLpa9Ozq6tfk7ZltNzMpv2xxSp++h2kpTG4GdgspLqZUYaxScfKAY68Jpdy/rapmVYRx1/GtBjlE5Pe2hSgB/JKSm9hSPlbkqPuYlRdiXdtuk17oB49rxqxP4YC+8h5QsowxmEYpm36ayXodDppUdwgC4JHrFzHaMpjGLpoJ459iBFnqya32aKi2ViZwqS+Lgr5ejl6bsrr68ddTIrHcw7dPdzuVc7WTRpafTWNZxhE9G0RjRVyPZqHtucEhnEK+NOpTz0GMl5C1WmIDyi2EVs7AOM+y9X07xqmz3H5AcEvv09yowNIqT5eq5TuGY0lQF25oTL8zugB/zp+A+YmXd8WpPHhAAAAAElFTkSuQmCC" alt="素食" class="findStore-card-img">
+                        <iconify-icon icon="tabler:leaf" style="color: #8b8b8a;" width="24" height="24"
+                            class="findStore-card-img"></iconify-icon>
                     </div>
                 </li>
                 <li style="background-image: url(/TeaTime-Gathering/assets/store-13-s-744e635f.jpg);"
@@ -1125,7 +1137,8 @@
                                     alt="star-dark">
                             </div>
                         </div>
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALKSURBVHgB7VZdTttAEJ7ddVSpfckR3BMQTtBwAsIN0hMEI+wo6kPip4g4yOUEwAkgJ6g5ARwhvUEkEA+119tv7JoKcBrcOGqR+CRrV/vjmZ355ofoDf8YgioiCI72ca1nTLzneV9uaE1IqgghxBYGW8p3W1QDliowmUxaYTi2qQLCsPqdUgWm02lHCLqOYzWkCkgSukgSdV3ljlW2mKZpU1RmRwabKqIyB+pGqQVAtDmRwWgWyy4aU7q3WLK+FKUWcF03ghqdu7t7/+leHGvfGNrGmdnTvSTR27i3R68JgkMnjqlHGwS70rLufcfxn7nH0pp6YHyXNgoB97zn3HLued6j7Cmm08kpfNrFdyaljKhmGJOO6HF4ztNUn/f7A14nyxixYMYDN4eHh+dUM4Ig6OL/Nr4Ij7QRYUjjahgEk13X9bYl/DPngxht2ghMK/+/6npe/6NSVhuhOsdSCy7pIQzl918nW1QzwjBsYuBvAetmcg4ODq6gThHeLamUivK5qF0BrXU7n5mb30oNm1LSbiYR0ZFlfPjpmk2FRLIzGAwiqgkFwRFll2lKMwjcEkKC8KbJbtA63ckyITS65FEpWVs+YPNDeJvnGLm6nuLN+yycCcnC8di5lStgnaRpPAJDO1zPHWcwpzWRJD+6EGjnhBNRrghMLsQlyHhVnHsoumDkaZ6QTOS6/R1aA/wI9AXfKIt/0SmrGwUeilGj0XAwICeI9tHReERrAMIvWDgntz8Jf6SA4zgwj/mcLSJR/I0SzHA0rWeYtnKSaX/VnWd9z/FxMExTM8o2BZ0ppf2XcAKR1Ib7QDSyC4YzyVbdE+U/y1pv7gebhSJamxk3KkUx4dfG8QekVfkJAjsQ3ub1KsKXKsAYj8c2ktSwQqXkmvIVTcyJ7/sv7opWtp6sSKOhdlG0OnlReahsLAQtGEVcRW9vb2dVBL/hv8FPFtJRj0ujnQkAAAAASUVORK5CYII=" alt="咖啡" class="findStore-card-img">
+                        <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24" height="24"
+                            class="findStore-card-img"></iconify-icon>
                     </div>
                 </li>
             </ul>
@@ -1188,9 +1201,8 @@
         })
     })
 </script>        </div>
-        <div class="layout-right d-none d-lg-block"></div>
+        <!-- <div class="layout-right d-none d-lg-block"></div> -->
       </div>
-
       <!-- feedback -->
       <!-- feedback -->
 
@@ -2822,8 +2834,8 @@
         </div>
     </div>
 </div>
-        <!-- novice Teaching -->
         <div class="layout-content">
+          <!-- novice Teaching -->
           <div class="container py-32 py-lg-80" id="novice-teaching">
     <div class="d-flex justify-content-between align-items-center ">
         <h2 class="fs-32">新手教學</h2>
@@ -2954,37 +2966,21 @@
     });
 </script>        </div>
 
-        <!-- footer -->
-        <footer class="pt-md-48 pb-md-32 py-32 bg-bg-1 text-gray-02 footer-radius">
-    <div class="d-flex flex-column align-items-center container">
-        <img class="mb-md-24 mb-16 footer-logo" src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="logo">
-        <p class="mb-md-24 mb-16 lh-sm fw-medium">管理員：Ann Chou、Billy Ti、Mark、WA</p>
-        <ul class="d-flex gap-24 mb-md-32 mb-16">
-            <li><a href="mailto:service@gmail.com?subject=用戶來信&body=哈囉您好我是"><iconify-icon icon="ic:round-email" style="color: #bfa373;" width="24" height="24"></iconify-icon></a></li>
-            <li><a href="#"><iconify-icon icon="mdi:facebook" style="color: #bfa373;" width="24" height="24"></iconify-icon></a></li>
-            <li><a href="#"><iconify-icon icon="ant-design:instagram-filled" style="color: #bfa373;" width="24" height="24"></iconify-icon></a></li>
-        </ul>
-        <div class="d-flex flex-md-row flex-column align-items-center justify-content-between w-100 py-md-16 px-md-24 py-12 px-16 bg-white rounded-pill">
-            <p>本網站僅作為求職作品集使用，不供商業用途</p>
-            <p>© 2023 一起發胖團</p>
-        </div>
-    </div>
-</footer>
-          <!-- notification -->
-          <a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover" id="notificationToastBtn">
+        <!-- notification -->
+        <a class="position-fixed z-1 d-block btn-notification notification-hover" data-bs-toggle="collapse" href="#collapseNotification" role="button"
+    aria-expanded="false" aria-controls="collapseNotification">
     <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline" style="color: white;"
         width="28" height="28"></iconify-icon>
-    <div class="btn-notification-alert rounded-circle bg-white position-absolute "></div>
+    <div class="position-absolute btn-notification-alert rounded-circle bg-white"></div>
 </a>
 
 <!-- notification-container -->
-<div class="position-fixed notification-container" style="z-index: 1030">
-    <div id="notificationToast"
-        class="overflow-hidden border-2 border-brand-05 border bg-white notification-body toast toast-no-shadow"
-        role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+<div class="collapse notification-container" id="collapseNotification">
+    <div class="overflow-hidden border-2 border-brand-05 border bg-white notification-body">
         <div class="d-flex justify-content-between align-items-center py-md-20 px-md-24 p-16 bg-brand-05">
             <span class="fs-md-24 fs-20 fw-bold lh-sm ">通知</span>
-            <a class="d-block cursor-pointer" data-bs-dismiss="toast" aria-label="Close">
+            <a class="d-block" data-bs-toggle="collapse" href="#collapseNotification" role="button"
+                aria-expanded="false" aria-controls="collapseNotification">
                 <iconify-icon icon="ic:round-close" style="color: #8B8B8A;" width="32"></iconify-icon>
             </a>
         </div>
@@ -3049,7 +3045,22 @@
         </div>
     </div>
 </div>
-
+          <!-- footer -->
+          <footer class="pt-md-48 pb-md-32 py-32 bg-bg-1 text-gray-02 footer-radius">
+    <div class="d-flex flex-column align-items-center container">
+        <img class="mb-md-24 mb-16 footer-logo" src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="logo">
+        <p class="mb-md-24 mb-16 lh-sm fw-medium">管理員：Ann Chou、Billy Ti、Mark、WA</p>
+        <ul class="d-flex gap-24 mb-md-32 mb-16">
+            <li><a href="mailto:service@gmail.com?subject=用戶來信&body=哈囉您好我是"><iconify-icon icon="ic:round-email" style="color: #bfa373;" width="24" height="24"></iconify-icon></a></li>
+            <li><a href="#"><iconify-icon icon="mdi:facebook" style="color: #bfa373;" width="24" height="24"></iconify-icon></a></li>
+            <li><a href="#"><iconify-icon icon="ant-design:instagram-filled" style="color: #bfa373;" width="24" height="24"></iconify-icon></a></li>
+        </ul>
+        <div class="d-flex flex-md-row flex-column align-items-center justify-content-between w-100 py-md-16 px-md-24 py-12 px-16 bg-white rounded-pill">
+            <p>本網站僅作為求職作品集使用，不供商業用途</p>
+            <p>© 2023 一起發胖團</p>
+        </div>
+    </div>
+</footer>
             <!-- ICONGIFY -->
             <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
             <!-- JS -->
@@ -3066,15 +3077,7 @@
               });
             </script>
             <!-- AOS EFFECT -->
-            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-            <script>
-              // AOS INIT
-              AOS.init({
-                // offset: 180,
-                duration: 800,
-                delay: 500,
-              })
-            </script>
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 
 </html>
