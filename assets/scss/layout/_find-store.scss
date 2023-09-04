@@ -37,3 +37,49 @@
         }
     }
 }
+
+.findStore-card {
+    border-radius: 16px;
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(4px);
+    bottom: 12px;
+    width: calc(100% - 24px);
+    height: 64px;
+    // margin-right: auto;
+    // margin-left: auto;
+    padding: 8px 12px;
+    @media (max-width: 767.98px) {
+        height: 52px;
+        padding: 8px;
+        width: calc(100% - 16px);
+        bottom: 8px;
+        font-size: 16px;
+    }
+}
+.findStore-img {
+    background-size: cover;
+    background-position: center;
+    height: 251px;
+    border-radius: 64px 64px 16px 16px;
+    width: calc((100% - 72px) / 4);
+    @media (max-width: 1400px) {
+        width: calc((100% - 24px) / 3);
+    }
+    @media (max-width: 767.98px) {
+        width: calc((100% - 12px) / 2);
+        height: 170px;
+        border-radius: 40px 40px 16px 16px;
+    }
+}
+.findStore-card-img {
+    border-radius: 48px;
+    background: $brand-04;
+    padding: 12px;
+    width: 48px;
+    height: 48px;
+    @include media-breakpoint-down(lg) {
+        padding: 6px;
+        width: 36px;
+        height: 36px;
+    }
+}
