@@ -6,12 +6,7 @@
         padding-left: 16.25%;
     }
 
-    // .tea-type {
-    //     border-radius: 40px;
-    // }
-
     .type-link {
-        // border-radius: 40px;
         transition: all 0.3s;
         background-color: $brand-05;
 
@@ -27,19 +22,10 @@
 
     .event-rounded {
         border-radius: 40px 40px 16px 16px;
-        // width: 100%;       
 
         @include media-breakpoint-up(md) {
             border-radius: 80px 80px 16px 16px;
         }
-
-        // @include media-breakpoint-up(md) {
-        //     max-width: 350px;
-        // }
-
-        // @include media-breakpoint-up(lg) {
-        //     max-width: 306px;
-        // }
     }
 
     .event-pic {
