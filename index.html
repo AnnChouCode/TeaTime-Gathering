@@ -31,8 +31,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- AOS EFFECT -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-ec1e4145.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-a18bd89a.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-124ac317.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-607b6e4a.css">
 </head>
 
 <body class="pt-64 pt-md-82">
@@ -144,20 +144,20 @@
                 <!-- switch user & admin login -->
                 <ul class="d-flex p-8 rounded-pill bg-brand-05">
                     <li class="w-50"><a
-                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-login active"
+                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 active btnLoginNav"
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
-                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-login"
+                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnLoginNav"
                             href="#">管理員登入</a></li>
                 </ul>
                 <!-- input - account & password -->
                 <form class="needs-validation" action="#" method="post" novalidate>
                     <div class="mb-lg-20 mb-12">
                         <input
-                            class="form-control mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
+                            class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
                             type="email" id="nav-account" name="nav-account" placeholder="請輸入信箱"
                             aria-describedby="nav-account" required>
-                        <input class="form-control p-16 border border-2 border-gray-04 border-radius-28 login-bar "
+                        <input class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar "
                             type="password" id="nav-password" name="nav-password" placeholder="請輸入密碼"
                             aria-describedby="nav-password" required>
                         <div class="invalid-feedback ms-16">
@@ -174,7 +174,7 @@
                     </div>
                     <!-- submit -->
                     <button type="submit"
-                        class="p-lg-14 p-12 fs-20 fw-medium lh-sm rounded-pill text-white border-0 w-100 btn-login-submit">登入</button>
+                        class="p-lg-14 p-12 fs-20 fw-medium lh-sm rounded-pill text-white border-0 w-100 btn-brand-03 btn-hover-brand-01">登入</button>
                 </form>
             </div>
         </div>
@@ -195,20 +195,20 @@
                 <!-- switch user & admin login -->
                 <ul class="d-flex p-8 rounded-pill bg-brand-05">
                     <li class="w-50"><a
-                            class="d-block py-lg-12 py-10 text-center fw-medium lh-sm rounded-pill btn-login active"
+                            class="d-block py-lg-12 py-10 text-center fw-medium lh-sm rounded-pill btn-brand-02 btn-hover-bg-2 active btnLogin"
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
-                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-login"
+                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnLogin"
                             href="#">管理員登入</a></li>
                 </ul>
                 <!-- input - account & password -->
                 <form class="needs-validation" action="#" method="post" novalidate>
                     <div class="mb-lg-20 mb-12">
                         <input
-                            class="form-control mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
+                            class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
                             type="email" id="form-account" name="form-account" placeholder="請輸入信箱"
                             aria-describedby="form-account" required>
-                        <input class="form-control p-16 border border-2 border-gray-04 border-radius-28 login-bar"
+                        <input class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar"
                             type="password" id="form-password" name="form-password" placeholder="請輸入密碼"
                             aria-describedby="form-password" required>
                         <div class="invalid-feedback ms-16">
@@ -225,7 +225,7 @@
                     </div>
                     <!-- submit -->
                     <button type="submit"
-                        class="p-lg-14 p-12 w-100 fs-20 fw-medium lh-sm rounded-pill text-white border-0 btn-login-submit">登入</button>
+                        class="p-lg-14 p-12 w-100 fs-20 fw-medium lh-sm rounded-pill text-white border-0 btn-brand-03 btn-hover-brand-01">登入</button>
                 </form>
             </div>
         </div>
@@ -307,21 +307,31 @@
 
 
 <script> //參考 Billy
-    const buttonLogin = document.querySelectorAll('.btn-login');
-    const buttonOffcavasList = document.querySelectorAll('.offcanvas-list a');
+    const btnLogin = document.querySelectorAll('.btnLogin');
+    const btnLoginNav = document.querySelectorAll('.btnLoginNav');
+    const btnOffcavasList = document.querySelectorAll('.offcanvas-list a');
 
-    buttonLogin.forEach(btnType => {
+    btnLogin.forEach(btnType => {
         btnType.addEventListener('click', () => {
-            buttonLogin.forEach(btn => {
+            btnLogin.forEach(btn => {
                 btn.classList.remove('active');
             })
             btnType.classList.add('active');
         })
     })
 
-    buttonOffcavasList.forEach(btnType => {
+    btnLoginNav.forEach(btnType => {
         btnType.addEventListener('click', () => {
-            buttonOffcavasList.forEach(btn => {
+            btnLoginNav.forEach(btn => {
+                btn.classList.remove('active');
+            })
+            btnType.classList.add('active');
+        })
+    })
+
+    btnOffcavasList.forEach(btnType => {
+        btnType.addEventListener('click', () => {
+            btnOffcavasList.forEach(btn => {
                 btn.classList.remove('nav-offcanvas-active');
             })
             btnType.classList.add('nav-offcanvas-active');
@@ -2855,37 +2865,37 @@
         <div class="col-md-2">
             <ul class="x-slide d-flex d-md-block">
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 actived"
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent fs-xl-20 fs-16 text-gray-02 border-radius-16 btn-hover-gray-04 actived"
                         id="QA1">點餐步驟</button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 "
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent fs-xl-20 fs-16 text-gray-02 border-radius-16 btn-hover-gray-04 "
                         id="QA2">投票 /
                         舉辦投票</button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 "
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent fs-xl-20 fs-16 text-gray-02 border-radius-16 btn-hover-gray-04 "
                         id="QA3">許願留言</button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 "
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent fs-xl-20 fs-16 text-gray-02 border-radius-16 btn-hover-gray-04 "
                         id="QA4">訂單問題</button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 "
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent fs-xl-20 fs-16 text-gray-02 border-radius-16 btn-hover-gray-04 "
                         id="QA5">常見問題</button>
                 </li>
             </ul>
         </div>
-        <div class="col-md-10 px-24 mt-24 mt-md-0" id="showAns">
-            <ul class="pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
+        <div class="col-md-10 mt-24 mt-md-0" id="showAns">
+            <ul class="px-md-24 px-12 pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">如何點餐（跟團）</h3>
                 <p class="mt-24">您可藉由以下三種路徑查看開團中項目</p>
                 <li class="mt-20">1. 『首頁/點餐月曆』區塊</li>
                 <li class="mt-4">2. 『點餐』頁面</li>
                 <li class="mt-4">3. 『點餐月曆』</li>
             </ul>
-            <ul class="pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
+            <ul class="px-md-24 px-12 pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">如何邀請他人點餐（開團）</h3>
                 <p class="mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
                 <li class="mt-20">1. 『首頁/找店家』區塊</li>
@@ -2918,50 +2928,50 @@
             button.classList.add('actived');
 
             if (button === QA1) {
-                showAns.innerHTML = `<ul class="pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
+                showAns.innerHTML = `<ul class="px-md-24 px-12 pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">如何點餐（跟團）</h3>
                 <p class="mt-24">您可藉由以下三種路徑查看開團中項目</p>
                 <li class="mt-20">1. 『首頁/點餐月曆』區塊</li>
                 <li class="mt-4">2. 『點餐』頁面</li>
                 <li class="mt-4">3. 『點餐月曆』</li>
             </ul>
-            <ul class="pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
+            <ul class="px-md-24 px-12 pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">如何邀請他人點餐（開團）</h3>
                 <p class="mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
                 <li class="mt-20">1. 『首頁/找店家』區塊</li>
                 <li class="mt-4">2. 『點餐』頁面</li>
             </ul>`
             } else if (button === QA2) {
-                showAns.innerHTML = `<ul class="pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
+                showAns.innerHTML = `<ul class="px-md-24 px-12 pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">我想投票</h3>
                 <p class="mt-24">您可藉由以下三種路徑查看投票中的項目</p>
                 <li class="mt-20">1. 『首頁/點餐月曆』區塊</li>
                 <li class="mt-4">2. 『投票』頁面</li>
                 <li class="mt-4">3. 『點餐月曆』頁面</li>
             </ul>
-            <ul class="pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
+            <ul class="px-md-24 px-12 pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">我想舉辦投票</h3>
                 <p class="mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後，點選「舉辦投票」按鈕</p>
                 <li class="mt-20">1. 『首頁/找店家』區塊</li>
                 <li class="mt-4">2. 『點餐』頁面</li>
             </ul>`
             } else if (button === QA3) {
-                showAns.innerHTML = `<ul class="pb-md-40 pb-24 fs-md-20 fs-16">
+                showAns.innerHTML = `<ul class="px-md-24 px-12 pb-md-40 pb-24 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">我想許願</h3>
                 <p class="mt-24">店家清單中沒有您的愛店嗎？或是有任何心得感想呢？請至『留言』頁面留下您的想法</p>`
             } else if (button === QA4) {
-                showAns.innerHTML = `<ul class="pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
+                showAns.innerHTML = `<ul class="px-md-24 px-12 pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">如何查看訂單歷史記錄？</h3>
                 <p class="mt-24">至『首頁』上方點選『訂單』可查看跟團中訂單以及歷史訂單</p>
                 </ul>
-                <ul class="pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
+                <ul class="px-md-24 px-12 pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
                 <h3 class="tfs-md-24 fs-20 text-brand-03">如何取消或修改已經下單的訂單？</h3>
                 <li class="mt-20">1. 至『首頁』上方點選『訂單』即可看到『修改訂單』</li>
                 <li class="mt-4">2. 請注意 : 僅於點餐期限截止前仍可取消 or 修改已送出的內容，截止後恕不異動</li>
             </ul>
                 `
             } else if (button === QA5) {
-                showAns.innerHTML = `<div class="pb-md-40 pb-24 fs-md-20 fs-16">
+                showAns.innerHTML = `<div class="px-md-24 px-12 pb-md-40 pb-24 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">我想發問</h3>
                 <p class="mt-24">請至『新手教學』專頁參考常見問題</p></div>`
             }
