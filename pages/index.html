@@ -35,8 +35,6 @@
 
 <body class="pt-64 pt-md-82">
   <%- include('./layout/nav'); -%>
-    <div class="container">
-    </div>
 
     <div class="layout-content">
       <!-- novice Teaching -->
@@ -46,8 +44,6 @@
     <!-- tea-calendar -->
     <%- include('./layout/tea-calendar'); -%>
 
-
-
       <div class="layout d-flex ">
         <div class="layout-left d-none d-lg-block">
           <%- include('./layout/navigation-menu'); -%>
@@ -56,21 +52,22 @@
           <!-- find-store -->
           <%- include('./layout/find-store'); -%>
         </div>
-        <!-- <div class="layout-right d-none d-lg-block"></div> -->
+        <div class="layout-right d-none d-lg-block"></div>
       </div>
+
       <!-- feedback -->
       <%- include('./layout/feedback'); -%>
 
+        <!-- novice Teaching -->
         <div class="layout-content">
-          <!-- novice Teaching -->
           <%- include('./layout/noviceTeaching'); -%>
         </div>
 
-        <!-- notification -->
-        <%- include('./layout/notification'); -%>
+        <!-- footer -->
+        <%- include('./layout/footer'); -%>
 
-          <!-- footer -->
-          <%- include('./layout/footer'); -%>
+          <!-- notification -->
+          <%- include('./layout/notification'); -%>
 
             <!-- ICONGIFY -->
             <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
@@ -88,7 +85,15 @@
               });
             </script>
             <!-- AOS EFFECT -->
-            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+            <script>
+              // AOS INIT
+              AOS.init({
+                // offset: 180,
+                duration: 800,
+                delay: 500,
+              })
+            </script>
 </body>
 
 </html>

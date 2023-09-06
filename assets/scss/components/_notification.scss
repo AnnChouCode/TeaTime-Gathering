@@ -13,26 +13,31 @@
 .notification {
     &-container {
         bottom: 96px;
-        z-index: 1030;
-        position: sticky;
-        padding-left:12px;
+        right:12px;
+        // z-index: 1030;
+        // position: sticky;
+        // padding-left:12px;
 
         @include media-breakpoint-up(md) {
-            margin:0;
+            right:28px;
         }
     }   
 
     &-body {
         border-radius: 24px;
-        max-width: 351px;
-        margin-right:12px;
-        margin-left: auto;
+        width: 351px;
+        // max-width: 351px;
+        // margin-right:12px;
+        // margin-left: auto;
+        max-height:80vh;
+        
 
         @include media-breakpoint-up(sm) {
-            max-width: 416px;
-            max-height:351px; //測試高度伸縮
-            margin-right:28px;
-            max-height:80vh;
+            width: 416px;
+            // max-width: 416px;
+            // max-height:592px; //測試高度伸縮
+            // margin-right:28px;
+            
         }
     }
 
@@ -100,4 +105,8 @@
         border: 1px solid $brand-02;
         opacity: 0.5;
     }
+}
+
+.toast-no-shadow{
+    --bs-toast-box-shadow:none;
 }
