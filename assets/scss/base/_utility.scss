@@ -111,6 +111,13 @@ $utilities: map-merge(
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
 /* CUSTOM 文字 END*/
 
+/* CUSTOM input form control */
+//input 點擊 focus 客製化
+.custom-form-focus:focus{
+  background-color: white;
+  color: $gray-01;
+  box-shadow: none;
+}
+/* CUSTOM input form END */

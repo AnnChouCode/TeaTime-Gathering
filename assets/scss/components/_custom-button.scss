@@ -1,0 +1,23 @@
+/* DEFAULT */
+.btn-brand-02 {
+    color: $brand-02;
+    transition: all 0.3s;
+}
+
+.btn-brand-03 {
+    background-color: $brand-03;
+    transition: all 0.3s;
+}
+
+/* HOVER */
+.btn-hover-gray-04:hover{
+    background-color: $gray-04 !important;
+}
+
+.btn-hover-bg-2:hover {  
+      background-color: $bg-2;
+}
+
+.btn-hover-brand-01:hover {
+    background-color: $brand-01;
+  }
