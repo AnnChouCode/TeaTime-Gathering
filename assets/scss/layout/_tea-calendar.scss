@@ -1,4 +1,4 @@
-.tea-container {
+.tea-calendar {
     border-radius: 0px 200px 0px 0px;
 
     @include media-breakpoint-up(lg) {
@@ -6,17 +6,12 @@
         padding-left: 16.25%;
     }
 
-    .tea-type {
-        border-radius: 40px;
-    }
-
     .type-link {
-        border-radius: 40px;
         transition: all 0.3s;
         background-color: $brand-05;
 
         &:hover {
-            background-color: #fff;
+            background-color: $bg-2;
         }
 
         &:active {
@@ -26,27 +21,23 @@
     }
 
     .event-rounded {
-        border-radius: 80px 80px 16px 16px;
-        width: 100%;
+        border-radius: 40px 40px 16px 16px;
 
         @include media-breakpoint-up(md) {
-            max-width: 350px;
-        }
-
-        @include media-breakpoint-up(lg) {
-            max-width: 306px;
+            border-radius: 80px 80px 16px 16px;
         }
     }
 
     .event-pic {
         width: 96px;
         height: 96px;
-        border-radius: 64px 64px 16px 16px;
+        border-radius: 32px 32px 16px 16px;
         object-fit: cover;
 
         @include media-breakpoint-up(md) {
             width: 100%;
             height: 100%;
+            border-radius: 64px 64px 16px 16px;
         }
     }
 
@@ -60,6 +51,10 @@
     color: $white !important;
 }
 
-.gap-24 {
-    gap: 24px;
+.text-sm-nowrap {
+    white-space: wrap;
+
+    @include media-breakpoint-up(sm) {
+        white-space: nowrap;
+    }
 }

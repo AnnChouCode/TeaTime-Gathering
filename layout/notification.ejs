@@ -1,17 +1,17 @@
-<a class="position-fixed z-1 d-block btn-notification notification-hover" data-bs-toggle="collapse" href="#collapseNotification" role="button"
-    aria-expanded="false" aria-controls="collapseNotification">
+<a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover" id="notificationToastBtn">
     <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline" style="color: white;"
         width="28" height="28"></iconify-icon>
-    <div class="position-absolute btn-notification-alert rounded-circle bg-white"></div>
+    <div class="btn-notification-alert rounded-circle bg-white position-absolute "></div>
 </a>
 
 <!-- notification-container -->
-<div class="collapse notification-container" id="collapseNotification">
-    <div class="overflow-hidden border-2 border-brand-05 border bg-white notification-body">
+<div class="position-fixed notification-container" style="z-index: 1030">
+    <div id="notificationToast"
+        class="overflow-hidden border-2 border-brand-05 border bg-white notification-body toast toast-no-shadow"
+        role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
         <div class="d-flex justify-content-between align-items-center py-md-20 px-md-24 p-16 bg-brand-05">
             <span class="fs-md-24 fs-20 fw-bold lh-sm ">通知</span>
-            <a class="d-block" data-bs-toggle="collapse" href="#collapseNotification" role="button"
-                aria-expanded="false" aria-controls="collapseNotification">
+            <a class="d-block cursor-pointer" data-bs-dismiss="toast" aria-label="Close">
                 <iconify-icon icon="ic:round-close" style="color: #8B8B8A;" width="32"></iconify-icon>
             </a>
         </div>

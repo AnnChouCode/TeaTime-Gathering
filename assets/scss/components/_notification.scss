@@ -13,31 +13,26 @@
 .notification {
     &-container {
         bottom: 96px;
-        z-index: 1030;
-        position: sticky;
-        padding-left:12px;
+        right:12px;
 
         @include media-breakpoint-up(md) {
-            margin:0;
+            right:28px;
         }
     }   
 
     &-body {
         border-radius: 24px;
-        max-width: 351px;
-        margin-right:12px;
-        margin-left: auto;
+        width: 351px;
+        max-height:70vh;
+        
 
         @include media-breakpoint-up(sm) {
-            max-width: 416px;
-            max-height:351px; //測試高度伸縮
-            margin-right:28px;
-            max-height:80vh;
+            width: 416px;            
         }
     }
 
     &-messages {
-        max-height: 448px;
+        max-height: 422px;
         overflow-y: scroll;
         /* Hide scrollbar for IE, Edge and Firefox */
         -ms-overflow-style: none;
@@ -51,7 +46,7 @@
         }
 
         @include media-breakpoint-up(md) {
-            max-height: 492px;
+            max-height: 476px;
         }
 
 
@@ -100,4 +95,8 @@
         border: 1px solid $brand-02;
         opacity: 0.5;
     }
+}
+
+.toast-no-shadow{
+    --bs-toast-box-shadow:none;
 }
