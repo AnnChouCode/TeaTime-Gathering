@@ -1,13 +1,13 @@
 <!-- feedback -->
 <div class="d-lg-flex">
-    <div class="evaluate container-fluid bg-bg-1 position-relative me-md-24 pt-24 pb-24 pt-lg-80 pb-lg-80 pe-xl-80"
+    <div class="evaluate container-fluid bg-bg-1 position-relative me-md-24 pt-24 pb-24 pt-lg-80 pb-lg-80 pe-xl-80 z-n1"
         data-aos="fade-right">
         <div class="container">
             <div class="row">
-                <div class="col">
+                <div class="col px-0">
                     <div class="evaluate-star d-flex align-items-center position-relative ">
                         <div class="evaluate-txt">
-                            <h3 id="comment" class="mb-24 fs-24 fs-md-32 fw-bold lh-lg">看評價</h3>
+                            <h3 id="comment" class="mb-md-24 mb-8 fs-24 fs-md-32 fw-bold lh-lg">看評價</h3>
                             <p class="fs-16 fs-md-24 mb-16 mb-md-32 text-gray-05">對店家的最新評價</p>
                         </div>
                     </div>
@@ -1303,10 +1303,10 @@
         data-aos="fade-right" data-aos-delay="800">
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <div class="me-auto d-flex justify-content-between align-items-center ">
+                <div class="col px-0">
+                    <div class="me-auto d-flex justify-content-between align-items-center">
                         <div>
-                            <h3 class="mb-24 fs-24 fs-md-32 fw-bold lh-lg">看留言</h3>
+                            <h3 class="mb-md-24 mb-8 fs-24 fs-md-32 fw-bold lh-lg">看留言</h3>
                             <p class="fs-16 fs-md-24 mb-16 mb-md-32 text-gray-05">大家在想什麼</p>
                         </div>
                         <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05"
@@ -1626,3 +1626,19 @@
         </div>
     </div>
 </div>
+
+<script>
+    let evaluate = document.querySelector('.evaluate');
+
+    function controlResize() {
+        if (window.innerWidth < 992) {
+            evaluate.classList.remove('z-n1');
+        }
+        else {
+            evaluate.classList.add('z-n1');
+        }
+    }
+    // 打開頁面時先 init 一次
+    controlResize();
+    window.addEventListener("resize", controlResize);
+</script>
