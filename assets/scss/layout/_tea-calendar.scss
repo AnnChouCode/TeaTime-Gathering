@@ -16,7 +16,7 @@
         background-color: $brand-05;
 
         &:hover {
-            background-color: #fff;
+            background-color: $bg-2;
         }
 
         &:active {
@@ -26,7 +26,7 @@
     }
 
     .event-rounded {
-        border-radius: 40px 40px 16px 16px; 
+        border-radius: 40px 40px 16px 16px;
         // width: 100%;       
 
         @include media-breakpoint-up(md) {
