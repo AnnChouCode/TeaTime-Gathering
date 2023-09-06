@@ -5,15 +5,19 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        img {
-            margin-right: 0 !important;
-        }
+        // img {
+        //     margin-right: 0 !important;
+        // }
     }
 }
 
 .page-link {
+    display: flex;
     align-items: center;
-    align-self: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    // align-self: center;
     &:hover {
         background-color: $brand-01;
         color: white;
