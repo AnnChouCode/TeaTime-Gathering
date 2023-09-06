@@ -10,13 +10,10 @@
 
 /* custom btn - switch user & admin login ==========
 ================================*/
-.btn-login {
-  color: $brand-02;
-
-  &:hover {
-    background-color: $bg-2;
-  }
-}
+// .btn-login {
+//   color: $brand-02;
+//   transition: all 0.3s;
+// }
 
 /* custom input - account & password ==========
 ================================*/
@@ -84,14 +81,6 @@
   }
 }
 
-.btn-login-submit {
-  background-color: $brand-03;
-
-  &:hover {
-    background-color: $brand-01;
-  }
-}
-
 /* custom input - login ==========
 ================================*/
 .account-login-modal {
@@ -104,12 +93,6 @@
 
   .was-validated .form-control:invalid {
     outline: 2px solid $brand-02;
-  }
-
-  .form-control:focus {
-    background-color: white;
-    color: $gray-01;
-    box-shadow: none;
   }
 
   .modal-dialog {

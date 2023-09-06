@@ -106,20 +106,20 @@
                 <!-- switch user & admin login -->
                 <ul class="d-flex p-8 rounded-pill bg-brand-05">
                     <li class="w-50"><a
-                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-login active"
+                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 active btnLoginNav"
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
-                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-login"
+                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnLoginNav"
                             href="#">管理員登入</a></li>
                 </ul>
                 <!-- input - account & password -->
                 <form class="needs-validation" action="#" method="post" novalidate>
                     <div class="mb-lg-20 mb-12">
                         <input
-                            class="form-control mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
+                            class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
                             type="email" id="nav-account" name="nav-account" placeholder="請輸入信箱"
                             aria-describedby="nav-account" required>
-                        <input class="form-control p-16 border border-2 border-gray-04 border-radius-28 login-bar "
+                        <input class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar "
                             type="password" id="nav-password" name="nav-password" placeholder="請輸入密碼"
                             aria-describedby="nav-password" required>
                         <div class="invalid-feedback ms-16">
@@ -136,7 +136,7 @@
                     </div>
                     <!-- submit -->
                     <button type="submit"
-                        class="p-lg-14 p-12 fs-20 fw-medium lh-sm rounded-pill text-white border-0 w-100 btn-login-submit">登入</button>
+                        class="p-lg-14 p-12 fs-20 fw-medium lh-sm rounded-pill text-white border-0 w-100 btn-brand-03 btn-hover-brand-01">登入</button>
                 </form>
             </div>
         </div>
@@ -157,20 +157,20 @@
                 <!-- switch user & admin login -->
                 <ul class="d-flex p-8 rounded-pill bg-brand-05">
                     <li class="w-50"><a
-                            class="d-block py-lg-12 py-10 text-center fw-medium lh-sm rounded-pill btn-login active"
+                            class="d-block py-lg-12 py-10 text-center fw-medium lh-sm rounded-pill btn-brand-02 btn-hover-bg-2 active btnLogin"
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
-                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-login"
+                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnLogin"
                             href="#">管理員登入</a></li>
                 </ul>
                 <!-- input - account & password -->
                 <form class="needs-validation" action="#" method="post" novalidate>
                     <div class="mb-lg-20 mb-12">
                         <input
-                            class="form-control mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
+                            class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
                             type="email" id="form-account" name="form-account" placeholder="請輸入信箱"
                             aria-describedby="form-account" required>
-                        <input class="form-control p-16 border border-2 border-gray-04 border-radius-28 login-bar"
+                        <input class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar"
                             type="password" id="form-password" name="form-password" placeholder="請輸入密碼"
                             aria-describedby="form-password" required>
                         <div class="invalid-feedback ms-16">
@@ -187,7 +187,7 @@
                     </div>
                     <!-- submit -->
                     <button type="submit"
-                        class="p-lg-14 p-12 w-100 fs-20 fw-medium lh-sm rounded-pill text-white border-0 btn-login-submit">登入</button>
+                        class="p-lg-14 p-12 w-100 fs-20 fw-medium lh-sm rounded-pill text-white border-0 btn-brand-03 btn-hover-brand-01">登入</button>
                 </form>
             </div>
         </div>
@@ -269,21 +269,31 @@
 
 
 <script> //參考 Billy
-    const buttonLogin = document.querySelectorAll('.btn-login');
-    const buttonOffcavasList = document.querySelectorAll('.offcanvas-list a');
+    const btnLogin = document.querySelectorAll('.btnLogin');
+    const btnLoginNav = document.querySelectorAll('.btnLoginNav');
+    const btnOffcavasList = document.querySelectorAll('.offcanvas-list a');
 
-    buttonLogin.forEach(btnType => {
+    btnLogin.forEach(btnType => {
         btnType.addEventListener('click', () => {
-            buttonLogin.forEach(btn => {
+            btnLogin.forEach(btn => {
                 btn.classList.remove('active');
             })
             btnType.classList.add('active');
         })
     })
 
-    buttonOffcavasList.forEach(btnType => {
+    btnLoginNav.forEach(btnType => {
         btnType.addEventListener('click', () => {
-            buttonOffcavasList.forEach(btn => {
+            btnLoginNav.forEach(btn => {
+                btn.classList.remove('active');
+            })
+            btnType.classList.add('active');
+        })
+    })
+
+    btnOffcavasList.forEach(btnType => {
+        btnType.addEventListener('click', () => {
+            btnOffcavasList.forEach(btn => {
                 btn.classList.remove('nav-offcanvas-active');
             })
             btnType.classList.add('nav-offcanvas-active');
