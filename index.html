@@ -31,8 +31,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- AOS EFFECT -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-49c25084.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-7428d767.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-933011ac.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-ea3642af.css">
 </head>
 
 <body class="pt-64 pt-md-82">
@@ -884,7 +884,7 @@
           <!-- find-store -->
           <div class="container py-32 py-lg-80 find-store">
     <div class="d-flex justify-content-between align-items-center mb-18 mb-md-20">
-        <h2 class="fs-32" id="find-store">找店家</h2>
+        <h2 class="fs-md-32 fs-24 fw-bold lh-sm" id="find-store">找店家</h2>
         <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05" href="#">看更多
             <svg class="svg-hover" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 8 11"
                 fill="none">
@@ -906,18 +906,19 @@
             <input type="text" class="search-bar border border-2 border-gray-04 border-radius-28 py-10 px-16 ps-48"
                 placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
         </div>
-        <ul class="select-bar d-flex text-center bg-brand-05 mt-20 mt-md-0 mb-16 mb-md-0">
-            <li class="text-center w-100 pt-8 pb-8 ps-8">
+
+        <ul class="select-bar d-flex text-center bg-brand-05 mt-20 mt-md-0 mb-16 mb-md-0 p-8 text-nowrap">
+            <li class="text-center w-100">
                 <button type="button"
-                    class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-24 active border-0">最新店家</button>
+                    class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-24 border-0 w-100 btn-active-bg-2 btn-hover-bg-2 active">最新店家</button>
             </li>
-            <li class="text-center w-100 pt-8 pb-8 pe-8">
+            <li class="text-center w-100">
                 <button type="button"
-                    class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-24   border-0">最高評價</button>
+                    class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-24 border-0 btn-active-bg-2 btn-hover-bg-2 w-100">最高評價</button>
             </li>
-            <li class="text-center w-100 pt-8 pb-8 pe-8">
+            <li class="text-center w-100">
                 <button type="button"
-                    class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-24  border-0">最低評價</button>
+                    class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-24 border-0 btn-active-bg-2 btn-hover-bg-2 w-100">最低評價</button>
             </li>
         </ul>
     </div>
@@ -928,222 +929,205 @@
             <ul class=" x-slide d-flex d-md-block gap-md-5">
                 <li>
                     <button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 actived">
+                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 text-nowrap btn-active border-radius-16 btn-hover-gray-04 actived">
                         <!-- <img src="/assets/images/store-selection/全部.png" alt="全部" class="me-8">全部 -->
                         <iconify-icon icon="fluent:food-24-regular" style="color: #8b8b8a;" width="32" height="32"
-                            class="me-8"></iconify-icon>全部
+                            class="me-md-8 me-0"></iconify-icon>
+                        <span class="fs-md-20 fs-16">全部</span>
                     </button>
                 </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 ">
+                <li>
+                    <button
+                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 text-nowrap border-radius-16 btn-hover-gray-04 btn-active">
                         <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="32" height="32"
-                            class="me-8"></iconify-icon>
-                        速食</button>
+                            class="me-md-8 me-0"></iconify-icon>
+                        <span class="fs-md-20 fs-16">速食</span></button>
                 </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><iconify-icon
+                <li>
+                    <button
+                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 text-nowrap border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
                             icon="icon-park-outline:drink" style="color: #8b8b8a;" width="32" height="32"
-                            class="me-8"></iconify-icon>飲品</button>
+                            class="me-md-8 me-0"></iconify-icon>
+                            <span class="fs-md-20 fs-16">飲品</span>
+                        </button>
                 </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><iconify-icon
+                <li>
+                    <button
+                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 text-nowrap border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
                             icon="ph:bowl-food" style="color: #8b8b8a;" width="32" height="32"
-                            class="me-8"></iconify-icon>小吃</button>
+                            class="me-md-8 me-0"></iconify-icon>
+                            <span class="fs-md-20 fs-16">小吃</span>
+                        </button>
                 </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><iconify-icon
+                <li>
+                    <button
+                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 text-nowrap border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
                             icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;" width="32"
-                            height="32" class="me-8"></iconify-icon>甜點</button>
+                            height="32" class="me-md-8 me-0"></iconify-icon>
+                            <span class="fs-md-20 fs-16">甜點</span>
+                        </button>
                 </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><iconify-icon
-                            icon="tabler:leaf" style="color: #8b8b8a;" width="32" height="32"></iconify-icon>素食</button>
+                <li>
+                    <button
+                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 text-nowrap border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
+                            icon="tabler:leaf" style="color: #8b8b8a;" width="32" height="32"
+                            class="me-md-8 me-0"></iconify-icon>
+                            <span class="fs-md-20 fs-16">素食</span>
+                        </button>
                 </li>
-                <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"><iconify-icon
+                <li>
+                    <button
+                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 text-nowrap border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
                             icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="32" height="32"
-                            class="me-8"></iconify-icon>
-                        咖啡</button>
+                            class="me-md-8 me-0"></iconify-icon>
+                        <span class="fs-md-20 fs-16">咖啡</span></button>
                 </li>
             </ul>
         </div>
         <div class="col-md-10 px-24 ">
             <ul class="row row-cols-2 gap-12 gap-xxl-24 ">
-                <li style="background-image: url(/TeaTime-Gathering/assets/store-05-s-db8e0227.jpg);"
-                    class="col position-relative findStore-img d-flex justify-content-center ">
-                    <div class="position-absolute d-flex justify-content-between  findStore-card">
-                        <div class="d-flex  flex-column justify-content-center ">
-                            <p class="fs-20 text-white">滋味冰</p>
-                            <div class="d-flex ">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHiSURBVHgB7ZbNUcMwEIXfrlKAqQBTAaEBHA/cSQdABUAFQAXQAVABBUAwCQUAHaQDPHADrGVjHIaZKLYlmOFAvotja6X9kfYpwIIFfwwhkFF23WdDW28FH6dpOkYgHYTCfGJFYmMk1rcUgTACGGWDHaB0rA/pZdlVD4EEBQCmw++vxvAeAvEO4K7Mtsp+ikCrkEUIwDsAMbzt+Bx12AZVwSsAzTLWbHdcYwLsIwByOIkMbJ8Yy0KINMJIQLEIYh3WMktNqWmsC+a6ak6QsdXfJMjFymMB8+Bq15k2NCz3+oilSstO82uFfM2bziifTDAkt3C068wWSGtnnlibuz7zrN1rqiGM8ZuI3BbysusackpxeQ6MPdNi9PFT38BpkmwczBuvvQtGw8EJAk935fxInR/X2TReRsPh4FCNjuCBTDoBsp8kmxdNtq1uw7vRTSaq+WjP6XpN2b/TSojUeRc+ELW2b6yAHsiuYXsPTwrLSyo8eZNdYwU6XCQI4r1VFRoDEKLe/MFS3Zx0mFbxGwFoBF2X48IWa+u9zVT3u+8SLiFupSG1Z6AUJLZPX4vWtFfVrhPNmF5WuXbCEhpo3oIqu4miWfu8Mq+3J4JT2Nc1NTz/nDh/e7zJskuvfzu+9gv+Nx/HornAAM+FNQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-dark">
+                <li class="findStore-img position-relative " style="background-image: url(/TeaTime-Gathering/assets/store-05-s-db8e0227.jpg);">
+                    <a href="#" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">滋味冰</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;" width="16"></iconify-icon>
+                                </div>
                             </div>
+                            <iconify-icon icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;" width="24" height="24" class="findStore-card-img"></iconify-icon>
                         </div>
-                        <iconify-icon icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;"
-                            width="24" height="24" class="findStore-card-img"></iconify-icon>
-                    </div>
+                    </a>
                 </li>
-                <li style="background-image: url(/TeaTime-Gathering/assets/store-07-s-4f60961b.jpg);"
-                    class="col position-relative findStore-img d-flex justify-content-center">
-                    <div class="position-absolute d-flex justify-content-between  findStore-card">
-                        <div class="d-flex  flex-column justify-content-center ">
-                            <p class="fs-20 text-white">買噹噹</p>
-                            <div class="d-flex ">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHiSURBVHgB7ZbNUcMwEIXfrlKAqQBTAaEBHA/cSQdABUAFQAXQAVABBUAwCQUAHaQDPHADrGVjHIaZKLYlmOFAvotja6X9kfYpwIIFfwwhkFF23WdDW28FH6dpOkYgHYTCfGJFYmMk1rcUgTACGGWDHaB0rA/pZdlVD4EEBQCmw++vxvAeAvEO4K7Mtsp+ikCrkEUIwDsAMbzt+Bx12AZVwSsAzTLWbHdcYwLsIwByOIkMbJ8Yy0KINMJIQLEIYh3WMktNqWmsC+a6ak6QsdXfJMjFymMB8+Bq15k2NCz3+oilSstO82uFfM2bziifTDAkt3C068wWSGtnnlibuz7zrN1rqiGM8ZuI3BbysusackpxeQ6MPdNi9PFT38BpkmwczBuvvQtGw8EJAk935fxInR/X2TReRsPh4FCNjuCBTDoBsp8kmxdNtq1uw7vRTSaq+WjP6XpN2b/TSojUeRc+ELW2b6yAHsiuYXsPTwrLSyo8eZNdYwU6XCQI4r1VFRoDEKLe/MFS3Zx0mFbxGwFoBF2X48IWa+u9zVT3u+8SLiFupSG1Z6AUJLZPX4vWtFfVrhPNmF5WuXbCEhpo3oIqu4miWfu8Mq+3J4JT2Nc1NTz/nDh/e7zJskuvfzu+9gv+Nx/HornAAM+FNQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-dark">
+                <li class="findStore-img position-relative " style="background-image: url(/TeaTime-Gathering/assets/store-07-s-4f60961b.jpg);">
+                    <a href="#" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">買噹噹</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #c2c1bd;" width="16"></iconify-icon>
+                                </div>
                             </div>
+                            <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
                         </div>
-                        <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="24" height="24"
-                            class="findStore-card-img"></iconify-icon>
-                    </div>
+                    </a>
                 </li>
-                <li style="background-image: url(/TeaTime-Gathering/assets/store-08-s-78d0d63e.jpg);"
-                    class="col position-relative findStore-img d-flex justify-content-center ">
-                    <div class="position-absolute d-flex justify-content-between  findStore-card">
-                        <div class="d-flex  flex-column justify-content-center ">
-                            <p class="fs-20 text-white">Tropicool</p>
-                            <div class="d-flex ">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHiSURBVHgB7ZbNUcMwEIXfrlKAqQBTAaEBHA/cSQdABUAFQAXQAVABBUAwCQUAHaQDPHADrGVjHIaZKLYlmOFAvotja6X9kfYpwIIFfwwhkFF23WdDW28FH6dpOkYgHYTCfGJFYmMk1rcUgTACGGWDHaB0rA/pZdlVD4EEBQCmw++vxvAeAvEO4K7Mtsp+ikCrkEUIwDsAMbzt+Bx12AZVwSsAzTLWbHdcYwLsIwByOIkMbJ8Yy0KINMJIQLEIYh3WMktNqWmsC+a6ak6QsdXfJMjFymMB8+Bq15k2NCz3+oilSstO82uFfM2bziifTDAkt3C068wWSGtnnlibuz7zrN1rqiGM8ZuI3BbysusackpxeQ6MPdNi9PFT38BpkmwczBuvvQtGw8EJAk935fxInR/X2TReRsPh4FCNjuCBTDoBsp8kmxdNtq1uw7vRTSaq+WjP6XpN2b/TSojUeRc+ELW2b6yAHsiuYXsPTwrLSyo8eZNdYwU6XCQI4r1VFRoDEKLe/MFS3Zx0mFbxGwFoBF2X48IWa+u9zVT3u+8SLiFupSG1Z6AUJLZPX4vWtFfVrhPNmF5WuXbCEhpo3oIqu4miWfu8Mq+3J4JT2Nc1NTz/nDh/e7zJskuvfzu+9gv+Nx/HornAAM+FNQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-dark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHiSURBVHgB7ZbNUcMwEIXfrlKAqQBTAaEBHA/cSQdABUAFQAXQAVABBUAwCQUAHaQDPHADrGVjHIaZKLYlmOFAvotja6X9kfYpwIIFfwwhkFF23WdDW28FH6dpOkYgHYTCfGJFYmMk1rcUgTACGGWDHaB0rA/pZdlVD4EEBQCmw++vxvAeAvEO4K7Mtsp+ikCrkEUIwDsAMbzt+Bx12AZVwSsAzTLWbHdcYwLsIwByOIkMbJ8Yy0KINMJIQLEIYh3WMktNqWmsC+a6ak6QsdXfJMjFymMB8+Bq15k2NCz3+oilSstO82uFfM2bziifTDAkt3C068wWSGtnnlibuz7zrN1rqiGM8ZuI3BbysusackpxeQ6MPdNi9PFT38BpkmwczBuvvQtGw8EJAk935fxInR/X2TReRsPh4FCNjuCBTDoBsp8kmxdNtq1uw7vRTSaq+WjP6XpN2b/TSojUeRc+ELW2b6yAHsiuYXsPTwrLSyo8eZNdYwU6XCQI4r1VFRoDEKLe/MFS3Zx0mFbxGwFoBF2X48IWa+u9zVT3u+8SLiFupSG1Z6AUJLZPX4vWtFfVrhPNmF5WuXbCEhpo3oIqu4miWfu8Mq+3J4JT2Nc1NTz/nDh/e7zJskuvfzu+9gv+Nx/HornAAM+FNQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-dark">
+                <li class="findStore-img position-relative " style="background-image: url(/TeaTime-Gathering/assets/store-08-s-78d0d63e.jpg);">
+                    <a href="#" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">Tropicool</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #c2c1bd;" width="16"></iconify-icon>
+                                </div>
                             </div>
+                            <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
                         </div>
-                        <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24" height="24"
-                            class="findStore-card-img"></iconify-icon>
-                    </div>
+                    </a>
                 </li>
-                <li style="background-image: url(/TeaTime-Gathering/assets/store-09-s-8a4d9e2f.jpg);"
-                    class="col position-relative findStore-img d-flex justify-content-center ">
-                    <div class="position-absolute d-flex justify-content-between  findStore-card">
-                        <div class="d-flex  flex-column justify-content-center ">
-                            <p class="fs-20 text-white">素營養</p>
-                            <div class="d-flex ">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHiSURBVHgB7ZbNUcMwEIXfrlKAqQBTAaEBHA/cSQdABUAFQAXQAVABBUAwCQUAHaQDPHADrGVjHIaZKLYlmOFAvotja6X9kfYpwIIFfwwhkFF23WdDW28FH6dpOkYgHYTCfGJFYmMk1rcUgTACGGWDHaB0rA/pZdlVD4EEBQCmw++vxvAeAvEO4K7Mtsp+ikCrkEUIwDsAMbzt+Bx12AZVwSsAzTLWbHdcYwLsIwByOIkMbJ8Yy0KINMJIQLEIYh3WMktNqWmsC+a6ak6QsdXfJMjFymMB8+Bq15k2NCz3+oilSstO82uFfM2bziifTDAkt3C068wWSGtnnlibuz7zrN1rqiGM8ZuI3BbysusackpxeQ6MPdNi9PFT38BpkmwczBuvvQtGw8EJAk935fxInR/X2TReRsPh4FCNjuCBTDoBsp8kmxdNtq1uw7vRTSaq+WjP6XpN2b/TSojUeRc+ELW2b6yAHsiuYXsPTwrLSyo8eZNdYwU6XCQI4r1VFRoDEKLe/MFS3Zx0mFbxGwFoBF2X48IWa+u9zVT3u+8SLiFupSG1Z6AUJLZPX4vWtFfVrhPNmF5WuXbCEhpo3oIqu4miWfu8Mq+3J4JT2Nc1NTz/nDh/e7zJskuvfzu+9gv+Nx/HornAAM+FNQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-dark">
+                <li class="findStore-img position-relative " style="background-image: url(/TeaTime-Gathering/assets/store-09-s-8a4d9e2f.jpg);">
+                    <a href="#" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">素營養</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #c2c1bd;" width="16"></iconify-icon>
+                                </div>
                             </div>
+                            <iconify-icon icon="tabler:leaf" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
                         </div>
-                        <iconify-icon icon="tabler:leaf" style="color: #8b8b8a;" width="24" height="24"
-                            class="findStore-card-img"></iconify-icon>
-                    </div>
+                    </a>
                 </li>
-                <li style="background-image: url(/TeaTime-Gathering/assets/store-10-s-4392ccb3.jpg);"
-                    class="col position-relative findStore-img d-flex justify-content-center ">
-                    <div class="position-absolute d-flex justify-content-between  findStore-card">
-                        <div class="d-flex  flex-column justify-content-center ">
-                            <p class="fs-20 text-white">買噹噹</p>
-                            <div class="d-flex ">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHiSURBVHgB7ZbNUcMwEIXfrlKAqQBTAaEBHA/cSQdABUAFQAXQAVABBUAwCQUAHaQDPHADrGVjHIaZKLYlmOFAvotja6X9kfYpwIIFfwwhkFF23WdDW28FH6dpOkYgHYTCfGJFYmMk1rcUgTACGGWDHaB0rA/pZdlVD4EEBQCmw++vxvAeAvEO4K7Mtsp+ikCrkEUIwDsAMbzt+Bx12AZVwSsAzTLWbHdcYwLsIwByOIkMbJ8Yy0KINMJIQLEIYh3WMktNqWmsC+a6ak6QsdXfJMjFymMB8+Bq15k2NCz3+oilSstO82uFfM2bziifTDAkt3C068wWSGtnnlibuz7zrN1rqiGM8ZuI3BbysusackpxeQ6MPdNi9PFT38BpkmwczBuvvQtGw8EJAk935fxInR/X2TReRsPh4FCNjuCBTDoBsp8kmxdNtq1uw7vRTSaq+WjP6XpN2b/TSojUeRc+ELW2b6yAHsiuYXsPTwrLSyo8eZNdYwU6XCQI4r1VFRoDEKLe/MFS3Zx0mFbxGwFoBF2X48IWa+u9zVT3u+8SLiFupSG1Z6AUJLZPX4vWtFfVrhPNmF5WuXbCEhpo3oIqu4miWfu8Mq+3J4JT2Nc1NTz/nDh/e7zJskuvfzu+9gv+Nx/HornAAM+FNQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-dark">
+                <li class="findStore-img position-relative " style="background-image: url(/TeaTime-Gathering/assets/store-10-s-4392ccb3.jpg);">
+                    <a href="#" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">買噹噹</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #c2c1bd;" width="16"></iconify-icon>
+                                </div>
                             </div>
+                            <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
                         </div>
-                        <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="24" height="24"
-                            class="findStore-card-img"></iconify-icon>
-                    </div>
+                    </a>
                 </li>
-                <li style="background-image: url(/TeaTime-Gathering/assets/store-11-s-c585c683.jpg);"
-                    class="col position-relative findStore-img d-flex justify-content-center ">
-                    <div class="position-absolute d-flex justify-content-between  findStore-card">
-                        <div class="d-flex  flex-column justify-content-center ">
-                            <p class="fs-20 text-white">滋味冰</p>
-                            <div class="d-flex ">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHiSURBVHgB7ZbNUcMwEIXfrlKAqQBTAaEBHA/cSQdABUAFQAXQAVABBUAwCQUAHaQDPHADrGVjHIaZKLYlmOFAvotja6X9kfYpwIIFfwwhkFF23WdDW28FH6dpOkYgHYTCfGJFYmMk1rcUgTACGGWDHaB0rA/pZdlVD4EEBQCmw++vxvAeAvEO4K7Mtsp+ikCrkEUIwDsAMbzt+Bx12AZVwSsAzTLWbHdcYwLsIwByOIkMbJ8Yy0KINMJIQLEIYh3WMktNqWmsC+a6ak6QsdXfJMjFymMB8+Bq15k2NCz3+oilSstO82uFfM2bziifTDAkt3C068wWSGtnnlibuz7zrN1rqiGM8ZuI3BbysusackpxeQ6MPdNi9PFT38BpkmwczBuvvQtGw8EJAk935fxInR/X2TReRsPh4FCNjuCBTDoBsp8kmxdNtq1uw7vRTSaq+WjP6XpN2b/TSojUeRc+ELW2b6yAHsiuYXsPTwrLSyo8eZNdYwU6XCQI4r1VFRoDEKLe/MFS3Zx0mFbxGwFoBF2X48IWa+u9zVT3u+8SLiFupSG1Z6AUJLZPX4vWtFfVrhPNmF5WuXbCEhpo3oIqu4miWfu8Mq+3J4JT2Nc1NTz/nDh/e7zJskuvfzu+9gv+Nx/HornAAM+FNQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-dark">
+                <li class="findStore-img position-relative " style="background-image: url(/TeaTime-Gathering/assets/store-11-s-c585c683.jpg);">
+                    <a href="#" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">滋味冰</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #c2c1bd;" width="16"></iconify-icon>
+                                </div>
                             </div>
+                            <iconify-icon icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;"
+                                width="24" height="24" class="findStore-card-img"></iconify-icon>
                         </div>
-                        <iconify-icon icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;"
-                            width="24" height="24" class="findStore-card-img"></iconify-icon>
-                    </div>
+                    </a>
                 </li>
-                <li style="background-image: url(/TeaTime-Gathering/assets/store-12-s-5fac9c88.jpg);"
-                    class="col position-relative findStore-img d-flex justify-content-center ">
-                    <div class="position-absolute d-flex justify-content-between  findStore-card">
-                        <div class="d-flex  flex-column justify-content-center ">
-                            <p class="fs-20 text-white">素營養</p>
-                            <div class="d-flex ">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHiSURBVHgB7ZbNUcMwEIXfrlKAqQBTAaEBHA/cSQdABUAFQAXQAVABBUAwCQUAHaQDPHADrGVjHIaZKLYlmOFAvotja6X9kfYpwIIFfwwhkFF23WdDW28FH6dpOkYgHYTCfGJFYmMk1rcUgTACGGWDHaB0rA/pZdlVD4EEBQCmw++vxvAeAvEO4K7Mtsp+ikCrkEUIwDsAMbzt+Bx12AZVwSsAzTLWbHdcYwLsIwByOIkMbJ8Yy0KINMJIQLEIYh3WMktNqWmsC+a6ak6QsdXfJMjFymMB8+Bq15k2NCz3+oilSstO82uFfM2bziifTDAkt3C068wWSGtnnlibuz7zrN1rqiGM8ZuI3BbysusackpxeQ6MPdNi9PFT38BpkmwczBuvvQtGw8EJAk935fxInR/X2TReRsPh4FCNjuCBTDoBsp8kmxdNtq1uw7vRTSaq+WjP6XpN2b/TSojUeRc+ELW2b6yAHsiuYXsPTwrLSyo8eZNdYwU6XCQI4r1VFRoDEKLe/MFS3Zx0mFbxGwFoBF2X48IWa+u9zVT3u+8SLiFupSG1Z6AUJLZPX4vWtFfVrhPNmF5WuXbCEhpo3oIqu4miWfu8Mq+3J4JT2Nc1NTz/nDh/e7zJskuvfzu+9gv+Nx/HornAAM+FNQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-dark">
+                <li class="findStore-img position-relative " style="background-image: url(/TeaTime-Gathering/assets/store-12-s-5fac9c88.jpg);">
+                    <a href="#" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">素營養</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #c2c1bd;" width="16"></iconify-icon>
+                                </div>
                             </div>
+                            <iconify-icon icon="tabler:leaf" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
                         </div>
-                        <iconify-icon icon="tabler:leaf" style="color: #8b8b8a;" width="24" height="24"
-                            class="findStore-card-img"></iconify-icon>
-                    </div>
+                    </a>
                 </li>
-                <li style="background-image: url(/TeaTime-Gathering/assets/store-13-s-744e635f.jpg);"
-                    class="col position-relative findStore-img d-flex justify-content-center ">
-                    <div class="position-absolute d-flex justify-content-between  findStore-card">
-                        <div class="d-flex  flex-column justify-content-center ">
-                            <p class="fs-20 text-white">Tropicool</p>
-                            <div class="d-flex ">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHQSURBVHgB7ZZNUsJAEIVfR8AtnMC4tKRK2CFaZbgBN1BPIJwAPAHcAD2JbFR2qGC5NDeQpUKRthNAFPIzGXBhyVeVZDLTmel5M90TYMOGvwo/HZa5X2zxS8HECiSgyxY1wDAxJlPeStDEgAYy8zNvcA+yuFewoImWAyDUfvZCF9AktgPcO7bms59VigpdKw0N4itgOKc+tWmkhloqUBxjb8ePjdeA5gFl7zJY1QFPyuSwLC07Iq3IynKRCWJTpHdlTof0ZovNQApyse09iQcY8yOS/EB7HXvxk+UwTA273hqz587MrXkxjK+9sfCdIfMcow2fcDV8OvkdyFVmmWUHRo7rpY21wm0Mt8/h65efubsPUh8t2QNlrD54k7L31aDW0Cjg/lFD7hXoQk6d9juXoSaIgJ8LNbBRRzxkvZ0KZTvXUYZKeUCUuJG7BWVIZL+tqlgqZkLOIRaOsn30EvSLbmddxGWUylC+PYgyi1bA4BPokHhXUiHaATnpQhrbgU1bdIC1OADk/Ace5SW+S7KIbq6wl0wcKOWQ8DwwOZjevlUFhtc0XN2cMTuslE5HFQXs6RBN2Vi7QbHtJZyRk5fi1aQiZHniEvdvR/fvaMP/5BOen5x8gEvUyQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-spark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHiSURBVHgB7ZbNUcMwEIXfrlKAqQBTAaEBHA/cSQdABUAFQAXQAVABBUAwCQUAHaQDPHADrGVjHIaZKLYlmOFAvotja6X9kfYpwIIFfwwhkFF23WdDW28FH6dpOkYgHYTCfGJFYmMk1rcUgTACGGWDHaB0rA/pZdlVD4EEBQCmw++vxvAeAvEO4K7Mtsp+ikCrkEUIwDsAMbzt+Bx12AZVwSsAzTLWbHdcYwLsIwByOIkMbJ8Yy0KINMJIQLEIYh3WMktNqWmsC+a6ak6QsdXfJMjFymMB8+Bq15k2NCz3+oilSstO82uFfM2bziifTDAkt3C068wWSGtnnlibuz7zrN1rqiGM8ZuI3BbysusackpxeQ6MPdNi9PFT38BpkmwczBuvvQtGw8EJAk935fxInR/X2TReRsPh4FCNjuCBTDoBsp8kmxdNtq1uw7vRTSaq+WjP6XpN2b/TSojUeRc+ELW2b6yAHsiuYXsPTwrLSyo8eZNdYwU6XCQI4r1VFRoDEKLe/MFS3Zx0mFbxGwFoBF2X48IWa+u9zVT3u+8SLiFupSG1Z6AUJLZPX4vWtFfVrhPNmF5WuXbCEhpo3oIqu4miWfu8Mq+3J4JT2Nc1NTz/nDh/e7zJskuvfzu+9gv+Nx/HornAAM+FNQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-dark">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHiSURBVHgB7ZbNUcMwEIXfrlKAqQBTAaEBHA/cSQdABUAFQAXQAVABBUAwCQUAHaQDPHADrGVjHIaZKLYlmOFAvotja6X9kfYpwIIFfwwhkFF23WdDW28FH6dpOkYgHYTCfGJFYmMk1rcUgTACGGWDHaB0rA/pZdlVD4EEBQCmw++vxvAeAvEO4K7Mtsp+ikCrkEUIwDsAMbzt+Bx12AZVwSsAzTLWbHdcYwLsIwByOIkMbJ8Yy0KINMJIQLEIYh3WMktNqWmsC+a6ak6QsdXfJMjFymMB8+Bq15k2NCz3+oilSstO82uFfM2bziifTDAkt3C068wWSGtnnlibuz7zrN1rqiGM8ZuI3BbysusackpxeQ6MPdNi9PFT38BpkmwczBuvvQtGw8EJAk935fxInR/X2TReRsPh4FCNjuCBTDoBsp8kmxdNtq1uw7vRTSaq+WjP6XpN2b/TSojUeRc+ELW2b6yAHsiuYXsPTwrLSyo8eZNdYwU6XCQI4r1VFRoDEKLe/MFS3Zx0mFbxGwFoBF2X48IWa+u9zVT3u+8SLiFupSG1Z6AUJLZPX4vWtFfVrhPNmF5WuXbCEhpo3oIqu4miWfu8Mq+3J4JT2Nc1NTz/nDh/e7zJskuvfzu+9gv+Nx/HornAAM+FNQAAAABJRU5ErkJggg==" width="16" height="16"
-                                    alt="star-dark">
+                <li class="findStore-img position-relative " style="background-image: url(/TeaTime-Gathering/assets/store-13-s-744e635f.jpg);">
+                    <a href="#" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">Tropicool</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                                        <iconify-icon icon="ic:round-star" style="color: #c2c1bd;" width="16"></iconify-icon>
+                                </div>
                             </div>
+                            <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
                         </div>
-                        <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24" height="24"
-                            class="findStore-card-img"></iconify-icon>
-                    </div>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -1151,14 +1135,14 @@
     <div class="mt-16 mt-md-32"></div>
     <nav aria-label="Page navigation ">
         <ul class="pagination justify-content-end gap-8">
-            <li class="page-item ">
-                <a class="page-link rounded-3 " href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
+            <li>
+                <a class="page-link rounded-3" href="#" aria-label="Previous">
+                    <iconify-icon aria-hidden="true" icon="ri:arrow-left-double-line" width="16" height="16"></iconify-icon>
                 </a>
             </li>
-            <li class="page-item ">
+            <li>
                 <a class="page-link rounded-3 " href="#" aria-label="Previous">
-                    <span aria-hidden="true">&lt;</span>
+                    <iconify-icon aria-hidden="true" icon="iconamoon:arrow-left-2" width="16" height="16"></iconify-icon>
                 </a>
             </li>
             <li class="page-item"><a class="page-link rounded-3" href="#">1</a></li>
@@ -1166,14 +1150,14 @@
             <li class="page-item"><a class="page-link rounded-3" href="#">3</a></li>
             <li class="page-item"><a class="page-link border-0" href="#">...</a></li>
             <li class="page-item"><a class="page-link rounded-3" href="#">10</a></li>
-            <li class="page-item ">
+            <li>
                 <a class="page-link rounded-3 " href="#" aria-label="Previous">
-                    <span aria-hidden="true">&gt;</span>
+                    <iconify-icon aria-hidden="true"  icon="iconamoon:arrow-right-2" width="16" height="16"></iconify-icon>
                 </a>
             </li>
             <li class="page-item">
                 <a class="page-link rounded-3" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
+                    <iconify-icon aria-hidden="true" icon="ri:arrow-right-double-line" width="16" height="16"></iconify-icon>
                 </a>
             </li>
         </ul>
@@ -2857,7 +2841,7 @@
         <div class="layout-content">
           <div class="container py-32 py-lg-80" id="novice-teaching">
     <div class="d-flex justify-content-between align-items-center ">
-        <h2 class="fs-32">新手教學</h2>
+        <h2 class="fs-md-32 fs-24 fw-bold lh-sm">新手教學</h2>
         <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05" href="#">看更多
             <svg class="svg-hover" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 8 11"
                 fill="none">
@@ -2871,41 +2855,41 @@
         <div class="col-md-2">
             <ul class="x-slide d-flex d-md-block">
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 actived"
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 actived"
                         id="QA1">點餐步驟</button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 "
                         id="QA2">投票 /
                         舉辦投票</button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 "
                         id="QA3">許願留言</button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 "
                         id="QA4">訂單問題</button>
                 </li>
                 <li><button
-                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02"
+                        class="x-slide-btn fw-medium p-12 p-lg-16  btn-active w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 "
                         id="QA5">常見問題</button>
                 </li>
             </ul>
         </div>
         <div class="col-md-10 px-24 mt-24 mt-md-0" id="showAns">
-            <ul class="pb-40  border-bottom border-1 border-brand-03">
-                <h3 class="fs-24 text-brand-03">如何點餐（跟團）</h3>
-                <p class="fs-20 mt-24">您可藉由以下三種路徑查看開團中項目</p>
-                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
-                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
-                <li class="mt-4 fs-20">3. 『點餐月曆』</li>
+            <ul class="pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
+                <h3 class="fs-md-24 fs-20 text-brand-03">如何點餐（跟團）</h3>
+                <p class="mt-24">您可藉由以下三種路徑查看開團中項目</p>
+                <li class="mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-4">2. 『點餐』頁面</li>
+                <li class="mt-4">3. 『點餐月曆』</li>
             </ul>
-            <ul class="pb-40 mt-40">
-                <h3 class="fs-24 text-brand-03">如何邀請他人點餐（開團）</h3>
-                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
-                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
-                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+            <ul class="pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
+                <h3 class="fs-md-24 fs-20 text-brand-03">如何邀請他人點餐（開團）</h3>
+                <p class="mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
+                <li class="mt-20">1. 『首頁/找店家』區塊</li>
+                <li class="mt-4">2. 『點餐』頁面</li>
             </ul>
         </div>
         <div id="instructions"></div>
@@ -2934,52 +2918,52 @@
             button.classList.add('actived');
 
             if (button === QA1) {
-                showAns.innerHTML = `<ul class="pb-40">
-                <h3 class="fs-24 text-brand-03">如何點餐（跟團）</h3>
-                <p class="fs-20 mt-24">您可藉由以下三種路徑查看開團中項目</p>
-                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
-                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
-                <li class="mt-4 fs-20">3. 『點餐月曆』</li>
+                showAns.innerHTML = `<ul class="pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
+                <h3 class="fs-md-24 fs-20 text-brand-03">如何點餐（跟團）</h3>
+                <p class="mt-24">您可藉由以下三種路徑查看開團中項目</p>
+                <li class="mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-4">2. 『點餐』頁面</li>
+                <li class="mt-4">3. 『點餐月曆』</li>
             </ul>
-            <ul class="pb-40 mt-40">
-                <h3 class="fs-24 text-brand-03">如何邀請他人點餐（開團）</h3>
-                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
-                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
-                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+            <ul class="pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
+                <h3 class="fs-md-24 fs-20 text-brand-03">如何邀請他人點餐（開團）</h3>
+                <p class="mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
+                <li class="mt-20">1. 『首頁/找店家』區塊</li>
+                <li class="mt-4">2. 『點餐』頁面</li>
             </ul>`
             } else if (button === QA2) {
-                showAns.innerHTML = `<ul class="pb-40">
-                <h3 class="fs-24 text-brand-03">我想投票</h3>
-                <p class="fs-20 mt-24">您可藉由以下三種路徑查看投票中的項目</p>
-                <li class="fs-20 mt-20">1. 『首頁/點餐月曆』區塊</li>
-                <li class="mt-4 fs-20">2. 『投票』頁面</li>
-                <li class="mt-4 fs-20">3. 『點餐月曆』頁面</li>
+                showAns.innerHTML = `<ul class="pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
+                <h3 class="fs-md-24 fs-20 text-brand-03">我想投票</h3>
+                <p class="mt-24">您可藉由以下三種路徑查看投票中的項目</p>
+                <li class="mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-4">2. 『投票』頁面</li>
+                <li class="mt-4">3. 『點餐月曆』頁面</li>
             </ul>
-            <ul class="pb-40 mt-40">
-                <h3 class="fs-24 text-brand-03">我想舉辦投票</h3>
-                <p class="fs-20 mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後，點選「舉辦投票」按鈕</p>
-                <li class="fs-20 mt-20">1. 『首頁/找店家』區塊</li>
-                <li class="mt-4 fs-20">2. 『點餐』頁面</li>
+            <ul class="pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
+                <h3 class="fs-md-24 fs-20 text-brand-03">我想舉辦投票</h3>
+                <p class="mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後，點選「舉辦投票」按鈕</p>
+                <li class="mt-20">1. 『首頁/找店家』區塊</li>
+                <li class="mt-4">2. 『點餐』頁面</li>
             </ul>`
             } else if (button === QA3) {
-                showAns.innerHTML = `<ul class="pb-40">
-                <h3 class="fs-24 text-brand-03">我想許願</h3>
-                <p class="fs-20 mt-24">店家清單中沒有您的愛店嗎？或是有任何心得感想呢？請至『留言』頁面留下您的想法</p>`
+                showAns.innerHTML = `<ul class="pb-md-40 pb-24 fs-md-20 fs-16">
+                <h3 class="fs-md-24 fs-20 text-brand-03">我想許願</h3>
+                <p class="mt-24">店家清單中沒有您的愛店嗎？或是有任何心得感想呢？請至『留言』頁面留下您的想法</p>`
             } else if (button === QA4) {
-                showAns.innerHTML = `<ul class="pb-40">
-                <h3 class="fs-24 text-brand-03">如何查看訂單歷史記錄？</h3>
-                <p class="fs-20 mt-24">至『首頁』上方點選『訂單』可查看跟團中訂單以及歷史訂單</p>
+                showAns.innerHTML = `<ul class="pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
+                <h3 class="fs-md-24 fs-20 text-brand-03">如何查看訂單歷史記錄？</h3>
+                <p class="mt-24">至『首頁』上方點選『訂單』可查看跟團中訂單以及歷史訂單</p>
                 </ul>
-                <ul class="pb-40 mt-40">
-                <h3 class="fs-24 text-brand-03">如何取消或修改已經下單的訂單？</h3>
-                <li class="fs-20 mt-20">1. 至『首頁』上方點選『訂單』即可看到『修改訂單』</li>
-                <li class="mt-4 fs-20">2. 請注意 : 僅於點餐期限截止前仍可取消 or 修改已送出的內容，截止後恕不異動</li>
+                <ul class="pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
+                <h3 class="tfs-md-24 fs-20 text-brand-03">如何取消或修改已經下單的訂單？</h3>
+                <li class="mt-20">1. 至『首頁』上方點選『訂單』即可看到『修改訂單』</li>
+                <li class="mt-4">2. 請注意 : 僅於點餐期限截止前仍可取消 or 修改已送出的內容，截止後恕不異動</li>
             </ul>
                 `
             } else if (button === QA5) {
-                showAns.innerHTML = `<ul class="pb-40">
-                <h3 class="fs-24 text-brand-03">我想發問</h3>
-                <p class="fs-20 mt-24">直接連結到專頁</p>`
+                showAns.innerHTML = `<div class="pb-md-40 pb-24 fs-md-20 fs-16">
+                <h3 class="fs-md-24 fs-20 text-brand-03">我想發問</h3>
+                <p class="mt-24">請至『新手教學』專頁參考常見問題</p></div>`
             }
         });
     });
