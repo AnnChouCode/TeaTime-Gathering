@@ -1,4 +1,5 @@
-<a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover btnNotification" id="notificationToastBtn">
+<a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover btnNotification"
+    id="notificationToastBtn">
     <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline" style="color: white;"
         width="28" height="28"></iconify-icon>
     <div class="btn-notification-alert rounded-circle bg-white position-absolute btnNotificationAlert"></div>
@@ -76,3 +77,21 @@
         </div>
     </div>
 </div>
+
+<!-- jQuery Import -->
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+    integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+<!-- jQuery -->
+<script>
+    // Validation 填寫檢驗
+    $('.needs-validation').each(function (index) {
+        $(this).on('submit', function (e) {
+            e.preventDefault();
+            $(this).addClass('was-validated');
+        });
+    });
+    // 通知按鈕點擊切換通知提示元點
+    $('.btnNotification').click(function (e) {
+        $('.btnNotificationAlert').addClass('d-none');
+    });
+</script>

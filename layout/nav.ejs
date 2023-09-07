@@ -63,11 +63,13 @@
                             <!-- 通知按鈕 -->
                             <li>
                                 <a href="#notificationCollapseModal"
-                                    class="position-relative d-block notification-hover btnNotification" data-bs-toggle="modal">
+                                    class="position-relative d-block notification-hover btnNotification"
+                                    data-bs-toggle="modal">
                                     <iconify-icon class="p-8 bg-brand-02 rounded-circle"
                                         icon="ion:notifications-outline" style="color: white;" width="28"
                                         height="28"></iconify-icon>
-                                    <div class="btn-notification-alert rounded-circle bg-white position-absolute btnNotificationAlert">
+                                    <div
+                                        class="btn-notification-alert rounded-circle bg-white position-absolute btnNotificationAlert">
                                     </div>
                                 </a>
                             </li>
@@ -123,7 +125,8 @@
                             class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
                             type="email" id="nav-account" name="nav-account" placeholder="請輸入信箱"
                             aria-describedby="nav-account" required>
-                        <input class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar "
+                        <input
+                            class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar "
                             type="password" id="nav-password" name="nav-password" placeholder="請輸入密碼"
                             aria-describedby="nav-password" required>
                         <div class="invalid-feedback ms-16">
@@ -174,7 +177,8 @@
                             class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
                             type="email" id="form-account" name="form-account" placeholder="請輸入信箱"
                             aria-describedby="form-account" required>
-                        <input class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar"
+                        <input
+                            class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar"
                             type="password" id="form-password" name="form-password" placeholder="請輸入密碼"
                             aria-describedby="form-password" required>
                         <div class="invalid-feedback ms-16">
@@ -304,4 +308,22 @@
             btnType.classList.add('nav-offcanvas-active');
         })
     })
+</script>
+
+<!-- jQuery Import -->
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+    integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+<!-- jQuery -->
+<script>
+    // Validation 填寫檢驗
+    $('.needs-validation').each(function (index) {
+        $(this).on('submit', function (e) {
+            e.preventDefault();
+            $(this).addClass('was-validated');
+        });
+    });
+    // 通知按鈕點擊切換通知提示元點
+    $('.btnNotification').click(function (e) {
+        $('.btnNotificationAlert').addClass('d-none');
+    });
 </script>
