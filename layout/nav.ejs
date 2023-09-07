@@ -60,26 +60,30 @@
                             <li><a class="p-16 fw-bold d-block" href="#">訂單</a></li>
                         </ul>
                         <ul class="d-flex justify-content-center gap-20">
+                            <!-- 通知按鈕 -->
                             <li>
                                 <a href="#notificationCollapseModal"
-                                    class="position-relative d-block notification-hover" data-bs-toggle="modal">
+                                    class="position-relative d-block notification-hover btnNotification" data-bs-toggle="modal">
                                     <iconify-icon class="p-8 bg-brand-02 rounded-circle"
                                         icon="ion:notifications-outline" style="color: white;" width="28"
                                         height="28"></iconify-icon>
-                                    <div class="position-absolute rounded-circle bg-white btn-notification-alert">
+                                    <div class="btn-notification-alert rounded-circle bg-white position-absolute btnNotificationAlert">
                                     </div>
                                 </a>
                             </li>
+                            <!-- 留言按鈕 -->
                             <li>
                                 <a href="#" class="nav-icon-hover"><iconify-icon class="p-8 bg-brand-04 rounded-circle"
                                         icon="ant-design:message-outlined" style="color: #bfa373;"
                                         width="28"></iconify-icon></a>
                             </li>
+                            <!-- 新手教學按鈕 -->
                             <li>
                                 <a href="#" class="nav-icon-hover">
                                     <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ion:help"
                                         style="color: #bfa373;" width="28"></iconify-icon></a>
                             </li>
+                            <!-- 登入按鈕 -->
                             <li>
                                 <a href="#accountCollapseModal" class="nav-icon-hover"
                                     data-bs-toggle="modal"><iconify-icon class="p-8 bg-brand-04 rounded-circle"
@@ -268,6 +272,7 @@
 </div>
 
 
+<!-- 按鈕 active 狀態切換顯示 -->
 <script> //參考 Billy
     const btnLogin = document.querySelectorAll('.btnLogin');
     const btnLoginNav = document.querySelectorAll('.btnLoginNav');
