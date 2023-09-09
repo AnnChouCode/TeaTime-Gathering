@@ -20,7 +20,7 @@
               <h2 class="fs-28 fs-md-40 fw-bold custom-shadow mb-16">茶源 ChaSource</h2>
               <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">專注於高品質的茶葉,提供多款精選茶飲和冷泡茶。</p>
             </div>
-            <button class="fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
+            <button class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
           </div>
           <div class="d-none d-xl-flex justify-content-between p-24">
             <div class="swiper-comment bg-white p-24 border-radius-16161640">
@@ -93,7 +93,7 @@
               <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">您將享受到酸酸甜甜的愉悅滋味，綻放您忙碌日常的一抹綠意，讓您隨時都能沉浸在愉快的味覺饗宴中。
               </p>
             </div>
-            <button class="fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
+            <button class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
           </div>
           <div class="d-none d-xl-flex justify-content-between p-24">
             <div class="swiper-comment bg-white p-24 border-radius-16161640">
@@ -164,7 +164,7 @@
               <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">
                 致力於提供美味的素食選擇，讓您品味到純粹的自然滋味，以綠色營養為基底，呈現出令人驚艷的素食美食世界。</p>
             </div>
-            <button class="fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
+            <button class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
           </div>
           <div class="d-none d-xl-flex justify-content-between p-24">
             <div class="swiper-comment bg-white p-24 border-radius-16161640">
@@ -235,7 +235,7 @@
               <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">咖啡是一種藝術，每一杯都是經過訓練有素的咖啡師用心調配，為您獻上一份完美平衡的咖啡體驗。
               </p>
             </div>
-            <button class="fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
+            <button class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
           </div>
           <div class="d-none d-xl-flex justify-content-between p-24">
             <div class="swiper-comment bg-white p-24 border-radius-16161640">
@@ -311,9 +311,16 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <!-- banner JS -->
 <script>
-  console.log('banner JS');
-  var menu = ["", "", ""];
-  var swiper = new Swiper(".mySwiper", {
+  // console.log('banner JS');
+  let menu = ["", "", ""];
+      const orderBtns = document.querySelectorAll('.order-btn');
+      orderBtns.forEach(function(orderBtn) {
+        orderBtn.addEventListener("click", function() {
+          // 導向到 store-order.html
+          window.location.href = 'store-order.html';
+        });
+      });
+  const swiper = new Swiper(".mySwiper", {
     loop: true,
     clickable: true,
     pagination: {

@@ -1,0 +1,64 @@
+<style>
+  .animation-bounceIn{
+    animation: bounceIn 1s infinite;
+    transform: rotate(0deg) scale(1) translateZ(0);
+    transition: all 0.4s cubic-bezier(.8,1.8,.75,.75);
+  }
+  @keyframes bounceIn {
+    0% {
+      opacity: 1;
+      transform: scale(.3);
+    } 
+
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    } 
+
+    70% {
+      opacity: 1;
+      transform: scale(.9);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+<div id="loading" style="
+  width: 100%;
+  background-color: #FDF1EF;
+  height: 100vh;
+  position: fixed;
+  top:0;
+  z-index: 1041;">
+  <div style="
+    background: url(/assets/images/loading/loading-bg.png) no-repeat center center /cover;
+    width: 100%;
+    background-color: #FDF1EF;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    z-index: 1040;"
+    class="d-flex justify-content-center align-items-center animation-bounceIn"
+    >
+  </div>
+</div>
+
+<script>
+  // 使用 DOMContentLoaded 事件确保页面 DOM 加载完毕
+  document.addEventListener('DOMContentLoaded', () => {
+    // 获取 loading 元素
+    const loadingElement = document.getElementById('loading');
+    
+
+    setTimeout(function() {
+      // 隐藏 loading 元素
+      loadingElement.style.display = 'none';
+
+    }, 1000);
+    
+    // 初始化你的应用程序，可以开始加载其他资源
+  });
+</script>

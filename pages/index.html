@@ -34,10 +34,13 @@
 </head>
 
 <body class="pt-64 pt-md-82">
+  <!-- loading -->
+  <%- include('./layout/loading'); -%>
+  
   <%- include('./layout/nav'); -%>
 
     <div class="layout-content">
-      <!-- novice Teaching -->
+      <!-- banner -->
       <%- include('./layout/banner'); -%>
     </div>
 
@@ -76,6 +79,7 @@
             <!-- AOS EFFECT -->
             <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
             <script>
+
               // AOS INIT
               AOS.init({
                 // offset: 180,
