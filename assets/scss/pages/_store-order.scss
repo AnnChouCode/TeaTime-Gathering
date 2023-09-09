@@ -1,0 +1,122 @@
+.order{
+  &-bg{
+    width: 100%;
+    height: 220px;
+    background: url(/assets/images/store-01.jpg) center top /cover;
+    border-radius: 56px;
+    @include media-breakpoint-down(lg) {
+      border-radius: 0px;
+    }
+    @include media-breakpoint-down(sm) {
+      height: 80px;
+    }
+  }
+  &-content{
+    transform: translateY(-62px);
+    margin-bottom: -62px;
+    @include media-breakpoint-down(sm) {
+      transform: translateY(-68px);
+      margin-bottom: -68px;
+    }
+  }
+  &-icon{
+    max-width: 196px;
+    @include media-breakpoint-down(sm) {
+      max-width: 96px;
+    }
+  }
+  &-textContent{
+    h2{
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1 ;  //顯示行數
+      overflow: hidden;
+    }
+  }
+  &-content-p{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;  //顯示行數
+    overflow: hidden;
+  }
+  .imgItems{
+    img{
+      @include media-breakpoint-down(sm) {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+}
+.btnList{
+  &-items{
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+    }
+    img{
+      @include media-breakpoint-down(sm) {
+        width: 20px;
+      }
+    }
+    p{
+      font-size: 20px;
+      @include media-breakpoint-down(sm) {
+        font-size: 16px;
+      }
+    }
+  }
+}
+.allMenu{
+  .swiper-slide{
+    border-radius: 80px;
+    @include media-breakpoint-down(sm) {
+      border-radius: 40px 40px 16px 16px;
+    }
+  }
+  .text-top{
+    h3{
+      font-size: 24px;
+      @include media-breakpoint-down(sm) {
+        font-size: 20px;
+      }
+    }
+    span{
+      font-size: 20px;
+      @include media-breakpoint-down(sm) {
+        font-size: 16px;
+      }
+    }
+  }
+  .text-top-p{
+    font-size: 20px;
+    @include media-breakpoint-down(sm) {
+      font-size: 16px;
+    }
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;  //顯示行數
+    overflow: hidden;
+  }
+}
+.hidden-block{
+  visibility:hidden;
+}
+.pagination{
+  img{
+    width: 16px;
+    height: 16px;
+  }
+}
+.page-item{
+  a:hover {
+    background-color: $gray-04 !important;
+    color: $gray-01 !important;
+  }
+  a:focus {
+    pointer-events: none; /* 取消点击事件 */
+    border: 0;
+    box-shadow: none;
+    background-color: $brand-01;
+    color: white;
+  }
+}

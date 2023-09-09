@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>揪團下午茶｜共享美味，打造回憶</title>
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/images/logo/logo-favicon.png" type="image/x-icon" />
+    <!-- Swiper Css CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <!-- Open Graph Tag -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="揪團下午茶">
+    <meta property="og:description" content="共享美味，打造回憶">
+    <meta property="og:url" content="https://annchoucode.github.io/TeaTime-Gathering/">
+    <meta property="og:image"
+      content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-01.jpg" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="揪團下午茶" />
+    <meta name="twitter:description" content="共享美味，打造回憶" />
+    <meta name="twitter:image"
+      content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-01.jpg" />
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- AOS EFFECT -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  </head>
+
+  <body class="pt-64 pt-md-82">
+    <!-- loading -->
+    <%- include('./layout/loading'); -%>
+     
+    <%- include('./layout/nav'); -%>
+
+    <div class="layout-content">
+      <div class="order mb-16 md-sm-32 ">
+        <div class="order-bg"></div>
+          <div class="order-content container ps-24 ps-md-42 d-sm-flex align-items-end">
+            <img src="/assets/images/store-logo/store-beverage-1.jpg" alt="logo-cha source" 
+            class="order-icon border border-2 border-line border-radius-24 me-sm-37 mb-20 mb-sm-0 ">
+            <div class="order-textContent">
+              <h2>茶源 ChaSource</h2>
+              <div class="imgItems">
+                <img src="/assets/images/icon/icon-star-highlight.png" alt="icon-star-highlight">
+                <img src="/assets/images/icon/icon-star-highlight.png" alt="icon-star-highlight">
+                <img src="/assets/images/icon/icon-star-highlight.png" alt="icon-star-highlight">
+                <img src="/assets/images/icon/icon-star-highlight.png" alt="icon-star-highlight">
+                <img src="/assets/images/icon/icon-star-faint.png" alt="icon-star-faint">
+              </div>
+              <p class="order-content-p">專注於高品質的茶葉，提供多款精選茶飲和冷泡茶。</p>
+            </div>
+          </div>
+      </div>
+      <div class="container mb-32 mb-sm-116">
+        <div class="btnList mb-48 mb-sm-32 d-flex justify-content-between align-content-center ">
+          <div class="btnList-items d-flex justify-content-between ">
+             <button type="button" class="me-0 me-sm-12 px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 bg-brand-05 text-brand-02 d-flex justify-content-center align-items-center ">
+              <p class="me-8" >開團中</p>
+              <img src="/assets/images/icon/icon-bxs-down-arrow.svg" alt="icon-bxs-down-arrow">
+             </button>
+             <button type="button" class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 bg-brand-05 text-brand-02 d-sm-none d-flex justify-content-center align-items-center">
+              <p class="me-8" >看評價</p>
+              <img src="/assets/images/icon/icon-bxs-down-arrow.svg" alt="icon-bxs-down-arrow">
+             </button>
+             <button type="button" class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 bg-brand-05 text-brand-02 d-flex justify-content-center align-items-center ">
+               <img class="me-8" src="/assets/images/icon/icon-add-team.svg" alt="icon-bxs-down-arrow">
+               <p>建立揪團</p>
+             </button>
+
+          </div>
+          <div class="shopping-cart d-none d-sm-flex justify-content-center align-items-center  bg-brand-03 px-24 py-10 py-sm-14 border-radius-40">
+            <img class="me-4 me-sm-8" src="/assets/images/icon/icon-shopping-cart.png" alt="icon-shopping-cart">
+            <p class="text-white word-break-keep-all">購物車</p>
+          </div>
+        </div>
+      </div>
+      <div class="container mb-32 mb-sm-80">
+        <div class="allMenu mb-16 mb-sm-32">
+          <div class="allMenu-header d-flex justify-content-between  align-items-center mb-24 mb-sm-36">
+            <h2>全部菜單</h2>
+            <div class="shopping-cart d-sm-none d-flex justify-content-center align-items-center  bg-brand-03 px-24 py-10 py-sm-14 border-radius-40">
+              <img class="me-4 me-sm-8" src="/assets/images/icon/icon-shopping-cart.png" alt="icon-shopping-cart">
+              <p class="text-white word-break-keep-all">購物車</p>
+            </div>
+          </div>
+          <div class="allMenu-content">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper py-3">
+                <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+                  <ul>
+                    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                        <h3 class="">茶舞</h3>
+                        <div class="cold-hot d-flex justify-content-center align-items-center ">
+                          <div class="cold d-flex justify-content-center align-items-center ">
+                            <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                            <span class="me-8">30</span>
+                          </div>
+                          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+                            <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                            <span class="">30</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-top-p">結合了香濃的奶茶和清新的果茶，帶給您舞動在舌尖的美味。</p>
+                    </li>
+                    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                        <h3 class="">紅柚露</h3>
+                        <div class="cold-hot d-flex justify-content-center align-items-center ">
+                          <div class="cold d-flex justify-content-center align-items-center ">
+                            <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                            <span class="me-8">40</span>
+                          </div>
+                          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+                            <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                            <span class="">30</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-top-p">絕妙的紅茶搭配新鮮柚子，帶來微酸的口感和芳香的香氣。</p>
+                    </li>
+                    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                        <h3 class="">翠綠</h3>
+                        <div class="cold-hot d-flex justify-content-center align-items-center ">
+                          <div class="cold d-flex justify-content-center align-items-center ">
+                            <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                            <span class="me-8">25</span>
+                          </div>
+                          <div class="hot d-flex justify-content-center align-items-center">
+                            <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                            <span class="">25</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-top-p">以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
+                    </li>
+                    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                        <h3 class="">柔霧</h3>
+                        <div class="cold-hot d-flex justify-content-center align-items-center ">
+                          <div class="cold d-flex justify-content-center align-items-center ">
+                            <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                            <span class="me-8">35</span>
+                          </div>
+                          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+                            <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                            <span class="">30</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-top-p">柔順的奶茶搭配迷人的茉莉花香，帶來優雅與幸福的味覺享受。</p>
+                    </li>
+                    <li class=" py-16 py-sm-24">
+                      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                        <h3 class="">蜜香</h3>
+                        <div class="cold-hot d-flex justify-content-center align-items-center ">
+                          <div class="cold d-flex justify-content-center align-items-center ">
+                            <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                            <span class="me-8">30</span>
+                          </div>
+                          <div class="hot d-flex justify-content-center align-items-center">
+                            <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                            <span class="">30</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-top-p">香濃的茶香中混合著芳醇的蜂蜜，為您的口腔帶來溫暖和滋潤。</p>
+                    </li>
+                  </ul>
+                </div>
+                <%- include('./layout/store-order-menu'); -%>
+                <%- include('./layout/store-order-menu'); -%>
+                <%- include('./layout/store-order-menu'); -%>
+                <%- include('./layout/store-order-menu'); -%>
+                <%- include('./layout/store-order-menu'); -%>
+                <%- include('./layout/store-order-menu'); -%>
+                <%- include('./layout/store-order-menu'); -%>
+                <%- include('./layout/store-order-menu'); -%>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav aria-label="Page navigation" class="">
+          <ul class="pagination w-100 d-flex justify-content-between justify-content-sm-end  ">
+            <li class="page-item me-sm-8">
+              <a class="page-link p-10" href="#" aria-label="Next">
+                <img src="/assets/images/icon/icon-pagination-first.png" alt="icon-pagination-first">
+              </a>
+            </li>
+            <li class="page-item me-sm-8">
+              <a class="page-link p-10" href="#" aria-label="Next">
+                <img src="/assets/images/icon/icon-pagination-prev.png" alt="icon-pagination-prev">
+              </a>
+            </li>
+            <li class="page-item me-sm-8"><a class="page-link p-10" href="#">1</a></li>
+            <li class="page-item me-sm-8"><a class="page-link p-10" href="#">2</a></li>
+            <li class="page-item me-sm-8"><a class="page-link p-10" href="#">3</a></li>
+            <p class="me-sm-8">...</p>
+            <li class="page-item me-sm-8"><a class="page-link p-10" href="#">10</a></li>
+            <li class="page-item me-sm-8">
+              <a class="page-link p-10" href="#" aria-label="Next">
+                <img src="/assets/images/icon/icon-pagination-next.png" alt="icon-pagination-next">
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link p-10" href="#" aria-label="Next">
+                <img src="/assets/images/icon/icon-pagination-last.png" alt="icon-pagination-last">
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- footer -->
+    <%- include('./layout/footer'); -%>
+
+    <!-- notification -->
+    <%- include('./layout/notification'); -%>
+     <!-- ICONGIFY -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <!-- JS -->
+    <script type="module" src="../main.js"></script>
+    <!-- AOS EFFECT -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      // AOS INIT
+      AOS.init({
+        // offset: 180,
+        duration: 800,
+        delay: 500,
+      })
+    </script>
+  </body>
+</html>
+
+<!-- Swiper JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    // slidesPerView: 2,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true, // 分頁圓點可以點選後，直接移至該頁
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '">' + (index + 1) + "</span>";
+      } // 分頁原點渲染樣式回呼函式，讓圓點上呈現頁面數字
+    },
+    breakpoints: {
+      1: {
+        slidesPerView: 1,
+        centeredSlides: false,
+        spaceBetween: 10
+      },
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 24,
+        centeredSlides: false
+      }
+    }
+  });
+</script>
