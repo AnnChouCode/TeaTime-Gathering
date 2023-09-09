@@ -35,12 +35,13 @@ https://annchoucode.github.io/TeaTime-Gathering/
 
 # 專案技術
   - Vite
-  - Git Flow
+  - Github Flow
   - Bootstrap 5 + 部分客製化 scss
   - Swiper
   - AOS Animate
   - jQuery
   - JavaScript
+  - Figma
 
 # 作者
   - Ann Chou [github](https://github.com/AnnChouCode)
