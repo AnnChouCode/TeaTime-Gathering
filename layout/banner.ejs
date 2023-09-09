@@ -5,11 +5,11 @@
     border-radius-36 bg-white px-12 py-8 
     d-flex align-items-center justify-content-center">
       <h6 class=" me-8 me-sm-16 text-brand-02 word-break-keep-all">今日餐點 跟團倒數</h6>
-      <span class="text-white border-radius-40 bg-brand-02 px-12 py-8 me-8">03</span>
+      <span class="text-white border-radius-40 bg-brand-02 px-12 py-8 me-8" id="hour">03</span>
       <span class="text-brand-02">:</span>
-      <span class="text-white border-radius-40 bg-brand-02 px-12 py-8 mx-8">59</span>
+      <span class="text-white border-radius-40 bg-brand-02 px-12 py-8 mx-8" id="min">59</span>
       <span class="text-brand-02">:</span>
-      <span class="text-white border-radius-40 bg-brand-02 px-12 py-8 ms-8">49</span>
+      <span class="text-white border-radius-40 bg-brand-02 px-12 py-8 mx-8" id="sec">49</span>
     </button>
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
@@ -20,7 +20,8 @@
               <h2 class="fs-28 fs-md-40 fw-bold custom-shadow mb-16">茶源 ChaSource</h2>
               <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">專注於高品質的茶葉,提供多款精選茶飲和冷泡茶。</p>
             </div>
-            <button class="fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
+            <button
+              class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
           </div>
           <div class="d-none d-xl-flex justify-content-between p-24">
             <div class="swiper-comment bg-white p-24 border-radius-16161640">
@@ -93,7 +94,8 @@
               <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">您將享受到酸酸甜甜的愉悅滋味，綻放您忙碌日常的一抹綠意，讓您隨時都能沉浸在愉快的味覺饗宴中。
               </p>
             </div>
-            <button class="fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
+            <button
+              class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
           </div>
           <div class="d-none d-xl-flex justify-content-between p-24">
             <div class="swiper-comment bg-white p-24 border-radius-16161640">
@@ -164,7 +166,8 @@
               <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">
                 致力於提供美味的素食選擇，讓您品味到純粹的自然滋味，以綠色營養為基底，呈現出令人驚艷的素食美食世界。</p>
             </div>
-            <button class="fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
+            <button
+              class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
           </div>
           <div class="d-none d-xl-flex justify-content-between p-24">
             <div class="swiper-comment bg-white p-24 border-radius-16161640">
@@ -235,7 +238,8 @@
               <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">咖啡是一種藝術，每一杯都是經過訓練有素的咖啡師用心調配，為您獻上一份完美平衡的咖啡體驗。
               </p>
             </div>
-            <button class="fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
+            <button
+              class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
           </div>
           <div class="d-none d-xl-flex justify-content-between p-24">
             <div class="swiper-comment bg-white p-24 border-radius-16161640">
@@ -311,9 +315,16 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <!-- banner JS -->
 <script>
-  console.log('banner JS');
-  var menu = ["", "", ""];
-  var swiper = new Swiper(".mySwiper", {
+  // console.log('banner JS');
+  let menu = ["", "", ""];
+  const orderBtns = document.querySelectorAll('.order-btn');
+  orderBtns.forEach(function (orderBtn) {
+    orderBtn.addEventListener("click", function () {
+      // 導向到 store-order.html
+      window.location.href = 'store-order.html';
+    });
+  });
+  const swiper = new Swiper(".mySwiper", {
     loop: true,
     clickable: true,
     pagination: {
@@ -328,4 +339,32 @@
       prevEl: ".swiper-button-prev",
     },
   });
+</script>
+<script>
+  // 倒數計時器
+
+  // 設定目標時間(結束時間)
+  const targetDay = new Date("2023-09-17 14:47").getTime();
+  function updateCountdown() {
+    // 抓取現在時間
+    const currentDay = new Date().getTime();
+    // 剩下的時間(毫秒為單位)
+    const remainTime = targetDay - currentDay;
+    // 計算剩餘的天、日、時、秒
+    const days = Math.floor(remainTime / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((remainTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((remainTime % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((remainTime % (1000 * 60)) / (1000));
+    console.log(days, hours, mins, secs);
+
+    // 放進元素內時間
+    // var countday = days < 10 ? document.getElementById('day').innerHTML = "0" + days : document.getElementById('day').innerHTML = days;
+    var counthour = hours < 10 ? document.getElementById('hour').innerHTML = "0" + hours : document.getElementById('hour').innerHTML = hours;
+    var countmin = mins < 10 ? document.getElementById('min').innerHTML = "0" + mins : document.getElementById('min').innerHTML = mins;
+    var countsec = secs < 10 ? document.getElementById('sec').innerHTML = "0" + secs : document.getElementById('sec').innerHTML = secs;
+  }
+  // 每秒更新一次倒數計時器
+  const interval = setInterval(updateCountdown, 1000);
+
+  updateCountdown();
 </script>
