@@ -31,11 +31,76 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- AOS EFFECT -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-5c83acc1.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-6f7f1873.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-06768f01.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-14348db4.css">
 </head>
 
 <body class="pt-64 pt-md-82">
+  <!-- loading -->
+  <style>
+  .animation-bounceIn{
+    animation: bounceIn 1s infinite;
+    transform: rotate(0deg) scale(1) translateZ(0);
+    transition: all 0.4s cubic-bezier(.8,1.8,.75,.75);
+  }
+  @keyframes bounceIn {
+    0% {
+      opacity: 1;
+      transform: scale(.3);
+    } 
+
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    } 
+
+    70% {
+      opacity: 1;
+      transform: scale(.9);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+<div id="loading" style="
+  width: 100%;
+  background-color: #FDF1EF;
+  height: 100vh;
+  position: fixed;
+  top:0;
+  z-index: 1041;">
+  <div style="
+    background: url(/TeaTime-Gathering/assets/loading-bg-e8842020.png) no-repeat center center /cover;
+    width: 100%;
+    background-color: #FDF1EF;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    z-index: 1040;"
+    class="d-flex justify-content-center align-items-center animation-bounceIn"
+    >
+  </div>
+</div>
+
+<script>
+  // 使用 DOMContentLoaded 事件确保页面 DOM 加载完毕
+  document.addEventListener('DOMContentLoaded', () => {
+    // 获取 loading 元素
+    const loadingElement = document.getElementById('loading');
+    
+
+    setTimeout(function() {
+      // 隐藏 loading 元素
+      loadingElement.style.display = 'none';
+
+    }, 1000);
+    
+    // 初始化你的应用程序，可以开始加载其他资源
+  });
+</script>  
   <nav>
     <div class="fixed-top bg-white">
         <div class="position-relative layout-content">
@@ -362,7 +427,7 @@
     })
 </script>
     <div class="layout-content">
-      <!-- novice Teaching -->
+      <!-- banner -->
       <div class="container mb-48 mb-md-104 mt-40 mt-md-76">
   <div class="swiper-container position-relative border-radius-80804040 bg-brand-06">
     <button class="banner-todaymeal-button 
@@ -385,7 +450,7 @@
               <h2 class="fs-28 fs-md-40 fw-bold custom-shadow mb-16">茶源 ChaSource</h2>
               <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">專注於高品質的茶葉,提供多款精選茶飲和冷泡茶。</p>
             </div>
-            <button class="fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
+            <button class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
           </div>
           <div class="d-none d-xl-flex justify-content-between p-24">
             <div class="swiper-comment bg-white p-24 border-radius-16161640">
@@ -458,7 +523,7 @@
               <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">您將享受到酸酸甜甜的愉悅滋味，綻放您忙碌日常的一抹綠意，讓您隨時都能沉浸在愉快的味覺饗宴中。
               </p>
             </div>
-            <button class="fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
+            <button class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
           </div>
           <div class="d-none d-xl-flex justify-content-between p-24">
             <div class="swiper-comment bg-white p-24 border-radius-16161640">
@@ -529,7 +594,7 @@
               <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">
                 致力於提供美味的素食選擇，讓您品味到純粹的自然滋味，以綠色營養為基底，呈現出令人驚艷的素食美食世界。</p>
             </div>
-            <button class="fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
+            <button class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
           </div>
           <div class="d-none d-xl-flex justify-content-between p-24">
             <div class="swiper-comment bg-white p-24 border-radius-16161640">
@@ -600,7 +665,7 @@
               <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">咖啡是一種藝術，每一杯都是經過訓練有素的咖啡師用心調配，為您獻上一份完美平衡的咖啡體驗。
               </p>
             </div>
-            <button class="fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
+            <button class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0 ">點餐去</button>
           </div>
           <div class="d-none d-xl-flex justify-content-between p-24">
             <div class="swiper-comment bg-white p-24 border-radius-16161640">
@@ -676,9 +741,16 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <!-- banner JS -->
 <script>
-  console.log('banner JS');
-  var menu = ["", "", ""];
-  var swiper = new Swiper(".mySwiper", {
+  // console.log('banner JS');
+  let menu = ["", "", ""];
+      const orderBtns = document.querySelectorAll('.order-btn');
+      orderBtns.forEach(function(orderBtn) {
+        orderBtn.addEventListener("click", function() {
+          // 導向到 store-order.html
+          window.location.href = 'store-order.html';
+        });
+      });
+  const swiper = new Swiper(".mySwiper", {
     loop: true,
     clickable: true,
     pagination: {
@@ -1579,7 +1651,7 @@
                             class="evaluate-card bg-white position-relative mb-24 mb-md-32 mt-32 mt-md-64 me-12 me-lg-0">
                             <div class="d-flex mb-12 mb-md-16 w-100">
                                 <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="/TeaTime-Gathering/assets/store-beverage-1-d214a2d4.jpg" alt="茶源 店家logo圖">
+                                    src="/TeaTime-Gathering/assets/logo-cha source-d214a2d4.jpg" alt="茶源 店家logo圖">
                                 <div class="d-flex w-100 justify-content-between ">
                                     <p class="star-group mb-4 mb-md-8">
                                         <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
@@ -1633,7 +1705,7 @@
                             class="evaluate-card bg-white position-relative d-lg-none mb-24 mb-md-32 mt-32 mt-md-64 me-12 me-lg-0">
                             <div class="d-flex mb-12 mb-md-16 w-100">
                                 <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="/TeaTime-Gathering/assets/store-beverage-1-d214a2d4.jpg" alt="茶源 店家logo圖">
+                                    src="/TeaTime-Gathering/assets/logo-cha source-d214a2d4.jpg" alt="茶源 店家logo圖">
                                 <div class="d-flex w-100 justify-content-between ">
                                     <p class="star-group mb-4 mb-md-8">
                                         <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12"
@@ -3374,6 +3446,7 @@
             <!-- AOS EFFECT -->
             <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
             <script>
+
               // AOS INIT
               AOS.init({
                 // offset: 180,

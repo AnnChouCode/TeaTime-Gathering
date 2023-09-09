@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>揪團下午茶｜共享美味，打造回憶</title>
+    <!-- Favicon -->
+    <link rel="icon" href="/TeaTime-Gathering/assets/logo-favicon-a850431b.png" type="image/x-icon" />
+    <!-- Swiper Css CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <!-- Open Graph Tag -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="揪團下午茶">
+    <meta property="og:description" content="共享美味，打造回憶">
+    <meta property="og:url" content="https://annchoucode.github.io/TeaTime-Gathering/">
+    <meta property="og:image"
+      content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-01.jpg" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="揪團下午茶" />
+    <meta name="twitter:description" content="共享美味，打造回憶" />
+    <meta name="twitter:image"
+      content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-01.jpg" />
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- ICONS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- AOS EFFECT -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-06768f01.js"></script>
+    <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-14348db4.css">
+  </head>
+
+  <body class="pt-64 pt-md-82">
+    <!-- loading -->
+    <style>
+  .animation-bounceIn{
+    animation: bounceIn 1s infinite;
+    transform: rotate(0deg) scale(1) translateZ(0);
+    transition: all 0.4s cubic-bezier(.8,1.8,.75,.75);
+  }
+  @keyframes bounceIn {
+    0% {
+      opacity: 1;
+      transform: scale(.3);
+    } 
+
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    } 
+
+    70% {
+      opacity: 1;
+      transform: scale(.9);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+<div id="loading" style="
+  width: 100%;
+  background-color: #FDF1EF;
+  height: 100vh;
+  position: fixed;
+  top:0;
+  z-index: 1041;">
+  <div style="
+    background: url(/TeaTime-Gathering/assets/loading-bg-e8842020.png) no-repeat center center /cover;
+    width: 100%;
+    background-color: #FDF1EF;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    z-index: 1040;"
+    class="d-flex justify-content-center align-items-center animation-bounceIn"
+    >
+  </div>
+</div>
+
+<script>
+  // 使用 DOMContentLoaded 事件确保页面 DOM 加载完毕
+  document.addEventListener('DOMContentLoaded', () => {
+    // 获取 loading 元素
+    const loadingElement = document.getElementById('loading');
+    
+
+    setTimeout(function() {
+      // 隐藏 loading 元素
+      loadingElement.style.display = 'none';
+
+    }, 1000);
+    
+    // 初始化你的应用程序，可以开始加载其他资源
+  });
+</script>     
+    <nav>
+    <div class="fixed-top bg-white">
+        <div class="position-relative layout-content">
+            <div class="d-flex align-items-center justify-content-between gap-8 py-lg-16 py-8 container">
+                <!-- nav list left -->
+                <ul class="d-lg-flex d-none gap-xxl-48 gap-16">
+                    <li><a class="nav-list" href="#">點餐</a></li>
+                    <li><a class="nav-list" href="#">投票</a></li>
+                    <li><a class="nav-list" href="#">訂餐月曆</a></li>
+                    <li><a class="nav-list" href="#">訂單</a></li>
+                </ul>
+                <!-- nav logo -->
+                <h1 class="position-absolute me-lg-8 nav-logo"><a href="index.html">下午茶揪團去</a></h1>
+                <!-- nav-icon right-->
+                <ul class="d-lg-flex d-none gap-lg-16 gap-8">
+                    <!-- 按鈕-通知 -->
+                    <li>
+                        <a class="nav-icon-hover" href="#">
+                            <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ant-design:message-outlined"
+                                style="color: #bfa373;" width="28"></iconify-icon>
+                        </a>
+                    </li>
+                    <!-- 按鈕-新手教學 -->
+                    <li>
+                        <a href="#" class="nav-icon-hover">
+                            <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ion:help" style="color: #bfa373;"
+                                width="28"></iconify-icon></a>
+                    </li>
+                    <!-- 按鈕-登入 -->
+                    <li class="btnLogin">
+                        <a href="#accountModal" data-bs-toggle="modal" class="nav-icon-hover"><iconify-icon
+                                class="p-8 bg-brand-04 rounded-circle" icon="line-md:account" style="color: #bfa373;"
+                                width="28"></iconify-icon></a>
+                    </li>
+                    <!-- 按鈕-使用者已登入選單 -->
+                    <li class="d-none btnUserLoggedIn">
+                        <a href="#"
+                            class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
+                            style="width: 44px;height: 44px;">W</a>
+                    </li>
+                    <!-- 按鈕-登出 -->
+                    <li class="d-none btnLogOut">
+                        <a href="#" class="nav-icon-hover p-8 bg-brand-04 rounded-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="29" height="28" viewBox="0 0 29 28"
+                                fill="none">
+                                <path
+                                    d="M14.8716 15.1667L12.1883 17.8383C12.0789 17.9468 11.9921 18.0758 11.9329 18.218C11.8737 18.3602 11.8432 18.5127 11.8432 18.6667C11.8432 18.8207 11.8737 18.9732 11.9329 19.1153C11.9921 19.2575 12.0789 19.3865 12.1883 19.495C12.2967 19.6044 12.4258 19.6911 12.5679 19.7504C12.7101 19.8096 12.8626 19.8401 13.0166 19.8401C13.1706 19.8401 13.3231 19.8096 13.4653 19.7504C13.6074 19.6911 13.7365 19.6044 13.8449 19.495L18.5116 14.8283C18.6178 14.7174 18.7011 14.5865 18.7566 14.4433C18.8733 14.1593 18.8733 13.8407 18.7566 13.5567C18.7011 13.4135 18.6178 13.2826 18.5116 13.1717L13.8449 8.505C13.7362 8.39623 13.607 8.30994 13.4649 8.25107C13.3228 8.1922 13.1704 8.1619 13.0166 8.1619C12.8628 8.1619 12.7104 8.1922 12.5683 8.25107C12.4262 8.30994 12.297 8.39623 12.1883 8.505C12.0795 8.61378 11.9932 8.74292 11.9343 8.88505C11.8755 9.02717 11.8452 9.1795 11.8452 9.33334C11.8452 9.48717 11.8755 9.6395 11.9343 9.78163C11.9932 9.92375 12.0795 10.0529 12.1883 10.1617L14.8716 12.8333H3.68327C3.37385 12.8333 3.0771 12.9563 2.85831 13.175C2.63952 13.3938 2.5166 13.6906 2.5166 14C2.5166 14.3094 2.63952 14.6062 2.85831 14.825C3.0771 15.0438 3.37385 15.1667 3.68327 15.1667H14.8716ZM14.1833 2.33334C12.0029 2.3236 9.86339 2.92509 8.00748 4.06956C6.15158 5.21404 4.65353 6.8557 3.68327 8.80834C3.54403 9.08682 3.52112 9.4092 3.61958 9.70457C3.71803 9.99994 3.92979 10.2441 4.20827 10.3833C4.48675 10.5226 4.80913 10.5455 5.1045 10.447C5.39987 10.3486 5.64403 10.1368 5.78327 9.85834C6.52082 8.36888 7.64274 7.10339 9.03308 6.19266C10.4234 5.28192 12.0317 4.75897 13.6918 4.67786C15.3519 4.59675 17.0035 4.96041 18.476 5.73127C19.9485 6.50212 21.1885 7.65221 22.0677 9.06267C22.947 10.4731 23.4336 12.0928 23.4774 13.7543C23.5212 15.4158 23.1205 17.0588 22.3167 18.5136C21.5129 19.9684 20.3353 21.1822 18.9054 22.0295C17.4755 22.8768 15.8453 23.3269 14.1833 23.3333C12.4436 23.3409 10.7371 22.8578 9.25957 21.9395C7.78204 21.0212 6.59335 19.7049 5.82993 18.1417C5.6907 17.8632 5.44654 17.6514 5.15117 17.553C4.8558 17.4545 4.53341 17.4774 4.25493 17.6167C3.97646 17.7559 3.7647 18.0001 3.66624 18.2954C3.56779 18.5908 3.5907 18.9132 3.72993 19.1917C4.6549 21.0531 6.06038 22.6336 7.80098 23.7697C9.54159 24.9058 11.5541 25.5563 13.6304 25.6538C15.7067 25.7513 17.7713 25.2924 19.6108 24.3244C21.4502 23.3565 22.9976 21.9147 24.093 20.1481C25.1884 18.3816 25.7919 16.3545 25.8412 14.2765C25.8904 12.1985 25.3836 10.1451 24.3732 8.32864C23.3628 6.51219 21.8854 4.99867 20.0939 3.94463C18.3024 2.89059 16.2618 2.33431 14.1833 2.33334Z"
+                                    fill="#BFA373" />
+                            </svg></a>
+                    </li>
+                </ul>
+                <!-- search-bar  -->
+                <div class="position-relative d-lg-none me-lg-16 ms-170">
+                    <iconify-icon class="position-absolute search-icon" icon="iconamoon:search" style="color: #8b8b8a;"
+                        width="24"></iconify-icon>
+                    <input type="text"
+                        class="py-10 px-16 ps-48 border border-2 border-gray-04 border-radius-28 search-bar"
+                        placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
+                </div>
+                <!-- btn-menu -->
+                <a class="d-lg-none d-block" data-bs-toggle="offcanvas" href="#offcanvasTop"
+                    aria-controls="offcanvasTop">
+                    <iconify-icon icon="uil:apps" style="color: #f0bd68;" width="28"></iconify-icon>
+                </a>
+                <!-- nav menu offcanvas -->
+                <div class="offcanvas offcanvas-top vh-100" data-bs-scroll="true" tabindex="-1" id="offcanvasTop"
+                    aria-labelledby="offcanvasTopLabel">
+                    <div class="py-16 px-12 offcanvas-header">
+                        <img style="width: 148px; height: 24px;" src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="">
+                        <a href="#" data-bs-dismiss="offcanvas" aria-label="Close"><iconify-icon icon="ic:round-close"
+                                style="color: #bfa373;" width="28"></iconify-icon></a>
+                    </div>
+                    <div class="offcanvas-body d-flex flex-column justify-content-between py-24 px-12">
+                        <ul class="fs-32 offcanvas-list">
+                            <li><a class="p-16 fw-bold d-block" href="#">點餐</a></li>
+                            <li><a class="p-16 fw-bold d-block" href="#">投票</a></li>
+                            <li><a class="p-16 fw-bold d-block" href="#">訂餐月曆</a></li>
+                            <li><a class="p-16 fw-bold d-block" href="#">訂單</a></li>
+                        </ul>
+                        <ul class="d-flex justify-content-center gap-20">
+                            <!-- 通知按鈕 -->
+                            <li>
+                                <a href="#notificationCollapseModal"
+                                    class="position-relative d-block notification-hover btnNotification"
+                                    data-bs-toggle="modal">
+                                    <iconify-icon class="p-8 bg-brand-02 rounded-circle"
+                                        icon="ion:notifications-outline" style="color: white;" width="28"
+                                        height="28"></iconify-icon>
+                                    <div
+                                        class="btn-notification-alert rounded-circle bg-white position-absolute btnNotificationAlert">
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- 留言按鈕 -->
+                            <li>
+                                <a href="#" class="nav-icon-hover"><iconify-icon class="p-8 bg-brand-04 rounded-circle"
+                                        icon="ant-design:message-outlined" style="color: #bfa373;"
+                                        width="28"></iconify-icon></a>
+                            </li>
+                            <!-- 新手教學按鈕 -->
+                            <li>
+                                <a href="#" class="nav-icon-hover">
+                                    <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ion:help"
+                                        style="color: #bfa373;" width="28"></iconify-icon></a>
+                            </li>
+                            <!-- 登入按鈕 -->
+                            <li>
+                                <a href="#accountModal" class="nav-icon-hover" data-bs-toggle="modal"><iconify-icon
+                                        class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
+                                        style="color: #bfa373;" width="28"></iconify-icon></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</nav>
+
+<!-- nav account modal -->
+<div class="modal fade account-login-modal" id="accountModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered account-modal-dialog">
+        <div class="d-flex modal-content border-radius-24">
+            <div class="modal-header py-lg-24 px-lg-40 p-16 border-0">
+                <h5 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">登入</h5>
+                <a href="#accountModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
+                        style="color: #8B8B8A;" width="32"></iconify-icon></a>
+            </div>
+            <div class="modal-body d-flex flex-column gap-lg-20 gap-12 p-lg-40 pt-lg-16 p-16 pt-8">
+                <!-- switch user & admin login -->
+                <ul class="d-flex p-8 rounded-pill bg-brand-05">
+                    <li class="w-50"><a
+                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 active btnSwitchIdentity"
+                            href="#">會員登入</a></li>
+                    <li class="w-50"><a
+                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnSwitchIdentity"
+                            href="#">管理員登入</a></li>
+                </ul>
+                <!-- input - account & password -->
+                <form class="needs-validation" action="#" method="post" novalidate>
+                    <div class="mb-lg-20 mb-12">
+                        <input
+                            class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginAccount"
+                            type="email" id="nav-account" name="nav-account" placeholder="請輸入信箱"
+                            aria-describedby="nav-account" value="will-chen@fat-together.com" required>
+                        <input
+                            class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginPassword"
+                            type="password" id="nav-password" name="nav-password" placeholder="請輸入密碼"
+                            aria-describedby="nav-password" value="will-chen" required>
+                        <div class="invalid-feedback ms-16">
+                            電子郵件帳號或密碼輸入錯誤
+                        </div>
+                    </div>
+                    <!-- option -->
+                    <div class="d-flex justify-content-between mb-lg-20 mb-12">
+                        <label class="remember-content text-brand-01 fw-medium lh-sm" for="remember-check">記住我
+                            <input class="remember-checkbox" type="checkbox" id="remember-check" name="remember-me">
+                            <span class="remember-checkmark"></span>
+                        </label>
+                        <a href="reset-password.html" class="text-brand-01 fw-medium lh-sm btn-reset-password">忘記密碼？</a>
+                    </div>
+                    <!-- submit -->
+                    <button type="submit"
+                        class="p-lg-14 p-12 fs-20 fw-medium lh-sm rounded-pill text-white border-0 w-100 btn-brand-03 btn-hover-brand-01 btnLoginSubmit">登入</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- nav account modal in collapse -->
+
+<!-- notification modal in collapse -->
+<div class="modal fade account-login-modal" id="notificationCollapseModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered account-modal-dialog">
+        <div class="modal-content overflow-hidden modal-sm-mx12 border-radius-24">
+            <div class="d-flex justify-content-between align-items-center py-md-20 px-md-24 p-16 bg-brand-05">
+                <span class="fs-md-24 fs-20 fw-bold lh-sm ">通知</span>
+                <a href="#notificationCollapseModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
+                        style="color: #8B8B8A;" width="32"></iconify-icon></a>
+            </div>
+            <div class="modal-body px-md-20 py-md-24 p-16">
+                <ul class=" notification-messages">
+                    <li><a href="#" class="d-block">
+                            <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>飲舞者</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>2023/08/14</time>
+                            </div>
+                        </a></li>
+                    <li><a href="#" class="d-block">
+                            <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的跟團已確認成團！請盡速向團主付款</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>飛餐</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>2023/08/12</time>
+                            </div>
+                        </a></li>
+                    <li><a href="#" class="d-block">
+                            <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您主辦的開團失敗！謝謝您的發起</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>速食窩</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>無</time>
+                            </div>
+                        </a></li>
+                    <li><a href="#" class="d-block">
+                            <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">跟團訂單「編號 11111」已付款</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>飛餐</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>2023/08/12</time>
+                            </div>
+                        </a></li>
+                    <li><a href="#" class="d-block">
+                            <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
+                            <div class="d-flex justify-content-between mb-8">
+                                <span class="text-gray-02">店家</span>
+                                <span>茶源 ChaSource</span>
+                            </div>
+                            <div class="d-flex justify-content-between ">
+                                <span class="text-gray-02">預定訂購時間</span>
+                                <time>2023/08/18</time>
+                            </div>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery Import -->
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+    integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+<!-- jQuery -->
+<script>
+    /* Validation 填寫檢驗 */
+    $('.needs-validation').each(function (index) {
+        $(this).on('submit', function (e) {
+            e.preventDefault();
+            $(this).addClass('was-validated');
+        });
+    });
+
+    /* 通知按鈕點擊切換通知提示圓點 */
+    $('.btnNotification').click(function (e) {
+        $('.btnNotificationAlert').addClass('d-none');
+    });
+
+    /* 登入會員/管理員 按鈕 active 狀態切換顯示 */
+    $('.btnSwitchIdentity').click(function (e) {
+        $('.btnSwitchIdentity').toggleClass('active');
+    });
+
+    /* navbar 摺疊 collapse 選單切換 active */
+    $('.offcanvas-list a').click(function (e) {
+        $('.offcanvas-list a').removeClass('nav-offcanvas-active');
+        $(this).toggleClass('nav-offcanvas-active');
+    });
+</script>
+
+
+<script>
+    /* 登入/登出 狀態 icon 顯示切換 */
+    // form-帳密輸入表單
+    const loginForm = document.querySelector(".needs-validation");
+    // input-帳密輸入
+    const inputLoginAccount = document.querySelector(".inputLoginAccount");
+    const inputLoginPassword = document.querySelector(".inputLoginPassword");
+    // 按鈕-登入資料送出
+    const btnLoginSubmit = document.querySelectorAll(".btnLoginSubmit");
+    // 按鈕-navbar 登入、已登入、登出 icon
+    const btnLogin = document.querySelector(".btnLogin")
+    const btnUserLoggedIn = document.querySelector(".btnUserLoggedIn")
+    const btnLogOut = document.querySelector(".btnLogOut")
+
+    // 登入
+    btnLoginSubmit.forEach(btn => {
+        btn.addEventListener("click", () => {
+            // input-帳密輸入值
+            const accountValue = inputLoginAccount.value;
+            const passwordValue = inputLoginPassword.value;
+
+            // 檢查 loginForm 通過驗證，失敗則為 ture，添加顯示樣式
+            if (!loginForm.checkValidity()) {
+                loginForm.classList.add('was-validated');
+            }
+
+            // Login 成功條件 & 失敗
+            if (accountValue === "will-chen@fat-together.com" && passwordValue === "will-chen") {
+                btnUserLoggedIn.classList.remove("d-none")
+                btnLogOut.classList.remove("d-none")
+                btnLogin.classList.add("d-none")
+                $('#accountModal').modal('hide');
+            } else {
+                // 登入失敗
+                const errorFeedback = document.querySelector(".invalid-feedback");
+                errorFeedback.style.display = 'block';
+            }
+
+        });
+    });
+
+
+    // 登出
+    btnLogOut.addEventListener("click", () => {
+        btnUserLoggedIn.classList.add("d-none")
+        btnLogOut.classList.add("d-none")
+        btnLogin.classList.remove("d-none")
+    })
+</script>
+    <div class="layout-content">
+      <div class="order mb-16 md-sm-32 ">
+        <div class="order-bg"></div>
+          <div class="order-content container ps-24 ps-md-42 d-sm-flex align-items-end">
+            <img src="/TeaTime-Gathering/assets/logo-cha source-d214a2d4.jpg" alt="logo-cha source" 
+            class="order-icon border border-2 border-line border-radius-24 me-sm-37 mb-20 mb-sm-0 ">
+            <div class="order-textContent">
+              <h2>茶源 ChaSource</h2>
+              <div class="imgItems">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADfSURBVHgBzVLBDYJAEJxTwpsS8M8DHiYGH9KBloAVqBVoB5ZgOZr4wBiMPq8E3hBZF9EQTkDCRye5u93LzOzt5oC/BoWuTYFnNHF6teLryOQjgB4v0MUA934uJCzRyUDQ7BUZdHOntbR3wP3uODVZaHLVrG9DYUqQkHkSr4R1PGWRVjAoM/NYXA2CyRsvREj60UcLwtr7EOkGjSCJJHWEc5DFw1RKON7yXjW4SBWXXtAGqrjOwC5VLWBQOLRbGJCXl+N5JPoAKeacyZytTfANdHHXFDx/Yfn+7PpV97/HA71tSHVkF1TWAAAAAElFTkSuQmCC" alt="icon-star-highlight">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADfSURBVHgBzVLBDYJAEJxTwpsS8M8DHiYGH9KBloAVqBVoB5ZgOZr4wBiMPq8E3hBZF9EQTkDCRye5u93LzOzt5oC/BoWuTYFnNHF6teLryOQjgB4v0MUA934uJCzRyUDQ7BUZdHOntbR3wP3uODVZaHLVrG9DYUqQkHkSr4R1PGWRVjAoM/NYXA2CyRsvREj60UcLwtr7EOkGjSCJJHWEc5DFw1RKON7yXjW4SBWXXtAGqrjOwC5VLWBQOLRbGJCXl+N5JPoAKeacyZytTfANdHHXFDx/Yfn+7PpV97/HA71tSHVkF1TWAAAAAElFTkSuQmCC" alt="icon-star-highlight">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADfSURBVHgBzVLBDYJAEJxTwpsS8M8DHiYGH9KBloAVqBVoB5ZgOZr4wBiMPq8E3hBZF9EQTkDCRye5u93LzOzt5oC/BoWuTYFnNHF6teLryOQjgB4v0MUA934uJCzRyUDQ7BUZdHOntbR3wP3uODVZaHLVrG9DYUqQkHkSr4R1PGWRVjAoM/NYXA2CyRsvREj60UcLwtr7EOkGjSCJJHWEc5DFw1RKON7yXjW4SBWXXtAGqrjOwC5VLWBQOLRbGJCXl+N5JPoAKeacyZytTfANdHHXFDx/Yfn+7PpV97/HA71tSHVkF1TWAAAAAElFTkSuQmCC" alt="icon-star-highlight">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADfSURBVHgBzVLBDYJAEJxTwpsS8M8DHiYGH9KBloAVqBVoB5ZgOZr4wBiMPq8E3hBZF9EQTkDCRye5u93LzOzt5oC/BoWuTYFnNHF6teLryOQjgB4v0MUA934uJCzRyUDQ7BUZdHOntbR3wP3uODVZaHLVrG9DYUqQkHkSr4R1PGWRVjAoM/NYXA2CyRsvREj60UcLwtr7EOkGjSCJJHWEc5DFw1RKON7yXjW4SBWXXtAGqrjOwC5VLWBQOLRbGJCXl+N5JPoAKeacyZytTfANdHHXFDx/Yfn+7PpV97/HA71tSHVkF1TWAAAAAElFTkSuQmCC" alt="icon-star-highlight">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADuSURBVHgBzVLbCcJAENy9pICUEDvQCmJABL+0BK1A7cAOLEFtQ9DToN9aQkoIfkru1j01GPNS8pWBwJLZmZs5DqDROMttW0rpVO2IMoKFrhLWxRZ6CnUMLOslJIAZ1DEAwtF7cs7Bfli2hslwCnYrAnSJwDUidsh0xxARQjPFKp77fv9qZjuhFRHz0IXySE9zrhTxdpSr4Hm9MZMLqADzodb3ju8PwlyFBMFxt4Tii4tURvyV4B9kxYUGiNiGT+QoRTmSH9ZPAyLqvsULrW8tpdXEdDf/bCG87L6dS8DCWN83qbhr8/HpY779AzQOD97bWthkFXVlAAAAAElFTkSuQmCC" alt="icon-star-faint">
+              </div>
+              <p class="order-content-p">專注於高品質的茶葉，提供多款精選茶飲和冷泡茶。</p>
+            </div>
+          </div>
+      </div>
+      <div class="container mb-32 mb-sm-116">
+        <div class="btnList mb-48 mb-sm-32 d-flex justify-content-between align-content-center ">
+          <div class="btnList-items d-flex justify-content-between ">
+             <button type="button" class="me-0 me-sm-12 px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 bg-brand-05 text-brand-02 d-flex justify-content-center align-items-center ">
+              <p class="me-8" >開團中</p>
+              <img src="/TeaTime-Gathering/assets/icon-bxs-down-arrow-d1bc3657.svg" alt="icon-bxs-down-arrow">
+             </button>
+             <button type="button" class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 bg-brand-05 text-brand-02 d-sm-none d-flex justify-content-center align-items-center">
+              <p class="me-8" >看評價</p>
+              <img src="/TeaTime-Gathering/assets/icon-bxs-down-arrow-d1bc3657.svg" alt="icon-bxs-down-arrow">
+             </button>
+             <button type="button" class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 bg-brand-05 text-brand-02 d-flex justify-content-center align-items-center ">
+               <img class="me-8" src="/TeaTime-Gathering/assets/icon-add-team-db2b358f.svg" alt="icon-bxs-down-arrow">
+               <p>建立揪團</p>
+             </button>
+
+          </div>
+          <div class="shopping-cart d-none d-sm-flex justify-content-center align-items-center  bg-brand-03 px-24 py-10 py-sm-14 border-radius-40">
+            <img class="me-4 me-sm-8" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC3SURBVHgBzZPREcIgEEQXKkgJlpIOLAFbsAK1EtNJSrAE6IB0cJ6GD2QgApePvBnmJpNl51gO0C83SEkMPa8BAlRkPHMZIcPp6OOBvfl0STJMajhSP69Sl5b6OJUML9TOcyvHgdbx6epOp4ZKqYXLhHom3uM2FVSf40z/HgIL7kFssQdRd2d0oDKGnkvze+Ycv1468+/Ky+Gw0DrYPmRppLp0ZHyrLpdhfCELytTpwlFsOI5p1b0BDR353t+YsDwAAAAASUVORK5CYII=" alt="icon-shopping-cart">
+            <p class="text-white word-break-keep-all">購物車</p>
+          </div>
+        </div>
+      </div>
+      <div class="container mb-32 mb-sm-80">
+        <div class="allMenu mb-16 mb-sm-32">
+          <div class="allMenu-header d-flex justify-content-between  align-items-center mb-24 mb-sm-36">
+            <h2>全部菜單</h2>
+            <div class="shopping-cart d-sm-none d-flex justify-content-center align-items-center  bg-brand-03 px-24 py-10 py-sm-14 border-radius-40">
+              <img class="me-4 me-sm-8" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAC3SURBVHgBzZPREcIgEEQXKkgJlpIOLAFbsAK1EtNJSrAE6IB0cJ6GD2QgApePvBnmJpNl51gO0C83SEkMPa8BAlRkPHMZIcPp6OOBvfl0STJMajhSP69Sl5b6OJUML9TOcyvHgdbx6epOp4ZKqYXLhHom3uM2FVSf40z/HgIL7kFssQdRd2d0oDKGnkvze+Ycv1468+/Ky+Gw0DrYPmRppLp0ZHyrLpdhfCELytTpwlFsOI5p1b0BDR353t+YsDwAAAAASUVORK5CYII=" alt="icon-shopping-cart">
+              <p class="text-white word-break-keep-all">購物車</p>
+            </div>
+          </div>
+          <div class="allMenu-content">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper py-3">
+                <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+                  <ul>
+                    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                        <h3 class="">茶舞</h3>
+                        <div class="cold-hot d-flex justify-content-center align-items-center ">
+                          <div class="cold d-flex justify-content-center align-items-center ">
+                            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+                            <span class="me-8">30</span>
+                          </div>
+                          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+                            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+                            <span class="">30</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-top-p">結合了香濃的奶茶和清新的果茶，帶給您舞動在舌尖的美味。</p>
+                    </li>
+                    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                        <h3 class="">紅柚露</h3>
+                        <div class="cold-hot d-flex justify-content-center align-items-center ">
+                          <div class="cold d-flex justify-content-center align-items-center ">
+                            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+                            <span class="me-8">40</span>
+                          </div>
+                          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+                            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+                            <span class="">30</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-top-p">絕妙的紅茶搭配新鮮柚子，帶來微酸的口感和芳香的香氣。</p>
+                    </li>
+                    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                        <h3 class="">翠綠</h3>
+                        <div class="cold-hot d-flex justify-content-center align-items-center ">
+                          <div class="cold d-flex justify-content-center align-items-center ">
+                            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+                            <span class="me-8">25</span>
+                          </div>
+                          <div class="hot d-flex justify-content-center align-items-center">
+                            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+                            <span class="">25</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-top-p">以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
+                    </li>
+                    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                        <h3 class="">柔霧</h3>
+                        <div class="cold-hot d-flex justify-content-center align-items-center ">
+                          <div class="cold d-flex justify-content-center align-items-center ">
+                            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+                            <span class="me-8">35</span>
+                          </div>
+                          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+                            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+                            <span class="">30</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-top-p">柔順的奶茶搭配迷人的茉莉花香，帶來優雅與幸福的味覺享受。</p>
+                    </li>
+                    <li class=" py-16 py-sm-24">
+                      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                        <h3 class="">蜜香</h3>
+                        <div class="cold-hot d-flex justify-content-center align-items-center ">
+                          <div class="cold d-flex justify-content-center align-items-center ">
+                            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+                            <span class="me-8">30</span>
+                          </div>
+                          <div class="hot d-flex justify-content-center align-items-center">
+                            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+                            <span class="">30</span>
+                          </div>
+                        </div>
+                      </div>
+                      <p class="text-top-p">香濃的茶香中混合著芳醇的蜂蜜，為您的口腔帶來溫暖和滋潤。</p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+  <ul>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">茶舞</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">結合了香濃的奶茶和清新的果茶，帶給您舞動在舌尖的美味。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">紅柚露</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">40</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">絕妙的紅茶搭配新鮮柚子，帶來微酸的口感和芳香的香氣。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">翠綠</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">25</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">25</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">柔霧</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">35</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">柔順的奶茶搭配迷人的茉莉花香，帶來優雅與幸福的味覺享受。</p>
+    </li>
+    <li class=" py-16 py-sm-24">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">蜜香</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">香濃的茶香中混合著芳醇的蜂蜜，為您的口腔帶來溫暖和滋潤。</p>
+    </li>
+  </ul>
+</div>                <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+  <ul>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">茶舞</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">結合了香濃的奶茶和清新的果茶，帶給您舞動在舌尖的美味。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">紅柚露</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">40</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">絕妙的紅茶搭配新鮮柚子，帶來微酸的口感和芳香的香氣。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">翠綠</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">25</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">25</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">柔霧</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">35</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">柔順的奶茶搭配迷人的茉莉花香，帶來優雅與幸福的味覺享受。</p>
+    </li>
+    <li class=" py-16 py-sm-24">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">蜜香</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">香濃的茶香中混合著芳醇的蜂蜜，為您的口腔帶來溫暖和滋潤。</p>
+    </li>
+  </ul>
+</div>                <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+  <ul>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">茶舞</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">結合了香濃的奶茶和清新的果茶，帶給您舞動在舌尖的美味。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">紅柚露</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">40</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">絕妙的紅茶搭配新鮮柚子，帶來微酸的口感和芳香的香氣。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">翠綠</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">25</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">25</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">柔霧</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">35</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">柔順的奶茶搭配迷人的茉莉花香，帶來優雅與幸福的味覺享受。</p>
+    </li>
+    <li class=" py-16 py-sm-24">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">蜜香</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">香濃的茶香中混合著芳醇的蜂蜜，為您的口腔帶來溫暖和滋潤。</p>
+    </li>
+  </ul>
+</div>                <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+  <ul>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">茶舞</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">結合了香濃的奶茶和清新的果茶，帶給您舞動在舌尖的美味。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">紅柚露</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">40</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">絕妙的紅茶搭配新鮮柚子，帶來微酸的口感和芳香的香氣。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">翠綠</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">25</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">25</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">柔霧</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">35</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">柔順的奶茶搭配迷人的茉莉花香，帶來優雅與幸福的味覺享受。</p>
+    </li>
+    <li class=" py-16 py-sm-24">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">蜜香</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">香濃的茶香中混合著芳醇的蜂蜜，為您的口腔帶來溫暖和滋潤。</p>
+    </li>
+  </ul>
+</div>                <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+  <ul>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">茶舞</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">結合了香濃的奶茶和清新的果茶，帶給您舞動在舌尖的美味。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">紅柚露</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">40</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">絕妙的紅茶搭配新鮮柚子，帶來微酸的口感和芳香的香氣。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">翠綠</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">25</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">25</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">柔霧</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">35</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">柔順的奶茶搭配迷人的茉莉花香，帶來優雅與幸福的味覺享受。</p>
+    </li>
+    <li class=" py-16 py-sm-24">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">蜜香</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">香濃的茶香中混合著芳醇的蜂蜜，為您的口腔帶來溫暖和滋潤。</p>
+    </li>
+  </ul>
+</div>                <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+  <ul>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">茶舞</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">結合了香濃的奶茶和清新的果茶，帶給您舞動在舌尖的美味。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">紅柚露</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">40</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">絕妙的紅茶搭配新鮮柚子，帶來微酸的口感和芳香的香氣。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">翠綠</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">25</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">25</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">柔霧</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">35</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">柔順的奶茶搭配迷人的茉莉花香，帶來優雅與幸福的味覺享受。</p>
+    </li>
+    <li class=" py-16 py-sm-24">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">蜜香</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">香濃的茶香中混合著芳醇的蜂蜜，為您的口腔帶來溫暖和滋潤。</p>
+    </li>
+  </ul>
+</div>                <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+  <ul>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">茶舞</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">結合了香濃的奶茶和清新的果茶，帶給您舞動在舌尖的美味。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">紅柚露</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">40</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">絕妙的紅茶搭配新鮮柚子，帶來微酸的口感和芳香的香氣。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">翠綠</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">25</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">25</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">柔霧</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">35</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">柔順的奶茶搭配迷人的茉莉花香，帶來優雅與幸福的味覺享受。</p>
+    </li>
+    <li class=" py-16 py-sm-24">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">蜜香</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">香濃的茶香中混合著芳醇的蜂蜜，為您的口腔帶來溫暖和滋潤。</p>
+    </li>
+  </ul>
+</div>                <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+  <ul>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">茶舞</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">結合了香濃的奶茶和清新的果茶，帶給您舞動在舌尖的美味。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">紅柚露</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">40</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">絕妙的紅茶搭配新鮮柚子，帶來微酸的口感和芳香的香氣。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">翠綠</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">25</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">25</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
+    </li>
+    <li class=" py-16 py-sm-24 border-bottom border-1 ">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">柔霧</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">35</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center hidden-block">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">柔順的奶茶搭配迷人的茉莉花香，帶來優雅與幸福的味覺享受。</p>
+    </li>
+    <li class=" py-16 py-sm-24">
+      <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+        <h3 class="">蜜香</h3>
+        <div class="cold-hot d-flex justify-content-center align-items-center ">
+          <div class="cold d-flex justify-content-center align-items-center ">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMISURBVHgBrVZdUhpBEO7ZYS2qzMPyIP5AVeAEkRMETxA9QfAE6ktKMFVCVZQkL8oJ5AZWTgCeAG+wJG4kYlLsS1Jb4u6ke/aH4S8rKbsKdnamp7u/r38AYAE5Nk2jbvZyi9xJLKKcXFruCAEGLlNPvaPFKciob3pF+SIgx0A6gBOrv/kUNLEOkvqLS2C8Vbf6ZrhXt+5beLEjlrSz/3LwGaM7tX6+9YN2vwATXVzmRhqiiF+2xkSb3j7e/tqbhyZyoEJ2gV0w8JonlrVZya6dOw9/Coxp25F5rpWc4e/84cZao35zXxSeew46b9EZUUr3Ql1GX2fmwHD04cC/7daQkj1cGR48FI6y2esRNX1Bz3I2zaK9HgblchMPbCZEA5iGd4Xhanru/Ubqq0RwkE/Z6Krpu+THZJwuqMbnSXl9vUt0yeQzdkzG8b1NxscoKmfSu4KxqgLNoMT+q1KIHko4BJUlCQAoIcItxY4vlFjkvhVEgIiEDYKFxpswROp0LisJ+U9hT5yhtVJwrup3kdqdEH2EwNPgdQgPjRVA87Yi2jAqofNOqIula4bGMeJzSriv71cbg6VXUwhIqJKOsukx3v0kJi6C0lSlzTF97yb0J23ENho8JnLzjtyha0OMjMrN6pfwgZFCFynacsCxk4nlKmrsBSpkzJix9vOTJI8+UqbB/uFGujGGAOFeRx2LTSN5HhlvSp4jZcyRkh/ZZG6iE3W4B1dTCCZQhNIWnFUr6ytXwflYo8n8eFpLqTZcimols1qbQRHV8yiR1GiVbDo1EcBUJwf7A4UyiRh1diOKaFSE8CgCCDrzw+3gJcQIVQ0Ena80aolmUuRAjgru5olnCY/JJILGHnP0lL8JPn1STr/dbYcGFCq6lcxKjex4AIVaPm8H+9NC3DLB31AlfLJ+7HvAwxmjSleA16BpW7d6JQ78erIn5jpQ5fT7/SVOSRrVbfwU/VtYbX5i2+rcmSWxjca0xwOCrBoqZ1bzgutFpHQHnlOoWurWnbnInYX+VVCDOY4TOx5U+QupLHeCWNka5wAAAABJRU5ErkJggg==" alt="cold.png">
+            <span class="me-8">30</span>
+          </div>
+          <div class="hot d-flex justify-content-center align-items-center">
+            <img class="me-4" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAGDSURBVHgB7VTLUcNADH2yAzPclgpICZQQKoAKSNwAiSuIqcAcuPvCHVIBoYKkg6SE3JjJJCskExjvOv4kcGJ4l/WupfdWWknAn8c6zS7f06yLIxE0GXSI0lPCYptmCY5AowDAJl8IY/uQzQ6NhmqphczK7T2HOTGuKI5WaIHaCCzRuCQKXNogGKIlKgU+c86DvT/Zjr4/JcpNmt3gEAEhH2nOUQ3Dj08X+iHR9InwrNXWSkBvJOQpmmBtVxdizok7FT6lR5ZKWUieu2hAwDiXxRSLwMrjn8TR1LErbiSXgzbkgqWSM+HVISO69g07vgFrnTRDy3emIu4x93xDJwIuGyxRDbNPuFbAd2IKEm0stIdpEnC6M7R2wqApfgBHwLvtSseBZZ6gPea1AlvGfWFrpCeMlp0Iv+A3BHZk06/9RuaOrjLcIqp/8Bxr94JlAZ8s3I0LTVU+QetECKOzOFqWjyugTSczZii1OwnjKCmei1dfHHuyXUnXzMMgTOju9g3/OAYfW0KKDoRMvHgAAAAASUVORK5CYII=" alt="hot.png">
+            <span class="">30</span>
+          </div>
+        </div>
+      </div>
+      <p class="text-top-p">香濃的茶香中混合著芳醇的蜂蜜，為您的口腔帶來溫暖和滋潤。</p>
+    </li>
+  </ul>
+</div>              </div>
+            </div>
+          </div>
+        </div>
+        <nav aria-label="Page navigation" class="">
+          <ul class="pagination w-100 d-flex justify-content-between justify-content-sm-end  ">
+            <li class="page-item me-sm-8">
+              <a class="page-link p-10" href="#" aria-label="Next">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACRSURBVHgB7ZExCsQgEEXVytJeRI+QK+Qoe8O9gVfYIwg2ltaKujOQQAJOwD4PLL4z/8NnGHshcc5t1lqvgEMrY4zXWm/XPUGZe+8eXsgAmlFzzl1rLV93OWUeY3xjjJ/TDCNVStlTSoEMWDWTFWZIKaf/SxWEEHsAHgNWQ6YVYP7DRczCM4LOqCEw1FoVe7nxB23NePjg4GU6AAAAAElFTkSuQmCC" alt="icon-pagination-first">
+              </a>
+            </li>
+            <li class="page-item me-sm-8">
+              <a class="page-link p-10" href="#" aria-label="Next">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAA9SURBVHgB7cxBCgAgCATArR6uX+tl1mGvWSjdHBAF2QXKK+WEw7ZHEKDfw935GXdDgrBIkeCWDNzNw11oAdfBDX4afFPlAAAAAElFTkSuQmCC" alt="icon-pagination-prev">
+              </a>
+            </li>
+            <li class="page-item me-sm-8"><a class="page-link p-10" href="#">1</a></li>
+            <li class="page-item me-sm-8"><a class="page-link p-10" href="#">2</a></li>
+            <li class="page-item me-sm-8"><a class="page-link p-10" href="#">3</a></li>
+            <p class="me-sm-8">...</p>
+            <li class="page-item me-sm-8"><a class="page-link p-10" href="#">10</a></li>
+            <li class="page-item me-sm-8">
+              <a class="page-link p-10" href="#" aria-label="Next">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAA2SURBVHgB7cwxCgAgDATB1Y8nP48WVyucjaADR6oNfCup2WKu7n/S2Wu6hSEVBoY8iVFoxy8ZWeYM96f5NrgAAAAASUVORK5CYII=" alt="icon-pagination-next">
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link p-10" href="#" aria-label="Next">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABZSURBVHgB7ZHBCcAgEAQHK7CEK8GS00lKSAkhFSQlZANC5EAExZ8D89jHLXccLDxJ7jLmHHNOtYHg8iOtKPny1SrxmDzlwb/JJu8pJYEJGAMnDA1DxxsX8AIIpRcUmXYxegAAAABJRU5ErkJggg==" alt="icon-pagination-last">
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <!-- footer -->
+    <footer class="pt-md-48 pb-md-32 py-32 bg-bg-1 text-gray-02 footer-radius">
+    <div class="d-flex flex-column align-items-center">
+        <img class="mb-md-24 mb-16 footer-logo" src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="logo">
+        <p class="mb-md-24 mb-16 lh-sm fw-medium">管理員：Ann Chou、Billy Ti、Mark、WA</p>
+        <ul class="d-flex gap-24 mb-md-32 mb-16">
+            <li><a href="mailto:service@gmail.com?subject=用戶來信&body=哈囉您好我是"><iconify-icon icon="ic:round-email" style="color: #bfa373;" width="24" height="24"></iconify-icon></a></li>
+            <li><a href="#"><iconify-icon icon="mdi:facebook" style="color: #bfa373;" width="24" height="24"></iconify-icon></a></li>
+            <li><a href="#"><iconify-icon icon="ant-design:instagram-filled" style="color: #bfa373;" width="24" height="24"></iconify-icon></a></li>
+        </ul>
+        <div class="layout-content container">
+            <div class="d-flex flex-md-row flex-column align-items-center justify-content-between w-100 py-md-16 px-md-24 py-12 px-12 bg-white rounded-pill">
+                <p>本網站僅作為求職作品集使用，不供商業用途</p>
+                <p>© 2023 一起發胖團</p>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- notification -->
+    <a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover btnNotification"
+    id="notificationToastBtn">
+    <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline" style="color: white;"
+        width="28" height="28"></iconify-icon>
+    <div class="btn-notification-alert rounded-circle bg-white position-absolute btnNotificationAlert"></div>
+</a>
+
+<!-- notification-container -->
+<div class="position-fixed notification-container" style="z-index: 1030">
+    <div id="notificationToast"
+        class="overflow-hidden border-2 border-brand-05 border bg-white notification-body toast toast-no-shadow"
+        role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false">
+        <div class="d-flex justify-content-between align-items-center py-md-20 px-md-24 p-16 bg-brand-05">
+            <span class="fs-md-24 fs-20 fw-bold lh-sm ">通知</span>
+            <a class="d-block cursor-pointer" data-bs-dismiss="toast" aria-label="Close">
+                <iconify-icon icon="ic:round-close" style="color: #8B8B8A;" width="32"></iconify-icon>
+            </a>
+        </div>
+        <div class="px-md-20 py-md-24 p-16">
+            <ul class="notification-messages">
+                <li><a href="#" class="d-block">
+                        <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
+                        <div class="d-flex justify-content-between mb-8">
+                            <span class="text-gray-02">店家</span>
+                            <span>飲舞者</span>
+                        </div>
+                        <div class="d-flex justify-content-between ">
+                            <span class="text-gray-02">預定訂購時間</span>
+                            <time>2023/08/14</time>
+                        </div>
+                    </a></li>
+                <li><a href="#" class="d-block">
+                        <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的跟團已確認成團！請盡速向團主付款</p>
+                        <div class="d-flex justify-content-between mb-8">
+                            <span class="text-gray-02">店家</span>
+                            <span>飛餐</span>
+                        </div>
+                        <div class="d-flex justify-content-between ">
+                            <span class="text-gray-02">預定訂購時間</span>
+                            <time>2023/08/12</time>
+                        </div>
+                    </a></li>
+                <li><a href="#" class="d-block">
+                        <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您主辦的開團失敗！謝謝您的發起</p>
+                        <div class="d-flex justify-content-between mb-8">
+                            <span class="text-gray-02">店家</span>
+                            <span>速食窩</span>
+                        </div>
+                        <div class="d-flex justify-content-between ">
+                            <span class="text-gray-02">預定訂購時間</span>
+                            <time>無</time>
+                        </div>
+                    </a></li>
+                <li><a href="#" class="d-block">
+                        <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">跟團訂單「編號 11111」已付款</p>
+                        <div class="d-flex justify-content-between mb-8">
+                            <span class="text-gray-02">店家</span>
+                            <span>飛餐</span>
+                        </div>
+                        <div class="d-flex justify-content-between ">
+                            <span class="text-gray-02">預定訂購時間</span>
+                            <time>2023/08/12</time>
+                        </div>
+                    </a></li>
+                <li><a href="#" class="d-block">
+                        <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
+                        <div class="d-flex justify-content-between mb-8">
+                            <span class="text-gray-02">店家</span>
+                            <span>茶源 ChaSource</span>
+                        </div>
+                        <div class="d-flex justify-content-between ">
+                            <span class="text-gray-02">預定訂購時間</span>
+                            <time>2023/08/18</time>
+                        </div>
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery Import -->
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+    integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+<!-- jQuery -->
+<script>
+    // Validation 填寫檢驗
+    $('.needs-validation').each(function (index) {
+        $(this).on('submit', function (e) {
+            e.preventDefault();
+            $(this).addClass('was-validated');
+        });
+    });
+    // 通知按鈕點擊切換通知提示元點
+    $('.btnNotification').click(function (e) {
+        $('.btnNotificationAlert').addClass('d-none');
+        $('#notificationToast').toast('hide')
+    });
+</script>     <!-- ICONGIFY -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <!-- JS -->
+    
+    <!-- AOS EFFECT -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      // AOS INIT
+      AOS.init({
+        // offset: 180,
+        duration: 800,
+        delay: 500,
+      })
+    </script>
+  </body>
+</html>
+
+<!-- Swiper JS CDN -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    // slidesPerView: 2,
+    spaceBetween: 30,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true, // 分頁圓點可以點選後，直接移至該頁
+      renderBullet: function (index, className) {
+        return '<span class="' + className + '">' + (index + 1) + "</span>";
+      } // 分頁原點渲染樣式回呼函式，讓圓點上呈現頁面數字
+    },
+    breakpoints: {
+      1: {
+        slidesPerView: 1,
+        centeredSlides: false,
+        spaceBetween: 10
+      },
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 24,
+        centeredSlides: false
+      }
+    }
+  });
+</script>
