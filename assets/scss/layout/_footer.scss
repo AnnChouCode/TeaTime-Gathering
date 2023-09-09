@@ -3,7 +3,7 @@
     width: 196px;
     height: 32px;
 
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       width: 248px;
       height: 40px;
     }
@@ -14,7 +14,7 @@
     border-top-right-radius: 5rem; // 80
     border-top-left-radius: 5rem; // 80
   
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
       border-top-right-radius: 18.75rem; // 300
       border-top-left-radius: 18.75rem; // 300
     }
