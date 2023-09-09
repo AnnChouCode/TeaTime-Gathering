@@ -6,15 +6,10 @@ $utilities: map-merge($utilities,
     ));
 
 //Generate utilites for Cursor
-$utilities: map-merge(
-  $utilities,
-  (
-    "cursor": (
-      property: cursor,
-      values: auto default pointer wait text move help not-allowed
-    ),
-  )
-);
+$utilities: map-merge($utilities,
+    ("cursor": (property: cursor,
+        values: auto default pointer wait text move help not-allowed),
+    ));
 
 .ms-170 {
   margin-left: 170px;
@@ -58,38 +53,68 @@ $utilities: map-merge(
 }
 
 /* CUSTOM 圖片取代文字技巧 */
-.pictures-replace-text{
+.pictures-replace-text {
   text-indent: 101%;
   white-space: nowrap;
   overflow: hidden;
 }
+
 /* CUSTOM 圖片取代文字技巧 END*/
 
 /* CUSTOM weight、height */
-.height-400{
+.height-400 {
   height: 400px;
 }
+
 .height-618 {
   height: 618px;
 }
-.width-32{
+
+.width-32 {
   height: 32px;
 }
-.max-width-1296{
+
+.max-width-1296 {
   max-width: 1296px;
 }
+
 /* CUSTOM weight、height END */
 
 /*CUSTOM border-radius */
 .border-radius-16161640 {
   border-radius: 16px 16px 16px 40px;
 }
+
 .border-radius-16164016 {
   border-radius: 16px 16px 40px 16px;
 }
+
+.border-radius-40401616 {
+  border-radius: 40px 40px 16px 16px;
+}
+
+.border-radius-64641616 {
+  border-radius: 64px 64px 16px 16px;
+}
+
 .border-radius-80804040 {
   border-radius: 80px 80px 40px 40px;
 }
+
+.border-radius-010000 {
+  border-radius: 0px 100px 0px 0px;
+}
+
+@include media-breakpoint-up(md) {
+  .border-radius-md-80801616 {
+    border-radius: 80px 80px 16px 16px;
+  }
+
+  .border-radius-md-020000 {
+    border-radius: 0px 200px 0px 0px;
+  }
+}
+
 /* CUSTOM border-radius END*/
 
 /* CUSTOM 文字 */
@@ -102,22 +127,31 @@ $utilities: map-merge(
 // .no-wrap-text {
 //   white-space: nowrap;
 // }
-.word-break-keep-all{
+.word-break-keep-all {
   word-break: keep-all;
 }
+
 //文字單行省略
 .single-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 /* CUSTOM 文字 END*/
 
 /* CUSTOM input form control */
 //input 點擊 focus 客製化
-.custom-form-focus:focus{
+.custom-form-focus:focus {
   background-color: white;
   color: $gray-01;
   box-shadow: none;
 }
+
 /* CUSTOM input form END */
+
+/* CUSTOM item hover */
+.border-hover-brand-03:hover {
+  border: 2px solid $brand-03;
+}
+/* CUSTOM item hover END */

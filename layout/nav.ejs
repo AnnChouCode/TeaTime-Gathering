@@ -13,22 +13,40 @@
                 <h1 class="position-absolute me-lg-8 nav-logo"><a href="index.html">下午茶揪團去</a></h1>
                 <!-- nav-icon right-->
                 <ul class="d-lg-flex d-none gap-lg-16 gap-8">
+                    <!-- 按鈕-通知 -->
                     <li>
                         <a class="nav-icon-hover" href="#">
                             <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ant-design:message-outlined"
                                 style="color: #bfa373;" width="28"></iconify-icon>
                         </a>
                     </li>
+                    <!-- 按鈕-新手教學 -->
                     <li>
                         <a href="#" class="nav-icon-hover">
                             <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ion:help" style="color: #bfa373;"
                                 width="28"></iconify-icon></a>
                     </li>
-                    <!-- nav-button account modal -->
-                    <li>
+                    <!-- 按鈕-登入 -->
+                    <li class="btnLogin">
                         <a href="#accountModal" data-bs-toggle="modal" class="nav-icon-hover"><iconify-icon
                                 class="p-8 bg-brand-04 rounded-circle" icon="line-md:account" style="color: #bfa373;"
                                 width="28"></iconify-icon></a>
+                    </li>
+                    <!-- 按鈕-使用者已登入選單 -->
+                    <li class="d-none btnUserLoggedIn">
+                        <a href="#"
+                            class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
+                            style="width: 44px;height: 44px;">W</a>
+                    </li>
+                    <!-- 按鈕-登出 -->
+                    <li class="d-none btnLogOut">
+                        <a href="#" class="nav-icon-hover p-8 bg-brand-04 rounded-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="29" height="28" viewBox="0 0 29 28"
+                                fill="none">
+                                <path
+                                    d="M14.8716 15.1667L12.1883 17.8383C12.0789 17.9468 11.9921 18.0758 11.9329 18.218C11.8737 18.3602 11.8432 18.5127 11.8432 18.6667C11.8432 18.8207 11.8737 18.9732 11.9329 19.1153C11.9921 19.2575 12.0789 19.3865 12.1883 19.495C12.2967 19.6044 12.4258 19.6911 12.5679 19.7504C12.7101 19.8096 12.8626 19.8401 13.0166 19.8401C13.1706 19.8401 13.3231 19.8096 13.4653 19.7504C13.6074 19.6911 13.7365 19.6044 13.8449 19.495L18.5116 14.8283C18.6178 14.7174 18.7011 14.5865 18.7566 14.4433C18.8733 14.1593 18.8733 13.8407 18.7566 13.5567C18.7011 13.4135 18.6178 13.2826 18.5116 13.1717L13.8449 8.505C13.7362 8.39623 13.607 8.30994 13.4649 8.25107C13.3228 8.1922 13.1704 8.1619 13.0166 8.1619C12.8628 8.1619 12.7104 8.1922 12.5683 8.25107C12.4262 8.30994 12.297 8.39623 12.1883 8.505C12.0795 8.61378 11.9932 8.74292 11.9343 8.88505C11.8755 9.02717 11.8452 9.1795 11.8452 9.33334C11.8452 9.48717 11.8755 9.6395 11.9343 9.78163C11.9932 9.92375 12.0795 10.0529 12.1883 10.1617L14.8716 12.8333H3.68327C3.37385 12.8333 3.0771 12.9563 2.85831 13.175C2.63952 13.3938 2.5166 13.6906 2.5166 14C2.5166 14.3094 2.63952 14.6062 2.85831 14.825C3.0771 15.0438 3.37385 15.1667 3.68327 15.1667H14.8716ZM14.1833 2.33334C12.0029 2.3236 9.86339 2.92509 8.00748 4.06956C6.15158 5.21404 4.65353 6.8557 3.68327 8.80834C3.54403 9.08682 3.52112 9.4092 3.61958 9.70457C3.71803 9.99994 3.92979 10.2441 4.20827 10.3833C4.48675 10.5226 4.80913 10.5455 5.1045 10.447C5.39987 10.3486 5.64403 10.1368 5.78327 9.85834C6.52082 8.36888 7.64274 7.10339 9.03308 6.19266C10.4234 5.28192 12.0317 4.75897 13.6918 4.67786C15.3519 4.59675 17.0035 4.96041 18.476 5.73127C19.9485 6.50212 21.1885 7.65221 22.0677 9.06267C22.947 10.4731 23.4336 12.0928 23.4774 13.7543C23.5212 15.4158 23.1205 17.0588 22.3167 18.5136C21.5129 19.9684 20.3353 21.1822 18.9054 22.0295C17.4755 22.8768 15.8453 23.3269 14.1833 23.3333C12.4436 23.3409 10.7371 22.8578 9.25957 21.9395C7.78204 21.0212 6.59335 19.7049 5.82993 18.1417C5.6907 17.8632 5.44654 17.6514 5.15117 17.553C4.8558 17.4545 4.53341 17.4774 4.25493 17.6167C3.97646 17.7559 3.7647 18.0001 3.66624 18.2954C3.56779 18.5908 3.5907 18.9132 3.72993 19.1917C4.6549 21.0531 6.06038 22.6336 7.80098 23.7697C9.54159 24.9058 11.5541 25.5563 13.6304 25.6538C15.7067 25.7513 17.7713 25.2924 19.6108 24.3244C21.4502 23.3565 22.9976 21.9147 24.093 20.1481C25.1884 18.3816 25.7919 16.3545 25.8412 14.2765C25.8904 12.1985 25.3836 10.1451 24.3732 8.32864C23.3628 6.51219 21.8854 4.99867 20.0939 3.94463C18.3024 2.89059 16.2618 2.33431 14.1833 2.33334Z"
+                                    fill="#BFA373" />
+                            </svg></a>
                     </li>
                 </ul>
                 <!-- search-bar  -->
@@ -87,9 +105,9 @@
                             </li>
                             <!-- 登入按鈕 -->
                             <li>
-                                <a href="#accountCollapseModal" class="nav-icon-hover"
-                                    data-bs-toggle="modal"><iconify-icon class="p-8 bg-brand-04 rounded-circle"
-                                        icon="line-md:account" style="color: #bfa373;" width="28"></iconify-icon></a>
+                                <a href="#accountModal" class="nav-icon-hover" data-bs-toggle="modal"><iconify-icon
+                                        class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
+                                        style="color: #bfa373;" width="28"></iconify-icon></a>
                             </li>
                         </ul>
                     </div>
@@ -112,23 +130,23 @@
                 <!-- switch user & admin login -->
                 <ul class="d-flex p-8 rounded-pill bg-brand-05">
                     <li class="w-50"><a
-                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 active btnLoginNav"
+                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 active btnSwitchIdentity"
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
-                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnLoginNav"
+                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnSwitchIdentity"
                             href="#">管理員登入</a></li>
                 </ul>
                 <!-- input - account & password -->
                 <form class="needs-validation" action="#" method="post" novalidate>
                     <div class="mb-lg-20 mb-12">
                         <input
-                            class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
+                            class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginAccount"
                             type="email" id="nav-account" name="nav-account" placeholder="請輸入信箱"
-                            aria-describedby="nav-account" required>
+                            aria-describedby="nav-account" value="will-chen@fat-together.com" required>
                         <input
-                            class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar "
+                            class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginPassword"
                             type="password" id="nav-password" name="nav-password" placeholder="請輸入密碼"
-                            aria-describedby="nav-password" required>
+                            aria-describedby="nav-password" value="will-chen" required>
                         <div class="invalid-feedback ms-16">
                             電子郵件帳號或密碼輸入錯誤
                         </div>
@@ -143,7 +161,7 @@
                     </div>
                     <!-- submit -->
                     <button type="submit"
-                        class="p-lg-14 p-12 fs-20 fw-medium lh-sm rounded-pill text-white border-0 w-100 btn-brand-03 btn-hover-brand-01">登入</button>
+                        class="p-lg-14 p-12 fs-20 fw-medium lh-sm rounded-pill text-white border-0 w-100 btn-brand-03 btn-hover-brand-01 btnLoginSubmit">登入</button>
                 </form>
             </div>
         </div>
@@ -151,56 +169,6 @@
 </div>
 
 <!-- nav account modal in collapse -->
-<div class="modal fade account-login-modal" id="accountCollapseModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-    aria-hidden="true" data-backdrop="false">
-    <div class="modal-dialog modal-dialog-centered account-modal-dialog">
-        <div class="modal-content d-flex border-radius-24">
-            <div class="modal-header py-lg-24 px-lg-40 p-16 border-0">
-                <h5 class="modal-title fs-lg-24 fs-20 fw-lg-bold lh-sm fw-medium ">登入</h5>
-                <a href="#accountCollapseModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
-                        style="color: #8B8B8A;" width="32"></iconify-icon></a>
-            </div>
-            <div class="modal-body d-flex flex-column gap-lg-20 gap-12 p-lg-40 pt-lg-16 p-16 pt-8">
-                <!-- switch user & admin login -->
-                <ul class="d-flex p-8 rounded-pill bg-brand-05">
-                    <li class="w-50"><a
-                            class="d-block py-lg-12 py-10 text-center fw-medium lh-sm rounded-pill btn-brand-02 btn-hover-bg-2 active btnLogin"
-                            href="#">會員登入</a></li>
-                    <li class="w-50"><a
-                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnLogin"
-                            href="#">管理員登入</a></li>
-                </ul>
-                <!-- input - account & password -->
-                <form class="needs-validation" action="#" method="post" novalidate>
-                    <div class="mb-lg-20 mb-12">
-                        <input
-                            class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar"
-                            type="email" id="form-account" name="form-account" placeholder="請輸入信箱"
-                            aria-describedby="form-account" required>
-                        <input
-                            class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar"
-                            type="password" id="form-password" name="form-password" placeholder="請輸入密碼"
-                            aria-describedby="form-password" required>
-                        <div class="invalid-feedback ms-16">
-                            電子信箱帳號或密碼輸入錯誤
-                        </div>
-                    </div>
-                    <!-- option -->
-                    <div class="d-flex justify-content-between mb-lg-20 mb-12">
-                        <label class="text-brand-01 fw-medium lh-sm remember-content" for="remember-checkme">記住我
-                            <input class="remember-checkbox" type="checkbox" id="remember-checkme" name="remember-me">
-                            <span class="remember-checkmark"></span>
-                        </label>
-                        <a href="reset-password.html" class="text-brand-01 fw-medium lh-sm btn-reset-password">忘記密碼？</a>
-                    </div>
-                    <!-- submit -->
-                    <button type="submit"
-                        class="p-lg-14 p-12 w-100 fs-20 fw-medium lh-sm rounded-pill text-white border-0 btn-brand-03 btn-hover-brand-01">登入</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- notification modal in collapse -->
 <div class="modal fade account-login-modal" id="notificationCollapseModal" tabindex="-1"
@@ -275,55 +243,83 @@
     </div>
 </div>
 
-
-<!-- 按鈕 active 狀態切換顯示 -->
-<script> //參考 Billy
-    const btnLogin = document.querySelectorAll('.btnLogin');
-    const btnLoginNav = document.querySelectorAll('.btnLoginNav');
-    const btnOffcavasList = document.querySelectorAll('.offcanvas-list a');
-
-    btnLogin.forEach(btnType => {
-        btnType.addEventListener('click', () => {
-            btnLogin.forEach(btn => {
-                btn.classList.remove('active');
-            })
-            btnType.classList.add('active');
-        })
-    })
-
-    btnLoginNav.forEach(btnType => {
-        btnType.addEventListener('click', () => {
-            btnLoginNav.forEach(btn => {
-                btn.classList.remove('active');
-            })
-            btnType.classList.add('active');
-        })
-    })
-
-    btnOffcavasList.forEach(btnType => {
-        btnType.addEventListener('click', () => {
-            btnOffcavasList.forEach(btn => {
-                btn.classList.remove('nav-offcanvas-active');
-            })
-            btnType.classList.add('nav-offcanvas-active');
-        })
-    })
-</script>
-
 <!-- jQuery Import -->
 <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
     integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
 <!-- jQuery -->
 <script>
-    // Validation 填寫檢驗
+    /* Validation 填寫檢驗 */
     $('.needs-validation').each(function (index) {
         $(this).on('submit', function (e) {
             e.preventDefault();
             $(this).addClass('was-validated');
         });
     });
-    // 通知按鈕點擊切換通知提示元點
+
+    /* 通知按鈕點擊切換通知提示圓點 */
     $('.btnNotification').click(function (e) {
         $('.btnNotificationAlert').addClass('d-none');
     });
+
+    /* 登入會員/管理員 按鈕 active 狀態切換顯示 */
+    $('.btnSwitchIdentity').click(function (e) {
+        $('.btnSwitchIdentity').toggleClass('active');
+    });
+
+    /* navbar 摺疊 collapse 選單切換 active */
+    $('.offcanvas-list a').click(function (e) {
+        $('.offcanvas-list a').removeClass('nav-offcanvas-active');
+        $(this).toggleClass('nav-offcanvas-active');
+    });
+</script>
+
+
+<script>
+    /* 登入/登出 狀態 icon 顯示切換 */
+    // form-帳密輸入表單
+    const loginForm = document.querySelector(".needs-validation");
+    // input-帳密輸入
+    const inputLoginAccount = document.querySelector(".inputLoginAccount");
+    const inputLoginPassword = document.querySelector(".inputLoginPassword");
+    // 按鈕-登入資料送出
+    const btnLoginSubmit = document.querySelectorAll(".btnLoginSubmit");
+    // 按鈕-navbar 登入、已登入、登出 icon
+    const btnLogin = document.querySelector(".btnLogin")
+    const btnUserLoggedIn = document.querySelector(".btnUserLoggedIn")
+    const btnLogOut = document.querySelector(".btnLogOut")
+
+    // 登入
+    btnLoginSubmit.forEach(btn => {
+        btn.addEventListener("click", () => {
+            // input-帳密輸入值
+            const accountValue = inputLoginAccount.value;
+            const passwordValue = inputLoginPassword.value;
+
+            // 檢查 loginForm 通過驗證，失敗則為 ture，添加顯示樣式
+            if (!loginForm.checkValidity()) {
+                loginForm.classList.add('was-validated');
+            }
+
+            // Login 成功條件 & 失敗
+            if (accountValue === "will-chen@fat-together.com" && passwordValue === "will-chen") {
+                btnUserLoggedIn.classList.remove("d-none")
+                btnLogOut.classList.remove("d-none")
+                btnLogin.classList.add("d-none")
+                $('#accountModal').modal('hide');
+            } else {
+                // 登入失敗
+                const errorFeedback = document.querySelector(".invalid-feedback");
+                errorFeedback.style.display = 'block';
+            }
+
+        });
+    });
+
+
+    // 登出
+    btnLogOut.addEventListener("click", () => {
+        btnUserLoggedIn.classList.add("d-none")
+        btnLogOut.classList.add("d-none")
+        btnLogin.classList.remove("d-none")
+    })
 </script>
