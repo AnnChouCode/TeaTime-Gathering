@@ -9,6 +9,11 @@
     transition: all 0.3s;
 }
 
+.btn-brand-05 {
+    background-color: $brand-05;
+    transition: all 0.3s;
+}
+
 /* HOVER */
 .btn-hover-gray-04:hover{
     background-color: $gray-04 !important;
@@ -20,4 +25,4 @@
 
 .btn-hover-brand-01:hover {
     background-color: $brand-01;
-  }
+}
