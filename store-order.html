@@ -1765,7 +1765,7 @@
             </script>
             <!-- Swiper JS CDN -->
             <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-            <!-- 開團中together event JS -->
+            <!-- Swiper 開團中活動輪播 JS -->
             <script>
               var togetherEventSwiper = new Swiper(".togetherEventSwiper", {
                 slidesPerView: 1,
@@ -1788,6 +1788,9 @@
                   1200: {
                     slidesPerView: 3,
                     spaceBetween: 12,
+                    grid: {
+                      rows: 1,
+                    },
                   },
                   1600: {
                     slidesPerView: 4,
@@ -1804,9 +1807,6 @@
                 pagination: {
                   el: ".swiper-pagination",
                   clickable: true,
-                  renderBullet: function (index, className) {
-                    return '<span class="' + className + '">' + "</span>";
-                  },
                 },
               });
             </script>
