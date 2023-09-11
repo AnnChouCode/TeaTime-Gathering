@@ -3,461 +3,488 @@
 
 <%- include('./layout/head'); -%>
 
-<body class="pt-64 pt-md-82">
-  <!-- loading -->
-  <%- include('./layout/loading'); -%>
+  <body class="pt-64 pt-md-82">
+    <!-- loading -->
+    <%- include('./layout/loading'); -%>
 
-    <%- include('./layout/nav'); -%>
+      <%- include('./layout/nav'); -%>
 
-      <div class="layout-content">
-        <div class="order mb-16 md-sm-32 ">
-          <div class="order-bg"></div>
-          <div class="order-content container ps-12 ps-md-42 d-sm-flex align-items-end">
-            <img src="/assets/images/store-logo/store-beverage-1.jpg" alt="logo-cha source"
-              class="order-icon border border-2 border-line border-radius-24 me-sm-37 mb-20 mb-sm-0 ">
-            <div class="order-textContent">
-              <h2 class="fs-md-40 fs-24 fw-bold lh-sm">茶源 ChaSource</h2>
-              <div class="imgItems">
-                <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
-                <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
-                <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
-                <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
-                <iconify-icon icon="ic:round-star" style="color: #c2c1bd;" width="16"></iconify-icon>
-              </div>
-              <p class="order-content-p">專注於高品質的茶葉，提供多款精選茶飲和冷泡茶。</p>
-            </div>
-          </div>
-        </div>
-        <div class="container mb-16 mb-sm-32">
-          <div class="btnList d-flex justify-content-between align-content-center ">
-            <div class="btnList-items d-flex justify-content-between ">
-              <button type="button"
-                class="d-flex gap-8 align-items-center py-sm-14 py-10 px-sm-24 px-16 me-0 me-sm-12 rounded-pill btn btn-brand-05 btn-hover-bg-2 btnTogetherEvent"
-                data-bs-toggle="collapse" data-bs-target="#collapseTogetherEvent" aria-expanded="false"
-                aria-controls="collapseTogetherEvent">
-                <span class="text-brand-02 fs-md-20 fs-16 text-nowrap">開團中</span>
-                <iconify-icon icon="bxs:down-arrow" width="20" height="20" style="color:#fd909f;" class="arrowDown"></iconify-icon>
-                <iconify-icon icon="bxs:up-arrow" width="20" height="20" style="color: #fdf1ef;" class="arrowUp d-none"></iconify-icon>
-              </button>
-              <button type="button"
-                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-sm-none d-flex justify-content-center align-items-center btn-hover-bg-2">
-                <p class="me-8 text-nowrap">看評價</p>
-                <iconify-icon icon="bxs:down-arrow" width="20" height="20" style="color:#fd909f;"></iconify-icon>
-              </button>
-              <button type="button"
-                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2">
-                <iconify-icon icon="mdi:account-add" style="color: #fd909f;" width="20" height="20" class="me-8"></iconify-icon>
-                <p class="text-nowrap">建立揪團</p>
-              </button>
-
-            </div>
-            <button type="button"
-              class="shopping-cart d-none d-sm-flex justify-content-center align-items-center  btn btn-brand-03 px-24 py-10 py-sm-14 border-radius-40 btn-hover-brand-01">
-              <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20" height="20"></iconify-icon>
-              <p class="text-white word-break-keep-all">購物車</p>
-          </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 開團中 collapse -->
-      <div class="collapse" id="collapseTogetherEvent">
-        <div class="py-80 mx-auto bg-bg-2 border-radius-md-020000 border-radius-010000">
-          <div class="layout-content container">
-            <!-- title & see more -->
-            <div class="d-flex justify-content-between mb-36">
-              <h3 class="fs-md-32 fs-24 fw-bold lh-sm">開團中</h3>
-              <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05" href="#">看更多
-                <svg class="svg-hover" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 8 11"
-                  fill="none">
-                  <path
-                    d="M0.284731 9.00931L0.284731 1.99264C0.28433 1.71563 0.362386 1.44417 0.509864 1.20968C0.657341 0.975188 0.868211 0.787258 1.11806 0.66764C1.41452 0.527612 1.74434 0.47368 2.06995 0.511987C2.39557 0.550295 2.70387 0.679301 2.95973 0.884306L7.20973 4.39264C7.36859 4.53032 7.49599 4.70054 7.58331 4.89177C7.67063 5.08299 7.71582 5.29075 7.71582 5.50097C7.71582 5.71119 7.67063 5.91895 7.58331 6.11018C7.49599 6.30141 7.36859 6.47163 7.20973 6.60931L2.95973 10.1176C2.70387 10.3226 2.39557 10.4517 2.06995 10.49C1.74434 10.5283 1.41452 10.4743 1.11806 10.3343C0.86821 10.2147 0.657341 10.0268 0.509863 9.79227C0.362385 9.55778 0.28433 9.28632 0.284731 9.00931Z"
-                    fill="#8B8B8A" />
-                </svg>
-              </a>
-            </div>
-            <!-- content -->
-            <div class="position-relative swiper-container">
-              <div class="swiper togetherEventSwiper">
-                <ul class="swiper-wrapper">
-                  <!-- round 1 -->
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
-                          <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
-                            茶源
-                            ChaSource</p>
-                          <div class="d-flex align-items-center ms-8">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
-                              class="me-4 me-md-8"></iconify-icon>
-                            <time datetime="2023-08-08" class="fw-medium lh-sm fs-16 fs-xl-20">08/08</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
-                          <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
-                            茶源
-                            ChaSource</p>
-                          <div class="d-flex align-items-center ms-8">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
-                              class="me-4 me-md-8"></iconify-icon>
-                            <time datetime="2023-08-09" class="fw-medium lh-sm fs-16 fs-xl-20">08/09</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">方雅雯</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
-                          <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
-                            茶源
-                            ChaSource</p>
-                          <div class="d-flex align-items-center ms-8">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
-                              class="me-4 me-md-8"></iconify-icon>
-                            <time datetime="2023-08-10" class="fw-medium lh-sm fs-16 fs-xl-20">08/10</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
-                          <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
-                            茶源
-                            ChaSource</p>
-                          <div class="d-flex align-items-center ms-8">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
-                              class="me-4 me-md-8"></iconify-icon>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-xl-20">08/12</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">張雅琪</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- round 2 -->
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
-                          <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
-                            茶源
-                            ChaSource</p>
-                          <div class="d-flex align-items-center ms-8">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
-                              class="me-4 me-md-8"></iconify-icon>
-                            <time datetime="2023-08-16" class="fw-medium lh-sm fs-16 fs-xl-20">08/16</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
-                          <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
-                            茶源
-                            ChaSource</p>
-                          <div class="d-flex align-items-center ms-8">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
-                              class="me-4 me-md-8"></iconify-icon>
-                            <time datetime="2023-08-19" class="fw-medium lh-sm fs-16 fs-xl-20">08/19</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
-                          <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
-                            茶源
-                            ChaSource</p>
-                          <div class="d-flex align-items-center ms-8">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
-                              class="me-4 me-md-8"></iconify-icon>
-                            <time datetime="2023-08-25" class="fw-medium lh-sm fs-16 fs-xl-20">08/25</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">唐書睿</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
-                          <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
-                            茶源
-                            ChaSource</p>
-                          <div class="d-flex align-items-center ms-8">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
-                              class="me-4 me-md-8"></iconify-icon>
-                            <time datetime="2023-08-30" class="fw-medium lh-sm fs-16 fs-xl-20">08/30</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
-                            <span class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">陳瑋</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="position-absolute swiper-button-next pictures-replace-text d-none d-lg-block">
-              </div>
-              <div class="position-absolute swiper-button-prev pictures-replace-text d-none d-lg-block">
-              </div>
-              <div class="swiper-pagination position-absolute top-100 start-50 translate-middle d-none d-md-block">
+        <div class="layout-content">
+          <div class="order mb-16 md-sm-32 ">
+            <div class="order-bg"></div>
+            <div class="order-content container ps-12 ps-md-42 d-sm-flex align-items-end">
+              <img src="/assets/images/store-logo/store-beverage-1.jpg" alt="logo-cha source"
+                class="order-icon border border-2 border-line border-radius-24 me-sm-37 mb-20 mb-sm-0 ">
+              <div class="order-textContent">
+                <h2 class="fs-md-40 fs-24 fw-bold lh-sm">茶源 ChaSource</h2>
+                <div class="imgItems">
+                  <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                  <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                  <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                  <iconify-icon icon="ic:round-star" style="color: #ffd43a;" width="16"></iconify-icon>
+                  <iconify-icon icon="ic:round-star" style="color: #c2c1bd;" width="16"></iconify-icon>
+                </div>
+                <p class="order-content-p">專注於高品質的茶葉，提供多款精選茶飲和冷泡茶。</p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+          <div class="container mb-16 mb-sm-32">
+            <div class="btnList d-flex justify-content-between align-content-center ">
+              <div class="btnList-items d-flex justify-content-between ">
+                <button type="button"
+                  class="d-flex gap-8 align-items-center py-sm-14 py-10 px-sm-24 px-16 me-0 me-sm-12 rounded-pill btn btn-brand-05 btn-hover-bg-2 btnTogetherEvent"
+                  data-bs-toggle="collapse" data-bs-target="#collapseTogetherEvent" aria-expanded="false"
+                  aria-controls="collapseTogetherEvent">
+                  <span class="text-brand-02 fs-sm-20 fs-16 text-nowrap">開團中</span>
+                  <iconify-icon icon="bxs:down-arrow" width="20" height="20" style="color:#fd909f;"
+                    class="arrowDown"></iconify-icon>
+                  <iconify-icon icon="bxs:up-arrow" width="20" height="20" style="color: #fdf1ef;"
+                    class="arrowUp d-none"></iconify-icon>
+                </button>
+                <button type="button"
+                  class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-sm-none d-flex justify-content-center align-items-center btn-hover-bg-2">
+                  <p class="me-8 text-nowrap">看評價</p>
+                  <iconify-icon icon="bxs:down-arrow" width="20" height="20" style="color:#fd909f;"></iconify-icon>
+                </button>
+                <button type="button"
+                  class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2">
+                  <iconify-icon icon="mdi:account-add" style="color: #fd909f;" width="20" height="20"
+                    class="me-8"></iconify-icon>
+                  <p class="text-nowrap">建立揪團</p>
+                </button>
 
-      <div class="layout-content pt-md-84 pt-56">
-        <div class="container mb-32 mb-sm-80">
-          <div class="allMenu mb-16 mb-sm-32">
-            <div class="allMenu-header d-flex justify-content-between  align-items-center mb-24 mb-sm-36">
-              <h2 class="fs-md-32 fs-24 fw-bold lh-sm">全部菜單</h2>
-              <button
-                class="shopping-cart d-sm-none d-flex justify-content-center align-items-center px-24 py-10 py-sm-14 border-radius-40 btn btn-brand-03 btn-hover-brand-01">
-                <img class="me-4 me-sm-8" src="/assets/images/icon/icon-shopping-cart.png" alt="icon-shopping-cart">
-                <p class="text-white word-break-keep-all">購物車</p>
-            </button>
+              </div>
+              <button type="button"
+                class="shopping-cart d-none d-sm-flex justify-content-center align-items-center  btn btn-brand-03 px-24 py-10 py-sm-14 border-radius-40 btn-hover-brand-01">
+                <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20"
+                  height="20"></iconify-icon>
+                <p class="text-white word-break-keep-all fs-sm-20 fs-16">購物車</p>
+              </button>
             </div>
-            <div class="allMenu-content">
-              <div class="swiper mySwiper">
-                <div class="swiper-wrapper py-3">
-                  <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
-                    <ul>
-                      <li class=" py-16 py-sm-24 border-bottom border-1 ">
-                        <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
-                          <h3 class="fw-bold lh-sm">茶舞</h3>
-                          <div class="cold-hot d-flex justify-content-center align-items-center ">
-                            <div class="cold d-flex justify-content-center align-items-center ">
-                              <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
-                              <span class="me-8">30</span>
-                            </div>
-                            <div class="hot d-flex justify-content-center align-items-center hidden-block">
-                              <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
-                              <span class="">30</span>
-                            </div>
-                          </div>
-                        </div>
-                        <p class="text-top-p">結合了香濃的奶茶和清新的果茶，帶給您舞動在舌尖的美味。</p>
-                      </li>
-                      <li class=" py-16 py-sm-24 border-bottom border-1 ">
-                        <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
-                          <h3 class="fw-bold lh-sm">紅柚露</h3>
-                          <div class="cold-hot d-flex justify-content-center align-items-center ">
-                            <div class="cold d-flex justify-content-center align-items-center ">
-                              <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
-                              <span class="me-8">40</span>
-                            </div>
-                            <div class="hot d-flex justify-content-center align-items-center hidden-block">
-                              <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
-                              <span class="">30</span>
-                            </div>
-                          </div>
-                        </div>
-                        <p class="text-top-p">絕妙的紅茶搭配新鮮柚子，帶來微酸的口感和芳香的香氣。</p>
-                      </li>
-                      <li class=" py-16 py-sm-24 border-bottom border-1 ">
-                        <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
-                          <h3 class="fw-bold lh-sm">翠綠</h3>
-                          <div class="cold-hot d-flex justify-content-center align-items-center ">
-                            <div class="cold d-flex justify-content-center align-items-center ">
-                              <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
-                              <span class="me-8">25</span>
-                            </div>
-                            <div class="hot d-flex justify-content-center align-items-center">
-                              <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
-                              <span class="">25</span>
+          </div>
+        </div>
+
+        <!-- 開團中 collapse -->
+        <div class="collapse" id="collapseTogetherEvent">
+          <div class="py-80 mx-auto bg-bg-2 border-radius-md-020000 border-radius-010000">
+            <div class="layout-content container">
+              <!-- title & see more -->
+              <div class="d-flex justify-content-between mb-36">
+                <h3 class="fs-md-32 fs-24 fw-bold lh-sm">開團中</h3>
+                <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05" href="#">看更多
+                  <svg class="svg-hover" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 8 11"
+                    fill="none">
+                    <path
+                      d="M0.284731 9.00931L0.284731 1.99264C0.28433 1.71563 0.362386 1.44417 0.509864 1.20968C0.657341 0.975188 0.868211 0.787258 1.11806 0.66764C1.41452 0.527612 1.74434 0.47368 2.06995 0.511987C2.39557 0.550295 2.70387 0.679301 2.95973 0.884306L7.20973 4.39264C7.36859 4.53032 7.49599 4.70054 7.58331 4.89177C7.67063 5.08299 7.71582 5.29075 7.71582 5.50097C7.71582 5.71119 7.67063 5.91895 7.58331 6.11018C7.49599 6.30141 7.36859 6.47163 7.20973 6.60931L2.95973 10.1176C2.70387 10.3226 2.39557 10.4517 2.06995 10.49C1.74434 10.5283 1.41452 10.4743 1.11806 10.3343C0.86821 10.2147 0.657341 10.0268 0.509863 9.79227C0.362385 9.55778 0.28433 9.28632 0.284731 9.00931Z"
+                      fill="#8B8B8A" />
+                  </svg>
+                </a>
+              </div>
+              <!-- content -->
+              <div class="position-relative swiper-container">
+                <div class="swiper togetherEventSwiper">
+                  <ul class="swiper-wrapper">
+                    <!-- round 1 -->
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
+                            <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
+                              茶源
+                              ChaSource</p>
+                            <div class="d-flex align-items-center ms-8">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
+                                class="me-4 me-md-8"></iconify-icon>
+                              <time datetime="2023-08-08" class="fw-medium lh-sm fs-16 fs-xl-20">08/08</time>
                             </div>
                           </div>
-                        </div>
-                        <p class="text-top-p">以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
-                      </li>
-                      <li class=" py-16 py-sm-24 border-bottom border-1 ">
-                        <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
-                          <h3 class="fw-bold lh-sm">柔霧</h3>
-                          <div class="cold-hot d-flex justify-content-center align-items-center ">
-                            <div class="cold d-flex justify-content-center align-items-center ">
-                              <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
-                              <span class="me-8">35</span>
-                            </div>
-                            <div class="hot d-flex justify-content-center align-items-center hidden-block">
-                              <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
-                              <span class="">30</span>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
                             </div>
                           </div>
-                        </div>
-                        <p class="text-top-p">柔順的奶茶搭配迷人的茉莉花香，帶來優雅與幸福的味覺享受。</p>
-                      </li>
-                      <li class=" py-16 py-sm-24">
-                        <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
-                          <h3 class="fw-bold lh-sm">蜜香</h3>
-                          <div class="cold-hot d-flex justify-content-center align-items-center ">
-                            <div class="cold d-flex justify-content-center align-items-center ">
-                              <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
-                              <span class="me-8">30</span>
-                            </div>
-                            <div class="hot d-flex justify-content-center align-items-center">
-                              <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
-                              <span class="">30</span>
-                            </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
                           </div>
                         </div>
-                        <p class="text-top-p">香濃的茶香中混合著芳醇的蜂蜜，為您的口腔帶來溫暖和滋潤。</p>
-                      </li>
-                    </ul>
-                  </div>
-                  <%- include('./layout/store-order-menu'); -%>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
+                            <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
+                              茶源
+                              ChaSource</p>
+                            <div class="d-flex align-items-center ms-8">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
+                                class="me-4 me-md-8"></iconify-icon>
+                              <time datetime="2023-08-09" class="fw-medium lh-sm fs-16 fs-xl-20">08/09</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">方雅雯</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
+                            <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
+                              茶源
+                              ChaSource</p>
+                            <div class="d-flex align-items-center ms-8">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
+                                class="me-4 me-md-8"></iconify-icon>
+                              <time datetime="2023-08-10" class="fw-medium lh-sm fs-16 fs-xl-20">08/10</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
+                            <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
+                              茶源
+                              ChaSource</p>
+                            <div class="d-flex align-items-center ms-8">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
+                                class="me-4 me-md-8"></iconify-icon>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-xl-20">08/12</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">張雅琪</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <!-- round 2 -->
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
+                            <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
+                              茶源
+                              ChaSource</p>
+                            <div class="d-flex align-items-center ms-8">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
+                                class="me-4 me-md-8"></iconify-icon>
+                              <time datetime="2023-08-16" class="fw-medium lh-sm fs-16 fs-xl-20">08/16</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
+                            <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
+                              茶源
+                              ChaSource</p>
+                            <div class="d-flex align-items-center ms-8">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
+                                class="me-4 me-md-8"></iconify-icon>
+                              <time datetime="2023-08-19" class="fw-medium lh-sm fs-16 fs-xl-20">08/19</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
+                            <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
+                              茶源
+                              ChaSource</p>
+                            <div class="d-flex align-items-center ms-8">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
+                                class="me-4 me-md-8"></iconify-icon>
+                              <time datetime="2023-08-25" class="fw-medium lh-sm fs-16 fs-xl-20">08/25</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">唐書睿</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616 border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16 flex-grow-1 ">
+                            <p class="fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis text-sm-nowrap">
+                              茶源
+                              ChaSource</p>
+                            <div class="d-flex align-items-center ms-8">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"
+                                class="me-4 me-md-8"></iconify-icon>
+                              <time datetime="2023-08-30" class="fw-medium lh-sm fs-16 fs-xl-20">08/30</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">03</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">59</span>
+                              <span class="fs-16 fs-md-20 lh-sm fw-medium ">:</span>
+                              <span
+                                class="border-radius-16 bg-gray-04 fs-16 fs-md-20 lh-sm fw-medium py-4 px-8">49</span>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">陳瑋</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="position-absolute swiper-button-next pictures-replace-text d-none d-lg-block">
+                </div>
+                <div class="position-absolute swiper-button-prev pictures-replace-text d-none d-lg-block">
+                </div>
+                <div class="swiper-pagination position-absolute top-100 start-50 translate-middle d-none d-md-block">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="layout-content pt-md-84 pt-56">
+          <div class="container mb-32 mb-sm-80">
+            <div class="allMenu mb-16 mb-sm-32">
+              <div class="allMenu-header d-flex justify-content-between  align-items-center mb-24 mb-sm-36">
+                <h2 class="fs-md-32 fs-24 fw-bold lh-sm">全部菜單</h2>
+                <button
+                  class="shopping-cart d-sm-none d-flex justify-content-center align-items-center px-24 py-10 py-sm-14 border-radius-40 btn btn-brand-03 btn-hover-brand-01">
+                  <img class="me-4 me-sm-8" src="/assets/images/icon/icon-shopping-cart.png" alt="icon-shopping-cart">
+                  <p class="text-white word-break-keep-all">購物車</p>
+                </button>
+              </div>
+              <div class="allMenu-content">
+                <div class="swiper mySwiper">
+                  <div class="swiper-wrapper py-3">
+                    <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+                      <ul>
+                        <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                          <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                            <h3 class="fw-bold lh-sm">茶舞</h3>
+                            <div class="cold-hot d-flex justify-content-center align-items-center ">
+                              <div class="cold d-flex justify-content-center align-items-center ">
+                                <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                <span class="me-8">30</span>
+                              </div>
+                              <div class="hot d-flex justify-content-center align-items-center hidden-block">
+                                <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                <span class="">30</span>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="text-top-p">結合了香濃的奶茶和清新的果茶，帶給您舞動在舌尖的美味。</p>
+                        </li>
+                        <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                          <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                            <h3 class="fw-bold lh-sm">紅柚露</h3>
+                            <div class="cold-hot d-flex justify-content-center align-items-center ">
+                              <div class="cold d-flex justify-content-center align-items-center ">
+                                <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                <span class="me-8">40</span>
+                              </div>
+                              <div class="hot d-flex justify-content-center align-items-center hidden-block">
+                                <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                <span class="">30</span>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="text-top-p">絕妙的紅茶搭配新鮮柚子，帶來微酸的口感和芳香的香氣。</p>
+                        </li>
+                        <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                          <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                            <h3 class="fw-bold lh-sm">翠綠</h3>
+                            <div class="cold-hot d-flex justify-content-center align-items-center ">
+                              <div class="cold d-flex justify-content-center align-items-center ">
+                                <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                <span class="me-8">25</span>
+                              </div>
+                              <div class="hot d-flex justify-content-center align-items-center">
+                                <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                <span class="">25</span>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="text-top-p">以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
+                        </li>
+                        <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                          <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                            <h3 class="fw-bold lh-sm">柔霧</h3>
+                            <div class="cold-hot d-flex justify-content-center align-items-center ">
+                              <div class="cold d-flex justify-content-center align-items-center ">
+                                <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                <span class="me-8">35</span>
+                              </div>
+                              <div class="hot d-flex justify-content-center align-items-center hidden-block">
+                                <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                <span class="">30</span>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="text-top-p">柔順的奶茶搭配迷人的茉莉花香，帶來優雅與幸福的味覺享受。</p>
+                        </li>
+                        <li class=" py-16 py-sm-24">
+                          <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                            <h3 class="fw-bold lh-sm">蜜香</h3>
+                            <div class="cold-hot d-flex justify-content-center align-items-center ">
+                              <div class="cold d-flex justify-content-center align-items-center ">
+                                <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                <span class="me-8">30</span>
+                              </div>
+                              <div class="hot d-flex justify-content-center align-items-center">
+                                <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                <span class="">30</span>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="text-top-p">香濃的茶香中混合著芳醇的蜂蜜，為您的口腔帶來溫暖和滋潤。</p>
+                        </li>
+                      </ul>
+                    </div>
                     <%- include('./layout/store-order-menu'); -%>
                       <%- include('./layout/store-order-menu'); -%>
                         <%- include('./layout/store-order-menu'); -%>
@@ -465,125 +492,126 @@
                             <%- include('./layout/store-order-menu'); -%>
                               <%- include('./layout/store-order-menu'); -%>
                                 <%- include('./layout/store-order-menu'); -%>
+                                  <%- include('./layout/store-order-menu'); -%>
+                  </div>
                 </div>
               </div>
             </div>
+            <nav aria-label="Page navigation" class="">
+              <ul class="pagination w-100 d-flex justify-content-between justify-content-sm-end  ">
+                <li class="page-item me-sm-8">
+                  <a class="page-link p-10" href="#" aria-label="Next">
+                    <iconify-icon aria-hidden="true" icon="ri:arrow-left-double-line" width="16"
+                      height="16"></iconify-icon>
+                  </a>
+                </li>
+                <li class="page-item me-sm-8">
+                  <a class="page-link p-10" href="#" aria-label="Next">
+                    <iconify-icon aria-hidden="true" icon="iconamoon:arrow-left-2" width="16"
+                      height="16"></iconify-icon>
+                  </a>
+                </li>
+                <li class="page-item me-sm-8"><a class="page-link p-10" href="#">1</a></li>
+                <li class="page-item me-sm-8"><a class="page-link p-10" href="#">2</a></li>
+                <li class="page-item me-sm-8"><a class="page-link p-10" href="#">3</a></li>
+                <p class="me-sm-8">...</p>
+                <li class="page-item me-sm-8"><a class="page-link p-10" href="#">10</a></li>
+                <li class="page-item me-sm-8">
+                  <a class="page-link p-10" href="#" aria-label="Next">
+                    <iconify-icon aria-hidden="true" icon="iconamoon:arrow-right-2" width="16"
+                      height="16"></iconify-icon>
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link p-10" href="#" aria-label="Next">
+                    <iconify-icon aria-hidden="true" icon="ri:arrow-right-double-line" width="16"
+                      height="16"></iconify-icon>
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
-          <nav aria-label="Page navigation" class="">
-            <ul class="pagination w-100 d-flex justify-content-between justify-content-sm-end  ">
-              <li class="page-item me-sm-8">
-                <a class="page-link p-10" href="#" aria-label="Next">
-                  <iconify-icon aria-hidden="true" icon="ri:arrow-left-double-line" width="16" height="16"></iconify-icon>
-                </a>
-              </li>
-              <li class="page-item me-sm-8">
-                <a class="page-link p-10" href="#" aria-label="Next">
-                  <iconify-icon aria-hidden="true" icon="iconamoon:arrow-left-2" width="16" height="16"></iconify-icon>
-                </a>
-              </li>
-              <li class="page-item me-sm-8"><a class="page-link p-10" href="#">1</a></li>
-              <li class="page-item me-sm-8"><a class="page-link p-10" href="#">2</a></li>
-              <li class="page-item me-sm-8"><a class="page-link p-10" href="#">3</a></li>
-              <p class="me-sm-8">...</p>
-              <li class="page-item me-sm-8"><a class="page-link p-10" href="#">10</a></li>
-              <li class="page-item me-sm-8">
-                <a class="page-link p-10" href="#" aria-label="Next">
-                  <iconify-icon aria-hidden="true"  icon="iconamoon:arrow-right-2" width="16" height="16"></iconify-icon>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link p-10" href="#" aria-label="Next">
-                  <iconify-icon aria-hidden="true" icon="ri:arrow-right-double-line" width="16" height="16"></iconify-icon>
-                </a>
-              </li>
-            </ul>
-          </nav>
         </div>
-      </div>
-      <!-- footer -->
-      <%- include('./layout/footer'); -%>
+        <!-- footer -->
+        <%- include('./layout/footer'); -%>
 
-        <!-- notification -->
-        <%- include('./layout/notification'); -%>
-          <!-- ICONGIFY -->
-          <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-          <!-- JS -->
-          <script type="module" src="../main.js"></script>
-          <!-- AOS EFFECT -->
-          <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-          <script>
-            // AOS INIT
-            AOS.init({
-              // offset: 180,
-              duration: 800,
-              delay: 500,
-            })
-          </script>
-          <!-- Swiper JS CDN -->
-          <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-          <!-- 開團中together event JS -->
-          <script>
-            var togetherEventSwiper = new Swiper(".togetherEventSwiper", {
-              slidesPerView: 1,
-              spaceBetween: 12,
-              clickable: true,
-              grid: {
-                rows: 4,
-                fill: "row"
-              },
-
-              breakpoints: {
-                // when window width is >= 768px
-                768: {
-                  slidesPerView: 2,
-                  spaceBetween: 12,
-                  grid: {
-                    rows: 1,
-                  },
-                },
-                1200: {
-                  slidesPerView: 3,
-                  spaceBetween: 12,
-                },
-                1600: {
-                  slidesPerView: 4,
-                  spaceBetween: 24,
-                  grid: {
-                    rows: 1,
-                  },
-                },
-              },
-              navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              },
-              pagination: {
-                el: ".swiper-pagination",
+          <!-- notification -->
+          <%- include('./layout/notification'); -%>
+            <!-- ICONGIFY -->
+            <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+            <!-- JS -->
+            <script type="module" src="../main.js"></script>
+            <!-- AOS EFFECT -->
+            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+            <script>
+              // AOS INIT
+              AOS.init({
+                // offset: 180,
+                duration: 800,
+                delay: 500,
+              })
+            </script>
+            <!-- Swiper JS CDN -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+            <!-- 開團中together event JS -->
+            <script>
+              var togetherEventSwiper = new Swiper(".togetherEventSwiper", {
+                slidesPerView: 1,
+                spaceBetween: 12,
                 clickable: true,
-                renderBullet: function (index, className) {
-                  return '<span class="' + className + '">' + "</span>";
+                grid: {
+                  rows: 4,
+                  fill: "row"
                 },
-              },
-            });
-          </script>
-          <!-- jQuery Import -->
-          <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
-            integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
-          <!-- jQuery -->
-          <script>
-            // 通知按鈕點擊切換通知提示圓點
-            $('.btnNotification').click(function (e) {
-              $('.btnNotificationAlert').addClass('d-none');
-            });
-            // 開團中按鈕開關切換
-            $('.btnTogetherEvent').click(function (e) {
-              $(this).toggleClass('active');
-              $(this).find('.text-brand-02').toggleClass('text-white');
-              $(this).find('.arrowDown').toggleClass('d-none');
-              $(this).find('.arrowUp').toggleClass('d-none');
-            });
-          </script>
-</body>
+
+                breakpoints: {
+                  // when window width is >= 768px
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 12,
+                    grid: {
+                      rows: 1,
+                    },
+                  },
+                  1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 12,
+                  },
+                  1600: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                    grid: {
+                      rows: 1,
+                    },
+                  },
+                },
+                navigation: {
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+                  renderBullet: function (index, className) {
+                    return '<span class="' + className + '">' + "</span>";
+                  },
+                },
+              });
+            </script>
+            <!-- jQuery Import -->
+            <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+              integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+            <!-- 按鈕互動外觀變化 jQuery -->
+            <script>
+              // 開團中按鈕開關切換
+              $('.btnTogetherEvent').click(function (e) {
+                $(this).toggleClass('active');
+                $(this).find('.text-brand-02').toggleClass('text-white');
+                $(this).find('.arrowDown').toggleClass('d-none');
+                $(this).find('.arrowUp').toggleClass('d-none');
+              });
+            </script>
+  </body>
 
 </html>
 
