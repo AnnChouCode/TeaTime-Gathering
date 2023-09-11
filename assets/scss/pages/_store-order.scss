@@ -164,14 +164,14 @@
 
 // 為了讓開團中卡片按照順序縱列顯示，必須限制高度
 .togetherEventSwiper {
-  max-height: 580px;
+  height: 580px;
 
   @media (min-width: 400px) {
-    max-height: 520px;
+    height: 520px;
   }
 
-  @include media-breakpoint-up(md) {
-    max-height: none;
+  @media (min-width: 768px) {
+    height: auto;
   }
 
   .swiper-slide {
