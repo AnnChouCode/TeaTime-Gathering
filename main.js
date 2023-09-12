@@ -3,8 +3,7 @@ import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
 
 console.log("Hello world!");
 
-
-// Notification Boostrap Toasts
+/* 通知按鈕-訊息 Bootstrap Toasts 初始化 */
 const toastTrigger = document.getElementById("notificationToastBtn");
 const toastLiveContent = document.getElementById("notificationToast");
 if (toastTrigger) {

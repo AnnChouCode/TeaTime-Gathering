@@ -4,6 +4,11 @@
     transform: rotate(0deg) scale(1) translateZ(0);
     transition: all 0.4s cubic-bezier(.8,1.8,.75,.75);
   }
+  .loading-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   @keyframes bounceIn {
     0% {
       opacity: 1;
@@ -26,23 +31,33 @@
     }
   }
 </style>
-<div id="loading" style="
+<div id="loading"
+  style="
   width: 100%;
   background-color: #FDF1EF;
   height: 100vh;
   position: fixed;
   top:0;
-  z-index: 1041;">
-  <div style="
-    background: url(/assets/images/loading/loading-bg.png) no-repeat center center /cover;
-    width: 100%;
-    background-color: #FDF1EF;
-    height: 100vh;
-    position: fixed;
-    top:0;
-    z-index: 1040;"
-    class="d-flex justify-content-center align-items-center animation-bounceIn"
-    >
+  z-index: 1041;
+  ">
+  <div class="loading-content" 
+  style="
+  width: 100%;
+  height:100vh
+  ">
+    <div
+      style="
+      background: url(/assets/images/logo/loading.png) no-repeat center center /contain;
+      width: 10%;
+      /* width: 100%; */
+      background-color: #FDF1EF;
+      height: 100vh;
+      position: fixed;
+      top:0;
+      z-index: 1040;"
+      class="animation-bounceIn"
+      >
+    </div>
   </div>
 </div>
 
@@ -51,7 +66,6 @@
   document.addEventListener('DOMContentLoaded', () => {
     // 获取 loading 元素
     const loadingElement = document.getElementById('loading');
-    
 
     setTimeout(function() {
       // 隐藏 loading 元素

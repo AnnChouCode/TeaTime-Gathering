@@ -464,6 +464,8 @@ $spacers: (
   // 42
   48: $spacer * 3,
   // 48
+  56: $spacer * 3.5,
+  // 56
   60: $spacer * 3.75,
   // 60
   62: $spacer * 3.875,
@@ -476,8 +478,10 @@ $spacers: (
   // 76
   80: $spacer * 5,
   // 80
-  82: $spacer * 5.125,
+  82: 82px,
   // 82
+  84: $spacer * 5.25,
+  // 84
   104: $spacer * 6.5,
   // 104
   116: $spacer * 7.25,
@@ -558,7 +562,7 @@ $grid-breakpoints: (
   lg: 992px,
   xl: 1200px,
   xxl: 1400px,
-  xxxl:1600px
+  xxxl: 1600px
 ) !default;
 // scss-docs-end grid-breakpoints
 

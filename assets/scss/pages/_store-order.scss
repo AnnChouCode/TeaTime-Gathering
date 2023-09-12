@@ -1,46 +1,55 @@
-.order{
-  &-bg{
+.order {
+  &-bg {
     width: 100%;
     height: 220px;
     background: url(/assets/images/store-01.jpg) center top /cover;
     border-radius: 56px;
+
     @include media-breakpoint-down(lg) {
       border-radius: 0px;
     }
+
     @include media-breakpoint-down(sm) {
       height: 80px;
     }
   }
-  &-content{
+
+  &-content {
     transform: translateY(-62px);
     margin-bottom: -62px;
+
     @include media-breakpoint-down(sm) {
       transform: translateY(-68px);
       margin-bottom: -68px;
     }
   }
-  &-icon{
+
+  &-icon {
     max-width: 196px;
+
     @include media-breakpoint-down(sm) {
       max-width: 96px;
     }
   }
-  &-textContent{
-    h2{
+
+  &-textContent {
+    h2 {
       display: -webkit-box;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 1 ;  //顯示行數
+      -webkit-line-clamp: 1; //顯示行數
       overflow: hidden;
     }
   }
-  &-content-p{
+
+  &-content-p {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;  //顯示行數
+    -webkit-line-clamp: 2; //顯示行數
     overflow: hidden;
   }
-  .imgItems{
-    img{
+
+  .imgItems {
+    img {
       @include media-breakpoint-down(sm) {
         width: 12px;
         height: 12px;
@@ -48,62 +57,128 @@
     }
   }
 }
-.btnList{
-  &-items{
+
+.btnList {
+  &-items {
     @include media-breakpoint-down(sm) {
       width: 100%;
     }
-    img{
+
+    img {
       @include media-breakpoint-down(sm) {
         width: 20px;
       }
     }
-    p{
+
+    p {
       font-size: 20px;
+
       @include media-breakpoint-down(sm) {
         font-size: 16px;
       }
     }
   }
 }
-.allMenu{
-  .swiper-slide{
+
+.allMenu {
+  .swiper-slide {
     border-radius: 80px;
+
     @include media-breakpoint-down(sm) {
       border-radius: 40px 40px 16px 16px;
     }
   }
-  .text-top{
-    h3{
+
+  .text-top {
+    h3 {
       font-size: 24px;
+
       @include media-breakpoint-down(sm) {
         font-size: 20px;
       }
     }
-    span{
+
+    span {
       font-size: 20px;
+
       @include media-breakpoint-down(sm) {
         font-size: 16px;
       }
     }
   }
-  .text-top-p{
+
+  .text-top-p {
     font-size: 20px;
+
     @include media-breakpoint-down(sm) {
       font-size: 16px;
     }
+
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;  //顯示行數
+    -webkit-line-clamp: 2; //顯示行數
     overflow: hidden;
   }
 }
-.hidden-block{
-  visibility:hidden;
+
+.hidden-block {
+  visibility: hidden;
 }
-.pagination{
-  img{
+
+.pagination {
+  img {
     width: 16px;
     height: 16px;
+  }
+}
+
+.page-item {
+  a:hover {
+    background-color: $gray-04 !important;
+    color: $gray-01 !important;
+  }
+
+  a:focus {
+    pointer-events: none;
+    /* 取消点击事件 */
+    border: 0;
+    box-shadow: none;
+    background-color: $brand-01;
+    color: white;
+  }
+}
+
+// 開團中 collapse 圖片變化
+.event-img-RWD {
+  width: 96px;
+  height: 96px;
+  border-radius: 32px 32px 16px 16px;
+
+  @include media-breakpoint-up(md) {
+    width: 100%;
+    height: 100%;
+    border-radius: 64px 64px 16px 16px;
+  }
+}
+
+
+// 為了讓開團中卡片按照順序縱列顯示，必須限制高度
+.togetherEventSwiper {
+  height: 580px;
+
+  @media (min-width: 400px) {
+    height: 520px;
+  }
+
+  @media (min-width: 768px) {
+    height: auto;
+  }
+
+  .swiper-slide {
+    height: calc((100% - 12px * 3) / 4);
+
+    @include media-breakpoint-up(md) {
+      height: 100%;
+    }
   }
 }
