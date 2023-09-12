@@ -83,7 +83,7 @@
 
 /* custom input - login ==========
 ================================*/
-.account-login-modal {
+.form-validated-effect {
 
   .was-validated .form-control:valid,
   .was-validated .form-control:invalid {
@@ -94,7 +94,9 @@
   .was-validated .form-control:invalid {
     outline: 2px solid $brand-02;
   }
+}
 
+.account-login-modal{  
   .modal-dialog {
     margin: 0 auto;
   }
