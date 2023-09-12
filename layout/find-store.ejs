@@ -101,7 +101,7 @@
             </ul>
         </div>
         <div class="col-md-10 px-24 ">
-            <ul class="row row-cols-2 gap-12 gap-xxl-24 ">
+            <ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul">
                 <li class="findStore-img position-relative "
                     style="background-image: url(/assets/images/store-05-s.jpg);">
                     <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
@@ -167,6 +167,7 @@
                                         width="16"></iconify-icon>
                                     <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
                                         width="16"></iconify-icon>
+
                                 </div>
                             </div>
                             <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24"
@@ -211,7 +212,7 @@
                                         width="16"></iconify-icon>
                                     <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
                                         width="16"></iconify-icon>
-                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
                                         width="16"></iconify-icon>
                                     <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
                                         width="16"></iconify-icon>
@@ -237,7 +238,7 @@
                                         width="16"></iconify-icon>
                                     <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
                                         width="16"></iconify-icon>
-                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
                                         width="16"></iconify-icon>
                                 </div>
                             </div>
@@ -285,8 +286,9 @@
                                         width="16"></iconify-icon>
                                     <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
                                         width="16"></iconify-icon>
-                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
                                         width="16"></iconify-icon>
+
                                 </div>
                             </div>
                             <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24"
@@ -306,7 +308,7 @@
                         height="16"></iconify-icon>
                 </a>
             </li>
-            <li>
+            <li class="page-item">
                 <a class="page-link rounded-3 " href="#" aria-label="Previous">
                     <iconify-icon aria-hidden="true" icon="iconamoon:arrow-left-2" width="16"
                         height="16"></iconify-icon>
@@ -317,7 +319,7 @@
             <li class="page-item"><a class="page-link rounded-3" href="#">3</a></li>
             <li class="page-item"><a class="page-link border-0 disabled bg-transparent " href="#">...</a></li>
             <li class="page-item"><a class="page-link rounded-3" href="#">10</a></li>
-            <li>
+            <li class="page-item">
                 <a class="page-link rounded-3 " href="#" aria-label="Previous">
                     <iconify-icon aria-hidden="true" icon="iconamoon:arrow-right-2" width="16"
                         height="16"></iconify-icon>
@@ -337,8 +339,8 @@
 
 
 <script>
+    // 點選按鈕樣式
     const selectBar = document.querySelectorAll('.select-bar-link');
-
     selectBar.forEach(btnType => {
         btnType.addEventListener('click', () => {
             selectBar.forEach(btn => {
@@ -347,4 +349,238 @@
             btnType.classList.add('active');
         })
     })
+    // 點選後，篩選店家
+    const latestStoreBtn = selectBar[0];
+    const hightEvaluateBtn = selectBar[1];
+    const lowEvaluateBtn = selectBar[2];
+    const findStoreUl = document.querySelector(".findStore-ul");
+    const findStoreContent = findStoreUl.innerHTML;
+    // 最高評價呈現的卡片
+    hightEvaluateBtn.addEventListener("click", () => {
+        findStoreUl.innerHTML = `<li class="findStore-img position-relative "
+                    style="background-image: url(/assets/images/store-11-s.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">滋味冰</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;"
+                                width="24" height="24" class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li>
+                <li class="findStore-img position-relative "
+                    style="background-image: url(/assets/images/store-13-s.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">Tropicool</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24"
+                                height="24" class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li>
+                <li class="findStore-img position-relative "
+                    style="background-image: url(/assets/images/store-05-s.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">滋味冰</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;"
+                                width="24" height="24" class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li>
+                <li class="findStore-img position-relative "
+                    style="background-image: url(/assets/images/store-08-s.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">Tropicool</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+
+                                </div>
+                            </div>
+                            <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24"
+                                height="24" class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li>
+                <li class="findStore-img position-relative "
+                    style="background-image: url(/assets/images/store-09-s.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">素營養</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="tabler:leaf" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li>
+                <li class="findStore-img position-relative "
+                    style="background-image: url(/assets/images/store-07-s.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">買噹噹</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li>
+                <li class="findStore-img position-relative "
+                    style="background-image: url(/assets/images/store-12-s.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">素營養</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="tabler:leaf" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li>
+                <li class="findStore-img position-relative "
+                    style="background-image: url(/assets/images/store-10-s.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">買噹噹</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li>`;
+    })
+    // 最低評價呈現的卡片
+    lowEvaluateBtn.addEventListener("click", () => {
+        findStoreUl.innerHTML = `<li class="findStore-img position-relative "
+                    style="background-image: url(/assets/images/store-10-s.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">買噹噹</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li>`;
+    })
+    // 全部店家
+    latestStoreBtn.addEventListener("click", () => {
+        findStoreUl.innerHTML = findStoreContent
+    })
+
 </script>

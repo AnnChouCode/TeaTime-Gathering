@@ -486,13 +486,13 @@
                       </ul>
                     </div>
                     <%- include('./layout/store-order-menu'); -%>
-                    <%- include('./layout/store-order-menu'); -%>
-                    <%- include('./layout/store-order-menu'); -%>
-                    <%- include('./layout/store-order-menu'); -%>
-                    <%- include('./layout/store-order-menu'); -%>
-                    <%- include('./layout/store-order-menu'); -%>
-                    <%- include('./layout/store-order-menu'); -%>
-                    <%- include('./layout/store-order-menu'); -%>
+                      <%- include('./layout/store-order-menu'); -%>
+                        <%- include('./layout/store-order-menu'); -%>
+                          <%- include('./layout/store-order-menu'); -%>
+                            <%- include('./layout/store-order-menu'); -%>
+                              <%- include('./layout/store-order-menu'); -%>
+                                <%- include('./layout/store-order-menu'); -%>
+                                  <%- include('./layout/store-order-menu'); -%>
                   </div>
                 </div>
               </div>
@@ -535,39 +535,39 @@
         <!-- footer -->
         <%- include('./layout/footer'); -%>
 
-        <!-- notification -->
-        <%- include('./layout/notification'); -%>
-        <!-- Swiper JS CDN -->
-        <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-        <!-- ICONGIFY -->
-        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-        <!-- jQuery Import -->
-        <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
-        integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
-        <!-- JS -->
-        <script type="module" src="../main.js"></script>
-        <!-- AOS EFFECT -->
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-        <script>
-          // AOS INIT
-          AOS.init({
-            // offset: 180,
-            duration: 800,
-            delay: 500,
-          })
-        </script>
+          <!-- notification -->
+          <%- include('./layout/notification'); -%>
+            <!-- Swiper JS CDN -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+            <!-- ICONGIFY -->
+            <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+            <!-- jQuery Import -->
+            <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
+              integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+            <!-- JS -->
+            <script type="module" src="../main.js"></script>
+            <!-- AOS EFFECT -->
+            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+            <script>
+              // AOS INIT
+              AOS.init({
+                // offset: 180,
+                duration: 800,
+                delay: 500,
+              })
+            </script>
 
-        <!-- Swiper 開團中活動輪播 JS -->
-        <script>
-          var togetherEventSwiper = new Swiper(".togetherEventSwiper", {
-            slidesPerView: 1,
-            spaceBetween: 12,
-            clickable: true,
-            grid: {
-              rows: 4,
-              // fill: "row" 造成開團中卡片以奇數為縱列排列，故取消
-            },
-            breakpoints: {
+            <!-- Swiper 開團中活動輪播 JS -->
+            <script>
+              var togetherEventSwiper = new Swiper(".togetherEventSwiper", {
+                slidesPerView: 1,
+                spaceBetween: 12,
+                clickable: true,
+                grid: {
+                  rows: 4,
+                  // fill: "row" 造成開團中卡片以奇數為縱列排列，故取消
+                },
+                breakpoints: {
                   // when window width is >= 768px
                   768: {
                     slidesPerView: 2,
@@ -591,40 +591,41 @@
                     },
                   },
                 },
-            navigation: {
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-            },
-            pagination: {
-              el: ".swiper-pagination",
-              clickable: true,
-            },
-          });
-          // 開團中按鈕開關切換
-          $('.btnTogetherEvent').click(function (e) {
-            $(this).toggleClass('active');
-            $(this).find('.text-brand-02').toggleClass('text-white');
-            $(this).find('.arrowDown').toggleClass('d-none');
-            $(this).find('.arrowUp').toggleClass('d-none');
-          });
-          // 菜單滑動用
-          var swiper = new Swiper(".mySwiper", {
-          // spaceBetween: 30,
-          breakpoints: {
-            1: {
-              slidesPerView: 1,
-              spaceBetween: 10,
-              centeredSlides: false
-            },
-            576: {
-              slidesPerView: 2,
-              spaceBetween: 24,
-              centeredSlides: false
-            }
-          }
-        });
-        </script>
+                navigation: {
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+                },
+              });
+              // 開團中按鈕開關切換
+              $('.btnTogetherEvent').click(function (e) {
+                $(this).toggleClass('active');
+                $(this).find('.text-brand-02').toggleClass('text-white');
+                $(this).find('.arrowDown').toggleClass('d-none');
+                $(this).find('.arrowUp').toggleClass('d-none');
+              });
+              // 菜單滑動用
+              var swiper = new Swiper(".mySwiper", {
+                // spaceBetween: 30,
+                breakpoints: {
+                  1: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    centeredSlides: false
+                  },
+                  576: {
+                    slidesPerView: 2,
+                    spaceBetween: 24,
+                    centeredSlides: false
+                  }
+                }
+              });
+            </script>
 
-        <!-- 按鈕互動外觀變化 jQuery -->
+            <!-- 按鈕互動外觀變化 jQuery -->
   </body>
+
 </html>
