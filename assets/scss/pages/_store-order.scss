@@ -121,6 +121,40 @@
   }
 }
 
+.feedback-style{
+  @include media-breakpoint-down(md) {
+    width: 82.64%;
+  }
+  .people-img{
+    @include media-breakpoint-down(md) {
+      border-radius: 16px;
+      width: 64px;      
+      height: 64px;      
+    }
+  }
+  .feedback-content{
+    p{
+      @include media-breakpoint-down(md) {
+        font-size: 16px;
+      }
+    }
+  }
+  .star-list{
+    img{
+      @include media-breakpoint-down(md) {
+        width: 12px;      
+      }
+    }
+  }
+}
+
+
+
+// 清除滾動條樣式
+.horizontal-scroll-a::-webkit-scrollbar {
+  display: none;
+}
+
 .hidden-block {
   visibility: hidden;
 }
