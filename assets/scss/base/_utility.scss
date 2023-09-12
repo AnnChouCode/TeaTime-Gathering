@@ -154,4 +154,9 @@ $utilities: map-merge($utilities,
 .border-hover-line:hover {
   border: 2px solid $line;
 }
+
 /* CUSTOM item hover END */
+
+.transition {
+  transition: all 1s;
+}

@@ -1,9 +1,11 @@
 .tea-calendar {
-    border-radius: 0px 200px 0px 0px;
+    border-radius: 0px 100px 0px 0px;
 
     @include media-breakpoint-up(lg) {
         padding-right: 16.25%;
         padding-left: 16.25%;
+        border-radius: 0px 200px 0px 0px;
+
     }
 
     .type-link {
@@ -19,6 +21,7 @@
             color: white !important;
         }
     }
+
 
     .event-rounded {
         border-radius: 40px 40px 16px 16px;
