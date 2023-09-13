@@ -36,6 +36,7 @@
                 <button type="button"
                     class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 btn-active-bg-2 btn-hover-bg-2 w-100">最低評價</button>
             </li>
+
         </ul>
     </div>
 
@@ -47,8 +48,8 @@
                     <button
                         class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 btn-active border-radius-16 btn-hover-gray-04 actived">
                         <!-- <img src="/assets/images/store-selection/全部.png" alt="全部" class="me-8">全部 -->
-                        <iconify-icon class="img-fluid " icon="fluent:food-24-regular" style="color: #8b8b8a;"
-                            width="32" height="32" class="me-md-8 me-0"></iconify-icon>
+                        <iconify-icon icon="fluent:food-24-regular" style="color: #8b8b8a;" width="32" height="32"
+                            class="me-md-8 me-0"></iconify-icon>
                         <span class="fs-md-20 fs-16">全部</span>
                     </button>
                 </li>
@@ -98,6 +99,7 @@
                             class="me-md-8 me-0"></iconify-icon>
                         <span class="fs-md-20 fs-16">咖啡</span></button>
                 </li>
+                <li class="tab_slider"></li>
             </ul>
         </div>
         <div class="col-md-10 px-24 ">
@@ -302,7 +304,7 @@
     <div class="mt-16 mt-md-32"></div>
     <nav aria-label="Page navigation ">
         <ul class="pagination justify-content-end gap-8">
-            <li>
+            <li class="page-item">
                 <a class="page-link rounded-3" href="#" aria-label="Previous">
                     <iconify-icon aria-hidden="true" icon="ri:arrow-left-double-line" width="16"
                         height="16"></iconify-icon>
@@ -358,7 +360,7 @@
     // 最高評價呈現的卡片
     hightEvaluateBtn.addEventListener("click", () => {
         findStoreUl.innerHTML = `<li class="findStore-img position-relative "
-                    style="background-image: url(/assets/images/store-11-s.jpg);">
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-11-s-c585c683.jpg);">
                     <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
                         <div class="position-absolute d-flex justify-content-between  findStore-card">
                             <div class="d-flex  flex-column justify-content-center ">
@@ -382,7 +384,7 @@
                     </a>
                 </li>
                 <li class="findStore-img position-relative "
-                    style="background-image: url(/assets/images/store-13-s.jpg);">
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-13-s-744e635f.jpg);">
                     <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
                         <div class="position-absolute d-flex justify-content-between  findStore-card">
                             <div class="d-flex  flex-column justify-content-center ">
@@ -406,7 +408,7 @@
                     </a>
                 </li>
                 <li class="findStore-img position-relative "
-                    style="background-image: url(/assets/images/store-05-s.jpg);">
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-05-s-db8e0227.jpg);">
                     <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
                         <div class="position-absolute d-flex justify-content-between  findStore-card">
                             <div class="d-flex  flex-column justify-content-center ">
@@ -430,7 +432,7 @@
                     </a>
                 </li>
                 <li class="findStore-img position-relative "
-                    style="background-image: url(/assets/images/store-08-s.jpg);">
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-08-s-78d0d63e.jpg);">
                     <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
                         <div class="position-absolute d-flex justify-content-between  findStore-card">
                             <div class="d-flex  flex-column justify-content-center ">
@@ -446,7 +448,6 @@
                                         width="16"></iconify-icon>
                                     <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
                                         width="16"></iconify-icon>
-
                                 </div>
                             </div>
                             <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24"
@@ -455,7 +456,7 @@
                     </a>
                 </li>
                 <li class="findStore-img position-relative "
-                    style="background-image: url(/assets/images/store-09-s.jpg);">
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-09-s-8a4d9e2f.jpg);">
                     <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
                         <div class="position-absolute d-flex justify-content-between  findStore-card">
                             <div class="d-flex  flex-column justify-content-center ">
@@ -479,7 +480,7 @@
                     </a>
                 </li>
                 <li class="findStore-img position-relative "
-                    style="background-image: url(/assets/images/store-07-s.jpg);">
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-07-s-4f60961b.jpg);">
                     <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
                         <div class="position-absolute d-flex justify-content-between  findStore-card">
                             <div class="d-flex  flex-column justify-content-center ">
@@ -503,7 +504,7 @@
                     </a>
                 </li>
                 <li class="findStore-img position-relative "
-                    style="background-image: url(/assets/images/store-12-s.jpg);">
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-12-s-5fac9c88.jpg);">
                     <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
                         <div class="position-absolute d-flex justify-content-between  findStore-card">
                             <div class="d-flex  flex-column justify-content-center ">
@@ -527,7 +528,7 @@
                     </a>
                 </li>
                 <li class="findStore-img position-relative "
-                    style="background-image: url(/assets/images/store-10-s.jpg);">
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-10-s-4392ccb3.jpg);">
                     <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
                         <div class="position-absolute d-flex justify-content-between  findStore-card">
                             <div class="d-flex  flex-column justify-content-center ">
@@ -554,7 +555,7 @@
     // 最低評價呈現的卡片
     lowEvaluateBtn.addEventListener("click", () => {
         findStoreUl.innerHTML = `<li class="findStore-img position-relative "
-                    style="background-image: url(/assets/images/store-10-s.jpg);">
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-10-s-4392ccb3.jpg);">
                     <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
                         <div class="position-absolute d-flex justify-content-between  findStore-card">
                             <div class="d-flex  flex-column justify-content-center ">
@@ -576,11 +577,173 @@
                                 class="findStore-card-img"></iconify-icon>
                         </div>
                     </a>
+                </li><li class="findStore-img position-relative "
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-12-s-5fac9c88.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">素營養</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="tabler:leaf" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li><li class="findStore-img position-relative "
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-07-s-4f60961b.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">買噹噹</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li><li class="findStore-img position-relative "
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-09-s-8a4d9e2f.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">素營養</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="tabler:leaf" style="color: #8b8b8a;" width="24" height="24"
+                                class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li><li class="findStore-img position-relative "
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-08-s-78d0d63e.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">Tropicool</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24"
+                                height="24" class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li><li class="findStore-img position-relative "
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-05-s-db8e0227.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">滋味冰</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;"
+                                width="24" height="24" class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li><li class="findStore-img position-relative "
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-13-s-744e635f.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">Tropicool</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24"
+                                height="24" class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
+                </li><li class="findStore-img position-relative "
+                    style="background-image: url(https://annchoucode.github.io/TeaTime-Gathering/assets/store-11-s-c585c683.jpg);">
+                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                        <div class="position-absolute d-flex justify-content-between  findStore-card">
+                            <div class="d-flex  flex-column justify-content-center ">
+                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">滋味冰</p>
+                                <div class="d-flex ">
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                        width="16"></iconify-icon>
+                                </div>
+                            </div>
+                            <iconify-icon icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;"
+                                width="24" height="24" class="findStore-card-img"></iconify-icon>
+                        </div>
+                    </a>
                 </li>`;
     })
     // 全部店家
     latestStoreBtn.addEventListener("click", () => {
         findStoreUl.innerHTML = findStoreContent
     })
+
 
 </script>
