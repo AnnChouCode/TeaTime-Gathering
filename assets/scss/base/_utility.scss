@@ -122,6 +122,10 @@ $utilities: map-merge($utilities,
 .custom-shadow {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+.custom-shadow-025{
+  background: linear-gradient(180deg, #FFF 0%, #FFF 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
 
 // 文字 不斷行
 // .no-wrap-text {
@@ -154,6 +158,30 @@ $utilities: map-merge($utilities,
 .border-hover-line:hover {
   border: 2px solid $line;
 }
+/* CUSTOM item hover END */
+
+/* CUSTOM transform */
+.transform-32-sm-48 {
+  transform: translateY(-48px);
+  margin-bottom: -32px;
+  
+  @include media-breakpoint-down(sm) {
+    transform: translateY(-32px);
+    margin-bottom: -20px;
+  }
+}
+/* CUSTOM item hover END */
+
+/* CUSTOM line-clamp */
+.line-clamp-2{
+  height: 3rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; //顯示行數
+  overflow: hidden;
+}
+/* CUSTOM item hover END */
+
 
 /* CUSTOM item hover END */
 
