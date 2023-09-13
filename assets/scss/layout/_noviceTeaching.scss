@@ -1,6 +1,6 @@
 .actived {
     background: $gray-04 !important;
-    color:$gray-01 !important;
+    color: $gray-01 !important;
     font-weight: 500 !important;
 }
 .QA-sidebar {
@@ -17,5 +17,17 @@
 .QA {
     @media (max-width: 767.98px) {
         white-space: nowrap;
+    }
+}
+.QA-ul {
+    animation: slowyShow 1.2s;
+}
+
+@keyframes slowyShow {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
