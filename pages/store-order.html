@@ -5,7 +5,7 @@
 
   <body class="pt-64 pt-md-82">
     <!-- loading -->
-    <%- include('./layout/loading'); -%>
+    <!-- <%- include('./layout/loading'); -%> -->
 
       <%- include('./layout/nav'); -%>
 
@@ -400,12 +400,12 @@
                 <h2 class="fs-md-32 fs-24 fw-bold lh-sm">全部菜單</h2>
                 <button
                   class="shopping-cart d-sm-none d-flex justify-content-center align-items-center px-24 py-10 py-sm-14 border-radius-40 btn btn-brand-03 btn-hover-brand-01">
-                  <img class="me-4 me-sm-8" src="/assets/images/icon/icon-shopping-cart.png" alt="icon-shopping-cart">
+                  <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20" height="20"></iconify-icon>
                   <p class="text-white word-break-keep-all">購物車</p>
                 </button>
               </div>
               <div class="allMenu-content">
-                <div class="swiper mySwiper">
+                <div class="swiper mySwiper pe-1">
                   <div class="swiper-wrapper py-3">
                     <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
                       <ul>
@@ -632,7 +632,7 @@
                 breakpoints: {
                   1: {
                     slidesPerView: 1,
-                    spaceBetween: 0,
+                    spaceBetween: 10,
                     centeredSlides: false
                   },
                   576: {
