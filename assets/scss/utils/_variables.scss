@@ -434,6 +434,8 @@ $gradient: linear-gradient(180deg, rgba($white, 0.15), rgba($white, 0)) !default
 $spacer: 1rem !default;
 $spacers: (
   0: 0,
+  1: $spacer * 0.0625,
+  // 1
   4: $spacer * 0.25,
   // 4
   8: $spacer * 0.5,
