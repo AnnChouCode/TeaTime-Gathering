@@ -1,90 +1,109 @@
-.swiper-container{
+.swiper-container {
   z-index: 1;
 }
 
 .swiper-bg-Style {
   height: 400px;
-  @include media-breakpoint-down(sm){
+
+  @include media-breakpoint-down(sm) {
     height: 320px;
   }
+
   background: center center / cover;
-  button{
+
+  button {
     width: 108px;
-    @include media-breakpoint-down(md){
+
+    @include media-breakpoint-down(md) {
       width: 100%;
     }
   }
 }
+
 /* 控制背景混合模式 */
-  .swiper01,.swiper02,.swiper03,.swiper04{
-    background-blend-mode: overlay; 
-  }
+.swiper01,
+.swiper02,
+.swiper03,
+.swiper04 {
+  background-blend-mode: overlay;
+}
 
 .swiper01 {
-  background: 
-  url(/assets/images/store-01.jpg) center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);
+  background:
+    url(/assets/images/store-logo/store-01.jpg) center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);
 
-    @include media-breakpoint-down(md){
-      background: url('/assets/images/store-01-s.jpg') center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);
-    }
+  @include media-breakpoint-down(md) {
+    background: url('/assets/images/store-logo/store-01-s.jpg') center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);
+  }
 }
 
 .swiper02 {
   background: url(/assets/images/banner/beverage/beverge-1.jpg) center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);
-  @include media-breakpoint-down(md){
-      background: url(/assets/images/banner/beverage/beverge-1-s.jpg) center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);
-    }
+
+  @include media-breakpoint-down(md) {
+    background: url(/assets/images/banner/beverage/beverge-1-s.jpg) center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);
+  }
 }
 
 .swiper03 {
   background: url(/assets/images/banner/Streetfood/streetfood-2.jpg) center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);
-  @include media-breakpoint-down(md){
+
+  @include media-breakpoint-down(md) {
     background: url(/assets/images/banner/Streetfood/streetfood-2-s.jpg) center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);
-    }
+  }
 }
 
 .swiper04 {
   background: url(/assets/images/banner/cafe/cafe-1.jpg) center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);
-  @include media-breakpoint-down(md){
+
+  @include media-breakpoint-down(md) {
     background: url(/assets/images/banner/cafe/cafe-1-s.jpg) center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);
-    }
+  }
 }
 
-.swiper-comment{
+.swiper-comment {
   width: 32.05128%;
-  .swiper-comment-personal{
-    img{
+
+  .swiper-comment-personal {
+    img {
       width: 40px;
     }
   }
-  .swiper-comment-p{
+
+  .swiper-comment-p {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;   //限制 3 行
+    -webkit-line-clamp: 3; //限制 3 行
     overflow: hidden;
   }
 }
-.swiper-bg-p{
+
+.swiper-bg-p {
   max-width: 532px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;   //限制 3 行
+  -webkit-line-clamp: 3; //限制 3 行
   overflow: hidden;
-  @include media-breakpoint-down(xl){
+
+  @include media-breakpoint-down(xl) {
     max-width: 369px;
   }
 }
-.banner-todaymeal-button{
+
+.banner-todaymeal-button {
   z-index: 10;
   border: 4px solid var(--Brand-05, #FDF1EF);
   width: 425px;
-  h6{
+
+  h6 {
     font-size: 20px;
   }
-  @include media-breakpoint-down(sm){
+
+  @include media-breakpoint-down(sm) {
     border: 2px solid var(--Brand-05, #FDF1EF);
     width: 88.319%;
-    h6{
+
+    h6 {
       font-size: 16px;
     }
   }
@@ -97,12 +116,14 @@
   // right: -27px; // 起點
   right: -40px;
 }
+
 // 左
 .swiper-button-prev {
   background: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="48" height="48" viewBox="0 0 24 24"%3E%3Cg id="evaArrowLeftFill0"%3E%3Cg id="evaArrowLeftFill1"%3E%3Cpath id="evaArrowLeftFill2" fill="%23f0bd68" d="M13.54 18a2.06 2.06 0 0 1-1.3-.46l-5.1-4.21a1.7 1.7 0 0 1 0-2.66l5.1-4.21a2.1 2.1 0 0 1 2.21-.26a1.76 1.76 0 0 1 1.05 1.59v8.42a1.76 1.76 0 0 1-1.05 1.59a2.23 2.23 0 0 1-.91.2Z"%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E') no-repeat center;
   // left: -18px; // 起點
   left: -40px;
 }
+
 /*Swiper 左右箭頭 END*/
 
 /*Swiper pagination*/
@@ -113,18 +134,22 @@
   color: #c2c1bd;
   opacity: 1;
   background: rgba(0, 0, 0, 0.2);
-  @include media-breakpoint-down(xl){
+
+  @include media-breakpoint-down(xl) {
     width: 20px;
     height: 4px;
   }
 }
+
 .swiper-pagination-bullet-active {
   color: #fff;
   background: #007aff;
   width: 48px;
   background: var(--brand-02, #fd909f);
-  @include media-breakpoint-down(xl){
+
+  @include media-breakpoint-down(xl) {
     width: 40px;
   }
 }
+
 /*Swiper pagination END*/
