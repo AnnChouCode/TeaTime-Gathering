@@ -12,11 +12,11 @@
 # 揪團下午茶 TeaTime Gathering
 https://annchoucode.github.io/TeaTime-Gathering/
 
-# 功能
-持續開發中
+# 頁面
+首頁、點餐頁、忘記密碼頁
 
 # 畫面
-
+![demo](https://youtu.be/iudtBVr1Y8g)
 
 # 安裝
 以下將會引導你如何安裝此專案到你的電腦上。
