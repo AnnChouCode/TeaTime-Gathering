@@ -16,7 +16,7 @@ https://annchoucode.github.io/TeaTime-Gathering/
 首頁、點餐頁、忘記密碼頁
 
 # 畫面
-[![DEMO](http://img.youtube.com/vi/"iudtBVr1Y8g"/0.jpg)](https://www.youtube.com/watch?v="iudtBVr1Y8g" "Front End Project｜下午茶揪團去 TeaTime Gathering")
+[![DEMO](http://img.youtube.com/vi/"iudtBVr1Y8g&t=1s"/0.jpg)](https://www.youtube.com/watch?v=iudtBVr1Y8g&t=1s "Front End Project｜下午茶揪團去 TeaTime Gathering")
 
 # 安裝
 以下將會引導你如何安裝此專案到你的電腦上。
