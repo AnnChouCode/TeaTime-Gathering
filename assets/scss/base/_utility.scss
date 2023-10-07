@@ -97,6 +97,14 @@ $utilities: map-merge($utilities,
   border-radius: 64px 64px 16px 16px;
 }
 
+.border-radius-040400 {
+  border-radius: 0px 40px 40px 0px;
+}
+
+.border-radius-400040 {
+  border-radius: 40px 0px 0px 40px;
+}
+
 .border-radius-80804040 {
   border-radius: 80px 80px 40px 40px;
 }
