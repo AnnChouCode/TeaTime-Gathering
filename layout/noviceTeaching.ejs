@@ -46,15 +46,38 @@
             </ul>
             <ul class="px-md-24 px-12 pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">如何邀請他人點餐（開團）</h3>
-                <p class="mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
+                <p class="mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後，點選「我要開團」按鈕</p>
                 <li class="mt-20">1. 『首頁/找店家』區塊</li>
                 <li class="mt-4">2. 『點餐』頁面</li>
             </ul>
         </div>
         <div id="instructions"></div>
+        <!-- <div class="pb-24 px-12 px-md-24 d-flex align-items-center" onclick="toggleLike()">
+            <div class="heartIcon1">
+                <iconify-icon icon="material-symbols:favorite-outline" style="color: #8b8b8a;"></iconify-icon>
+            </div>
+            <div class="likeCount1 ms-4">1</div>
+        </div> -->
     </div>
 </div>
 <script>
+    // 愛心累加
+    // let isLike1 = false;
+    // let likeCount1 = 0;
+    // function toggleLike() {
+    //     let heartIcon1 = document.querySelector(".heartIcon1");
+    //     let likeCountText1 = document.querySelector(".likeCount1");
+    //     if (isLike1) {
+    //         heartIcon1.innerHTML = `<iconify-icon icon="material-symbols:favorite-outline" style="color: #8b8b8a;"></iconify-icon>`;
+    //         likeCount1--;
+    //     } else {
+    //         heartIcon1.innerHTML = `<iconify-icon icon="ic:baseline-favorite" style="color: #fd909f;"></iconify-icon>`;
+    //         likeCount1++;
+    //     }
+    //     isLike1 = !isLike1;
+    //     likeCountText1.textContent = likeCount1
+    // }
+
     // 獲取所有按鈕元素
     var buttons = document.querySelectorAll('.btn-active');
     // var btn2 = document.querySelector('#btn2');
@@ -107,7 +130,7 @@
             } else if (button === QA3) {
                 showAns.innerHTML = `<ul class="QA-ul px-md-24 px-12 pb-md-40 pb-24 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">我想許願</h3>
-                <p class="mt-24">店家清單中沒有您的愛店嗎？或是有任何心得感想呢？請至『留言』頁面留下您的想法</p>`
+                <p class="mt-24">店家清單中沒有您的愛店嗎？ 或是有任何心得感想呢？<br> 請至『留言』頁面留下您的想法</p>`
             } else if (button === QA4) {
                 showAns.innerHTML = `<ul class="QA-ul px-md-24 px-12 pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">如何查看訂單歷史記錄？</h3>

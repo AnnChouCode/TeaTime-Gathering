@@ -3,60 +3,60 @@
 
 <%- include('./layout/head'); -%>
 
-<body class="pt-64 pt-md-82">
-  <!-- loading -->
-  <%- include('./layout/loading'); -%>
-  
-  <%- include('./layout/nav'); -%>
+  <body class="pt-64 pt-md-82">
+    <!-- loading -->
+    <%- include('./layout/loading'); -%>
 
-    <div class="layout-content">
-      <!-- banner -->
-      <%- include('./layout/banner'); -%>
-    </div>
+      <%- include('./layout/nav'); -%>
 
-    <!-- tea-calendar -->
-    <%- include('./layout/tea-calendar'); -%>
-
-      <div class="layout d-flex ">
-        <div class="layout-left d-none d-lg-block">
-          <%- include('./layout/navigation-menu'); -%>
-        </div>
         <div class="layout-content">
-          <!-- find-store -->
-          <%- include('./layout/find-store'); -%>
-        </div>
-        <div class="layout-right d-none d-lg-block"></div>
-      </div>
-
-      <!-- feedback -->
-      <%- include('./layout/feedback'); -%>
-
-        <!-- novice Teaching -->
-        <div class="layout-content">
-          <%- include('./layout/noviceTeaching'); -%>
+          <!-- banner -->
+          <%- include('./layout/banner'); -%>
         </div>
 
-        <!-- footer -->
-        <%- include('./layout/footer'); -%>
+        <!-- tea-calendar -->
+        <%- include('./layout/tea-calendar'); -%>
 
-          <!-- notification -->
-          <%- include('./layout/notification'); -%>
+          <div class="layout d-flex ">
+            <div class="layout-left d-none d-lg-block">
+              <%- include('./layout/navigation-menu'); -%>
+            </div>
+            <div class="layout-content">
+              <!-- find-store -->
+              <%- include('./layout/find-store'); -%>
+            </div>
+            <div class="layout-right d-none d-lg-block"></div>
+          </div>
 
-            <!-- ICONGIFY -->
-            <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-            <!-- JS -->
-            <script type="module" src="../main.js"></script>
-            <!-- AOS EFFECT -->
-            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-            <script>
+          <!-- feedback -->
+          <%- include('./layout/feedback'); -%>
 
-              // AOS INIT
-              AOS.init({
-                // offset: 180,
-                duration: 800,
-                delay: 500,
-              })
-            </script>
-</body>
+            <!-- novice Teaching -->
+            <div class="layout-content">
+              <%- include('./layout/noviceTeaching'); -%>
+            </div>
+
+            <!-- footer -->
+            <%- include('./layout/footer'); -%>
+
+              <!-- notification -->
+              <%- include('./layout/notification'); -%>
+
+                <!-- ICONGIFY -->
+                <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+                <!-- JS -->
+                <script type="module" src="../main.js"></script>
+                <!-- AOS EFFECT -->
+                <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+                <script>
+
+                  // AOS INIT
+                  AOS.init({
+                    // offset: 180,
+                    duration: 800,
+                    delay: 500,
+                  })
+                </script>
+  </body>
 
 </html>
