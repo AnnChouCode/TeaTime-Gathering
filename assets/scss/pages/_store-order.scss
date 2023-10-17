@@ -227,17 +227,16 @@
 } 
 
 // modal
-.modal-content{
+.modal-storeOrder-menu{
   max-width: 416px;
   padding: 24px 40px 40px 40px;
   @include media-breakpoint-down(md) {
     padding: 12px 16px 16px 16px;
   }
-}
-
-// modal-content 內，所有 label 寬度 100%
-.modal-content label{
-  width: 100%;
+  // modal-content 內，所有 label 寬度 100%
+  label{
+    width: 100%;
+  }
 }
 
 // modal 菜單 checkbox 樣式 開始
