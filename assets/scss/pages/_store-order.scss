@@ -326,3 +326,19 @@
 }
 
 // modal 菜單 radio 樣式 結束
+
+// modal 購物車 開始
+.select-payer {
+    width: 300px;
+    height: 24px;
+    padding: 8px;
+    border-radius: 16px;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-image: url("/assets/images/icon/down-arrow-storeOrder.svg");
+    background-size: 20px 15px;
+    background-position: right 14px top 50%, 0 0;
+    background-repeat: no-repeat;
+  }
+  // modal 購物車 結束
