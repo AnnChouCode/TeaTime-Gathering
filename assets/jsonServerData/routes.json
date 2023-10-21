@@ -1,0 +1,6 @@
+{
+    "/restaurantInfo/*": "/restaurantInfo",
+    "/votingData/*": "/votingData",
+    "/ratingData/*": "/ratingData"
+  }
+  
