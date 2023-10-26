@@ -1,0 +1,14 @@
+.memberNav {
+    height: 48px;
+}
+
+.member-ul {
+    border-bottom: 1px solid #dfd3be;
+}
+
+.overall-li {
+    width: calc((100% - 72px) / 4);
+    @media (max-width: 767.98px) {
+        width: calc((100% - 12px) / 2);
+    }
+}
