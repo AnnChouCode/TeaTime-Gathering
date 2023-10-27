@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
+    <title>訂單管理</title>
+</head>
+
+<body>
+    <div class="container-fluid bg-white ">
+        <div class="row">
+            <!-- 左側欄位 -->
+            <%- include("./layout/memberSystem"); -%>
+                <!-- 右側欄位 -->
+
+                <div class="col  pt-lg-24 px-0 px-lg-80">
+                    <div
+                        class="memberNav d-flex justify-content-between align-items-center  bg-gray-04 bg-lg-transparent p-12 py-lg-0 ">
+                        <a class="btn d-lg-none" data-bs-toggle="offcanvas" href="#memberOffcanvas" role="button"
+                            aria-controls="memberOffcanvas">
+                            <iconify-icon width="24" icon="mingcute:menu-fill"></iconify-icon>
+                        </a>
+                        <iconify-icon class="ms-auto" icon="icon-park-outline:shop" width="24"
+                            height="24"></iconify-icon>
+                    </div>
+                    <h2 class=" fw-bold mt-32 mt-lg-64 fs-32 px-12">訂餐管理</h2>
+                    <ul class="member-ul mt-32 d-flex fw-bolder px-12 px-lg-0">
+                        <li class="memberbtn fs-16 fs-lg-20 px-20 px-lg-24 py-12 "><a href="#">跟團中訂單</a></li>
+                        <li class="memberbtn fs-16 fs-lg-20 px-20 px-lg-24 py-12"><a href="#">發起的開團</a></li>
+                        <li class="memberbtn fs-16 fs-lg-20 px-20 px-lg-24 py-12"><a href="#">歷史訂單</a></li>
+                    </ul>
+
+
+                    <!-- 跟團中訂單 -->
+
+                    <!-- <ul>
+                        <li class="p-24 border-bottom border-brand-03">
+                            <div class="d-flex">
+
+                                <aside class="me-40">
+                                    <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
+                                    <p
+                                        class="bg-brand-05 py-4 mt-10 ms-auto text-brand-02 d-flex justify-content-center ">
+                                        <span class="fw-bold fs-16">已付款</span>
+                                    </p>
+                                </aside>
+
+                                <main>
+                                    <nav>
+                                        <h2 class="fs-24 fw-bold text-brand-03">茶源 ChaSource</h2>
+                                        <p class="mt-4 text-gray-02">享用日期 2023/07/10 &nbsp; 付款人：Will Chen</p>
+                                    </nav>
+                                    <ul class="mt-12">
+                                        <li class="d-flex mb-12">
+                                            <div class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">1
+                                            </div>
+                                            <div>
+                                                <h3 class="fs-24 mb-4 text-gray-01 fw-bolder">玫瑰綠茶</h3>
+                                                <ul class="text-gray-02">
+                                                    <li class="d-flex mb-4">
+                                                        <p>選項<span class="ms-16">少糖、去冰</span></p>
+                                                    </li>
+                                                    <li class="d-flex mb-4">
+                                                        <p>備註<span class="ms-16">可以淡一點嗎？</span></p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+                                        <li class="d-flex">
+                                            <div class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">1
+                                            </div>
+                                            <div>
+                                                <h3 class="fs-24 mb-4 text-gray-01 fw-bolder">阿薩姆紅茶</h3>
+                                                <ul class="text-gray-02">
+                                                    <li class="d-flex mb-4">
+                                                        <p>選項<span class="ms-16">少糖、去冰</span></p>
+                                                    </li>
+                                                    <li class="d-flex mb-4">
+                                                        <p>備註<span class="ms-16">無</span></p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </main>
+                            </div>
+                        </li>
+                        <li class="p-24 border-bottom border-brand-03">
+                            <div class="d-flex">
+                                <aside class="me-40">
+                                    <img src="/assets/images/banner/fastfood/fastfood-3-logo.jpg" alt="" width="96">
+                                    <p class="bg-brand-02 py-4 mt-10 ms-auto text-white d-flex justify-content-center ">
+                                        <span class="fw-bold fs-16">未付款</span>
+                                    </p>
+                                </aside>
+
+                                <main>
+                                    <nav>
+                                        <h2 class="fs-24 fw-bold text-brand-03">速食窩</h2>
+                                        <p class="mt-4 text-gray-02">享用日期 2023/07/10 &nbsp;訂單金額 ：$30</p>
+                                    </nav>
+                                    <ul class="mt-12">
+                                        <li class="d-flex">
+                                            <div class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">2
+                                            </div>
+                                            <div>
+                                                <h3 class="fs-24 mb-4 text-gray-01 fw-bolder">可樂</h3>
+                                                <ul class="text-gray-02">
+                                                    <li class="d-flex mb-4">
+                                                        <p>選項<span class="ms-16">少糖、去冰</span></p>
+                                                    </li>
+                                                    <li class="d-flex mb-4">
+                                                        <p>備註<span class="ms-16">無</span></p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </main>
+                            </div>
+                        </li>
+                    </ul> -->
+
+
+                    <!-- 發起的開團 -->
+<!-- 
+                    <ul>
+                        <li class="p-24 border-bottom border-brand-03">
+                            <div class="d-flex flex-column flex-lg-row  ">
+
+                                <aside class="me-40 d-flex justify-content-between align-items-lg-start  ">
+                                    <div>
+                                        <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
+                                        <p
+                                        class="bg-brand-02 py-4 mt-10 ms-auto text-white d-flex justify-content-center rounded-1 ">
+                                        <span class="fw-bold fs-16">已成團</span>
+                                    </p>
+                                </div>
+                                <span class="ms-auto d-block d-lg-none">
+                                    <a href=""
+                                        class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">管理訂單</a>
+                                </span>
+                                </aside>
+
+                                <div>
+                                    <nav>
+                                        <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">茶源 ChaSource</h2>
+                                    </nav>
+                                    <ul class="fs-20 mt-12">
+                                        <li>
+                                            <p>享用日期:<span class="ms-16 me-8">08/12</span><span>14:30</span></p>
+                                        </li>
+                                        <li class="mt-8">
+                                            <p>請客人:<span class="ms-16 me-8">無</span></p>
+
+                                        </li>
+                                        <li class="mt-8">
+                                            <p>已付款人數<span class="ms-16 me-8">16/30</span></p>
+
+                                        </li>
+                                        <li class="mt-8">
+                                            <p>訂單金額:<span class="ms-16 me-8">$415</span></p>
+
+                                        </li>
+                                    </ul>
+                                </div>
+                                <span class="ms-auto d-none d-lg-block">
+                                    <a href=""
+                                        class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">管理訂單</a>
+                                </span>
+                            </div>
+                        </li>
+
+                        <li class="p-24 border-bottom border-brand-03">
+                            <div class="d-flex flex-column flex-lg-row  ">
+
+                                <aside class="me-40 d-flex justify-content-between align-items-lg-start  ">
+                                    <div>
+                                        <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
+                                        <p
+                                            class="bg-brand-06 py-4 mt-10 ms-auto text-brand-02 d-flex justify-content-center rounded-1">
+                                            <span class="fw-bold fs-16">待成團</span>
+                                        </p>
+                                    </div>
+                                    <span class="ms-auto d-block d-lg-none">
+                                        <a href=""
+                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">管理訂單</a>
+                                    </span>
+                                </aside>
+
+                                <div>
+                                    <div class="d-flex">
+                                        <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">茶源 ChaSource</h2>
+                                    </div>
+                                    <ul class="fs-20 mt-12">
+                                        <li>
+                                            <p>享用日期:<span class="ms-16 me-8">08/12</span><span>14:30</span></p>
+                                        </li>
+                                        <li class="mt-8">
+                                            <p>截止日期:<span class="ms-16 me-8">08/12</span><span>14:30</span></p>
+                                        </li>
+                                        <li class="mt-8">
+                                            <p>請客人:<span class="ms-16 me-8">無</span></p>
+
+                                        </li>
+                                        <li class="d-flex mt-8 d-flex align-items-center ">
+                                            <p>成團目標</p>
+                                            <div class="ts-progress is-small ms-16 w-50 bg-gray-04">
+                                                <div class="bar bg-brand-02" style="--value: 80">
+                                                    <div class="text text-white">80%</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <span class="ms-auto d-none d-lg-block">
+                                    <a href=""
+                                        class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">管理訂單</a>
+                                </span>
+
+                            </div>
+                        </li>
+                    </ul> -->
+
+                    <!-- 歷史訂單 -->
+
+                    <ul>
+                        <li class="p-24 border-bottom border-brand-03">
+                            <div class="d-flex flex-column flex-lg-row  ">
+
+                                <aside class="me-40 d-flex justify-content-between align-items-lg-start  ">
+                                    <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
+                                    <span class="ms-auto d-block d-lg-none">
+                                        <a href=""
+                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
+                                    </span>
+                                </aside>
+
+                                <div class="d-flex justify-content-between w-100 ">
+                                    <div>
+                                        <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">茶源 ChaSource</h2>
+                                        <p class="mt-4 text-gray-02">享用日期 2023/07/10‧付款人：Will Chen</p>
+                                        <div class="starInRwd ms-auto  fs-24 d-flex align-items-center d-lg-none">
+                                            <div class="lh-sm">
+                                                <span class="star" onclick="rateStar(1)">&#9733;</span>
+                                                <span class="star" onclick="rateStar(2)">&#9733;</span>
+                                                <span class="star" onclick="rateStar(3)">&#9733;</span>
+                                                <span class="star" onclick="rateStar(4)">&#9733;</span>
+                                                <span class="star" onclick="rateStar(5)">&#9733;</span>
+                                            </div>
+                                            <div class="ms-4 "><a href="" class="fs-16 text-gray-02"
+                                                    data-bs-toggle="modal" data-bs-target="#memberModal">分享評價</a>
+                                            </div>
+                                        </div>
+                                        <ul class="mt-12">
+                                            <li class="d-flex mb-12">
+                                                <div
+                                                    class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">
+                                                    1
+                                                </div>
+                                                <div>
+                                                    <h3 class="fs-24 mb-4 text-gray-01 fw-bolder">玫瑰綠茶</h3>
+                                                    <ul class="text-gray-02">
+                                                        <li class="d-flex mb-4">
+                                                            <p>選項<span class="ms-16">少糖、去冰</span></p>
+                                                        </li>
+                                                        <li class="d-flex mb-4">
+                                                            <p>備註<span class="ms-16">可以淡一點嗎？</span></p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                            <li class="d-flex">
+                                                <div
+                                                    class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">
+                                                    1
+                                                </div>
+                                                <div>
+                                                    <h3 class="fs-24 mb-4 text-gray-01 fw-bolder">玫瑰綠茶</h3>
+                                                    <ul class="text-gray-02">
+                                                        <li class="d-flex mb-4">
+                                                            <p>選項<span class="ms-16">少糖、去冰</span></p>
+                                                        </li>
+                                                        <li class="d-flex mb-4">
+                                                            <p>備註<span class="ms-16">無</span></p>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="starInMember ms-auto  fs-24 d-none d-lg-block">
+                                        <div class="lh-sm">
+                                            <span class="star" onclick="rateStar(1)">&#9733;</span>
+                                            <span class="star" onclick="rateStar(2)">&#9733;</span>
+                                            <span class="star" onclick="rateStar(3)">&#9733;</span>
+                                            <span class="star" onclick="rateStar(4)">&#9733;</span>
+                                            <span class="star" onclick="rateStar(5)">&#9733;</span>
+                                        </div>
+                                        <div class="d-flex justify-content-end "><a href="" class="fs-16 text-gray-02"
+                                                data-bs-toggle="modal" data-bs-target="#memberModal">分享評價</a>
+                                        </div>
+                                    </div>
+                                    <span class="ms-auto d-none d-lg-block">
+                                        <a href=""
+                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+
+                </div>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="memberModal" tabindex="-1" aria-labelledby="memberModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content px-20">
+                <div class="modal-header border-bottom-0 py-24">
+                    <h5 class="modal-title" id="memberModalLabel">茶源 ChaSource</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0 ">
+                    <div class="starInModal ms-auto  fs-24">
+                        <span class="star" onclick="rateStar(1)">&#9733;</span>
+                        <span class="star" onclick="rateStar(2)">&#9733;</span>
+                        <span class="star" onclick="rateStar(3)">&#9733;</span>
+                        <span class="star" onclick="rateStar(4)">&#9733;</span>
+                        <span class="star" onclick="rateStar(5)">&#9733;</span>
+                    </div>
+                    <textarea placeholder="請輸入評價"
+                        class="memberEvaluate mt-8 border-1 border-gray-04 rounded-1 w-100 bg-white text-dark "></textarea>
+                    <div class="mx-auto text-gray-02 fs-16 d-flex justify-content-end ">字數限制 100</div>
+                </div>
+                <div class="modal-footer border-top-0">
+                    <button type="button" class="btn btn-brand-03 text-white w-100">送出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- offcanvas -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="memberOffcanvas" aria-labelledby="memberOffcanvasLabel">
+        <div class="offcanvas-header pb-0">
+            <img src="/assets/images/logo/logo-teatime.svg" alt="" width="150">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body pt-0">
+            <ul class="mt-40 fs-20 fw-bolder gap-12">
+                <li class="d-flex align-items-center ">
+                    <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
+                        width="24"></iconify-icon>
+                        <a href="orderSystem.html" class="text-gray-02">總覽</a></li>
+                </li>
+                <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
+                        icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
+                        width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">訂單管理</a></li>
+                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
+                        style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html" class="text-gray-02">投票管理</a></li>
+                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
+                        icon="material-symbols:account-box" style="color: #1e1e1e;"
+                        width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">個人資料</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        .memberNav {
+            height: 48px;
+        }
+
+        .count {
+            width: 30px;
+            height: 30px;
+        }
+
+        .starInMember,
+        .starInModal,
+        .starInRwd {
+            color: #8B8B8A;
+            cursor: pointer;
+        }
+
+        .memberEvaluate {
+            height: 220px;
+        }
+
+        textarea:focus {
+            outline: 1px solid #C2C1BD !important;
+            /* 设置获得焦点时的边框颜色为灰色 */
+        }
+
+        .memberbtn-actived {
+            border-bottom: 4px solid #DFD3BE;
+        }
+    </style>
+
+</body>
+<script type="module" src="../main.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
+
+
+<!-- 星等評價 -->
+<script>
+    let selectedStars = 0;
+
+    function rateStar(star) {
+        selectedStars = star;
+        updateStars();
+    }
+
+    function updateStars() {
+        for (let i = 1; i <= 5; i++) {
+            const starInMember = document.querySelector(`.starInMember span:nth-child(${i})`);
+            const starInModal = document.querySelector(`.starInModal span:nth-child(${i})`);
+            const starInRwd = document.querySelector(`.starInRwd span:nth-child(${i})`);
+
+            if (i <= selectedStars) {
+                starInMember.style.color = "#ffd43a";
+                starInModal.style.color = "#ffd43a";
+                starInRwd.style.color = "#ffd43a";
+            } else {
+                starInMember.style.color = "#c2c1bd";
+                starInModal.style.color = "#c2c1bd";
+                starInRwd.style.color = "#c2c1bd";
+            }
+        }
+    }
+    let memberbtn = document.querySelectorAll('.memberbtn');
+    memberbtn.forEach(btnType => {
+
+        btnType.addEventListener('click', () => {
+            memberbtn.forEach(btn => {
+                btn.classList.remove('memberbtn-actived');
+            })
+            btnType.classList.add('memberbtn-actived');
+
+        })
+    })
+
+
+</script>
+
+</html>
