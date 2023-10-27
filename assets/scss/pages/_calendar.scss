@@ -1,156 +1,177 @@
 .calendar {
-    &-title-translateY{
-        transform:translateY(-40%);
+  &-title-translateY {
+    transform: translateY(-40%);
 
-        @include media-breakpoint-up(md) {
-            transform:translateY(-50%);
-        }
+    @include media-breakpoint-up(md) {
+      transform: translateY(-50%);
     }
+  }
 
-    &-photo {
-        width: 64px;
-        height: 64px;
-        border-radius: 16px;
+  &-photo {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
 
-        @include media-breakpoint-up(md) {
-            width: 96px;
-            height: 96px;
-            border-radius: 24px;
-        }
+    @include media-breakpoint-up(md) {
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
     }
+  }
 }
 
 
 /* evoCalendar */
 .evo-calendar {
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    border-radius: 20px;
-    border: 1px solid #FD909F;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  border-radius: 20px;
+  border: 1px solid #FD909F;
+}
+
+/* 日曆主體 */
+.calendar-inner {
+  padding: 0px;
+}
+
+/* 月份標題 */
+th[colspan="7"] {
+  color: white;
+  font-size: 20px;
+  background: #FD909F;
+  padding: 10px;
+
+  @media (max-width: 425px) {
+    background-color: white;
+    padding: 70px 0 0 0;
+    color: #8B8B8A;
   }
 
-  /* 日曆主體 */
-  .calendar-inner {
-    padding: 0px;
+  &:after {
+    width: 0;
   }
+}
 
-  /* 月份標題 */
-  th[colspan="7"] {
-    color: white;
-    font-size: 20px;
-    background: #FD909F;
-    padding: 10px;
+/* 星期 */
+tr.calendar-header .calendar-header-day {
+  padding: 24px 0 10px 0;
+  font-size: 16px;
+  color: #8B8B8A;
+}
 
-    @media (max-width: 425px) {
-      background-color: white;
-      padding: 70px 0 0 0;
-      color: #8B8B8A;
-    }
 
-    &:after {
-      width: 0;
-    }
-  }
+tr.calendar-body .calendar-day {
+  padding: 10px 0;
 
-  /* 星期 */
-  tr.calendar-header .calendar-header-day {
-    padding: 24px 0 10px 0;
+  .day {
+    width: 35px;
+    height: 35px;
+    padding: 0;
     font-size: 16px;
     color: #8B8B8A;
   }
 
+  /* 今日標註 */
+  .day.calendar-today {
+    background-color: #F2F2F2;
+    color: #1E1E1E;
 
-  tr.calendar-body .calendar-day {
+    &:hover {
+      background-color: #C2C1BD;
+    }
+  }
+
+}
+
+/* 事件註記 */
+.event-indicator {
+  display: flex;
+  top: 120%;
+}
+
+/* 月份選擇側邊欄 */
+.calendar-sidebar {
+  background: #FD909F;
+  -webkit-box-shadow: 5px 0 18px -3px #FD909F;
+  box-shadow: 5px 0 18px -3px #FD909F;
+
+  >span#sidebarToggler {
+    background-color: #FD909F;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  >.calendar-year {
     padding: 10px 0;
 
-    .day {
-      width: 35px;
-      height: 35px;
-      padding: 0;
-      font-size: 16px;
-      color: #8B8B8A;
-    }
-
-    /* 今日標註 */
-    .day.calendar-today {
-      background-color: #F2F2F2;
-      color: #1E1E1E;
-
-      &:hover {
-        background-color: #C2C1BD;
-      }
-    }
-
-  }
-
-  /* 事件註記 */
-  .event-indicator {
-    display: flex;
-    top: 120%;
-  }
-
-  /* 月份選擇側邊欄 */
-  .calendar-sidebar {
-    background: #FD909F;
-    -webkit-box-shadow: 5px 0 18px -3px #FD909F;
-    box-shadow: 5px 0 18px -3px #FD909F;
-
-    >span#sidebarToggler {
+    @media (max-width: 425px) {
       background-color: #FD909F;
-      -webkit-box-shadow: none;
-      box-shadow: none;
+      padding: 12px 0;
     }
 
-    >.calendar-year {
-      padding: 10px 0;
-
-      @media (max-width: 425px) {
-        background-color: #FD909F;
-        padding: 12px 0;
-      }
-
-      /* btn-年份切換 */
-      >button.icon-button {
-        width: 10px;
-        height: 10px;
-        margin: 0 10px;
-      }
-
-      /* 年 */
-      >p {
-        font-size: 20px;
-      }
+    /* btn-年份切換 */
+    >button.icon-button {
+      width: 10px;
+      height: 10px;
+      margin: 0 10px;
     }
 
-    /* 月份清冊 */
-    .month-list {
-      overflow-y: auto;
-      height: 85%;
-
-      @media (max-width: 425px) {
-        background-color: #FD909F;
-        padding: 12px 0;
-      }
-
-      >.calendar-months {
-        @media screen and (max-width: 425px) {
-          top: 10px;
-        }
-
-        >li.active-month {
-          background-color: white;
-          color: #FD909F;
-        }
-
-        >li:hover {
-          background-color: white;
-          color: #FD909F;
-        }
-      }
+    /* 年 */
+    >p {
+      font-size: 20px;
     }
   }
 
-  /* 事件顯示 */
-  .calendar-events {
-    opacity: 0;
+  /* 月份清冊 */
+  .month-list {
+    overflow-y: auto;
+    height: 85%;
+
+    @media (max-width: 425px) {
+      background-color: #FD909F;
+      padding: 12px 0;
+    }
+
+    >.calendar-months {
+      @media screen and (max-width: 425px) {
+        top: 10px;
+      }
+
+      >li.active-month {
+        background-color: white;
+        color: #FD909F;
+      }
+
+      >li:hover {
+        background-color: white;
+        color: #FD909F;
+      }
+    }
   }
+}
+
+/* 事件顯示 */
+.calendar-events {
+  opacity: 0;
+}
+
+
+/* 投票 modal */
+.votingcard-photo {
+  width: 96px;
+  height: 96px;
+
+  @include media-breakpoint-up(md) {
+    width: 128px;
+    height: 128px;
+  }
+}
+
+.voting-progress{
+  width: 70px;
+
+  @include media-breakpoint-up(md) {
+    width: 120px;
+    height: 12px;
+  }
+}

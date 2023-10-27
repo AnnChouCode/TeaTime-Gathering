@@ -50,20 +50,20 @@
         </div>
 
         <!-- 投票 Modal -->
-        <div class="modal fade account-login-modal" id="votingModal" tabindex="-1" aria-labelledby="votingModal"
+        <div class="modal fade" id="modal-VotingModal" tabindex="-1" aria-labelledby="modal-VotingModal"
           aria-hidden="true" data-backdrop="false">
-          <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="d-flex modal-content border-radius-24">
               <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
                 <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">空姐 巴黎甜點、Leisurely Café、茶源 ChaSource
                 </h3>
-                <a href="#votingModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
-                    style="color: #8B8B8A;" width="32"></iconify-icon></a>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body d-flex px-16 pb-16 px-lg-40 pb-lg-40 container">
-                <div class="row">
-                  <div class="col col-md-5">
-                    <ul class="d-flex flex-column gap-4 gap-md-8">
+                <div class="row flex-column flex-lg-row">
+                  <!-- 活動資訊 voting info -->
+                  <div class="col col-lg-4">
+                    <ul class="d-flex flex-column gap-4 gap-md-8 mb-32 mb-lg-0">
                       <li>
                         <span class="me-16">享用日期</span>
                         <span class="me-8">10/10</span>
@@ -84,26 +84,27 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="col col-md-7">
+                  <!-- 投票卡片 voting card -->
+                  <div class="col col-lg-8">
                     <ul>
-                      <li class="d-flex gap-12 p-12 border border-brand-03 border-radius-40401616">
-                        <img class="border-radius-32321616" src="../assets/images/store-logo/store-01-s.jpg"
-                          alt="store-photo">
+                      <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                        <img class="border-radius-32321616 votingcard-photo"
+                          src="../assets/images/store-logo/store-01-s.jpg" alt="store-photo">
                         <div>
                           <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">速食窩</h4>
                           <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
                             我們提供多樣化的速食選項，從經典漢堡到口感豐富的薯條，讓您在匆忙時刻也能享受美味滿足。</p>
-                          <div class="d-flex justify-content-between ">
-                            <div class="d-flex align-items-center">
-                              <span class="me-16 text-gray-02">成團目標</span>
-                              <div class="progress me-4" style="width: 120px;height: 12px;">
+                          <div class="d-flex justify-content-between flex-column flex-lg-row">
+                            <div class="d-flex align-items-center mb-8 mb-lg-0 ">
+                              <span class="me-4 me-lg-16 text-gray-02">成團目標</span>
+                              <div class="progress voting-progress me-4">
                                 <div class="progress-bar bg-brand-02" role="progressbar" style="width:50%"
                                   aria-valuenow="50%" aria-valuemin="0" aria-valuemax="100"></div>
                               </div>
                               <span class="fs-16 text-brand-02">50%</span>
                             </div>
                             <button
-                              class="py-4 px-16 btn-brand-04 btn-hover-brand-02 rounded-pill text-brand-02">投票</button>
+                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis">投票</button>
                           </div>
                       </li>
                     </ul>
@@ -258,7 +259,7 @@
 
                 } else {
                   filteredEvent.forEach(e => {
-                    tempEventList += `<li>
+                    tempEventList += `<li class="cursor-pointer" data-id=${e.id} data-bs-toggle="modal" data-bs-target="#modal-VotingModal">
                 <div
                   class="position-relative row mx-0 flex-column gy-12 gy-md-16 p-16 p-md-24 pt-56 pb-8 pb-md-16 pt-md-8 border border-brand-03 border-radius-16">
                   <!-- 月曆卡片 title -->
@@ -319,14 +320,15 @@
               }
             </script>
 
-            <!-- Modal -->
-            <!-- <script>
-              const btnLinkToFindStore = document.querySelector(".btnLinkToFindStore")
-              function navigateToFindStore() {
-                window.location.href = "./findStore.html";
-              }
-              btnLinkToFindStore.addEventListener("click",navigateToFindStore)
-            </script> -->
+            <!-- jQuery -->
+            <script>
+              /* 投票 按鈕 active 狀態切換顯示 */
+              $('.btnVoteThis').click(function (e) {
+                $('.btnVoteThis').toggleClass('active');
+              });
+            </script>
+
+
 
 
   </body>
