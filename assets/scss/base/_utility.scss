@@ -18,6 +18,19 @@ $utilities: map-merge($utilities,
         values: auto default pointer wait text move help not-allowed),
     ));
 
+//Generate utilites for Width
+$utilities: map-merge($utilities,
+    ("width": map-merge(map-get($utilities, "width"),
+        (responsive: true,
+          values: map-merge(map-get(map-get($utilities, "width"), "values"),
+            (80:80%,
+              85: 85%,
+              90: 90%),
+          ),
+        ),
+      ),
+    ));
+
 .ms-170 {
   margin-left: 170px;
 }
@@ -96,6 +109,10 @@ $utilities: map-merge($utilities,
   border-radius: 16px 16px 40px 16px;
 }
 
+.border-radius-32321616 {
+  border-radius: 32px 32px 16px 16px;
+}
+
 .border-radius-40401616 {
   border-radius: 40px 40px 16px 16px;
 }
@@ -137,15 +154,13 @@ $utilities: map-merge($utilities,
 .custom-shadow {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-.custom-shadow-025{
+
+.custom-shadow-025 {
   background: linear-gradient(180deg, #FFF 0%, #FFF 100%);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 // 文字 不斷行
-// .no-wrap-text {
-//   white-space: nowrap;
-// }
 .word-break-keep-all {
   word-break: keep-all;
 }
@@ -155,6 +170,22 @@ $utilities: map-merge($utilities,
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+//文字雙行省略
+.doubleline-ellipsis { 
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+//文字三行省略
+.trippleline-ellipsis { 
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 /* CUSTOM 文字 END*/
@@ -173,28 +204,31 @@ $utilities: map-merge($utilities,
 .border-hover-line:hover {
   border: 2px solid $line;
 }
+
 /* CUSTOM item hover END */
 
 /* CUSTOM transform */
 .transform-32-sm-48 {
   transform: translateY(-48px);
   margin-bottom: -32px;
-  
+
   @include media-breakpoint-down(sm) {
     transform: translateY(-32px);
     margin-bottom: -20px;
   }
 }
+
 /* CUSTOM item hover END */
 
 /* CUSTOM line-clamp */
-.line-clamp-2{
+.line-clamp-2 {
   height: 3rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2; //顯示行數
   overflow: hidden;
 }
+
 /* CUSTOM item hover END */
 
 
