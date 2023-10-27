@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
+    <title>投票管理</title>
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-517f0a03.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-cfc0509c.css">
+</head>
+
+<body>
+    <div class="container-fluid bg-white">
+        <div class="row">
+            <!-- 左側欄位 -->
+            <aside class="col-2 p-24 d-none d-lg-block ">
+    <div>
+        <img src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="" class="h-100  ">
+    </div>
+
+    <ul class="mt-20 py-24 fs-20 fw-bolder gap-12">
+        <li class="d-flex align-items-center ">
+            <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
+                width="24"></iconify-icon>
+                <a href="overallSystem.html" class="text-gray-02">總覽</a></li>
+        </li>
+        <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
+                icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
+                width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">訂單管理</a></li>
+        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
+                style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html" class="text-gray-02">投票管理</a></li>
+        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
+                icon="material-symbols:account-box" style="color: #1e1e1e;"
+                width="24"></iconify-icon><a href="memberInfo.html" class="text-gray-02">個人資料</a></li>
+    </ul>
+</aside>
+
+                <!-- 右側欄位 -->
+
+                <div class="col  pt-lg-24 px-0 px-lg-80">
+                    <div
+                        class="memberNav d-flex justify-content-between align-items-center  bg-gray-04 bg-lg-transparent p-12 py-lg-0 ">
+                        <a class="btn d-lg-none" data-bs-toggle="offcanvas" href="#memberOffcanvas" role="button"
+                            aria-controls="memberOffcanvas">
+                            <iconify-icon width="24" icon="mingcute:menu-fill"></iconify-icon>
+                        </a>
+                        <iconify-icon class="ms-auto" icon="icon-park-outline:shop" width="24"
+                            height="24"></iconify-icon>
+                    </div>
+                    <h2 class=" fw-bold mt-32 mt-lg-64 fs-32 px-12">投票管理</h2>
+                    <ul class="member-ul mt-32 d-flex fw-bolder px-12 px-lg-0">
+                        <li class="memberbtn memberbtn-actived fs-20 px-24 py-12"><a href="#">參與的投票</a></li>
+                        <li class="memberbtn fs-20 px-24 py-12"><a href="#">發起的投票</a></li>
+                    </ul>
+
+                    <!-- 參與的投票 -->
+                    <ul class="takePartVoting">
+                    </ul>
+
+                    <!-- 發起的投票 -->
+                    <ul class="initiatePoll">
+                    </ul>
+                </div>
+        </div>
+    </div>
+
+    <!-- offcanvas -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="memberOffcanvas" aria-labelledby="memberOffcanvasLabel">
+        <div class="offcanvas-header pb-0">
+            <img src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="" width="150">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body pt-0">
+            <ul class="mt-40 fs-20 fw-bolder gap-12">
+                <li class="d-flex align-items-center ">
+                    <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
+                        width="24"></iconify-icon>
+                    <a href="orderSystem.html" class="text-gray-02">總覽</a>
+                </li>
+                </li>
+                <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
+                        icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
+                        width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">訂單管理</a></li>
+                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
+                        style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html"
+                        class="text-gray-02">投票管理</a></li>
+                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
+                        icon="material-symbols:account-box" style="color: #1e1e1e;" width="24"></iconify-icon><a
+                        href="orderSystem.html" class="text-gray-02">個人資料</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        .memberNav {
+            height: 48px;
+        }
+
+        .count {
+            width: 30px;
+            height: 30px;
+        }
+
+        .starInMember,
+        .starInModal {
+            color: #8B8B8A;
+            cursor: pointer;
+        }
+
+        .memberEvaluate {
+            height: 220px;
+        }
+
+        textarea:focus {
+            outline: 1px solid #C2C1BD !important;
+            /* 设置获得焦点时的边框颜色为灰色 */
+        }
+
+        .memberbtn-actived {
+            border-bottom: 4px solid #DFD3BE;
+        }
+    </style>
+
+</body>
+
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
+
+<script>
+    // 顯示分類按鈕底線，並將相對應的
+    let takePartVoting = document.querySelector(".takePartVoting");
+    let initiatePoll = document.querySelector(".initiatePoll");
+    let memberbtn = document.querySelectorAll('.memberbtn');
+
+    let votingHTML =
+        `
+    <li class="p-24 border-bottom border-brand-03">
+                            <div class="d-flex flex-column flex-lg-row">
+                                <aside class="me-40 d-flex justify-content-between align-items-center">
+                                    <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
+                                    <span class="ms-auto d-block d-lg-none">
+                                        <a href=""
+                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">檢視投票</a>
+                                    </span>
+                                </aside>
+
+                                <main>
+                                    <h2 class="fs-24 fw-bold text-brand-02">茶源 ChaSource、下午喝茶</h2>
+                                    <ul class="mt-12 fs-20">
+                                        <li>
+                                            <ul class="text-gray-02">
+                                                <li class="d-flex mb-8">
+                                                    <p>享用日期<span class="ms-16">8/12 14:30</span></p>
+                                                </li>
+                                                <li class="d-flex mb-8">
+                                                    <p>截止日期<span class="ms-16">8/12 14:30</span></p>
+                                                </li>
+                                                <li class="d-flex mb-8 d-flex align-items-center ">
+                                                    <p>成團目標</p>
+                                                    <div class="ts-progress is-small ms-16 w-50 bg-gray-04">
+                                                        <div class="bar bg-brand-02" style="--value: 50">
+                                                            <div class="text text-white">50%</div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </main>
+                                <span class="ms-auto d-none d-lg-block">
+                                    <a href=""
+                                        class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">檢視投票</a>
+                                </span>
+                            </div>
+                        </li>
+    `
+
+
+    window.onload = function () {
+
+        takePartVoting.innerHTML = votingHTML
+
+    }
+
+
+    memberbtn.forEach(btnType => {
+
+        btnType.addEventListener('click', () => {
+            memberbtn.forEach(btn => {
+                btn.classList.remove('memberbtn-actived');
+            })
+            btnType.classList.add('memberbtn-actived');
+
+            if (memberbtn[0] === btnType) {
+                initiatePoll.innerHTML = "";
+                takePartVoting.innerHTML =votingHTML
+            }
+            else if (memberbtn[1] === btnType) {
+                takePartVoting.innerHTML = "";
+                initiatePoll.innerHTML =
+                    `
+    <li class="p-24 border-bottom border-brand-03">
+                            <div class="d-flex flex-column flex-lg-row  ">
+                                <aside class="me-40 d-flex justify-content-between align-items-center ">
+                                    <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
+                                    <span class="ms-auto d-block d-lg-none">
+                                        <a href=""
+                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">編輯投票時間</a>
+                                    </span>
+                                </aside>
+
+                                <main>
+                                    <h2 class="fs-24 fw-bold text-brand-02">茶源 ChaSource、下午喝茶</h2>
+                                    <ul class="mt-12 fs-20">
+                                        <li>
+                                            <ul class="text-gray-02">
+                                                <li class="d-flex mb-8">
+                                                    <p>享用日期<span class="ms-16">8/12 14:30</span></p>
+                                                </li>
+                                                <li class="d-flex mb-8">
+                                                    <p>截止日期<span class="ms-16">8/12 14:30</span></p>
+                                                </li>
+                                                <li class="d-flex mb-8 d-flex align-items-center ">
+                                                    <p>成團目標</p>
+                                                    <div class="ts-progress is-small ms-16 w-50 bg-gray-04">
+                                                        <div class="bar bg-brand-02" style="--value: 80">
+                                                            <div class="text text-white">80%</div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </main>
+                                <span class="ms-auto d-none d-lg-block">
+                                    <a href=""
+                                        class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">編輯投票時間</a>
+                                </span>
+                            </div>
+                        </li>
+    `
+            }
+        })
+    })
+
+
+
+
+</script>
+
+</html>

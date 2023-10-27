@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
+    <title>投票管理</title>
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-517f0a03.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-cfc0509c.css">
+</head>
+
+<body>
+    <div class="container-fluid bg-white">
+        <div class="row">
+            <!-- 左側欄位 -->
+            <aside class="col-2 p-24 d-none d-lg-block ">
+    <div>
+        <img src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="" class="h-100  ">
+    </div>
+
+    <ul class="mt-20 py-24 fs-20 fw-bolder gap-12">
+        <li class="d-flex align-items-center ">
+            <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
+                width="24"></iconify-icon>
+                <a href="overallSystem.html" class="text-gray-02">總覽</a></li>
+        </li>
+        <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
+                icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
+                width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">訂單管理</a></li>
+        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
+                style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html" class="text-gray-02">投票管理</a></li>
+        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
+                icon="material-symbols:account-box" style="color: #1e1e1e;"
+                width="24"></iconify-icon><a href="memberInfo.html" class="text-gray-02">個人資料</a></li>
+    </ul>
+</aside>
+
+                <!-- 右側欄位 -->
+
+                <div class="col  pt-lg-24 px-0 px-lg-80">
+                    <div
+                        class="memberNav d-flex justify-content-between align-items-center  bg-gray-04 bg-lg-transparent p-12 py-lg-0 ">
+                        <a class="btn d-lg-none" data-bs-toggle="offcanvas" href="#memberOffcanvas" role="button"
+                            aria-controls="memberOffcanvas">
+                            <iconify-icon width="24" icon="mingcute:menu-fill"></iconify-icon>
+                        </a>
+                        <iconify-icon class="ms-auto" icon="icon-park-outline:shop" width="24"
+                            height="24"></iconify-icon>
+                    </div>
+                    <h2 class=" fw-bold mt-32 mt-lg-64 fs-32 px-12">個人資料</h2>
+                    <div class="mt-16 mt-lg-32 px-12 d-flex align-items-center ">
+                        <img class="rounded-5 " src="/TeaTime-Gathering/assets/user-female-03-e3f6a75d.jpg" alt="" width="220"
+                            height="220">
+                        <div class="ms-32 fs-24 fw-bold ">王艾莉</div>
+                    </div>
+
+                    <div class="mt-32 px-12">
+                        <form>
+                            <h3 class="fs-20 fw-bolder text-brand-03 mb-32">個人資料</h3>
+                            <div class="d-flex align-items-center mb-16">
+                                <label for="depart" class="form-label fw-bolder fs-20">部門</label>
+                                <input type="text" class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16"
+                                    id="depart" aria-describedby="depart" value="行銷部" disabled>
+                            </div>
+                            <div class="d-flex align-items-center mb-16">
+                                <label for="groups" class="form-label fw-bolder fs-20">組別</label>
+                                <input type="text" class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16"
+                                    id="groups" aria-describedby="groups" value="設計組" disabled>
+                            </div>
+                            <div class="d-flex align-items-center mb-16">
+                                <label for="emails" class="form-label fw-bolder fs-20">電子郵件</label>
+                                <input type="email" class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16"
+                                    id="emails" aria-describedby="emails" value="elliewang@fatgroup.com" disabled>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+        </div>
+    </div>
+
+    <!-- offcanvas -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="memberOffcanvas" aria-labelledby="memberOffcanvasLabel">
+        <div class="offcanvas-header pb-0">
+            <img src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="" width="150">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body pt-0">
+            <ul class="mt-40 fs-20 fw-bolder gap-12">
+                <li class="d-flex align-items-center ">
+                    <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
+                        width="24"></iconify-icon>
+                    <a href="orderSystem.html" class="text-gray-02">總覽</a>
+                </li>
+                </li>
+                <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
+                        icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
+                        width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">訂單管理</a></li>
+                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
+                        style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html"
+                        class="text-gray-02">投票管理</a></li>
+                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
+                        icon="material-symbols:account-box" style="color: #1e1e1e;" width="24"></iconify-icon><a
+                        href="orderSystem.html" class="text-gray-02">個人資料</a></li>
+            </ul>
+
+
+        </div>
+    </div>
+
+    <style>
+        .memberNav {
+            height: 48px;
+        }
+
+        form label {
+            width: 120px;
+        }
+
+        form input {
+            width: 220px !important;
+        }
+    </style>
+
+</body>
+
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
+
+<script>
+
+
+
+</script>
+
+</html>

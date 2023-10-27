@@ -38,11 +38,88 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
   <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-517f0a03.js"></script>
   <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-cfc0509c.css">
-</head>    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
+</head>
+  <body class="pt-64 pt-md-82">
+    <!-- loading -->
+    <style>
+  .animation-bounceIn{
+    animation: bounceIn 1s infinite;
+    transform: rotate(0deg) scale(1) translateZ(0);
+    transition: all 0.4s cubic-bezier(.8,1.8,.75,.75);
+  }
+  .loading-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @keyframes bounceIn {
+    0% {
+      opacity: 1;
+      transform: scale(.3);
+    } 
 
-    <body class="d-flex flex-column vh-100">
-        <nav>
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    } 
+
+    70% {
+      opacity: 1;
+      transform: scale(.9);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+</style>
+<div id="loading"
+  style="
+  width: 100%;
+  background-color: #FDF1EF;
+  height: 100vh;
+  position: fixed;
+  top:0;
+  z-index: 1041;
+  ">
+  <div class="loading-content" 
+  style="
+  width: 100%;
+  height:100vh
+  ">
+    <div
+      style="
+      background: url(/TeaTime-Gathering/assets/loading-1759762c.png) no-repeat center center /contain;
+      width: 10%;
+      /* width: 100%; */
+      background-color: #FDF1EF;
+      height: 100vh;
+      position: fixed;
+      top:0;
+      z-index: 1040;"
+      class="animation-bounceIn"
+      >
+    </div>
+  </div>
+</div>
+
+<script>
+  // 使用 DOMContentLoaded 事件确保页面 DOM 加载完毕
+  document.addEventListener('DOMContentLoaded', () => {
+    // 获取 loading 元素
+    const loadingElement = document.getElementById('loading');
+
+    setTimeout(function() {
+      // 隐藏 loading 元素
+      loadingElement.style.display = 'none';
+
+    }, 1000);
+    
+    // 初始化你的应用程序，可以开始加载其他资源
+  });
+</script>
+      <nav>
     <div class="fixed-top bg-white">
         <div class="position-relative layout-content">
             <div class="d-flex align-items-center justify-content-between gap-8 py-lg-16 py-8 container">
@@ -394,151 +471,116 @@
             });;
         })
     })
-</script>
-            <!--  -->
-            <div class="layout-content py-32 py-lg-80 find-store">
-                <div class="d-flex justify-content-between align-items-center mb-18 mb-md-20">
-                    <h2 class="fs-md-32 fs-24 fw-bold lh-sm" id="find-store">找店家</h2>
-                </div>
-
-                <!-- 新的 -->
-
-
-                <div class="d-block d-md-flex justify-content-between align-items-center">
-                    <!-- search-bar  -->
-                    <div class="position-relative me-md-16 d-none d-md-block ">
-                        <iconify-icon class="position-absolute search-icon" icon="iconamoon:search"
-                            style="color: #8b8b8a;" width="24"></iconify-icon>
-                        <input id="autoComplete" type="search" dir="ltr" spellcheck=false autocorrect="off"
-                            autocomplete="off" autocapitalize="off"
-                            class="search-bar border border-2 border-gray-04 border-radius-28 py-10 px-16 ps-48"
-                            placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
-                    </div>
-
-                    <ul class="select-bar d-flex text-center bg-brand-05 mt-20 mt-md-0 mb-16 mb-md-0 p-8 text-nowrap">
-                        <li class="text-center w-100">
-                            <button type="button"
-                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 btn-active-bg-2 btn-hover-bg-2 active">最新店家</button>
-                        </li>
-                        <li class="text-center w-100">
-                            <button type="button"
-                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 btn-active-bg-2 btn-hover-bg-2 w-100">最高評價</button>
-                        </li>
-                        <li class="text-center w-100">
-                            <button type="button"
-                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 btn-active-bg-2 btn-hover-bg-2 w-100">最低評價</button>
-                        </li>
-
-                    </ul>
-                </div>
-
-
-                <div class="row mt-md-32 mt-0">
-                    <div class="col-md-2  mb-16 mb-md-0">
-                        <ul class=" x-slide d-flex d-md-block gap-md-5 text-nowrap">
-                            <li>
-                                <button
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 btn-active border-radius-16 btn-hover-gray-04 actived">
-                                    <iconify-icon icon="fluent:food-24-regular" style="color: #8b8b8a;" width="32"
-                                        height="32" class="me-md-8 me-0"></iconify-icon>
-                                    <span class="fs-md-20 fs-16">全部</span>
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="filterRestaurants('速食')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
-                                    <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="32" height="32"
-                                        class="me-md-8 me-0"></iconify-icon>
-                                    <span class="fs-md-20 fs-16">速食</span></button>
-                            </li>
-                            <li>
-                                <button onclick="filterRestaurants('飲料')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
-                                    <iconify-icon icon="icon-park-outline:drink" style="color: #8b8b8a;" width="32"
-                                        height="32" class="me-md-8 me-0"></iconify-icon>
-                                    <span class="fs-md-20 fs-16">飲品</span>
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="filterRestaurants('小吃')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
-                                    <iconify-icon icon="ph:bowl-food" style="color: #8b8b8a;" width="32" height="32"
-                                        class="me-md-8 me-0"></iconify-icon>
-                                    <span class="fs-md-20 fs-16">小吃</span>
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="filterRestaurants('甜點')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
-                                    <iconify-icon icon="material-symbols:icecream-outline-rounded"
-                                        style="color: #8b8b8a;" width="32" height="32"
-                                        class="me-md-8 me-0"></iconify-icon>
-                                    <span class="fs-md-20 fs-16">甜點</span>
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="filterRestaurants('素食')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
-                                        icon="tabler:leaf" style="color: #8b8b8a;" width="32" height="32"
-                                        class="me-md-8 me-0"></iconify-icon>
-                                    <span class="fs-md-20 fs-16">素食</span>
-                                </button>
-                            </li>
-                            <li>
-                                <button onclick="filterRestaurants('咖啡')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
-                                        icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="32"
-                                        height="32" class="me-md-8 me-0"></iconify-icon>
-                                    <span class="fs-md-20 fs-16">咖啡</span></button>
-                            </li>
-                            <li class="tab_slider"></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-10 px-24 ">
-                        <ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul restaurantInfo">
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="mt-16 mt-md-32"></div>
-                <nav aria-label="Page navigation ">
-                    <ul class="pagination justify-content-end gap-8">
-                        <li class="page-item">
-                            <a class="page-link rounded-3" href="#" aria-label="Previous">
-                                <iconify-icon aria-hidden="true" icon="ri:arrow-left-double-line" width="16"
-                                    height="16"></iconify-icon>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-3 " href="#" aria-label="Previous">
-                                <iconify-icon aria-hidden="true" icon="iconamoon:arrow-left-2" width="16"
-                                    height="16"></iconify-icon>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link rounded-3" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link rounded-3" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link rounded-3" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link border-0 disabled bg-transparent " href="#">...</a>
-                        </li>
-                        <li class="page-item"><a class="page-link rounded-3" href="#">10</a></li>
-                        <li class="page-item">
-                            <a class="page-link rounded-3 " href="#" aria-label="Previous">
-                                <iconify-icon aria-hidden="true" icon="iconamoon:arrow-right-2" width="16"
-                                    height="16"></iconify-icon>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-3" href="#" aria-label="Next">
-                                <iconify-icon aria-hidden="true" icon="ri:arrow-right-double-line" width="16"
-                                    height="16"></iconify-icon>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+</script>        <div class="py-32 py-md-80 layout-content container calendar">
+          <h2 class="mb-16 mb-md-32 fs-24 fs-md-32 fw-bold lh-sm">訂餐月曆</h2>
+          <div class="row flex-column flex-md-row gy-48 g-md-24">
+            <!-- 月曆 -->
+            <div class="col col-md-5">
+              <div id="calendar" class="mb-32"></div>
+              <div class="d-flex gap-4">
+                <button type="button"
+                  class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-04 text-brand-01 d-flex justify-content-center align-items-center btn-hover-bg-1 w-50 fs-20 fw-medium "
+                  data-bs-toggle="modal" data-bs-target="#modal-CreateVoting">
+                  建立投票
+                </button>
+                <button type="button"
+                  class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2 w-50 fs-20 fw-medium "
+                  data-bs-toggle="modal" data-bs-target="#modal-CreateGroup">
+                  建立揪團
+                </button>
+              </div>
             </div>
+            <!-- 活動內容 -->
+            <ul class="col col-md-7 d-flex flex-column gap-48 gap-md-72 pt-32 pt-md-48 calendarEvent">
+            </ul>
+          </div>
+        </div>
 
-            <!-- footer -->
-            <footer class="pt-md-48 pb-md-32 py-32 bg-bg-1 text-gray-02 footer-radius">
+        <!-- 建立揪團 Modal -->
+        <div class="modal fade" id="modal-CreateGroup" tabindex="-1" aria-labelledby="modal-CreateGroup"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header border-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center fs-20 fw-medium py-40">
+                <p>請前往<a class="text-brand-02 btn-hover-underline-brand-02" href="./findStore.html">『找店家』</a></p>
+                <p>選擇建立揪團的店家</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 投票 Modal -->
+        <div class="modal fade" id="modal-VotingModal" tabindex="-1" aria-labelledby="modal-VotingModal"
+          aria-hidden="true" data-backdrop="false">
+          <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="d-flex modal-content border-radius-24">
+              <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
+                <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">空姐 巴黎甜點、Leisurely Café、茶源 ChaSource
+                </h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body d-flex px-16 pb-16 px-lg-40 pb-lg-40 container">
+                <div class="row flex-column flex-lg-row">
+                  <!-- 活動資訊 voting info -->
+                  <div class="col col-lg-4">
+                    <ul class="d-flex flex-column gap-4 gap-md-8 mb-32 mb-lg-0">
+                      <li>
+                        <span class="me-16">享用日期</span>
+                        <span class="me-8">10/10</span>
+                        <span>14:00</span>
+                      </li>
+                      <li>
+                        <span class="me-16">截止時間</span>
+                        <span class="me-8">10/10</span>
+                        <span>14:00</span>
+                      </li>
+                      <li>
+                        <span class="me-16">發起人</span>
+                        <span>林立杰</span>
+                      </li>
+                      <li>
+                        <span class="me-16">請客人</span>
+                        <span>無</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- 投票卡片 voting card -->
+                  <div class="col col-lg-8">
+                    <ul>
+                      <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                        <img class="border-radius-32321616 votingcard-photo"
+                          src="/TeaTime-Gathering/assets/store-01-s-e87551a1.jpg" alt="store-photo">
+                        <div>
+                          <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">速食窩</h4>
+                          <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
+                            我們提供多樣化的速食選項，從經典漢堡到口感豐富的薯條，讓您在匆忙時刻也能享受美味滿足。</p>
+                          <div class="d-flex justify-content-between flex-column flex-lg-row">
+                            <div class="d-flex align-items-center mb-8 mb-lg-0 ">
+                              <span class="me-4 me-lg-16 text-gray-02">成團目標</span>
+                              <div class="progress voting-progress me-4">
+                                <div class="progress-bar bg-brand-02" role="progressbar" style="width:50%"
+                                  aria-valuenow="50%" aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                              <span class="fs-16 text-brand-02">50%</span>
+                            </div>
+                            <button
+                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis">投票</button>
+                          </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- footer -->
+        <footer class="pt-md-48 pb-md-32 py-32 bg-bg-1 text-gray-02 footer-radius">
     <div class="d-flex flex-column align-items-center">
         <img class="mb-md-24 mb-16 footer-logo" src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="logo">
         <p class="mb-md-24 mb-16 lh-sm fw-medium">管理員：Ann Chou、Billy Ti、Mark、WA</p>
@@ -555,8 +597,8 @@
         </div>
     </div>
 </footer>
-                <!-- notification -->
-                <a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover btnNotification"
+          <!-- notification -->
+          <a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover btnNotification"
     id="notificationToastBtn">
     <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline" style="color: white;"
         width="28" height="28"></iconify-icon>
@@ -644,163 +686,215 @@
         $('#notificationToast').toast('hide')
     });
 </script>
-                    <!-- ICONGIFY -->
-                    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-                    <!-- JS -->
-                    
-                    <!-- autocomplete -->
-                    <script
-                        src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
-                    <!-- restaurantInfo -->
-                    <script src="/assets/jsonDatas/restaurantInfo.js"></script>
-                    <script>
-                        let selectBar = document.querySelectorAll('.btn-active');
-                        selectBar.forEach(btnType => {
-                            btnType.addEventListener('click', () => {
-                                selectBar.forEach(btn => {
-                                    btn.classList.remove('actived');
-                                })
-                                btnType.classList.add('actived');
-                            })
-                        })
-                        // 進入畫面後，炫染店家資訊
-                        window.onload = renderRestaurant();
+            <!-- ICONGIFY -->
+            <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-                        function renderRestaurant() {
-                            let restaurantItem = "";
-                            let restaurant = document.querySelector(".restaurantInfo")
-                            restaurantInfo.forEach(el => {
-                                // 判斷幾顆星
-                                stars = "";
-                                for (let star = 1; star < 6; star++) {
-                                    if (star <= el.stars) {
-                                        stars += `<iconify-icon icon="ic:round-star" style="color: #ffd43a;"
-                                        width="16"></iconify-icon>`
-                                    } else {
-                                        stars += `<iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
-                                        width="16"></iconify-icon>`
-                                    }
-                                }
-                                // 判斷分類
-                                let catelorys = ""
-                                if (el.category == "飲料") {
-                                    catelorys = `
-                    <iconify-icon icon="icon-park-outline:drink" style="color: #8b8b8a;" width="24" height="24"class="findStore-card-img"></iconify-icon>`
-                                } else if (el.category == "速食") {
-                                    catelorys = `
-                    <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="24" height="24" class="findStore-card-img"></iconify-icon>`
-                                } else if (el.category == "素食") {
-                                    catelorys = `
-                    <iconify-icon icon="tabler:leaf" style="color: #8b8b8a;" width="24" height="24" class="findStore-card-img"></iconify-icon>`
-                                } else if (el.category == "小吃") {
-                                    catelorys = `
-                    <iconify-icon icon="ph:bowl-food" style="color: #8b8b8a;" width="24" height="24" class="findStore-card-img"></iconify-icon>`
-                                } else if (el.category == "甜點") {
-                                    catelorys = `
-                    <iconify-icon icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;" width="24" height="24" class="findStore-card-img"></iconify-icon>`
-                                } else if (el.category == "咖啡") {
-                                    catelorys = `
-                    <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24" height="24" class="findStore-card-img"></iconify-icon>`
-                                }
-                                restaurantItem += `
-                <li class="findStore-img position-relative "
-                    style="background-image: url(${el.storeCover});">
-                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
-                        <div class="position-absolute d-flex justify-content-between  findStore-card">
-                            <div class="d-flex  flex-column justify-content-center ">
-                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">${el.storeName}</p>
-                                <div class="d-flex ">
-                                    ${stars}
-                                </div>
-                            </div>
-                            ${catelorys}
-                        </div>
-                    </a>
-                </li>`
-                            })
-                            restaurant.innerHTML = restaurantItem
-                        };
+            <!-- JS -->
+            
 
-                        // 篩選分類店家
-                        function filterRestaurants(category) {
-                            let restaurantItem = "";
-                            const filteredRestaurants = restaurantInfo.filter(restaurant => restaurant.category === category);
-                            let restaurant = document.querySelector(".restaurantInfo")
-                            filteredRestaurants.forEach(el => {
-                                // 判斷幾顆星
-                                stars = "";
-                                for (let star = 1; star < 6; star++) {
-                                    if (star <= el.stars) {
-                                        stars += `<iconify-icon icon="ic:round-star" style="color: #ffd43a;"
-                                        width="16"></iconify-icon>`
-                                    } else {
-                                        stars += `<iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
-                                        width="16"></iconify-icon>`
-                                    }
-                                }
-                                // 判斷分類
-                                let catelorys = ""
-                                if (el.category == "飲料") {
-                                    catelorys = `
-                    <iconify-icon icon="icon-park-outline:drink" style="color: #8b8b8a;" width="24" height="24"class="findStore-card-img"></iconify-icon>`
-                                } else if (el.category == "速食") {
-                                    catelorys = `
-                    <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="24" height="24" class="findStore-card-img"></iconify-icon>`
-                                } else if (el.category == "素食") {
-                                    catelorys = `
-                    <iconify-icon icon="tabler:leaf" style="color: #8b8b8a;" width="24" height="24" class="findStore-card-img"></iconify-icon>`
-                                } else if (el.category == "小吃") {
-                                    catelorys = `
-                    <iconify-icon icon="ph:bowl-food" style="color: #8b8b8a;" width="24" height="24" class="findStore-card-img"></iconify-icon>`
-                                } else if (el.category == "甜點") {
-                                    catelorys = `
-                    <iconify-icon icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;" width="24" height="24" class="findStore-card-img"></iconify-icon>`
-                                } else if (el.category == "咖啡") {
-                                    catelorys = `
-                    <iconify-icon icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="24" height="24" class="findStore-card-img"></iconify-icon>`
-                                }
-                                restaurantItem += `
-                <li class="findStore-img position-relative "
-                    style="background-image: url(${el.storeCover});">
-                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
-                        <div class="position-absolute d-flex justify-content-between  findStore-card">
-                            <div class="d-flex  flex-column justify-content-center ">
-                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">${el.storeName}</p>
-                                <div class="d-flex ">
-                                    ${stars}
-                                </div>
-                            </div>
-                            ${catelorys}
-                        </div>
-                    </a>
-                </li>`
-                            })
-                            restaurant.innerHTML = restaurantItem
-                        };
+            <!-- calendar import-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
-                        //autocomplete 
-                        let restaurantAry = restaurantInfo.map(el => el.storeName)
-                        const autoCompleteJS = new autoComplete({
-                            placeHolder: "Search for Resturant...",
-                            data: {
-                                src: restaurantAry,
-                                cache: true,
-                            },
-                            resultItem: {
-                                highlight: true
-                            },
-                            events: {
-                                input: {
-                                    selection: (event) => {
-                                        const selection = event.detail.selection.value;
-                                        autoCompleteJS.input.value = selection;
-                                    }
-                                }
-                            }
-                        })
+            <!-- Axios -->
+            <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+            <!-- evo-calendar -->
+            <script src="https://www.jsdelivr.com/package/npm/evo-calendar"></script>
+            <!-- Add the evo-calendar.js for.. obviously, functionality! -->
+            <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
+
+            <!-- Json-server -->
+            <script>
+              // 使用 moment 格式化日期
+              var now = moment().format('YYYY/MM/DD');
+              // 初步撈取的資料
+              let datas = [];
+              // 整理過的事件 Data
+              const calendarEventMap = {};
+
+              /* 開團 & 投票事件撈取 */
+              function init() {
+                const groupingDatas = axios.get('https://teatimeapi-test.onrender.com/groupingDatas');
+                const votingDatas = axios.get('https://teatimeapi-test.onrender.com/votingDatas');
+
+                Promise.all([groupingDatas, votingDatas])
+                  .then(function (res) {
+                    datas = datas.concat(res[0].data)
+                    datas = datas.concat(res[1].data)
+                    createEventData()
+                  });
+              }
+
+              init();
+
+              /* 整理事件 Data，以 UID 做分類 */
+              function createEventData() {
+                datas.forEach(data => {
+                  if (!calendarEventMap[data.UID]) {
+                    calendarEventMap[data.UID] = {
+                      id: data.UID,
+                      deadlineDateTime: data.deadlineDateTime, //截止時間
+                      eventDateTime: data.eventDateTime, //享用時間
+                      initiator: data.initiator, //舉辦人
+                      invitees: data.invitees, //請客人
+                      restaurantList: data.UID.startsWith('V') ? [] : [data.restaurant],
+                      restaurantPhoto: data.restaurantPhoto,
+                      minGroupSize: data.minGroupSize,
+                      currentGroupCondition: data.currentGroupCondition,
+                      currentVotes: 0,
+                      isGroup: true
+                    };
+                  }
+
+                  if (data.UID.startsWith('V')) {
+                    calendarEventMap[data.UID].restaurantList.push(data.restaurantName);
+                    calendarEventMap[data.UID].currentVotes += data.currentVotes
+                    delete calendarEventMap[data.UID].currentGroupCondition
+                  } else {
+                    delete calendarEventMap[data.UID].currentVotes
+                  }
+                });
+
+                createEvoCalendarData()
+                console.log(calendarEventMap)
+                renderEvent()
+              }
 
 
-                    </script>
-    </body>
+              /* 建立能被 evoCalendar 讀取的格式 */
+              function createEvoCalendarData() {
+                const calendarStr = [];
+
+                for (const id in calendarEventMap) {
+                  if (calendarEventMap.hasOwnProperty(id)) {
+                    const e = calendarEventMap[id];
+                    calendarStr.push({
+                      id: e.id,
+                      date: e.deadlineDateTime,
+                      type: 'event',
+                      color: e.id[0] === 'V' ? '#F0BD68' : '#FD909F'
+                    });
+                  }
+                }
+
+                renderCalendar(calendarStr)
+              }
+
+              /* 渲染 evoCalendar */
+              function renderCalendar(calendarStr) {
+                $('#calendar').evoCalendar({
+                  'sidebarDisplayDefault': false,
+                  'sidebarToggler': true,
+                  'eventDisplayDefault': false,
+                  'eventListToggler': false,
+                  'todayHighlight': true,
+                  'calendarEvents': calendarStr
+                });
+              }
+
+
+              /* 獲得滑鼠點擊日期 */
+              $('#calendar').on('click', function (e) {
+                // 使用getActiveDate來獲取滑鼠點擊的日期
+                var active_date = $('#calendar').evoCalendar('getActiveDate');
+                // 格式化日期
+                var formatted_ActiveDate = moment(active_date, 'MM/DD/YYYY').format('YYYY/MM/DD');
+                console.log('滑鼠點擊的日期：', formatted_ActiveDate);
+                renderEvent(formatted_ActiveDate)
+              });
+
+              const calendarEvent = document.querySelector(".calendarEvent")
+
+              /* 渲染事件 */
+              function renderEvent(time = now) {
+                let tempEventList = ""
+                console.log(time) //目前被 focus的日期
+
+                const eventArray = Object.values(calendarEventMap);
+
+                const filteredEvent = eventArray.filter(item => {
+                  const dateTimeParts = item.deadlineDateTime.split(" ");
+                  const datePart = dateTimeParts[0];
+                  return datePart === time;
+                });
+
+                if (!filteredEvent.length) {
+                  tempEventList += `<li class="fs-20 text-center">目前沒有下午茶活動</li>`
+
+                } else {
+                  filteredEvent.forEach(e => {
+                    tempEventList += `<li class="cursor-pointer" data-id=${e.id} data-bs-toggle="modal" data-bs-target="#modal-VotingModal">
+                <div
+                  class="position-relative row mx-0 flex-column gy-12 gy-md-16 p-16 p-md-24 pt-56 pb-8 pb-md-16 pt-md-8 border border-brand-03 border-radius-16">
+                  <!-- 月曆卡片 title -->
+                  <div
+                    class="position-absolute d-flex align-items-end top-0 start-0 px-16 px-md-24 w-100 w-sm-75 calendar-title-translateY">
+                    <img class="me-12 me-lg-16 calendar-photo border border-2 border-brand-03 bg-white"
+                      src=${e.restaurantPhoto} alt="store-logo">
+                    <h3 class="fs-20 fs-md-24 fw-medium fw-md-bold lh-sm text-brand-03 doubleline-ellipsis">${e.restaurantList.join("、")}
+                    </h3>
+                  </div>
+                  <!-- 卡片活動類別 -->
+                  <div
+                    class="align-self-end py-4 py-md-8 order-last order-md-first ${e.id.startsWith("V") ? "bg-brand-01" : "bg-brand-02"} rounded-pill text-white text-center"
+                    style="width:80px">${e.id.startsWith("V") ? "投票中" : "開團中"}</div>
+                  <!-- 月曆卡片內容 -->
+                  <ul class="row flex-column flex-xl-row g-4 g-md-8 p-0 fs-16 fs-md-20">
+                  <!-- <ul class="row flex-column flex-md-row g-4 g-md-8 p-0 fs-16"> -->
+                    <li class="col col-xl-7">
+                      <ul class="d-flex flex-column gap-4 gap-md-8">
+                        <li>
+                          <span class="me-16">享用日期</span>
+                          <span class="me-8">${e.eventDateTime.substring(5, 10)}</span>
+                          <span>${e.eventDateTime.substring(e.eventDateTime.length - 5)}</span>
+                        </li>
+                        <li>
+                          <span class="me-16">截止時間</span>
+                          <span class="me-8">${e.deadlineDateTime.substring(5, 10)}</span>
+                          <span>${e.deadlineDateTime.substring(e.deadlineDateTime.length - 5)}</span>
+                        </li>
+                      </ul>
+                    </li>
+                    ${e.id.startsWith("V") ? "" : `<li class="d-flex align-items-center order-1 order-md-end">
+                      <span class="me-16">成團目標</span>                      
+                      <div class="progress me-4" style="width: 120px;height: 12px;">
+                          <div class="progress-bar bg-brand-02" role="progressbar" style="width:${Math.floor(e.minGroupSize / e.currentGroupCondition * 100)}%" aria-valuenow="${Math.floor(e.minGroupSize / e.currentGroupCondition * 100)}" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <span class="fs-16 text-brand-02">${Math.floor(e.minGroupSize / e.currentGroupCondition * 100) > 100 ? 100 : Math.floor(e.minGroupSize / e.currentGroupCondition * 100)}%</span>
+                    </li>`}
+                    <li class="col col-xl-5">
+                      <ul class="d-flex flex-column gap-4 gap-md-8">
+                        <li>
+                          <span class="me-16">請客人</span>
+                          <span class="me-8">${!e.invitees ? "無" : e.invitees}</span>
+                        </li>
+                        <li>
+                          <span class="me-16">發起人</span>
+                          <span class="me-8">${e.initiator}</span>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </li>`
+                  })
+                }
+
+                calendarEvent.innerHTML = tempEventList;
+              }
+            </script>
+
+            <!-- jQuery -->
+            <script>
+              /* 投票 按鈕 active 狀態切換顯示 */
+              $('.btnVoteThis').click(function (e) {
+                $('.btnVoteThis').toggleClass('active');
+              });
+            </script>
+
+
+
+
+  </body>
 
 </html>
