@@ -19,10 +19,19 @@
     background-color: $gray-04 !important;
 }
 
+.btn-hover-bg-1:hover {
+    background-color: $bg-1;
+}
+
 .btn-hover-bg-2:hover {  
       background-color: $bg-2;
 }
 
 .btn-hover-brand-01:hover {
     background-color: $brand-01;
+}
+
+.btn-hover-underline-brand-02:hover{
+    text-decoration: underline;
+    text-decoration-color: $brand-02;
 }
