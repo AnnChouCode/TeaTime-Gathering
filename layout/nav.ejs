@@ -146,7 +146,7 @@
                 <!-- switch user & admin login -->
                 <ul class="d-flex p-8 rounded-pill bg-brand-05">
                     <li class="w-50"><a
-                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 active btnSwitchIdentity"
+                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btn-active-brand-02 btnSwitchIdentity"
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
                             class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnSwitchIdentity"
@@ -277,7 +277,7 @@
 
     /* 登入會員/管理員 按鈕 active 狀態切換顯示 */
     $('.btnSwitchIdentity').click(function (e) {
-        $('.btnSwitchIdentity').toggleClass('active');
+        $('.btnSwitchIdentity').toggleClass('btn-active-brand-02');
     });
 
     /* navbar 摺疊 collapse 選單切換 active */

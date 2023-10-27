@@ -16,7 +16,7 @@
             <ul class="d-flex text-center bg-brand-05 border-radius-40">
                 <li class="text-center w-100 pt-8 pb-8 ps-8">
                     <button type="button"
-                        class="type-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 active border-0 border-radius-40">開團中</button>
+                        class="type-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 btn-active-brand-02 border-0 border-radius-40">開團中</button>
                 </li>
                 <li class="text-center w-100 pt-8 pb-8 pe-8"><button id="voting" type="button"
                         class="type-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 border-0 border-radius-40">投票中</button>
@@ -136,7 +136,7 @@
     button.forEach(btnType => {
         btnType.addEventListener('click', () => {
             button.forEach(btn => {
-                btn.classList.remove('active');
+                btn.classList.remove('btn-active-brand-02');
                 if (btnType === buttonVoting) {
                     calendarBlock.innerHTML = `<div class="col-md-6 col-xl-4 col-xxxl-3">
                 <a href="#"
@@ -342,7 +342,7 @@
             </div>`
                 }
             })
-            btnType.classList.add('active');
+            btnType.classList.add('btn-active-brand-02');
         })
     })
 </script>

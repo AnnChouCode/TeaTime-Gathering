@@ -175,3 +175,15 @@ tr.calendar-body .calendar-day {
     height: 12px;
   }
 }
+
+/* 時間選擇 Flat picker */
+.flatpickr-day.selected, .flatpickr-day.selected, .flatpickr-day.selected:hover{
+  background-color: white;
+  border-color:$gray-01;
+  color:$gray-01;
+}
+
+.flatpickr-day.today{
+  background-color: $gray-04;
+  border: none;
+}
