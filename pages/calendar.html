@@ -78,7 +78,7 @@
                       </li>
                       <li>
                         <span class="me-16">發起人</span>
-                        <span>林立杰</span>
+                        <span>黃莉琳</span>
                       </li>
                       <li>
                         <span class="me-16">請客人</span>
@@ -138,25 +138,26 @@
                       <li>
                         <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
                         <input type="datetime-local"
-                          class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04"
+                          class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
                           id="eventDateTime" name="eventDateTime" placeholder="日期" required>
                       </li>
                       <li>
                         <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
                         <input type="datetime-local"
-                          class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04"
+                          class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
                           id="deadlineDateTime" name="deadlineDateTime" placeholder="日期" required>
                       </li>
                       <li>
                         <span class="me-16 mb-16 mb-md-12">發起人</span>
-                        <span>林立杰</span>
+                        <span>黃莉琳</span>
                       </li>
                       <li>
-                        <p class="mb-16 mb-mb-12">請客人</p>
-                        <select name="invitees" class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04">
+                        <label for="votingInvitees"  class="mb-16 mb-mb-12">請客人</label>
+                        <select id="votingInvitees" name="votingInvitees" class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 select-payer">
+                          <option class="text-gray-03" value="請選擇付款人" disabled selected>請選擇付款人</option>
                           <option value="no-invitees">各自付款</option>
                           <option value="has-invitees">由我請客</option>
-                        </select>
+                        </select>              
                       </li>
                     </ul>
                     <button
@@ -186,7 +187,7 @@
             <!-- JS -->
             <script type="module" src="../main.js"></script>
 
-            <!-- calendar import-->
+            <!-- moment.js import-->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
             <!-- Axios -->
@@ -380,15 +381,19 @@
               }
             </script>
 
+            <script>
+              const btnLinkToCreateVoting = document.querySelector(".btnLinkToCreateVoting")
+              btnLinkToCreateVoting.addEventListener("click", function(){
+                window.location.href = "./createVoting.html"
+              })
+            </script>
+
             <!-- jQuery -->
             <script>
               /* 投票 按鈕 active 狀態切換顯示 */
               $('.btnVoteThis').click(function (e) {
                 $('.btnVoteThis').toggleClass('btn-active-brand-02');
               });
-
-              /* 時間選擇器 flatpickr */
-              $(".selector").flatpickr(option);
             </script>
 
             <!-- 時間選擇器 flatpickr -->

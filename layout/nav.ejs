@@ -5,7 +5,7 @@
                 <!-- nav list left -->
                 <ul class="d-lg-flex d-none gap-xxl-48 gap-16">
                     <li><a class="nav-list" href="findStore.html">點餐</a></li>
-                    <li><a class="nav-list" href="#">投票</a></li>
+                    <!-- <li><a class="nav-list" href="#">投票</a></li> -->
                     <li><a class="nav-list" href="calendar.html">訂餐月曆</a></li>
                     <li><a class="nav-list" href="#">訂單</a></li>
                 </ul>
@@ -34,9 +34,9 @@
                     </li>
                     <!-- 按鈕-使用者已登入選單 -->
                     <li class="d-none btnUserLoggedIn">
-                        <a href="#"
+                        <a href="../pages/overallSystem.html"
                             class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
-                            style="width: 44px;height: 44px;">W</a>
+                            style="width: 44px;height: 44px;">L</a>
                     </li>
                     <!-- 按鈕-登出 -->
                     <li class="d-none btnLogOut">
@@ -73,7 +73,7 @@
                     <div class="offcanvas-body d-flex flex-column justify-content-between py-24 px-12">
                         <ul class="fs-32 offcanvas-list">
                             <li><a class="p-16 fw-bold d-block" href="findStore.html">點餐</a></li>
-                            <li><a class="p-16 fw-bold d-block" href="#">投票</a></li>
+                            <!-- <li><a class="p-16 fw-bold d-block" href="#">投票</a></li> -->
                             <li><a class="p-16 fw-bold d-block" href="calendar.html">訂餐月曆</a></li>
                             <li><a class="p-16 fw-bold d-block" href="#">訂單</a></li>
                         </ul>
@@ -111,9 +111,9 @@
                             </li>
                             <!-- 按鈕-使用者已登入選單 -->
                             <li class="d-none btnUserLoggedIn">
-                                <a href="#"
+                                <a href="../pages/overallSystem.html"
                                     class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
-                                    style="width: 44px;height: 44px;">W</a>
+                                    style="width: 44px;height: 44px;">L</a>
                             </li>
                             <!-- 按鈕-登出 -->
                             <li class="d-none btnLogOut">
@@ -158,11 +158,11 @@
                         <input
                             class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginAccount"
                             type="email" id="nav-account" name="nav-account" placeholder="請輸入信箱"
-                            aria-describedby="nav-account" value="will-chen@fat-together.com" required>
+                            aria-describedby="nav-account" value="ling-huang@fat-together.com" required>
                         <input
                             class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginPassword"
                             type="password" id="nav-password" name="nav-password" placeholder="請輸入密碼"
-                            aria-describedby="nav-password" value="will-chen" required>
+                            aria-describedby="nav-password" value="ling-huang" required>
                         <div class="invalid-feedback ms-16">
                             電子郵件帳號或密碼輸入錯誤
                         </div>
@@ -315,7 +315,7 @@
             }
 
             // Login 成功條件 & 失敗
-            if (accountValue === "will-chen@fat-together.com" && passwordValue === "will-chen") {
+            if (accountValue === "ling-huang@fat-together.com" && passwordValue === "ling-huang") {
                 btnLogOut.forEach(btn => {
                     btn.classList.remove("d-none");
                 });

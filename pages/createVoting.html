@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./layout/head'); -%>
+
+    <body class="pt-64 pt-md-82">
+        <!-- loading -->
+        <%- include('./layout/loading'); -%>
+
+            <%- include('./layout/nav'); -%>
+                <div class="py-32 py-md-80 layout-content container">
+                    <!-- page title -->
+                    <h2 class="mb-16 mb-md-32 fs-24 fs-md-32 fw-bold lh-sm">請選擇 2 - 3 個參與投票的店家</h2>
+                    <!-- select list -->
+                    <div class="d-flex mb-16 mb-md-32 gap-32">
+                        <ul class="d-flex gap-4 gap-md-12 text-nowrap overflow-scroll">
+                            <li
+                                class="d-flex align-items-center py-10 px-20 py-md-12 px-md-24 gap-8 rounded-pill bg-gray-04">
+                                <span class="fs-16 fs-md-20 fw-medium">滋味冰</span>
+                                <button type="button" class="btn-close"></button>
+                            </li>
+                            <li
+                                class="d-flex align-items-center py-10 px-20 py-md-12 px-md-24 gap-8 rounded-pill bg-gray-04">
+                                <span class="fs-16 fs-md-20 fw-medium">滋味冰</span>
+                                <button type="button" class="btn-close"></button>
+                            </li>
+                            <li
+                                class="d-flex align-items-center py-10 px-20 py-md-12 px-md-24 gap-8 rounded-pill bg-gray-04">
+                                <span class="fs-16 fs-md-20 fw-medium">滋味冰</span>
+                                <button type="button" class="btn-close"></button>
+                            </li>
+                            <li
+                                class="d-flex align-items-center py-10 px-20 py-md-12 px-md-24 gap-8 rounded-pill bg-gray-04">
+                                <span class="fs-16 fs-md-20 fw-medium">滋味冰</span>
+                                <button type="button" class="btn-close"></button>
+                            </li>
+                        </ul>
+                        <!-- btn-check-list -->
+                        <button type="button"
+                            class="d-none d-sm-block py-10 px-20 py-md-12 text-nowrap fs-16 fs-md-20 fw-medium lh-sm rounded-pill text-white border-0 btn-brand-03 btn-hover-brand-01"
+                            data-bs-toggle="modal" data-bs-target="#modal-CheckList">確認選擇</button>
+                    </div>
+
+                    <!-- store list -->
+                    <div class="d-block d-md-flex justify-content-between align-items-center">
+                        <!-- search-bar  -->
+                        <div class="position-relative me-md-16">
+                            <iconify-icon class="position-absolute search-icon" icon="iconamoon:search"
+                                style="color: #8b8b8a;" width="24"></iconify-icon>
+                            <input id="autoComplete" type="search" dir="ltr" spellcheck=false autocorrect="off"
+                                autocomplete="off" autocapitalize="off"
+                                class="search-bar border border-2 border-gray-04 border-radius-28 py-10 px-16 ps-48"
+                                placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
+                        </div>
+                        <!-- select-bar -->
+                        <ul
+                            class="d-flex mt-20 mt-md-0 mb-16 mb-md-0 p-8 text-nowrap text-center bg-brand-05 rounded-pill selectBar">
+                            <li class="text-center w-100">
+                                <button type="button"
+                                    class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2 btn-active-brand-02">最新店家</button>
+                            </li>
+                            <li class="text-center w-100">
+                                <button type="button"
+                                    class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2">最高評價</button>
+                            </li>
+                            <li class="text-center w-100">
+                                <button type="button"
+                                    class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2">最低評價</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row my-24 my-md-40">
+                        <!-- 店家分類 -->
+                        <div class="col-md-2 mb-16 mb-md-0">
+                            <ul class="x-slide d-flex d-md-block gap-md-5 text-nowrap storeSort">
+                                <li>
+                                    <button
+                                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 btn-active border-radius-16 btn-hover-gray-04 actived">
+                                        <iconify-icon icon="fluent:food-24-regular" style="color: #8b8b8a;" width="32"
+                                            height="32" class="me-md-8 me-0"></iconify-icon>
+                                        <span class="fs-md-20 fs-16">全部</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onclick="filterRestaurants('速食')"
+                                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                                        <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="32"
+                                            height="32" class="me-md-8 me-0"></iconify-icon>
+                                        <span class="fs-md-20 fs-16">速食</span></button>
+                                </li>
+                                <li>
+                                    <button onclick="filterRestaurants('飲料')"
+                                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                                        <iconify-icon icon="icon-park-outline:drink" style="color: #8b8b8a;" width="32"
+                                            height="32" class="me-md-8 me-0"></iconify-icon>
+                                        <span class="fs-md-20 fs-16">飲品</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onclick="filterRestaurants('小吃')"
+                                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                                        <iconify-icon icon="ph:bowl-food" style="color: #8b8b8a;" width="32" height="32"
+                                            class="me-md-8 me-0"></iconify-icon>
+                                        <span class="fs-md-20 fs-16">小吃</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onclick="filterRestaurants('甜點')"
+                                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                                        <iconify-icon icon="material-symbols:icecream-outline-rounded"
+                                            style="color: #8b8b8a;" width="32" height="32"
+                                            class="me-md-8 me-0"></iconify-icon>
+                                        <span class="fs-md-20 fs-16">甜點</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onclick="filterRestaurants('素食')"
+                                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
+                                            icon="tabler:leaf" style="color: #8b8b8a;" width="32" height="32"
+                                            class="me-md-8 me-0"></iconify-icon>
+                                        <span class="fs-md-20 fs-16">素食</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onclick="filterRestaurants('咖啡')"
+                                        class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
+                                            icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="32"
+                                            height="32" class="me-md-8 me-0"></iconify-icon>
+                                        <span class="fs-md-20 fs-16">咖啡</span></button>
+                                </li>
+                                <li class="tab_slider"></li>
+                            </ul>
+                        </div>
+                        <!-- 店家列表 -->
+                        <div class="col-md-10 px-24 ">
+                            <ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul restaurantInfo">
+                                <li class="findStore-img position-relative "
+                                    style="background-image: url(https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-05-s.jpg?raw=true);">
+                                    <!-- select-store-checkbox -->
+                                    <label class="select-store">
+                                        <input type="checkbox" class="position-absolute select-store-checkbox"
+                                            id="selectStoreCheck" name="selectStoreCheck">
+                                        <span class="position-absolute cursor-pointer select-store-checkmark"></span>
+                                    </label>
+                                    <a href="store-order.html" class="d-flex justify-content-center w-100 h-100 ">
+                                        <!-- restaurant info -->
+                                        <div class="position-absolute d-flex justify-content-between findStore-card">
+                                            <div class="d-flex flex-column justify-content-center ">
+                                                <p class="mb-8 fs-md-20 fs-16 lh-sm text-white">滋味冰</p>
+                                                <!-- 星評 -->
+                                                <div class="d-flex ">
+                                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                                        width="16"></iconify-icon>
+                                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                                        width="16"></iconify-icon>
+                                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                                        width="16"></iconify-icon>
+                                                    <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                                                        width="16"></iconify-icon>
+                                                    <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                                                        width="16"></iconify-icon>
+                                                </div>
+                                            </div>
+                                            <!-- restaurant sort -->
+                                            <iconify-icon icon="material-symbols:icecream-outline-rounded"
+                                                style="color: #8b8b8a;" width="24" height="24"
+                                                class="findStore-card-img"></iconify-icon>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- pagination -->
+                    <nav aria-label="Page navigation" class="mb-16 mb-sm-0">
+                        <ul class="pagination justify-content-end gap-8">
+                            <li class="page-item">
+                                <a class="page-link rounded-3" href="#" aria-label="Previous">
+                                    <iconify-icon aria-hidden="true" icon="ri:arrow-left-double-line" width="16"
+                                        height="16"></iconify-icon>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link rounded-3 " href="#" aria-label="Previous">
+                                    <iconify-icon aria-hidden="true" icon="iconamoon:arrow-left-2" width="16"
+                                        height="16"></iconify-icon>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link rounded-3" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link rounded-3" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link rounded-3" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link border-0 disabled bg-transparent "
+                                    href="#">...</a>
+                            </li>
+                            <li class="page-item"><a class="page-link rounded-3" href="#">10</a></li>
+                            <li class="page-item">
+                                <a class="page-link rounded-3 " href="#" aria-label="Previous">
+                                    <iconify-icon aria-hidden="true" icon="iconamoon:arrow-right-2" width="16"
+                                        height="16"></iconify-icon>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link rounded-3" href="#" aria-label="Next">
+                                    <iconify-icon aria-hidden="true" icon="ri:arrow-right-double-line" width="16"
+                                        height="16"></iconify-icon>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- btn-check-list -->
+                    <button type="button"
+                        class="d-block d-sm-none py-10 px-20 py-md-12 text-nowrap fs-16 fw-medium lh-sm rounded-pill text-white w-100 border-0 btn-brand-03 btn-hover-brand-01"
+                        data-bs-toggle="modal" data-bs-target="#modal-CheckList">確認選擇</button>
+                </div>
+                </div>
+
+                <!-- 建立投票 Modal -->
+                <div class="modal fade" id="modal-CheckList" tabindex="-1" aria-labelledby="modal-CheckList"
+                    aria-hidden="true" data-backdrop="false">
+                    <div class="modal-dialog modal-xl modal-dialog-centered">
+                        <div class="d-flex modal-content border-radius-24">
+                            <!-- modal header -->
+                            <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
+                                <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">速食窩、飛餐、Lesiur Cafe
+                                </h3>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <!-- modal body -->
+                            <div class="modal-body d-flex flex-column flex-lg-row px-16 pb-16 px-lg-40 pb-lg-40 container">
+                                <div class="row flex-column flex-lg-row w-100">
+                                    <!-- 建立活動資訊 create voting info -->
+                                    <div class="col col-lg-4">
+                                        <ul class="d-flex flex-column gap-32 mb-32 fs-16 fs-md-20">
+                                            <li>
+                                                <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
+                                                <input type="datetime-local"
+                                                    class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
+                                                    id="eventDateTime" name="eventDateTime" placeholder="日期" required>
+                                            </li>
+                                            <li>
+                                                <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
+                                                <input type="datetime-local"
+                                                    class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
+                                                    id="deadlineDateTime" name="deadlineDateTime" placeholder="日期"
+                                                    required>
+                                            </li>
+                                            <li>
+                                                <span class="me-16 mb-16 mb-md-12">發起人</span>
+                                                <span>黃莉琳</span>
+                                            </li>
+                                            <li>
+                                                <label for="votingInvitees" class="mb-16 mb-mb-12">請客人</label>
+                                                <select id="votingInvitees" name="votingInvitees"
+                                                    class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 select-payer">
+                                                    <option class="text-gray-03" value="請選擇付款人" disabled selected>請選擇付款人
+                                                    </option>
+                                                    <option value="no-invitees">各自付款</option>
+                                                    <option value="has-invitees">由我請客</option>
+                                                </select>
+                                            </li>
+                                        </ul>
+                                        <!-- button -->
+                                        <div class="d-none d-lg-flex gap-12">
+                                            <button
+                                                class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-50 text-nowrap btnLinkToCreateVoting"
+                                                type="button" data-bs-dismiss="modal" aria-label="Close">編輯選擇</button>
+                                            <button
+                                                class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-50 text-nowrap btnLinkToCreateVoting"
+                                                type="button">建立投票</button>
+                                        </div>
+                                    </div>
+                                    <!-- 投票卡片 voting card -->
+                                    <div class="col col-lg-8">
+                                        <ul>
+                                            <li
+                                                class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                                                <img class="border-radius-32321616 votingcard-photo"
+                                                    src="../assets/images/store-logo/store-01-s.jpg" alt="store-photo">
+                                                <div>
+                                                    <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">速食窩</h4>
+                                                    <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
+                                                        我們提供多樣化的速食選項，從經典漢堡到口感豐富的薯條，讓您在匆忙時刻也能享受美味滿足。</p>
+                                                    <!-- <div class="d-flex justify-content-between flex-column flex-lg-row">
+                                                        <div class="d-flex align-items-center mb-8 mb-lg-0 ">
+                                                            <span class="me-4 me-lg-16 text-gray-02">成團目標</span>
+                                                            <div class="progress voting-progress me-4">
+                                                                <div class="progress-bar bg-brand-02" role="progressbar"
+                                                                    style="width:50%" aria-valuenow="50%"
+                                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <span class="fs-16 text-brand-02">50%</span>
+                                                        </div>
+                                                        <button
+                                                            class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
+                                                            type="button">投票</button>
+                                                    </div> -->
+                                            </li>
+                                            <li
+                                                class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                                                <img class="border-radius-32321616 votingcard-photo"
+                                                    src="../assets/images/store-logo/store-01-s.jpg" alt="store-photo">
+                                                <div>
+                                                    <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">速食窩</h4>
+                                                    <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
+                                                        我們提供多樣化的速食選項，從經典漢堡到口感豐富的薯條，讓您在匆忙時刻也能享受美味滿足。</p>
+                                                    <!-- <div class="d-flex justify-content-between flex-column flex-lg-row">
+                                                        <div class="d-flex align-items-center mb-8 mb-lg-0 ">
+                                                            <span class="me-4 me-lg-16 text-gray-02">成團目標</span>
+                                                            <div class="progress voting-progress me-4">
+                                                                <div class="progress-bar bg-brand-02" role="progressbar"
+                                                                    style="width:50%" aria-valuenow="50%"
+                                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <span class="fs-16 text-brand-02">50%</span>
+                                                        </div>
+                                                        <button
+                                                            class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
+                                                            type="button">投票</button>
+                                                    </div> -->
+                                            </li>
+                                            <li
+                                                class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                                                <img class="border-radius-32321616 votingcard-photo"
+                                                    src="../assets/images/store-logo/store-01-s.jpg" alt="store-photo">
+                                                <div>
+                                                    <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">速食窩</h4>
+                                                    <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
+                                                        我們提供多樣化的速食選項，從經典漢堡到口感豐富的薯條，讓您在匆忙時刻也能享受美味滿足。</p>
+                                                    <!-- <div class="d-flex justify-content-between flex-column flex-lg-row">
+                                                        <div class="d-flex align-items-center mb-8 mb-lg-0 ">
+                                                            <span class="me-4 me-lg-16 text-gray-02">成團目標</span>
+                                                            <div class="progress voting-progress me-4">
+                                                                <div class="progress-bar bg-brand-02" role="progressbar"
+                                                                    style="width:50%" aria-valuenow="50%"
+                                                                    aria-valuemin="0" aria-valuemax="100"></div>
+                                                            </div>
+                                                            <span class="fs-16 text-brand-02">50%</span>
+                                                        </div>
+                                                        <button
+                                                            class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
+                                                            type="button">投票</button>
+                                                    </div> -->
+                                            </li>
+                                        </ul>
+                                    </div>                                    
+                                </div>
+                                <!-- button -->
+                                <div class="d-flex gap-12 d-block d-lg-none">
+                                    <button
+                                        class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-50 btnLinkToCreateVoting"
+                                        type="button" data-bs-dismiss="modal" aria-label="Close">編輯選擇</button>
+                                    <button
+                                        class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-50 btnLinkToCreateVoting"
+                                        type="button">建立投票</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <!-- footer -->
+                <%- include('./layout/footer'); -%>
+
+                    <!-- notification -->
+                    <%- include('./layout/notification'); -%>
+
+                        <!-- ICONGIFY -->
+                        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+                        <!-- JS -->
+                        <script type="module" src="../main.js"></script>
+
+                        <!-- moment.js import-->
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+                        <!-- Axios -->
+                        <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+                        <!-- 時間選擇器 flatpickr -->
+                        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+                        <!-- Json-server -->
+                        <script>
+                            // 使用 moment 格式化日期
+                            var now = moment().format('YYYY/MM/DD');              
+                        </script>
+
+                        <!-- jQuery -->
+                        <script>
+                            /* select-bar 排序篩選按鈕 active 狀態切換顯示 */
+                            $('.selectBar button').click(function (e) {
+                                $('.selectBar button').removeClass('btn-active-brand-02');
+                                $(this).addClass('btn-active-brand-02');
+                            });
+                            $('.storeSort button').click(function (e) {
+                                $('.storeSort button').removeClass('actived');
+                                $(this).addClass('actived');
+                            });
+                        </script>
+
+                        <!-- 時間選擇器 flatpickr -->
+                        <script>
+                            config = {
+                                enableTime: true,
+                                dateFormat: "Y/m/d H:i",
+                                minuteIncrement: 15
+                            }
+
+                            flatpickr("input[type=datetime-local]", config);
+                        </script>
+
+
+    </body>
+
+</html>
