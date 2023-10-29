@@ -32,12 +32,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <!-- AOS EFFECT -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-5c83acc1.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-6f7f1873.css"> -->
-  <!-- evo calendar -->
+  <!-- 月曆 evo calendar -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-517f0a03.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-cfc0509c.css">
+  <!-- 時間選擇器 flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-405c36b8.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-f1f6d13a.css">
 </head>
   <body class="pt-64 pt-md-82">
     <!-- loading -->
@@ -127,7 +127,7 @@
                 <!-- nav list left -->
                 <ul class="d-lg-flex d-none gap-xxl-48 gap-16">
                     <li><a class="nav-list" href="findStore.html">點餐</a></li>
-                    <li><a class="nav-list" href="#">投票</a></li>
+                    <!-- <li><a class="nav-list" href="#">投票</a></li> -->
                     <li><a class="nav-list" href="calendar.html">訂餐月曆</a></li>
                     <li><a class="nav-list" href="#">訂單</a></li>
                 </ul>
@@ -156,9 +156,9 @@
                     </li>
                     <!-- 按鈕-使用者已登入選單 -->
                     <li class="d-none btnUserLoggedIn">
-                        <a href="#"
+                        <a href="../pages/overallSystem.html"
                             class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
-                            style="width: 44px;height: 44px;">W</a>
+                            style="width: 44px;height: 44px;">L</a>
                     </li>
                     <!-- 按鈕-登出 -->
                     <li class="d-none btnLogOut">
@@ -195,7 +195,7 @@
                     <div class="offcanvas-body d-flex flex-column justify-content-between py-24 px-12">
                         <ul class="fs-32 offcanvas-list">
                             <li><a class="p-16 fw-bold d-block" href="findStore.html">點餐</a></li>
-                            <li><a class="p-16 fw-bold d-block" href="#">投票</a></li>
+                            <!-- <li><a class="p-16 fw-bold d-block" href="#">投票</a></li> -->
                             <li><a class="p-16 fw-bold d-block" href="calendar.html">訂餐月曆</a></li>
                             <li><a class="p-16 fw-bold d-block" href="#">訂單</a></li>
                         </ul>
@@ -233,9 +233,9 @@
                             </li>
                             <!-- 按鈕-使用者已登入選單 -->
                             <li class="d-none btnUserLoggedIn">
-                                <a href="#"
+                                <a href="../pages/overallSystem.html"
                                     class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
-                                    style="width: 44px;height: 44px;">W</a>
+                                    style="width: 44px;height: 44px;">L</a>
                             </li>
                             <!-- 按鈕-登出 -->
                             <li class="d-none btnLogOut">
@@ -268,7 +268,7 @@
                 <!-- switch user & admin login -->
                 <ul class="d-flex p-8 rounded-pill bg-brand-05">
                     <li class="w-50"><a
-                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 active btnSwitchIdentity"
+                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btn-active-brand-02 btnSwitchIdentity"
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
                             class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnSwitchIdentity"
@@ -280,11 +280,11 @@
                         <input
                             class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginAccount"
                             type="email" id="nav-account" name="nav-account" placeholder="請輸入信箱"
-                            aria-describedby="nav-account" value="will-chen@fat-together.com" required>
+                            aria-describedby="nav-account" value="ling-huang@fat-together.com" required>
                         <input
                             class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginPassword"
                             type="password" id="nav-password" name="nav-password" placeholder="請輸入密碼"
-                            aria-describedby="nav-password" value="will-chen" required>
+                            aria-describedby="nav-password" value="ling-huang" required>
                         <div class="invalid-feedback ms-16">
                             電子郵件帳號或密碼輸入錯誤
                         </div>
@@ -399,7 +399,7 @@
 
     /* 登入會員/管理員 按鈕 active 狀態切換顯示 */
     $('.btnSwitchIdentity').click(function (e) {
-        $('.btnSwitchIdentity').toggleClass('active');
+        $('.btnSwitchIdentity').toggleClass('btn-active-brand-02');
     });
 
     /* navbar 摺疊 collapse 選單切換 active */
@@ -437,7 +437,7 @@
             }
 
             // Login 成功條件 & 失敗
-            if (accountValue === "will-chen@fat-together.com" && passwordValue === "will-chen") {
+            if (accountValue === "ling-huang@fat-together.com" && passwordValue === "ling-huang") {
                 btnLogOut.forEach(btn => {
                     btn.classList.remove("d-none");
                 });
@@ -1926,7 +1926,7 @@
               });
               // 開團中按鈕開關切換、按鈕互動外觀變化 jQuery
               $('.btnTogetherEvent').click(function (e) {
-                $(this).toggleClass('active');
+                $(this).toggleClass('btn-active-brand-02');
                 $(this).find('.text-brand-02').toggleClass('text-white');
                 $(this).find('.arrowDown').toggleClass('d-none');
                 $(this).find('.arrowUp').toggleClass('d-none');
@@ -1934,7 +1934,7 @@
               // feedback 按鈕開關切換、按鈕互動外觀變化 jQuery
               $('.btnFeedbackTogetherEvent').click(function (e) {
                 console.log('feedbackTogetherEvent');
-                $(this).toggleClass('active');
+                $(this).toggleClass('btn-active-brand-02');
                 $(this).find('.text-brand-02').toggleClass('text-white');
                 $(this).find('.arrowDown').toggleClass('d-none');
                 $(this).find('.arrowUp').toggleClass('d-none');

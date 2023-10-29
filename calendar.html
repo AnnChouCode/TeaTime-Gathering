@@ -32,12 +32,12 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <!-- AOS EFFECT -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-5c83acc1.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-6f7f1873.css"> -->
-  <!-- evo calendar -->
+  <!-- 月曆 evo calendar -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-517f0a03.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-cfc0509c.css">
+  <!-- 時間選擇器 flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-405c36b8.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-f1f6d13a.css">
 </head>
   <body class="pt-64 pt-md-82">
     <!-- loading -->
@@ -126,7 +126,7 @@
                 <!-- nav list left -->
                 <ul class="d-lg-flex d-none gap-xxl-48 gap-16">
                     <li><a class="nav-list" href="findStore.html">點餐</a></li>
-                    <li><a class="nav-list" href="#">投票</a></li>
+                    <!-- <li><a class="nav-list" href="#">投票</a></li> -->
                     <li><a class="nav-list" href="calendar.html">訂餐月曆</a></li>
                     <li><a class="nav-list" href="#">訂單</a></li>
                 </ul>
@@ -155,9 +155,9 @@
                     </li>
                     <!-- 按鈕-使用者已登入選單 -->
                     <li class="d-none btnUserLoggedIn">
-                        <a href="#"
+                        <a href="../pages/overallSystem.html"
                             class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
-                            style="width: 44px;height: 44px;">W</a>
+                            style="width: 44px;height: 44px;">L</a>
                     </li>
                     <!-- 按鈕-登出 -->
                     <li class="d-none btnLogOut">
@@ -194,7 +194,7 @@
                     <div class="offcanvas-body d-flex flex-column justify-content-between py-24 px-12">
                         <ul class="fs-32 offcanvas-list">
                             <li><a class="p-16 fw-bold d-block" href="findStore.html">點餐</a></li>
-                            <li><a class="p-16 fw-bold d-block" href="#">投票</a></li>
+                            <!-- <li><a class="p-16 fw-bold d-block" href="#">投票</a></li> -->
                             <li><a class="p-16 fw-bold d-block" href="calendar.html">訂餐月曆</a></li>
                             <li><a class="p-16 fw-bold d-block" href="#">訂單</a></li>
                         </ul>
@@ -232,9 +232,9 @@
                             </li>
                             <!-- 按鈕-使用者已登入選單 -->
                             <li class="d-none btnUserLoggedIn">
-                                <a href="#"
+                                <a href="../pages/overallSystem.html"
                                     class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
-                                    style="width: 44px;height: 44px;">W</a>
+                                    style="width: 44px;height: 44px;">L</a>
                             </li>
                             <!-- 按鈕-登出 -->
                             <li class="d-none btnLogOut">
@@ -267,7 +267,7 @@
                 <!-- switch user & admin login -->
                 <ul class="d-flex p-8 rounded-pill bg-brand-05">
                     <li class="w-50"><a
-                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 active btnSwitchIdentity"
+                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btn-active-brand-02 btnSwitchIdentity"
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
                             class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnSwitchIdentity"
@@ -279,11 +279,11 @@
                         <input
                             class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginAccount"
                             type="email" id="nav-account" name="nav-account" placeholder="請輸入信箱"
-                            aria-describedby="nav-account" value="will-chen@fat-together.com" required>
+                            aria-describedby="nav-account" value="ling-huang@fat-together.com" required>
                         <input
                             class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginPassword"
                             type="password" id="nav-password" name="nav-password" placeholder="請輸入密碼"
-                            aria-describedby="nav-password" value="will-chen" required>
+                            aria-describedby="nav-password" value="ling-huang" required>
                         <div class="invalid-feedback ms-16">
                             電子郵件帳號或密碼輸入錯誤
                         </div>
@@ -398,7 +398,7 @@
 
     /* 登入會員/管理員 按鈕 active 狀態切換顯示 */
     $('.btnSwitchIdentity').click(function (e) {
-        $('.btnSwitchIdentity').toggleClass('active');
+        $('.btnSwitchIdentity').toggleClass('btn-active-brand-02');
     });
 
     /* navbar 摺疊 collapse 選單切換 active */
@@ -436,7 +436,7 @@
             }
 
             // Login 成功條件 & 失敗
-            if (accountValue === "will-chen@fat-together.com" && passwordValue === "will-chen") {
+            if (accountValue === "ling-huang@fat-together.com" && passwordValue === "ling-huang") {
                 btnLogOut.forEach(btn => {
                     btn.classList.remove("d-none");
                 });
@@ -512,21 +512,23 @@
           </div>
         </div>
 
-        <!-- 投票 Modal -->
+        <!-- 投票檢索 & 投票 Modal -->
         <div class="modal fade" id="modal-VotingModal" tabindex="-1" aria-labelledby="modal-VotingModal"
           aria-hidden="true" data-backdrop="false">
           <div class="modal-dialog modal-xl modal-dialog-centered">
             <div class="d-flex modal-content border-radius-24">
+              <!-- modal header -->
               <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
                 <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">空姐 巴黎甜點、Leisurely Café、茶源 ChaSource
                 </h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
+              <!-- modal body -->
               <div class="modal-body d-flex px-16 pb-16 px-lg-40 pb-lg-40 container">
-                <div class="row flex-column flex-lg-row">
+                <div class="row flex-column flex-lg-row w-100">
                   <!-- 活動資訊 voting info -->
                   <div class="col col-lg-4">
-                    <ul class="d-flex flex-column gap-4 gap-md-8 mb-32 mb-lg-0">
+                    <ul class="d-flex flex-column gap-4 gap-md-8 mb-32 mb-lg-0 fs-16 fs-md-20">
                       <li>
                         <span class="me-16">享用日期</span>
                         <span class="me-8">10/10</span>
@@ -539,7 +541,7 @@
                       </li>
                       <li>
                         <span class="me-16">發起人</span>
-                        <span>林立杰</span>
+                        <span>黃莉琳</span>
                       </li>
                       <li>
                         <span class="me-16">請客人</span>
@@ -567,10 +569,67 @@
                               <span class="fs-16 text-brand-02">50%</span>
                             </div>
                             <button
-                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis">投票</button>
+                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
+                              type="button">投票</button>
                           </div>
                       </li>
                     </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 建立投票 Modal -->
+        <div class="modal fade" id="modal-CreateVoting" tabindex="-1" aria-labelledby="modal-CreateVoting"
+          aria-hidden="true" data-backdrop="false">
+          <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="d-flex modal-content border-radius-24">
+              <!-- modal header -->
+              <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
+                <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">建立投票
+                </h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <!-- modal body -->
+              <div class="modal-body d-flex px-16 pb-16 px-lg-40 pb-lg-40 container">
+                <div class="row flex-column flex-lg-row w-100">
+                  <!-- 建立活動資訊 create voting info -->
+                  <div class="col col-lg-4">
+                    <ul class="d-flex flex-column gap-32 mb-32 fs-16 fs-md-20">
+                      <li>
+                        <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
+                        <input type="datetime-local"
+                          class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
+                          id="eventDateTime" name="eventDateTime" placeholder="日期" required>
+                      </li>
+                      <li>
+                        <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
+                        <input type="datetime-local"
+                          class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
+                          id="deadlineDateTime" name="deadlineDateTime" placeholder="日期" required>
+                      </li>
+                      <li>
+                        <span class="me-16 mb-16 mb-md-12">發起人</span>
+                        <span>黃莉琳</span>
+                      </li>
+                      <li>
+                        <label for="votingInvitees"  class="mb-16 mb-mb-12">請客人</label>
+                        <select id="votingInvitees" name="votingInvitees" class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 select-payer">
+                          <option class="text-gray-03" value="請選擇付款人" disabled selected>請選擇付款人</option>
+                          <option value="no-invitees">各自付款</option>
+                          <option value="has-invitees">由我請客</option>
+                        </select>              
+                      </li>
+                    </ul>
+                    <button
+                      class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-100 btnLinkToCreateVoting"
+                      type="button">選擇店家</button>
+                  </div>
+                  <!-- 投票卡片 voting card -->
+                  <div class="col col-lg-8">
+                    <p class="fs-16 fs-md-20 text-center d-none d-lg-block">尚未選擇店家</p>
                   </div>
                 </div>
               </div>
@@ -692,13 +751,16 @@
             <!-- JS -->
             
 
-            <!-- calendar import-->
+            <!-- moment.js import-->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
             <!-- Axios -->
             <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 
-            <!-- evo-calendar -->
+            <!-- 時間選擇器 flatpickr -->
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+            <!-- 月曆 evo-calendar -->
             <script src="https://www.jsdelivr.com/package/npm/evo-calendar"></script>
             <!-- Add the evo-calendar.js for.. obviously, functionality! -->
             <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
@@ -819,11 +881,11 @@
                 });
 
                 if (!filteredEvent.length) {
-                  tempEventList += `<li class="fs-20 text-center">目前沒有下午茶活動</li>`
+                  tempEventList += `<li class="fs-16 fs-md-20 text-center">目前沒有下午茶活動</li>`
 
                 } else {
                   filteredEvent.forEach(e => {
-                    tempEventList += `<li class="cursor-pointer" data-id=${e.id} data-bs-toggle="modal" data-bs-target="#modal-VotingModal">
+                    tempEventList += `<li class="cursor-pointer" data-id=${e.id} ${e.id.startsWith("V") ? `data-bs-toggle="modal" data-bs-target="#modal-VotingModal` : ""}">
                 <div
                   class="position-relative row mx-0 flex-column gy-12 gy-md-16 p-16 p-md-24 pt-56 pb-8 pb-md-16 pt-md-8 border border-brand-03 border-radius-16">
                   <!-- 月曆卡片 title -->
@@ -840,7 +902,6 @@
                     style="width:80px">${e.id.startsWith("V") ? "投票中" : "開團中"}</div>
                   <!-- 月曆卡片內容 -->
                   <ul class="row flex-column flex-xl-row g-4 g-md-8 p-0 fs-16 fs-md-20">
-                  <!-- <ul class="row flex-column flex-md-row g-4 g-md-8 p-0 fs-16"> -->
                     <li class="col col-xl-7">
                       <ul class="d-flex flex-column gap-4 gap-md-8">
                         <li>
@@ -884,15 +945,31 @@
               }
             </script>
 
+            <script>
+              const btnLinkToCreateVoting = document.querySelector(".btnLinkToCreateVoting")
+              btnLinkToCreateVoting.addEventListener("click", function(){
+                window.location.href = "./createVoting.html"
+              })
+            </script>
+
             <!-- jQuery -->
             <script>
               /* 投票 按鈕 active 狀態切換顯示 */
               $('.btnVoteThis').click(function (e) {
-                $('.btnVoteThis').toggleClass('active');
+                $('.btnVoteThis').toggleClass('btn-active-brand-02');
               });
             </script>
 
+            <!-- 時間選擇器 flatpickr -->
+            <script>
+              config = {
+                enableTime: true,
+                dateFormat: "Y/m/d H:i",
+                minuteIncrement:15
+              }
 
+              flatpickr("input[type=datetime-local]", config);
+            </script>
 
 
   </body>
