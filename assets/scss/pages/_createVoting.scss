@@ -1,0 +1,99 @@
+.select-store {
+    /* 隱藏預設的 checkbox */
+    &-checkbox {
+        opacity: 0;
+        width: 60px;
+        height: 60px;
+        top: 0px;
+        right: 0px;
+    }
+
+    /* 當 checkbox 被點選，checkmark改變背景色 */
+    &-checkbox:checked~.select-store-checkmark {
+        background-color: $brand-02;
+    }
+
+    /* 當 checkbox 被點選，checkmark:after 改為 block 屬性 */
+    &-checkbox:checked~.select-store-checkmark:after {
+        display: block;
+    }
+
+    /* 客製 checkmark 樣式 */
+    &-checkmark {
+        top: 20px;
+        right: 20px;
+        height: 24px;
+        width: 24px;
+        background-color: white;
+        border: 2px solid $brand-02;
+        border-radius: 3px;
+
+        /* 創造勾勾樣式 */
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            top: 2px;
+            right: 6px;            
+            // 創造一個白邊框框
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            height: 12px;
+            width: 8px;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+}
+
+
+
+// .select-store {
+//     /* 隱藏預設的 checkbox */
+//     &-checkbox {
+//         opacity: 0;
+//         width: 60px;
+//         height: 60px;
+//         top: 0px;
+//         right: 0px;
+//     }
+
+//     /* 當 checkbox 被點選，checkmark改變背景色 */
+//     &-checkbox:checked~.select-store-checkmark {
+//         background-color: $brand-02;
+//     }
+
+//     /* 當 checkbox 被點選，checkmark:after 改為 block 屬性 */
+//     &-checkbox:checked+.select-store-checkmark:after {
+//         display: block;
+//     }
+
+//     /* 客製 checkmark 樣式 */
+//     &-checkmark {
+//         top: 20px;
+//         right: 20px;
+//         height: 24px;
+//         width: 24px;
+//         background-color: white;
+//         border: 2px solid $brand-02;
+//         border-radius: 3px;
+
+//         /* 創造勾勾樣式 */
+//         &:after {
+//             content: "";
+//             position: absolute;
+//             display: none;
+//             top: 2px;
+//             right: 6px;            
+//             // 創造一個白邊框框
+//             border: solid white;
+//             border-width: 0 3px 3px 0;
+//             height: 12px;
+//             width: 8px;
+//             -webkit-transform: rotate(45deg);
+//             -ms-transform: rotate(45deg);
+//             transform: rotate(45deg);
+//         }
+//     }
+// }
