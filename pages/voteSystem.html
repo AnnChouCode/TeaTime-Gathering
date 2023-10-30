@@ -110,8 +110,7 @@
     let initiatePoll = document.querySelector(".initiatePoll");
     let memberbtn = document.querySelectorAll('.memberbtn');
 
-    let votingHTML =
-        `
+    let votingHTML = `
     <li class="p-24 border-bottom border-brand-03">
                             <div class="d-flex flex-column flex-lg-row">
                                 <aside class="me-40 d-flex justify-content-between align-items-center">
@@ -123,7 +122,7 @@
                                 </aside>
 
                                 <main>
-                                    <h2 class="fs-24 fw-bold text-brand-02">茶源 ChaSource、下午喝茶</h2>
+                                    <h2 class="fs-24 fw-bold text-brand-03">茶源 ChaSource、下午喝茶</h2>
                                     <ul class="mt-12 fs-20">
                                         <li>
                                             <ul class="text-gray-02">
@@ -152,32 +151,7 @@
                             </div>
                         </li>
     `
-
-
-    window.onload = function () {
-
-        takePartVoting.innerHTML = votingHTML
-
-    }
-
-
-    memberbtn.forEach(btnType => {
-
-        btnType.addEventListener('click', () => {
-            memberbtn.forEach(btn => {
-                btn.classList.remove('memberbtn-actived');
-            })
-            btnType.classList.add('memberbtn-actived');
-
-            if (memberbtn[0] === btnType) {
-                initiatePoll.innerHTML = "";
-                takePartVoting.innerHTML =votingHTML
-            }
-            else if (memberbtn[1] === btnType) {
-                takePartVoting.innerHTML = "";
-                initiatePoll.innerHTML =
-                    `
-    <li class="p-24 border-bottom border-brand-03">
+    let initiatePollHTML = `<li class="p-24 border-bottom border-brand-03">
                             <div class="d-flex flex-column flex-lg-row  ">
                                 <aside class="me-40 d-flex justify-content-between align-items-center ">
                                     <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
@@ -188,7 +162,7 @@
                                 </aside>
 
                                 <main>
-                                    <h2 class="fs-24 fw-bold text-brand-02">茶源 ChaSource、下午喝茶</h2>
+                                    <h2 class="fs-24 fw-bold text-brand-03">茶源 ChaSource、下午喝茶</h2>
                                     <ul class="mt-12 fs-20">
                                         <li>
                                             <ul class="text-gray-02">
@@ -215,8 +189,26 @@
                                         class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">編輯投票時間</a>
                                 </span>
                             </div>
-                        </li>
-    `
+                        </li>`;
+    window.onload = function () {
+        takePartVoting.innerHTML = votingHTML
+    }
+
+    memberbtn.forEach(btnType => {
+
+        btnType.addEventListener('click', () => {
+            memberbtn.forEach(btn => {
+                btn.classList.remove('memberbtn-actived');
+            })
+            btnType.classList.add('memberbtn-actived');
+
+            if (memberbtn[0] === btnType) {
+                initiatePoll.innerHTML = "";
+                takePartVoting.innerHTML = votingHTML
+            }
+            else if (memberbtn[1] === btnType) {
+                takePartVoting.innerHTML = "";
+                initiatePoll.innerHTML =initiatePollHTML;
             }
         })
     })

@@ -35,8 +35,154 @@
 
                     <!-- 跟團中訂單 -->
 
-                    <!-- <ul>
-                        <li class="p-24 border-bottom border-brand-03">
+                    <ul class="followUpOrder">
+
+                    </ul>
+
+
+                    <!-- 發起的開團 -->
+
+                    <ul class="initiateGroup">
+                        
+                    </ul>
+
+                    <!-- 歷史訂單 -->
+
+                    <ul class="historicalOrder">
+                        
+                    </ul>
+
+
+                </div>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="memberModal" tabindex="-1" aria-labelledby="memberModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content px-20">
+                <div class="modal-header border-bottom-0 py-24">
+                    <h5 class="modal-title" id="memberModalLabel">茶源 ChaSource</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0 ">
+                    <div class="starInModal ms-auto  fs-24">
+                        <span class="star" onclick="rateStar(1)">&#9733;</span>
+                        <span class="star" onclick="rateStar(2)">&#9733;</span>
+                        <span class="star" onclick="rateStar(3)">&#9733;</span>
+                        <span class="star" onclick="rateStar(4)">&#9733;</span>
+                        <span class="star" onclick="rateStar(5)">&#9733;</span>
+                    </div>
+                    <textarea placeholder="請輸入評價"
+                        class="memberEvaluate mt-8 border-1 border-gray-04 rounded-1 w-100 bg-white text-dark "></textarea>
+                    <div class="mx-auto text-gray-02 fs-16 d-flex justify-content-end ">字數限制 100</div>
+                </div>
+                <div class="modal-footer border-top-0">
+                    <button type="button" class="btn btn-brand-03 text-white w-100">送出</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- offcanvas -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="memberOffcanvas" aria-labelledby="memberOffcanvasLabel">
+        <div class="offcanvas-header pb-0">
+            <img src="/assets/images/logo/logo-teatime.svg" alt="" width="150">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body pt-0">
+            <ul class="mt-40 fs-20 fw-bolder gap-12">
+                <li class="d-flex align-items-center ">
+                    <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
+                        width="24"></iconify-icon>
+                    <a href="orderSystem.html" class="text-gray-02">總覽</a>
+                </li>
+                </li>
+                <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
+                        icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
+                        width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">訂單管理</a></li>
+                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
+                        style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html"
+                        class="text-gray-02">投票管理</a></li>
+                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
+                        icon="material-symbols:account-box" style="color: #1e1e1e;" width="24"></iconify-icon><a
+                        href="orderSystem.html" class="text-gray-02">個人資料</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        .memberNav {
+            height: 48px;
+        }
+
+        .count {
+            width: 30px;
+            height: 30px;
+        }
+
+        .starInMember,
+        .starInModal,
+        .starInRwd {
+            color: #8B8B8A;
+            cursor: pointer;
+        }
+
+        .memberEvaluate {
+            height: 220px;
+        }
+
+        textarea:focus {
+            outline: 1px solid #C2C1BD !important;
+            /* 设置获得焦点时的边框颜色为灰色 */
+        }
+
+        .memberbtn-actived {
+            border-bottom: 4px solid #DFD3BE;
+        }
+    </style>
+
+</body>
+<script type="module" src="../main.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
+
+
+<!-- 星等評價 -->
+<script>
+    let selectedStars = 0;
+    function rateStar(star) {
+        selectedStars = star;
+        updateStars();
+    }
+
+    function updateStars() {
+        for (let i = 1; i <= 5; i++) {
+            const starInMember = document.querySelector(`.starInMember span:nth-child(${i})`);
+            const starInModal = document.querySelector(`.starInModal span:nth-child(${i})`);
+            const starInRwd = document.querySelector(`.starInRwd span:nth-child(${i})`);
+
+            if (i <= selectedStars) {
+                starInMember.style.color = "#ffd43a";
+                starInModal.style.color = "#ffd43a";
+                starInRwd.style.color = "#ffd43a";
+            } else {
+                starInMember.style.color = "#c2c1bd";
+                starInModal.style.color = "#c2c1bd";
+                starInRwd.style.color = "#c2c1bd";
+            }
+        }
+    }
+    // 畫面渲染
+    let followUpOrder = document.querySelector(".followUpOrder");
+    let initiateGroup = document.querySelector(".initiateGroup");
+    let historicalOrder = document.querySelector(".historicalOrder");
+    let memberbtn = document.querySelectorAll('.memberbtn');
+
+    let followUpHTML = `
+    <li class="p-24 border-bottom border-brand-03">
                             <div class="d-flex">
 
                                 <aside class="me-40">
@@ -123,27 +269,22 @@
                                 </main>
                             </div>
                         </li>
-                    </ul> -->
-
-
-                    <!-- 發起的開團 -->
-<!-- 
-                    <ul>
-                        <li class="p-24 border-bottom border-brand-03">
+    `;
+    let initiateGroupHTML=`<li class="p-24 border-bottom border-brand-03">
                             <div class="d-flex flex-column flex-lg-row  ">
 
                                 <aside class="me-40 d-flex justify-content-between align-items-lg-start  ">
                                     <div>
                                         <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
                                         <p
-                                        class="bg-brand-02 py-4 mt-10 ms-auto text-white d-flex justify-content-center rounded-1 ">
-                                        <span class="fw-bold fs-16">已成團</span>
-                                    </p>
-                                </div>
-                                <span class="ms-auto d-block d-lg-none">
-                                    <a href=""
-                                        class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">管理訂單</a>
-                                </span>
+                                            class="bg-brand-02 py-4 mt-10 ms-auto text-white d-flex justify-content-center rounded-1 ">
+                                            <span class="fw-bold fs-16">已成團</span>
+                                        </p>
+                                    </div>
+                                    <span class="ms-auto d-block d-lg-none">
+                                        <a href=""
+                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">管理訂單</a>
+                                    </span>
                                 </aside>
 
                                 <div>
@@ -223,13 +364,8 @@
                                 </span>
 
                             </div>
-                        </li>
-                    </ul> -->
-
-                    <!-- 歷史訂單 -->
-
-                    <ul>
-                        <li class="p-24 border-bottom border-brand-03">
+                        </li>`;
+    let historicalOrderHTML=`<li class="p-24 border-bottom border-brand-03">
                             <div class="d-flex flex-column flex-lg-row  ">
 
                                 <aside class="me-40 d-flex justify-content-between align-items-lg-start  ">
@@ -313,132 +449,11 @@
                                     </span>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
-
-
-                </div>
-        </div>
-
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="memberModal" tabindex="-1" aria-labelledby="memberModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content px-20">
-                <div class="modal-header border-bottom-0 py-24">
-                    <h5 class="modal-title" id="memberModalLabel">茶源 ChaSource</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body pt-0 ">
-                    <div class="starInModal ms-auto  fs-24">
-                        <span class="star" onclick="rateStar(1)">&#9733;</span>
-                        <span class="star" onclick="rateStar(2)">&#9733;</span>
-                        <span class="star" onclick="rateStar(3)">&#9733;</span>
-                        <span class="star" onclick="rateStar(4)">&#9733;</span>
-                        <span class="star" onclick="rateStar(5)">&#9733;</span>
-                    </div>
-                    <textarea placeholder="請輸入評價"
-                        class="memberEvaluate mt-8 border-1 border-gray-04 rounded-1 w-100 bg-white text-dark "></textarea>
-                    <div class="mx-auto text-gray-02 fs-16 d-flex justify-content-end ">字數限制 100</div>
-                </div>
-                <div class="modal-footer border-top-0">
-                    <button type="button" class="btn btn-brand-03 text-white w-100">送出</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- offcanvas -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="memberOffcanvas" aria-labelledby="memberOffcanvasLabel">
-        <div class="offcanvas-header pb-0">
-            <img src="/assets/images/logo/logo-teatime.svg" alt="" width="150">
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body pt-0">
-            <ul class="mt-40 fs-20 fw-bolder gap-12">
-                <li class="d-flex align-items-center ">
-                    <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
-                        width="24"></iconify-icon>
-                        <a href="orderSystem.html" class="text-gray-02">總覽</a></li>
-                </li>
-                <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
-                        icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
-                        width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">訂單管理</a></li>
-                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
-                        style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html" class="text-gray-02">投票管理</a></li>
-                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
-                        icon="material-symbols:account-box" style="color: #1e1e1e;"
-                        width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">個人資料</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <style>
-        .memberNav {
-            height: 48px;
-        }
-
-        .count {
-            width: 30px;
-            height: 30px;
-        }
-
-        .starInMember,
-        .starInModal,
-        .starInRwd {
-            color: #8B8B8A;
-            cursor: pointer;
-        }
-
-        .memberEvaluate {
-            height: 220px;
-        }
-
-        textarea:focus {
-            outline: 1px solid #C2C1BD !important;
-            /* 设置获得焦点时的边框颜色为灰色 */
-        }
-
-        .memberbtn-actived {
-            border-bottom: 4px solid #DFD3BE;
-        }
-    </style>
-
-</body>
-<script type="module" src="../main.js"></script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
-
-
-<!-- 星等評價 -->
-<script>
-    let selectedStars = 0;
-
-    function rateStar(star) {
-        selectedStars = star;
-        updateStars();
+                        </li>`;
+    window.onload = function () {
+        followUpOrder.innerHTML = followUpHTML
     }
 
-    function updateStars() {
-        for (let i = 1; i <= 5; i++) {
-            const starInMember = document.querySelector(`.starInMember span:nth-child(${i})`);
-            const starInModal = document.querySelector(`.starInModal span:nth-child(${i})`);
-            const starInRwd = document.querySelector(`.starInRwd span:nth-child(${i})`);
-
-            if (i <= selectedStars) {
-                starInMember.style.color = "#ffd43a";
-                starInModal.style.color = "#ffd43a";
-                starInRwd.style.color = "#ffd43a";
-            } else {
-                starInMember.style.color = "#c2c1bd";
-                starInModal.style.color = "#c2c1bd";
-                starInRwd.style.color = "#c2c1bd";
-            }
-        }
-    }
-    let memberbtn = document.querySelectorAll('.memberbtn');
     memberbtn.forEach(btnType => {
 
         btnType.addEventListener('click', () => {
@@ -447,8 +462,24 @@
             })
             btnType.classList.add('memberbtn-actived');
 
+            if (memberbtn[0] === btnType) {
+                followUpOrder.innerHTML = followUpHTML;
+                initiateGroup.innerHTML = "";
+                historicalOrder.innerHTML = "";
+            }
+            else if (memberbtn[1] === btnType) {
+                followUpOrder.innerHTML = "";
+                initiateGroup.innerHTML = initiateGroupHTML;
+                historicalOrder.innerHTML = "";
+            }
+            else if (memberbtn[2] === btnType) {
+                followUpOrder.innerHTML = "";
+                initiateGroup.innerHTML = "";
+                historicalOrder.innerHTML =historicalOrderHTML;
+            }
         })
     })
+
 
 
 </script>
