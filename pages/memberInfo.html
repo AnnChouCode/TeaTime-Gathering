@@ -33,29 +33,71 @@
                     </div>
 
                     <div class="mt-32 px-12">
-                        <form>
-                            <h3 class="fs-20 fw-bolder text-brand-03 mb-32">個人資料</h3>
-                            <div class="d-flex align-items-center mb-16">
-                                <label for="depart" class="form-label fw-bolder fs-20">部門</label>
-                                <input type="text" class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16"
-                                    id="depart" aria-describedby="depart" value="行銷部" disabled>
-                            </div>
-                            <div class="d-flex align-items-center mb-16">
-                                <label for="groups" class="form-label fw-bolder fs-20">組別</label>
-                                <input type="text" class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16"
-                                    id="groups" aria-describedby="groups" value="設計組" disabled>
-                            </div>
-                            <div class="d-flex align-items-center mb-16">
-                                <label for="emails" class="form-label fw-bolder fs-20">電子郵件</label>
-                                <input type="email" class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16"
-                                    id="emails" aria-describedby="emails" value="elliewang@fatgroup.com" disabled>
-                            </div>
 
-                        </form>
+                        <div class="row">
+
+                            <div class="col-lg-3">
+                                <div class="row">
+                                    <h3 class="fs-20 fw-bolder text-brand-03 mb-32">個人資料</h3>
+                                    <div class="col-4 mb-42 fs-20 fw-bolder ">                                     
+                                        <div class="mt-12 mb-42">部門</div>
+                                        <div class="mt-12 mb-42">組別</div>
+                                        <div class="mt-12 mb-42">電子郵件</div>
+                                    </div>
+                                    <div class="col-8 ">
+                                        <input type="text"
+                                            class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16  mb-24"
+                                            id="depart" aria-describedby="depart" value="行銷部" disabled>
+                                        <input type="text"
+                                            class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16  mb-24"
+                                            id="depart" aria-describedby="depart" value="設計組" disabled>
+                                        <input type="email"
+                                            class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16"
+                                            id="depart" aria-describedby="depart" value="elliewang@fatgroup.com"
+                                            disabled>
+
+                                    </div>
+                                    <div class="col-4"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-3">
+                                <div class="row">
+                                    <h3 class="fs-20 fw-bolder text-brand-03 mb-32">更改密碼</h3>
+                                    <div class="col-4  fs-20 fw-bolder ">
+                                        <div class="mt-12 mb-42"><label for="oldPW"
+                                                class="form-label fw-bolder fs-20 my-0">舊密碼</label></div>
+                                        <div class="mt-12 mb-42"><label for="newPW"
+                                                class="form-label fw-bolder fs-20 my-0">新密碼</label></div>
+                                        <div class="mt-12 mb-42"><label for="comfirmNewPW"
+                                                class="form-label fw-bolder fs-20 my-0">確認密碼</label></div>
+                                    </div>
+                                    <div class="col-8 ">
+                                        <input type="text"
+                                            class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16  mb-24 border "
+                                            id="oldPW" aria-describedby="depart">
+                                        <input type="text"
+                                            class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16  mb-24 border"
+                                            id="newPW" aria-describedby="depart">
+                                        <input type="email"
+                                            class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16 mb-32 border"
+                                            id="comfirmNewPW" aria-describedby="depart">
+                                        <button type="submit" class="d-none d-lg-block  btn btn-brand-03 rounded-pill px-36 py-12 text-white fw-bolder ">確認修改</button>
+                                    </div>
+
+                                </div>
+                                <div class="col-4"></div>
+                            </div>
+                            
+                        </div>
+                        <button type="submit" class="d-block d-lg-none btn btn-brand-03 rounded-pill px-36 py-12 text-white fw-bolder w-100 mb-32">確認修改</button>
+
                     </div>
 
                 </div>
+
         </div>
+    </div>
     </div>
 
     <!-- offcanvas -->
