@@ -2,8 +2,8 @@
 <html lang="en">
 
 <%- include('./layout/head'); -%>
-<!-- 時間選擇器 flatpickr -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- 時間選擇器 flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
     <body class="pt-64 pt-md-82">
         <!-- loading -->
@@ -229,7 +229,8 @@
                                     aria-label="Close"></button>
                             </div>
                             <!-- modal body -->
-                            <div class="modal-body d-flex flex-column flex-lg-row px-16 pb-16 px-lg-40 pb-lg-40 container">
+                            <div
+                                class="modal-body d-flex flex-column flex-lg-row px-16 pb-16 px-lg-40 pb-lg-40 container">
                                 <div class="row flex-column flex-lg-row w-100">
                                     <!-- 建立活動資訊 create voting info -->
                                     <div class="col col-lg-4">
@@ -345,7 +346,7 @@
                                                     </div> -->
                                             </li>
                                         </ul>
-                                    </div>                                    
+                                    </div>
                                 </div>
                                 <!-- button -->
                                 <div class="d-flex gap-12 d-block d-lg-none">
@@ -385,10 +386,15 @@
                         <!-- 時間選擇器 flatpickr -->
                         <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-                        <!-- Json-server -->
+                        <!-- 建立投票 -->
                         <script>
                             // 使用 moment 格式化日期
-                            var now = moment().format('YYYY/MM/DD');              
+                            var now = moment().format('YYYY/MM/DD');
+
+                            const eventDateTime = sessionStorage.getItem('eventDateTime');
+                            const deadlineDateTime = sessionStorage.getItem('deadlineDateTime');
+                            const votingInvitees = sessionStorage.getItem('votingInvitees');
+                            console.log(eventDateTime, deadlineDateTime, votingInvitees)
                         </script>
 
                         <!-- jQuery -->
