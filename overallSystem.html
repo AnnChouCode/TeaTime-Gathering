@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
     <title>會員管理系統-總覽</title>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-405c36b8.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-f1f6d13a.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-c914be79.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-01c4b2ad.css">
 </head>
 
 <body>
@@ -54,22 +54,23 @@
                             <ul class="row row-cols-2 row-cols-lg-4 gap-lg-24 gap-12">
                                 <li
                                     class="overall-li col d-flex flex-column align-items-center justify-content-center border border-brand-03">
-                                    <div class="mt-56 mb-40 overall-text fs-40 fw-bold">3</div>
+                                    <div class="mt-56 mb-40 overall-text fs-40 fw-bold group-order-container"></div>
                                     <div class="mb-56 fw-bolder text-gray-02 fs-20">跟團中的訂單</div>
                                 </li>
                                 <li
                                     class="overall-li col d-flex flex-column align-items-center justify-content-center border border-brand-03">
-                                    <div class="mt-56 mb-40 overall-text fs-40 fw-bold">4</div>
+                                    <div class="mt-56 mb-40 overall-text fs-40 fw-bold launched-group-container">4</div>
                                     <div class="mb-56 fw-bolder text-gray-02 fs-20">我發起的開團</div>
                                 </li>
                                 <li
                                     class="overall-li col d-flex flex-column align-items-center justify-content-center border border-brand-03">
-                                    <div class="mt-56 mb-40 overall-text fs-40 fw-bold">2</div>
+                                    <div class="mt-56 mb-40 overall-text fs-40 fw-bold participating-votes-container">2
+                                    </div>
                                     <div class="mb-56 fw-bolder text-gray-02 fs-20">參與中的投票</div>
                                 </li>
                                 <li
                                     class="overall-li col d-flex flex-column align-items-center justify-content-center border border-brand-03">
-                                    <div class="mt-56 mb-40 overall-text fs-40 fw-bold">1</div>
+                                    <div class="mt-56 mb-40 overall-text fs-40 fw-bold launched-vote-container">1</div>
                                     <div class="mb-56 fw-bolder text-gray-02 fs-20">我發起的投票</div>
                                 </li>
                             </ul>
@@ -131,125 +132,61 @@
 
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
+<!-- Axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 
 <script>
     // 顯示分類按鈕底線，並將相對應的
     let takePartVoting = document.querySelector(".takePartVoting");
-    let initiatePoll = document.querySelector(".initiatePoll");
-    let memberbtn = document.querySelectorAll('.memberbtn');
 
-    let votingHTML =
-        `
-    <li class="p-24 border-bottom border-brand-03">
-                            <div class="d-flex flex-column flex-lg-row">
-                                <aside class="me-40 d-flex justify-content-between align-items-center">
-                                    <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
-                                    <span class="ms-auto d-block d-lg-none">
-                                        <a href=""
-                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">檢視投票</a>
-                                    </span>
-                                </aside>
+    // 初步撈取的資料
+    let datas = [];
+    // 整理過的事件 Data
+    const calendarEventMap = {};
 
-                                <main>
-                                    <h2 class="fs-24 fw-bold text-brand-02">茶源 ChaSource、下午喝茶</h2>
-                                    <ul class="mt-12 fs-20">
-                                        <li>
-                                            <ul class="text-gray-02">
-                                                <li class="d-flex mb-8">
-                                                    <p>享用日期<span class="ms-16">8/12 14:30</span></p>
-                                                </li>
-                                                <li class="d-flex mb-8">
-                                                    <p>截止日期<span class="ms-16">8/12 14:30</span></p>
-                                                </li>
-                                                <li class="d-flex mb-8 d-flex align-items-center ">
-                                                    <p>成團目標</p>
-                                                    <div class="ts-progress is-small ms-16 w-50 bg-gray-04">
-                                                        <div class="bar bg-brand-02" style="--value: 80">
-                                                            <div class="text text-white">80%</div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </main>
-                                <span class="ms-auto d-none d-lg-block">
-                                    <a href=""
-                                        class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">檢視投票</a>
-                                </span>
-                            </div>
-                        </li>
-    `
+    /* 開團 & 投票事件撈取 */
+    function init() {
+        const groupingDatas = axios.get('https://teatimeapi-test.onrender.com/groupings');
+        const votingDatas = axios.get('https://teatimeapi-test.onrender.com/votings');
 
-
-    window.onload = function () {
-
-        takePartVoting.innerHTML = votingHTML
-
+        Promise.all([groupingDatas, votingDatas])
+            .then(function (res) {
+                datas = [...res[0].data, ...res[1].data];
+                // 上述為合併兩個陣列，同下兩句語法
+                // datas = datas.concat(res[0].data)
+                // datas = datas.concat(res[1].data)
+                statisticalData()
+            });
     }
+    init();
 
-
-    memberbtn.forEach(btnType => {
-
-        btnType.addEventListener('click', () => {
-            memberbtn.forEach(btn => {
-                btn.classList.remove('memberbtn-actived');
-            })
-            btnType.classList.add('memberbtn-actived');
-
-            if (memberbtn[0] === btnType) {
-                initiatePoll.innerHTML = "";
-                takePartVoting.innerHTML = votingHTML
+    function statisticalData() {
+        // 解構賦值
+        let groupOrder = 0;
+        let launchedGroup = 0;
+        let participatingVote = 0;
+        let launchedVote = 0;
+        for (let item = 0; item < datas.length; item++) {
+            const currentItem = datas[item];
+            if (currentItem.UID.startsWith("G") && currentItem.invitees === "黃莉琳") {
+                groupOrder++;
             }
-            else if (memberbtn[1] === btnType) {
-                takePartVoting.innerHTML = "";
-                initiatePoll.innerHTML =
-                    `
-    <li class="p-24 border-bottom border-brand-03">
-                            <div class="d-flex flex-column flex-lg-row  ">
-                                <aside class="me-40 d-flex justify-content-between align-items-center ">
-                                    <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
-                                    <span class="ms-auto d-block d-lg-none">
-                                        <a href=""
-                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">編輯投票時間</a>
-                                    </span>
-                                </aside>
-
-                                <main>
-                                    <h2 class="fs-24 fw-bold text-brand-02">茶源 ChaSource、下午喝茶</h2>
-                                    <ul class="mt-12 fs-20">
-                                        <li>
-                                            <ul class="text-gray-02">
-                                                <li class="d-flex mb-8">
-                                                    <p>享用日期<span class="ms-16">8/12 14:30</span></p>
-                                                </li>
-                                                <li class="d-flex mb-8">
-                                                    <p>截止日期<span class="ms-16">8/12 14:30</span></p>
-                                                </li>
-                                                <li class="d-flex mb-8 d-flex align-items-center ">
-                                                    <p>成團目標</p>
-                                                    <div class="ts-progress is-small ms-16 w-50 bg-gray-04">
-                                                        <div class="bar bg-brand-02" style="--value: 80">
-                                                            <div class="text text-white">80%</div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </main>
-                                <span class="ms-auto d-none d-lg-block">
-                                    <a href=""
-                                        class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">編輯投票時間</a>
-                                </span>
-                            </div>
-                        </li>
-    `
+            if (currentItem.UID.startsWith("G") && currentItem.initiator === "黃莉琳") {
+                launchedGroup++;
             }
-        })
-    })
-
-
+            if (currentItem.UID.startsWith("V") && currentItem.invitees === "黃莉琳") {
+                participatingVote++;
+            }
+            if (currentItem.UID.startsWith("V") && currentItem.initiator === "黃莉琳") {
+                launchedVote++;
+            }
+        }
+        // return [initiatorCount, inviteesCount]
+        document.querySelector(".group-order-container").innerHTML = groupOrder;
+        document.querySelector(".launched-group-container").innerHTML = launchedGroup;
+        document.querySelector(".participating-votes").innerHTML = participatingVotes;
+        document.querySelector(".launched-vote-container").innerHTML = launchedVote;
+    }
 
 
 </script>

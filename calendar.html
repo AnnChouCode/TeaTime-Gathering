@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="is-light">
 
 <head>
   <meta charset="UTF-8" />
@@ -31,14 +31,18 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <!-- AOS EFFECT -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- 月曆 evo calendar -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">   
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-c914be79.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-01c4b2ad.css">
+</head>  <!-- 月曆 evo calendar -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css" />
   <!-- 時間選擇器 flatpickr -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-405c36b8.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-f1f6d13a.css">
-</head>
+  <!-- 進度條 tocas progress -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
+
+
   <body class="pt-64 pt-md-82">
     <!-- loading -->
     <style>
@@ -519,8 +523,7 @@
             <div class="d-flex modal-content border-radius-24">
               <!-- modal header -->
               <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
-                <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">空姐 巴黎甜點、Leisurely Café、茶源 ChaSource
-                </h3>
+                <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium "></h3>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <!-- modal body -->
@@ -529,44 +532,43 @@
                   <!-- 活動資訊 voting info -->
                   <div class="col col-lg-4">
                     <ul class="d-flex flex-column gap-4 gap-md-8 mb-32 mb-lg-0 fs-16 fs-md-20">
-                      <li>
+                      <li class="eventDateTime">
                         <span class="me-16">享用日期</span>
-                        <span class="me-8">10/10</span>
-                        <span>14:00</span>
+                        <span class="me-8 ">00/00</span>
+                        <span>00:00</span>
                       </li>
-                      <li>
+                      <li class="deadlineDateTime">
                         <span class="me-16">截止時間</span>
-                        <span class="me-8">10/10</span>
-                        <span>14:00</span>
+                        <span class="me-8">00/00</span>
+                        <span>00:00</span>
                       </li>
                       <li>
                         <span class="me-16">發起人</span>
-                        <span>黃莉琳</span>
+                        <span class="initiator"></span>
                       </li>
                       <li>
                         <span class="me-16">請客人</span>
-                        <span>無</span>
+                        <span class="invitees"></span>
                       </li>
                     </ul>
                   </div>
                   <!-- 投票卡片 voting card -->
                   <div class="col col-lg-8">
-                    <ul>
+                    <ul class="votingCard">
                       <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
-                        <img class="border-radius-32321616 votingcard-photo"
-                          src="/TeaTime-Gathering/assets/store-01-s-e87551a1.jpg" alt="store-photo">
+                        <img class="border-radius-32321616 votingcard-photo" src="#" alt="store-photo">
                         <div>
-                          <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">速食窩</h4>
+                          <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">#</h4>
                           <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
-                            我們提供多樣化的速食選項，從經典漢堡到口感豐富的薯條，讓您在匆忙時刻也能享受美味滿足。</p>
+                            #</p>
                           <div class="d-flex justify-content-between flex-column flex-lg-row">
                             <div class="d-flex align-items-center mb-8 mb-lg-0 ">
-                              <span class="me-4 me-lg-16 text-gray-02">成團目標</span>
-                              <div class="progress voting-progress me-4">
-                                <div class="progress-bar bg-brand-02" role="progressbar" style="width:50%"
-                                  aria-valuenow="50%" aria-valuemin="0" aria-valuemax="100"></div>
+                              <span class="me-4 me-lg-16 text-gray-02 text-nowrap">成團目標</span>
+                              <div class="ts-progress is-tiny bg-gray-04 voting-progress">
+                                <div class="bar bg-brand-02" style="--value: 50">
+                                  <div class="text-white">50%</div>
+                                </div>
                               </div>
-                              <span class="fs-16 text-brand-02">50%</span>
                             </div>
                             <button
                               class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
@@ -615,12 +617,13 @@
                         <span>黃莉琳</span>
                       </li>
                       <li>
-                        <label for="votingInvitees"  class="mb-16 mb-mb-12">請客人</label>
-                        <select id="votingInvitees" name="votingInvitees" class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 select-payer">
+                        <label for="votingInvitees" class="mb-16 mb-mb-12">請客人</label>
+                        <select id="votingInvitees" name="votingInvitees"
+                          class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 select-payer">
                           <option class="text-gray-03" value="請選擇付款人" disabled selected>請選擇付款人</option>
                           <option value="no-invitees">各自付款</option>
                           <option value="has-invitees">由我請客</option>
-                        </select>              
+                        </select>
                       </li>
                     </ul>
                     <button
@@ -760,6 +763,9 @@
             <!-- 時間選擇器 flatpickr -->
             <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+            <!-- 進度條 tocas progress -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
+
             <!-- 月曆 evo-calendar -->
             <script src="https://www.jsdelivr.com/package/npm/evo-calendar"></script>
             <!-- Add the evo-calendar.js for.. obviously, functionality! -->
@@ -776,10 +782,10 @@
 
               /* 開團 & 投票事件撈取 */
               function init() {
-                const groupingDatas = axios.get('https://teatimeapi-test.onrender.com/groupingDatas');
-                const votingDatas = axios.get('https://teatimeapi-test.onrender.com/votingDatas');
+                const groupings = axios.get('https://teatimeapi-test.onrender.com/groupings?_expand=restaurant');
+                const votings = axios.get('https://teatimeapi-test.onrender.com/votings?_expand=restaurant');
 
-                Promise.all([groupingDatas, votingDatas])
+                Promise.all([groupings, votings])
                   .then(function (res) {
                     datas = datas.concat(res[0].data)
                     datas = datas.concat(res[1].data)
@@ -794,13 +800,14 @@
                 datas.forEach(data => {
                   if (!calendarEventMap[data.UID]) {
                     calendarEventMap[data.UID] = {
-                      id: data.UID,
+                      UID: data.UID,
+                      restaurantId: data.restaurantId,
                       deadlineDateTime: data.deadlineDateTime, //截止時間
                       eventDateTime: data.eventDateTime, //享用時間
                       initiator: data.initiator, //舉辦人
                       invitees: data.invitees, //請客人
-                      restaurantList: data.UID.startsWith('V') ? [] : [data.restaurant],
-                      restaurantPhoto: data.restaurantPhoto,
+                      restaurantList: data.UID.startsWith('V') ? [] : [data.restaurantName],
+                      restaurantPhoto: data.restaurant.storeCover,
                       minGroupSize: data.minGroupSize,
                       currentGroupCondition: data.currentGroupCondition,
                       currentVotes: 0,
@@ -831,10 +838,11 @@
                   if (calendarEventMap.hasOwnProperty(id)) {
                     const e = calendarEventMap[id];
                     calendarStr.push({
-                      id: e.id,
+                      id: e.UID,
+                      name: e.restaurantList.join("、"),
                       date: e.deadlineDateTime,
                       type: 'event',
-                      color: e.id[0] === 'V' ? '#F0BD68' : '#FD909F'
+                      color: e.UID[0] === 'V' ? '#F0BD68' : '#FD909F'
                     });
                   }
                 }
@@ -870,8 +878,6 @@
               /* 渲染事件 */
               function renderEvent(time = now) {
                 let tempEventList = ""
-                console.log(time) //目前被 focus的日期
-
                 const eventArray = Object.values(calendarEventMap);
 
                 const filteredEvent = eventArray.filter(item => {
@@ -885,7 +891,7 @@
 
                 } else {
                   filteredEvent.forEach(e => {
-                    tempEventList += `<li class="cursor-pointer" data-id=${e.id} ${e.id.startsWith("V") ? `data-bs-toggle="modal" data-bs-target="#modal-VotingModal` : ""}">
+                    tempEventList += `<li class="cursor-pointer" data-bs-uid=${e.UID} ${e.UID.startsWith("V") ? `data-bs-toggle="modal" data-bs-target="#modal-VotingModal` : ""}">
                 <div
                   class="position-relative row mx-0 flex-column gy-12 gy-md-16 p-16 p-md-24 pt-56 pb-8 pb-md-16 pt-md-8 border border-brand-03 border-radius-16">
                   <!-- 月曆卡片 title -->
@@ -898,8 +904,8 @@
                   </div>
                   <!-- 卡片活動類別 -->
                   <div
-                    class="align-self-end py-4 py-md-8 order-last order-md-first ${e.id.startsWith("V") ? "bg-brand-01" : "bg-brand-02"} rounded-pill text-white text-center"
-                    style="width:80px">${e.id.startsWith("V") ? "投票中" : "開團中"}</div>
+                    class="align-self-end py-4 py-md-8 order-last order-md-first ${e.UID.startsWith("V") ? "bg-brand-01" : "bg-brand-02"} rounded-pill text-white text-center"
+                    style="width:80px">${e.UID.startsWith("V") ? "投票中" : "開團中"}</div>
                   <!-- 月曆卡片內容 -->
                   <ul class="row flex-column flex-xl-row g-4 g-md-8 p-0 fs-16 fs-md-20">
                     <li class="col col-xl-7">
@@ -907,22 +913,22 @@
                         <li>
                           <span class="me-16">享用日期</span>
                           <span class="me-8">${e.eventDateTime.substring(5, 10)}</span>
-                          <span>${e.eventDateTime.substring(e.eventDateTime.length - 5)}</span>
+                          <span>${e.eventDateTime.split(" ")[1]}</span>
                         </li>
                         <li>
                           <span class="me-16">截止時間</span>
                           <span class="me-8">${e.deadlineDateTime.substring(5, 10)}</span>
-                          <span>${e.deadlineDateTime.substring(e.deadlineDateTime.length - 5)}</span>
+                          <span>${e.deadlineDateTime.split(" ")[1]}</span>
                         </li>
                       </ul>
                     </li>
-                    ${e.id.startsWith("V") ? "" : `<li class="d-flex align-items-center order-1 order-md-end">
+                    ${e.UID.startsWith("V") ? "" : `<li class="d-flex align-items-center order-1 order-md-end">
                       <span class="me-16">成團目標</span>                      
-                      <div class="progress me-4" style="width: 120px;height: 12px;">
-                          <div class="progress-bar bg-brand-02" role="progressbar" style="width:${Math.floor(e.minGroupSize / e.currentGroupCondition * 100)}%" aria-valuenow="${Math.floor(e.minGroupSize / e.currentGroupCondition * 100)}" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                      <span class="fs-16 text-brand-02">${Math.floor(e.minGroupSize / e.currentGroupCondition * 100) > 100 ? 100 : Math.floor(e.minGroupSize / e.currentGroupCondition * 100)}%</span>
-                    </li>`}
+                      <div class="ts-progress is-tiny bg-gray-04" style="width: 120px;">
+    <div class="bar bg-brand-02" style="--value: ${Math.floor(e.minGroupSize / e.currentGroupCondition * 100)}">
+        <div class="text-white">${Math.floor(e.minGroupSize / e.currentGroupCondition * 100) > 100 ? 100 : Math.floor(e.minGroupSize / e.currentGroupCondition * 100)}%</div>
+    </div>
+</div></li>`}
                     <li class="col col-xl-5">
                       <ul class="d-flex flex-column gap-4 gap-md-8">
                         <li>
@@ -945,9 +951,114 @@
               }
             </script>
 
+            <!-- 投票檢索 & 投票動作 Modal -->
+            <script>
+              const VotingModal = document.getElementById('modal-VotingModal')
+
+              // 投票 modal 資料顯示
+              VotingModal.addEventListener('show.bs.modal', function (event) {
+                const modalData = event.relatedTarget
+                var votingUID = modalData.getAttribute('data-bs-uid')
+
+                // show modalTitle
+                const modalTitle = VotingModal.querySelector('.modal-title')
+                modalTitle.textContent = calendarEventMap[votingUID].restaurantList.join("、")
+
+                // show votingInfo
+                const deadlineDateTime = document.querySelector(".deadlineDateTime")
+                const eventDateTime = document.querySelector(".eventDateTime")
+                const initiator = document.querySelector(".initiator")
+                const invitees = document.querySelector(".invitees")
+
+                deadlineDateTime.innerHTML = `<span class="me-16">享用日期</span>
+                        <span class="me-8 ">${calendarEventMap[votingUID].deadlineDateTime.substring(5, 10)}</span>
+                        <span>${calendarEventMap[votingUID].deadlineDateTime.split(" ")[1]}</span>`
+
+                eventDateTime.innerHTML = `<span class="me-16">截止時間</span>
+                          <span class="me-8">${calendarEventMap[votingUID].eventDateTime.substring(5, 10)}</span>
+                          <span>${calendarEventMap[votingUID].eventDateTime.split(" ")[1]}</span>`
+
+                initiator.textContent = calendarEventMap[votingUID].initiator
+                invitees.textContent = calendarEventMap[votingUID].invitees === "" ? "無" : calendarEventMap[votingID].invitees
+
+                //show votingCard
+                const votingCard = document.querySelector(".votingCard")
+                let votingCardData = [] //投票 modal 右側店家卡片資料
+                let cardDataTemp = ""
+
+                axios.get(`https://teatimeapi-test.onrender.com/votings?UID=${votingUID}&_expand=restaurant`)
+                  .then(function (res) {
+                    votingCardData = res.data
+                    renderVotingCard()
+                  })
+
+                function renderVotingCard() {
+                  votingCardData.forEach(data => {
+                    cardDataTemp += `
+                      <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                        <img class="border-radius-32321616 votingcard-photo" src="${data.restaurant.storeCover}">
+                        <div>
+                          <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">${data.restaurantName}</h4>
+                          <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">${data.restaurant.summary}</p>
+                          <div class="d-flex justify-content-between flex-column flex-lg-row">
+                            <div class="d-flex align-items-center mb-8 mb-lg-0 ">
+                              <span class="me-4 me-lg-16 text-gray-02 text-nowrap">成團目標</span>
+                              <div class="ts-progress is-tiny bg-gray-04 voting-progress">
+                                <div class="bar bg-brand-02" style="--value: ${Math.floor(data.currentVotes / data.minGroupSize * 100)}">
+                                  <div class="text-white">${Math.floor(data.currentVotes / data.minGroupSize * 100) > 100 ? 100 : Math.floor(data.currentVotes / data.minGroupSize * 100)}%</div>
+                                </div>
+                              </div>
+                            </div>
+                            <button
+                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
+                              type="button" data-num=${data.id}>投票</button>
+                          </div>
+                      </li>`
+                  })
+
+                  votingCard.innerHTML = cardDataTemp
+
+
+                  // btnVoteThis 投票動作
+                  const btnVoteThis = document.querySelectorAll('.btnVoteThis')
+                  btnVoteThis.forEach(btn => {
+                    btn.addEventListener('click', function () {
+                      voteThis(btn.dataset.num);
+                    });
+                  });
+
+                  function voteThis(id) {
+                    axios.get(`https://teatimeapi-test.onrender.com/votings/${id}`)
+                      .then(function (res) {
+                        const currentVotes = res.data.currentVotes;
+                        const updatedVotes = currentVotes + 1;
+
+                        axios.patch(`https://teatimeapi-test.onrender.com/votings/${id}`, {
+                          "currentVotes": updatedVotes
+                        })
+                          .then(function (patchRes) {
+                            console.log(patchRes.data);
+                          })
+                          .catch(function (error) {
+                            console.error(error);
+                          });
+                      })
+                      .catch(function (error) {
+                        console.error(error);
+                      });
+                  }
+
+
+
+                }
+
+              })              
+            </script>
+
+            <!-- btn 按鈕超連結 -->
             <script>
               const btnLinkToCreateVoting = document.querySelector(".btnLinkToCreateVoting")
-              btnLinkToCreateVoting.addEventListener("click", function(){
+              btnLinkToCreateVoting.addEventListener("click", function () {
                 window.location.href = "./createVoting.html"
               })
             </script>
@@ -965,7 +1076,7 @@
               config = {
                 enableTime: true,
                 dateFormat: "Y/m/d H:i",
-                minuteIncrement:15
+                minuteIncrement: 15
               }
 
               flatpickr("input[type=datetime-local]", config);
