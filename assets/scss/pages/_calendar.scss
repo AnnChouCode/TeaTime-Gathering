@@ -178,7 +178,7 @@ tr.calendar-body .calendar-day {
 }
 
 /* 時間選擇 Flat picker */
-.flatpickr-day.selected, .flatpickr-day.selected, .flatpickr-day.selected:hover{
+.flatpickr-day.selected, .flatpickr-day.selected, .flatpickr-day.selected.nextMonthDay, .flatpickr-day.selected.prevMonthDay, .flatpickr-day.selected:hover{
   background-color: white;
   border-color:$gray-01;
   color:$gray-01;
@@ -188,3 +188,8 @@ tr.calendar-body .calendar-day {
   background-color: $gray-04;
   border: none;
 }
+
+// .btn-votingthis-active:active{
+//     background-color: $brand-05;
+//     color: #F2F2F2;
+// }
