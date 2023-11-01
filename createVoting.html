@@ -472,6 +472,7 @@
 </script>                <div class="py-32 py-md-80 layout-content container">
                     <!-- page title -->
                     <h2 class="mb-16 mb-md-32 fs-24 fs-md-32 fw-bold lh-sm">請選擇 2 - 3 個參與投票的店家</h2>
+                    <p class="testSessionStorage"></p>
                     <!-- select list -->
                     <div class="d-flex mb-16 mb-md-32 gap-32">
                         <ul class="d-flex gap-4 gap-md-12 text-nowrap overflow-scroll">
@@ -954,7 +955,10 @@
                             const eventDateTime = sessionStorage.getItem('eventDateTime');
                             const deadlineDateTime = sessionStorage.getItem('deadlineDateTime');
                             const votingInvitees = sessionStorage.getItem('votingInvitees');
-                            console.log(eventDateTime, deadlineDateTime, votingInvitees)
+                            
+                            const testSessionStorage = document.querySelector(".testSessionStorage")
+                            testSessionStorage.textContent = `${eventDateTime},${deadlineDateTime},${votingInvitees}`
+
                         </script>
 
                         <!-- jQuery -->
