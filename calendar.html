@@ -1104,15 +1104,26 @@
                 }
               }
             })              
-          </script>          
+          </script>    
+          
+          <!-- 建立投票 create voting event -->
+          <script>
+            const eventDateTimeInput = document.getElementById("eventDateTime")
+            const deadlineDateTimeInput = document.getElementById("deadlineDateTime")
+            const votingInviteesSelect = document.getElementById("votingInvitees")
+            const modalCreateVoting = document.getElementById("modal-CreateVoting")
 
-          <!-- btn 按鈕超連結 -->
+            modalCreateVoting.addEventListener("click", e => {
+              sessionStorage.setItem('votingInvitees', votingInviteesSelect.value);
+              sessionStorage.setItem('eventDateTime', eventDateTimeInput.value);
+              sessionStorage.setItem('deadlineDateTime', deadlineDateTimeInput.value);
+            })
+          </script>
+
+          <!-- btn 建立投票 按鈕超連結 -->
           <script>
             const btnLinkToCreateVoting = document.querySelector(".btnLinkToCreateVoting")
             btnLinkToCreateVoting.addEventListener("click", function () {
-              // console.log(eventDateTimeInput.value, deadlineDateTimeInput.value, votingInviteesSelect.value)
-
-
               window.location.href = "./createVoting.html"
             })
           </script>
@@ -1127,43 +1138,11 @@
               allowInput: true,
               minDate: moment().format('YYYY/MM/DD'),
               maxDate: moment().add(1, 'months').format('YYYY/MM/DD'),
-              // onChange: function (selectDates, dateStr, instance) {
-              //   const eventDateTimeInput = document.getElementById("eventDateTime")
-              //   const deadlineDateTimeInput = document.getElementById("deadlineDateTime")
-              //   const votingInviteesSelect = document.getElementById("votingInvitees")
-
-              //   sessionStorage.setItem('eventDateTime', eventDateTimeInput.value);
-              //   sessionStorage.setItem('deadlineDateTime', deadlineDateTimeInput.value);
-              //   sessionStorage.setItem('votingInvitees', votingInviteesSelect.value);
-              // }
-              
-              // onChange: function (selectedDates, dateStr, instance) {
-              //   if (instance.input.id === 'eventDateTime') {
-              //     // 享用時間
-              //     sessionStorage.setItem('eventDateTime', moment(selectedDates[0]).format('YYYY/MM/DD HH:mm'));
-              //   } else if (instance.input.id === 'deadlineDateTime') {
-              //     // 投票截止時間
-              //     sessionStorage.setItem('deadlineDateTime', moment(selectedDates[0]).format('YYYY/MM/DD HH:mm'));
-              //   }
-              // }
             }
 
             flatpickr("input[type=text]", config);
           </script>
-
-          <!-- 建立投票 create voting event -->
-          <script>
-            const eventDateTimeInput = document.getElementById("eventDateTime")
-            const deadlineDateTimeInput = document.getElementById("deadlineDateTime")
-            const votingInviteesSelect = document.getElementById("votingInvitees")
-            const modalCreateVoting = document.getElementById("modal-CreateVoting")
-
-            modalCreateVoting.addEventListener("click", e => {
-              sessionStorage.setItem('votingInvitees', votingInviteesSelect.value);
-              sessionStorage.setItem('eventDateTime', eventDateTimeInput.value);
-              sessionStorage.setItem('deadlineDateTime', deadlineDateTimeInput.value);
-            })
-          </script>
+          
 
 </body>
 
