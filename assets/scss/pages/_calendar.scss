@@ -87,6 +87,10 @@ tr.calendar-body .calendar-day {
 .event-indicator {
   display: flex;
   top: 120%;
+
+  @media (max-width: 425px) {
+    top: 80%;
+  }
 }
 
 /* 月份選擇側邊欄 */
@@ -188,8 +192,3 @@ tr.calendar-body .calendar-day {
   background-color: $gray-04;
   border: none;
 }
-
-// .btn-votingthis-active:active{
-//     background-color: $brand-05;
-//     color: #F2F2F2;
-// }

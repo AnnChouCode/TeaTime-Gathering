@@ -92,13 +92,13 @@
         <div class="modal-dialog modal-xl modal-dialog-centered">
           <div class="d-flex modal-content border-radius-24">
             <!-- modal header -->
-            <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
+            <div class="modal-header py-16 py-lg-24 px-16 px-lg-40 border-0">
               <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium "></h3>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <!-- modal body -->
-            <div class="modal-body d-flex px-16 pb-16 px-lg-40 pb-lg-40 container">
-              <div class="row flex-column flex-lg-row w-100">
+            <div class="modal-body d-flex px-16 px-lg-40 pb-16 pt-8 pt-lg-16 pb-lg-40 container">
+              <div class="row flex-column flex-lg-row">
                 <!-- 活動資訊 voting info -->
                 <div class="col col-lg-4">
                   <ul class="d-flex flex-column gap-4 gap-md-8 mb-32 mb-lg-0 fs-16 fs-md-20">
@@ -165,22 +165,22 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <!-- modal body -->
-            <div class="modal-body d-flex px-16 pb-16 px-lg-40 pb-lg-40 container">
+            <div class="modal-body d-flex pb-16 pt-8 pt-lg-16 px-16 px-lg-40 pb-lg-40 container justify-content-center">
               <div class="row flex-column flex-lg-row w-100">
                 <!-- 建立活動資訊 create voting info -->
-                <div class="col col-lg-4">
-                  <ul class="d-flex flex-column gap-32 mb-32 fs-16 fs-md-20">
+                <div class="col col-lg-4 p-0">
+                  <ul class="d-flex flex-column gap-32 mb-12 mb-lg-32 fs-16 fs-md-20">
                     <li>
                       <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
-                      <input type="datetime-local"
+                      <input type="text"
                         class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
-                        id="eventDateTime" name="eventDateTime" placeholder="日期" required>
+                        id="eventDateTime" name="eventDateTime" placeholder="日期">
                     </li>
                     <li>
                       <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
-                      <input type="datetime-local"
+                      <input type="text"
                         class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
-                        id="deadlineDateTime" name="deadlineDateTime" placeholder="日期" required>
+                        id="deadlineDateTime" name="deadlineDateTime" placeholder="日期">
                     </li>
                     <li>
                       <span class="me-16 mb-16 mb-md-12">發起人</span>
@@ -201,8 +201,8 @@
                     type="button">選擇店家</button>
                 </div>
                 <!-- 投票卡片 voting card -->
-                <div class="col col-lg-8">
-                  <p class="fs-16 fs-md-20 text-center d-none d-lg-block">尚未選擇店家</p>
+                <div class="col col-lg-8 d-none d-lg-block">
+                  <p class="fs-16 fs-md-20 text-center">尚未選擇店家</p>
                 </div>
               </div>
             </div>
@@ -606,6 +606,7 @@
               //   sessionStorage.setItem('deadlineDateTime', deadlineDateTimeInput.value);
               //   sessionStorage.setItem('votingInvitees', votingInviteesSelect.value);
               // }
+              
               // onChange: function (selectedDates, dateStr, instance) {
               //   if (instance.input.id === 'eventDateTime') {
               //     // 享用時間
@@ -617,7 +618,7 @@
               // }
             }
 
-            flatpickr("input[type=datetime-local]", config);
+            flatpickr("input[type=text]", config);
           </script>
 
           <!-- 建立投票 create voting event -->
