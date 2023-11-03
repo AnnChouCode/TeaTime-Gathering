@@ -26,7 +26,7 @@
   box-shadow: none;
   -webkit-box-shadow: none;
   border-radius: 20px;
-  border: 1px solid #FD909F;
+  border: 1px solid $brand-02;
 }
 
 /* 日曆主體 */
@@ -38,13 +38,13 @@
 th[colspan="7"] {
   color: white;
   font-size: 20px;
-  background: #FD909F;
+  background: $brand-02;
   padding: 10px;
 
   @media (max-width: 425px) {
     background-color: white;
     padding: 70px 0 0 0;
-    color: #8B8B8A;
+    color: $gray-05;
   }
 
   &:after {
@@ -56,7 +56,7 @@ th[colspan="7"] {
 tr.calendar-header .calendar-header-day {
   padding: 24px 0 10px 0;
   font-size: 16px;
-  color: #8B8B8A;
+  color: $gray-05;
 }
 
 
@@ -68,16 +68,16 @@ tr.calendar-body .calendar-day {
     height: 35px;
     padding: 0;
     font-size: 16px;
-    color: #8B8B8A;
+    color: $gray-05;
   }
 
   /* 今日標註 */
   .day.calendar-today {
-    background-color: #F2F2F2;
+    background-color: $gray-04;
     color: #1E1E1E;
 
     &:hover {
-      background-color: #C2C1BD;
+      background-color: $gray-03;
     }
   }
 
@@ -95,12 +95,12 @@ tr.calendar-body .calendar-day {
 
 /* 月份選擇側邊欄 */
 .calendar-sidebar {
-  background: #FD909F;
-  -webkit-box-shadow: 5px 0 18px -3px #FD909F;
-  box-shadow: 5px 0 18px -3px #FD909F;
+  background: $brand-02;
+  -webkit-box-shadow: 5px 0 18px -3px $brand-02;
+  box-shadow: 5px 0 18px -3px $brand-02;
 
   >span#sidebarToggler {
-    background-color: #FD909F;
+    background-color: $brand-02;
     -webkit-box-shadow: none;
     box-shadow: none;
   }
@@ -109,7 +109,7 @@ tr.calendar-body .calendar-day {
     padding: 10px 0;
 
     @media (max-width: 425px) {
-      background-color: #FD909F;
+      background-color: $brand-02;
       padding: 12px 0;
     }
 
@@ -132,7 +132,7 @@ tr.calendar-body .calendar-day {
     height: 85%;
 
     @media (max-width: 425px) {
-      background-color: #FD909F;
+      background-color: $brand-02;
       padding: 12px 0;
     }
 
@@ -143,12 +143,12 @@ tr.calendar-body .calendar-day {
 
       >li.active-month {
         background-color: white;
-        color: #FD909F;
+        color: $brand-02;
       }
 
       >li:hover {
         background-color: white;
-        color: #FD909F;
+        color: $brand-02;
       }
     }
   }

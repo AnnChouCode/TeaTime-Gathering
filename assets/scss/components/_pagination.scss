@@ -1,0 +1,46 @@
+.paginationjs-pages ul {
+    display: flex;
+    gap: 8px;
+}
+
+.paginationjs-page a{
+    font-size: 14px;;
+}
+
+.paginationjs-prev a, .paginationjs-next a{
+    font-size: 18px;
+}
+
+.paginationjs-prev a,
+.paginationjs-page a,
+.paginationjs-next a{
+    border-radius: 8px;
+    border: 1px solid $gray-04;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.paginationjs .paginationjs-pages li>a:hover {
+    color:$gray-01;
+    background: $gray-04;
+}
+
+.paginationjs .paginationjs-pages li.active {
+    border: none;
+    background-color:$brand-01;
+    border-radius: 8px;
+    color: white;
+}
+
+.paginationjs .paginationjs-pages li.disabled>a {
+    color: $gray-03;
+    cursor: default;
+}
+
+.paginationjs .paginationjs-pages li.disabled>a:hover {
+    background: $gray-04;
+}
