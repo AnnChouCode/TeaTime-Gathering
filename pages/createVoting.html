@@ -146,8 +146,6 @@
                 </div>
                 <!-- 店家列表 -->
                 <div id="paginationContainer" class="col-md-10 px-24 ">
-                    <ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul restaurantInfo">
-                    </ul>
                 </div>
             </div>
             <!-- pagination -->
@@ -309,11 +307,12 @@
                 <!-- ICONGIFY import -->
                 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-                <!-- jQuery Import -->
-                <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-
                 <!-- 頁碼 Pagination.js import -->
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js"></script>
+
+                <!-- 搜尋 autocomplete.js-->
+                <script
+                    src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
 
                 <!-- JS -->
                 <script type="module" src="../main.js"></script>
@@ -347,7 +346,8 @@
                     // 店家排序資料                   
                     let currentFilters = {
                         category: "全部", // 初始分類
-                        sort: "" // 初始排序
+                        sort: "", // 初始排序
+                        search: "" //初始搜尋
                     };
 
                     const sortType = {
@@ -356,9 +356,10 @@
                         worstStore: "&_sort=stars&_order=asc"
                     }
 
-                    function initRestaurantData(category, sort) {
+                    function initRestaurantData(category, sort, search) {                        
                         let filterCategory = ""
                         let sortStores = ""
+                        let searchStore = ""
 
                         //初始運行頁面設置
                         if (category !== "全部" && category) {
@@ -369,7 +370,14 @@
                             sortStores = sort
                         }
 
-                        const filterAPI = `${_url}/restaurants?${filterCategory}${sortStores}`
+                        if (search){
+                            searchStore = `&storeName_like=${search}`
+                        }
+
+                        console.log(filterCategory, sortStores, searchStore);
+
+                        let filterAPI = `${_url}/restaurants?${filterCategory}${sortStores}${searchStore}`
+
                         renderRestaurantCard(filterAPI)
                     }
 
@@ -377,8 +385,19 @@
 
                     // 店家排序處理
                     function toggleFilter(filterType, value) {
-                        filterType === "category" ? currentFilters[filterType] = value : currentFilters[filterType] = sortType[value]
-                        initRestaurantData(currentFilters.category, currentFilters.sort);
+                        switch (filterType) {
+                            case "category":
+                                currentFilters[filterType] = value;
+                                break;
+                            case "search":
+                                currentFilters[filterType] = value.trim();
+                                break;
+                            default:
+                                currentFilters[filterType] = sortType[value];
+                                break;
+                        }
+
+                        initRestaurantData(currentFilters.category, currentFilters.sort, currentFilters.search);
                     }
 
 
@@ -508,6 +527,64 @@
                     }
 
                     flatpickr("input[type=text]", config);
+                </script>
+
+                <!-- 搜尋 autoComplete -->
+                <script>
+                    const autoCompleteJS = new autoComplete({
+                        data: {
+                            src: async (query) => {
+                                try {
+                                    // Fetch Data from external Source
+                                    const source = await fetch(`${_url}/restaurants`);
+                                    // Data should be an array of `Objects` or `Strings`
+                                    const data = await source.json();
+
+                                    return data;
+                                } catch (error) {
+                                    return error;
+                                }
+                            },
+                            // Data source 'Object' key to be searched
+                            keys: ["storeName"]
+                        },
+                        searchEngine: "loose",
+                        resultItem: {
+                            highlight: true
+                        },
+                        resultsList: {
+                            element: (list, data) => {
+                                if (!data.results.length) {
+                                    // Create "No Results" message element
+                                    const message = document.createElement("div");
+                                    // Add class to the created element
+                                    message.setAttribute("class", "no_result px-8");
+                                    // Add message text content
+                                    message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
+                                    // Append message element to the results list
+                                    list.prepend(message);
+                                }
+                            },
+                            noResults: true,
+                        },
+                        events: {
+                            input: {
+                                selection: (event) => {
+                                    const selectionValue = event.detail.selection.value;
+                                    autoCompleteJS.input.value = selectionValue.storeName;
+                                    console.log(selectionValue.storeName)
+                                    toggleFilter("search", selectionValue.storeName)
+                                },
+                                keydown: (event) => {
+                                    if (event.keyCode === 13) {
+                                        const searchValue = autoCompleteJS.input.value
+                                        console.log(searchValue)
+                                        toggleFilter("search", searchValue)
+                                    }
+                                }
+                            }
+                        }
+                    });
                 </script>
 
 

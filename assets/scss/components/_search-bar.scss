@@ -30,3 +30,42 @@
   /* Microsoft Edge */
   color: $gray-03;
 }
+
+.autoComplete_wrapper>ul {
+  position: absolute;
+  max-height: 226px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  left: 0;
+  right: 0;
+  margin: .5rem 0 0 0;
+  padding: 0;
+  z-index: 1;
+  list-style: none;
+  border-radius: .6rem;
+  background-color: #fff;
+  border: 1px solid rgba(33, 33, 33, .07);
+  box-shadow: 0 3px 6px rgba(149, 157, 165, .15);
+  outline: 0;
+  transition: opacity .15s ease-in-out;
+  -moz-transition: opacity .15s ease-in-out;
+  -webkit-transition: opacity .15s ease-in-out;
+}
+
+.autoComplete_wrapper>ul>li {
+  margin: 0.3rem;
+  padding: 0.3rem 0.5rem;
+  text-align: left;
+  font-size: 1rem;
+  color: #212121;
+  border-radius: 0.35rem;
+  background-color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all .2s ease;
+
+  &:hover{
+    background-color: $brand-04;
+  }
+}

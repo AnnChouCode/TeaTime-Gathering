@@ -2,9 +2,6 @@
 <html lang="en">
 
 <%- include('./layout/head'); -%>
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
-
     <body class="d-flex flex-column vh-100">
         <%- include('./layout/nav'); -%>
 
@@ -294,7 +291,7 @@
                         //autocomplete 
                         let restaurantAry = restaurantInfo.map(el => el.storeName)
                         const autoCompleteJS = new autoComplete({
-                            placeHolder: "Search for Resturant...",
+                            placeHolder: "搜尋",
                             data: {
                                 src: restaurantAry,
                                 cache: true,
