@@ -12,3 +12,56 @@
         width: calc((100% - 12px) / 2);
     }
 }
+
+// 總覽
+
+.overall-text {
+    color: #f0bd68;
+}
+
+.shopRecorder {
+    height: 204px;
+}
+
+.memberSystem-active {
+    color: black !important;
+    font-weight: bold;
+}
+
+// 投票管理頁
+
+// 訂餐管理頁
+
+.count {
+    width: 30px;
+    height: 30px;
+}
+
+.starInMember,
+.starInModal,
+.starInRwd {
+    color: #8b8b8a;
+    cursor: pointer;
+}
+
+.memberEvaluate {
+    height: 220px;
+}
+
+textarea:focus {
+    outline: 1px solid #c2c1bd !important;
+    /* 设置获得焦点时的边框颜色为灰色 */
+}
+
+.memberbtn-actived {
+    border-bottom: 4px solid #dfd3be;
+}
+
+// 個人資料
+form label {
+    width: 120px;
+}
+
+form input {
+    width: 220px !important;
+}
