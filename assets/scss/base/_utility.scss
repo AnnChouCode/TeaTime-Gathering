@@ -251,3 +251,8 @@ $utilities: map-merge(
 .transition {
   transition: all 1s;
 }
+
+  // textarea 取消預設樣式
+  .no-resize {
+    resize: none;
+  }
