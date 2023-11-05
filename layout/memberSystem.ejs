@@ -5,18 +5,39 @@
 
     <ul class="mt-20 py-24 fs-20 fw-bolder gap-12">
         <li class="d-flex align-items-center ">
-            <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
-                width="24"></iconify-icon>
-                <a href="overallSystem.html" class="text-gray-02">總覽</a></li>
+            <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;" width="24"></iconify-icon>
+            <a href="overallSystem.html" class="memberSystem-a  text-gray-02">總覽</a>
+        </li>
+
         </li>
         <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
-                icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
-                width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">訂單管理</a></li>
-        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
-                style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html" class="text-gray-02">投票管理</a></li>
-        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
-                icon="material-symbols:account-box" style="color: #1e1e1e;"
-                width="24"></iconify-icon><a href="memberInfo.html" class="text-gray-02">個人資料</a></li>
+                icon="material-symbols:order-approve-outline" style="color: #1e1e1e;" width="24"></iconify-icon><a
+                href="orderSystem.html" class="memberSystem-a  text-gray-02">訂單管理</a></li>
+        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote" style="color: #1e1e1e;"
+                width="24"></iconify-icon><a href="voteSystem.html" class="memberSystem-a text-gray-02">投票管理</a></li>
+        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="material-symbols:account-box"
+                style="color: #1e1e1e;" width="24"></iconify-icon><a href="memberInfo.html"
+                class="memberSystem-a text-gray-02">個人資料</a></li>
     </ul>
 </aside>
 
+<script>
+    let currentPageURL = window.location.href;
+    let memberSystemPage = document.querySelectorAll(".memberSystem-a");
+    if (currentPageURL.indexOf("overallSystem.html") != -1) {
+        memberSystemPage[0].classList.add("memberSystem-active")
+    } else if (currentPageURL.indexOf("orderSystem.html") != -1) {
+        memberSystemPage[1].classList.add("memberSystem-active")
+    }else if (currentPageURL.indexOf("voteSystem.html") != -1) {
+        memberSystemPage[2].classList.add("memberSystem-active")
+    }else if (currentPageURL.indexOf("memberInfo.html") != -1) {
+        memberSystemPage[3].classList.add("memberSystem-active")
+    }
+
+
+</script>
+<style>
+    .memberSystem-active {
+        color: black !important;
+    }
+</style>
