@@ -172,15 +172,16 @@
                   <ul class="d-flex flex-column gap-32 mb-12 mb-lg-32 fs-16 fs-md-20">
                     <li>
                       <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
-                      <input type="text"
-                        class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
-                        id="eventDateTime" name="eventDateTime" placeholder="日期">
+                      <input type="datetime-local"
+                        class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
+                        id="eventDateTime" name="eventDateTime" placeholder="日期" autocomplete="off">
                     </li>
                     <li>
                       <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
-                      <input type="text"
-                        class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
-                        id="deadlineDateTime" name="deadlineDateTime" placeholder="日期">
+                      <input type="datetime-local"
+                        class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
+                        id="deadlineDateTime" name="deadlineDateTime" placeholder="日期" autocomplete="off">
+                        <p class="mt-4 fs-14 d-none deadlineDateTimeAlert" style="color:#dc3545;">截止時間須至少提前於享用日期 24 時</p>
                     </li>
                     <li>
                       <span class="me-16 mb-16 mb-md-12">發起人</span>
@@ -574,8 +575,8 @@
                 }
               }
             })              
-          </script>    
-          
+          </script>
+
           <!-- 建立投票 create voting event -->
           <script>
             const eventDateTimeInput = document.getElementById("eventDateTime")
@@ -583,11 +584,23 @@
             const votingInviteesSelect = document.getElementById("votingInvitees")
             const modalCreateVoting = document.getElementById("modal-CreateVoting")
 
-            modalCreateVoting.addEventListener("click", e => {
+            modalCreateVoting.addEventListener("click", () => {
+              const selectedEventDateTime = moment(eventDateTimeInput.value,"YYYY/MM/DD HH:mm");
+              const selectedDeadlineDateTime = moment(deadlineDateTimeInput.value,"YYYY/MM/DD HH:mm");
+
+              if (selectedEventDateTime.isValid() && selectedDeadlineDateTime.isValid()) {
+                const diffInHours = selectedEventDateTime.diff(selectedDeadlineDateTime, 'hours');
+                if (diffInHours < 24) {
+                  const deadlineDateTimeAlert=document.querySelector(".deadlineDateTimeAlert").classList.toggle("d-none")
+                }else {
+                const deadlineDateTimeAlert=document.querySelector(".deadlineDateTimeAlert").classList.add("d-none")
+              }
+              } 
+
               sessionStorage.setItem('votingInvitees', votingInviteesSelect.value);
-              sessionStorage.setItem('eventDateTime', eventDateTimeInput.value);
-              sessionStorage.setItem('deadlineDateTime', deadlineDateTimeInput.value);
-            })
+              sessionStorage.setItem('eventDateTime', selectedEventDateTime);
+              sessionStorage.setItem('deadlineDateTime', selectedDeadlineDateTime);
+            });
           </script>
 
           <!-- btn 建立投票 按鈕超連結 -->
@@ -610,9 +623,9 @@
               maxDate: moment().add(1, 'months').format('YYYY/MM/DD'),
             }
 
-            flatpickr("input[type=text]", config);
+            flatpickr(".dateSelector", config);
           </script>
-          
+
 
 </body>
 
