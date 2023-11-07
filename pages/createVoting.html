@@ -356,7 +356,7 @@
                         worstStore: "&_sort=stars&_order=asc"
                     }
 
-                    function initRestaurantData(category, sort, search) {                        
+                    function initRestaurantData(category, sort, search) {
                         let filterCategory = ""
                         let sortStores = ""
                         let searchStore = ""
@@ -370,11 +370,9 @@
                             sortStores = sort
                         }
 
-                        if (search){
+                        if (search) {
                             searchStore = `&storeName_like=${search}`
                         }
-
-                        console.log(filterCategory, sortStores, searchStore);
 
                         let filterAPI = `${_url}/restaurants?${filterCategory}${sortStores}${searchStore}`
 
@@ -453,7 +451,7 @@
                                                     dataHtml += `<li class="findStore-img position-relative"            style="background-image: url(${data.storeCover});"> 
                                                         <!-- select-store-checkbox --> 
                                                         <label class="select-store">
-                                                            <input type="checkbox" class="position-absolute select-store-checkbox" name="selectStoreCheck" onclick=showUID('${data.UID}')>
+                                                            <input type="checkbox" class="position-absolute select-store-checkbox" name="selectStoreCheck">
                                                             <span class="position-absolute cursor-pointer select-store-checkmark"></span></label>
                                                             <a href="store-order.html?UID=${data.UID}" class="d-flex justify-content-center w-100 h-100 ">
                                                                 <!-- restaurant info -->
@@ -490,15 +488,25 @@
                     }
 
                     // 選定店家
-                    // 還有點怪怪的
-                    // const selectStoreList = []
+                    // 點擊第四個雖不會增加陣列，但 checkbox 仍會勾選
+                    // 若曾勾滿三個，取消勾選，陣列數量未減少
+                    const selectStoreList = []
+                    const maxChecked = 3
+
+                    const selectStoreCheckbox = document.querySelectorAll(".select-store-checkbox")
+                    selectStoreCheckbox.forEach(e=>{e.addEventListener("change", function(){console.log('hi')})})
+
                     // function showUID(UID) {
-                    //     if (selectStoreList.length < 3) {
+                    //     if (selectStoreList.length <= maxChecked) {
                     //         const checkedIndex = selectStoreList.indexOf(UID)
                     //         checkedIndex < 0 ? selectStoreList.push(UID) : selectStoreList.splice(checkedIndex, 1)
                     //     }
                     //     console.log(selectStoreList)
                     // }
+
+
+
+
                 </script>
 
                 <!-- jQuery -->
@@ -572,13 +580,11 @@
                                 selection: (event) => {
                                     const selectionValue = event.detail.selection.value;
                                     autoCompleteJS.input.value = selectionValue.storeName;
-                                    console.log(selectionValue.storeName)
                                     toggleFilter("search", selectionValue.storeName)
                                 },
                                 keydown: (event) => {
                                     if (event.keyCode === 13) {
                                         const searchValue = autoCompleteJS.input.value
-                                        console.log(searchValue)
                                         toggleFilter("search", searchValue)
                                     }
                                 }
