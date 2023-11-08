@@ -61,9 +61,9 @@
                 <div class="position-relative me-md-16">
                     <iconify-icon class="position-absolute search-icon" icon="iconamoon:search" style="color: #8b8b8a;"
                         width="24"></iconify-icon>
-                    <input id="autoComplete" type="search" dir="ltr" spellcheck=false autocorrect="off"
+                    <input id="autoComplete" type="search" spellcheck=false autocorrect="off"
                         autocomplete="off" autocapitalize="off"
-                        class="search-bar border border-2 border-gray-04 border-radius-28 py-10 px-16 ps-48"
+                        class="py-10 px-16 ps-48 border border-2 border-gray-04 border-radius-28 search-bar"
                         placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
                 </div>
                 <!-- select-bar -->
@@ -158,33 +158,36 @@
         </div>
 
         <!-- 建立投票 Modal -->
-        <div class="modal fade" id="modal-CheckList" tabindex="-1" aria-labelledby="modal-CheckList" aria-hidden="true"
-            data-backdrop="false">
+        <div class="modal fade" id="modal-CreateVoting" tabindex="-1" aria-labelledby="modal-CreateVoting"
+            aria-hidden="true" data-backdrop="false">
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="d-flex modal-content border-radius-24">
                     <!-- modal header -->
                     <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
-                        <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">速食窩、飛餐、Lesiur Cafe
+                        <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">建立投票
                         </h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <!-- modal body -->
-                    <div class="modal-body d-flex flex-column flex-lg-row px-16 py-16 px-lg-40 pb-lg-40 container">
-                        <div class="row flex-column flex-lg-row">
+                    <div
+                        class="modal-body d-flex pb-16 pt-8 pt-lg-16 px-16 px-lg-40 pb-lg-40 container justify-content-center">
+                        <div class="row flex-column flex-lg-row w-100">
                             <!-- 建立活動資訊 create voting info -->
-                            <div class="col col-lg-4">
-                                <ul class="d-flex flex-column gap-32 mb-32 fs-16 fs-md-20">
+                            <div class="col col-lg-4 p-0">
+                                <ul class="d-flex flex-column gap-32 mb-12 mb-lg-32 fs-16 fs-md-20">
                                     <li>
                                         <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
-                                        <input type="text"
-                                            class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
-                                            id="eventDateTime" name="eventDateTime" placeholder="日期" required>
+                                        <input type="datetime-local"
+                                            class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
+                                            id="eventDateTime" name="eventDateTime" placeholder="日期" autocomplete="off">
                                     </li>
                                     <li>
                                         <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
-                                        <input type="text"
-                                            class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
-                                            id="deadlineDateTime" name="deadlineDateTime" placeholder="日期" required>
+                                        <input type="datetime-local"
+                                            class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
+                                            id="deadlineDateTime" name="deadlineDateTime" placeholder="日期"  autocomplete="off">
+                                        <p class="mt-4 fs-14 d-none deadlineDateTimeAlert" style="color:#dc3545;">
+                                            截止時間須至少提前於享用日期 24 時</p>
                                     </li>
                                     <li>
                                         <span class="me-16 mb-16 mb-md-12">發起人</span>
@@ -201,96 +204,14 @@
                                         </select>
                                     </li>
                                 </ul>
-                                <!-- button -->
-                                <div class="d-none d-lg-flex gap-12">
-                                    <button
-                                        class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-50 text-nowrap btnLinkToCreateVoting"
-                                        type="button" data-bs-dismiss="modal" aria-label="Close">編輯選擇</button>
-                                    <button
-                                        class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-50 text-nowrap btnLinkToCreateVoting"
-                                        type="button">建立投票</button>
-                                </div>
+                                <button
+                                    class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-100 btnLinkToCreateVoting"
+                                    type="button">選擇店家</button>
                             </div>
                             <!-- 投票卡片 voting card -->
-                            <div class="col col-lg-8">
-                                <ul>
-                                    <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
-                                        <img class="border-radius-32321616 votingcard-photo"
-                                            src="../assets/images/store-logo/store-01-s.jpg" alt="store-photo">
-                                        <div>
-                                            <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">速食窩</h4>
-                                            <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
-                                                我們提供多樣化的速食選項，從經典漢堡到口感豐富的薯條，讓您在匆忙時刻也能享受美味滿足。</p>
-                                            <!-- <div class="d-flex justify-content-between flex-column flex-lg-row">
-                                                        <div class="d-flex align-items-center mb-8 mb-lg-0 ">
-                                                            <span class="me-4 me-lg-16 text-gray-02">成團目標</span>
-                                                            <div class="progress voting-progress me-4">
-                                                                <div class="progress-bar bg-brand-02" role="progressbar"
-                                                                    style="width:50%" aria-valuenow="50%"
-                                                                    aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                            <span class="fs-16 text-brand-02">50%</span>
-                                                        </div>
-                                                        <button
-                                                            class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
-                                                            type="button">投票</button>
-                                                    </div> -->
-                                    </li>
-                                    <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
-                                        <img class="border-radius-32321616 votingcard-photo"
-                                            src="../assets/images/store-logo/store-01-s.jpg" alt="store-photo">
-                                        <div>
-                                            <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">速食窩</h4>
-                                            <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
-                                                我們提供多樣化的速食選項，從經典漢堡到口感豐富的薯條，讓您在匆忙時刻也能享受美味滿足。</p>
-                                            <!-- <div class="d-flex justify-content-between flex-column flex-lg-row">
-                                                        <div class="d-flex align-items-center mb-8 mb-lg-0 ">
-                                                            <span class="me-4 me-lg-16 text-gray-02">成團目標</span>
-                                                            <div class="progress voting-progress me-4">
-                                                                <div class="progress-bar bg-brand-02" role="progressbar"
-                                                                    style="width:50%" aria-valuenow="50%"
-                                                                    aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                            <span class="fs-16 text-brand-02">50%</span>
-                                                        </div>
-                                                        <button
-                                                            class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
-                                                            type="button">投票</button>
-                                                    </div> -->
-                                    </li>
-                                    <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
-                                        <img class="border-radius-32321616 votingcard-photo"
-                                            src="../assets/images/store-logo/store-01-s.jpg" alt="store-photo">
-                                        <div>
-                                            <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">速食窩</h4>
-                                            <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
-                                                我們提供多樣化的速食選項，從經典漢堡到口感豐富的薯條，讓您在匆忙時刻也能享受美味滿足。</p>
-                                            <!-- <div class="d-flex justify-content-between flex-column flex-lg-row">
-                                                        <div class="d-flex align-items-center mb-8 mb-lg-0 ">
-                                                            <span class="me-4 me-lg-16 text-gray-02">成團目標</span>
-                                                            <div class="progress voting-progress me-4">
-                                                                <div class="progress-bar bg-brand-02" role="progressbar"
-                                                                    style="width:50%" aria-valuenow="50%"
-                                                                    aria-valuemin="0" aria-valuemax="100"></div>
-                                                            </div>
-                                                            <span class="fs-16 text-brand-02">50%</span>
-                                                        </div>
-                                                        <button
-                                                            class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
-                                                            type="button">投票</button>
-                                                    </div> -->
-                                    </li>
-                                </ul>
+                            <div class="col col-lg-8 d-none d-lg-block">
+                                <p class="fs-16 fs-md-20 text-center">尚未選擇店家</p>
                             </div>
-                        </div>
-                        <!-- button -->
-                        <div class="d-flex gap-12 d-block d-lg-none">
-                            <button
-                                class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-50 btnLinkToCreateVoting"
-                                type="button" data-bs-dismiss="modal" aria-label="Close">編輯選擇</button>
-                            <button
-                                class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-50 btnLinkToCreateVoting"
-                                type="button">建立投票</button>
                         </div>
                     </div>
                 </div>
@@ -356,7 +277,7 @@
                         worstStore: "&_sort=stars&_order=asc"
                     }
 
-                    function initRestaurantData(category, sort, search) {                        
+                    function initRestaurantData(category, sort, search) {
                         let filterCategory = ""
                         let sortStores = ""
                         let searchStore = ""
@@ -370,11 +291,9 @@
                             sortStores = sort
                         }
 
-                        if (search){
+                        if (search) {
                             searchStore = `&storeName_like=${search}`
                         }
-
-                        console.log(filterCategory, sortStores, searchStore);
 
                         let filterAPI = `${_url}/restaurants?${filterCategory}${sortStores}${searchStore}`
 
@@ -440,7 +359,7 @@
                                         let totalNumber = data.length; // 實際資料筆數
                                         container.pagination({
                                             dataSource: data, // 實際資料來源
-                                            locator: 'items',
+                                            // locator: '', // 如果需要抓出來源中的特定屬性再填
                                             totalNumber: totalNumber, // 實際資料總數
                                             pageSize: 8, // 每頁資料數
                                             showPageNumbers: true,
@@ -453,7 +372,7 @@
                                                     dataHtml += `<li class="findStore-img position-relative"            style="background-image: url(${data.storeCover});"> 
                                                         <!-- select-store-checkbox --> 
                                                         <label class="select-store">
-                                                            <input type="checkbox" class="position-absolute select-store-checkbox" name="selectStoreCheck" onclick=showUID('${data.UID}')>
+                                                            <input type="checkbox" class="position-absolute select-store-checkbox" name="selectStoreCheck" data-uid="${data.UID}">
                                                             <span class="position-absolute cursor-pointer select-store-checkmark"></span></label>
                                                             <a href="store-order.html?UID=${data.UID}" class="d-flex justify-content-center w-100 h-100 ">
                                                                 <!-- restaurant info -->
@@ -478,8 +397,13 @@
 
                                                 $("#paginationContainer").html(dataHtml);
                                             }
-
                                         });
+                                        const select = document.querySelectorAll(".select-store-checkbox")
+                                        select.forEach(item => {
+                                            item.addEventListener("change", function () {
+                                                selectStore(item.getAttribute("data-uid"))
+                                            })
+                                        })
                                     },
                                     error: function (error) {
                                         console.error(error);
@@ -490,15 +414,38 @@
                     }
 
                     // 選定店家
-                    // 還有點怪怪的
-                    // const selectStoreList = []
+                    // 還差第四個勾選後自動變為未勾
+
+                    const selectStoreList = []
+
+                    function selectStore(UID) {                        
+                        const maxChecked = 3
+                        const checkedIndex = selectStoreList.indexOf(UID)
+
+                        console.log(checkedIndex)
+
+                        if (selectStoreList.length >= maxChecked) {
+                            console.log(`滿`)
+                            if (checkedIndex >= 0){selectStoreList.splice(checkedIndex, 1)}
+                        } else {
+                            checkedIndex < 0 ? selectStoreList.push(UID) : selectStoreList.splice(checkedIndex, 1)
+                        }
+
+                        console.log(selectStoreList)
+                    }
+
+
                     // function showUID(UID) {
-                    //     if (selectStoreList.length < 3) {
+                    //     if (selectStoreList.length <= maxChecked) {
                     //         const checkedIndex = selectStoreList.indexOf(UID)
                     //         checkedIndex < 0 ? selectStoreList.push(UID) : selectStoreList.splice(checkedIndex, 1)
                     //     }
                     //     console.log(selectStoreList)
                     // }
+
+
+
+
                 </script>
 
                 <!-- jQuery -->
@@ -526,7 +473,7 @@
                         maxDate: moment().add(1, 'months').format('YYYY/MM/DD'),
                     }
 
-                    flatpickr("input[type=text]", config);
+                    flatpickr(".dateSelector", config);
                 </script>
 
                 <!-- 搜尋 autoComplete -->
@@ -572,13 +519,11 @@
                                 selection: (event) => {
                                     const selectionValue = event.detail.selection.value;
                                     autoCompleteJS.input.value = selectionValue.storeName;
-                                    console.log(selectionValue.storeName)
                                     toggleFilter("search", selectionValue.storeName)
                                 },
                                 keydown: (event) => {
                                     if (event.keyCode === 13) {
                                         const searchValue = autoCompleteJS.input.value
-                                        console.log(searchValue)
                                         toggleFilter("search", searchValue)
                                     }
                                 }
