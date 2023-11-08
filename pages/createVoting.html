@@ -374,9 +374,9 @@
                             searchStore = `&storeName_like=${search}`
                         }
 
-                        console.log(filterCategory, sortStores, searchStore);
-
+                        
                         let filterAPI = `${_url}/restaurants?${filterCategory}${sortStores}${searchStore}`
+                        console.log(filterAPI);
 
                         renderRestaurantCard(filterAPI)
                     }

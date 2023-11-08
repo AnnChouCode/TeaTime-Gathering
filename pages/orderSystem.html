@@ -49,7 +49,32 @@
                     <!-- 歷史訂單 -->
 
                     <ul class="historicalOrder">
+                        <div class="d-flex justify-content-between ">
 
+                            <div class="autoComplete_wrapper">
+                                <input class="border border-2 border-gray-04 border-radius-28" id="test" type="search"
+                                    dir="ltr" spellcheck=false autocorrect="off" autocomplete="off"
+                                    autocapitalize="off">
+                            </div>
+                            <ul class="d-flex">
+                                <li class="dropdown position-relative  me-8 ">
+                                    <button class="dropdown-btn bg-gray-04 text-gray-02 px-20 py-4">篩選</button>
+                                    <div class="dropdown-options first-option position-absolute">
+                                        <a href="#">已成團</a>
+                                        <a href="#">未成團</a>
+                                    </div>
+                                </li>
+                                <li class="dropdown position-relative">
+                                    <button class="dropdown-btn bg-gray-04 text-gray-02 px-20 py-4">排序</button>
+                                    <div class="dropdown-options  position-absolute ms-auto ">
+                                        <a href="#">享用日期:舊→新</a>
+                                        <a href="#">享用日期:新→舊</a>
+                                        <a href="#">成團日期:舊→新</a>
+                                        <a href="#">成團日期:新→舊</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </ul>
 
                 </div>
@@ -334,6 +359,7 @@
                             </div>
                         </li>`;
     let historicalOrderHTML = `<li class="p-24 border-bottom border-brand-03">
+
         <div class="autoComplete_wrapper">
             <input class="border border-2 border-gray-04 border-radius-28" id="test" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off">
         </div>
