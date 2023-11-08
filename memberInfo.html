@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
+    
     <title>投票管理</title>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-463b9cc0.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-caeee22d.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-f5214d54.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-76e52249.css">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/_memberSystem-583e49d0.css">
 </head>
 
 <body>
@@ -21,22 +23,42 @@
 
     <ul class="mt-20 py-24 fs-20 fw-bolder gap-12">
         <li class="d-flex align-items-center ">
-            <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
-                width="24"></iconify-icon>
-                <a href="overallSystem.html" class="text-gray-02">總覽</a></li>
+            <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;" width="24"></iconify-icon>
+            <a href="overallSystem.html" class="memberSystem-a  text-gray-02">總覽</a>
+        </li>
+
         </li>
         <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
-                icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
-                width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">訂單管理</a></li>
-        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
-                style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html" class="text-gray-02">投票管理</a></li>
-        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
-                icon="material-symbols:account-box" style="color: #1e1e1e;"
-                width="24"></iconify-icon><a href="memberInfo.html" class="text-gray-02">個人資料</a></li>
+                icon="material-symbols:order-approve-outline" style="color: #1e1e1e;" width="24"></iconify-icon><a
+                href="orderSystem.html" class="memberSystem-a  text-gray-02">訂單管理</a></li>
+        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote" style="color: #1e1e1e;"
+                width="24"></iconify-icon><a href="voteSystem.html" class="memberSystem-a text-gray-02">投票管理</a></li>
+        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="material-symbols:account-box"
+                style="color: #1e1e1e;" width="24"></iconify-icon><a href="memberInfo.html"
+                class="memberSystem-a text-gray-02">個人資料</a></li>
     </ul>
 </aside>
 
-                <!-- 右側欄位 -->
+<script>
+    let currentPageURL = window.location.href;
+    let memberSystemPage = document.querySelectorAll(".memberSystem-a");
+    if (currentPageURL.indexOf("overallSystem.html") != -1) {
+        memberSystemPage[0].classList.add("memberSystem-active")
+    } else if (currentPageURL.indexOf("orderSystem.html") != -1) {
+        memberSystemPage[1].classList.add("memberSystem-active")
+    }else if (currentPageURL.indexOf("voteSystem.html") != -1) {
+        memberSystemPage[2].classList.add("memberSystem-active")
+    }else if (currentPageURL.indexOf("memberInfo.html") != -1) {
+        memberSystemPage[3].classList.add("memberSystem-active")
+    }
+
+
+</script>
+<style>
+    .memberSystem-active {
+        color: black !important;
+    }
+</style>                <!-- 右側欄位 -->
 
                 <div class="col  pt-lg-24 px-0 px-lg-80">
                     <div
@@ -48,11 +70,11 @@
                         <iconify-icon class="ms-auto" icon="icon-park-outline:shop" width="24"
                             height="24"></iconify-icon>
                     </div>
-                    <h2 class=" fw-bold mt-32 mt-lg-64 fs-32 px-12">個人資料</h2>
+                    <h2 class=" fw-bold mt-32 mt-lg-42 fs-32 px-12">個人資料</h2>
                     <div class="mt-16 mt-lg-32 px-12 d-flex align-items-center ">
-                        <img class="border-radius-16 " src="/TeaTime-Gathering/assets/user-female-03-e3f6a75d.jpg" alt="" width="96"
-                            height="96">
-                        <div class="ms-32 fs-24 fw-bold ">王艾莉</div>
+                        <img class="rounded-5 " src="/TeaTime-Gathering/assets/user-female-03-e3f6a75d.jpg" alt="" width="220"
+                            height="220">
+                        <div class="ms-32 fs-24 fw-bold ">黃莉琳</div>
                     </div>
 
                     <div class="mt-32 px-12">
@@ -62,7 +84,7 @@
                             <div class="col-lg-3">
                                 <div class="row">
                                     <h3 class="fs-20 fw-bolder text-brand-03 mb-32">個人資料</h3>
-                                    <div class="col-4 mb-42 fs-20 fw-bolder ">                                     
+                                    <div class="col-4 mb-42 fs-20 fw-bolder ">
                                         <div class="mt-12 mb-42">部門</div>
                                         <div class="mt-12 mb-42">組別</div>
                                         <div class="mt-12 mb-42">電子郵件</div>
@@ -76,7 +98,7 @@
                                             id="depart" aria-describedby="depart" value="設計組" disabled>
                                         <input type="email"
                                             class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16"
-                                            id="depart" aria-describedby="depart" value="elliewang@fatgroup.com"
+                                            id="depart" aria-describedby="depart" value="ling-huang@fat-together.com"
                                             disabled>
 
                                     </div>
@@ -105,15 +127,17 @@
                                         <input type="email"
                                             class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16 mb-32 border"
                                             id="comfirmNewPW" aria-describedby="depart">
-                                        <button type="submit" class="d-none d-lg-block  btn btn-brand-03 rounded-pill px-36 py-12 text-white fw-bolder ">確認修改</button>
+                                        <button type="submit"
+                                            class="d-none d-lg-block  btn btn-brand-03 rounded-pill px-36 py-12 text-white fw-bolder ">確認修改</button>
                                     </div>
 
                                 </div>
                                 <div class="col-4"></div>
                             </div>
-                            
+
                         </div>
-                        <button type="submit" class="d-block d-lg-none btn btn-brand-03 rounded-pill px-36 py-12 text-white fw-bolder w-100 mb-32">確認修改</button>
+                        <button type="submit"
+                            class="d-block d-lg-none btn btn-brand-03 rounded-pill px-36 py-12 text-white fw-bolder w-100 mb-32">確認修改</button>
 
                     </div>
 
@@ -152,29 +176,10 @@
         </div>
     </div>
 
-    <style>
-        .memberNav {
-            height: 48px;
-        }
 
-        form label {
-            width: 120px;
-        }
-
-        form input {
-            width: 220px !important;
-        }
-    </style>
-
+    
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
 </body>
-
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
-
-<script>
-
-
-
-</script>
 
 </html>

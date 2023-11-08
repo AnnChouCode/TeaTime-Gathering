@@ -38,8 +38,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <!-- 進度條 tocas progress -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-463b9cc0.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-caeee22d.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/calendar-9f39c8b5.js"></script>
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-f5214d54.js">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-76e52249.css">
 </head>
 
 <body class="pt-64 pt-md-82">
@@ -175,10 +176,9 @@
                 </ul>
                 <!-- search-bar  -->
                 <div class="position-relative d-lg-none me-lg-16 ms-170">
-                    <iconify-icon class="position-absolute search-icon" icon="iconamoon:search" style="color: #8b8b8a;"
+                    <iconify-icon class="position-absolute search-icon z-1" icon="iconamoon:search" style="color: #8b8b8a;"
                         width="24"></iconify-icon>
-                    <input type="text"
-                        class="py-10 px-16 ps-48 border border-2 border-gray-04 border-radius-28 search-bar"
+                    <input type="search" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" class="py-10 px-16 ps-48 border border-2 border-gray-04 border-radius-28 search-bar"
                         placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
                 </div>
                 <!-- btn-menu -->
@@ -602,15 +602,16 @@
                   <ul class="d-flex flex-column gap-32 mb-12 mb-lg-32 fs-16 fs-md-20">
                     <li>
                       <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
-                      <input type="text"
-                        class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
-                        id="eventDateTime" name="eventDateTime" placeholder="日期">
+                      <input type="datetime-local"
+                        class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
+                        id="eventDateTime" name="eventDateTime" placeholder="日期" autocomplete="off">
                     </li>
                     <li>
                       <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
-                      <input type="text"
-                        class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16"
-                        id="deadlineDateTime" name="deadlineDateTime" placeholder="日期">
+                      <input type="datetime-local"
+                        class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
+                        id="deadlineDateTime" name="deadlineDateTime" placeholder="日期" autocomplete="off">
+                      <p class="mt-4 fs-14 d-none deadlineDateTimeAlert" style="color:#dc3545;">截止時間須至少提前於享用日期 24 時</p>
                     </li>
                     <li>
                       <span class="me-16 mb-16 mb-md-12">發起人</span>
@@ -758,7 +759,8 @@
           <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
           <!-- Axios -->
-          <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+          <!-- <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script> -->
 
           <!-- 時間選擇器 flatpickr import -->
           <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -772,354 +774,7 @@
           <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
 
           <!-- 投票頁初始頁面 render init -->
-          <script>
-            const _url = "https://teatimeapi-test.onrender.com"
-            const _user = "U004"
-
-            // 使用 moment 格式化日期
-            var now = moment().format('YYYY/MM/DD');
-            // 初步撈取的資料
-            let datas = [];
-            // 整理過的事件 Data
-            const calendarEventMap = {};
-
-            /* 開團 & 投票事件撈取 */
-            function init() {
-              const groupings = axios.get(`${_url}/groupings?_expand=restaurant`);
-              const votings = axios.get(`${_url}/votings?_expand=restaurant`);
-
-              Promise.all([groupings, votings])
-                .then(function (res) {
-                  datas = datas.concat(res[0].data)
-                  datas = datas.concat(res[1].data)
-                  createEventData()
-                }).catch(function (error) {
-                  console.error(error);
-                });
-            }
-
-            init();
-
-            /* 整理事件 Data，以 UID 做分類 */
-            function createEventData() {
-              datas.forEach(data => {
-                if (!calendarEventMap[data.UID]) {
-                  calendarEventMap[data.UID] = {
-                    UID: data.UID,
-                    restaurantId: data.restaurantId,
-                    deadlineDateTime: data.deadlineDateTime, //截止時間
-                    eventDateTime: data.eventDateTime, //享用時間
-                    initiator: data.initiator, //舉辦人
-                    invitees: data.invitees, //請客人
-                    restaurantList: data.UID.startsWith('V') ? [] : [data.restaurantName],
-                    restaurantPhoto: data.restaurant.storeCover,
-                    minGroupSize: data.restaurant.minGroupSize, //最小成團數
-                    currentGroupCondition: data.currentGroupCondition, //目前點餐人數
-                    // currentVotes: 0,
-                    // isGroup: true
-                  };
-                }
-
-                if (data.UID.startsWith('V')) {
-                  calendarEventMap[data.UID].restaurantList.push(data.restaurantName);
-                  // calendarEventMap[data.UID].currentVotes += data.currentVotes
-                  delete calendarEventMap[data.UID].currentGroupCondition
-                  delete calendarEventMap[data.UID].minGroupSize
-                }
-                // else {
-                //   delete calendarEventMap[data.UID].currentVotes
-                // }
-              });
-
-              createEvoCalendarData()
-              console.log(calendarEventMap)
-              renderEvent()
-            }
-
-
-            /* 建立能被 evoCalendar 讀取的格式 */
-            function createEvoCalendarData() {
-              const calendarStr = [];
-
-              for (const id in calendarEventMap) {
-                if (calendarEventMap.hasOwnProperty(id)) {
-                  const e = calendarEventMap[id];
-                  calendarStr.push({
-                    id: e.UID,
-                    name: e.restaurantList.join("、"),
-                    date: e.deadlineDateTime,
-                    type: 'event',
-                    color: e.UID[0] === 'V' ? '#F0BD68' : '#FD909F'
-                  });
-                }
-              }
-
-              renderCalendar(calendarStr)
-            }
-
-            /* 渲染 evoCalendar */
-            function renderCalendar(calendarStr) {
-              $('#calendar').evoCalendar({
-                'sidebarDisplayDefault': false,
-                'sidebarToggler': true,
-                'eventDisplayDefault': false,
-                'eventListToggler': false,
-                'todayHighlight': true,
-                'calendarEvents': calendarStr
-              });
-            }
-
-
-            /* 獲得滑鼠點擊日期 */
-            $('#calendar').on('click', function (e) {
-              // 使用getActiveDate來獲取滑鼠點擊的日期
-              const active_date = $('#calendar').evoCalendar('getActiveDate');
-              // 格式化日期
-              const formatted_ActiveDate = moment(active_date, 'MM/DD/YYYY').format('YYYY/MM/DD');
-              console.log('滑鼠點擊的日期：', formatted_ActiveDate);
-              renderEvent(formatted_ActiveDate)
-            });
-
-            const calendarEvent = document.querySelector(".calendarEvent")
-
-            /* 渲染活動卡片事件 */
-            function renderEvent(time = now) {
-              let tempEventList = ""
-              const eventArray = Object.values(calendarEventMap);
-
-              const filteredEvent = eventArray.filter(item => {
-                const dateTimeParts = item.deadlineDateTime.split(" ");
-                const datePart = dateTimeParts[0];
-                return datePart === time;
-              });
-
-              if (!filteredEvent.length) {
-                tempEventList += `<li class="fs-16 fs-md-20 text-center">目前沒有下午茶活動</li>`
-
-              } else {
-                filteredEvent.forEach(e => {
-                  tempEventList += `<li ${e.UID.startsWith("V") ? `class="cursor-pointer" data-bs-votingUID=${e.UID} data-bs-toggle="modal" data-bs-target="#modal-VotingModal"` : `data-groupingUID=${e.UID}`}>
-                    ${e.UID.startsWith("V") ? "" : `<a href="store-order.html?UID=${e.UID}">`}
-                <div
-                  class="position-relative row mx-0 flex-column gy-12 gy-md-16 p-16 p-md-24 pt-56 pb-8 pb-md-16 pt-md-8 border border-brand-03 border-radius-16">
-                  <!-- 月曆卡片 title -->
-                  <div
-                    class="position-absolute d-flex align-items-end top-0 start-0 px-16 px-md-24 w-100 w-sm-75 calendar-title-translateY">
-                    <img class="me-12 me-lg-16 calendar-photo border border-2 border-brand-03 bg-white"
-                      src=${e.restaurantPhoto} alt="store-logo">
-                    <h3 class="fs-20 fs-md-24 fw-medium fw-md-bold lh-sm text-brand-03 doubleline-ellipsis">${e.restaurantList.join("、")}
-                    </h3>
-                  </div>
-                  <!-- 卡片活動類別 -->
-                  <div
-                    class="align-self-end py-4 py-md-8 order-last order-md-first ${e.UID.startsWith("V") ? "bg-brand-01" : "bg-brand-02"} rounded-pill text-white text-center"
-                    style="width:80px">${e.UID.startsWith("V") ? "投票中" : "開團中"}</div>
-                  <!-- 月曆卡片內容 -->
-                  <ul class="row flex-column flex-xl-row g-4 g-md-8 p-0 fs-16 fs-md-20">
-                    <li class="col col-xl-7">
-                      <ul class="d-flex flex-column gap-4 gap-md-8">
-                        <li>
-                          <span class="me-16">享用日期</span>
-                          <span class="me-8">${e.eventDateTime.substring(5, 10)}</span>
-                          <span>${e.eventDateTime.split(" ")[1]}</span>
-                        </li>
-                        <li>
-                          <span class="me-16">截止時間</span>
-                          <span class="me-8">${e.deadlineDateTime.substring(5, 10)}</span>
-                          <span>${e.deadlineDateTime.split(" ")[1]}</span>
-                        </li>
-                      </ul>
-                    </li>
-                    ${e.UID.startsWith("V") ? "" : `<li class="d-flex align-items-center order-1 order-md-end">
-                      <span class="me-16">成團目標</span>                      
-                      <div class="ts-progress is-tiny bg-gray-04" style="width: 120px;">
-    <div class="bar bg-brand-02" style="--value: ${Math.floor(e.minGroupSize / e.currentGroupCondition * 100)}">
-        <div class="text-white">${Math.floor(e.minGroupSize / e.currentGroupCondition * 100) > 100 ? 100 : Math.floor(e.minGroupSize / e.currentGroupCondition * 100)}%</div>
-    </div>
-</div></li>`}
-                    <li class="col col-xl-5">
-                      <ul class="d-flex flex-column gap-4 gap-md-8">
-                        <li>
-                          <span class="me-16">付款人</span>
-                          <span class="me-8">${!e.invitees ? "無" : e.invitees}</span>
-                        </li>
-                        <li>
-                          <span class="me-16">發起人</span>
-                          <span class="me-8">${e.initiator}</span>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                ${e.UID.startsWith("V") ? "" : `</a>`}
-              </li>`
-                })
-              }
-
-              calendarEvent.innerHTML = tempEventList;
-            }
-          </script>
-
-          <!-- 投票檢索 & 投票動作 show & vote voting event Modal -->
-          <script>
-            const VotingModal = document.getElementById('modal-VotingModal')
-
-            // 投票 modal 資料顯示
-            VotingModal.addEventListener('show.bs.modal', function (event) {
-              const modalData = event.relatedTarget
-              var votingUID = modalData.getAttribute('data-bs-votingUID')
-
-              // show modalTitle
-              const modalTitle = VotingModal.querySelector('.modal-title')
-              modalTitle.textContent = calendarEventMap[votingUID].restaurantList.join("、")
-
-              // show votingInfo
-              const deadlineDateTime = document.querySelector(".deadlineDateTime")
-              const eventDateTime = document.querySelector(".eventDateTime")
-              const initiator = document.querySelector(".initiator")
-              const invitees = document.querySelector(".invitees")
-
-              deadlineDateTime.innerHTML = `<span class="me-16">享用日期</span>
-                        <span class="me-8 ">${calendarEventMap[votingUID].deadlineDateTime.substring(5, 10)}</span>
-                        <span>${calendarEventMap[votingUID].deadlineDateTime.split(" ")[1]}</span>`
-
-              eventDateTime.innerHTML = `<span class="me-16">截止時間</span>
-                          <span class="me-8">${calendarEventMap[votingUID].eventDateTime.substring(5, 10)}</span>
-                          <span>${calendarEventMap[votingUID].eventDateTime.split(" ")[1]}</span>`
-
-              initiator.textContent = calendarEventMap[votingUID].initiator
-              invitees.textContent = calendarEventMap[votingUID].invitees === "" ? "無" : calendarEventMap[votingUID].invitees
-
-              //show votingCard
-              const votingCard = document.querySelector(".votingCard")
-              let votingCardData = [] //投票 modal 右側店家卡片資料
-              let cardDataTemp = ""
-
-              function initModalVotingCard() {
-                axios.get(`${_url}/votings?UID=${votingUID}&_expand=restaurant`)
-                  .then(function (res) {
-                    votingCardData = res.data
-                    cardDataTemp = ""
-                    renderVotingCard()
-                  }).catch(function (error) {
-                    console.error(error);
-                  });
-              }
-
-              initModalVotingCard()
-
-              //show votingCard & vote
-              function renderVotingCard() {
-                //html 資料
-                votingCardData.forEach(data => {
-                  cardDataTemp += `
-                      <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
-                        <img class="border-radius-32321616 votingcard-photo" src="${data.restaurant.storeCover}">
-                        <div>
-                          <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">${data.restaurantName}</h4>
-                          <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">${data.restaurant.summary}</p>
-                          <div class="d-flex justify-content-between flex-column flex-lg-row">
-                            <div class="d-flex align-items-center mb-8 mb-lg-0 ">
-                              <span class="me-4 me-lg-16 text-gray-02 text-nowrap">成團目標</span>
-                              <div class="ts-progress is-tiny bg-gray-04 voting-progress">
-                                <div class="bar bg-brand-02" style="--value: ${Math.floor(data.currentVoters.length / data.restaurant.minGroupSize * 100)}">
-                                  <div class="text-white">${Math.floor(data.currentVoters.length / data.restaurant.minGroupSize * 100) > 100 ? 100 : Math.floor(data.currentVoters.length / data.restaurant.minGroupSize * 100)}%</div>
-                                </div>
-                              </div>
-                            </div>
-                            <button
-                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis ${data.currentVoters.includes(_user) ? "btn-active-brand-02" : ""}"
-                              type="button" data-num=${data.id}>投票</button>
-                          </div>
-                      </li>`
-                })
-
-                votingCard.innerHTML = cardDataTemp
-
-
-                // btnVoteThis 投票動作
-                const btnVoteThis = document.querySelectorAll('.btnVoteThis')
-                btnVoteThis.forEach(btn => {
-                  btn.addEventListener('click', function () {
-                    const isVoted = btn.classList.contains("btn-active-brand-02")
-
-                    if (isVoted) {
-                      editVotes(btn.dataset.num, "deleteVote")
-                      alert("投票已取消")
-                    } else {
-                      editVotes(btn.dataset.num, "addVote");
-                      alert("投票成功")
-                    }
-                  });
-                });
-
-                function editVotes(id, status) {
-                  axios.get(`${_url}/votings/${id}`)
-                    .then(function (res) {
-                      const updatedVoters = res.data.currentVoters;
-
-                      if (status === "addVote") {
-                        updatedVoters.push(`${_user}`);
-                      } else {
-                        const userIndex = updatedVoters.indexOf(`${_user}`)
-                        updatedVoters.splice(userIndex, 1)
-                      }
-
-                      axios.patch(`${_url}/votings/${id}`, {
-                        "currentVoters": updatedVoters
-                      })
-                        .then(function (patchRes) {
-                          // console.log(patchRes.data);
-                          initModalVotingCard()
-                        })
-                        .catch(function (error) {
-                          console.error(error);
-                        });
-                    })
-                    .catch(function (error) {
-                      console.error(error);
-                    });
-                }
-
-                function voteDelete(id) {
-                  axios.get(`${_url}/votings/${id}`)
-                    .then(function (res) {
-                      res.data.currentVoters.indexOf(`${_user}`)
-                      const updatedVoters = res.data.currentVoters
-                      update
-
-                      axios.patch(`${_url}/votings/${id}`, {
-                        "currentVoters": updatedVoters
-                      })
-                        .then(function (patchRes) {
-                          // console.log(patchRes.data);
-                          initModalVotingCard()
-                        })
-                        .catch(function (error) {
-                          console.error(error);
-                        });
-                    })
-                    .catch(function (error) {
-                      console.error(error);
-                    });
-                }
-              }
-            })              
-          </script>    
           
-          <!-- 建立投票 create voting event -->
-          <script>
-            const eventDateTimeInput = document.getElementById("eventDateTime")
-            const deadlineDateTimeInput = document.getElementById("deadlineDateTime")
-            const votingInviteesSelect = document.getElementById("votingInvitees")
-            const modalCreateVoting = document.getElementById("modal-CreateVoting")
-
-            modalCreateVoting.addEventListener("click", e => {
-              sessionStorage.setItem('votingInvitees', votingInviteesSelect.value);
-              sessionStorage.setItem('eventDateTime', eventDateTimeInput.value);
-              sessionStorage.setItem('deadlineDateTime', deadlineDateTimeInput.value);
-            })
-          </script>
 
           <!-- btn 建立投票 按鈕超連結 -->
           <script>
@@ -1141,9 +796,9 @@
               maxDate: moment().add(1, 'months').format('YYYY/MM/DD'),
             }
 
-            flatpickr("input[type=text]", config);
+            flatpickr(".dateSelector", config);
           </script>
-          
+
 
 </body>
 

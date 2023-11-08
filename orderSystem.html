@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
+    
     <title>訂單管理</title>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-463b9cc0.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-caeee22d.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-f5214d54.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-76e52249.css">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/_memberSystem-583e49d0.css">
 </head>
 
 <body>
@@ -21,22 +25,42 @@
 
     <ul class="mt-20 py-24 fs-20 fw-bolder gap-12">
         <li class="d-flex align-items-center ">
-            <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
-                width="24"></iconify-icon>
-                <a href="overallSystem.html" class="text-gray-02">總覽</a></li>
+            <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;" width="24"></iconify-icon>
+            <a href="overallSystem.html" class="memberSystem-a  text-gray-02">總覽</a>
+        </li>
+
         </li>
         <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
-                icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
-                width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">訂單管理</a></li>
-        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
-                style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html" class="text-gray-02">投票管理</a></li>
-        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
-                icon="material-symbols:account-box" style="color: #1e1e1e;"
-                width="24"></iconify-icon><a href="memberInfo.html" class="text-gray-02">個人資料</a></li>
+                icon="material-symbols:order-approve-outline" style="color: #1e1e1e;" width="24"></iconify-icon><a
+                href="orderSystem.html" class="memberSystem-a  text-gray-02">訂單管理</a></li>
+        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote" style="color: #1e1e1e;"
+                width="24"></iconify-icon><a href="voteSystem.html" class="memberSystem-a text-gray-02">投票管理</a></li>
+        <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="material-symbols:account-box"
+                style="color: #1e1e1e;" width="24"></iconify-icon><a href="memberInfo.html"
+                class="memberSystem-a text-gray-02">個人資料</a></li>
     </ul>
 </aside>
 
-                <!-- 右側欄位 -->
+<script>
+    let currentPageURL = window.location.href;
+    let memberSystemPage = document.querySelectorAll(".memberSystem-a");
+    if (currentPageURL.indexOf("overallSystem.html") != -1) {
+        memberSystemPage[0].classList.add("memberSystem-active")
+    } else if (currentPageURL.indexOf("orderSystem.html") != -1) {
+        memberSystemPage[1].classList.add("memberSystem-active")
+    }else if (currentPageURL.indexOf("voteSystem.html") != -1) {
+        memberSystemPage[2].classList.add("memberSystem-active")
+    }else if (currentPageURL.indexOf("memberInfo.html") != -1) {
+        memberSystemPage[3].classList.add("memberSystem-active")
+    }
+
+
+</script>
+<style>
+    .memberSystem-active {
+        color: black !important;
+    }
+</style>                <!-- 右側欄位 -->
 
                 <div class="col  pt-lg-24 px-0 px-lg-80">
                     <div
@@ -48,33 +72,29 @@
                         <iconify-icon class="ms-auto" icon="icon-park-outline:shop" width="24"
                             height="24"></iconify-icon>
                     </div>
-                    <h2 class=" fw-bold mt-32 mt-lg-64 fs-32 px-12">訂餐管理</h2>
+                    <h2 class=" fw-bold mt-32 mt-lg-42 fs-32 px-12">訂餐管理</h2>
                     <ul class="member-ul mt-32 d-flex fw-bolder px-12 px-lg-0">
                         <li class="memberbtn fs-16 fs-lg-20 px-20 px-lg-24 py-12 "><a href="#">跟團中訂單</a></li>
                         <li class="memberbtn fs-16 fs-lg-20 px-20 px-lg-24 py-12"><a href="#">發起的開團</a></li>
                         <li class="memberbtn fs-16 fs-lg-20 px-20 px-lg-24 py-12"><a href="#">歷史訂單</a></li>
                     </ul>
 
-
                     <!-- 跟團中訂單 -->
 
                     <ul class="followUpOrder">
-
                     </ul>
 
 
                     <!-- 發起的開團 -->
 
                     <ul class="initiateGroup">
-                        
                     </ul>
 
                     <!-- 歷史訂單 -->
 
                     <ul class="historicalOrder">
-                        
-                    </ul>
 
+                    </ul>
 
                 </div>
         </div>
@@ -136,45 +156,14 @@
         </div>
     </div>
 
-    <style>
-        .memberNav {
-            height: 48px;
-        }
-
-        .count {
-            width: 30px;
-            height: 30px;
-        }
-
-        .starInMember,
-        .starInModal,
-        .starInRwd {
-            color: #8B8B8A;
-            cursor: pointer;
-        }
-
-        .memberEvaluate {
-            height: 220px;
-        }
-
-        textarea:focus {
-            outline: 1px solid #C2C1BD !important;
-            /* 设置获得焦点时的边框颜色为灰色 */
-        }
-
-        .memberbtn-actived {
-            border-bottom: 4px solid #DFD3BE;
-        }
-    </style>
-
 </body>
 
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
 
-
-<!-- 星等評價 -->
 <script>
+    // <!-- 星等評價 -->
     let selectedStars = 0;
     function rateStar(star) {
         selectedStars = star;
@@ -293,7 +282,7 @@
                             </div>
                         </li>
     `;
-    let initiateGroupHTML=`<li class="p-24 border-bottom border-brand-03">
+    let initiateGroupHTML = `<li class="p-24 border-bottom border-brand-03">
                             <div class="d-flex flex-column flex-lg-row  ">
 
                                 <aside class="me-40 d-flex justify-content-between align-items-lg-start  ">
@@ -327,7 +316,7 @@
 
                                         </li>
                                         <li class="mt-8">
-                                            <p>訂單金額:<span class="ms-16 me-8">$415</span></p>
+                                            <p>訂單金額:<span class="ms-16 me-8 text-brand-02">$415</span></p>
 
                                         </li>
                                     </ul>
@@ -388,91 +377,97 @@
 
                             </div>
                         </li>`;
-    let historicalOrderHTML=`<li class="p-24 border-bottom border-brand-03">
-                            <div class="d-flex flex-column flex-lg-row  ">
+    let historicalOrderHTML = `<li class="p-24 border-bottom border-brand-03">
+        <div class="autoComplete_wrapper">
+            <input class="border border-2 border-gray-04 border-radius-28" id="test" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off">
+        </div>
 
-                                <aside class="me-40 d-flex justify-content-between align-items-lg-start  ">
-                                    <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
-                                    <span class="ms-auto d-block d-lg-none">
-                                        <a href=""
-                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
-                                    </span>
-                                </aside>
+<div class="d-flex flex-column flex-lg-row  mt-24">
+    
+    <aside class="me-40 d-flex justify-content-between align-items-lg-start  ">
+        <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
+        <span class="ms-auto d-block d-lg-none">
+            <a href=""
+                class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
+        </span>
+    </aside>
 
-                                <div class="d-flex justify-content-between w-100 ">
-                                    <div>
-                                        <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">茶源 ChaSource</h2>
-                                        <p class="mt-4 text-gray-02">享用日期 2023/07/10‧付款人：Will Chen</p>
-                                        <div class="starInRwd ms-auto  fs-24 d-flex align-items-center d-lg-none">
-                                            <div class="lh-sm">
-                                                <span class="star" onclick="rateStar(1)">&#9733;</span>
-                                                <span class="star" onclick="rateStar(2)">&#9733;</span>
-                                                <span class="star" onclick="rateStar(3)">&#9733;</span>
-                                                <span class="star" onclick="rateStar(4)">&#9733;</span>
-                                                <span class="star" onclick="rateStar(5)">&#9733;</span>
-                                            </div>
-                                            <div class="ms-4 "><a href="" class="fs-16 text-gray-02"
-                                                    data-bs-toggle="modal" data-bs-target="#memberModal">分享評價</a>
-                                            </div>
-                                        </div>
-                                        <ul class="mt-12">
-                                            <li class="d-flex mb-12">
-                                                <div
-                                                    class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">
-                                                    1
-                                                </div>
-                                                <div>
-                                                    <h3 class="fs-24 mb-4 text-gray-01 fw-bolder">玫瑰綠茶</h3>
-                                                    <ul class="text-gray-02">
-                                                        <li class="d-flex mb-4">
-                                                            <p>選項<span class="ms-16">少糖、去冰</span></p>
-                                                        </li>
-                                                        <li class="d-flex mb-4">
-                                                            <p>備註<span class="ms-16">可以淡一點嗎？</span></p>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
+    <div class="d-flex justify-content-between w-100 ">
+        
+        <div>
+            <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">茶源 ChaSource</h2>
+            <p class="mt-4 text-gray-02">享用日期 2023/07/10‧付款人：Will Chen</p>
+            <div class="starInRwd ms-auto  fs-24 d-flex align-items-center d-lg-none">
+                <div class="lh-sm">
+                    <span class="star" onclick="rateStar(1)">&#9733;</span>
+                    <span class="star" onclick="rateStar(2)">&#9733;</span>
+                    <span class="star" onclick="rateStar(3)">&#9733;</span>
+                    <span class="star" onclick="rateStar(4)">&#9733;</span>
+                    <span class="star" onclick="rateStar(5)">&#9733;</span>
+                </div>
+                <div class="ms-4 "><a href="" class="fs-16 text-gray-02"
+                        data-bs-toggle="modal" data-bs-target="#memberModal">分享評價</a>
+                </div>
+            </div>
+            <ul class="mt-12">
+                <li class="d-flex mb-12">
+                    <div
+                        class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">
+                        1
+                    </div>
+                    <div>
+                        <h3 class="fs-24 mb-4 text-gray-01 fw-bolder">玫瑰綠茶</h3>
+                        <ul class="text-gray-02">
+                            <li class="d-flex mb-4">
+                                <p>選項<span class="ms-16">少糖、去冰</span></p>
+                            </li>
+                            <li class="d-flex mb-4">
+                                <p>備註<span class="ms-16">可以淡一點嗎？</span></p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
-                                            <li class="d-flex">
-                                                <div
-                                                    class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">
-                                                    1
-                                                </div>
-                                                <div>
-                                                    <h3 class="fs-24 mb-4 text-gray-01 fw-bolder">玫瑰綠茶</h3>
-                                                    <ul class="text-gray-02">
-                                                        <li class="d-flex mb-4">
-                                                            <p>選項<span class="ms-16">少糖、去冰</span></p>
-                                                        </li>
-                                                        <li class="d-flex mb-4">
-                                                            <p>備註<span class="ms-16">無</span></p>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
+                <li class="d-flex">
+                    <div
+                        class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">
+                        1
+                    </div>
+                    <div>
+                        <h3 class="fs-24 mb-4 text-gray-01 fw-bolder">玫瑰綠茶</h3>
+                        <ul class="text-gray-02">
+                            <li class="d-flex mb-4">
+                                <p>選項<span class="ms-16">少糖、去冰</span></p>
+                            </li>
+                            <li class="d-flex mb-4">
+                                <p>備註<span class="ms-16">無</span></p>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
 
-                                        </ul>
-                                    </div>
-                                    <div class="starInMember ms-auto  fs-24 d-none d-lg-block">
-                                        <div class="lh-sm">
-                                            <span class="star" onclick="rateStar(1)">&#9733;</span>
-                                            <span class="star" onclick="rateStar(2)">&#9733;</span>
-                                            <span class="star" onclick="rateStar(3)">&#9733;</span>
-                                            <span class="star" onclick="rateStar(4)">&#9733;</span>
-                                            <span class="star" onclick="rateStar(5)">&#9733;</span>
-                                        </div>
-                                        <div class="d-flex justify-content-end "><a href="" class="fs-16 text-gray-02"
-                                                data-bs-toggle="modal" data-bs-target="#memberModal">分享評價</a>
-                                        </div>
-                                    </div>
-                                    <span class="ms-auto d-none d-lg-block">
-                                        <a href=""
-                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
-                                    </span>
-                                </div>
-                            </div>
-                        </li>`;
+            </ul>
+        </div>
+        <div class="starInMember ms-auto  fs-24 d-none d-lg-block">
+            <div class="lh-sm">
+                <span class="star" onclick="rateStar(1)">&#9733;</span>
+                <span class="star" onclick="rateStar(2)">&#9733;</span>
+                <span class="star" onclick="rateStar(3)">&#9733;</span>
+                <span class="star" onclick="rateStar(4)">&#9733;</span>
+                <span class="star" onclick="rateStar(5)">&#9733;</span>
+            </div>
+            <div class="d-flex justify-content-end "><a href="" class="fs-16 text-gray-02"
+                    data-bs-toggle="modal" data-bs-target="#memberModal">分享評價</a>
+            </div>
+        </div>
+        <span class="ms-auto d-none d-lg-block">
+            <a href="./store-order.html"
+                class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
+        </span>
+    </div>
+</div>
+</li>`;
+
     window.onload = function () {
         followUpOrder.innerHTML = followUpHTML
     }
@@ -498,13 +493,50 @@
             else if (memberbtn[2] === btnType) {
                 followUpOrder.innerHTML = "";
                 initiateGroup.innerHTML = "";
-                historicalOrder.innerHTML =historicalOrderHTML;
+                historicalOrder.innerHTML = historicalOrderHTML;
+                autocomplete();
             }
         })
     })
 
 
-
+    // autocomplete
+    function autocomplete() {
+        const autoCompleteJ = new autoComplete({
+            selector: "#test",
+            placeHolder: "Search for Food...",
+            data: {
+                src: ["Sauce - Thousand Island", "Wild Boar - Tenderloin", "Goat - Whole Cut"],
+                cache: true,
+            },
+            resultsList: {
+                element: (list, data) => {
+                    if (!data.results.length) {
+                        // Create "No Results" message element
+                        const message = document.createElement("div");
+                        // Add class to the created element
+                        message.setAttribute("class", "no_result");
+                        // Add message text content
+                        message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
+                        // Append message element to the results list
+                        list.prepend(message);
+                    }
+                },
+                noResults: true,
+            },
+            resultItem: {
+                highlight: true
+            },
+            events: {
+                input: {
+                    selection: (event) => {
+                        const selection = event.detail.selection.value;
+                        autoCompleteJ.input.value = selection;
+                    }
+                }
+            }
+        });
+    }
 </script>
 
 </html>
