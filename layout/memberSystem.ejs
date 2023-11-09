@@ -1,6 +1,7 @@
 <aside class="col-2 p-24 d-none d-lg-block ">
     <div>
-        <img src="/assets/images/logo/logo-teatime.svg" alt="" class="h-100  ">
+        <!-- <img src="/assets/images/logo/logo-teatime.svg" alt="" class="h-100  "> -->
+        <a href="index.html" class="indexLogo"></a>
     </div>
 
     <ul class="mt-20 py-24 fs-20 fw-bolder gap-12">
@@ -24,20 +25,39 @@
 <script>
     let currentPageURL = window.location.href;
     let memberSystemPage = document.querySelectorAll(".memberSystem-a");
-    if (currentPageURL.indexOf("overallSystem.html") != -1) {
-        memberSystemPage[0].classList.add("memberSystem-active")
-    } else if (currentPageURL.indexOf("orderSystem.html") != -1) {
-        memberSystemPage[1].classList.add("memberSystem-active")
-    }else if (currentPageURL.indexOf("voteSystem.html") != -1) {
-        memberSystemPage[2].classList.add("memberSystem-active")
-    }else if (currentPageURL.indexOf("memberInfo.html") != -1) {
-        memberSystemPage[3].classList.add("memberSystem-active")
+    let activeIndex = -1;
+    switch (true) {
+        case currentPageURL.includes("overallSystem.html"):
+            activeIndex = 0;
+            break;
+        case currentPageURL.includes("orderSystem.html"):
+            activeIndex = 1;
+            break;
+        case currentPageURL.includes("voteSystem.html"):
+            activeIndex = 2;
+            break;
+        case currentPageURL.includes("memberInfo.html"):
+            activeIndex = 3;
+            break;
     }
-
+    if (activeIndex!==-1){
+        memberSystemPage[activeIndex].classList.add("memberSystem-active")
+    }
 
 </script>
 <style>
     .memberSystem-active {
         color: black !important;
+    }
+
+    .indexLogo {
+        background-image: url(/assets/images/logo/logo-teatime.svg);
+        display: block;
+        text-indent: 101%;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 247px;
+        height: 40px;
+        background-size: cover;
     }
 </style>
