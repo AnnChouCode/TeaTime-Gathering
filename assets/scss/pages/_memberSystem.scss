@@ -20,8 +20,10 @@
 }
 
 .shopRecorder {
-    height: 204px;
+    // height: 204px;
+
 }
+
 
 .memberSystem-active {
     color: black !important;
@@ -69,6 +71,7 @@ form input {
 // 下拉選單
 
 .dropdown {
+    z-index: 100;
     border: none;
     border-radius: 4px;
     font-size: 18px;
@@ -90,6 +93,7 @@ button:hover {
     border-radius: 4px;
     box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
     right: 0px;
+    margin-top: 10px;
 }
 .first-option {
     width: 100px;
@@ -104,7 +108,7 @@ button:hover {
     color: #000000;
     padding: 5px;
     text-decoration: none;
-    padding: 20px;
+    padding: 16px;
     text-align: right;
 }
 

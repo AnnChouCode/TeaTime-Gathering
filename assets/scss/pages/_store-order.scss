@@ -2,7 +2,7 @@
   &-bg {
     width: 100%;
     height: 220px;
-    background: url(/assets/images/store-logo/store-01.jpg) center top /cover;
+    background: url(/assets/images/store-logo/store-01.jpg) center top / cover;
     border-radius: 56px;
 
     @include media-breakpoint-down(lg) {
@@ -196,7 +196,6 @@
   }
 }
 
-
 // 為了讓開團中卡片按照順序縱列顯示，必須限制高度
 .togetherEventSwiper {
   // height: 580px;
@@ -224,17 +223,17 @@
 // modal 右側滾動條
 ::-webkit-scrollbar {
   display: none;
-} 
+}
 
 // modal
-.modal-storeOrder-menu{
+.modal-storeOrder-menu {
   max-width: 416px;
   padding: 24px 40px 40px 40px;
   @include media-breakpoint-down(md) {
     padding: 12px 16px 16px 16px;
   }
   // modal-content 內，所有 label 寬度 100%
-  label{
+  label {
     width: 100%;
   }
 }
@@ -253,8 +252,7 @@
 .checkboxStyle-content input:checked ~ .checkboxStyle-checkmark {
   background-color: #fd909f;
 }
-.checkboxStyle-content input:checked+ 
-.checkboxStyle-checkmark:after {
+.checkboxStyle-content input:checked + .checkboxStyle-checkmark:after {
   display: block;
 }
 /* 移除選取狀態時的邊框*/
@@ -267,7 +265,7 @@
   right: 0;
   height: 18px;
   width: 18px;
-  border: 1px solid #1E1E1E;
+  border: 1px solid #1e1e1e;
   border-radius: 3px;
   @include media-breakpoint-down(md) {
     top: 3.5px;
@@ -276,7 +274,7 @@
 .checkboxStyle-checkmark:after {
   content: "";
   position: absolute;
-  left: 5px; 
+  left: 5px;
   top: 3px;
   width: 7px;
   height: 10px;
@@ -284,13 +282,13 @@
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
-  transform: rotate(45deg);  
+  transform: rotate(45deg);
 }
 
 // modal 菜單 checkbox 樣式 結束
 
 // modal 菜單 radio 樣式 開始
-.radio-label{
+.radio-label {
   position: relative;
   width: 100%;
 }
@@ -301,7 +299,7 @@
   content: " ";
   display: inline-block;
   vertical-align: middle;
-  text-align:right;
+  text-align: right;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -329,15 +327,44 @@
 
 // modal 購物車 開始
 .select-payer {
-    width: 300px;
-    padding: 8px;
-    border-radius: 16px;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background-image: url("/assets/images/icon/down-arrow-storeOrder.svg");
-    background-size: 20px 15px;
-    background-position: right 14px top 50%, 0 0;
-    background-repeat: no-repeat;
-  }
-  // modal 購物車 結束
+  width: 300px;
+  padding: 8px;
+  border-radius: 16px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url("/assets/images/icon/down-arrow-storeOrder.svg");
+  background-size: 20px 15px;
+  background-position:
+    right 14px top 50%,
+    0 0;
+  background-repeat: no-repeat;
+}
+// modal 購物車 結束
+
+// 寫評價modal
+
+.count {
+  width: 30px;
+  height: 30px;
+}
+
+.starInMember,
+.starInModal,
+.starInRwd {
+  color: #8b8b8a;
+  cursor: pointer;
+}
+
+.memberEvaluate {
+  height: 220px;
+}
+
+textarea:focus {
+  outline: 1px solid #c2c1bd !important;
+  /* 设置获得焦点时的边框颜色为灰色 */
+}
+
+.memberbtn-actived {
+  border-bottom: 4px solid #dfd3be;
+}

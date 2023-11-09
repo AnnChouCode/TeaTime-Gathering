@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/images/logo/logo-favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
@@ -49,32 +50,6 @@
                     <!-- 歷史訂單 -->
 
                     <ul class="historicalOrder">
-                        <div class="d-flex justify-content-between ">
-
-                            <div class="autoComplete_wrapper">
-                                <input class="border border-2 border-gray-04 border-radius-28" id="test" type="search"
-                                    dir="ltr" spellcheck=false autocorrect="off" autocomplete="off"
-                                    autocapitalize="off">
-                            </div>
-                            <ul class="d-flex">
-                                <li class="dropdown position-relative  me-8 ">
-                                    <button class="dropdown-btn bg-gray-04 text-gray-02 px-20 py-4">篩選</button>
-                                    <div class="dropdown-options first-option position-absolute">
-                                        <a href="#">已成團</a>
-                                        <a href="#">未成團</a>
-                                    </div>
-                                </li>
-                                <li class="dropdown position-relative">
-                                    <button class="dropdown-btn bg-gray-04 text-gray-02 px-20 py-4">排序</button>
-                                    <div class="dropdown-options  position-absolute ms-auto ">
-                                        <a href="#">享用日期:舊→新</a>
-                                        <a href="#">享用日期:新→舊</a>
-                                        <a href="#">成團日期:舊→新</a>
-                                        <a href="#">成團日期:新→舊</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
                     </ul>
 
                 </div>
@@ -100,7 +75,8 @@
                     </div>
                     <textarea placeholder="請輸入評價"
                         class="memberEvaluate mt-8 border-1 border-gray-04 rounded-1 w-100 bg-white text-dark "></textarea>
-                    <div class="mx-auto text-gray-02 fs-16 d-flex justify-content-end ">字數限制 100</div>
+                    <div class="textareaLength mx-auto text-gray-02 fs-16 d-flex justify-content-end ">字數限制&ensp;0/100
+                    </div>
                 </div>
                 <div class="modal-footer border-top-0">
                     <button type="button" class="btn btn-brand-03 text-white w-100">送出</button>
@@ -358,11 +334,32 @@
 
                             </div>
                         </li>`;
-    let historicalOrderHTML = `<li class="p-24 border-bottom border-brand-03">
+    let historicalOrderHTML =
 
-        <div class="autoComplete_wrapper">
-            <input class="border border-2 border-gray-04 border-radius-28" id="test" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off">
-        </div>
+        `<li class="px-24 border-bottom border-brand-03">
+            <div class="d-flex justify-content-between mt-12">
+                            <div class="autoComplete_wrapper">
+                            <input class="border border-2 border-gray-04 border-radius-28" id="test" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off">
+                            </div>
+                            <ul class="d-flex">
+                            <li class="dropdown position-relative  me-8 ">
+                                <button class="dropdown-btn bg-gray-04 text-gray-02 px-20 py-4">篩選</button>
+                                <div class="dropdown-options first-option position-absolute">
+                                <a href="#">已成團</a>
+                                <a href="#">未成團</a>
+                                </div>
+                            </li>
+                            <li class="dropdown position-relative">
+                                <button class="dropdown-btn bg-gray-04 text-gray-02 px-20 py-4">排序</button>
+                                <div class="dropdown-options  position-absolute ms-auto ">
+                                <a href="#">享用日期:舊→新</a>
+                                <a href="#">享用日期:新→舊</a>
+                                <a href="#">成團日期:舊→新</a>
+                                <a href="#">成團日期:新→舊</a>
+                                </div>
+                            </li>
+                            </ul>
+                        </div>
 
 <div class="d-flex flex-column flex-lg-row  mt-24">
     
@@ -443,12 +440,14 @@
             </div>
         </div>
         <span class="ms-auto d-none d-lg-block">
-            <a href="./store-order.html"
+            <a href="store-order.html"
                 class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
         </span>
     </div>
 </div>
-</li>`;
+</li>`
+
+        ;
 
     window.onload = function () {
         followUpOrder.innerHTML = followUpHTML
@@ -519,6 +518,16 @@
             }
         });
     }
+
+    // 字數統計
+    let memberEvaluate = document.querySelector(".memberEvaluate");
+    let textareaLength = document.querySelector(".textareaLength");
+    memberEvaluate.addEventListener("keyup", function () {
+        let inputText = memberEvaluate.value;
+        let inputLength = inputText.length
+        textareaLength.textContent = `字數限制 ${inputLength}/100`
+    })
+
 </script>
 
 </html>
