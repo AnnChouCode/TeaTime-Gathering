@@ -255,7 +255,7 @@
                 <script type="module">
                     import axios from 'axios';
 
-                    /* 頁面基本資料取得 */
+                    /* 頁面基本資料取得 ===================================================*/
                     //全頁共用變數
                     const _url = "https://teatimeapi-test.onrender.com"
                     const _user = "U004"
@@ -263,10 +263,6 @@
                     // 使用 moment 格式化日期
                     var now = moment().format('YYYY/MM/DD');
 
-                    //取得前頁拋轉資料
-                    const eventDateTime = sessionStorage.getItem('eventDateTime');
-                    const deadlineDateTime = sessionStorage.getItem('deadlineDateTime');
-                    const votingInvitees = sessionStorage.getItem('votingInvitees');
 
                     /* 店家清冊資料處理 =====================================================*/
                     // 店家排序資料                   
@@ -527,7 +523,7 @@
                         // 將清單遍歷成陣列渲染
                         Object.values(checkedStoreList).forEach(store => {
                             renderData += `<li class="d-flex align-items-center py-10 px-20 py-md-12 px-md-24 gap-8 rounded-pill bg-gray-04">
-                                <span class="fs-16 fs-md-20 fw-medium">${store.restaurantName}</span>
+                                <span class="fs-12 fs-md-16 fw-medium">${store.restaurantName}</span>
                                 <button type="button" class="btn-close cancelCheckedStore" data-uid=${store.UID}></button>
                             </li>`
                         })
@@ -611,7 +607,7 @@
                     })
 
 
-                    /* 搜尋 input autoComplete =========================*/                
+                    /* 搜尋 input autoComplete ===================================*/                
                     const autoCompleteJS = new autoComplete({
                         // 撈取 API 資料庫獲取選單內容
                         data: {
