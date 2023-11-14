@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/TeaTime-Gathering/assets/logo-favicon-a850431b.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
     
     <title>會員管理系統-總覽</title>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-f5214d54.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-76e52249.css">
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/_memberSystem-583e49d0.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-9ebfdcfe.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-6493fc54.css">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/_memberSystem-9399d8d1.css">
 </head>
 
 <body>
@@ -18,7 +19,8 @@
             <!-- 左側欄位 -->
             <aside class="col-2 p-24 d-none d-lg-block ">
     <div>
-        <img src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="" class="h-100  ">
+        <!-- <img src="/assets/images/logo/logo-teatime.svg" alt="" class="h-100  "> -->
+        <a href="index.html" class="indexLogo"></a>
     </div>
 
     <ul class="mt-20 py-24 fs-20 fw-bolder gap-12">
@@ -42,21 +44,40 @@
 <script>
     let currentPageURL = window.location.href;
     let memberSystemPage = document.querySelectorAll(".memberSystem-a");
-    if (currentPageURL.indexOf("overallSystem.html") != -1) {
-        memberSystemPage[0].classList.add("memberSystem-active")
-    } else if (currentPageURL.indexOf("orderSystem.html") != -1) {
-        memberSystemPage[1].classList.add("memberSystem-active")
-    }else if (currentPageURL.indexOf("voteSystem.html") != -1) {
-        memberSystemPage[2].classList.add("memberSystem-active")
-    }else if (currentPageURL.indexOf("memberInfo.html") != -1) {
-        memberSystemPage[3].classList.add("memberSystem-active")
+    let activeIndex = -1;
+    switch (true) {
+        case currentPageURL.includes("overallSystem.html"):
+            activeIndex = 0;
+            break;
+        case currentPageURL.includes("orderSystem.html"):
+            activeIndex = 1;
+            break;
+        case currentPageURL.includes("voteSystem.html"):
+            activeIndex = 2;
+            break;
+        case currentPageURL.includes("memberInfo.html"):
+            activeIndex = 3;
+            break;
     }
-
+    if (activeIndex!==-1){
+        memberSystemPage[activeIndex].classList.add("memberSystem-active")
+    }
 
 </script>
 <style>
     .memberSystem-active {
         color: black !important;
+    }
+
+    .indexLogo {
+        background-image: url(/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg);
+        display: block;
+        text-indent: 101%;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 247px;
+        height: 40px;
+        background-size: cover;
     }
 </style>                <!-- 右側欄位 -->
 
@@ -101,12 +122,16 @@
                     </div>
                     <h2 class="fw-bold mt-32 mt-lg-64 fs-32 px-12">消費紀錄</h2>
                     <div class="shopRecorder row mt-16 mt-lg-32 mx-12 bg-white ">
-                        <div class="col border border-brand-03" style="position: relative; height:300px">
-                            <canvas class="bg-white" id="myChart"></canvas>
+                        <div class="col border border-brand-03" style="position: relative; height:400px">
+                            <canvas class="myChart bg-white" id="myChart"></canvas>
                         </div>
                         <div class="col-lg-3 col-0"></div>
                     </div>
                 </div>
+                <div class="p-24  "></div>
+                <div class="p-24 d-lg-none "></div>
+                <div class="p-24 d-lg-none "></div>
+
         </div>
     </div>
     <!-- offcanvas -->
@@ -229,20 +254,23 @@
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['11/7', '11/14', '11/21', '11/28', '12/5', '12/12'],
+            labels: ['11/7', '11/14', '11/21', '11/28', '12/5', '12/12', '12/17'],
             datasets: [{
                 label: '本周',
-                data: [12, 19, 30, 50, 25, 45],
+                data: [12, 19, 30, 50, 25, 45, 90],
                 borderWidth: 1,
-                backgroundColor: ['#ff7ae8', '#ff8e99', '#ffe596', '#5fff7f', '#60ffeb', '#5fcbff', '#7a92ff', '#ae79ff']
-            }]
+                backgroundColor: ['#ff7ae8', '#ff8e99', '#ffe596', '#5fff7f', '#60ffeb', '#5fcbff', '#7a92ff', '#ae79ff', 'fb7ac8']
+            }],
+            borderWidth:5,
+            barThickness:6
         },
         options: {
             responsive: true,
+
             scales: {
                 y: {
                     min: 10,
-                    max: 50,
+                    max: 90,
                 }
             },
             plugins: {

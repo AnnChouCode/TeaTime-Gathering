@@ -33,12 +33,13 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <!-- 時間選擇器 flatpickr -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-f5214d54.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-76e52249.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/createVoting-3b61c147.js"></script>
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-9ebfdcfe.js">
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/axios-47b9d439.js">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-6493fc54.css">
 </head>
 
-<body class="pt-64 pt-md-82">
-
+<body>
     <nav>
     <div class="fixed-top bg-white">
         <div class="position-relative layout-content">
@@ -75,7 +76,7 @@
                     </li>
                     <!-- 按鈕-使用者已登入選單 -->
                     <li class="d-none btnUserLoggedIn">
-                        <a href="../pages/overallSystem.html"
+                        <a href="overallSystem.html"
                             class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
                             style="width: 44px;height: 44px;">L</a>
                     </li>
@@ -391,21 +392,21 @@
             });;
         })
     })
-</script>        <div class="py-32 py-md-80 layout-content container">
+</script>        <div class="pb-32 pt-64 py-md-80 layout-content container">
             <!-- page title -->
             <h2 class="mb-16 mb-md-32 fs-24 fs-md-32 fw-bold lh-sm">請選擇 2 - 3 個參與投票的店家</h2>
-            <!-- select list -->
-            <div class="d-flex mb-16 mb-md-32 gap-32">
-                <ul class="d-flex gap-4 gap-md-12 text-nowrap overflow-scroll">
-                    <li class="d-flex align-items-center py-10 px-20 py-md-12 px-md-24 gap-8 rounded-pill bg-gray-04">
+            <!-- checkedStore list -->
+            <div class="d-flex mb-16 mb-md-32 gap-32 checkedStoreContainer d-none">
+                <ul class="d-flex gap-4 gap-md-12 text-nowrap overflow-scroll showCheckedList">
+                    <!-- <li class="d-flex align-items-center py-10 px-20 py-md-12 px-md-24 gap-8 rounded-pill bg-gray-04">
                         <span class="fs-16 fs-md-20 fw-medium">滋味冰</span>
                         <button type="button" class="btn-close"></button>
-                    </li>
+                    </li> -->
                 </ul>
                 <!-- btn-check-list -->
                 <button type="button"
-                    class="d-none d-sm-block py-10 px-20 py-md-12 text-nowrap fs-16 fs-md-20 fw-medium lh-sm rounded-pill text-white border-0 btn-brand-03 btn-hover-brand-01"
-                    data-bs-toggle="modal" data-bs-target="#modal-CheckList">確認選擇</button>
+                    class="d-none py-10 px-20 py-md-12 text-nowrap fs-16 fs-md-20 fw-medium lh-sm rounded-pill text-white border-0 btn-brand-03 btn-hover-brand-01 checkCheckedStoreAbove"
+                    data-bs-toggle="modal" data-bs-target="#modal-createVoting">確認選擇</button>
             </div>
 
             <!-- store list -->
@@ -414,84 +415,91 @@
                 <div class="position-relative me-md-16">
                     <iconify-icon class="position-absolute search-icon" icon="iconamoon:search" style="color: #8b8b8a;"
                         width="24"></iconify-icon>
-                    <input id="autoComplete" type="search" spellcheck=false autocorrect="off"
-                        autocomplete="off" autocapitalize="off"
+                    <input id="autoComplete" type="search" spellcheck=false autocorrect="off" autocomplete="off"
+                        autocapitalize="off"
                         class="py-10 px-16 ps-48 border border-2 border-gray-04 border-radius-28 search-bar"
                         placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
                 </div>
                 <!-- select-bar -->
-                <ul
-                    class="d-flex mt-20 mt-md-0 mb-16 mb-md-0 p-8 text-nowrap text-center bg-brand-05 rounded-pill selectBar">
+                <ul class="d-flex mt-20 mt-md-0 mb-16 mb-md-0 p-8 text-nowrap text-center bg-brand-05 rounded-pill">
                     <li class="text-center w-100">
-                        <button onclick="toggleFilter('sort','newestStore')" type="button"
-                            class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2 btn-active-brand-02">最新店家</button>
+                        <button type="button"
+                            class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2 btn-active-brand-02 btnSortStore"
+                            data-sort-value="newestStore">最新店家</button>
                     </li>
                     <li class="text-center w-100">
-                        <button onclick="toggleFilter('sort','bestStore')" type="button"
-                            class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2">最高評價</button>
+                        <button type="button"
+                            class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2 btnSortStore"
+                            data-sort-value="bestStore">最高評價</button>
                     </li>
                     <li class="text-center w-100">
-                        <button onclick="toggleFilter('sort','worstStore')" type="button"
-                            class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2">最低評價</button>
+                        <button type="button"
+                            class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2 btnSortStore"
+                            data-sort-value="worstStore">最低評價</button>
                     </li>
                 </ul>
             </div>
             <div class="row my-24 my-md-40">
                 <!-- 店家分類 -->
                 <div class="col-md-2 mb-16 mb-md-0">
-                    <ul class="x-slide d-flex d-md-block gap-md-5 text-nowrap storeSort">
+                    <ul class="x-slide d-flex d-md-block gap-md-5 text-nowrap categoryStoreBar">
                         <li>
-                            <button onclick="toggleFilter('category','全部')"
-                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 btn-active border-radius-16 btn-hover-gray-04 actived">
+                            <button
+                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 btn-active border-radius-16 btn-hover-gray-04 btnCategoryStore actived"
+                                type="button" data-category-value="全部">
                                 <iconify-icon icon="fluent:food-24-regular" style="color: #8b8b8a;" width="32"
                                     height="32" class="me-md-8 me-0"></iconify-icon>
                                 <span class="fs-md-20 fs-16">全部</span>
                             </button>
                         </li>
                         <li>
-                            <button onclick="toggleFilter('category','速食')"
-                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                            <button
+                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                type="button" data-category-value="速食">
                                 <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="32" height="32"
                                     class="me-md-8 me-0"></iconify-icon>
                                 <span class="fs-md-20 fs-16">速食</span></button>
                         </li>
                         <li>
-                            <button onclick="toggleFilter('category','飲料')"
-                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                            <button
+                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                type="button" data-category-value="飲料">
                                 <iconify-icon icon="icon-park-outline:drink" style="color: #8b8b8a;" width="32"
                                     height="32" class="me-md-8 me-0"></iconify-icon>
                                 <span class="fs-md-20 fs-16">飲料</span>
                             </button>
                         </li>
                         <li>
-                            <button onclick="toggleFilter('category','小吃')"
-                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                            <button
+                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                type="button" data-category-value="小吃">
                                 <iconify-icon icon="ph:bowl-food" style="color: #8b8b8a;" width="32" height="32"
                                     class="me-md-8 me-0"></iconify-icon>
                                 <span class="fs-md-20 fs-16">小吃</span>
                             </button>
                         </li>
                         <li>
-                            <button onclick="toggleFilter('category','甜點')"
-                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                            <button
+                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                type="button" data-category-value="甜點">
                                 <iconify-icon icon="material-symbols:icecream-outline-rounded" style="color: #8b8b8a;"
                                     width="32" height="32" class="me-md-8 me-0"></iconify-icon>
                                 <span class="fs-md-20 fs-16">甜點</span>
                             </button>
                         </li>
                         <li>
-                            <button onclick="toggleFilter('category','素食')"
-                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
-                                    icon="tabler:leaf" style="color: #8b8b8a;" width="32" height="32"
-                                    class="me-md-8 me-0"></iconify-icon>
+                            <button
+                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                type="button" data-category-value="素食"><iconify-icon icon="tabler:leaf"
+                                    style="color: #8b8b8a;" width="32" height="32" class="me-md-8 me-0"></iconify-icon>
                                 <span class="fs-md-20 fs-16">素食</span>
                             </button>
                         </li>
                         <li>
-                            <button onclick="toggleFilter('category','咖啡')"
-                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
-                                    icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="32" height="32"
-                                    class="me-md-8 me-0"></iconify-icon>
+                            <button
+                                class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                type="button" data-category-value="咖啡"><iconify-icon icon="icon-park-outline:tea-drink"
+                                    style="color: #8b8b8a;" width="32" height="32" class="me-md-8 me-0"></iconify-icon>
                                 <span class="fs-md-20 fs-16">咖啡</span></button>
                         </li>
                         <li class="tab_slider"></li>
@@ -505,14 +513,14 @@
             <div id="paginationPages" class="d-flex justify-content-end mb-16 mb-sm-0"></div>
             <!-- btn-check-list -->
             <button type="button"
-                class="d-block d-sm-none py-10 px-20 py-md-12 text-nowrap fs-16 fw-medium lh-sm rounded-pill text-white w-100 border-0 btn-brand-03 btn-hover-brand-01"
-                data-bs-toggle="modal" data-bs-target="#modal-CheckList">確認選擇</button>
+                class="d-none py-10 px-20 py-md-12 text-nowrap fs-16 fw-medium lh-sm rounded-pill text-white w-100 border-0 btn-brand-03 btn-hover-brand-01 checkCheckedStoreBelow"
+                data-bs-toggle="modal" data-bs-target="#modal-createVoting">確認選擇</button>
         </div>
         </div>
 
         <!-- 建立投票 Modal -->
-        <div class="modal fade" id="modal-CreateVoting" tabindex="-1" aria-labelledby="modal-CreateVoting"
-            aria-hidden="true" data-backdrop="false">
+        <div class="modal fade" id="modal-createVoting" tabindex="-1" aria-labelledby="modal-createVoting" aria-hidden="true"
+            data-backdrop="false">
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="d-flex modal-content border-radius-24">
                     <!-- modal header -->
@@ -538,7 +546,8 @@
                                         <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
                                         <input type="datetime-local"
                                             class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
-                                            id="deadlineDateTime" name="deadlineDateTime" placeholder="日期"  autocomplete="off">
+                                            id="deadlineDateTime" name="deadlineDateTime" placeholder="日期"
+                                            autocomplete="off">
                                         <p class="mt-4 fs-14 d-none deadlineDateTimeAlert" style="color:#dc3545;">
                                             截止時間須至少提前於享用日期 24 時</p>
                                     </li>
@@ -695,222 +704,21 @@
                 <!-- moment.js import-->
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
-                <!-- Axios import -->
-                <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-
                 <!-- 時間選擇器 flatpickr import -->
                 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-                <!-- 頁面基本資料取得 -->
-                <script>
-                    //全頁共用變數
-                    const _url = "https://teatimeapi-test.onrender.com"
-                    const _user = "U004"
 
-                    // 使用 moment 格式化日期
-                    var now = moment().format('YYYY/MM/DD');
-
-                    //取得前頁拋轉資料
-                    const eventDateTime = sessionStorage.getItem('eventDateTime');
-                    const deadlineDateTime = sessionStorage.getItem('deadlineDateTime');
-                    const votingInvitees = sessionStorage.getItem('votingInvitees');
-                </script>
-
-                <!-- 店家清冊渲染 -->
-                <script>
-                    // 店家排序資料                   
-                    let currentFilters = {
-                        category: "全部", // 初始分類
-                        sort: "", // 初始排序
-                        search: "" //初始搜尋
-                    };
-
-                    const sortType = {
-                        newestStore: "&_sort=id&_order=desc",
-                        bestStore: "&_sort=stars&_order=desc",
-                        worstStore: "&_sort=stars&_order=asc"
-                    }
-
-                    function initRestaurantData(category, sort, search) {
-                        let filterCategory = ""
-                        let sortStores = ""
-                        let searchStore = ""
-
-                        //初始運行頁面設置
-                        if (category !== "全部" && category) {
-                            filterCategory = `category=${category}`
-                        }
-                        //初始運行頁面設置
-                        if (sort) {
-                            sortStores = sort
-                        }
-
-                        if (search) {
-                            searchStore = `&storeName_like=${search}`
-                        }
-
-                        let filterAPI = `${_url}/restaurants?${filterCategory}${sortStores}${searchStore}`
-
-                        renderRestaurantCard(filterAPI)
-                    }
-
-                    initRestaurantData()
-
-                    // 店家排序處理
-                    function toggleFilter(filterType, value) {
-                        switch (filterType) {
-                            case "category":
-                                currentFilters[filterType] = value;
-                                break;
-                            case "search":
-                                currentFilters[filterType] = value.trim();
-                                break;
-                            default:
-                                currentFilters[filterType] = sortType[value];
-                                break;
-                        }
-
-                        initRestaurantData(currentFilters.category, currentFilters.sort, currentFilters.search);
-                    }
-
-
-                    //show 店家卡片
-                    function renderRestaurantCard(filterData) {
-                        //店家類別 icon 對照
-                        const categoryIcon = {
-                            飲料: "icon-park-outline:drink",
-                            速食: "mdi:food-outline",
-                            素食: "tabler:leaf",
-                            小吃: "ph:bowl-food",
-                            甜點: "material-symbols:icecream-outline-rounded",
-                            咖啡: "icon-park-outline:tea-drink"
-                        }
-
-                        //星評樣板
-                        function showStars(num) {
-                            const starsTotal = 5
-                            const starsStates = {
-                                isGoodStar: `<iconify-icon icon="ic:round-star" style="color: #ffd43a;"
-                                                width="16"></iconify-icon>`,
-                                notGoodStar: `<iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
-                                                width="16"></iconify-icon>`
-                            }
-
-                            let resultStars = starsStates["isGoodStar"].repeat(num) + starsStates["notGoodStar"].repeat(starsTotal - num)
-
-                            return resultStars
-                        }
-
-                        //頁碼生成               
-                        $(function () {
-                            (function (name) {
-                                let container = $('#pagination' + name);
-
-                                // 發送 Ajax 請求獲取資料
-                                $.ajax({
-                                    url: filterData,
-                                    success: function (data) {
-                                        let totalNumber = data.length; // 實際資料筆數
-                                        container.pagination({
-                                            dataSource: data, // 實際資料來源
-                                            // locator: '', // 如果需要抓出來源中的特定屬性再填
-                                            totalNumber: totalNumber, // 實際資料總數
-                                            pageSize: 8, // 每頁資料數
-                                            showPageNumbers: true,
-                                            showPrevious: true,
-                                            showNext: true,
-                                            callback: function (data, pagination) {
-                                                let dataHtml = '<ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul">';
-
-                                                $.each(data, function (index, data) {
-                                                    dataHtml += `<li class="findStore-img position-relative"            style="background-image: url(${data.storeCover});"> 
-                                                        <!-- select-store-checkbox --> 
-                                                        <label class="select-store">
-                                                            <input type="checkbox" class="position-absolute select-store-checkbox" name="selectStoreCheck" data-uid="${data.UID}">
-                                                            <span class="position-absolute cursor-pointer select-store-checkmark"></span></label>
-                                                            <a href="store-order.html?UID=${data.UID}" class="d-flex justify-content-center w-100 h-100 ">
-                                                                <!-- restaurant info -->
-                                                                <div class="position-absolute d-flex justify-content-between findStore-card">
-                                                                    <div class="d-flex flex-column justify-content-center overflow-hidden">
-                                                                        <p class="mb-8 fs-md-20 fs-16 lh-sm text-white" style="white-space:nowrap">${data.storeName}</p>
-                                                                        <!-- 星評 -->
-                                                                        <div class="d-flex ">
-                                                                            ${showStars(data.stars)}
-                                                                        </div>
-                                                                    </div>
-                                                                    <!-- restaurant sort -->
-                                                                    <iconify-icon icon="${categoryIcon[data.category]}"
-                                                                        style="color: #8b8b8a;" width="24" height="24"
-                                                                        class="ms-4 findStore-card-img"></iconify-icon>
-                                                                </div>
-                                                            </a>
-                                                        </li>`;
-                                                });
-
-                                                dataHtml += '</ul>';
-
-                                                $("#paginationContainer").html(dataHtml);
-                                            }
-                                        });
-                                        const select = document.querySelectorAll(".select-store-checkbox")
-                                        select.forEach(item => {
-                                            item.addEventListener("change", function () {
-                                                selectStore(item.getAttribute("data-uid"))
-                                            })
-                                        })
-                                    },
-                                    error: function (error) {
-                                        console.error(error);
-                                    }
-                                });
-                            })('Pages');
-                        });
-                    }
-
-                    // 選定店家
-                    // 還差第四個勾選後自動變為未勾
-
-                    const selectStoreList = []
-
-                    function selectStore(UID) {                        
-                        const maxChecked = 3
-                        const checkedIndex = selectStoreList.indexOf(UID)
-
-                        console.log(checkedIndex)
-
-                        if (selectStoreList.length >= maxChecked) {
-                            console.log(`滿`)
-                            if (checkedIndex >= 0){selectStoreList.splice(checkedIndex, 1)}
-                        } else {
-                            checkedIndex < 0 ? selectStoreList.push(UID) : selectStoreList.splice(checkedIndex, 1)
-                        }
-
-                        console.log(selectStoreList)
-                    }
-
-
-                    // function showUID(UID) {
-                    //     if (selectStoreList.length <= maxChecked) {
-                    //         const checkedIndex = selectStoreList.indexOf(UID)
-                    //         checkedIndex < 0 ? selectStoreList.push(UID) : selectStoreList.splice(checkedIndex, 1)
-                    //     }
-                    //     console.log(selectStoreList)
-                    // }
-
-
-
-
-                </script>
+                
 
                 <!-- jQuery -->
                 <script>
                     /* select-bar 排序篩選按鈕 active 狀態切換顯示 */
-                    $('.selectBar button').click(function (e) {
-                        $('.selectBar button').removeClass('btn-active-brand-02');
+                    $('.btnSortStore').click(function (e) {
+                        $('.btnSortStore').removeClass('btn-active-brand-02');
                         $(this).addClass('btn-active-brand-02');
                     });
-                    $('.storeSort button').click(function (e) {
-                        $('.storeSort button').removeClass('actived');
+                    $('.categoryStoreBar button').click(function (e) {
+                        $('.categoryStoreBar button').removeClass('actived');
                         $(this).addClass('actived');
                     });
                 </script>
@@ -927,63 +735,7 @@
                         maxDate: moment().add(1, 'months').format('YYYY/MM/DD'),
                     }
 
-                    flatpickr(".dateSelector", config);
-                </script>
-
-                <!-- 搜尋 autoComplete -->
-                <script>
-                    const autoCompleteJS = new autoComplete({
-                        data: {
-                            src: async (query) => {
-                                try {
-                                    // Fetch Data from external Source
-                                    const source = await fetch(`${_url}/restaurants`);
-                                    // Data should be an array of `Objects` or `Strings`
-                                    const data = await source.json();
-
-                                    return data;
-                                } catch (error) {
-                                    return error;
-                                }
-                            },
-                            // Data source 'Object' key to be searched
-                            keys: ["storeName"]
-                        },
-                        searchEngine: "loose",
-                        resultItem: {
-                            highlight: true
-                        },
-                        resultsList: {
-                            element: (list, data) => {
-                                if (!data.results.length) {
-                                    // Create "No Results" message element
-                                    const message = document.createElement("div");
-                                    // Add class to the created element
-                                    message.setAttribute("class", "no_result px-8");
-                                    // Add message text content
-                                    message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
-                                    // Append message element to the results list
-                                    list.prepend(message);
-                                }
-                            },
-                            noResults: true,
-                        },
-                        events: {
-                            input: {
-                                selection: (event) => {
-                                    const selectionValue = event.detail.selection.value;
-                                    autoCompleteJS.input.value = selectionValue.storeName;
-                                    toggleFilter("search", selectionValue.storeName)
-                                },
-                                keydown: (event) => {
-                                    if (event.keyCode === 13) {
-                                        const searchValue = autoCompleteJS.input.value
-                                        toggleFilter("search", searchValue)
-                                    }
-                                }
-                            }
-                        }
-                    });
+                    flatpickr(".dateSelector", config);               
                 </script>
 
 
