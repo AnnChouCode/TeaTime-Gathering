@@ -169,7 +169,7 @@
             <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
                 <div class="d-flex modal-content border-radius-24">
                     <!-- modal header -->
-                    <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
+                    <div class="modal-header p-16 px-lg-24 px-lg-40 border-0">
                         <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">建立投票
                         </h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -187,6 +187,9 @@
                                                 class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
                                                 id="eventDateTime" name="eventDateTime" placeholder="日期"
                                                 autocomplete="off">
+                                            <p class="d-none mt-4 fs-14 ms-16 eventDateTimeAlert"
+                                                style="color:#dc3545;">
+                                                必填</p>
                                         </li>
                                         <li>
                                             <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
@@ -194,8 +197,9 @@
                                                 class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
                                                 id="deadlineDateTime" name="deadlineDateTime" placeholder="日期"
                                                 autocomplete="off">
-                                            <p class="mt-4 fs-14 d-none deadlineDateTimeAlert" style="color:#dc3545;">
-                                                截止時間須至少提前於享用日期 24 時</p>
+                                            <p class="d-none mt-4 fs-14 ms-16 deadlineDateTimeAlert"
+                                                style="color:#dc3545;">
+                                                必填</p>
                                         </li>
                                         <li>
                                             <span class="me-16 mb-16 mb-md-12">發起人</span>
@@ -210,8 +214,11 @@
                                                 <option value="no-invitees">各自付款</option>
                                                 <option value="has-invitees">由我請客</option>
                                             </select>
+                                            <p class="d-none mt-4 fs-14 ms-16 votingInviteesAlert"
+                                                style="color:#dc3545;">
+                                                必填</p>
                                         </li>
-                                    </ul>                                    
+                                    </ul>
                                 </div>
                                 <!-- 投票卡片 voting card -->
                                 <div class="col col-lg-8 pt-32 px-0 ps-lg-32 pt-lg-0">
@@ -226,8 +233,8 @@
                             <div class="row">
                                 <div class="col col-lg-4 px-0 ps-lg-12">
                                     <button
-                            class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-100"
-                            type="button">建立投票</button>
+                                        class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-100 btnCreateVoting"
+                                        type="button">建立投票</button>
                                 </div>
                             </div>
                         </div>
@@ -409,8 +416,7 @@
                         let dataHtml = '<ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul">';
 
                         $.each(paginatedData, function (index, item) {
-                            //當前 item 是否已經被選取
-                            //const isChecked = checkedStoreList.includes(item.UID);
+
                             const isChecked = checkedStoreList.hasOwnProperty(item.UID);
                             //console.log(`是否已被選取${isChecked}, 目前的清單 ${checkedStoreList}`)
 
@@ -593,41 +599,48 @@
 
 
                     /* 建立投票 ================================================*/
-                    //建立投票 modal 初始顯示資料設定
+                    //綁定建立投票 modal
                     const createVotingModal = document.getElementById('modal-createVoting')
+                    //綁定 modal-title
+                    const modalTitle = createVotingModal.querySelector('.modal-title')
+                    //綁定 modal 活動基本資料欄位
+                    const eventDateTimeInput = document.getElementById("eventDateTime") //享用日期
+                    const deadlineDateTimeInput = document.getElementById("deadlineDateTime") //截止日期
+                    const votingInviteesSelect = document.getElementById("votingInvitees") //請客人
+                    //綁定參與建立投票店家的渲染區
+                    const votingCard = document.querySelector(".votingCard")
+                    //綁定「建立投票」按鈕
+                    const btnCreateVoting = document.querySelector(".btnCreateVoting")
+
+                    //建立投票 modal 初始顯示資料設定                    
                     createVotingModal.addEventListener('show.bs.modal', function (event) {
-                        //從「確認選擇」按鈕獲取 data-bs-title 值
-                        //const button = event.relatedTarget
                         //要渲染的參與投票店家清單
                         const datas = Object.values(checkedStoreList)
+                        //渲染建立投票基本資料                      
+                        renderVotingBasicInfo(datas)
+                        //渲染參與建立投票的店家
+                        renderVotingCards(datas)
+                    })
 
-                        //渲染 modal 標題
-                        const modalTitle = createVotingModal.querySelector('.modal-title')
+                    //渲染建立投票基本資料 
+                    function renderVotingBasicInfo(datas) {
+                        //渲染 modal 標題                        
                         const restaurantNames = datas.map(item => item.restaurantName)
                         modalTitle.textContent = restaurantNames.join("、")
 
                         //取得前頁拋轉資料
                         const eventDateTime = sessionStorage.getItem('eventDateTime'); //享用日期
                         const deadlineDateTime = sessionStorage.getItem('deadlineDateTime'); //截止日期
-                        const votingInvitees = sessionStorage.getItem('votingInvitees'); //請客人
+                        const votingInvitees = sessionStorage.getItem('votingInvitees'); //請客人                        
 
-                        //綁定 modal 活動基本資料欄位
-                        const eventDateTimeInput = document.getElementById("eventDateTime")
-                        const deadlineDateTimeInput = document.getElementById("deadlineDateTime")
-                        const votingInviteesSelect = document.getElementById("votingInvitees")
-
+                        //帶入前頁值
                         eventDateTimeInput.value = eventDateTime
                         deadlineDateTimeInput.value = deadlineDateTime
                         votingInviteesSelect.value = votingInvitees
+                    }
 
-                        renderVotingCards()
-                    })
-
-                    function renderVotingCards() {
-                        //綁定渲染區
-                        const votingCard = document.querySelector(".votingCard")
-                        //要渲染的參與投票店家清單
-                        const datas = Object.values(checkedStoreList)
+                    //渲染參與建立投票的店家
+                    function renderVotingCards(datas) {
                         //渲染資料暫存
                         let tempList = ""
 
@@ -647,6 +660,155 @@
 
                         votingCard.innerHTML = tempList
                     }
+
+
+                    btnCreateVoting.addEventListener("click", createVoting)
+
+                    //「建立投票」按鈕動作
+                    async function createVoting() {
+                        //判斷輸入格內的值是否正確
+                        const isError = checkFormError();
+                        //若錯誤則中斷函式
+                        if (isError) {
+                            return;
+                        }
+
+                        try {
+                            //獲取新投票事件 UID
+                            const votingDataUID = await getNewVotingUID()   
+                            //包裝可傳入 votings API 的檔案                         
+                            packageData(votingDataUID)
+                        } catch (err) {
+                            console.log('錯誤:', err);
+                        }                       
+
+                    }
+
+                    //獲取新投票事件 UID
+                    async function getNewVotingUID() {
+                        try {
+                            const response = await axios.get(`${_url}/votings`);
+                            const datas = response.data;
+                            //獲取資料庫最後一筆資料的 UID
+                            const lastItemUID = datas[datas.length - 1].UID;
+                            //匹配非數字部分與數字部分
+                            const match = lastItemUID.match(/(\D+)(\d+)/);
+
+                            if (match) {
+                                const prefix = match[1]; //獲取字首英文字
+                                let number = parseInt(match[2]); //獲取數字部分
+                                number++;
+                                //首字英文與新數字相加，不足的部分補 0
+                                const newUID = prefix + number.toString().padStart(match[2].length, "0");
+                                return newUID;
+                            }
+                        } catch (err) {
+                            console.log('錯誤:', err);
+                            throw err;
+                        }
+                    }
+                    
+                    //包裝可傳入 votings API 的檔案
+                    function packageData(votingDataUID){
+                        //用來建立投票的店家清單
+                        const originDatas = Object.values(checkedStoreList)
+
+                        originDatas.map(data => {
+                            const packagedData = { ...data }
+
+                            //刪除不需要的屬性與值
+                            delete packagedData["restaurantCover"]
+                            delete packagedData["summary"]
+                            delete packagedData["minGroupSize"]
+
+                            //新增屬性與值
+                            packagedData["UID"] = votingDataUID
+                            packagedData["deadlineDateTime"] = deadlineDateTimeInput.value
+                            packagedData["eventDateTime"] = eventDateTimeInput.value
+                            packagedData["initiator"] = "黃莉玲"
+                            packagedData["invitees"] = votingInviteesSelect.value === "has-invitees" ? "黃莉玲" : ""
+                            packagedData["currentVoters"] = []                            
+
+                            //post votings API 資料庫
+                            updateVotingEvent(packagedData)
+                        })
+                    }
+
+                    //post votings API 資料庫
+                    function updateVotingEvent(packagedData){                        
+                        axios.post(`${_url}/votings`, packagedData)
+                                .then(function (response) {
+                                    console.log("success")
+                                }).catch((err) => {
+                                    console.log('錯誤:', err);
+                                });
+                    }
+
+                    //判斷輸入格內的值是否正確
+                    function checkFormError() {
+                        //isError 初始值
+                        let isError = false;
+
+                        //綁定錯誤訊息
+                        const eventDateTimeAlert = document.querySelector(".eventDateTimeAlert")
+                        const deadlineDateTimeAlert = document.querySelector(".deadlineDateTimeAlert")
+                        const votingInviteesAlert = document.querySelector(".votingInviteesAlert")
+
+                        //儲存格式化時間，用於判斷兩日期時間差符合條件
+                        let formattedEventDateTime = ""
+                        let formattedDeadlineDateTime = ""
+
+                        //獲取時間輸入格的值
+                        const selectedEventDateTime = document.getElementById("eventDateTime").value.trim();
+                        const selectedDeadlineDateTime = document.getElementById("deadlineDateTime").value.trim();
+
+                        //若「享用時間」輸入格有值，則進行時間格式化
+                        if (selectedEventDateTime) {
+                            formattedEventDateTime = moment(eventDateTimeInput.value, "YYYY/MM/DD HH:mm");
+                        }
+                        //若「截止時間」輸入格有值，則進行時間格式化
+                        if (selectedDeadlineDateTime) {
+                            formattedDeadlineDateTime = moment(deadlineDateTimeInput.value, "YYYY/MM/DD HH:mm");
+                        }
+
+                        //判斷輸入格是否有未填
+                        if (formattedEventDateTime === "") {
+                            eventDateTimeAlert.classList.remove("d-none")
+                            isError = true
+                        } else {
+                            eventDateTimeAlert.classList.add("d-none")
+                        }
+
+                        if (formattedDeadlineDateTime === "") {
+                            deadlineDateTimeAlert.classList.remove("d-none")
+                            deadlineDateTimeAlert.textContent = "必填"
+                            isError = true
+                        } else {
+                            deadlineDateTimeAlert.classList.add("d-none")
+                        }
+
+                        if (votingInviteesSelect.value === "") {
+                            votingInviteesAlert.classList.remove("d-none")
+                            isError = true
+                        } else {
+                            votingInviteesAlert.classList.add("d-none")
+                        }
+
+                        //若時間輸入格均有值，判定截止時間需早於享用時間至少 24 時
+                        if (formattedEventDateTime && formattedDeadlineDateTime) {
+                            const diffInHours = formattedEventDateTime.diff(formattedDeadlineDateTime, 'hours');
+                            if (diffInHours < 24) {
+                                deadlineDateTimeAlert.classList.remove("d-none")
+                                deadlineDateTimeAlert.textContent = "截止時間須至少提前於享用日期 24 時"
+                                isError = true
+                            } else {
+                                deadlineDateTimeAlert.classList.add("d-none")
+                            }
+                        }
+
+                        return isError
+                    }
+
 
 
                     /* 搜尋 input autoComplete ===================================*/
