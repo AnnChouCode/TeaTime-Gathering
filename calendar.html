@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <!-- 進度條 tocas progress -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/calendar-7965cad8.js"></script>
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/calendar-facc0134.js"></script>
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-9ebfdcfe.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/axios-47b9d439.js">
   <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-6493fc54.css">
@@ -476,7 +476,7 @@
             });;
         })
     })
-</script>      <div class="py-32 py-md-80 layout-content container calendar">
+</script>      <div class="py-32 pt-64 py-md-80 layout-content container calendar">
         <h2 class="mb-16 mb-md-32 fs-24 fs-md-32 fw-bold lh-sm">訂餐月曆</h2>
         <div class="row flex-column flex-md-row gy-48 g-md-24">
           <!-- 月曆 -->
@@ -520,7 +520,7 @@
       <!-- 投票檢索 & 投票 Modal -->
       <div class="modal fade" id="modal-VotingModal" tabindex="-1" aria-labelledby="modal-VotingModal"
         aria-hidden="true" data-backdrop="false">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
           <div class="d-flex modal-content border-radius-24">
             <!-- modal header -->
             <div class="modal-header py-16 py-lg-24 px-16 px-lg-40 border-0">
@@ -528,58 +528,63 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <!-- modal body -->
-            <div class="modal-body d-flex px-16 px-lg-40 pb-16 pt-8 pt-lg-16 pb-lg-40 container">
-              <div class="row flex-column flex-lg-row">
-                <!-- 活動資訊 voting info -->
-                <div class="col col-lg-4">
-                  <ul class="d-flex flex-column gap-4 gap-md-8 mb-32 mb-lg-0 fs-16 fs-md-20">
-                    <li class="eventDateTime">
-                      <span class="me-16">享用日期</span>
-                      <span class="me-8 ">00/00</span>
-                      <span>00:00</span>
-                    </li>
-                    <li class="deadlineDateTime">
-                      <span class="me-16">截止時間</span>
-                      <span class="me-8">00/00</span>
-                      <span>00:00</span>
-                    </li>
-                    <li>
-                      <span class="me-16">發起人</span>
-                      <span class="initiator"></span>
-                    </li>
-                    <li>
-                      <span class="me-16">請客人</span>
-                      <span class="invitees"></span>
-                    </li>
-                  </ul>
-                </div>
-                <!-- 投票卡片 voting card -->
-                <div class="col col-lg-8">
-                  <ul class="votingCard">
-                    <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
-                      <img class="border-radius-32321616 votingcard-photo" src="#" alt="store-photo">
-                      <div>
-                        <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">#</h4>
-                        <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
-                          #</p>
-                        <div class="d-flex justify-content-between flex-column flex-lg-row">
-                          <div class="d-flex align-items-center mb-8 mb-lg-0 ">
-                            <span class="me-4 me-lg-16 text-gray-02 text-nowrap">成團目標</span>
-                            <div class="ts-progress is-tiny bg-gray-04 voting-progress">
-                              <div class="bar bg-brand-02" style="--value: 50">
-                                <div class="text-white">50%</div>
+            <div class="modal-body px-16 px-lg-40 pt-8 pt-lg-16">
+              <div class="container-fluid">
+                <div class="row flex-column flex-lg-row">
+                  <!-- 活動資訊 voting info -->
+                  <div class="col col-lg-4 p-0">
+                    <ul class="d-flex flex-column gap-4 gap-md-8 mb-32 mb-lg-0 fs-16 fs-md-20">
+                      <li class="eventDateTime">
+                        <span class="me-16">享用日期</span>
+                        <span class="me-8 ">00/00</span>
+                        <span>00:00</span>
+                      </li>
+                      <li class="deadlineDateTime">
+                        <span class="me-16">截止時間</span>
+                        <span class="me-8">00/00</span>
+                        <span>00:00</span>
+                      </li>
+                      <li>
+                        <span class="me-16">發起人</span>
+                        <span class="initiator"></span>
+                      </li>
+                      <li>
+                        <span class="me-16">請客人</span>
+                        <span class="invitees"></span>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- 投票卡片 voting card -->
+                  <div class="col col-lg-8 p-0">
+                    <ul class="votingCard">
+                      <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                        <img class="border-radius-32321616 votingcard-photo" src="#" alt="store-photo">
+                        <div>
+                          <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">#</h4>
+                          <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
+                            #</p>
+                          <div class="d-flex justify-content-between flex-column flex-lg-row">
+                            <div class="d-flex align-items-center mb-8 mb-lg-0 ">
+                              <span class="me-4 me-lg-16 text-gray-02 text-nowrap">成團目標</span>
+                              <div class="ts-progress is-tiny bg-gray-04 voting-progress">
+                                <div class="bar bg-brand-02" style="--value: 50">
+                                  <div class="text-white">50%</div>
+                                </div>
                               </div>
                             </div>
+                            <button
+                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
+                              type="button">投票</button>
                           </div>
-                          <button
-                            class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
-                            type="button">投票</button>
-                        </div>
-                    </li>
-                  </ul>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
+            <!-- modal footer -->
+            <div class="modal-footer px-16 px-lg-40 py-12 border-0"></div>
+          </div>
           </div>
         </div>
       </div>
@@ -612,7 +617,7 @@
                       <input type="datetime-local"
                         class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
                         id="deadlineDateTime" name="deadlineDateTime" placeholder="日期" autocomplete="off">
-                      <p class="mt-4 fs-14 d-none deadlineDateTimeAlert" style="color:#dc3545;">截止時間須至少提前於享用日期 24 時</p>
+                      <p class="d-none mt-4 fs-14 ms-16 deadlineDateTimeAlert" style="color:#dc3545;">截止時間須至少提前於享用日期 24 時</p>
                     </li>
                     <li>
                       <span class="me-16 mb-16 mb-md-12">發起人</span>
@@ -622,7 +627,7 @@
                       <label for="votingInvitees" class="mb-16 mb-mb-12">請客人</label>
                       <select id="votingInvitees" name="votingInvitees"
                         class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 select-payer">
-                        <option class="text-gray-03" value="請選擇付款人" disabled selected>請選擇付款人</option>
+                        <option class="text-gray-03" value="" disabled selected>請選擇付款人</option>
                         <option value="no-invitees">各自付款</option>
                         <option value="has-invitees">由我請客</option>
                       </select>

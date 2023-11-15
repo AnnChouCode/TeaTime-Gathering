@@ -33,7 +33,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <!-- 時間選擇器 flatpickr -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/createVoting-3b61c147.js"></script>
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/createVoting-a5aefa9b.js"></script>
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-9ebfdcfe.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/axios-47b9d439.js">
   <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-6493fc54.css">
@@ -519,60 +519,78 @@
         </div>
 
         <!-- 建立投票 Modal -->
-        <div class="modal fade" id="modal-createVoting" tabindex="-1" aria-labelledby="modal-createVoting" aria-hidden="true"
-            data-backdrop="false">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal fade" id="modal-createVoting" tabindex="-1" aria-labelledby="modal-createVoting"
+            aria-hidden="true" data-backdrop="false">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
                 <div class="d-flex modal-content border-radius-24">
                     <!-- modal header -->
-                    <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
+                    <div class="modal-header p-16 px-lg-24 px-lg-40 border-0">
                         <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">建立投票
                         </h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <!-- modal body -->
-                    <div
-                        class="modal-body d-flex pb-16 pt-8 pt-lg-16 px-16 px-lg-40 pb-lg-40 container justify-content-center">
-                        <div class="row flex-column flex-lg-row w-100">
-                            <!-- 建立活動資訊 create voting info -->
-                            <div class="col col-lg-4 p-0">
-                                <ul class="d-flex flex-column gap-32 mb-12 mb-lg-32 fs-16 fs-md-20">
-                                    <li>
-                                        <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
-                                        <input type="datetime-local"
-                                            class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
-                                            id="eventDateTime" name="eventDateTime" placeholder="日期" autocomplete="off">
-                                    </li>
-                                    <li>
-                                        <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
-                                        <input type="datetime-local"
-                                            class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
-                                            id="deadlineDateTime" name="deadlineDateTime" placeholder="日期"
-                                            autocomplete="off">
-                                        <p class="mt-4 fs-14 d-none deadlineDateTimeAlert" style="color:#dc3545;">
-                                            截止時間須至少提前於享用日期 24 時</p>
-                                    </li>
-                                    <li>
-                                        <span class="me-16 mb-16 mb-md-12">發起人</span>
-                                        <span>黃莉琳</span>
-                                    </li>
-                                    <li>
-                                        <label for="votingInvitees" class="mb-16 mb-mb-12">請客人</label>
-                                        <select id="votingInvitees" name="votingInvitees"
-                                            class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 select-payer">
-                                            <option class="text-gray-03" value="請選擇付款人" disabled selected>請選擇付款人
-                                            </option>
-                                            <option value="no-invitees">各自付款</option>
-                                            <option value="has-invitees">由我請客</option>
-                                        </select>
-                                    </li>
-                                </ul>
-                                <button
-                                    class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-100 btnLinkToCreateVoting"
-                                    type="button">選擇店家</button>
+                    <div class="modal-body pb-16 pt-8 pt-lg-16 px-16 px-lg-40 pb-lg-40 justify-content-center">
+                        <div class="container-fluid">
+                            <div class="row flex-column flex-lg-row">
+                                <!-- 建立活動資訊 create voting info -->
+                                <div class="col col-lg-4 p-0">
+                                    <ul class="d-flex flex-column gap-32 mb-0 mb-lg-32 fs-16 fs-md-20">
+                                        <li>
+                                            <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
+                                            <input type="datetime-local"
+                                                class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
+                                                id="eventDateTime" name="eventDateTime" placeholder="日期"
+                                                autocomplete="off">
+                                            <p class="d-none mt-4 fs-14 ms-16 eventDateTimeAlert"
+                                                style="color:#dc3545;">
+                                                必填</p>
+                                        </li>
+                                        <li>
+                                            <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
+                                            <input type="datetime-local"
+                                                class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
+                                                id="deadlineDateTime" name="deadlineDateTime" placeholder="日期"
+                                                autocomplete="off">
+                                            <p class="d-none mt-4 fs-14 ms-16 deadlineDateTimeAlert"
+                                                style="color:#dc3545;">
+                                                必填</p>
+                                        </li>
+                                        <li>
+                                            <span class="me-16 mb-16 mb-md-12">發起人</span>
+                                            <span>黃莉琳</span>
+                                        </li>
+                                        <li>
+                                            <label for="votingInvitees" class="mb-16 mb-mb-12">請客人</label>
+                                            <select id="votingInvitees" name="votingInvitees"
+                                                class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 select-payer">
+                                                <option class="text-gray-03" value="請選擇付款人" disabled selected>請選擇付款人
+                                                </option>
+                                                <option value="no-invitees">各自付款</option>
+                                                <option value="has-invitees">由我請客</option>
+                                            </select>
+                                            <p class="d-none mt-4 fs-14 ms-16 votingInviteesAlert"
+                                                style="color:#dc3545;">
+                                                必填</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- 投票卡片 voting card -->
+                                <div class="col col-lg-8 pt-32 px-0 ps-lg-32 pt-lg-0">
+                                    <ul class="votingCard"></ul>
+                                </div>
                             </div>
-                            <!-- 投票卡片 voting card -->
-                            <div class="col col-lg-8 d-none d-lg-block">
-                                <p class="fs-16 fs-md-20 text-center">尚未選擇店家</p>
+                        </div>
+                    </div>
+                    <!-- modal footer -->
+                    <div class="modal-footer px-16 px-lg-40 border-0">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col col-lg-4 px-0 ps-lg-12">
+                                    <button
+                                        class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-100 btnCreateVoting"
+                                        type="button">建立投票</button>
+                                </div>
                             </div>
                         </div>
                     </div>
