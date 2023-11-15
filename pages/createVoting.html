@@ -164,60 +164,78 @@
         </div>
 
         <!-- 建立投票 Modal -->
-        <div class="modal fade" id="modal-createVoting" tabindex="-1" aria-labelledby="modal-createVoting" aria-hidden="true"
-            data-backdrop="false">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal fade" id="modal-createVoting" tabindex="-1" aria-labelledby="modal-createVoting"
+            aria-hidden="true" data-backdrop="false">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
                 <div class="d-flex modal-content border-radius-24">
                     <!-- modal header -->
-                    <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
+                    <div class="modal-header p-16 px-lg-24 px-lg-40 border-0">
                         <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">建立投票
                         </h3>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <!-- modal body -->
-                    <div
-                        class="modal-body d-flex pb-16 pt-8 pt-lg-16 px-16 px-lg-40 pb-lg-40 container justify-content-center">
-                        <div class="row flex-column flex-lg-row w-100">
-                            <!-- 建立活動資訊 create voting info -->
-                            <div class="col col-lg-4 p-0">
-                                <ul class="d-flex flex-column gap-32 mb-12 mb-lg-32 fs-16 fs-md-20">
-                                    <li>
-                                        <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
-                                        <input type="datetime-local"
-                                            class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
-                                            id="eventDateTime" name="eventDateTime" placeholder="日期" autocomplete="off">
-                                    </li>
-                                    <li>
-                                        <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
-                                        <input type="datetime-local"
-                                            class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
-                                            id="deadlineDateTime" name="deadlineDateTime" placeholder="日期"
-                                            autocomplete="off">
-                                        <p class="mt-4 fs-14 d-none deadlineDateTimeAlert" style="color:#dc3545;">
-                                            截止時間須至少提前於享用日期 24 時</p>
-                                    </li>
-                                    <li>
-                                        <span class="me-16 mb-16 mb-md-12">發起人</span>
-                                        <span>黃莉琳</span>
-                                    </li>
-                                    <li>
-                                        <label for="votingInvitees" class="mb-16 mb-mb-12">請客人</label>
-                                        <select id="votingInvitees" name="votingInvitees"
-                                            class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 select-payer">
-                                            <option class="text-gray-03" value="請選擇付款人" disabled selected>請選擇付款人
-                                            </option>
-                                            <option value="no-invitees">各自付款</option>
-                                            <option value="has-invitees">由我請客</option>
-                                        </select>
-                                    </li>
-                                </ul>
-                                <button
-                                    class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-100 btnLinkToCreateVoting"
-                                    type="button">選擇店家</button>
+                    <div class="modal-body pb-16 pt-8 pt-lg-16 px-16 px-lg-40 pb-lg-40 justify-content-center">
+                        <div class="container-fluid">
+                            <div class="row flex-column flex-lg-row">
+                                <!-- 建立活動資訊 create voting info -->
+                                <div class="col col-lg-4 p-0">
+                                    <ul class="d-flex flex-column gap-32 mb-0 mb-lg-32 fs-16 fs-md-20">
+                                        <li>
+                                            <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
+                                            <input type="datetime-local"
+                                                class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
+                                                id="eventDateTime" name="eventDateTime" placeholder="日期"
+                                                autocomplete="off">
+                                            <p class="d-none mt-4 fs-14 ms-16 eventDateTimeAlert"
+                                                style="color:#dc3545;">
+                                                必填</p>
+                                        </li>
+                                        <li>
+                                            <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
+                                            <input type="datetime-local"
+                                                class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
+                                                id="deadlineDateTime" name="deadlineDateTime" placeholder="日期"
+                                                autocomplete="off">
+                                            <p class="d-none mt-4 fs-14 ms-16 deadlineDateTimeAlert"
+                                                style="color:#dc3545;">
+                                                必填</p>
+                                        </li>
+                                        <li>
+                                            <span class="me-16 mb-16 mb-md-12">發起人</span>
+                                            <span>黃莉琳</span>
+                                        </li>
+                                        <li>
+                                            <label for="votingInvitees" class="mb-16 mb-mb-12">請客人</label>
+                                            <select id="votingInvitees" name="votingInvitees"
+                                                class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 select-payer">
+                                                <option class="text-gray-03" value="請選擇付款人" disabled selected>請選擇付款人
+                                                </option>
+                                                <option value="no-invitees">各自付款</option>
+                                                <option value="has-invitees">由我請客</option>
+                                            </select>
+                                            <p class="d-none mt-4 fs-14 ms-16 votingInviteesAlert"
+                                                style="color:#dc3545;">
+                                                必填</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- 投票卡片 voting card -->
+                                <div class="col col-lg-8 pt-32 px-0 ps-lg-32 pt-lg-0">
+                                    <ul class="votingCard"></ul>
+                                </div>
                             </div>
-                            <!-- 投票卡片 voting card -->
-                            <div class="col col-lg-8 d-none d-lg-block">
-                                <p class="fs-16 fs-md-20 text-center">尚未選擇店家</p>
+                        </div>
+                    </div>
+                    <!-- modal footer -->
+                    <div class="modal-footer px-16 px-lg-40 border-0">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col col-lg-4 px-0 ps-lg-12">
+                                    <button
+                                        class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-100 btnCreateVoting"
+                                        type="button">建立投票</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -255,24 +273,20 @@
                 <script type="module">
                     import axios from 'axios';
 
-                    /* 頁面基本資料取得 */
+                    /* 頁面基本資料取得 ===================================================*/
                     //全頁共用變數
                     const _url = "https://teatimeapi-test.onrender.com"
                     const _user = "U004"
 
-                    // 使用 moment 格式化日期
+                    //使用 moment 格式化日期
                     var now = moment().format('YYYY/MM/DD');
 
-                    //取得前頁拋轉資料
-                    const eventDateTime = sessionStorage.getItem('eventDateTime');
-                    const deadlineDateTime = sessionStorage.getItem('deadlineDateTime');
-                    const votingInvitees = sessionStorage.getItem('votingInvitees');
 
                     /* 店家清冊資料處理 =====================================================*/
-                    // 店家排序資料                   
+                    //店家排序資料                   
                     let currentFilters = {
-                        category: "全部", // 初始分類
-                        sort: "", // 初始排序
+                        category: "全部", //初始分類
+                        sort: "", //初始排序
                         search: "" //初始搜尋
                     };
 
@@ -301,7 +315,7 @@
                         }
 
                         let filterAPI = `${_url}/restaurants?${filterCategory}${sortStores}${searchStore}`
-                        // console.log(filterAPI);
+                        //console.log(filterAPI);
 
                         renderFilteredData(filterAPI)
                     }
@@ -327,7 +341,7 @@
                         });
                     });
 
-                    // 店家排序處理
+                    //店家排序處理
                     function toggleFilter(filterType, value) {
                         switch (filterType) {
                             case "category":
@@ -352,7 +366,7 @@
                             (function (name) {
                                 let container = $('#pagination' + name);
 
-                                // 發送 Ajax 請求獲取資料
+                                //發送 Ajax 請求獲取資料
                                 $.ajax({
                                     url: filteredData,
                                     success: function (filteredData) {
@@ -367,12 +381,12 @@
                         });
                     }
 
-                    // 處理頁碼
+                    //處理頁碼
                     function handlePagination(filteredData, container) {
                         container.pagination({
-                            dataSource: filteredData, // 全部或篩選過的資料來源
-                            totalNumber: filteredData.length, // 資料總數
-                            pageSize: 8, // 每頁資料數
+                            dataSource: filteredData, //全部或篩選過的資料來源
+                            totalNumber: filteredData.length, //資料總數
+                            pageSize: 8, //每頁資料數
                             showPageNumbers: true,
                             showPrevious: true,
                             showNext: true,
@@ -387,7 +401,7 @@
 
                     }
 
-                    // 渲染頁碼與監聽換頁
+                    //渲染頁碼與監聽換頁
                     function renderPagination(paginatedData) {
                         //店家類別 icon 對照
                         const categoryIcon = {
@@ -402,8 +416,7 @@
                         let dataHtml = '<ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul">';
 
                         $.each(paginatedData, function (index, item) {
-                            // 當前 item 是否已經被選取
-                            // const isChecked = checkedStoreList.includes(item.UID);
+
                             const isChecked = checkedStoreList.hasOwnProperty(item.UID);
                             //console.log(`是否已被選取${isChecked}, 目前的清單 ${checkedStoreList}`)
 
@@ -437,7 +450,7 @@
 
                     }
 
-                    // 星評樣板
+                    //星評樣板
                     function showStars(num) {
                         const starsTotal = 5
                         const starsStates = {
@@ -463,31 +476,31 @@
 
                         checkboxes.forEach(checkbox => {
                             checkbox.addEventListener("change", function () {
-                                // 當前 checkbox 的 uid
+                                //當前 checkbox 的 uid
                                 const uid = this.getAttribute("data-uid");
-                                // 該 uid 是否存在於選定店家清單中
+                                //該 uid 是否存在於選定店家清單中
                                 const isInStoreList = checkedStoreList.hasOwnProperty(uid);
-                                // 計算清單內有幾個屬性
+                                //計算清單內有幾個屬性
                                 const objNuminList = Object.keys(checkedStoreList).length;
 
                                 if (objNuminList === maxCheckedNum && !isInStoreList) {
-                                    // 當前 checkbox 選中狀態取消
+                                    //當前 checkbox 選中狀態取消
                                     this.checked = false;
                                 } else {
                                     if (!isInStoreList) {
                                         axios.get(`${_url}/restaurants?UID=${uid}`)
                                             .then(function (response) {
-                                                // 清單中新增屬性 uid，與其值為包裝過後的店家資料
+                                                //清單中新增屬性 uid，與其值為包裝過後的店家資料
                                                 checkedStoreList[uid] = handleCheckedListData(response.data[0]);
-                                                // 渲染選中的清單
+                                                //渲染選中的清單
                                                 renderCheckedStore();
                                             }).catch((err) => {
                                                 console.log('錯誤:', err);
                                             });
                                     } else {
-                                        // 刪除清單中該屬性與值
+                                        //刪除清單中該屬性與值
                                         delete checkedStoreList[uid];
-                                        // 渲染選中的清單
+                                        //渲染選中的清單
                                         renderCheckedStore();
                                     }
                                 }
@@ -495,18 +508,20 @@
                         });
                     }
 
-                    // 將選取的店家資料包裝並儲存
+                    //將選取的店家資料包裝並儲存
                     function handleCheckedListData(data) {
                         const store = {
                             UID: data.UID,
                             restaurantId: data.id,
                             restaurantName: data.storeName,
-                            storeCover: data.storeCover
+                            restaurantCover: data.storeCover,
+                            summary: data.summary,
+                            minGroupSize: data.minGroupSize
                         }
                         return store
                     }
 
-                    // 顯示選定店家渲染區塊
+                    //顯示選定店家渲染區塊
                     function showCheckedContainer() {
                         const checkedStoreContainer = document.querySelector(".checkedStoreContainer");
                         const objNuminList = Object.keys(checkedStoreList).length;
@@ -518,16 +533,16 @@
                         }
                     }
 
-                    // 渲染選定店家                 
+                    //渲染選定店家                 
                     function renderCheckedStore() {
                         const showCheckedList = document.querySelector(".showCheckedList") //選定店家渲染容器
-                        let renderData = "" // 存放要渲染的資料
-                        let checkedStore = "" // 當前店家資料
+                        let renderData = "" //存放要渲染的資料
+                        let checkedStore = "" //當前店家資料
 
-                        // 將清單遍歷成陣列渲染
+                        //將清單遍歷成陣列渲染
                         Object.values(checkedStoreList).forEach(store => {
                             renderData += `<li class="d-flex align-items-center py-10 px-20 py-md-12 px-md-24 gap-8 rounded-pill bg-gray-04">
-                                <span class="fs-16 fs-md-20 fw-medium">${store.restaurantName}</span>
+                                <span class="fs-12 fs-md-16 fw-medium">${store.restaurantName}</span>
                                 <button type="button" class="btn-close cancelCheckedStore" data-uid=${store.UID}></button>
                             </li>`
                         })
@@ -535,22 +550,22 @@
 
                         //選定店家渲染區塊，刪除按鈕綁定 & 執行取消選取
                         cancelCheckedStore()
-                        // 顯示渲染後的清單區塊
+                        //顯示渲染後的清單區塊
                         showCheckedContainer();
-                        // 顯示按鈕「確認選取」
+                        //顯示按鈕「確認選取」
                         showCheckedButton()
                     }
 
-                    // 從選定店家渲染區塊，使用刪除按鈕取消選取
+                    //從選定店家渲染區塊，使用刪除按鈕取消選取
                     function cancelCheckedStore() {
                         const btnCancelChecked = document.querySelectorAll(".cancelCheckedStore")
 
                         btnCancelChecked.forEach(btn => {
                             btn.addEventListener("click", function () {
-                                // 獲取該刪除按鈕 uid
+                                //獲取該刪除按鈕 uid
                                 const uid = this.getAttribute("data-uid")
                                 console.log(uid)
-                                // 綁定該 uid 對應 checkbox
+                                //綁定該 uid 對應 checkbox
                                 const checkedCheckbox = document.querySelector(`input[data-uid=${uid}]`)
                                 checkedCheckbox.checked = false
                                 delete checkedStoreList[uid]
@@ -561,15 +576,15 @@
                     }
 
                     /* 控制「確認選擇」按鈕 ==========================================*/
-                    // 控制「確認選擇」按鈕出現
+                    //控制「確認選擇」按鈕出現
                     function showCheckedButton() {
-                        // web 版上排「確認選擇」按鈕
+                        //web 版上排「確認選擇」按鈕
                         const checkCheckedStoreAbove = document.querySelector(".checkCheckedStoreAbove")
-                        // phone 版下排「確認選擇」按鈕
+                        //phone 版下排「確認選擇」按鈕
                         const checkCheckedStoreBelow = document.querySelector(".checkCheckedStoreBelow")
                         const objNuminList = Object.keys(checkedStoreList).length;
 
-                        // 當選取數量 > 2，才出現確認選擇按鈕
+                        //當選取數量 > 2，才出現確認選擇按鈕
                         if (objNuminList > 1) {
                             checkCheckedStoreAbove.classList.add("d-sm-block")
                             checkCheckedStoreBelow.classList.remove("d-none")
@@ -579,74 +594,259 @@
                             checkCheckedStoreBelow.classList.add("d-none")
                         }
 
-                        //為「確認選擇」按鈕添加 modal 可讀取的 title
-                        addCheckedButtonTitle()
-
                     }
 
-                    //為「確認選擇」按鈕添加 modal 可讀取的 title
-                    function addCheckedButtonTitle() {
-                        // web 版上排「確認選擇」按鈕
-                        const checkCheckedStoreAbove = document.querySelector(".checkCheckedStoreAbove")
-                        // phone 版下排「確認選擇」按鈕
-                        const checkCheckedStoreBelow = document.querySelector(".checkCheckedStoreBelow")
 
-                        const restaurantNames = Object.values(checkedStoreList).map(item => item.restaurantName);
-                        checkCheckedStoreAbove.setAttribute("data-bs-title", restaurantNames.join("、"))
-                        checkCheckedStoreBelow.setAttribute("data-bs-title", restaurantNames.join("、"))
-                    }
 
                     /* 建立投票 ================================================*/
-                    // 建立投票 modal 顯示資料設定
+                    //綁定建立投票 modal
                     const createVotingModal = document.getElementById('modal-createVoting')
+                    //綁定 modal-title
+                    const modalTitle = createVotingModal.querySelector('.modal-title')
+                    //綁定 modal 活動基本資料欄位
+                    const eventDateTimeInput = document.getElementById("eventDateTime") //享用日期
+                    const deadlineDateTimeInput = document.getElementById("deadlineDateTime") //截止日期
+                    const votingInviteesSelect = document.getElementById("votingInvitees") //請客人
+                    //綁定參與建立投票店家的渲染區
+                    const votingCard = document.querySelector(".votingCard")
+                    //綁定「建立投票」按鈕
+                    const btnCreateVoting = document.querySelector(".btnCreateVoting")
+
+                    //建立投票 modal 初始顯示資料設定                    
                     createVotingModal.addEventListener('show.bs.modal', function (event) {
-                        // 從「確認選擇」按鈕獲取 data-bs-title 值
-                        const button = event.relatedTarget
-                        const recipient = button.getAttribute('data-bs-title')
-
-                        // 投票 modal 標題
-                        const modalTitle = createVotingModal.querySelector('.modal-title')
-                        modalTitle.textContent = recipient
-
+                        //要渲染的參與投票店家清單
+                        const datas = Object.values(checkedStoreList)
+                        //渲染建立投票基本資料                      
+                        renderVotingBasicInfo(datas)
+                        //渲染參與建立投票的店家
+                        renderVotingCards(datas)
                     })
 
+                    //渲染建立投票基本資料 
+                    function renderVotingBasicInfo(datas) {
+                        //渲染 modal 標題                        
+                        const restaurantNames = datas.map(item => item.restaurantName)
+                        modalTitle.textContent = restaurantNames.join("、")
 
-                    /* 搜尋 input autoComplete =========================*/                
+                        //取得前頁拋轉資料
+                        const eventDateTime = sessionStorage.getItem('eventDateTime'); //享用日期
+                        const deadlineDateTime = sessionStorage.getItem('deadlineDateTime'); //截止日期
+                        const votingInvitees = sessionStorage.getItem('votingInvitees'); //請客人                        
+
+                        //帶入前頁值
+                        eventDateTimeInput.value = eventDateTime
+                        deadlineDateTimeInput.value = deadlineDateTime
+                        votingInviteesSelect.value = votingInvitees
+                    }
+
+                    //渲染參與建立投票的店家
+                    function renderVotingCards(datas) {
+                        //渲染資料暫存
+                        let tempList = ""
+
+                        datas.forEach(e => {
+                            tempList += `
+                            <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                                <img class="border-radius-32321616 votingcard-photo" src="${e.restaurantCover}">
+                                <div>
+                                <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">${e.restaurantName}</h4>
+                                <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">${e.summary}</p>
+                                <div>
+                                <span class="me-16 text-gray-02 text-nowrap">成團目標</span>
+                                <span class="text-gray-02">${e.minGroupSize} 人</span>
+                                </div>                                 
+                            </li>`
+                        })
+
+                        votingCard.innerHTML = tempList
+                    }
+
+
+                    btnCreateVoting.addEventListener("click", createVoting)
+
+                    //「建立投票」按鈕動作
+                    async function createVoting() {
+                        //判斷輸入格內的值是否正確
+                        const isError = checkFormError();
+                        //若錯誤則中斷函式
+                        if (isError) {
+                            return;
+                        }
+
+                        try {
+                            //獲取新投票事件 UID
+                            const votingDataUID = await getNewVotingUID()   
+                            //包裝可傳入 votings API 的檔案                         
+                            packageData(votingDataUID)
+                        } catch (err) {
+                            console.log('錯誤:', err);
+                        }                       
+
+                    }
+
+                    //獲取新投票事件 UID
+                    async function getNewVotingUID() {
+                        try {
+                            const response = await axios.get(`${_url}/votings`);
+                            const datas = response.data;
+                            //獲取資料庫最後一筆資料的 UID
+                            const lastItemUID = datas[datas.length - 1].UID;
+                            //匹配非數字部分與數字部分
+                            const match = lastItemUID.match(/(\D+)(\d+)/);
+
+                            if (match) {
+                                const prefix = match[1]; //獲取字首英文字
+                                let number = parseInt(match[2]); //獲取數字部分
+                                number++;
+                                //首字英文與新數字相加，不足的部分補 0
+                                const newUID = prefix + number.toString().padStart(match[2].length, "0");
+                                return newUID;
+                            }
+                        } catch (err) {
+                            console.log('錯誤:', err);
+                            throw err;
+                        }
+                    }
+                    
+                    //包裝可傳入 votings API 的檔案
+                    function packageData(votingDataUID){
+                        //用來建立投票的店家清單
+                        const originDatas = Object.values(checkedStoreList)
+
+                        originDatas.map(data => {
+                            const packagedData = { ...data }
+
+                            //刪除不需要的屬性與值
+                            delete packagedData["restaurantCover"]
+                            delete packagedData["summary"]
+                            delete packagedData["minGroupSize"]
+
+                            //新增屬性與值
+                            packagedData["UID"] = votingDataUID
+                            packagedData["deadlineDateTime"] = deadlineDateTimeInput.value
+                            packagedData["eventDateTime"] = eventDateTimeInput.value
+                            packagedData["initiator"] = "黃莉玲"
+                            packagedData["invitees"] = votingInviteesSelect.value === "has-invitees" ? "黃莉玲" : ""
+                            packagedData["currentVoters"] = []                            
+
+                            //post votings API 資料庫
+                            updateVotingEvent(packagedData)
+                        })
+                    }
+
+                    //post votings API 資料庫
+                    function updateVotingEvent(packagedData){                        
+                        axios.post(`${_url}/votings`, packagedData)
+                                .then(function (response) {
+                                    console.log("success")
+                                }).catch((err) => {
+                                    console.log('錯誤:', err);
+                                });
+                    }
+
+                    //判斷輸入格內的值是否正確
+                    function checkFormError() {
+                        //isError 初始值
+                        let isError = false;
+
+                        //綁定錯誤訊息
+                        const eventDateTimeAlert = document.querySelector(".eventDateTimeAlert")
+                        const deadlineDateTimeAlert = document.querySelector(".deadlineDateTimeAlert")
+                        const votingInviteesAlert = document.querySelector(".votingInviteesAlert")
+
+                        //儲存格式化時間，用於判斷兩日期時間差符合條件
+                        let formattedEventDateTime = ""
+                        let formattedDeadlineDateTime = ""
+
+                        //獲取時間輸入格的值
+                        const selectedEventDateTime = document.getElementById("eventDateTime").value.trim();
+                        const selectedDeadlineDateTime = document.getElementById("deadlineDateTime").value.trim();
+
+                        //若「享用時間」輸入格有值，則進行時間格式化
+                        if (selectedEventDateTime) {
+                            formattedEventDateTime = moment(eventDateTimeInput.value, "YYYY/MM/DD HH:mm");
+                        }
+                        //若「截止時間」輸入格有值，則進行時間格式化
+                        if (selectedDeadlineDateTime) {
+                            formattedDeadlineDateTime = moment(deadlineDateTimeInput.value, "YYYY/MM/DD HH:mm");
+                        }
+
+                        //判斷輸入格是否有未填
+                        if (formattedEventDateTime === "") {
+                            eventDateTimeAlert.classList.remove("d-none")
+                            isError = true
+                        } else {
+                            eventDateTimeAlert.classList.add("d-none")
+                        }
+
+                        if (formattedDeadlineDateTime === "") {
+                            deadlineDateTimeAlert.classList.remove("d-none")
+                            deadlineDateTimeAlert.textContent = "必填"
+                            isError = true
+                        } else {
+                            deadlineDateTimeAlert.classList.add("d-none")
+                        }
+
+                        if (votingInviteesSelect.value === "") {
+                            votingInviteesAlert.classList.remove("d-none")
+                            isError = true
+                        } else {
+                            votingInviteesAlert.classList.add("d-none")
+                        }
+
+                        //若時間輸入格均有值，判定截止時間需早於享用時間至少 24 時
+                        if (formattedEventDateTime && formattedDeadlineDateTime) {
+                            const diffInHours = formattedEventDateTime.diff(formattedDeadlineDateTime, 'hours');
+                            if (diffInHours < 24) {
+                                deadlineDateTimeAlert.classList.remove("d-none")
+                                deadlineDateTimeAlert.textContent = "截止時間須至少提前於享用日期 24 時"
+                                isError = true
+                            } else {
+                                deadlineDateTimeAlert.classList.add("d-none")
+                            }
+                        }
+
+                        return isError
+                    }
+
+
+
+                    /* 搜尋 input autoComplete ===================================*/
                     const autoCompleteJS = new autoComplete({
-                        // 撈取 API 資料庫獲取選單內容
+                        //撈取 API 資料庫獲取選單內容
                         data: {
                             src: async (query) => {
                                 try {
-                                    // Fetch Data from external Source
+                                    //Fetch Data from external Source
                                     const source = await fetch(`${_url}/restaurants`);
-                                    // Data should be an array of `Objects` or `Strings`
+                                    //Data should be an array of `Objects` or `Strings`
                                     const data = await source.json();
-                                    
+
                                     return data;
                                 } catch (error) {
                                     return error;
                                 }
                             },
-                            // Data source 'Object' key to be searched
+                            //Data source 'Object' key to be searched
                             keys: ["storeName"]
                         },
-                        // 寬鬆搜尋
+                        //寬鬆搜尋
                         searchEngine: "loose",
-                        // 選單符合條件自元 highlight
+                        //選單符合條件自元 highlight
                         resultItem: {
                             highlight: true
                         },
-                        // 生成選單
+                        //生成選單
                         resultsList: {
                             element: (list, data) => {
                                 if (!data.results.length) {
-                                    // Create "No Results" message element
+                                    //Create "No Results" message element
                                     const message = document.createElement("div");
-                                    // Add class to the created element
+                                    //Add class to the created element
                                     message.setAttribute("class", "no_result px-8");
-                                    // Add message text content
+                                    //Add message text content
                                     message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
-                                    // Append message element to the results list
+                                    //Append message element to the results list
                                     list.prepend(message);
                                 }
                             },
@@ -654,14 +854,14 @@
                         },
                         events: {
                             input: {
-                                // 選單偵測
+                                //選單偵測
                                 selection: (event) => {
                                     const selectionValue = event.detail.selection.value;
                                     autoCompleteJS.input.value = selectionValue.storeName;
                                     console.log(selectionValue)
                                     toggleFilter("search", selectionValue.storeName)
                                 },
-                                // 輸入 enter 偵測
+                                //輸入 enter 偵測
                                 keydown: (event) => {
                                     if (event.keyCode === 13) {
                                         const searchValue = autoCompleteJS.input.value
