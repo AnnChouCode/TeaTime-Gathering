@@ -89,7 +89,7 @@
       <!-- 投票檢索 & 投票 Modal -->
       <div class="modal fade" id="modal-VotingModal" tabindex="-1" aria-labelledby="modal-VotingModal"
         aria-hidden="true" data-backdrop="false">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
           <div class="d-flex modal-content border-radius-24">
             <!-- modal header -->
             <div class="modal-header py-16 py-lg-24 px-16 px-lg-40 border-0">
@@ -97,55 +97,57 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <!-- modal body -->
-            <div class="modal-body d-flex px-16 px-lg-40 pb-16 pt-8 pt-lg-16 pb-lg-40 container">
-              <div class="row flex-column flex-lg-row">
-                <!-- 活動資訊 voting info -->
-                <div class="col col-lg-4">
-                  <ul class="d-flex flex-column gap-4 gap-md-8 mb-32 mb-lg-0 fs-16 fs-md-20">
-                    <li class="eventDateTime">
-                      <span class="me-16">享用日期</span>
-                      <span class="me-8 ">00/00</span>
-                      <span>00:00</span>
-                    </li>
-                    <li class="deadlineDateTime">
-                      <span class="me-16">截止時間</span>
-                      <span class="me-8">00/00</span>
-                      <span>00:00</span>
-                    </li>
-                    <li>
-                      <span class="me-16">發起人</span>
-                      <span class="initiator"></span>
-                    </li>
-                    <li>
-                      <span class="me-16">請客人</span>
-                      <span class="invitees"></span>
-                    </li>
-                  </ul>
-                </div>
-                <!-- 投票卡片 voting card -->
-                <div class="col col-lg-8">
-                  <ul class="votingCard">
-                    <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
-                      <img class="border-radius-32321616 votingcard-photo" src="#" alt="store-photo">
-                      <div>
-                        <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">#</h4>
-                        <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
-                          #</p>
-                        <div class="d-flex justify-content-between flex-column flex-lg-row">
-                          <div class="d-flex align-items-center mb-8 mb-lg-0 ">
-                            <span class="me-4 me-lg-16 text-gray-02 text-nowrap">成團目標</span>
-                            <div class="ts-progress is-tiny bg-gray-04 voting-progress">
-                              <div class="bar bg-brand-02" style="--value: 50">
-                                <div class="text-white">50%</div>
+            <div class="modal-body px-16 px-lg-40 pb-16 pt-8 pt-lg-16 pb-lg-40">
+              <div class="container-fluid">
+                <div class="row flex-column flex-lg-row">
+                  <!-- 活動資訊 voting info -->
+                  <div class="col col-lg-4">
+                    <ul class="d-flex flex-column gap-4 gap-md-8 mb-32 mb-lg-0 fs-16 fs-md-20">
+                      <li class="eventDateTime">
+                        <span class="me-16">享用日期</span>
+                        <span class="me-8 ">00/00</span>
+                        <span>00:00</span>
+                      </li>
+                      <li class="deadlineDateTime">
+                        <span class="me-16">截止時間</span>
+                        <span class="me-8">00/00</span>
+                        <span>00:00</span>
+                      </li>
+                      <li>
+                        <span class="me-16">發起人</span>
+                        <span class="initiator"></span>
+                      </li>
+                      <li>
+                        <span class="me-16">請客人</span>
+                        <span class="invitees"></span>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- 投票卡片 voting card -->
+                  <div class="col col-lg-8">
+                    <ul class="votingCard">
+                      <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                        <img class="border-radius-32321616 votingcard-photo" src="#" alt="store-photo">
+                        <div>
+                          <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">#</h4>
+                          <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
+                            #</p>
+                          <div class="d-flex justify-content-between flex-column flex-lg-row">
+                            <div class="d-flex align-items-center mb-8 mb-lg-0 ">
+                              <span class="me-4 me-lg-16 text-gray-02 text-nowrap">成團目標</span>
+                              <div class="ts-progress is-tiny bg-gray-04 voting-progress">
+                                <div class="bar bg-brand-02" style="--value: 50">
+                                  <div class="text-white">50%</div>
+                                </div>
                               </div>
                             </div>
+                            <button
+                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
+                              type="button">投票</button>
                           </div>
-                          <button
-                            class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
-                            type="button">投票</button>
-                        </div>
-                    </li>
-                  </ul>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -191,7 +193,7 @@
                       <label for="votingInvitees" class="mb-16 mb-mb-12">請客人</label>
                       <select id="votingInvitees" name="votingInvitees"
                         class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 select-payer">
-                        <option class="text-gray-03" value="請選擇付款人" disabled selected>請選擇付款人</option>
+                        <option class="text-gray-03" value="" disabled selected>請選擇付款人</option>
                         <option value="no-invitees">各自付款</option>
                         <option value="has-invitees">由我請客</option>
                       </select>
@@ -246,14 +248,14 @@
             const _user = "U004"
 
             /* 投票頁初始頁面 render init ================================*/
-            // 使用 moment 格式化日期
+            //使用 moment 格式化日期
             var now = moment().format('YYYY/MM/DD');
-            // 初步撈取的資料
+            //初步撈取的資料
             let datas = [];
-            // 整理過的事件 Data
+            //整理過的事件 Data
             const calendarEventMap = {};
 
-            // 開團 & 投票事件撈取
+            //開團 & 投票事件撈取
             function init() {
               const groupings = axios.get(`${_url}/groupings?_expand=restaurant`);
               const votings = axios.get(`${_url}/votings?_expand=restaurant`);
@@ -270,7 +272,7 @@
 
             init();
 
-            // 整理事件 Data，以 UID 做分類
+            //整理事件 Data，以 UID 做分類
             function createEventData() {
               datas.forEach(data => {
                 if (!calendarEventMap[data.UID]) {
@@ -302,7 +304,7 @@
             }
 
             /* 渲染操作月曆 evoCalendar ======================================*/
-            // 建立能被 evoCalendar 讀取的格式
+            //建立能被 evoCalendar 讀取的格式
             function createEvoCalendarData() {
               const calendarStr = [];
 
@@ -323,7 +325,7 @@
             }
 
 
-            // 渲染月曆
+            //渲染月曆
             function renderCalendar(calendarStr) {
               $('#calendar').evoCalendar({
                 'sidebarDisplayDefault': false,
@@ -336,14 +338,14 @@
             }
 
 
-            // 獲得滑鼠點擊日期
+            //獲得滑鼠點擊日期
             $('#calendar').on('click', function (e) {
-              // 使用 getActiveDate 來獲取滑鼠點擊的日期
+              //使用 getActiveDate 來獲取滑鼠點擊的日期
               const active_date = $('#calendar').evoCalendar('getActiveDate');
-              // 格式化日期
+              //格式化日期
               const formatted_ActiveDate = moment(active_date, 'MM/DD/YYYY').format('YYYY/MM/DD');
               console.log('滑鼠點擊的日期：', formatted_ActiveDate);
-              // 渲染活動卡片
+              //渲染活動卡片
               renderEvent(formatted_ActiveDate)
             });
 
@@ -352,11 +354,11 @@
             /* 渲染活動卡片 ===========================================*/
             const calendarEvent = document.querySelector(".calendarEvent")
 
-            // 渲染活動卡片事件
+            //渲染活動卡片事件
             function renderEvent(time = now) {
               let tempEventList = "" //渲染資料暫存
 
-              // 初始化顯示事件，取符合今天的事件
+              //初始化顯示事件，取符合今天的事件
               const eventArray = Object.values(calendarEventMap);
               const filteredEvent = eventArray.filter(item => {
                 const dateTimeParts = item.deadlineDateTime.split(" ");
@@ -364,10 +366,10 @@
                 return datePart === time;
               });
 
-              // 當下無事件
+              //當下無事件
               if (!filteredEvent.length) {
                 tempEventList += `<li class="fs-16 fs-md-20 text-center">目前沒有下午茶活動</li>`
-                // 當下有事件
+                //當下有事件
               } else {
                 filteredEvent.forEach(e => {
                   tempEventList += `<li ${e.UID.startsWith("V") ? `class="cursor-pointer" data-bs-votingUID=${e.UID} data-bs-toggle="modal" data-bs-target="#modal-VotingModal"` : `data-groupingUID=${e.UID}`}>
@@ -428,7 +430,7 @@
                 })
               }
 
-              // 渲染事件
+              //渲染事件
               calendarEvent.innerHTML = tempEventList;
             }
 
@@ -437,9 +439,9 @@
             /* 投票檢索 modal & 投票動作 ===============================*/
             const VotingModal = document.getElementById('modal-VotingModal')
 
-            // 初始化投票 modal 選項店家資料
+            //初始化投票 modal 選項店家資料
             function initModalVotingCard(votingUID) {
-              let votingCardData = [] // 投票 modal 右側店家卡片資料              
+              let votingCardData = [] //投票 modal 右側店家卡片資料              
 
               axios.get(`${_url}/votings?UID=${votingUID}&_expand=restaurant`)
                 .then(function (res) {
@@ -450,27 +452,27 @@
                 });
             }
 
-            // 投票 modal 資料顯示
+            //投票 modal 資料顯示
             VotingModal.addEventListener('show.bs.modal', function (event) {
-              // 從投票事件卡片獲取 data-bs-votingUID 編號
+              //從投票事件卡片獲取 data-bs-votingUID 編號
               const modalData = event.relatedTarget
               const votingUID = modalData.getAttribute('data-bs-votingUID')
 
-              // render 投票活動資訊
+              //render 投票活動資訊
               renderVotingModalInfo(votingUID)
 
-              // 可投票店家卡片資料初始化            
+              //可投票店家卡片資料初始化            
               initModalVotingCard(votingUID)
 
             })
 
-            // render 投票 modal 活動資訊
+            //render 投票 modal 活動資訊
             function renderVotingModalInfo(votingUID) {
-              // 投票 modal 標題綁定 & 渲染
+              //投票 modal 標題綁定 & 渲染
               const modalTitle = VotingModal.querySelector('.modal-title')
               modalTitle.textContent = calendarEventMap[votingUID].restaurantList.join("、")
 
-              // 投票 modal 活動資訊資訊，欄位綁定 & 渲染
+              //投票 modal 活動資訊資訊，欄位綁定 & 渲染
               const deadlineDateTime = VotingModal.querySelector(".deadlineDateTime")
               const eventDateTime = VotingModal.querySelector(".eventDateTime")
               const initiator = VotingModal.querySelector(".initiator")
@@ -488,12 +490,12 @@
               invitees.textContent = calendarEventMap[votingUID].invitees === "" ? "無" : calendarEventMap[votingUID].invitees
             }
 
-            // render 投票 modal 選項店家資料
+            //render 投票 modal 選項店家資料
             function renderVotingCard(votingCardData) {
-              const votingCard = VotingModal.querySelector(".votingCard") // 店家卡片渲染區域
-              let cardDataTemp = "" // 暫時儲存要渲染的店家卡片資料
+              const votingCard = VotingModal.querySelector(".votingCard") //店家卡片渲染區域
+              let cardDataTemp = "" //暫時儲存要渲染的店家卡片資料
 
-              // 生成要渲染的資料
+              //生成要渲染的資料
               votingCardData.forEach(data => {
                 cardDataTemp += `
                       <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
@@ -517,29 +519,29 @@
                       </li>`
               })
 
-              // 渲染
+              //渲染
               votingCard.innerHTML = cardDataTemp
 
-              // btnVoteThis 投票動作判斷
+              //btnVoteThis 投票動作判斷
               voteStore()
             }
 
-            // btnVoteThis 投票動作判斷  
+            //btnVoteThis 投票動作判斷  
             function voteStore() {
               const btnVoteThis = VotingModal.querySelectorAll('.btnVoteThis')
               btnVoteThis.forEach(btn => {
                 btn.addEventListener('click', function () {
-                  // 含有指定 class 樣式的按鈕代表已投票過此店家
+                  //含有指定 class 樣式的按鈕代表已投票過此店家
                   const isVoted = btn.classList.contains("btn-active-brand-02")
 
-                  // 投票過的店家 click，取消投票
+                  //投票過的店家 click，取消投票
                   if (isVoted) {
-                    // 將 votings 資料庫 id 與動作輸入變更資料庫
+                    //將 votings 資料庫 id 與動作輸入變更資料庫
                     updateVotingAPI(btn.dataset.num, "deleteVote")
                     alert("投票已取消")
                   } else {
                     //未投票的店家 click，投票成功
-                    // 將 votings 資料庫 id 與動作輸入變更資料庫
+                    //將 votings 資料庫 id 與動作輸入變更資料庫
                     updateVotingAPI(btn.dataset.num, "addVote");
                     alert("投票成功")
                   }
@@ -548,15 +550,15 @@
 
             }
 
-            // 變更投票資料庫 API
+            //變更投票資料庫 API
             function updateVotingAPI(id, status) {
-              // 找到 votings 資料庫該對應 id
+              //找到 votings 資料庫該對應 id
               axios.get(`${_url}/votings/${id}`)
                 .then(function (res) {
-                  // 宣告變數存取目前參與投票者清單
+                  //宣告變數存取目前參與投票者清單
                   const updatedVoters = res.data.currentVoters;
 
-                  // 依據動作處理投票者清單
+                  //依據動作處理投票者清單
                   if (status === "addVote") {
                     updatedVoters.push(`${_user}`);
                   } else {
@@ -564,12 +566,12 @@
                     updatedVoters.splice(userIndex, 1)
                   }
 
-                  // 修改資料庫中的數據
+                  //修改資料庫中的數據
                   axios.patch(`${_url}/votings/${id}`, {
                     "currentVoters": updatedVoters
                   })
                     .then(function (patchRes) {
-                      // console.log(patchRes.data);
+                      //console.log(patchRes.data);
                       initModalVotingCard(patchRes.data.UID)
                     })
                     .catch(function (error) {
@@ -584,19 +586,33 @@
 
 
             /* 建立投票 create voting event ========================================*/
-            const eventDateTimeInput = document.getElementById("eventDateTime")
-            const deadlineDateTimeInput = document.getElementById("deadlineDateTime")
-            const votingInviteesSelect = document.getElementById("votingInvitees")
             const modalCreateVoting = document.getElementById("modal-CreateVoting")
 
             modalCreateVoting.addEventListener("click", () => {
-              // 格式化時間欄位資料
-              const selectedEventDateTime = moment(eventDateTimeInput.value, "YYYY/MM/DD HH:mm");
-              const selectedDeadlineDateTime = moment(deadlineDateTimeInput.value, "YYYY/MM/DD HH:mm");
+              //綁定 modal 內 DOM 元素
+              const eventDateTimeInput = document.getElementById("eventDateTime") //享用日期
+              const deadlineDateTimeInput = document.getElementById("deadlineDateTime") //截止日期
+              const votingInviteesSelect = document.getElementById("votingInvitees") //請客人
 
-              // 判定截止時間需早於享用時間至少 24 時
-              if (selectedEventDateTime.isValid() && selectedDeadlineDateTime.isValid()) {
-                const diffInHours = selectedEventDateTime.diff(selectedDeadlineDateTime, 'hours');
+              //獲取時間輸入格的值
+              const selectedEventDateTime = eventDateTimeInput.value.trim();
+              const selectedDeadlineDateTime = deadlineDateTimeInput.value.trim();
+              let formattedEventDateTime = ""
+              let formattedDeadlineDateTime = ""
+
+              //若「享用時間」輸入格有值，則進行時間格式化
+              if (selectedEventDateTime) {
+                formattedEventDateTime = moment(eventDateTimeInput.value, "YYYY/MM/DD HH:mm");
+              }
+
+              //若「截止時間」輸入格有值，則進行時間格式化
+              if (selectedDeadlineDateTime) {
+                formattedDeadlineDateTime = moment(deadlineDateTimeInput.value, "YYYY/MM/DD HH:mm");
+              }
+
+              //若時間輸入格均有值，判定截止時間需早於享用時間至少 24 時
+              if (formattedEventDateTime && formattedDeadlineDateTime) {
+                const diffInHours = formattedEventDateTime.diff(formattedDeadlineDateTime, 'hours');
                 if (diffInHours < 24) {
                   const deadlineDateTimeAlert = document.querySelector(".deadlineDateTimeAlert").classList.remove("d-none")
                 } else {
@@ -604,10 +620,10 @@
                 }
               }
 
-              // 時間資料存入 session storage
-              sessionStorage.setItem('votingInvitees', votingInviteesSelect.value);
-              sessionStorage.setItem('eventDateTime', selectedEventDateTime);
-              sessionStorage.setItem('deadlineDateTime', selectedDeadlineDateTime);
+              //時間資料存入 session storage
+              sessionStorage.setItem('votingInvitees', votingInviteesSelect.value); //付款人
+              sessionStorage.setItem('eventDateTime', selectedEventDateTime); //享用日期
+              sessionStorage.setItem('deadlineDateTime', selectedDeadlineDateTime); //截止日期
             });
 
 
