@@ -164,8 +164,8 @@
         </div>
 
         <!-- 建立投票 Modal -->
-        <div class="modal fade" id="modal-createVoting" tabindex="-1" aria-labelledby="modal-createVoting"
-            aria-hidden="true" data-backdrop="false">
+        <div class="modal" id="modal-createVoting" aria-hidden="true" aria-labelledby="modal-createVoting"
+            tabindex="-1">
             <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
                 <div class="d-flex modal-content border-radius-24">
                     <!-- modal header -->
@@ -181,7 +181,7 @@
                                 <!-- 建立活動資訊 create voting info -->
                                 <div class="col col-lg-4 p-0">
                                     <ul class="d-flex flex-column gap-32 mb-0 mb-lg-32 fs-16 fs-md-20">
-                                        <li>
+                                        <li class="d-flex flex-column">
                                             <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
                                             <input type="datetime-local"
                                                 class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
@@ -191,7 +191,7 @@
                                                 style="color:#dc3545;">
                                                 必填</p>
                                         </li>
-                                        <li>
+                                        <li class="d-flex flex-column">
                                             <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
                                             <input type="datetime-local"
                                                 class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
@@ -234,7 +234,7 @@
                                 <div class="col col-lg-4 px-0 ps-lg-12">
                                     <button
                                         class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-100 btnCreateVoting"
-                                        type="button">建立投票</button>
+                                        type="button" data-bs-dismiss="modal" aria-label="Close">建立投票</button>
                                 </div>
                             </div>
                         </div>
@@ -242,6 +242,46 @@
                 </div>
             </div>
         </div>
+
+        <!-- 建立投票 Modal - 建立成功 -->
+        <div class="modal" id="modal-createdSuccess" aria-hidden="true" aria-labelledby="modal-createdSuccess"
+            tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered mx-auto" style="max-width:416px;">
+                <div class="modal-content border-radius-24">
+                    <div class="d-flex flex-column border-0 pt-12 pt-md-24 px-16 px-md-40 ms-auto">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-16 pt-0 p-md-40">
+                        <div class="mb-20 mb-md-40 text-center">
+                            <p class="text-gray-01 fw-bold line-height-sm fs-20 fs-md-24">建立成功</p>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-16 mb-md-20">
+                            <p class="text-gray-01 fs-16 fs-md-20 fw-medium line-height-sm">享用日期</p>
+                            <div class="text-gray-01 d-flex align-items-center ">
+                                <iconify-icon class="me-8" icon="solar:calendar-linear" style="color: #1e1e1e;"
+                                    width="26" height="26"></iconify-icon>
+                                <span
+                                    class="me-8 fs-16 fs-md-20 fw-medium line-height-sm eventDateTime-Date">08/12</span>
+                                <span class="fs-16 fs-md-20 fw-medium line-height-sm eventDateTime-Time">14:30</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-32 mb-md-40">
+                            <p class="text-gray-01  fs-16 fs-md-20 fw-medium line-height-sm">截止日期</p>
+                            <div class="text-gray-01 d-flex align-items-center ">
+                                <iconify-icon class="me-8" icon="solar:calendar-linear" style="color: #1e1e1e;"
+                                    width="26" height="26"></iconify-icon>
+                                <span
+                                    class="me-8 fs-16 fs-md-20 fw-medium line-height-sm deadlineDateTime-Date">08/11</span>
+                                <span class="fs-16 fs-md-20 fw-medium line-height-sm deadlineDateTime-Time">10:30</span>
+                            </div>
+                        </div>
+                        <p class="fs-md-20 text-brand-02">※ 您建立的投票活動已經開放投票！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
 
         <!-- footer -->
@@ -623,19 +663,38 @@
                     })
 
                     //渲染建立投票基本資料 
+                    // function renderVotingBasicInfo(datas) {
+                    //     //渲染 modal 標題                        
+                    //     const restaurantNames = datas.map(item => item.restaurantName)
+                    //     modalTitle.textContent = restaurantNames.join("、")
+
+                    //     //取得前頁拋轉資料
+                    //     const eventDateTime = sessionStorage.getItem('eventDateTime'); //享用日期
+                    //     const deadlineDateTime = sessionStorage.getItem('deadlineDateTime'); //截止日期
+                    //     const votingInvitees = sessionStorage.getItem('votingInvitees'); //請客人                        
+
+                    //     //帶入前頁值
+                    //     eventDateTimeInput.value = eventDateTime
+                    //     deadlineDateTimeInput.value = deadlineDateTime
+                    //     votingInviteesSelect.value = votingInvitees
+                    // }
                     function renderVotingBasicInfo(datas) {
                         //渲染 modal 標題                        
                         const restaurantNames = datas.map(item => item.restaurantName)
                         modalTitle.textContent = restaurantNames.join("、")
 
-                        //取得前頁拋轉資料
+                        //取得 flatpickr 套用的時間輸入格，需要以此才能在行動版顯示前頁拋轉的 session storage 資料
+                        const eventDateTimePicker = eventDateTimeInput._flatpickr;
+                        const deadlineDateTimePicker = deadlineDateTimeInput._flatpickr;
+
+                        //取得前頁拋轉 session storage 資料
                         const eventDateTime = sessionStorage.getItem('eventDateTime'); //享用日期
                         const deadlineDateTime = sessionStorage.getItem('deadlineDateTime'); //截止日期
                         const votingInvitees = sessionStorage.getItem('votingInvitees'); //請客人                        
 
-                        //帶入前頁值
-                        eventDateTimeInput.value = eventDateTime
-                        deadlineDateTimeInput.value = deadlineDateTime
+                        //帶入前頁值，渲染至前端                
+                        eventDateTimePicker.setDate(eventDateTime, true);
+                        deadlineDateTimePicker.setDate(deadlineDateTime, true);
                         votingInviteesSelect.value = votingInvitees
                     }
 
@@ -668,19 +727,26 @@
                     async function createVoting() {
                         //判斷輸入格內的值是否正確
                         const isError = checkFormError();
+
                         //若錯誤則中斷函式
                         if (isError) {
+                            //控制 modal 切換
+                            $('#modal-createdSuccess').modal('hide');
+                            $('#modal-createVoting').modal('show');
                             return;
                         }
 
                         try {
                             //獲取新投票事件 UID
-                            const votingDataUID = await getNewVotingUID()   
+                            const votingDataUID = await getNewVotingUID()
                             //包裝可傳入 votings API 的檔案                         
                             packageData(votingDataUID)
+                            //控制 modal 切換                             
+                            $('#modal-createdSuccess').modal('show');
+
                         } catch (err) {
                             console.log('錯誤:', err);
-                        }                       
+                        }
 
                     }
 
@@ -707,9 +773,9 @@
                             throw err;
                         }
                     }
-                    
+
                     //包裝可傳入 votings API 的檔案
-                    function packageData(votingDataUID){
+                    function packageData(votingDataUID) {
                         //用來建立投票的店家清單
                         const originDatas = Object.values(checkedStoreList)
 
@@ -727,7 +793,7 @@
                             packagedData["eventDateTime"] = eventDateTimeInput.value
                             packagedData["initiator"] = "黃莉玲"
                             packagedData["invitees"] = votingInviteesSelect.value === "has-invitees" ? "黃莉玲" : ""
-                            packagedData["currentVoters"] = []                            
+                            packagedData["currentVoters"] = []
 
                             //post votings API 資料庫
                             updateVotingEvent(packagedData)
@@ -735,13 +801,13 @@
                     }
 
                     //post votings API 資料庫
-                    function updateVotingEvent(packagedData){                        
+                    function updateVotingEvent(packagedData) {
                         axios.post(`${_url}/votings`, packagedData)
-                                .then(function (response) {
-                                    console.log("success")
-                                }).catch((err) => {
-                                    console.log('錯誤:', err);
-                                });
+                            .then(function (response) {
+                                console.log("success")
+                            }).catch((err) => {
+                                console.log('錯誤:', err);
+                            });
                     }
 
                     //判斷輸入格內的值是否正確
@@ -808,6 +874,27 @@
 
                         return isError
                     }
+
+
+                    /* 投票成功 modal ======================================== */
+                    const createdSuccessModal = document.getElementById('modal-createdSuccess')
+                    //投票成功 modal 顯示資料                    
+                    createdSuccessModal.addEventListener('show.bs.modal', function (event) {
+                        const eventDateTimeValue = eventDateTimeInput.value
+                        const deadlineDateTimeValue = deadlineDateTimeInput.value
+
+                        document.querySelector(".eventDateTime-Date").textContent = eventDateTimeValue.substring(5, 10)
+                        document.querySelector(".eventDateTime-Time").textContent = eventDateTimeValue.split(" ")[1]
+                        document.querySelector(".deadlineDateTime-Date").textContent = deadlineDateTimeValue.substring(5, 10)
+                        document.querySelector(".deadlineDateTime-Time").textContent = deadlineDateTimeValue.split(" ")[1]
+                    })
+
+                    // btn 關閉投票成功 modal
+                    const btnLinkToCalendar = document.querySelector(".btnLinkToCalendar")
+                    btnLinkToCalendar.addEventListener("click", function () {
+                        //超連結回到月曆頁
+                        window.location.href = "./calendar.html"
+                    })
 
 
 
@@ -889,17 +976,23 @@
 
                 <!-- 時間選擇器 flatpickr -->
                 <script>
-                    config = {
+                    //時間輸入格格式化
+                    const eventDateTime = flatpickr("#eventDateTime", {
                         enableTime: true,
-                        dateFormat: "Y/m/d H:i",
+                        dateFormat: "Y/m/d H:i", // 24 小時制時間格式
                         time_24hr: true,
                         minuteIncrement: 15,
                         allowInput: true,
                         minDate: moment().format('YYYY/MM/DD'),
-                        maxDate: moment().add(1, 'months').format('YYYY/MM/DD'),
-                    }
-
-                    flatpickr(".dateSelector", config);               
+                    });
+                    const deadlineDateTime = flatpickr("#deadlineDateTime", {
+                        enableTime: true,
+                        dateFormat: "Y/m/d H:i", // 24 小時制時間格式
+                        time_24hr: true,
+                        minuteIncrement: 15,
+                        allowInput: true,
+                        minDate: moment().format('YYYY/MM/DD'),
+                    });              
                 </script>
 
 
