@@ -19,10 +19,6 @@
     color: #f0bd68;
 }
 
-// .shopRecorder {
-//     // height: 204px;
-
-// }
 
 .memberSystem-active {
     color: black !important;
@@ -33,9 +29,17 @@
 
 // 訂餐管理頁
 
+.rounded-24 {
+    border-radius: 24px;
+}
+
 .count {
     width: 30px;
     height: 30px;
+}
+.star {
+    color: #c2c1bd;
+    cursor: pointer;
 }
 
 .starInMember,
@@ -58,13 +62,46 @@ textarea:focus {
     border-bottom: 4px solid #dfd3be;
 }
 
-// 個人資料
-form label {
-    width: 120px;
+.collapsed ul{
+    display: none;
 }
 
-form input {
-    width: 220px !important;
+// 個人資料
+
+.input-error {
+    transition: none;
+    outline: 2px solid #FD909F;
+    outline-offset: -2px;
+    animation: shakeX 0.8s;
+    &::placeholder {
+        color: red !important;
+        font-size:16px;
+    }
+}
+
+@keyframes shakeX {
+    0%,
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(-3px, 0, 0);
+        transform: translate3d(-3px, 0, 0);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(3px, 0, 0);
+        transform: translate3d(3px, 0, 0);
+    }
 }
 
 // 下拉選單
