@@ -876,6 +876,27 @@
                     }
 
 
+                    /* 投票成功 modal ======================================== */
+                    const createdSuccessModal = document.getElementById('modal-createdSuccess')
+                    //投票成功 modal 顯示資料                    
+                    createdSuccessModal.addEventListener('show.bs.modal', function (event) {
+                        const eventDateTimeValue = eventDateTimeInput.value
+                        const deadlineDateTimeValue = deadlineDateTimeInput.value
+
+                        document.querySelector(".eventDateTime-Date").textContent = eventDateTimeValue.substring(5, 10)
+                        document.querySelector(".eventDateTime-Time").textContent = eventDateTimeValue.split(" ")[1]
+                        document.querySelector(".deadlineDateTime-Date").textContent = deadlineDateTimeValue.substring(5, 10)
+                        document.querySelector(".deadlineDateTime-Time").textContent = deadlineDateTimeValue.split(" ")[1]
+                    })
+
+                    // btn 關閉投票成功 modal
+                    const btnLinkToCalendar = document.querySelector(".btnLinkToCalendar")
+                    btnLinkToCalendar.addEventListener("click", function () {
+                        //超連結回到月曆頁
+                        window.location.href = "./calendar.html"
+                    })
+
+
 
                     /* 搜尋 input autoComplete ===================================*/
                     const autoCompleteJS = new autoComplete({
