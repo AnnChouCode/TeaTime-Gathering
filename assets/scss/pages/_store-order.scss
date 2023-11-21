@@ -2,7 +2,7 @@
   &-bg {
     width: 100%;
     height: 220px;
-    background: url(/assets/images/store-logo/store-01.jpg) center top /cover;
+    background-color:#BFA373; 
     border-radius: 56px;
 
     @include media-breakpoint-down(lg) {
@@ -109,15 +109,19 @@
 
   .text-top-p {
     font-size: 20px;
-
-    @include media-breakpoint-down(sm) {
-      font-size: 16px;
-    }
-
+    height: 60px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2; //顯示行數
     overflow: hidden;
+    @include media-breakpoint-down(sm) {
+      font-size: 16px;
+      height: 48px;
+    }
+  }
+  
+  li:last-child {
+    border: none !important;
   }
 }
 
@@ -341,3 +345,15 @@
     background-repeat: no-repeat;
   }
   // modal 購物車 結束
+
+  // Pagination.js
+  .paginationjs-page, .paginationjs-next, .paginationjs-prev{
+    border: 0px solid #000 !important;
+    border-radius: 8px;
+  }
+  
+  .paginationjs .paginationjs-pages li.active>a {
+    background: $brand-01;
+    color: #fff;
+    cursor: default;
+  }
