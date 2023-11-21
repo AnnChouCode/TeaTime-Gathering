@@ -336,31 +336,31 @@
 
 
     /* 登入/登出 狀態 icon 顯示切換  ===================================================*/
-    // form-帳密輸入表單
+    //form-帳密輸入表單
     const loginForm = document.querySelector(".needs-validation");
-    // input-帳密輸入
+    //input-帳密輸入
     const inputLoginAccount = document.querySelector(".inputLoginAccount");
     const inputLoginPassword = document.querySelector(".inputLoginPassword");
-    // 按鈕-登入資料送出
+    //按鈕-登入資料送出
     const btnLoginSubmit = document.querySelectorAll(".btnLoginSubmit");
-    // 按鈕-navbar 登入、已登入、登出 icon
+    //按鈕-navbar 登入、已登入、登出 icon
     const btnLogin = document.querySelectorAll(".btnLogin")
     const btnUserLoggedIn = document.querySelectorAll(".btnUserLoggedIn")
     const btnLogOut = document.querySelectorAll(".btnLogOut")
 
-    // 登入
+    //登入
     btnLoginSubmit.forEach(btn => {
         btn.addEventListener("click", () => {
-            // input-帳密輸入值
+            //input-帳密輸入值
             const accountValue = inputLoginAccount.value;
             const passwordValue = inputLoginPassword.value;
 
-            // 檢查 loginForm 通過驗證，失敗則為 ture，添加顯示樣式
+            //檢查 loginForm 通過驗證，失敗則為 ture，添加顯示樣式
             if (!loginForm.checkValidity()) {
                 loginForm.classList.add('was-validated');
             }
 
-            // Login 成功條件 & 失敗
+            //Login 成功條件 & 失敗
             if (accountValue === "ling-huang@fat-together.com" && passwordValue === "ling-huang") {
                 btnLogOut.forEach(btn => {
                     btn.classList.remove("d-none");
@@ -373,7 +373,7 @@
                 });
                 $('#accountModal').modal('hide');
             } else {
-                // 登入失敗
+                //登入失敗
                 const errorFeedback = document.querySelector(".invalid-feedback");
                 errorFeedback.style.display = 'block';
             }
@@ -381,7 +381,7 @@
         });
     });
 
-    // 登出
+    //登出
     btnLogOut.forEach(btn => {
         btn.addEventListener("click", () => {
             btnLogOut.forEach(btn => {
