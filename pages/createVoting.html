@@ -249,7 +249,7 @@
             <div class="modal-dialog modal-dialog-centered mx-auto" style="max-width:416px;">
                 <div class="modal-content border-radius-24">
                     <div class="d-flex flex-column border-0 pt-12 pt-md-24 px-16 px-md-40 ms-auto">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close btnLinkToCalendar" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body p-16 pt-0 p-md-40">
                         <div class="mb-20 mb-md-40 text-center">
@@ -662,22 +662,7 @@
                         renderVotingCards(datas)
                     })
 
-                    //渲染建立投票基本資料 
-                    // function renderVotingBasicInfo(datas) {
-                    //     //渲染 modal 標題                        
-                    //     const restaurantNames = datas.map(item => item.restaurantName)
-                    //     modalTitle.textContent = restaurantNames.join("、")
-
-                    //     //取得前頁拋轉資料
-                    //     const eventDateTime = sessionStorage.getItem('eventDateTime'); //享用日期
-                    //     const deadlineDateTime = sessionStorage.getItem('deadlineDateTime'); //截止日期
-                    //     const votingInvitees = sessionStorage.getItem('votingInvitees'); //請客人                        
-
-                    //     //帶入前頁值
-                    //     eventDateTimeInput.value = eventDateTime
-                    //     deadlineDateTimeInput.value = deadlineDateTime
-                    //     votingInviteesSelect.value = votingInvitees
-                    // }
+                    //渲染建立投票基本資料                     
                     function renderVotingBasicInfo(datas) {
                         //渲染 modal 標題                        
                         const restaurantNames = datas.map(item => item.restaurantName)
@@ -774,40 +759,55 @@
                         }
                     }
 
-                    //包裝可傳入 votings API 的檔案
+                    //包裝可傳入 votings API 的檔案                   
                     function packageData(votingDataUID) {
                         //用來建立投票的店家清單
                         const originDatas = Object.values(checkedStoreList)
+                        const packagedDatas = []
 
-                        originDatas.map(data => {
-                            const packagedData = { ...data }
+                        originDatas.forEach(data => {
+                            const newData = { ...data }
 
                             //刪除不需要的屬性與值
-                            delete packagedData["restaurantCover"]
-                            delete packagedData["summary"]
-                            delete packagedData["minGroupSize"]
+                            delete newData["restaurantCover"]
+                            delete newData["summary"]
+                            delete newData["minGroupSize"]
 
                             //新增屬性與值
-                            packagedData["UID"] = votingDataUID
-                            packagedData["deadlineDateTime"] = deadlineDateTimeInput.value
-                            packagedData["eventDateTime"] = eventDateTimeInput.value
-                            packagedData["initiator"] = "黃莉玲"
-                            packagedData["invitees"] = votingInviteesSelect.value === "has-invitees" ? "黃莉玲" : ""
-                            packagedData["currentVoters"] = []
+                            newData["UID"] = votingDataUID
+                            newData["deadlineDateTime"] = deadlineDateTimeInput.value
+                            newData["eventDateTime"] = eventDateTimeInput.value
+                            newData["initiator"] = "黃莉玲"
+                            newData["invitees"] = votingInviteesSelect.value === "has-invitees" ? "黃莉玲" : ""
+                            newData["currentVoters"] = []
 
-                            //post votings API 資料庫
-                            updateVotingEvent(packagedData)
+                            //將處理好的資料打包
+                            packagedDatas.push(newData)
                         })
+
+                        //post 進 votings API 資料庫
+                        updateVotingEvent(packagedDatas)
                     }
 
-                    //post votings API 資料庫
-                    function updateVotingEvent(packagedData) {
-                        axios.post(`${_url}/votings`, packagedData)
-                            .then(function (response) {
-                                console.log("success")
-                            }).catch((err) => {
-                                console.log('錯誤:', err);
-                            });
+                    //post votings API 資料庫                    
+                    function updateVotingEvent(packagedDatas) {
+                        let i = 0
+
+                        function sendPost(item) {
+                            axios.post(`${_url}/votings`, item)
+                                .then(function (response) {
+                                    i++
+                                    if (i < packagedDatas.length) {
+                                        sendPost(packagedDatas[i])
+                                    }
+
+                                    console.log("success")
+                                }).catch((err) => {
+                                    console.log('錯誤:', err);
+                                });
+                        }
+
+                        sendPost(packagedDatas[i])
                     }
 
                     //判斷輸入格內的值是否正確
@@ -890,11 +890,15 @@
                     })
 
                     // btn 關閉投票成功 modal
-                    const btnLinkToCalendar = document.querySelector(".btnLinkToCalendar")
-                    btnLinkToCalendar.addEventListener("click", function () {
-                        //超連結回到月曆頁
-                        window.location.href = "./calendar.html"
-                    })
+                    createdSuccessModal.addEventListener('show.bs.modal', function (event) {
+                        const btnLinkToCalendar = document.querySelector(".btnLinkToCalendar")
+
+                        btnLinkToCalendar.addEventListener("click", function () {
+                            //超連結回到月曆頁
+                            window.location.href = "./calendar.html"
+                        })
+                    });
+
 
 
 
