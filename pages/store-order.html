@@ -5,20 +5,20 @@
 
   <body class="pt-64 pt-md-82">
     <!-- loading -->
-    <!-- <%- include('./layout/loading'); -%> -->
+    <%- include('./layout/loading'); -%>
 
     <%- include('./layout/nav'); -%>
 
       <!-- order -->
       <div class="layout-content">
-        <div class="order mb-16 mb-sm-32">
-          <div class="order-bg"></div>
-          <div class="order-content container ps-12 ps-md-42 d-sm-flex align-items-end">
-            <img src="/assets/images/store-logo/store-beverage-1.jpg" alt="logo-cha source"
-              class="order-icon border border-2 border-line border-radius-24 me-sm-37 mb-20 mb-sm-0 ">
-            <div class="order-textContent">
-              <h2 class="fs-md-40 fs-24 fw-bold lh-sm">茶源 ChaSource</h2>
-              <div class="imgItems">
+          <div class="order mb-16 mb-sm-32" id="storeOrder">
+            <div class="order-bg"></div>
+            <div class="order-content container ps-12 ps-md-42 d-sm-flex align-items-end">
+              <img src="/assets/images/store-logo/store-beverage-1.jpg" alt="logo-cha source"
+                class="order-icon border border-2 border-line border-radius-24 me-sm-37 mb-20 mb-sm-0 ">
+              <div class="order-textContent">
+                <h2 class="fs-md-40 fs-24 fw-bold lh-sm">茶源 ChaSource</h2>
+                <div class="imgItems">
                 <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
                 <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
                 <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
@@ -600,83 +600,6 @@
                 <p class="fs-16 fs-md-20 fw-medium line-height-sm">購物車內容</p>
               </div>
             </div>
-            <div class="modal-body p-0 mb-40">
-              <ul>
-                <li class="mb-12 border-bottom border-1 border-gray-03">
-                  <div class="d-flex justify-content-between align-items-center w-100 mb-md-16">
-                    <p class="text-gray-01 fs-md-20">茶舞</p>
-                    <p class="text-gray-01 fs-md-20">$30</p>
-                  </div>
-                  <div class="mb-16">
-                    <p class="text-gray-02">溫度：正常冰</p>
-                    <p class="text-gray-02">甜度：正常糖</p>
-                  </div>
-                  <div class="btn-group border-radius-40 border border-2
-                     py-12 px-16 mb-8 mb-md-12 d-flex justify-content-center align-items-center" role="group"
-                    aria-label="Basic" style="max-width: 131px;">
-                    <button type="button"
-                      class="d-flex justify-content-center align-items-center btn btn-white border-radius-400040"
-                      style="width: 24px;height: 24px;">
-                      <span class="material-symbols-outlined text-gray-02 ">
-                        remove
-                      </span>
-                    </button>
-                    <input style="width: 35px;" type="text"
-                      class=" border border-2 text-brand-02 mx-8 text-center border border-0" value="1" id="number">
-                    <button type="button"
-                      class="d-flex justify-content-center align-items-center btn btn-white border-radius-040400"
-                      style="width: 24px;height: 24px;">
-                      <span class="material-symbols-outlined text-gray-02 ">
-                        add
-                      </span>
-                    </button>
-                  </div>
-                </li>
-                <li class="mb-12 border-bottom border-1 border-gray-03">
-                  <div class="d-flex justify-content-between align-items-center w-100 mb-md-16">
-                    <p class="text-gray-01 fs-md-20">翠綠</p>
-                    <p class="text-gray-01 fs-md-20">$35</p>
-                  </div>
-                  <div class="mb-16">
-                    <p class="text-gray-02">溫度：正常冰</p>
-                    <p class="text-gray-02">甜度：半糖（5 分糖）</p>
-                    <p class="text-gray-02">加料：升級鮮奶</p>
-                  </div>
-                  <div class="btn-group border-radius-40 border border-2
-                     py-12 px-16 mb-8 mb-md-12 d-flex justify-content-center align-items-center" role="group"
-                    aria-label="Basic" style="max-width: 131px;">
-                    <button type="button"
-                      class="d-flex justify-content-center align-items-center btn btn-white border-radius-400040"
-                      style="width: 24px;height: 24px;">
-                      <span class="material-symbols-outlined text-gray-02 ">
-                        remove
-                      </span>
-                    </button>
-                    <input style="width: 35px;" type="text"
-                      class=" border border-2 text-brand-02 mx-8 text-center border border-0" value="1" id="number">
-                    <button type="button"
-                      class="d-flex justify-content-center align-items-center btn btn-white border-radius-040400"
-                      style="width: 24px;height: 24px;">
-                      <span class="material-symbols-outlined text-gray-02 ">
-                        add
-                      </span>
-                    </button>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="modal-footer p-0  border-0">
-              <div class="d-flex justify-content-between align-items-center w-100 mb-40 ">
-                <p class="fw-md-bold fw-medium fs-16 fs-md-20 line-height-sm">小計</p>
-                <p class="fw-md-bold fw-medium fs-20 fs-md-24 line-height-sm">$65</p>
-              </div>
-              <button type="button" class="btn btn-brand-03 border-radius-40 py-12 px-24 text-white 
-                d-flex justify-content-center align-items-center w-100" data-bs-toggle="modal"
-                data-bs-target="#modal-successfullyOrdered">
-                <iconify-icon class="me-8" icon="mdi:cart" style="color: white;" width="20" height="20"></iconify-icon>
-                <p class="text-white ">送出訂單</p>
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -786,16 +709,110 @@
             </div>
             <div class="allMenu-content">
               <div class="swiper mySwiper pe-1">
-                <div class="swiper-wrapper py-3">
-                  <%- include('./layout/store-order-menu'); -%>
-                    <%- include('./layout/store-order-menu'); -%>
-                      <%- include('./layout/store-order-menu'); -%>
-                        <%- include('./layout/store-order-menu'); -%>
+                <div class="customMenu swiper-wrapper py-3">
+                  <!-- <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+                    <ul id="storeOrderMenuID">
+                      <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                        <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                          <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                            <h3 class="store-order-h3">茶舞</h3>
+                            <div class="cold-hot d-flex justify-content-center align-items-center ">
+                              <div class="cold d-flex justify-content-center align-items-center ">
+                                <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                <span class="me-8">30</span>
+                              </div>
+                              <div class="hot d-flex justify-content-center align-items-center hidden-block">
+                                <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                <span class="">30</span>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="text-top-p">結合了香濃的奶茶和清新的果茶，帶給您舞動在舌尖的美味。</p>
+                        </button>
+                      </li>
+                      <li class=" py-16 py-sm-24 border-bottom border-1">
+                        <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                          <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                            <h3 class="store-order-h3">紅柚露</h3>
+                            <div class="cold-hot d-flex justify-content-center align-items-center ">
+                              <div class="cold d-flex justify-content-center align-items-center ">
+                                <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                <span class="me-8">40</span>
+                              </div>
+                              <div class="hot d-flex justify-content-center align-items-center hidden-block">
+                                <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                <span class="">30</span>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="text-top-p">絕妙的紅茶搭配新鮮柚子，帶來微酸的口感和芳香的香氣。</p>
+                        </button>
+                      </li>
+                      <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                        <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                          <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                            <h3 class="store-order-h3">翠綠</h3>
+                            <div class="cold-hot d-flex justify-content-center align-items-center ">
+                              <div class="cold d-flex justify-content-center align-items-center ">
+                                <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                <span class="me-8">25</span>
+                              </div>
+                              <div class="hot d-flex justify-content-center align-items-center">
+                                <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                <span class="">25</span>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="text-top-p">以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
+                        </button>
+                      </li>
+                      <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                        <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                          <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                            <h3 class="store-order-h3">柔霧</h3>
+                            <div class="cold-hot d-flex justify-content-center align-items-center ">
+                              <div class="cold d-flex justify-content-center align-items-center ">
+                                <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                <span class="me-8">35</span>
+                              </div>
+                              <div class="hot d-flex justify-content-center align-items-center hidden-block">
+                                <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                <span class="">30</span>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="text-top-p">柔順的奶茶搭配迷人的茉莉花香，帶來優雅與幸福的味覺享受。</p>
+                        </button>
+                      </li>
+                      <li class=" py-16 py-sm-24">
+                        <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                          <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                            <h3 class="store-order-h3">蜜香</h3>
+                            <div class="cold-hot d-flex justify-content-center align-items-center ">
+                              <div class="cold d-flex justify-content-center align-items-center ">
+                                <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                <span class="me-8">30</span>
+                              </div>
+                              <div class="hot d-flex justify-content-center align-items-center">
+                                <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                <span class="">30</span>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="text-top-p">香濃的茶香中混合著芳醇的蜂蜜，為您的口腔帶來溫暖和滋潤。</p>
+                        </button>
+                      </li>
+                    </ul>
+                  </div> -->
                 </div>
               </div>
             </div>
           </div>
-          <nav aria-label="Page navigation" class="">
+          <!-- pagination -->
+          <div id="paginationPagesMenu" class="d-flex justify-content-end mb-16 mb-sm-0"></div> 
+
+          <!-- old pagination -->
+          <!-- <nav aria-label="Page navigation" class="">
             <ul class="pagination w-100 d-flex justify-content-between justify-content-sm-end  ">
               <li class="page-item me-sm-8">
                 <a class="page-link p-10" href="#" aria-label="Next">
@@ -803,30 +820,42 @@
                     height="16"></iconify-icon>
                 </a>
               </li>
-              <li class="page-item me-sm-8">
-                <a class="page-link p-10" href="#" aria-label="Next">
-                  <iconify-icon aria-hidden="true" icon="iconamoon:arrow-left-2" width="16" height="16"></iconify-icon>
-                </a>
-              </li>
-              <li class="page-item me-sm-8"><a class="page-link p-10" href="#">1</a></li>
-              <li class="page-item me-sm-8"><a class="page-link p-10" href="#">2</a></li>
-              <li class="page-item me-sm-8"><a class="page-link p-10" href="#">3</a></li>
-              <p class="me-sm-8">...</p>
-              <li class="page-item me-sm-8"><a class="page-link p-10" href="#">10</a></li>
-              <li class="page-item me-sm-8">
-                <a class="page-link p-10" href="#" aria-label="Next">
-                  <iconify-icon aria-hidden="true" icon="iconamoon:arrow-right-2" width="16" height="16"></iconify-icon>
-                </a>
-              </li>
-              <li class="page-item">
-                <a class="page-link p-10" href="#" aria-label="Next">
-                  <iconify-icon aria-hidden="true" icon="ri:arrow-right-double-line" width="16"
-                    height="16"></iconify-icon>
-                </a>
+              <li class="mb-12 border-bottom border-1 border-gray-03">
+                <div class="d-flex justify-content-between align-items-center w-100 mb-md-16">
+                  <p class="text-gray-01 fs-md-20">翠綠</p>
+                  <p class="text-gray-01 fs-md-20">$35</p>
+                </div>
+                <div class="mb-16">
+                  <p class="text-gray-02">溫度：正常冰</p>
+                  <p class="text-gray-02">甜度：半糖（5 分糖）</p>
+                  <p class="text-gray-02">加料：升級鮮奶</p>
+                </div>
+                <div class="btn-group border-radius-40 border border-2
+                   py-12 px-16 mb-8 mb-md-12 d-flex justify-content-center align-items-center" role="group"
+                  aria-label="Basic" style="max-width: 131px;">
+                  <button type="button"
+                    class="d-flex justify-content-center align-items-center btn btn-white border-radius-400040"
+                    style="width: 24px;height: 24px;">
+                    <span class="material-symbols-outlined text-gray-02 ">
+                      remove
+                    </span>
+                  </button>
+                  <input style="width: 35px;" type="text"
+                    class=" border border-2 text-brand-02 mx-8 text-center border border-0" value="1" id="number">
+                  <button type="button"
+                    class="d-flex justify-content-center align-items-center btn btn-white border-radius-040400"
+                    style="width: 24px;height: 24px;">
+                    <span class="material-symbols-outlined text-gray-02 ">
+                      add
+                    </span>
+                  </button>
+                </div>
               </li>
             </ul>
-          </nav>
+          </nav> -->
         </div>
+        <!-- 店家列表 -->
+        <div id="paginationContainerMenu" class="col-md-10 px-24 "></div>
       </div>
 
       <!-- feedback -->
@@ -837,16 +866,16 @@
       <!-- footer -->
       <%- include('./layout/footer'); -%>
 
-        <!-- notification -->
-        <%- include('./layout/notification'); -%>
-
+      <!-- notification -->
+      <%- include('./layout/notification'); -%>
           <!-- Swiper JS CDN -->
           <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
           <!-- ICONGIFY -->
           <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
           <!-- jQuery Import -->
-          <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
-            integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+          <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+          <!-- 頁碼 pagination.js -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js"></script>
           <!-- JS -->
           <script type="module" src="../main.js"></script>
           <!-- AOS EFFECT -->
@@ -916,28 +945,12 @@
               $(this).find('.arrowDown').toggleClass('d-none');
               $(this).find('.arrowUp').toggleClass('d-none');
             });
-            // 菜單滑動用
-            var swiper = new Swiper(".mySwiper", {
-              // spaceBetween: 30,
-              breakpoints: {
-                1: {
-                  slidesPerView: 1,
-                  spaceBetween: 10,
-                  centeredSlides: false
-                },
-                576: {
-                  slidesPerView: 2,
-                  spaceBetween: 24,
-                  centeredSlides: false
-                }
-              }
-            });
-
+            
             // modal 建立揪團
             const dateControls = document.querySelectorAll('.dateControl');
             dateControls.forEach(dateControl => {
-              dateControl.addEventListener('click', function () {
-                dateControl.type = "date";
+              dateControl.addEventListener('click', function() {
+                  dateControl.type = "date";
               });
             });
 
@@ -968,6 +981,162 @@
               textareaLength.textContent = `字數限制 ${inputLength}/100`
             })
 
+          </script>
+          <!-- menu -->
+          <script type="module">
+            // import 星級樣板
+            import showStars from '/assets/js/showStars.js';
+
+            $(function () {
+              (function () {
+                let container = $("#paginationPagesMenu");
+                let numberUID = '';
+                if(localStorage.getItem('UID')){
+                  numberUID = localStorage.getItem('UID');
+                }else{
+                  numberUID = 'B001';
+                }
+                console.log(numberUID)
+                console.log(numberUID)
+                let isMobile = window.innerWidth < 768; // 假設小於 768 像素的視窗寬度視為手機
+                // 發送 Ajax 請求獲取資料 
+                $.ajax({
+                  url: `https://teatimeapi-test.onrender.com/restaurants?UID=${numberUID}`,
+                  success: function (data) {
+                    console.log(data);
+                    let totalNumber = data.length; // 實際資料筆數
+                    let productData = data[0].products;
+                    let storeData = data[0];
+                    let pageSize = isMobile ? 5 : 10; // 根據裝置設定不同的 pageSize
+                    let storeTemplate = '';
+                    let stars = showStars(storeData.stars);
+                    // 店家獨立頁面 店家資訊
+                    storeTemplate += `
+                    <div class="order-bg" style=" background: url(${storeData.storeBannerPhoto}) center top /cover;"></div>
+                    <div class="order-content container ps-12 ps-md-42 d-sm-flex align-items-end">
+                      <img src="${storeData.storeLogo}" alt="logo-cha source"
+                        class="order-icon border border-2 border-line border-radius-24 me-sm-37 mb-20 mb-sm-0 ">
+                      <div class="order-textContent">
+                        <h2 class="fs-md-40 fs-24 fw-bold lh-sm">${storeData.storeName}</h2>
+                        <div class="imgItems">
+                          ${stars}
+                        </div>
+                        <p class="order-content-p">${storeData.summary}</p>
+                      </div>
+                    </div>
+                    `;
+                    $('#storeOrder').html(storeTemplate);
+                    // menu 分頁
+                    container.pagination({
+                      dataSource: productData, // 實際資料來源
+                      locator: "items",
+                      totalNumber: totalNumber, // 實際資料總數
+                      pageSize: pageSize , // 每頁資料數
+                      showPageNumbers: true,
+                      showPrevious: true,
+                      showNext: true,
+                      callback: function (data, pagination) {
+                        const newData = JSON.parse(JSON.stringify(data));
+                        let firstFiveMenu = '';
+                        let lastFiveMenu = '';
+                        let template = '';
+                        let firstFive = newData.slice(0, 5); // 拆分前五
+                        let lastFive = newData.slice(5); // 拆分後五
+                        let lastFiveArray = [...lastFive]; // 類陣列轉純陣列
+                        firstFiveMenu += `
+                          <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+                          <ul id="storeOrderMenuID">
+                        `;
+
+                        $.each(firstFive, function (index, data) {
+                          firstFiveMenu += `
+                              <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                                <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                  <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                                    <h3 class="store-order-h3">${data.品項}${data.UID}</h3>
+                                    <div class="cold-hot d-flex justify-content-center align-items-center ${data.冷 ? '' : 'hidden-block'}">
+                                      <div class="cold d-flex justify-content-center align-items-center ">
+                                        <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                        <span class="me-8">${data.價格}</span>
+                                      </div>
+                                      <div class="hot d-flex justify-content-center align-items-center ${data.熱 ? '' : 'hidden-block'}">
+                                        <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                        <span class="">${data.價格}</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <p class="text-top-p">${data.商品描述}</p>
+                                </button>
+                              </li>`;
+                        });
+                        firstFiveMenu +=`
+                            </ul>
+                          </div>`;
+                        lastFiveMenu += `
+                          <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+                          <ul id="storeOrderMenuID">
+                        `;
+                        $.each(lastFiveArray, function (index, data) {
+                          lastFiveMenu += `
+                              <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                                <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                  <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                                    <h3 class="store-order-h3">${data.品項}${data.UID}</h3>
+                                    <div class="cold-hot d-flex justify-content-center align-items-center ${data.冷 ? '' : 'hidden-block'}">
+                                      <div class="cold d-flex justify-content-center align-items-center ">
+                                        <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                        <span class="me-8">${data.價格}</span>
+                                      </div>
+                                      <div class="hot d-flex justify-content-center align-items-center ${data.熱 ? '' : 'hidden-block'}">
+                                        <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                        <span class="">${data.價格}</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <p class="text-top-p">${data.商品描述}</p>
+                                </button>
+                              </li>`;
+                        });
+                        lastFiveMenu +=`
+                            </ul>
+                          </div>`;
+                        template += firstFiveMenu;
+                        if(pageSize == 5){
+                          // console.log(5);
+                          lastFiveMenu = "";
+                        }else{
+                          // console.log(10);
+                        }
+                        template += lastFiveMenu;
+                        // console.log(template);
+                        $(".customMenu").html(template);
+                        firstFive = [];
+                        lastFive = [];
+                        // 菜單滑動用
+                        var swiper = new Swiper(".mySwiper", {
+                          // spaceBetween: 30,
+                          breakpoints: {
+                            1: {
+                              slidesPerView: 1,
+                              spaceBetween: 10,
+                              centeredSlides: false
+                            },
+                            576: {
+                              slidesPerView: 2,
+                              spaceBetween: 24,
+                              centeredSlides: false
+                            }
+                          }
+                        });
+                      }
+                    });
+                  },
+                  error: function (error) {
+                    console.error("error");
+                  }
+                });
+              })();
+            });
           </script>
   </body>
 
