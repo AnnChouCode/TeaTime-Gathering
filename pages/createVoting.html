@@ -411,6 +411,7 @@
                                     url: filteredData,
                                     success: function (filteredData) {
                                         //處理頁碼
+                                        console.log(container);
                                         handlePagination(filteredData, container)
                                     },
                                     error: function (error) {
@@ -998,6 +999,7 @@
                         minDate: moment().format('YYYY/MM/DD'),
                     });              
                 </script>
+
 
 
 </body>
