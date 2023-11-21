@@ -990,9 +990,13 @@
             $(function () {
               (function () {
                 let container = $("#paginationPagesMenu");
-                let numberUID = localStorage.getItem('UID');
+                let numberUID = '';
+                if(localStorage.getItem('UID')){
+                  numberUID = localStorage.getItem('UID');
+                }else{
+                  numberUID = 'B001';
+                }
                 console.log(numberUID)
-                // numberUID = 'B001';
                 console.log(numberUID)
                 let isMobile = window.innerWidth < 768; // 假設小於 768 像素的視窗寬度視為手機
                 // 發送 Ajax 請求獲取資料 

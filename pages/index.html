@@ -45,64 +45,19 @@
                 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
                 <!-- JS -->
                 <script type="module" src="../main.js"></script>
-                <!-- AOS EFFECT -->
+                <!-- AOS EFFECT 動畫 -->
                 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+                <!-- moment.js import-->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+                <!-- 頁面動畫效果 -->
                 <script>
-                  // console.clear();
-                  // let bannerData = [];
-                  // axios.get('https://teatimeapi-test.onrender.com/groupings')
-                  // .then(function(res){
-                  //   const today = new Date();
-                  //   let todayDateString = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;
-                  //   // console.log(todayDateString);
-                  //   todayDateString = '2023/12/05';
-                  //   const data = res.data;
-                  //   data.forEach(item => {
-                  //     const [datePart, timePart] = item.deadlineDateTime.split(" ");
-                  //     item.datePart = datePart; // 输出：2023/12/05
-                  //     item.timePart = timePart; // 输出：14:00
-                  //     // 判斷當日有開團，並加入 bannerData
-                  //     if(todayDateString == datePart){
-                  //       bannerData.push(item);
-                  //     }                    
-                  //   });
-                    
-                  //   // 判斷當日無開團處理
-                  // if(bannerData == ""){
-                  //   // 當日無開團，以離目前最近時間排序
-                  //   console.log('a');
-                  // }else{
-                  //   bannerRender(bannerData);   
-                  // }                              
-                  // })
-                  // .catch(function(err){
-                  //   console.log(err);
-                  // })
                   // AOS INIT
                   AOS.init({
                     // offset: 180,
                     duration: 800,
                     delay: 500,
-                  })
-                  // function bannerRender(bannerData){
-                  //   const bannerName = document.querySelector(".bannerName");
-                  //     if (bannerName) {
-                  //       console.log("Found bannerName element:", bannerName);
-
-                  //       let aaa = 'Hello, World!';
-                  //       try {
-                  //         bannerName.innerHTML = aaa;
-                  //         console.log("Setting innerHTML succeeded.");
-                  //       } catch (error) {
-                  //         console.error("Error setting innerHTML:", error);
-                  //       }
-                  //     } else {
-                  //       console.error("Element with class 'bannerName' not found.");
-                  //     }
-                  // }
-                  
-
-                </script>                
+                  })                  
+                </script>
   </body>
 
 </html>
