@@ -35,3 +35,8 @@
     text-decoration: underline;
     text-decoration-color: $brand-02;
 }
+
+.btn-active-brand-02 {
+    background-color: $brand-02 !important;
+    color: $white !important;
+}
