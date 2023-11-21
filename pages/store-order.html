@@ -990,18 +990,19 @@
             $(function () {
               (function () {
                 let container = $("#paginationPagesMenu");
-                let numberUID = '';
-                if(localStorage.getItem('UID')){
-                  numberUID = localStorage.getItem('UID');
-                }else{
-                  numberUID = 'B001';
-                }
-                console.log(numberUID)
-                console.log(numberUID)
+                // let numberUID = '';
+                const UID = location.href.split("=")[1]
+                // if(localStorage.getItem('UID')){
+                //   numberUID = localStorage.getItem('UID');
+                // }else{
+                //   numberUID = 'B001';
+                // }
+                // console.log(numberUID)
+                console.log(UID)
                 let isMobile = window.innerWidth < 768; // 假設小於 768 像素的視窗寬度視為手機
                 // 發送 Ajax 請求獲取資料 
                 $.ajax({
-                  url: `https://teatimeapi-test.onrender.com/restaurants?UID=${numberUID}`,
+                  url: `https://teatimeapi-test.onrender.com/restaurants?UID=${UID}`,
                   success: function (data) {
                     console.log(data);
                     let totalNumber = data.length; // 實際資料筆數
@@ -1056,11 +1057,11 @@
                                     <h3 class="store-order-h3">${data.品項}</h3>
                                     <div class="cold-hot d-flex justify-content-center align-items-center ${data.冷 ? '' : 'hidden-block'}">
                                       <div class="cold d-flex justify-content-center align-items-center ">
-                                        <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
                                         <span class="me-8">${data.價格}</span>
                                       </div>
                                       <div class="hot d-flex justify-content-center align-items-center ${data.熱 ? '' : 'hidden-block'}">
-                                        <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/hot.png?raw=true" alt="hot.png">
                                         <span class="">${data.價格}</span>
                                       </div>
                                     </div>
@@ -1081,14 +1082,14 @@
                               <li class=" py-16 py-sm-24 border-bottom border-1 ">
                                 <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                   <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
-                                    <h3 class="store-order-h3">${data.品項}${data.UID}</h3>
+                                    <h3 class="store-order-h3">${data.品項}</h3>
                                     <div class="cold-hot d-flex justify-content-center align-items-center ${data.冷 ? '' : 'hidden-block'}">
                                       <div class="cold d-flex justify-content-center align-items-center ">
-                                        <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
                                         <span class="me-8">${data.價格}</span>
                                       </div>
                                       <div class="hot d-flex justify-content-center align-items-center ${data.熱 ? '' : 'hidden-block'}">
-                                        <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/hot.png?raw=true" alt="hot.png">
                                         <span class="">${data.價格}</span>
                                       </div>
                                     </div>
