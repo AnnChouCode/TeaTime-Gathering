@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/images/logo/logo-favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
     <link rel="stylesheet" href="/assets/scss/pages/_memberSystem.scss">
     <title>投票管理</title>
@@ -23,13 +24,13 @@
                             aria-controls="memberOffcanvas">
                             <iconify-icon width="24" icon="mingcute:menu-fill"></iconify-icon>
                         </a>
-                        <iconify-icon class="ms-auto" icon="icon-park-outline:shop" width="24"
-                            height="24"></iconify-icon>
+                        <a href="index.html" class="ms-auto"><iconify-icon icon="icon-park-outline:shop" width="24"
+                                height="24"></iconify-icon></a>
                     </div>
                     <h2 class=" fw-bold mt-32 mt-lg-42 fs-32 px-12">個人資料</h2>
                     <div class="mt-16 mt-lg-32 px-12 d-flex align-items-center ">
-                        <img class="rounded-5 " src="/assets/images/user/female/user-female-03.jpg" alt="" width="220"
-                            height="220">
+                        <img class="rounded-3 border border-2 border-brand-03"
+                            src="/assets/images/user/female/user-female-03.jpg" alt="" width="96" height="96">
                         <div class="ms-32 fs-24 fw-bold ">黃莉琳</div>
                     </div>
 
@@ -67,15 +68,16 @@
                                     <h3 class="fs-20 fw-bolder text-brand-03 mb-32">更改密碼</h3>
                                     <div class="col-4  fs-20 fw-bolder ">
                                         <div class="mt-12 mb-42"><label for="oldPW"
-                                                class="form-label fw-bolder fs-20 my-0">舊密碼</label></div>
+                                                class="form-label fw-bolder fs-20 my-0 ">舊密碼</label></div>
                                         <div class="mt-12 mb-42"><label for="newPW"
                                                 class="form-label fw-bolder fs-20 my-0">新密碼</label></div>
                                         <div class="mt-12 mb-42"><label for="comfirmNewPW"
                                                 class="form-label fw-bolder fs-20 my-0">確認密碼</label></div>
+
                                     </div>
-                                    <div class="col-8 ">
+                                    <div class="newPWinputs col-8 ">
                                         <input type="text"
-                                            class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16  mb-24 border "
+                                            class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16  mb-24 border"
                                             id="oldPW" aria-describedby="depart">
                                         <input type="text"
                                             class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16  mb-24 border"
@@ -83,8 +85,9 @@
                                         <input type="email"
                                             class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16 mb-32 border"
                                             id="comfirmNewPW" aria-describedby="depart">
+
                                         <button type="submit"
-                                            class="d-none d-lg-block  btn btn-brand-03 rounded-pill px-36 py-12 text-white fw-bolder ">確認修改</button>
+                                            class="btn-submit d-none d-lg-block  btn btn-brand-03 rounded-pill px-36 py-12 text-white fw-bolder ">確認修改</button>
                                     </div>
 
                                 </div>
@@ -136,6 +139,26 @@
     <script type="module" src="../main.js"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
+
+    <script>
+        let btnSubmit = document.querySelector(".btn-submit");
+        let inputs = document.querySelectorAll(".newPWinputs input")
+        // console.log(inputs);
+        btnSubmit.addEventListener("click", function () {
+            inputs.forEach(input => {
+                input.classList.remove("input-error");
+                if (input.value == "") {
+                    setTimeout(() => {
+                        input.placeholder = "不要空白0.0";
+                        input.classList.add("input-error");
+                    }, 100);
+                } else {
+                    input.classList.remove("input-error");
+                }
+            })
+        })
+
+    </script>
 </body>
 
 </html>

@@ -34,7 +34,7 @@
                     </li>
                     <!-- 按鈕-使用者已登入選單 -->
                     <li class="d-none btnUserLoggedIn">
-                        <a href="../pages/overallSystem.html"
+                        <a href="overallSystem.html"
                             class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
                             style="width: 44px;height: 44px;">L</a>
                     </li>
@@ -51,9 +51,10 @@
                 </ul>
                 <!-- search-bar  -->
                 <div class="position-relative d-lg-none me-lg-16 ms-170">
-                    <iconify-icon class="position-absolute search-icon" icon="iconamoon:search" style="color: #8b8b8a;"
-                        width="24"></iconify-icon>
-                    <input type="text"
+                    <iconify-icon class="position-absolute search-icon z-1" icon="iconamoon:search"
+                        style="color: #8b8b8a;" width="24"></iconify-icon>
+                    <input id="navSearchAutoComplete" type="search" spellcheck=false autocorrect="off"
+                        autocomplete="off" autocapitalize="off"
                         class="py-10 px-16 ps-48 border border-2 border-gray-04 border-radius-28 search-bar"
                         placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
                 </div>
@@ -258,9 +259,144 @@
 </div>
 
 <!-- jQuery Import -->
-<!-- <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
-    integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script> -->
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<!-- 搜尋 autocomplete.js-->
+<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
+
+
+<script type="module">
+    import axios from 'axios';
+
+    //全頁共用變數
+    const _url = "https://teatimeapi-test.onrender.com"
+
+    /* 搜尋 input autoComplete ===================================================*/
+    const autoCompleteJS = new autoComplete({
+        selector: "#navSearchAutoComplete",
+        //撈取 API 資料庫獲取選單內容
+        data: {
+            src: async (query) => {
+                try {
+                    //Fetch Data from external Source
+                    const source = await fetch(`${_url}/restaurants`);
+                    //Data should be an array of `Objects` or `Strings`
+                    const data = await source.json();
+
+                    return data;
+                } catch (error) {
+                    return error;
+                }
+            },
+            //Data source 'Object' key to be searched
+            keys: ["storeName"]
+        },
+        //寬鬆搜尋
+        searchEngine: "loose",
+        //選單符合條件自元 highlight
+        resultItem: {
+            highlight: true
+        },
+        //生成選單
+        resultsList: {
+            element: (list, data) => {
+                if (!data.results.length) {
+                    //Create "No Results" message element
+                    const message = document.createElement("div");
+                    //Add class to the created element
+                    message.setAttribute("class", "no_result px-8");
+                    //Add message text content
+                    message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
+                    //Append message element to the results list
+                    list.prepend(message);
+                }
+            },
+            noResults: true,
+        },
+        events: {
+            input: {
+                //選單偵測
+                selection: (event) => {
+                    const selectionValue = event.detail.selection.value;
+                    autoCompleteJS.input.value = selectionValue.storeName;
+                    console.log(selectionValue.storeName)                    
+                    window.location.href = `./store-order.html?UID=${selectionValue.UID}`
+                },
+                //輸入 enter 偵測
+                keydown: (event) => {
+                    if (event.keyCode === 13) {
+                        const searchValue = autoCompleteJS.input.value
+                        console.log(selectionValue.storeName)
+                        window.location.href = `./store-order.html?UID=${selectionValue.UID}`
+                    }
+                }
+            }
+        }
+    });
+
+
+    /* 登入/登出 狀態 icon 顯示切換  ===================================================*/
+    //form-帳密輸入表單
+    const loginForm = document.querySelector(".needs-validation");
+    //input-帳密輸入
+    const inputLoginAccount = document.querySelector(".inputLoginAccount");
+    const inputLoginPassword = document.querySelector(".inputLoginPassword");
+    //按鈕-登入資料送出
+    const btnLoginSubmit = document.querySelectorAll(".btnLoginSubmit");
+    //按鈕-navbar 登入、已登入、登出 icon
+    const btnLogin = document.querySelectorAll(".btnLogin")
+    const btnUserLoggedIn = document.querySelectorAll(".btnUserLoggedIn")
+    const btnLogOut = document.querySelectorAll(".btnLogOut")
+
+    //登入
+    btnLoginSubmit.forEach(btn => {
+        btn.addEventListener("click", () => {
+            //input-帳密輸入值
+            const accountValue = inputLoginAccount.value;
+            const passwordValue = inputLoginPassword.value;
+
+            //檢查 loginForm 通過驗證，失敗則為 ture，添加顯示樣式
+            if (!loginForm.checkValidity()) {
+                loginForm.classList.add('was-validated');
+            }
+
+            //Login 成功條件 & 失敗
+            if (accountValue === "ling-huang@fat-together.com" && passwordValue === "ling-huang") {
+                btnLogOut.forEach(btn => {
+                    btn.classList.remove("d-none");
+                });
+                btnUserLoggedIn.forEach(btn => {
+                    btn.classList.remove("d-none");
+                });
+                btnLogin.forEach(btn => {
+                    btn.classList.add("d-none");
+                });
+                $('#accountModal').modal('hide');
+            } else {
+                //登入失敗
+                const errorFeedback = document.querySelector(".invalid-feedback");
+                errorFeedback.style.display = 'block';
+            }
+
+        });
+    });
+
+    //登出
+    btnLogOut.forEach(btn => {
+        btn.addEventListener("click", () => {
+            btnLogOut.forEach(btn => {
+                btn.classList.add("d-none");
+            });
+            btnUserLoggedIn.forEach(btn => {
+                btn.classList.add("d-none");
+            });
+            btnLogin.forEach(btn => {
+                btn.classList.remove("d-none");
+            });;
+        })
+    })
+</script>
+
 <!-- jQuery -->
 <script>
     /* Validation 填寫檢驗 */
@@ -286,69 +422,4 @@
         $('.offcanvas-list a').removeClass('nav-offcanvas-active');
         $(this).toggleClass('nav-offcanvas-active');
     });
-</script>
-
-
-<script>
-    /* 登入/登出 狀態 icon 顯示切換 */
-    // form-帳密輸入表單
-    const loginForm = document.querySelector(".needs-validation");
-    // input-帳密輸入
-    const inputLoginAccount = document.querySelector(".inputLoginAccount");
-    const inputLoginPassword = document.querySelector(".inputLoginPassword");
-    // 按鈕-登入資料送出
-    const btnLoginSubmit = document.querySelectorAll(".btnLoginSubmit");
-    // 按鈕-navbar 登入、已登入、登出 icon
-    const btnLogin = document.querySelectorAll(".btnLogin")
-    const btnUserLoggedIn = document.querySelectorAll(".btnUserLoggedIn")
-    const btnLogOut = document.querySelectorAll(".btnLogOut")
-
-    // 登入
-    btnLoginSubmit.forEach(btn => {
-        btn.addEventListener("click", () => {
-            // input-帳密輸入值
-            const accountValue = inputLoginAccount.value;
-            const passwordValue = inputLoginPassword.value;
-
-            // 檢查 loginForm 通過驗證，失敗則為 ture，添加顯示樣式
-            if (!loginForm.checkValidity()) {
-                loginForm.classList.add('was-validated');
-            }
-
-            // Login 成功條件 & 失敗
-            if (accountValue === "ling-huang@fat-together.com" && passwordValue === "ling-huang") {
-                btnLogOut.forEach(btn => {
-                    btn.classList.remove("d-none");
-                });
-                btnUserLoggedIn.forEach(btn => {
-                    btn.classList.remove("d-none");
-                });
-                btnLogin.forEach(btn => {
-                    btn.classList.add("d-none");
-                });
-                $('#accountModal').modal('hide');
-            } else {
-                // 登入失敗
-                const errorFeedback = document.querySelector(".invalid-feedback");
-                errorFeedback.style.display = 'block';
-            }
-
-        });
-    });
-
-
-    // 登出
-    btnLogOut.forEach(btn => {
-        btn.addEventListener("click", () => {
-            btnLogOut.forEach(btn => {
-                btn.classList.add("d-none");
-            });
-            btnUserLoggedIn.forEach(btn => {
-                btn.classList.add("d-none");
-            });
-            btnLogin.forEach(btn => {
-                btn.classList.remove("d-none");
-            });;
-        })
-    })
 </script>

@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/images/logo/logo-favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
     <link rel="stylesheet" href="/assets/scss/pages/_memberSystem.scss">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title>投票管理</title>
 </head>
 
@@ -25,8 +27,8 @@
                             aria-controls="memberOffcanvas">
                             <iconify-icon width="24" icon="mingcute:menu-fill"></iconify-icon>
                         </a>
-                        <iconify-icon class="ms-auto" icon="icon-park-outline:shop" width="24"
-                            height="24"></iconify-icon>
+                        <a href="index.html" class="ms-auto"><iconify-icon  icon="icon-park-outline:shop" width="24"
+                            height="24"></iconify-icon></a>
                     </div>
                     <h2 class=" fw-bold mt-32 mt-lg-42 fs-32 px-12">投票管理</h2>
                     <ul class="member-ul mt-32 d-flex fw-bolder px-12 px-lg-0">
@@ -42,6 +44,50 @@
                     <ul class="initiatePoll">
                     </ul>
                 </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="voteModal" tabindex="-1" aria-labelledby="voteModallabel" aria-hidden="true"
+        data-backdrop="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class=" modal-content ">
+                <!-- modal header -->
+                <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
+                    <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">修改投票時間
+                    </h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- modal body -->
+                <div
+                    class="modal-body d-flex pb-16 pt-8 pt-lg-16 px-16 px-lg-40 pb-lg-40 container justify-content-center">
+                    <div class="row flex-column flex-lg-row w-100">
+                        <!-- 建立活動資訊 create voting info -->
+                        <div class="col p-0">
+                            <ul class="d-flex flex-column gap-32 mb-12 mb-lg-32 fs-16 fs-md-20">
+                                <li>
+                                    <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
+                                    <input type="datetime-local"
+                                        class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector bg-white text-brand-02 "
+                                        id="eventDateTime" name="eventDateTime" placeholder="日期" autocomplete="off">
+                                </li>
+                                <li>
+                                    <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
+                                    <input type="datetime-local"
+                                        class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector bg-white text-brand-02"
+                                        id="deadlineDateTime" name="deadlineDateTime" placeholder="日期"
+                                        autocomplete="off">
+                                    <p class="mt-4 fs-14 d-none deadlineDateTimeAlert" style="color:#dc3545;">
+                                        截止時間須至少提前於享用日期 24 時</p>
+                                </li>
+                            </ul>
+                            <button
+                                class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-100 btnLinkToCreateVoting"
+                                type="button">選擇店家</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -72,16 +118,31 @@
         </div>
     </div>
 
-    <style>
-
-    </style>
 
 </body>
 <script type="module" src="../main.js"></script>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
+<!-- moment.js import-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<!-- 時間選擇器 flatpickr import -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+
+    flatpickr(".dateSelector", config = {
+        enableTime: true,
+        dateFormat: "Y/m/d H:i",
+        time_24hr: true,
+        minuteIncrement: 15,
+        allowInput: true,
+        minDate: moment().format('YYYY/MM/DD'),
+        maxDate: moment().add(1, 'months').format('YYYY/MM/DD'),
+    }); 
+</script>
+
 
 <script>
+
     // 顯示分類按鈕底線，並將相對應的
     let takePartVoting = document.querySelector(".takePartVoting");
     let initiatePoll = document.querySelector(".initiatePoll");
@@ -133,7 +194,7 @@
                                 <aside class="me-40 d-flex justify-content-between align-items-center ">
                                     <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
                                     <span class="ms-auto d-block d-lg-none">
-                                        <a href=""
+                                        <a href="" data-bs-toggle="modal" data-bs-target="#voteModal"
                                             class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">編輯投票時間</a>
                                     </span>
                                 </aside>
@@ -162,7 +223,7 @@
                                     </ul>
                                 </main>
                                 <span class="ms-auto d-none d-lg-block">
-                                    <a href=""
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#voteModal"
                                         class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">編輯投票時間</a>
                                 </span>
                             </div>
@@ -172,7 +233,6 @@
     }
 
     memberbtn.forEach(btnType => {
-
         btnType.addEventListener('click', () => {
             memberbtn.forEach(btn => {
                 btn.classList.remove('memberbtn-actived');
@@ -188,7 +248,10 @@
                 initiatePoll.innerHTML = initiatePollHTML;
             }
         })
-    })
+    });
+
+
+
 
 
 
