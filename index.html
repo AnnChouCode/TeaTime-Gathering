@@ -32,10 +32,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <!-- AOS EFFECT -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">   
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/index-a9c18a72.js"></script>
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-7e02668f.js">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/index-2cf30768.js"></script>
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-d20c8447.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/axios-47b9d439.js">
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-4263d6f3.css">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-09671c1a.css">
 </head>
   <body class="pt-64 pt-md-82">
     <!-- loading -->
@@ -788,7 +788,8 @@
     <div class="d-flex flex-column container">
         <div class="d-flex justify-content-between align-items-center mb-12 mb-md-32">
             <h2 class="fs-24 fs-md-32 text-gray-01 fw-bold lh-sm">午茶行事曆</h2>
-            <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05" href="#">看更多
+            <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05"
+                href="calendar.html">看更多
                 <svg class="svg-hover" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 8 11"
                     fill="none">
                     <path
@@ -798,18 +799,21 @@
             </a>
         </div>
         <div class="d-md-flex justify-content-md-between align-items-center flex-wrap mb-16 mb-md-40">
-            <p class="fs-16 fs-md-24 mb-24 mb-md-0 text-gray-05">所有午茶活動總覽，一起幸福肥</p>
+            <p class="mb-24 mb-md-0 text-gray-05 fs-16 fs-md-24">所有午茶活動總覽，一起幸福肥</p>
             <ul class="d-flex text-center bg-brand-05 border-radius-40">
-                <li class="text-center w-100 pt-8 pb-8 ps-8">
+                <li class="p-8 pe-0 text-center w-100">
                     <button type="button"
-                        class="type-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 btn-active-brand-02 border-0 border-radius-40">開團中</button>
+                        class="py-10 py-md-8 px-32 px-md-24 w-100 border-0 border-radius-40 btn btn-brand-05 btn-hover-bg-2 btn-active-brand-02 fs-16 fs-md-20 fw-medium text-brand-02 btnfilterEvent"
+                        data-event="groupings">開團中</button>
                 </li>
-                <li class="text-center w-100 pt-8 pb-8 pe-8"><button id="voting" type="button"
-                        class="type-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 border-0 border-radius-40">投票中</button>
+                <li class="p-8 ps-0 text-center w-100">
+                    <button type="button"
+                        class="py-10 py-md-8 px-32 px-md-24 w-100 border-0 border-radius-40 btn btn-brand-05 btn-hover-bg-2 fs-16 fs-md-20 fw-medium text-brand-02 btnfilterEvent"
+                        data-event="votings">投票中</button>
                 </li>
             </ul>
         </div>
-        <div id="calendarBlock" class="row justify-content-md-around justify-content-xl-start gy-12">
+        <div class="row justify-content-md-around justify-content-xl-start gy-12 calendarBlock">
             <div class="col-md-6 col-xl-4 col-xxxl-3">
                 <a href="#"
                     class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
@@ -843,7 +847,8 @@
                         src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-03-s.jpg?raw=true"
                         alt="calendar-img">
                     <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Fruit Fusion</p>
+                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Fruit Fusion
+                        </p>
                         <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
                             <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
                             <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
@@ -893,7 +898,8 @@
                         src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-06-s.jpg?raw=true"
                         alt="calendar-img">
                     <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Flavorful oasis</p>
+                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Flavorful
+                            oasis</p>
                         <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
                             <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
                             <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
@@ -914,223 +920,17 @@
     </div>
 </div>
 
-<script>
-    const button = document.querySelectorAll('.type-link');
-    const calendarBlock = document.querySelector('#calendarBlock')
-    const buttonVoting = document.querySelector('#voting');
 
-    button.forEach(btnType => {
-        btnType.addEventListener('click', () => {
-            button.forEach(btn => {
-                btn.classList.remove('btn-active-brand-02');
-                if (btnType === buttonVoting) {
-                    calendarBlock.innerHTML = `<div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos="flip-left" data-aos-delay="400">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-02-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">呆呆亭</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">投票截止</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="500">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-03-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Fruit Fusion</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">投票截止</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">方雅雯</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="600">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-04-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">阿婆米餅</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">投票截止</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="700">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-06-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Flavorful oasis</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">投票截止</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">張雅琪</span>
-                        </div>
-                    </div>
-                </a>
-            </div>`
-                }
-                else {
-                    calendarBlock.innerHTML = `<div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos="flip-left" data-aos-delay="400">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-02-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">呆呆亭</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="500">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-03-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Fruit Fusion</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">方雅雯</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="600">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-04-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">阿婆米餅</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="700">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-06-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Flavorful oasis</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">張雅琪</span>
-                        </div>
-                    </div>
-                </a>
-            </div>`
-                }
-            })
-            btnType.classList.add('btn-active-brand-02');
-        })
-    })
+
+
+
+
+<!-- jQuery -->
+<script>
+    /* 分類按鈕 active 狀態切換顯示 */
+    $('.btnfilterEvent').click(function (e) {
+        $('.btnfilterEvent').toggleClass('btn-active-brand-02');
+    });
 </script>
           <div class="layout d-flex">
             <div class="layout-left d-none d-lg-block z-index-2">
@@ -3797,7 +3597,6 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
 
-                
 
                 <!-- 頁面動畫效果 -->
                 <script>
