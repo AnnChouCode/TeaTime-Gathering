@@ -38,7 +38,7 @@
 }
 
 .swiper02 {
-  background: url(/assets/images/banner/beverage/beverge-1.jpg) center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);
+  background: url(/assets/images/banner/beverage/beverage-1.jpg) center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);
 
   @include media-breakpoint-down(md) {
     background: url(/assets/images/banner/beverage/beverge-1-s.jpg) center center /cover, linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.70) 100%);

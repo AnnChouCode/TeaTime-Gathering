@@ -6,22 +6,7 @@
         padding-left: 16.25%;
         border-radius: 0px 200px 0px 0px;
 
-    }
-
-    .type-link {
-        transition: all 0.3s;
-        background-color: $brand-05;
-
-        &:hover {
-            background-color: $bg-2;
-        }
-
-        &:active {
-            background-color: $brand-02;
-            color: white !important;
-        }
-    }
-
+    }  
 
     .event-rounded {
         border-radius: 40px 40px 16px 16px;
@@ -47,11 +32,6 @@
     .time-rounded {
         border-radius: 16px;
     }
-}
-
-.btn-active-brand-02 {
-    background-color: $brand-02 !important;
-    color: $white !important;
 }
 
 .text-sm-nowrap {
