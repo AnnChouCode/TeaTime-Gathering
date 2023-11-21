@@ -51,9 +51,11 @@
                 </ul>
                 <!-- search-bar  -->
                 <div class="position-relative d-lg-none me-lg-16 ms-170">
-                    <iconify-icon class="position-absolute search-icon z-1" icon="iconamoon:search" style="color: #8b8b8a;"
-                        width="24"></iconify-icon>
-                    <input type="search" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off" class="py-10 px-16 ps-48 border border-2 border-gray-04 border-radius-28 search-bar"
+                    <iconify-icon class="position-absolute search-icon z-1" icon="iconamoon:search"
+                        style="color: #8b8b8a;" width="24"></iconify-icon>
+                    <input id="navSearchAutoComplete" type="search" spellcheck=false autocorrect="off"
+                        autocomplete="off" autocapitalize="off"
+                        class="py-10 px-16 ps-48 border border-2 border-gray-04 border-radius-28 search-bar"
                         placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
                 </div>
                 <!-- btn-menu -->
@@ -257,39 +259,83 @@
 </div>
 
 <!-- jQuery Import -->
-<!-- <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"
-    integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script> -->
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-<!-- jQuery -->
-<script>
-    /* Validation 填寫檢驗 */
-    $('.needs-validation').each(function (index) {
-        $(this).on('submit', function (e) {
-            e.preventDefault();
-            $(this).addClass('was-validated');
-        });
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<!-- 搜尋 autocomplete.js-->
+<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
+
+
+<script type="module">
+    import axios from 'axios';
+
+    //全頁共用變數
+    const _url = "https://teatimeapi-test.onrender.com"
+
+    /* 搜尋 input autoComplete ===================================================*/
+    const autoCompleteJS = new autoComplete({
+        selector: "#navSearchAutoComplete",
+        //撈取 API 資料庫獲取選單內容
+        data: {
+            src: async (query) => {
+                try {
+                    //Fetch Data from external Source
+                    const source = await fetch(`${_url}/restaurants`);
+                    //Data should be an array of `Objects` or `Strings`
+                    const data = await source.json();
+
+                    return data;
+                } catch (error) {
+                    return error;
+                }
+            },
+            //Data source 'Object' key to be searched
+            keys: ["storeName"]
+        },
+        //寬鬆搜尋
+        searchEngine: "loose",
+        //選單符合條件自元 highlight
+        resultItem: {
+            highlight: true
+        },
+        //生成選單
+        resultsList: {
+            element: (list, data) => {
+                if (!data.results.length) {
+                    //Create "No Results" message element
+                    const message = document.createElement("div");
+                    //Add class to the created element
+                    message.setAttribute("class", "no_result px-8");
+                    //Add message text content
+                    message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
+                    //Append message element to the results list
+                    list.prepend(message);
+                }
+            },
+            noResults: true,
+        },
+        events: {
+            input: {
+                //選單偵測
+                selection: (event) => {
+                    const selectionValue = event.detail.selection.value;
+                    autoCompleteJS.input.value = selectionValue.storeName;
+                    console.log(selectionValue.storeName)                    
+                    window.location.href = `./store-order.html?UID=${selectionValue.UID}`
+                },
+                //輸入 enter 偵測
+                keydown: (event) => {
+                    if (event.keyCode === 13) {
+                        const searchValue = autoCompleteJS.input.value
+                        console.log(selectionValue.storeName)
+                        window.location.href = `./store-order.html?UID=${selectionValue.UID}`
+                    }
+                }
+            }
+        }
     });
 
-    /* 通知按鈕點擊切換通知提示圓點 */
-    $('.btnNotification').click(function (e) {
-        $('.btnNotificationAlert').addClass('d-none');
-    });
 
-    /* 登入會員/管理員 按鈕 active 狀態切換顯示 */
-    $('.btnSwitchIdentity').click(function (e) {
-        $('.btnSwitchIdentity').toggleClass('btn-active-brand-02');
-    });
-
-    /* navbar 摺疊 collapse 選單切換 active */
-    $('.offcanvas-list a').click(function (e) {
-        $('.offcanvas-list a').removeClass('nav-offcanvas-active');
-        $(this).toggleClass('nav-offcanvas-active');
-    });
-</script>
-
-
-<script>
-    /* 登入/登出 狀態 icon 顯示切換 */
+    /* 登入/登出 狀態 icon 顯示切換  ===================================================*/
     // form-帳密輸入表單
     const loginForm = document.querySelector(".needs-validation");
     // input-帳密輸入
@@ -335,7 +381,6 @@
         });
     });
 
-
     // 登出
     btnLogOut.forEach(btn => {
         btn.addEventListener("click", () => {
@@ -350,4 +395,31 @@
             });;
         })
     })
+</script>
+
+<!-- jQuery -->
+<script>
+    /* Validation 填寫檢驗 */
+    $('.needs-validation').each(function (index) {
+        $(this).on('submit', function (e) {
+            e.preventDefault();
+            $(this).addClass('was-validated');
+        });
+    });
+
+    /* 通知按鈕點擊切換通知提示圓點 */
+    $('.btnNotification').click(function (e) {
+        $('.btnNotificationAlert').addClass('d-none');
+    });
+
+    /* 登入會員/管理員 按鈕 active 狀態切換顯示 */
+    $('.btnSwitchIdentity').click(function (e) {
+        $('.btnSwitchIdentity').toggleClass('btn-active-brand-02');
+    });
+
+    /* navbar 摺疊 collapse 選單切換 active */
+    $('.offcanvas-list a').click(function (e) {
+        $('.offcanvas-list a').removeClass('nav-offcanvas-active');
+        $(this).toggleClass('nav-offcanvas-active');
+    });
 </script>
