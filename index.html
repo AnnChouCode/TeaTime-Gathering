@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="is-light">
 
 <head>
   <meta charset="UTF-8" />
@@ -29,18 +29,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <!-- ICONS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <!-- AOS EFFECT -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- 頁碼 pagination.css （非必要引入，官網有提供原始碼可自己客製更改） -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.css">
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/index-b94842e5.js"></script>
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-827c712b.js">
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-b06d7ba9.css">
+  <!-- 進度條 tocas progress -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/index-76b1623a.js"></script>
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-7d481827.js">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-085c5945.css">
 </head>
-  <body class="pt-64 pt-md-82">
-    <!-- loading -->
-    <style>
+
+<body class="pt-64 pt-md-82">
+  <!-- loading -->
+  <style>
   .animation-bounceIn{
     animation: bounceIn 1s infinite;
     transform: rotate(0deg) scale(1) translateZ(0);
@@ -118,7 +120,7 @@
     // 初始化你的应用程序，可以开始加载其他资源
   });
 </script>
-      <nav>
+    <nav>
     <div class="fixed-top bg-white">
         <div class="position-relative layout-content">
             <div class="d-flex align-items-center justify-content-between gap-8 py-lg-16 py-8 container">
@@ -413,9 +415,9 @@
         $(this).toggleClass('nav-offcanvas-active');
     });
 </script>
-        <div class="layout-content">
-          <!-- banner -->
-          <div class="container mb-48 mb-md-104 mt-40 mt-md-76">
+      <div class="layout-content">
+        <!-- banner -->
+        <div class="container mb-48 mb-md-104 mt-40 mt-md-76">
   <div class="swiper-container position-relative border-radius-80804040 bg-brand-06 bannerName">
     <button class="banner-todaymeal-button 
     position-absolute top-0 start-50 translate-middle
@@ -950,13 +952,14 @@
   const interval = setInterval(updateCountdown, 1000);
 
   updateCountdown();
-</script>        </div>
-        <!-- tea-calendar -->
-        <div class="tea-calendar py-32 py-md-80 bg-bg-2" id="tea-calendar" data-aos="fade-up">
+</script>      </div>
+      <!-- tea-calendar -->
+      <div class="tea-calendar py-32 py-md-80 bg-bg-2" id="tea-calendar" data-aos="fade-up">
     <div class="d-flex flex-column container">
         <div class="d-flex justify-content-between align-items-center mb-12 mb-md-32">
             <h2 class="fs-24 fs-md-32 text-gray-01 fw-bold lh-sm">午茶行事曆</h2>
-            <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05" href="#">看更多
+            <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05"
+                href="calendar.html">看更多
                 <svg class="svg-hover" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 8 11"
                     fill="none">
                     <path
@@ -966,19 +969,22 @@
             </a>
         </div>
         <div class="d-md-flex justify-content-md-between align-items-center flex-wrap mb-16 mb-md-40">
-            <p class="fs-16 fs-md-24 mb-24 mb-md-0 text-gray-05">所有午茶活動總覽，一起幸福肥</p>
+            <p class="mb-24 mb-md-0 text-gray-05 fs-16 fs-md-24">所有午茶活動總覽，一起幸福肥</p>
             <ul class="d-flex text-center bg-brand-05 border-radius-40">
-                <li class="text-center w-100 pt-8 pb-8 ps-8">
+                <li class="p-8 pe-0 text-center w-100">
                     <button type="button"
-                        class="type-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 btn-active-brand-02 border-0 border-radius-40">開團中</button>
+                        class="py-10 py-md-8 px-32 px-md-24 w-100 border-0 border-radius-40 btn btn-brand-05 btn-hover-bg-2 btn-active-brand-02 fs-16 fs-md-20 fw-medium text-brand-02 btnfilterEvent"
+                        data-event="groupings">開團中</button>
                 </li>
-                <li class="text-center w-100 pt-8 pb-8 pe-8"><button id="voting" type="button"
-                        class="type-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-32 px-md-24 w-100 border-0 border-radius-40">投票中</button>
+                <li class="p-8 ps-0 text-center w-100">
+                    <button type="button"
+                        class="py-10 py-md-8 px-32 px-md-24 w-100 border-0 border-radius-40 btn btn-brand-05 btn-hover-bg-2 fs-16 fs-md-20 fw-medium text-brand-02 btnfilterEvent"
+                        data-event="votings">投票中</button>
                 </li>
             </ul>
         </div>
-        <div id="calendarBlock" class="row justify-content-md-around justify-content-xl-start gy-12">
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
+        <div class="row justify-content-md-around justify-content-xl-start gy-12 calendarBlock">
+            <!-- <div class="col-md-6 col-xl-4 col-xxxl-3">
                 <a href="#"
                     class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
                     data-aos="flip-left" data-aos="flip-left" data-aos-delay="400">
@@ -992,8 +998,8 @@
                             <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
                                 <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
                                     height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
+                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">08/12</time>
+                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">14:30</time>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
@@ -1011,14 +1017,15 @@
                         src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-03-s.jpg?raw=true"
                         alt="calendar-img">
                     <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Fruit Fusion</p>
+                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Fruit Fusion
+                        </p>
                         <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
                             <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
                             <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
                                 <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
                                     height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
+                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">08/12</time>
+                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">14:30</time>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
@@ -1042,8 +1049,8 @@
                             <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
                                 <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
                                     height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
+                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">08/12</time>
+                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">14:30</time>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
@@ -1061,14 +1068,15 @@
                         src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-06-s.jpg?raw=true"
                         alt="calendar-img">
                     <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Flavorful oasis</p>
+                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Flavorful
+                            oasis</p>
                         <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
                             <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
                             <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
                                 <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
                                     height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
+                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">08/12</time>
+                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">14:30</time>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
@@ -1077,232 +1085,467 @@
                         </div>
                     </div>
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
 
-<script>
-    const button = document.querySelectorAll('.type-link');
-    const calendarBlock = document.querySelector('#calendarBlock')
-    const buttonVoting = document.querySelector('#voting');
+<!-- 投票檢索 & 投票 Modal -->
+<div class="modal fade" id="modal-VotingModal" tabindex="-1" aria-labelledby="modal-VotingModal" aria-hidden="true"
+    data-backdrop="false">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="d-flex modal-content border-radius-24">
+            <!-- modal header -->
+            <div class="modal-header py-16 py-lg-24 px-16 px-lg-40 border-0">
+                <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium "></h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- modal body -->
+            <div class="modal-body px-16 px-lg-40 pt-8 pt-lg-16">
+                <div class="container-fluid">
+                    <div class="row flex-column flex-lg-row">
+                        <!-- 活動資訊 voting info -->
+                        <div class="col col-lg-4 p-0">
+                            <ul class="d-flex flex-column gap-4 gap-md-8 mb-32 mb-lg-0 fs-16 fs-md-20">
+                                <li class="eventDateTime">
+                                    <span class="me-16">享用日期</span>
+                                    <span class="me-8 ">00/00</span>
+                                    <span>00:00</span>
+                                </li>
+                                <li class="deadlineDateTime">
+                                    <span class="me-16">截止時間</span>
+                                    <span class="me-8">00/00</span>
+                                    <span>00:00</span>
+                                </li>
+                                <li>
+                                    <span class="me-16">發起人</span>
+                                    <span class="initiator"></span>
+                                </li>
+                                <li>
+                                    <span class="me-16">請客人</span>
+                                    <span class="invitees"></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 投票卡片 voting card -->
+                        <div class="col col-lg-8 p-0">
+                            <ul class="votingCard">
+                                <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                                    <img class="border-radius-32321616 votingcard-photo" src="#" alt="store-photo">
+                                    <div>
+                                        <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">#</h4>
+                                        <p class="mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">
+                                            #</p>
+                                        <div class="d-flex justify-content-between flex-column flex-lg-row">
+                                            <div class="d-flex align-items-center mb-8 mb-lg-0 ">
+                                                <span class="me-4 me-lg-16 text-gray-02 text-nowrap">成團目標</span>
+                                                <div class="ts-progress is-tiny bg-gray-04 voting-progress">
+                                                    <div class="bar bg-brand-02" style="--value: 50">
+                                                        <div class="text-white">50%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button
+                                                class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
+                                                type="button">投票</button>
+                                        </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal footer -->
+            <div class="modal-footer px-16 px-lg-40 py-12 border-0"></div>
+        </div>
+    </div>
+</div>
 
-    button.forEach(btnType => {
-        btnType.addEventListener('click', () => {
-            button.forEach(btn => {
-                btn.classList.remove('btn-active-brand-02');
-                if (btnType === buttonVoting) {
-                    calendarBlock.innerHTML = `<div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos="flip-left" data-aos-delay="400">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-02-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">呆呆亭</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">投票截止</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="500">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-03-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Fruit Fusion</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">投票截止</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">方雅雯</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="600">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-04-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">阿婆米餅</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">投票截止</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="700">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-06-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Flavorful oasis</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">投票截止</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">張雅琪</span>
-                        </div>
-                    </div>
-                </a>
-            </div>`
-                }
-                else {
-                    calendarBlock.innerHTML = `<div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos="flip-left" data-aos-delay="400">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-02-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">呆呆亭</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="500">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-03-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Fruit Fusion</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">方雅雯</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="600">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-04-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">阿婆米餅</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="700">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-06-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Flavorful oasis</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">張雅琪</span>
-                        </div>
-                    </div>
-                </a>
-            </div>`
-                }
-            })
-            btnType.classList.add('btn-active-brand-02');
+<!-- moment.js import-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<!-- axios js import -->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+<!-- 進度條 tocas progress -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
+
+<script>
+    //import axios from 'axios';
+
+    //使用 moment 格式化日期
+    //const today = moment().format('YYYY/MM/DD HH:mm');
+    //全頁共用變數
+    const _url = "https://teatimeapi-test.onrender.com"
+    const _user = "U004"
+
+    /* 開團投票事件資訊整理 ========================================== */
+    function initEvents() {
+        //定義資料時間範圍，目前暫定當下前後一個月（避免事件數量不夠，因此以 3 個月範圍）                    
+        const latterMonth = moment().add(2, 'month').format('YYYY/MM')
+        const agoMonth = moment().subtract(1, 'month').format('YYYY/MM')
+
+        //API
+        const groupings = axios.get(`${_url}/groupings?_expand=restaurant&deadlineDateTime_gte=${agoMonth}&deadlineDateTime_lte=${latterMonth}`)
+        const votings = axios.get(`${_url}/votings?_expand=restaurant&deadlineDateTime_gte=${agoMonth}&deadlineDateTime_lte=${latterMonth}`)
+
+        //儲存 API 回傳資料
+        let datas = []
+
+        Promise.all([groupings, votings])
+            .then(function (res) {
+                datas = datas.concat(res[0].data)
+                datas = datas.concat(res[1].data)
+                //整理用於渲染的資料
+                createEventData(datas)
+            }).catch(function (error) {
+                console.error(error.message);
+            });
+
+    }
+
+    initEvents()
+
+    //存放整理過的渲染資料
+    const calendarEventMap = {}
+
+    //整理用於渲染的資料
+    function createEventData(datas) {
+        //使用截止時間排序原始資料
+        datas.sort((a, b) => {
+            const dateA = new Date(a.deadlineDateTime);
+            const dateB = new Date(b.deadlineDateTime);
+            return dateA - dateB;
+        })
+        //console.log(datas)
+
+        //整理原始資料
+        datas.forEach(data => {
+            if (!calendarEventMap[data.UID]) {
+                calendarEventMap[data.UID] = {
+                    UID: data.UID,
+                    restaurantId: data.restaurantId,
+                    deadlineDateTime: data.deadlineDateTime, //截止時間
+                    eventDateTime: data.eventDateTime, //享用時間
+                    initiator: data.initiator, //舉辦人
+                    invitees: data.invitees, //請客人
+                    restaurantList: data.UID.startsWith('V') ? [] : [data.restaurantName],
+                    restaurantPhoto: data.restaurant.storeCover,
+                    minGroupSize: data.restaurant.minGroupSize, //最小成團數
+                    currentGroupCondition: data.currentGroupCondition, //目前點餐人數
+                };
+            }
+
+            if (data.UID.startsWith('V')) {
+                calendarEventMap[data.UID].restaurantList.push(data.restaurantName);
+                delete calendarEventMap[data.UID].currentGroupCondition
+                delete calendarEventMap[data.UID].minGroupSize
+            }
+        })
+
+        console.log(calendarEventMap)
+        handleDataToBeRendered()
+    };
+
+
+
+    /* 分類渲染 ========================================== */
+    //綁定 DOM
+    const btnfilterEvent = document.querySelectorAll(".btnfilterEvent")
+    const calendarBlock = document.querySelector('.calendarBlock')
+
+    //分類按鈕監聽
+    btnfilterEvent.forEach(btn => {
+        btn.addEventListener("click", function () {
+            const category = this.getAttribute("data-event")
+            //渲染事件
+            handleDataToBeRendered(category)
         })
     })
+
+    //處理要被渲染的分類資料
+    function handleDataToBeRendered(category = "groupings") {
+        //已被分類的資料
+        const filteredData = Object.values(calendarEventMap).filter(data => data.UID.startsWith(category[0].toUpperCase()))
+
+        //判斷未來活動的數量，避免要渲染的事件量不足
+        const futureData = filteredData.filter(data => {
+            //判斷事件是否晚於今天
+            const eventDateTime = moment(data.deadlineDateTime, 'YYYY/MM/DD HH:mm');
+            return moment().isBefore(eventDateTime)
+        })
+
+        //用於儲存要被渲染的資料
+        let dataToBeRendered
+
+        //如果未來活動數量 >= 4，則取前四則活動，否則取後四則活動
+        if (futureData.length >= 4) {
+            dataToBeRendered = futureData.slice(0, 4)
+        } else {
+            dataToBeRendered = filteredData.slice(filteredData.length - 4, filteredData.length)
+        }
+
+        renderEvent(dataToBeRendered)
+    }
+
+    //渲染事件
+    function renderEvent(dataToBeRendered) {
+        //活動卡片渲染來源
+        let strTemplate = ""
+
+        dataToBeRendered.forEach(data => {
+            strTemplate += `<div class="col-md-6 col-xl-4 col-xxxl-3">
+                <a ${linkToEvent(data.UID)}
+                    class="event-rounded h-100 w-100 d-flex flex-lg-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
+                    data-aos="flip-left" data-aos="flip-left" data-aos-delay="400">
+                    <img class="event-pic me-12 me-lg-0 mb-lg-20"
+                        src="${data.restaurantPhoto}"
+                        alt="calendar-img">
+                    <div class="d-flex flex-column justify-content-between w-60 w-lg-100 flex-grow-1">
+                        <p class="mb-8 mb-lg-16 fs-20 fs-lg-24 fw-bold lh-sm text-brand-03 single-ellipsis">${data.restaurantList.join("、")}</p>
+                        <div class="d-flex justify-content-between align-items-center mb-8 mb-lg-16">
+                            <p class="fs-16 fs-lg-20 text-gray-05">${data.UID.startsWith("V") ? "投票中" : "開團中"}</p>
+                            ${showDeadline(data.deadlineDateTime)}
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-lg-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-lg-20 lh-sm fw-medium">${!data.invitees ? "無" : data.invitees}</span>
+                        </div>
+                    </div>
+                </a>
+            </div>`
+        })
+
+        calendarBlock.innerHTML = strTemplate
+    }
+
+
+    //判斷傳入時間是否早於今天（意即過去式事件）
+    function isPastEvent(time) {
+        const eventDate = moment(time, 'YYYY/MM/DD HH:mm');
+        const result = moment().isAfter(eventDate)
+
+        return result
+    }
+
+    //未來、過去事件 時間狀態顯示模板
+    function showDeadline(deadlineDateTime) {
+        //儲存要回傳的內容
+        let showDeadline
+
+        //判斷事件是否早於今天，若為是（意即過去式事件），則顯示已結束
+        if (isPastEvent(deadlineDateTime)) {
+            showDeadline = "<div class='fw-medium lh-sm fs-16 fs-lg-20'>已結束</div>"
+        } else {
+            showDeadline = `<div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
+                                    <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
+                                        height="26"></iconify-icon>
+                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${deadlineDateTime.substring(5, 10)}</time>
+                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${deadlineDateTime.split(" ")[1]}</time>
+                                </div>`
+        }
+
+        return showDeadline
+    }
+
+    //開團、投票事件 呼喚動作模板
+    function linkToEvent(UID) {
+        //投票事件帶入 modal 和 UID
+        if (UID.startsWith("V")) {
+            return `href="#modal-VotingModal" data-bs-toggle="modal" data-bs-votingUID="${UID}"`
+        } else {
+            //開團事件設連結
+            return `href="store-order.html?UID=${UID}"`
+        }
+    }
+
+
+
+    /* 投票檢索 modal & 投票動作 ========================================== */
+    const VotingModal = document.getElementById('modal-VotingModal')
+    //calendarEventMap
+    //初始化投票 modal 選項店家資料
+    function initModalVotingCard(votingUID) {
+        let votingCardData = [] //投票 modal 右側店家卡片資料              
+
+        axios.get(`${_url}/votings?UID=${votingUID}&_expand=restaurant`)
+            .then(function (res) {
+                votingCardData = res.data
+                renderVotingCard(votingCardData)
+            }).catch(function (error) {
+                console.error(error);
+            });
+    }
+
+    //投票 modal 資料顯示
+    VotingModal.addEventListener('show.bs.modal', function (event) {
+        //從投票事件卡片獲取 data-bs-votingUID 編號
+        const modalData = event.relatedTarget
+        const votingUID = modalData.getAttribute('data-bs-votingUID')
+
+        //render 投票活動資訊
+        renderVotingModalInfo(votingUID)
+
+        //可投票店家卡片資料初始化            
+        initModalVotingCard(votingUID)
+    })
+
+    //render 投票 modal 活動資訊
+    function renderVotingModalInfo(votingUID) {
+        //投票 modal 標題綁定 & 渲染
+        const modalTitle = VotingModal.querySelector('.modal-title')
+        modalTitle.textContent = calendarEventMap[votingUID].restaurantList.join("、")
+
+        //投票 modal 活動資訊資訊，欄位綁定 & 渲染
+        const deadlineDateTime = VotingModal.querySelector(".deadlineDateTime")
+        const eventDateTime = VotingModal.querySelector(".eventDateTime")
+        const initiator = VotingModal.querySelector(".initiator")
+        const invitees = VotingModal.querySelector(".invitees")
+
+        deadlineDateTime.innerHTML = `<span class="me-16">享用日期</span>
+                        <span class="me-8 ">${calendarEventMap[votingUID].deadlineDateTime.substring(5, 10)}</span>
+                        <span>${calendarEventMap[votingUID].deadlineDateTime.split(" ")[1]}</span>`
+
+        eventDateTime.innerHTML = `<span class="me-16">截止時間</span>
+                          <span class="me-8">${calendarEventMap[votingUID].eventDateTime.substring(5, 10)}</span>
+                          <span>${calendarEventMap[votingUID].eventDateTime.split(" ")[1]}</span>`
+
+        initiator.textContent = calendarEventMap[votingUID].initiator
+        invitees.textContent = calendarEventMap[votingUID].invitees === "" ? "無" : calendarEventMap[votingUID].invitees
+    }
+
+    //render 投票 modal 選項店家資料
+    function renderVotingCard(votingCardData) {
+        //店家卡片渲染區域 
+        const votingCard = VotingModal.querySelector(".votingCard")
+        //當前事件是否為過去事件
+        const isPast = isPastEvent(votingCardData[0].deadlineDateTime)
+
+        //暫時儲存要渲染的店家卡片資料
+        let cardDataTemp = ""
+
+        //生成要渲染的資料
+        votingCardData.forEach(data => {
+            //當前用戶是否已投票
+            const alreadyVoted = data.currentVoters.includes(_user)
+            //當前店家已投票人數
+            const numVoters = data.currentVoters.length
+            //當前店家最小成團人數
+            const numMinGroupSize = data.restaurant.minGroupSize
+
+            cardDataTemp += `
+                      <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                        <img class="border-radius-32321616 votingcard-photo" src="${data.restaurant.storeCover}">
+                        <div class="flex-grow-1 d-flex flex-column">
+                          <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">${data.restaurantName}</h4>
+                          <p class="flex-grow-1 mb-8 mb-md-16 text-gray-02 trippleline-ellipsis">${data.restaurant.summary}</p>
+                          <div class="d-flex justify-content-between flex-column flex-lg-row">
+                            <div class="d-flex align-items-center mb-8 mb-lg-0 ">
+                              <span class="me-4 me-lg-16 text-gray-02 text-nowrap">成團目標</span>
+                              <div class="ts-progress is-tiny bg-gray-04 voting-progress">
+                                <div class="bar bg-brand-02" style="--value: ${calcGroupProgress(numVoters, numMinGroupSize)}">
+                                  <div class="text-white">${calcGroupProgress(numVoters, numMinGroupSize) > 100 ? 100 : calcGroupProgress(numVoters, numMinGroupSize)}%</div>
+                                </div>
+                              </div>
+                            </div>
+                            ${btnVoteStatus(data.id, isPast, alreadyVoted)}
+                          </div>
+                      </li>`
+        })
+
+        //渲染
+        votingCard.innerHTML = cardDataTemp
+
+        //btnVoteThis 投票動作判斷
+        voteStore()
+    }
+
+    //計算成團、投票進度條
+    function calcGroupProgress(numParticipants, numMinGroupSize) {
+        return Math.floor(numParticipants / numMinGroupSize * 100)
+    }
+
+    //判斷 btnVoteThis 狀態
+    function btnVoteStatus(id, isPast, alreadyVoted) {
+        //過去事件，按鈕呈現禁用
+        if (isPast) {
+            return `<button class="py-4 px-16 btn-disable border-0 rounded-pill btnVoteThis" disabled type="button">已結束</button>`
+        }
+
+        //是否已投票過此店家
+        return `<button
+                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis ${alreadyVoted ? "btn-active-brand-02" : ""}"
+                              type="button" data-num=${id}>${alreadyVoted ? "已投票" : "投票"}</button>`
+    }
+
+    //btnVoteThis 投票動作判斷  
+    function voteStore() {
+        const btnVoteThis = VotingModal.querySelectorAll('.btnVoteThis')
+        btnVoteThis.forEach(btn => {
+            btn.addEventListener('click', function () {
+                //含有指定 class 樣式的按鈕代表已投票過此店家
+                const isVoted = btn.classList.contains("btn-active-brand-02")
+
+                //投票過的店家 click，取消投票
+                if (isVoted) {
+                    //將 votings 資料庫 id 與動作輸入變更資料庫
+                    updateVotingAPI(btn.dataset.num, "deleteVote")
+                    alert("投票已取消")
+                } else {
+                    //未投票的店家 click，投票成功
+                    //將 votings 資料庫 id 與動作輸入變更資料庫
+                    updateVotingAPI(btn.dataset.num, "addVote");
+                    alert("投票成功")
+                }
+            });
+        });
+
+    }
+
+    //變更投票資料庫 API
+    async function updateVotingAPI(id, status) {
+        try {
+            //宣告變數存取目前參與投票者清單
+            const response = await axios.get(`${_url}/votings/${id}`)
+            const updatedVoters = response.data.currentVoters;
+
+            //依據動作處理投票者清單
+            if (status === "addVote") {
+                updatedVoters.push(`${_user}`);
+            } else {
+                const userIndex = updatedVoters.indexOf(`${_user}`)
+                updatedVoters.splice(userIndex, 1)
+            }
+
+            //修改資料庫中的數據
+            axios.patch(`${_url}/votings/${id}`, {
+                "currentVoters": updatedVoters
+            })
+                .then(function (patchRes) {
+                    //console.log(patchRes.data);
+                    initModalVotingCard(patchRes.data.UID)
+                })
+                .catch(function (error) {
+                    console.error(error.message);
+                });
+        } catch (err) {
+            console.log('錯誤:', err);
+            throw err;
+        }
+    }
+
 </script>
-          <div class="layout d-flex">
-            <div class="layout-left d-none d-lg-block z-index-2">
-              <ul class="layout-left-ul p-0 mt-40 position-relative">
+
+
+
+<!-- jQuery -->
+<script>
+    /* 分類按鈕 active 狀態切換顯示 */
+    $('.btnfilterEvent').click(function (e) {
+        $('.btnfilterEvent').toggleClass('btn-active-brand-02');
+    });
+</script>
+        <div class="layout d-flex">
+          <div class="layout-left d-none d-lg-block z-index-2">
+            <ul class="layout-left-ul p-0 mt-40 position-relative">
   <li class="mb-12"> 
     <a href="#" class="d-flex align-items-center"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMUSURBVHgB7Vg7UhtBEH09kgEHNqsTeH0CxAnMWhAQAScAIovIugHiBMaBS3JkOAFkDihAPoHFCRifYEVRLmwQ0+5ZAqP9aFe/tcrFC7t2Rk89Pf1eD/CE/xyEIeGfVJdUkRdgqPxouw6U0aZLF+hCl1abGiNiIIL+ec2B+VUj4vdgcjItImqDjSYoPQz5zAT902p9IGKZfv2BvFLq+KXXOIz9JG0P/7zqEtMRmMuYJIQs06xX8vY7j8MKqeRwPnFyFvIb6v5mMxxOJPiXHFzkBCYshWOJBJXBbp7kAsTUdyxBuRBbDGwhO7Ts3sGIIHtpQijGfxhkrz8YrYKievdq9qK08VDY/lHNKc7/XpCjctmwy0HtKhdkXNk17fZrc8sfI1zCAZs9CX5Bn40KRFsv3ja+YQAkk2dH/qzmO2zH9cYIwc5Z9bJP7Wm+hTcOhciKniO28tXvYgSZW21o5IiAoG0pCrzGjPWk2pNUHwx6rOMA2axRgY/SJYyPCdQ2LFrKo9/YHhRFm734sqHO2c73XJQiBXJwe6VKsx6Oq2kgZyEltBvcgRAUpghK0VokhikCwzb0XkwVwcDUhjBVBOOkTgntFv45uEPMtTiFKvI99khFfVh0D7TERLRIkRafqDFGdK/mLpyN/djeGmix/1WUZAabzLQu4l1O+PBgvtLcRs7oMQuBqihx0QlgI0ZhpdlCjoi6mdN3fqJ3I3EzJCS9/NxMhODVaXVXZKfeZ4WWut0eNJPBTH3300WhUJbW8UpCLpMd+tmRmm4ZJVLnZfCDdiMyN5dpDtjWpDE4fEw0mYQ04DQzEpzO3GJ47Iydi/2TnRop/oCsoGAmcUYd6m2rmV/+3NMLYxt1aaWxP1B/tCZ3HC8ORJEOkqgkku4NYLz9bhgkErS1YOcP5EhSnlhakVjaItvEaSbojS4mCaa2s9xYDIdTzYLVR6fSfE39Ws9wjOxt1WKYj+3efD3rxX012PvggyTaPrmE7Bm1JNpEYqXsO6Eq6GeSreeVTz+yLB76hfX6bOeNYe4dU0leWIcg8YRJ4g9I+12l5CU7EgAAAABJRU5ErkJggg==" class="layout-left-img" alt="icon">今日餐點</a></li>
   <li class="mb-12">
@@ -1314,10 +1557,10 @@
   <li>
     <a href="#novice-teaching" class="d-flex align-items-center"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMUSURBVHgB7Vg7UhtBEH09kgEHNqsTeH0CxAnMWhAQAScAIovIugHiBMaBS3JkOAFkDihAPoHFCRifYEVRLmwQ0+5ZAqP9aFe/tcrFC7t2Rk89Pf1eD/CE/xyEIeGfVJdUkRdgqPxouw6U0aZLF+hCl1abGiNiIIL+ec2B+VUj4vdgcjItImqDjSYoPQz5zAT902p9IGKZfv2BvFLq+KXXOIz9JG0P/7zqEtMRmMuYJIQs06xX8vY7j8MKqeRwPnFyFvIb6v5mMxxOJPiXHFzkBCYshWOJBJXBbp7kAsTUdyxBuRBbDGwhO7Ts3sGIIHtpQijGfxhkrz8YrYKievdq9qK08VDY/lHNKc7/XpCjctmwy0HtKhdkXNk17fZrc8sfI1zCAZs9CX5Bn40KRFsv3ja+YQAkk2dH/qzmO2zH9cYIwc5Z9bJP7Wm+hTcOhciKniO28tXvYgSZW21o5IiAoG0pCrzGjPWk2pNUHwx6rOMA2axRgY/SJYyPCdQ2LFrKo9/YHhRFm734sqHO2c73XJQiBXJwe6VKsx6Oq2kgZyEltBvcgRAUpghK0VokhikCwzb0XkwVwcDUhjBVBOOkTgntFv45uEPMtTiFKvI99khFfVh0D7TERLRIkRafqDFGdK/mLpyN/djeGmix/1WUZAabzLQu4l1O+PBgvtLcRs7oMQuBqihx0QlgI0ZhpdlCjoi6mdN3fqJ3I3EzJCS9/NxMhODVaXVXZKfeZ4WWut0eNJPBTH3300WhUJbW8UpCLpMd+tmRmm4ZJVLnZfCDdiMyN5dpDtjWpDE4fEw0mYQ04DQzEpzO3GJ47Iydi/2TnRop/oCsoGAmcUYd6m2rmV/+3NMLYxt1aaWxP1B/tCZ3HC8ORJEOkqgkku4NYLz9bhgkErS1YOcP5EhSnlhakVjaItvEaSbojS4mCaa2s9xYDIdTzYLVR6fSfE39Ws9wjOxt1WKYj+3efD3rxX012PvggyTaPrmE7Bm1JNpEYqXsO6Eq6GeSreeVTz+yLB76hfX6bOeNYe4dU0leWIcg8YRJ4g9I+12l5CU7EgAAAABJRU5ErkJggg==" class="layout-left-img" alt="icon">新手教學</a></li>
   </li>
-</ul>            </div>
-            <div class="layout-content">
-              <!-- find-store -->
-              <div class="container py-32 py-lg-80 find-store">
+</ul>          </div>
+          <div class="layout-content">
+            <!-- find-store -->
+            <div class="container py-32 py-lg-80 find-store">
     <div class="d-flex justify-content-between align-items-center mb-18 mb-md-20">
         <h2 class="fs-md-32 fs-24 fw-bold lh-sm" id="find-store">找店家</h2>
         <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05" href="./findStore.html">看更多
@@ -2064,12 +2307,12 @@
     })
 
 
-</script>            </div>
-            <div class="layout-right d-none d-lg-block"></div>
-          </div>
+</script>          </div>
+          <div class="layout-right d-none d-lg-block"></div>
+        </div>
 
-          <!-- feedback -->
-          <!-- feedback -->
+        <!-- feedback -->
+        <!-- feedback -->
 <div class="d-lg-flex mb-lg-80">
     <div class="evaluate container-fluid bg-bg-1 position-relative me-md-24 pt-24 pb-24 pt-lg-80 pb-lg-80 pe-xl-80 z-1 "
         data-aos="fade-right">
@@ -3693,9 +3936,9 @@
     });
 
 </script>
-            <!-- novice Teaching -->
-            <div class="layout-content">
-              <div class="container py-32 py-lg-80" id="novice-teaching">
+          <!-- novice Teaching -->
+          <div class="layout-content">
+            <div class="container py-32 py-lg-80" id="novice-teaching">
     <div class="d-flex justify-content-between align-items-center ">
         <h2 class="fs-md-32 fs-24 fw-bold lh-sm">新手教學</h2>
         <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05" href="#">看更多
@@ -3846,10 +4089,10 @@
             }
         });
     });
-</script>            </div>
+</script>          </div>
 
-            <!-- footer -->
-            <footer class="pt-md-48 pb-md-32 py-32 bg-bg-1 text-gray-02 footer-radius">
+          <!-- footer -->
+          <footer class="pt-md-48 pb-md-32 py-32 bg-bg-1 text-gray-02 footer-radius">
     <div class="d-flex flex-column align-items-center">
         <img class="mb-md-24 mb-16 footer-logo" src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="logo">
         <p class="mb-md-24 mb-16 lh-sm fw-medium">管理員：Ann Chou、Billy Ti、Mark、WA</p>
@@ -3866,8 +4109,8 @@
         </div>
     </div>
 </footer>
-              <!-- notification -->
-              <a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover btnNotification"
+            <!-- notification -->
+            <a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover btnNotification"
     id="notificationToastBtn">
     <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline" style="color: white;"
         width="28" height="28"></iconify-icon>
@@ -3955,23 +4198,22 @@
         $('#notificationToast').toast('hide')
     });
 </script>
-                <!-- ICONGIFY -->
-                <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-                <!-- JS -->
-                
-                <!-- AOS EFFECT 動畫 -->
-                <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-                <!-- moment.js import-->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-                <!-- 頁面動畫效果 -->
-                <script>
-                  // AOS INIT
-                  AOS.init({
-                    // offset: 180,
-                    duration: 800,
-                    delay: 500,
-                  })                  
-                </script>
-  </body>
+              <!-- ICONGIFY -->
+              <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+              <!-- JS -->
+              
+              <!-- AOS EFFECT 動畫 -->
+              <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+              <!-- 頁面動畫效果 -->
+              <script>
+                // AOS INIT
+                AOS.init({
+                  // offset: 180,
+                  duration: 800,
+                  delay: 500,
+                })                  
+              </script>
+</body>
 
 </html>
