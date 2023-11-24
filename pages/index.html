@@ -1,63 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="is-light">
 
-<%- include('./layout/head'); -%>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>下午茶揪團去｜共享美味，打造回憶</title>
+  <!-- Favicon -->
+  <link rel="icon" href="../assets/images/logo/logo-favicon.png" type="image/x-icon" />
+  <!-- Swiper Css CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  <!-- Open Graph Tag -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="下午茶揪團去">
+  <meta property="og:description" content="共享美味，打造回憶">
+  <meta property="og:url" content="https://annchoucode.github.io/TeaTime-Gathering/">
+  <meta property="og:image"
+    content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-logo/store-01.jpg" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="下午茶揪團去" />
+  <meta name="twitter:description" content="共享美味，打造回憶" />
+  <meta name="twitter:image"
+    content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-logo/store-01.jpg" />
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- ICONS -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <!-- AOS EFFECT -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- 進度條 tocas progress -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
+</head>
 
-  <body class="pt-64 pt-md-82">
-    <!-- loading -->
-    <%- include('./layout/loading'); -%>
+<body class="pt-64 pt-md-82">
+  <!-- loading -->
+  <%- include('./layout/loading'); -%>
 
-      <%- include('./layout/nav'); -%>
+    <%- include('./layout/nav'); -%>
 
-        <div class="layout-content">
-          <!-- banner -->
-          <%- include('./layout/banner'); -%>
+      <div class="layout-content">
+        <!-- banner -->
+        <%- include('./layout/banner'); -%>
+      </div>
+      <!-- tea-calendar -->
+      <%- include('./layout/tea-calendar'); -%>
+
+        <div class="layout d-flex">
+          <div class="layout-left d-none d-lg-block z-index-2">
+            <%- include('./layout/navigation-menu'); -%>
+          </div>
+          <div class="layout-content">
+            <!-- find-store -->
+            <%- include('./layout/find-store'); -%>
+          </div>
+          <div class="layout-right d-none d-lg-block"></div>
         </div>
-        <!-- tea-calendar -->
-        <%- include('./layout/tea-calendar'); -%>
 
-          <div class="layout d-flex">
-            <div class="layout-left d-none d-lg-block z-index-2">
-              <%- include('./layout/navigation-menu'); -%>
-            </div>
-            <div class="layout-content">
-              <!-- find-store -->
-              <%- include('./layout/find-store'); -%>
-            </div>
-            <div class="layout-right d-none d-lg-block"></div>
+        <!-- feedback -->
+        <%- include('./layout/feedback'); -%>
+
+          <!-- novice Teaching -->
+          <div class="layout-content">
+            <%- include('./layout/noviceTeaching'); -%>
           </div>
 
-          <!-- feedback -->
-          <%- include('./layout/feedback'); -%>
+          <!-- footer -->
+          <%- include('./layout/footer'); -%>
 
-            <!-- novice Teaching -->
-            <div class="layout-content">
-              <%- include('./layout/noviceTeaching'); -%>
-            </div>
+            <!-- notification -->
+            <%- include('./layout/notification'); -%>
 
-            <!-- footer -->
-            <%- include('./layout/footer'); -%>
+              <!-- ICONGIFY -->
+              <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+              <!-- JS -->
+              <script type="module" src="../main.js"></script>
+              <!-- AOS EFFECT 動畫 -->
+              <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-              <!-- notification -->
-              <%- include('./layout/notification'); -%>
-
-                <!-- ICONGIFY -->
-                <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-                <!-- JS -->
-                <script type="module" src="../main.js"></script>
-                <!-- AOS EFFECT 動畫 -->
-                <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-                <!-- moment.js import-->
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-                <!-- 頁面動畫效果 -->
-                <script>
-                  // AOS INIT
-                  AOS.init({
-                    // offset: 180,
-                    duration: 800,
-                    delay: 500,
-                  })                  
-                </script>
-  </body>
+              <!-- 頁面動畫效果 -->
+              <script>
+                // AOS INIT
+                AOS.init({
+                  // offset: 180,
+                  duration: 800,
+                  delay: 500,
+                })                  
+              </script>
+</body>
 
 </html>
