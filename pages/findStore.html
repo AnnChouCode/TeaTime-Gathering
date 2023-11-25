@@ -6,14 +6,10 @@
     <body class="d-flex flex-column vh-100">
         <%- include('./layout/nav'); -%>
 
-            <!--  -->
             <div class="layout-content py-32 py-lg-80 find-store">
                 <div class="d-flex justify-content-between align-items-center mb-18 mb-md-20">
                     <h2 class="fs-md-32 fs-24 fw-bold lh-sm" id="find-store">找店家</h2>
                 </div>
-
-                <!-- 新的 -->
-
 
                 <div class="d-block d-md-flex justify-content-between align-items-center">
                     <!-- search-bar  -->
@@ -26,18 +22,22 @@
                             placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
                     </div>
                     <!-- select-bar -->
-                    <ul class="select-bar d-flex text-center bg-brand-05 mt-20 mt-md-0 mb-16 mb-md-0 p-8 text-nowrap">
+                    <ul
+                        class="select-bar d-flex text-center bg-brand-05 mt-20 mt-md-0 mb-16 mb-md-0 me-16 p-8 mx-8 text-nowrap">
                         <li class="text-center w-100">
-                            <button onclick="toggleFilter('sort','newestStore')" type="button"
-                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 btn-active-bg-2 btn-hover-bg-2 btn-active-brand-02">最新店家</button>
+                            <button type="button"
+                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2 btn-active-brand-02 btnSortStore"
+                                data-sort-value="newestStore">最新店家</button>
                         </li>
                         <li class="text-center w-100">
-                            <button onclick="toggleFilter('sort','bestStore')" type="button"
-                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 btn-active-bg-2 btn-hover-bg-2 w-100">最高評價</button>
+                            <button type="button"
+                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2 btnSortStore"
+                                data-sort-value="bestStore">最高評價</button>
                         </li>
                         <li class="text-center w-100">
-                            <button onclick="toggleFilter('sort','worstStore')" type="button"
-                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 btn-active-bg-2 btn-hover-bg-2 w-100">最低評價</button>
+                            <button type="button"
+                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2 btnSortStore"
+                                data-sort-value="worstStore">最低評價</button>
                         </li>
 
                     </ul>
@@ -48,39 +48,44 @@
                     <div class="col-md-2  mb-16 mb-md-0">
                         <ul class=" x-slide d-flex d-md-block gap-md-5 text-nowrap">
                             <li>
-                                <button onclick="toggleFilter('category','全部')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 btn-active border-radius-16 btn-hover-gray-04 actived">
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 btn-active border-radius-16 btn-hover-gray-04 btnCategoryStore actived"
+                                    type="button" data-category-value="全部">
                                     <iconify-icon icon="fluent:food-24-regular" style="color: #8b8b8a;" width="32"
                                         height="32" class="me-md-8 me-0"></iconify-icon>
                                     <span class="fs-md-20 fs-16">全部</span>
                                 </button>
                             </li>
                             <li>
-                                <button onclick="toggleFilter('category','速食')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                    type="button" data-category-value="速食">
                                     <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="32" height="32"
                                         class="me-md-8 me-0"></iconify-icon>
                                     <span class="fs-md-20 fs-16">速食</span></button>
                             </li>
                             <li>
-                                <button onclick="toggleFilter('category','飲料')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                    type="button" data-category-value="飲料">
                                     <iconify-icon icon="icon-park-outline:drink" style="color: #8b8b8a;" width="32"
                                         height="32" class="me-md-8 me-0"></iconify-icon>
                                     <span class="fs-md-20 fs-16">飲料</span>
                                 </button>
                             </li>
                             <li>
-                                <button onclick="toggleFilter('category','小吃')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                    type="button" data-category-value="小吃">
                                     <iconify-icon icon="ph:bowl-food" style="color: #8b8b8a;" width="32" height="32"
                                         class="me-md-8 me-0"></iconify-icon>
                                     <span class="fs-md-20 fs-16">小吃</span>
                                 </button>
                             </li>
                             <li>
-                                <button onclick="toggleFilter('category','甜點')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                    type="button" data-category-value="甜點">
                                     <iconify-icon icon="material-symbols:icecream-outline-rounded"
                                         style="color: #8b8b8a;" width="32" height="32"
                                         class="me-md-8 me-0"></iconify-icon>
@@ -88,16 +93,18 @@
                                 </button>
                             </li>
                             <li>
-                                <button onclick="toggleFilter('category','素食')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
-                                        icon="tabler:leaf" style="color: #8b8b8a;" width="32" height="32"
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                    type="button" data-category-value="素食"><iconify-icon icon="tabler:leaf"
+                                        style="color: #8b8b8a;" width="32" height="32"
                                         class="me-md-8 me-0"></iconify-icon>
                                     <span class="fs-md-20 fs-16">素食</span>
                                 </button>
                             </li>
                             <li>
-                                <button onclick="toggleFilter('category','咖啡')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                    type="button" data-category-value="咖啡"><iconify-icon
                                         icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="32"
                                         height="32" class="me-md-8 me-0"></iconify-icon>
                                     <span class="fs-md-20 fs-16">咖啡</span></button>
@@ -105,48 +112,14 @@
                             <li class="tab_slider"></li>
                         </ul>
                     </div>
-                    <div class="col-md-10 px-24 ">
-                        <ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul restaurantInfo">
-
-                        </ul>
+                    <!-- 店家列表 -->
+                    <div id="paginationContainer" class="col-md-10 px-24 ">
                     </div>
                 </div>
                 <div class="mt-16 mt-md-32"></div>
-                <nav aria-label="Page navigation ">
-                    <ul class="pagination justify-content-end gap-8">
-                        <li class="page-item">
-                            <a class="page-link rounded-3" href="#" aria-label="Previous">
-                                <iconify-icon aria-hidden="true" icon="ri:arrow-left-double-line" width="16"
-                                    height="16"></iconify-icon>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-3 " href="#" aria-label="Previous">
-                                <iconify-icon aria-hidden="true" icon="iconamoon:arrow-left-2" width="16"
-                                    height="16"></iconify-icon>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link rounded-3" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link rounded-3" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link rounded-3" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link border-0 disabled bg-transparent " href="#">...</a>
-                        </li>
-                        <li class="page-item"><a class="page-link rounded-3" href="#">10</a></li>
-                        <li class="page-item">
-                            <a class="page-link rounded-3 " href="#" aria-label="Previous">
-                                <iconify-icon aria-hidden="true" icon="iconamoon:arrow-right-2" width="16"
-                                    height="16"></iconify-icon>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-3" href="#" aria-label="Next">
-                                <iconify-icon aria-hidden="true" icon="ri:arrow-right-double-line" width="16"
-                                    height="16"></iconify-icon>
-                            </a>
-                        </li>
+                <!-- pagination -->
+                <div id="paginationPages" class="d-flex justify-content-end mb-16 mb-sm-0"></div>
 
-                    </ul>
-                </nav>
             </div>
 
             <!-- footer -->
@@ -157,24 +130,31 @@
 
                     <!-- ICONGIFY -->
                     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-                    <!-- JS -->
-                    <script type="module" src="../main.js"></script>
+
                     <!-- autocomplete -->
                     <script
                         src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
-                    <!-- restaurantInfo -->
-                    <script src="/assets/jsonDatas/restaurantInfo.js"></script>
+
+                    <!-- 頁碼 Pagination.js import -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js"></script>
+
+                    <!-- moment.js import-->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+                    <!-- JS -->
+                    <script type="module" src="../main.js"></script>
+
+
                     <script>
-                        // 點選按鈕後，此按鈕呈現灰色，其餘回復透明底
-                        let selectBar = document.querySelectorAll('.btn-active');
-                        selectBar.forEach(btnType => {
-                            btnType.addEventListener('click', () => {
-                                selectBar.forEach(btn => {
-                                    btn.classList.remove('actived');
-                                })
-                                btnType.classList.add('actived');
-                            })
-                        })
+
+                    </script>
+
+
+                    <script type="module">
+                        import axios from 'axios';
+                        // import { showStars, btnCategoryStore } from '/assets/js/storeCard.js';
+
+
 
                         // 最高、最低評價按鈕顏色動畫
                         let selectBarBtn = document.querySelectorAll('.select-bar button');
@@ -186,26 +166,80 @@
                                 btnType.classList.add('btn-active-brand-02');
                             })
                         })
-                        //        onclick="toggleFilter('sort','newestStore')"
-                        //        onclick="toggleFilter('category','甜點')"
-                        // 店家排序資料  
 
-                        // 共用變數
+                        /* 頁面基本資料取得 ===================================================*/
+                        //全頁共用變數
                         const _url = "https://teatimeapi-test.onrender.com"
                         const _user = "U004"
 
+                        //使用 moment 格式化日期
+                        var now = moment().format('YYYY/MM/DD');
+
+
+                        /* 店家清冊資料處理 =====================================================*/
+                        //店家排序資料                   
                         let currentFilters = {
-                            category: "全部", // 初始分類
-                            sort: "", // 初始排序
+                            category: "全部", //初始分類
+                            sort: "", //初始排序
                             search: "" //初始搜尋
                         };
 
                         const sortType = {
                             newestStore: "&_sort=id&_order=desc",
                             bestStore: "&_sort=stars&_order=desc",
-                            worstStore: "&_sort=stars&_order=asc",
+                            worstStore: "&_sort=stars&_order=asc"
                         }
 
+                        function initRestaurantData(category, sort, search) {
+                            let filterCategory = ""
+                            let sortStores = ""
+                            let searchStore = ""
+
+                            //初始運行頁面設置
+                            if (category !== "全部" && category) {
+                                filterCategory = `category=${category}`
+                            }
+                            //初始運行頁面設置
+                            if (sort) {
+                                sortStores = sort
+                            }
+
+                            if (search) {
+                                searchStore = `&storeName_like=${search}`
+                            }
+
+                            let filterAPI = `${_url}/restaurants?${filterCategory}${sortStores}${searchStore}`
+                            console.log(filterAPI);
+
+                            renderFilteredData(filterAPI)
+                        }
+                        initRestaurantData()
+
+
+                        // //店家排序按鈕偵測
+                        const btnSortStore = document.querySelectorAll(".btnSortStore");
+                        btnSortStore.forEach(btn => {
+                            btn.addEventListener("click", function () {
+                                const isSort = this.getAttribute("data-sort-value")
+                                toggleFilter("sort", isSort)
+                            });
+                        });
+
+                        // //店家分類按鈕偵測
+                        const btnCategoryStore = document.querySelectorAll(".btnCategoryStore");
+                        btnCategoryStore.forEach(btn => {
+                            btn.addEventListener("click", function () {
+                                const isCategory = this.getAttribute("data-category-value")
+                                btnCategoryStore.forEach(btn => {
+                                    btn.classList.remove('actived');
+                                })
+                                toggleFilter("category", isCategory);
+                                btn.classList.add('actived');
+
+                            });
+                        });
+
+                        //店家排序處理
                         function toggleFilter(filterType, value) {
                             switch (filterType) {
                                 case "category":
@@ -214,42 +248,61 @@
                                 case "search":
                                     currentFilters[filterType] = value.trim();
                                     break;
-
                                 default:
                                     currentFilters[filterType] = sortType[value];
+                                    break;
                             }
-                            // console.log(currentFilters[filterType])
-                            initRestaurantData(currentFilters.category, currentFilters.sort, currentFilters.search)
+                            initRestaurantData(currentFilters.category, currentFilters.sort, currentFilters.search);
                         }
 
-                        function initRestaurantData(category, sort, search) {
-                            let filterCategory = "";
-                            let sortStore = "";
-                            let searchStore = "";
 
-                            // 初始化運行設定
-                            if (category !== '全部' && category) {
-                                filterCategory = `category=${category}`;
-                            }
-                            if (sort) {
-                                sortStore = sort
-                            }
-                            if (search) {
-                                searchStore = `storeName_like=${search}`
-                            }
-                            let filterAPI = `${_url}/restaurants?${filterCategory}${sortStore}${searchStore}`;
-                            console.log(filterAPI)
+                        /* 渲染店家卡片 & 頁碼 ================================================*/
+                        function renderFilteredData(filteredData) {
+                            //頁碼生成               
+                            $(function () {
+                                (function (name) {
+                                    let container = $('#pagination' + name);
 
-                            renderRestaurantCard(filterAPI)
+                                    //發送 Ajax 請求獲取資料
+                                    $.ajax({
+                                        url: filteredData,
+                                        success: function (filteredData) {
+                                            //處理頁碼
+                                            handlePagination(filteredData, container)
+                                            // console.log(container);
+                                        },
+                                        error: function (error) {
+                                            console.error(error);
+                                        }
+                                    });
+                                })('Pages');
+                            });
+                        }
+
+                        // //處理頁碼
+                        function handlePagination(filteredData, container) {
+                            container.pagination({
+                                dataSource: filteredData, //全部或篩選過的資料來源
+                                totalNumber: filteredData.length, //資料總數
+                                pageSize: 8, //每頁資料數
+                                showPageNumbers: true,
+                                showPrevious: true,
+                                showNext: true,
+
+                                callback: function (paginatedData) {
+                                    //     //渲染頁碼與監聽換頁
+                                    // console.log(paginatedData);
+                                    renderPagination(paginatedData)
+                                }
+                            });
 
                         }
-                        initRestaurantData()
+
+                        // //渲染頁碼與監聽換頁
+                        function renderPagination(paginatedData) {
 
 
-                        //show 店家卡片
-                        function renderRestaurantCard(filterData) {
-
-                            const restaurantInfo = document.querySelector(".restaurantInfo")
+                            
                             //店家類別 icon 對照
                             const categoryIcon = {
                                 飲料: "icon-park-outline:drink",
@@ -260,44 +313,106 @@
                                 咖啡: "icon-park-outline:tea-drink"
                             }
 
-                            //星評樣板
-                            function showStars(num) {
-                                const starsTotal = 5
-                                const starsStates = {
-                                    isGoodStar: `<iconify-icon icon="ic:round-star" style="color: #ffd43a;"
-                                                width="16"></iconify-icon>`,
-                                    notGoodStar: `<iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
-                                                width="16"></iconify-icon>`
-                                }
+                            let dataHtml = '<ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul mx-8">';
 
-                                let resultStars = starsStates["isGoodStar"].repeat(num) + starsStates["notGoodStar"].repeat(starsTotal - num)
-                                return resultStars
+                            paginatedData.forEach((item, index) => {
+                                dataHtml += `
+                            <li class="findStore-img position-relative" style="background-image: url(${item.storeCover});">
+                                <a href="store-order.html?UID=${item.UID}" class="d-flex justify-content-center w-100 h-100 ">
+                                    <!-- restaurant info -->
+                                    <div class="position-absolute d-flex justify-content-between findStore-card">
+                                        <div class="d-flex flex-column justify-content-center overflow-hidden">
+                                            <p class="mb-8 fs-md-20 fs-16 lh-sm text-white" style="white-space:nowrap">${item.storeName}</p>
+                                            <!-- 星評 -->
+                                            <div class="d-flex ">
+                                                ${showStars(item.stars)}
+                                            </div>
+                                        </div>
+                                        <!-- restaurant sort -->
+                                        <iconify-icon icon="${categoryIcon[item.category]}"
+                                            style="color: #8b8b8a;" width="24" height="24"
+                                            class="ms-4 findStore-card-img"></iconify-icon>
+                                    </div>
+                                </a>
+                            </li>
+                            `
+                            })
+
+                            dataHtml += '</ul>';
+                            document.querySelector("#paginationContainer").innerHTML = dataHtml
+
+                        }
+                        function showStars(num) {
+                            const starsTotal = 5
+                            const starsStates = {
+                                isGoodStar: `<iconify-icon icon="ic:round-star" style="color: #ffd43a;"
+                            width="16"></iconify-icon>`,
+                                notGoodStar: `<iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
+                            width="16"></iconify-icon>`
                             }
-                            restaurantInfo.innerHTML = filterData
+                            let resultStars = starsStates["isGoodStar"].repeat(num) + starsStates["notGoodStar"].repeat(starsTotal - num)
+                            return resultStars
                         }
 
-                            //autocomplete 
-                            let restaurantAry = restaurantInfo.map(el => el.storeName)
-                            const autoCompleteJS = new autoComplete({
-                                placeHolder: "搜尋",
-                                data: {
-                                    src: restaurantAry,
-                                    cache: true,
+                        /* autoComplete */
+                        const autoCompleteJS = new autoComplete({
+                            //撈取 API 資料庫獲取選單內容
+                            data: {
+                                src: async (query) => {
+                                    try {
+                                        //Fetch Data from external Source
+                                        const source = await fetch(`${_url}/restaurants`);
+                                        //Data should be an array of `Objects` or `Strings`
+                                        const data = await source.json();
+                                        return data;
+                                    } catch (error) {
+                                        return error;
+                                    }
                                 },
-                                resultItem: {
-                                    highlight: true
+                                //Data source 'Object' key to be searched
+                                keys: ["storeName"]
+                            },
+                            //寬鬆搜尋
+                            searchEngine: "loose",
+                            //選單符合條件自元 highlight
+                            resultItem: {
+                                highlight: true
+                            },
+                            //生成選單
+                            resultsList: {
+                                element: (list, data) => {
+                                    if (!data.results.length) {
+                                        //Create "No Results" message element
+                                        const message = document.createElement("div");
+                                        //Add class to the created element
+                                        message.setAttribute("class", "no_result px-8");
+                                        //Add message text content
+                                        message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
+                                        //Append message element to the results list
+                                        list.prepend(message);
+                                    }
                                 },
-                                events: {
-                                    input: {
-                                        selection: (event) => {
-                                            const selection = event.detail.selection.value;
-                                            autoCompleteJS.input.value = selection;
+                                noResults: true,
+                            },
+                            events: {
+                                input: {
+                                    //選單偵測
+                                    selection: (event) => {
+                                        const selectionValue = event.detail.selection.value;
+                                        autoCompleteJS.input.value = selectionValue.storeName;
+                                        toggleFilter("search", selectionValue.storeName)
+                                    },
+                                    //輸入 enter 偵測
+                                    keydown: (event) => {
+                                        if (event.keyCode === 13) {
+                                            const searchValue = autoCompleteJS.input.value
+                                            console.log(`這是 ${searchValue}`)
+                                            toggleFilter("search", searchValue)
                                         }
                                     }
                                 }
-                            })
-
-
+                            }
+                        });
                     </script>
     </body>
 
