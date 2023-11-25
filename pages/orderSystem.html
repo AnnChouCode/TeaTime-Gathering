@@ -51,6 +51,7 @@
                     <!-- 歷史訂單 -->
 
                     <ul class="historicalOrder">
+
                     </ul>
 
                 </div>
@@ -82,7 +83,7 @@
                     </div>
                 </div>
                 <div class="modal-footer border-top-0">
-                    <button type="button" class="btn btn-brand-03 text-white w-100">送出</button>
+                    <button type="button" class="btn btn-brand-03 text-white w-100" id="updateRatingBtn">送出</button>
                 </div>
             </div>
         </div>
@@ -133,18 +134,23 @@
     let followUpOrder = document.querySelector(".followUpOrder");
     let initiateGroup = document.querySelector(".initiateGroup");
     let historicalOrder = document.querySelector(".historicalOrder");
+    let historicalOrderLis = document.querySelector(".historicalOrderLis");
+
     let memberbtn = document.querySelectorAll('.memberbtn');
     // 共用變數
-    const _url = "https://teatimeapi-test.onrender.com"
-    const _order = "/orders"
-    const _groupings = "/groupings"
+    const _url = "https://teatimeapi-test.onrender.com";
+    const _order = "/orders";
+    const _groupings = "/groupings";
+    const _restaurants = "/restaurants";
     let orderData = [];
     let groupingsData = [];
     let filteredStoreName = [];
+    let restaurantData = [];
 
     let followUpHTML = "", initiateGroupHTML = "";
-    let historicalHTML = `
-    <li class="px-24 py-12">
+    let historicalHTML =
+        `
+    <li class="filterBar px-24 py-12">
         <div class="d-flex justify-content-between mt-12">
             <div class="autoComplete_wrapper">
                     <input class="border border-2 border-gray-04 border-radius-28" id="test" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off">
@@ -170,8 +176,6 @@
         </div>
     </li>`;
 
-
-
     // 立即執行function， function 外加上()，及結尾加上()，()內可以有變數
     (function init() {
         // 抓訂單資料
@@ -180,6 +184,7 @@
             .then(function (res) {
                 orderData = res.data
                 filteredStoreName = orderData.map(item => item.restaurant)
+                // console.log(orderData);
                 renderOrderData()
             })
             .catch(error => console.log("未抓到資料~"))
@@ -190,6 +195,14 @@
             .then(function (res) {
                 groupingsData = res.data
                 renderGroupings()
+            })
+            .catch(error => console.log("未抓到資料~"))
+
+        // 抓訂單資料
+        axios
+            .get(_url + _restaurants)
+            .then(function (res) {
+                restaurantData = res.data
             })
             .catch(error => console.log("未抓到資料~"))
 
@@ -209,7 +222,7 @@
                     if (order.name === "黃莉琳") {
                         followUpOrderItems +=
                             `
-                        <li class="d-flex mb-12">
+                        <li class="d-flex mb-12" >
                             <div class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">1
                             </div>
                             <div>
@@ -247,55 +260,49 @@
                 // 歷史訂單卡片
                 historicalHTML +=
                     `
-                    <li class="d-flex flex-column flex-lg-row p-24 border-bottom border-brand-03">
-
-<aside class="me-40 d-flex justify-content-between align-items-lg-start ">
-  <img class="border border-2 rounded-24 border-line" src=${restaurantPhoto} alt="" width="96">
-  <span class="ms-auto d-block d-lg-none">
-    <a href="" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
-  </span>
-</aside>
-
-<div class="d-flex justify-content-between w-100">
-
-  <div onclick="toggleContent(this)">
-    <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">${restaurant}</h2>
-    <p class="mt-4 text-gray-02">享用日期${eventDateTimeFormat}‧付款人：${invitees == "" ? "黃莉琳" : invitees}</p>
-    <div class="starInRwd${id} ms-auto  fs-24 d-flex align-items-center d-lg-none" data-rating-star=5>
-      <div class="lh-sm">
-        <span class="star" onclick="rateStar(${id} ,1, this)">&#9733;</span>
-        <span class="star" onclick="rateStar(${id} ,2, this)">&#9733;</span>
-        <span class="star" onclick="rateStar(${id} ,3, this)">&#9733;</span>
-        <span class="star" onclick="rateStar(${id} ,4, this)">&#9733;</span>
-        <span class="star" onclick="rateStar(${id} ,5, this)">&#9733;</span>
-      </div >
-      <div class="ms-4 "><a href="" class="shareRating fs-16 text-gray-02" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="RatingShare(this)">分享評價</a>
-      </div>
-    </div>
-    <ul class="mt-12">
-      ${followUpOrderItems}
-    </ul>
-  </div>
-  <div class="starInMember${id} ms-auto  fs-24 d-none d-lg-block" data-rating-star=5>
-    <div class="lh-sm">
-        <span class="star" onclick="rateStar(${id} ,1 ,this)">&#9733;</span>
-        <span class="star" onclick="rateStar(${id} ,2 ,this)">&#9733;</span>
-        <span class="star" onclick="rateStar(${id} ,3 ,this)">&#9733;</span>
-        <span class="star" onclick="rateStar(${id} ,4 ,this)">&#9733;</span>
-        <span class="star" onclick="rateStar(${id} ,5 ,this)">&#9733;</span>
-    </div>
-    <div class="d-flex justify-content-end "><a href="" class="shareRating fs-16 text-gray-02" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="RatingShare(this)">分享評價</a></div>
-  </div>
-  <span class="ms-auto d-none d-lg-block">
-    <a href="store-order.html" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
-  </span>
-</div>
-</li>`;
+                        <li class="d-flex flex-column flex-lg-row p-24 border-bottom border-brand-03"  data-restaurant="${restaurant}">
+                            <aside class="me-40 d-flex justify-content-between align-items-lg-start ">
+                                <img class="border border-2 rounded-24 border-line" src=${restaurantPhoto} alt="" width="96">
+                                <span class="ms-auto d-block d-lg-none">
+                                    <a href="" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
+                                </span>
+                            </aside>
+                            <div class="d-flex justify-content-between w-100">
+                            <div onclick="toggleContent(this)">
+                                <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">${restaurant}</h2>
+                                <p class="mt-4 text-gray-02">享用日期${eventDateTimeFormat}‧付款人：${invitees == "" ? "黃莉琳" : invitees}</p>
+                                <div class="starInRwd${id} ms-auto  fs-24 d-flex align-items-center d-lg-none" data-rating-star=5>
+                                    <div class="lh-sm">
+                                        <span class="star" onclick="rateStar(${id} ,1, this)">&#9733;</span>
+                                        <span class="star" onclick="rateStar(${id} ,2, this)">&#9733;</span>
+                                        <span class="star" onclick="rateStar(${id} ,3, this)">&#9733;</span>
+                                        <span class="star" onclick="rateStar(${id} ,4, this)">&#9733;</span>
+                                        <span class="star" onclick="rateStar(${id} ,5, this)">&#9733;</span>
+                                    </div>
+                                    <div class="ms-4 "><a href="" class="shareRating fs-16 text-gray-02" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="RatingShare(this)">分享評價</a></div>
+                                </div>
+                                <ul class="mt-12">
+                                    ${followUpOrderItems}
+                                </ul>
+                            </div>
+                            <div class="starInMember${id} ms-auto  fs-24 d-none d-lg-block" data-rating-star=5>
+                                <div class="lh-sm">
+                                    <span class="star" onclick="rateStar(${id} ,1 ,this)">&#9733;</span>
+                                    <span class="star" onclick="rateStar(${id} ,2 ,this)">&#9733;</span>
+                                    <span class="star" onclick="rateStar(${id} ,3 ,this)">&#9733;</span>
+                                    <span class="star" onclick="rateStar(${id} ,4 ,this)">&#9733;</span>
+                                    <span class="star" onclick="rateStar(${id} ,5 ,this)">&#9733;</span>
+                                </div>
+                                <div class="d-flex justify-content-end "><a href="" class="shareRating fs-16 text-gray-02" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="RatingShare(this)">分享評價</a></div>
+                            </div>
+                            <span class="ms-auto d-none d-lg-block">
+                                <a href="store-order.html" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
+                            </span>
+                        </li>`;
             })
         }
         followUpOrder.innerHTML = followUpHTML;
     }
-
     // 發起的開團
     function renderGroupings(arr = groupingsData) {
         if (arr.length) {
@@ -303,7 +310,7 @@
             arr.forEach((obj) => {
                 let followUpOrderItems = "";
                 const { restaurantName, restaurantPhoto, eventDateTime, initiator, invitees, currentGroupCondition, targetGroupCondition, isGroup } = obj
-                console.log(restaurantName);
+                // console.log(restaurantName);
 
                 // 發起的開團卡片
                 if (initiator === "黃莉琳") {
@@ -352,13 +359,11 @@
                                 </span>
                             </div>
                         </li>`
-
                 }
             })
         }
-        initiateGroup.innerHTML = initiateGroupHTML
+        // initiateGroup.innerHTML = initiateGroupHTML
     };
-
     // 三個大分類的按鈕，點擊後出現下底線
     memberbtn.forEach(btnType => {
         btnType.addEventListener('click', () => {
@@ -419,15 +424,49 @@
         }
     }
 
+    // 評價上傳
+    const updateRatingBtn = document.getElementById('updateRatingBtn');
+    updateRatingBtn.addEventListener('click', updateRating);
+
+    function updateRating() {
+        let updataObj = {};
+        let storeNameinModal = updateRatingBtn.closest('.modal-content').querySelector('h5').innerText;
+        let starinModal = updateRatingBtn.parentElement.previousElementSibling.querySelector("[data-rating-star]").dataset.ratingStar;
+        let memberEvaluate = document.querySelector(".memberEvaluate");
+
+        // let resName = "茶源 ChaSource";
+        restaurantData.forEach(item => {
+            if (item.storeName === storeNameinModal && memberEvaluate.value !== "") {
+                updataObj = {
+                    UID: "R004",
+                    reviewer: "黃莉琳",
+                    userPhoto: "https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/user/female/user-female-09.jpg?raw=true",
+                    starRating: Number(starinModal),
+                    feedbackText: memberEvaluate.value,
+                    reviewedRestaurant: item.storeName,
+                    restaurantUID: item.UID,
+                    reviewDateTime: moment().format('YYYY/MM/DD')
+                }
+
+                axios.post('https://teatimeapi-test.onrender.com/ratings', updataObj).
+                    then(function (res) {
+                        alert("留言評價成功");
+                        memberEvaluate.value = "";
+                    })
+            }
+        })
+        // console.log(restaurantData);
+    }
 
     // autocomplete
     function autocomplete() {
-        const autoCompleteJ = new autoComplete({
+        const autoCompleteJS = new autoComplete({
             selector: "#test",
             placeHolder: "Search for Food...",
             data: {
-                src: filteredStoreName,
+                src: orderData,
                 cache: true,
+                keys: ["restaurant"]
             },
             resultsList: {
                 element: (list, data) => {
@@ -451,7 +490,27 @@
                 input: {
                     selection: (event) => {
                         const selection = event.detail.selection.value;
-                        autoCompleteJ.input.value = selection;
+                        const historicalOrderLis = document.querySelector(".historicalOrderLis");
+                        let RestaurantLists = document.querySelectorAll("[data-restaurant]");
+                        autoCompleteJS.input.value = selection.restaurant;
+                        RestaurantLists.forEach((item) => {
+                            if (item.dataset["restaurant"] !== autoCompleteJS.input.value) {
+                                item.classList.add("d-none");
+                            }
+                        });
+                    },
+                    //輸入 enter 偵測
+                    keydown: (event) => {
+                        let RestaurantLists = document.querySelectorAll("[data-restaurant]");
+                        if (event.keyCode === 13 || event.keyCode === 8) {
+                            let searchValue = autoCompleteJS.input.value;
+                            if (searchValue === "") {
+                                RestaurantLists.forEach((item) => {
+                                    item.classList.remove("d-none");
+                                });
+
+                            }
+                        }
                     }
                 }
             }

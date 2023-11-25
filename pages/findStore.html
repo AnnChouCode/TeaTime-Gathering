@@ -6,14 +6,10 @@
     <body class="d-flex flex-column vh-100">
         <%- include('./layout/nav'); -%>
 
-            <!--  -->
             <div class="layout-content py-32 py-lg-80 find-store">
                 <div class="d-flex justify-content-between align-items-center mb-18 mb-md-20">
                     <h2 class="fs-md-32 fs-24 fw-bold lh-sm" id="find-store">找店家</h2>
                 </div>
-
-                <!-- 新的 -->
-
 
                 <div class="d-block d-md-flex justify-content-between align-items-center">
                     <!-- search-bar  -->
@@ -26,7 +22,8 @@
                             placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
                     </div>
                     <!-- select-bar -->
-                    <ul class="select-bar d-flex text-center bg-brand-05 mt-20 mt-md-0 mb-16 mb-md-0 p-8 text-nowrap">
+                    <ul
+                        class="select-bar d-flex text-center bg-brand-05 mt-20 mt-md-0 mb-16 mb-md-0 me-16 p-8 mx-8 text-nowrap">
                         <li class="text-center w-100">
                             <button type="button"
                                 class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2 btn-active-brand-02 btnSortStore"
@@ -149,21 +146,14 @@
 
 
                     <script>
-                        /* select-bar 排序篩選按鈕 active 狀態切換顯示 */
-                        // $('.btnSortStore').click(function (e) {
-                        //     $('.btnSortStore').removeClass('btn-active-brand-02');
-                        //     $(this).addClass('btn-active-brand-02');
-                        // });
-                        // $('.categoryStoreBar button').click(function (e) {
-                        //     $('.categoryStoreBar button').removeClass('actived');
-                        //     $(this).addClass('actived');
-                        // });
+
                     </script>
 
 
                     <script type="module">
                         import axios from 'axios';
                         // import { showStars, btnCategoryStore } from '/assets/js/storeCard.js';
+
 
 
                         // 最高、最低評價按鈕顏色動畫
@@ -240,7 +230,12 @@
                         btnCategoryStore.forEach(btn => {
                             btn.addEventListener("click", function () {
                                 const isCategory = this.getAttribute("data-category-value")
-                                toggleFilter("category", isCategory)
+                                btnCategoryStore.forEach(btn => {
+                                    btn.classList.remove('actived');
+                                })
+                                toggleFilter("category", isCategory);
+                                btn.classList.add('actived');
+
                             });
                         });
 
@@ -305,6 +300,9 @@
 
                         // //渲染頁碼與監聽換頁
                         function renderPagination(paginatedData) {
+
+
+                            
                             //店家類別 icon 對照
                             const categoryIcon = {
                                 飲料: "icon-park-outline:drink",
@@ -315,7 +313,7 @@
                                 咖啡: "icon-park-outline:tea-drink"
                             }
 
-                            let dataHtml = '<ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul">';
+                            let dataHtml = '<ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul mx-8">';
 
                             paginatedData.forEach((item, index) => {
                                 dataHtml += `
@@ -356,25 +354,65 @@
                             return resultStars
                         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                        /* autoComplete */
+                        const autoCompleteJS = new autoComplete({
+                            //撈取 API 資料庫獲取選單內容
+                            data: {
+                                src: async (query) => {
+                                    try {
+                                        //Fetch Data from external Source
+                                        const source = await fetch(`${_url}/restaurants`);
+                                        //Data should be an array of `Objects` or `Strings`
+                                        const data = await source.json();
+                                        return data;
+                                    } catch (error) {
+                                        return error;
+                                    }
+                                },
+                                //Data source 'Object' key to be searched
+                                keys: ["storeName"]
+                            },
+                            //寬鬆搜尋
+                            searchEngine: "loose",
+                            //選單符合條件自元 highlight
+                            resultItem: {
+                                highlight: true
+                            },
+                            //生成選單
+                            resultsList: {
+                                element: (list, data) => {
+                                    if (!data.results.length) {
+                                        //Create "No Results" message element
+                                        const message = document.createElement("div");
+                                        //Add class to the created element
+                                        message.setAttribute("class", "no_result px-8");
+                                        //Add message text content
+                                        message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
+                                        //Append message element to the results list
+                                        list.prepend(message);
+                                    }
+                                },
+                                noResults: true,
+                            },
+                            events: {
+                                input: {
+                                    //選單偵測
+                                    selection: (event) => {
+                                        const selectionValue = event.detail.selection.value;
+                                        autoCompleteJS.input.value = selectionValue.storeName;
+                                        toggleFilter("search", selectionValue.storeName)
+                                    },
+                                    //輸入 enter 偵測
+                                    keydown: (event) => {
+                                        if (event.keyCode === 13) {
+                                            const searchValue = autoCompleteJS.input.value
+                                            console.log(`這是 ${searchValue}`)
+                                            toggleFilter("search", searchValue)
+                                        }
+                                    }
+                                }
+                            }
+                        });
                     </script>
     </body>
 

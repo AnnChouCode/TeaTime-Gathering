@@ -7,10 +7,10 @@
     <!-- loading -->
     <%- include('./layout/loading'); -%>
 
-    <%- include('./layout/nav'); -%>
+      <%- include('./layout/nav'); -%>
 
-      <!-- order -->
-      <div class="layout-content">
+        <!-- order -->
+        <div class="layout-content">
           <div class="order mb-16 mb-sm-32" id="storeOrder">
             <div class="order-bg"></div>
             <div class="order-content container ps-12 ps-md-42 d-sm-flex align-items-end">
@@ -19,698 +19,701 @@
               <div class="order-textContent">
                 <h2 class="fs-md-40 fs-24 fw-bold lh-sm">茶源 ChaSource</h2>
                 <div class="imgItems">
-                <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
-                <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
-                <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
-                <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
-                <iconify-icon icon="ic:round-star" class=" " style="color: #C2C1BD;" width="16"></iconify-icon>
+                  <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
+                  <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
+                  <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
+                  <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
+                  <iconify-icon icon="ic:round-star" class=" " style="color: #C2C1BD;" width="16"></iconify-icon>
+                </div>
+                <p class="order-content-p">專注於高品質的茶葉，提供多款精選茶飲和冷泡茶。</p>
               </div>
-              <p class="order-content-p">專注於高品質的茶葉，提供多款精選茶飲和冷泡茶。</p>
             </div>
           </div>
-        </div>
-        <div class="container mb-16 mb-sm-32">
-          <div class="btnList d-flex justify-content-between align-content-center ">
-            <div class="btnList-items d-flex justify-content-between ">
+          <div class="container mb-16 mb-sm-32">
+            <div class="btnList d-flex justify-content-between align-content-center ">
+              <div class="btnList-items d-flex justify-content-between ">
+                <button type="button"
+                  class="d-flex gap-8 align-items-center py-sm-14 py-10 px-sm-24 px-16 me-0 me-sm-12 rounded-pill btn btn-brand-05 btn-hover-bg-2 btnTogetherEvent"
+                  data-bs-toggle="collapse" data-bs-target="#collapseTogetherEvent" aria-expanded="false"
+                  aria-controls="collapseTogetherEvent">
+                  <span class="text-brand-02 fs-sm-20 fs-16 text-nowrap">開團中</span>
+                  <iconify-icon icon="bxs:down-arrow" style="color:#fd909f;" class="arrowDown"></iconify-icon>
+                  <iconify-icon icon="bxs:up-arrow" style="color: #fdf1ef;" class="arrowUp d-none"></iconify-icon>
+                </button>
+                <button type="button"
+                  class="btnFeedbackTogetherEvent px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-sm-none d-flex justify-content-center align-items-center btn-hover-bg-2"
+                  data-bs-toggle="collapse" data-bs-target="#feedbackTogetherEvent" aria-expanded="false"
+                  aria-controls="feedbackTogetherEvent">
+                  <p class="me-8 text-nowrap">看評價</p>
+                  <iconify-icon icon="bxs:down-arrow" style="color:#fd909f;" class="arrowDown"></iconify-icon>
+                  <iconify-icon icon="bxs:up-arrow" style="color: #fdf1ef;" class="arrowUp d-none"></iconify-icon>
+                </button>
+                <button type="button"
+                  class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2"
+                  data-bs-toggle="modal" data-bs-target="#modal-CreateGroup">
+                  <iconify-icon icon="mdi:account-add" style="color: #fd909f;" class="me-8"></iconify-icon>
+                  <p class="text-nowrap">建立揪團</p>
+                </button>
+              </div>
               <button type="button"
-                class="d-flex gap-8 align-items-center py-sm-14 py-10 px-sm-24 px-16 me-0 me-sm-12 rounded-pill btn btn-brand-05 btn-hover-bg-2 btnTogetherEvent"
-                data-bs-toggle="collapse" data-bs-target="#collapseTogetherEvent" aria-expanded="false"
-                aria-controls="collapseTogetherEvent">
-                <span class="text-brand-02 fs-sm-20 fs-16 text-nowrap">開團中</span>
-                <iconify-icon icon="bxs:down-arrow" style="color:#fd909f;" class="arrowDown"></iconify-icon>
-                <iconify-icon icon="bxs:up-arrow" style="color: #fdf1ef;" class="arrowUp d-none"></iconify-icon>
-              </button>
-              <button type="button"
-                class="btnFeedbackTogetherEvent px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-sm-none d-flex justify-content-center align-items-center btn-hover-bg-2"
-                data-bs-toggle="collapse" data-bs-target="#feedbackTogetherEvent" aria-expanded="false"
-                aria-controls="feedbackTogetherEvent">
-                <p class="me-8 text-nowrap">看評價</p>
-                <iconify-icon icon="bxs:down-arrow" style="color:#fd909f;" class="arrowDown"></iconify-icon>
-                <iconify-icon icon="bxs:up-arrow" style="color: #fdf1ef;" class="arrowUp d-none"></iconify-icon>
-              </button>
-              <button type="button"
-                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2"
-                data-bs-toggle="modal" data-bs-target="#modal-CreateGroup">
-                <iconify-icon icon="mdi:account-add" style="color: #fd909f;" class="me-8"></iconify-icon>
-                <p class="text-nowrap">建立揪團</p>
-              </button>
-            </div>
-            <button type="button"
-              class="shopping-cart d-none d-sm-flex justify-content-center align-items-center  btn btn-brand-03 px-24 py-10 py-sm-14 border-radius-40 btn-hover-brand-01"
-              data-bs-toggle="modal" data-bs-target="#modal-shppingCart-order">
-              <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20"
-                height="20"></iconify-icon>
-              <p class="text-white word-break-keep-all fs-sm-20 fs-16">購物車</p>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- 開團中 collapse -->
-      <div class="collapse" id="collapseTogetherEvent">
-        <div class="py-md-80 pt-20 pb-32 mx-auto bg-bg-2 border-radius-md-020000 border-radius-010000">
-          <div class="layout-content container">
-            <!-- title & see more -->
-            <div class="d-flex justify-content-between mb-md-36 mb-16">
-              <h3 class="fs-md-32 fs-24 fw-bold lh-sm">開團中</h3>
-              <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05" href="#">看更多
-                <svg class="svg-hover" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 8 11"
-                  fill="none">
-                  <path
-                    d="M0.284731 9.00931L0.284731 1.99264C0.28433 1.71563 0.362386 1.44417 0.509864 1.20968C0.657341 0.975188 0.868211 0.787258 1.11806 0.66764C1.41452 0.527612 1.74434 0.47368 2.06995 0.511987C2.39557 0.550295 2.70387 0.679301 2.95973 0.884306L7.20973 4.39264C7.36859 4.53032 7.49599 4.70054 7.58331 4.89177C7.67063 5.08299 7.71582 5.29075 7.71582 5.50097C7.71582 5.71119 7.67063 5.91895 7.58331 6.11018C7.49599 6.30141 7.36859 6.47163 7.20973 6.60931L2.95973 10.1176C2.70387 10.3226 2.39557 10.4517 2.06995 10.49C1.74434 10.5283 1.41452 10.4743 1.11806 10.3343C0.86821 10.2147 0.657341 10.0268 0.509863 9.79227C0.362385 9.55778 0.28433 9.28632 0.284731 9.00931Z"
-                    fill="#8B8B8A" />
-                </svg>
-              </a>
-            </div>
-            <!-- content -->
-            <div class="position-relative swiper-container">
-              <div class="swiper togetherEventSwiper">
-                <ul class="swiper-wrapper">
-                  <!-- round 1 -->
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
-                          ChaSource</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                              height="26"></iconify-icon>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
-                          ChaSource</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                              height="26"></iconify-icon>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
-                          ChaSource</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                              height="26"></iconify-icon>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
-                          ChaSource</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                              height="26"></iconify-icon>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- round 2 -->
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
-                          ChaSource</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                              height="26"></iconify-icon>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
-                          ChaSource</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                              height="26"></iconify-icon>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
-                          ChaSource</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                              height="26"></iconify-icon>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="swiper-slide">
-                    <a href="#"
-                      class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
-                      <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
-                        src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
-                      <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
-                          ChaSource</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                          <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                          <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                            <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                              height="26"></iconify-icon>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
-                            <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                          <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div class="position-absolute swiper-button-next pictures-replace-text d-none d-lg-block">
-              </div>
-              <div class="position-absolute swiper-button-prev pictures-replace-text d-none d-lg-block">
-              </div>
-              <div class="swiper-pagination position-absolute top-100 start-50 translate-middle d-none d-md-block">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- feedback collapse -->
-      <div class="collapse d-sm-none bg-bg-1 " id="feedbackTogetherEvent">
-        <%- include('./layout/store-order-feedback.ejs'); -%>
-      </div>
-      <!-- modal 點餐 -->
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-storeOrder-menu modal-content border-radius-24">
-            <div class="modal-header d-flex flex-column border-0 mb-32 mb-md-40 p-0 ">
-              <div class="modal-header-top d-flex justify-content-between align-items-center w-100 mb-8 mb-md-16">
-                <h5 class="modal-title" id="staticBackdropLabel">翠綠</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="cold-hot d-flex  align-items-center w-100 mb-8 mb-md-16">
-                <div class="cold d-flex justify-content-center align-items-center ">
-                  <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
-                  <span class="me-16">25</span>
-                </div>
-                <div class="hot d-flex justify-content-center align-items-center">
-                  <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
-                  <span class="">25</span>
-                </div>
-              </div>
-              <p>以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
-            </div>
-            <div class="modal-body p-0 mb-40">
-              <h6 class="mb-12 text-gray-01 fs-20 line-height-sm">溫度選項</h6>
-              <ul class="mb-32 mb-md-40">
-                <li
-                  class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
-                  <input class="input-radio-style" type="radio" name="temperature" id="normal_ice" value="正常冰" checked>
-                  <label for="normal_ice" class="fs-16 fs-md-20 radio-label">正常冰</label>
-                </li>
-                <li
-                  class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
-                  <input class="input-radio-style" type="radio" name="temperature" id="smal_ice" value="少冰（8 分冰）">
-                  <label for="smal_ice" class="fs-16 fs-md-20 radio-label">少冰（8 分冰）</label>
-                </li>
-                <li
-                  class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
-                  <input class="input-radio-style" type="radio" name="temperature" id="tiny_ice" value="微冰（3 分冰）">
-                  <label for="tiny_ice" class="fs-16 fs-md-20 radio-label">微冰（3 分冰）</label>
-                </li>
-                <li
-                  class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
-                  <input class="input-radio-style" type="radio" name="temperature" id="no_ice" value="去冰">
-                  <label for="no_ice" class="fs-16 fs-md-20 radio-label">去冰</label>
-                </li>
-                <li
-                  class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
-                  <input class="input-radio-style" type="radio" name="temperature" id="warm" value="溫">
-                  <label for="warm" class="fs-16 fs-md-20 radio-label">溫</label>
-                </li>
-                <li
-                  class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
-                  <input class="input-radio-style" type="radio" name="temperature" id="hot" value="熱">
-                  <label for="hot" class="fs-16 fs-md-20 radio-label">熱</label>
-                </li>
-              </ul>
-              <h6 class="mb-12 text-gray-01 fs-20 line-height-sm">甜度選擇</h6>
-              <ul class="mb-32 mb-md-40">
-                <li
-                  class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
-                  <input class="input-radio-style" type="radio" name="sweetness" id="standard_sweetness"
-                    value="標準（10 分糖）">
-                  <label for="standard_sweetness" class="fs-16 fs-md-20 radio-label">標準（10 分糖）</label>
-                </li>
-                <li
-                  class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
-                  <input class="input-radio-style" type="radio" name="sweetness" id="less_sugar" value="少糖（7 分糖）">
-                  <label for="less_sugar" class="fs-16 fs-md-20 radio-label">少糖（7 分糖）</label>
-                </li>
-                <li
-                  class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
-                  <input class="input-radio-style" type="radio" name="sweetness" id="half_sugar" value="半糖（5 分糖）"
-                    checked>
-                  <label for="half_sugar" class="fs-16 fs-md-20 radio-label">半糖（5 分糖）</label>
-                </li>
-                <li
-                  class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
-                  <input class="input-radio-style" type="radio" name="sweetness" id="slight_sugar" value="微糖（3 分糖）">
-                  <label for="slight_sugar" class="fs-16 fs-md-20 radio-label">微糖（3 分糖）</label>
-                </li>
-                <li
-                  class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
-                  <input class="input-radio-style" type="radio" name="sweetness" id="sugar_free" value="無糖">
-                  <label for="sugar_free" class="fs-16 fs-md-20 radio-label">無糖</label>
-                </li>
-              </ul>
-              <h6 class="mb-12 text-gray-01 fs-20 line-height-sm">加料</h6>
-              <p class="mb-12 text-gray-02 fs-16 ">最多可選 2 個項目</p>
-              <ul class="mb-32 mb-md-40">
-                <li
-                  class="py-12 d-flex justify-content-end order-1 align-items-center border-bottom border-1 border-gray-03 ">
-                  <label class="checkboxStyle-content fs-16 fs-md-20 d-flex  align-items-center "
-                    for="fresh_milk">升級鮮奶<span class="ms-16">+$10.00</span>
-                    <input class="checkboxStyle-checkbox bg-pink" type="checkbox" id="fresh_milk" name="subscribe">
-                    <span class="checkboxStyle-checkmark"></span>
-                  </label>
-                </li>
-                <li
-                  class="py-12 d-flex justify-content-end order-1 align-items-center border-bottom border-1 border-gray-03 ">
-                  <label class="checkboxStyle-content fs-16 fs-md-20 d-flex  align-items-center " for="pearl">珍珠<span
-                      class="ms-16">+$10.00</span>
-                    <input class="checkboxStyle-checkbox bg-pink" type="checkbox" id="pearl" name="subscribe">
-                    <span class="checkboxStyle-checkmark"></span>
-                  </label>
-                </li>
-                <li
-                  class="py-12 d-flex justify-content-end order-1 align-items-center border-bottom border-1 border-gray-03 ">
-                  <label class="checkboxStyle-content fs-16 fs-md-20 d-flex  align-items-center "
-                    for="brown_sugar">黑糖<span class="ms-16">+$10.00</span>
-                    <input class="checkboxStyle-checkbox bg-pink" type="checkbox" id="brown_sugar" name="subscribe">
-                    <span class="checkboxStyle-checkmark"></span>
-                  </label>
-                </li>
-                <li
-                  class="py-12 d-flex justify-content-end order-1 align-items-center border-bottom border-1 border-gray-03 ">
-                  <label class="checkboxStyle-content fs-16 fs-md-20 d-flex  align-items-center " for="agar">寒天晶球<span
-                      class="ms-16">+$10.00</span>
-                    <input class="checkboxStyle-checkbox bg-pink" type="checkbox" id="agar" name="subscribe">
-                    <span class="checkboxStyle-checkmark"></span>
-                  </label>
-                </li>
-              </ul>
-              <div class="">
-                <div class="">
-                  <label for="remark" class="mb-24 text-gray-01 fs-20 line-height-sm">備註</label>
-                  <textarea rows="3" cols="30"
-                    class="no-resize w-100 mb-32 mb-md-32 border-radius-4 border border-1 border-gray-03"
-                    name="adding_materials" id="remark"></textarea>
-                </div>
-                <div class="d-flex justify-content-between align-items-center">
-                  <label for="number" class="text-gray-01 fs-20 line-height-sm">數量</label>
-                  <div class="btn-group border-radius-40 border border-2 py-12 px-16" role="group" aria-label="Basic ">
-                    <button type="button" class="btn btn-white border-radius-400040">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M18 12.998H6C5.73478 12.998 5.48043 12.8927 5.29289 12.7052C5.10536 12.5176 5 12.2633 5 11.998C5 11.7328 5.10536 11.4785 5.29289 11.2909C5.48043 11.1034 5.73478 10.998 6 10.998H18C18.2652 10.998 18.5196 11.1034 18.7071 11.2909C18.8946 11.4785 19 11.7328 19 11.998C19 12.2633 18.8946 12.5176 18.7071 12.7052C18.5196 12.8927 18.2652 12.998 18 12.998Z"
-                          fill="#8B8B8A" />
-                      </svg>
-                    </button>
-                    <input style="width: 35px;" type="text" class="text-brand-02 mx-8 text-center border border-0"
-                      value="1" id="number">
-                    <button type="button" class="btn btn-white border-radius-040400">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M18 12.998H13V17.998C13 18.2633 12.8946 18.5176 12.7071 18.7052C12.5196 18.8927 12.2652 18.998 12 18.998C11.7348 18.998 11.4804 18.8927 11.2929 18.7052C11.1054 18.5176 11 18.2633 11 17.998V12.998H6C5.73478 12.998 5.48043 12.8927 5.29289 12.7052C5.10536 12.5176 5 12.2633 5 11.998C5 11.7328 5.10536 11.4785 5.29289 11.2909C5.48043 11.1034 5.73478 10.998 6 10.998H11V5.99805C11 5.73283 11.1054 5.47848 11.2929 5.29094C11.4804 5.1034 11.7348 4.99805 12 4.99805C12.2652 4.99805 12.5196 5.1034 12.7071 5.29094C12.8946 5.47848 13 5.73283 13 5.99805V10.998H18C18.2652 10.998 18.5196 11.1034 18.7071 11.2909C18.8946 11.4785 19 11.7328 19 11.998C19 12.2633 18.8946 12.5176 18.7071 12.7052C18.5196 12.8927 18.2652 12.998 18 12.998Z"
-                          fill="#8B8B8A" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="modal-footer p-0  border-0 text-white ">
-              <button type="button" class="btn btn-brand-03 border-radius-40 py-12 px-24
-                d-flex justify-content-center align-items-center w-100 ">
-                <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20"
-                  height="20"></iconify-icon>
-                <p class="text-white me-4 me-sm-8">新增至購物車‧</p>
-                <p class="text-white ">$25.00</p>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- modal 建立揪團 -->
-      <div class="modal fade" id="modal-CreateGroup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-storeOrder-menu modal-content border-radius-24">
-            <div class="modal-header d-flex flex-column border-0 mb-32 mb-md-40 p-0 ">
-              <div class="modal-header-top d-flex justify-content-between align-items-center w-100 mb-8 mb-md-16">
-                <p class="fs-20 fs-md-24 line-height-sm fw-bold text-gray-01" id="staticBackdropLabel"><span
-                    class="">黃莉琳</span> 的開團</p>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="d-flex justify-content-between align-items-center w-100 mb-8 mb-md-16">
-                <p class="text-gray-01  fw-normal">訂購店家</p>
-                <p class="text-gray-01">茶源 ChaSource</p>
-              </div>
-              <div class="d-flex justify-content-between align-items-center w-100">
-                <p class="text-gray-01">外送地點</p>
-                <p class="text-gray-01">Fat Together Company</p>
-              </div>
-            </div>
-            <div class="modal-body p-0 mb-40">
-              <label class="mb-12 text-gray-01 fs-20 line-height-sm" for="enjoymentDate">享用日期</label>
-              <input
-                class="dateControl w-100 mb-3 border-radius-16 border border-2 border-gray-04 px-14 py-12 mb-32 mb-md-40"
-                type="text" id="enjoymentDate" name="enjoymentDate" placeholder="日期" style="height: 50px;">
-              <label class="mb-12 text-gray-01 fs-20 line-height-sm" for="orderTerm">訂購期限</label>
-              <input
-                class="dateControl w-100 mb-3 border-radius-16 border border-2 border-gray-04 px-14 py-12 mb-32 mb-md-40"
-                type="text" id="orderTerm" name="orderTerm" placeholder="日期" style="height: 50px;">
-              <label class="mb-12 text-gray-01 fs-20 line-height-sm" for="Payer">付款人</label>
-              <select
-                class="select-payer text-gray-03 w-100 border-radius-16 border border-2 border-gray-04 px-14 py-12 mb-32 mb-md-40"
-                id="Payer" name="Payer">
-                <option class="" disabled selected>請選擇付款人</option>
-                <option value="陳冠廷">陳冠廷</option>
-                <option value="盧子晴">盧子晴</option>
-                <option value="黃莉琳">黃莉琳</option>
-              </select>
-            </div>
-            <div class="modal-footer p-0  border-0 text-white ">
-              <button type="button" class="btn btn-brand-03 border-radius-40 py-12 px-24
-                d-flex justify-content-center align-items-center w-100 " data-bs-toggle="modal"
-                data-bs-target="#modal-successfullyGroup">
-                <p class="text-white ">建立開團</p>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- modal 開團 - 開團成功 -->
-      <div class="modal fade" id="modal-successfullyGroup" data-bs-backdrop="static" data-bs-keyboard="false"
-        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-storeOrder-menu modal-content border-radius-24">
-            <div class="modal-header d-flex flex-column border-0 mb-12 mb-md-40 p-0 ">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-0 mb-32 mb-md-40">
-              <div class="text-center mb-20 mb-md-40">
-                <p class="text-gray-01 fw-bold line-height-sm fs-20 fs-md-24">建立成功</p>
-              </div>
-              <div class="d-flex justify-content-between align-items-center w-100 
-                mb-16 mb-md-20">
-                <p class="text-gray-01 fs-16 fs-md-20 fw-medium line-height-sm">享用日期</p>
-                <div class="text-gray-01 d-flex justify-content-center align-items-center ">
-                  <svg class="me-8" width="23" height="23" viewBox="0 0 26 26" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M1.3335 12.9998C1.3335 8.60034 1.3335 6.4 2.70083 5.03384C4.067 3.6665 6.26733 3.6665 10.6668 3.6665H15.3335C19.733 3.6665 21.9333 3.6665 23.2995 5.03384C24.6668 6.4 24.6668 8.60034 24.6668 12.9998V15.3332C24.6668 19.7327 24.6668 21.933 23.2995 23.2992C21.9333 24.6665 19.733 24.6665 15.3335 24.6665H10.6668C6.26733 24.6665 4.067 24.6665 2.70083 23.2992C1.3335 21.933 1.3335 19.7327 1.3335 15.3332V12.9998Z"
-                      stroke="#1E1E1E" stroke-width="2" />
-                    <path d="M7.16699 3.6665V1.9165M18.8337 3.6665V1.9165M1.91699 9.49984H24.0837" stroke="#1E1E1E"
-                      stroke-width="2" stroke-linecap="round" />
-                    <path
-                      d="M20 18.8333C20 19.1428 19.8771 19.4395 19.6583 19.6583C19.4395 19.8771 19.1428 20 18.8333 20C18.5239 20 18.2272 19.8771 18.0084 19.6583C17.7896 19.4395 17.6667 19.1428 17.6667 18.8333C17.6667 18.5239 17.7896 18.2272 18.0084 18.0084C18.2272 17.7896 18.5239 17.6667 18.8333 17.6667C19.1428 17.6667 19.4395 17.7896 19.6583 18.0084C19.8771 18.2272 20 18.5239 20 18.8333ZM20 14.1667C20 14.4761 19.8771 14.7728 19.6583 14.9916C19.4395 15.2104 19.1428 15.3333 18.8333 15.3333C18.5239 15.3333 18.2272 15.2104 18.0084 14.9916C17.7896 14.7728 17.6667 14.4761 17.6667 14.1667C17.6667 13.8572 17.7896 13.5605 18.0084 13.3417C18.2272 13.1229 18.5239 13 18.8333 13C19.1428 13 19.4395 13.1229 19.6583 13.3417C19.8771 13.5605 20 13.8572 20 14.1667ZM14.1667 18.8333C14.1667 19.1428 14.0437 19.4395 13.825 19.6583C13.6062 19.8771 13.3094 20 13 20C12.6906 20 12.3938 19.8771 12.175 19.6583C11.9562 19.4395 11.8333 19.1428 11.8333 18.8333C11.8333 18.5239 11.9562 18.2272 12.175 18.0084C12.3938 17.7896 12.6906 17.6667 13 17.6667C13.3094 17.6667 13.6062 17.7896 13.825 18.0084C14.0437 18.2272 14.1667 18.5239 14.1667 18.8333ZM14.1667 14.1667C14.1667 14.4761 14.0437 14.7728 13.825 14.9916C13.6062 15.2104 13.3094 15.3333 13 15.3333C12.6906 15.3333 12.3938 15.2104 12.175 14.9916C11.9562 14.7728 11.8333 14.4761 11.8333 14.1667C11.8333 13.8572 11.9562 13.5605 12.175 13.3417C12.3938 13.1229 12.6906 13 13 13C13.3094 13 13.6062 13.1229 13.825 13.3417C14.0437 13.5605 14.1667 13.8572 14.1667 14.1667ZM8.33333 18.8333C8.33333 19.1428 8.21042 19.4395 7.99162 19.6583C7.77283 19.8771 7.47609 20 7.16667 20C6.85725 20 6.5605 19.8771 6.34171 19.6583C6.12292 19.4395 6 19.1428 6 18.8333C6 18.5239 6.12292 18.2272 6.34171 18.0084C6.5605 17.7896 6.85725 17.6667 7.16667 17.6667C7.47609 17.6667 7.77283 17.7896 7.99162 18.0084C8.21042 18.2272 8.33333 18.5239 8.33333 18.8333ZM8.33333 14.1667C8.33333 14.4761 8.21042 14.7728 7.99162 14.9916C7.77283 15.2104 7.47609 15.3333 7.16667 15.3333C6.85725 15.3333 6.5605 15.2104 6.34171 14.9916C6.12292 14.7728 6 14.4761 6 14.1667C6 13.8572 6.12292 13.5605 6.34171 13.3417C6.5605 13.1229 6.85725 13 7.16667 13C7.47609 13 7.77283 13.1229 7.99162 13.3417C8.21042 13.5605 8.33333 13.8572 8.33333 14.1667Z"
-                      fill="#1E1E1E" />
-                  </svg>
-                  <p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm">08/12</p>
-                  <p class="fs-16 fs-md-20 fw-medium line-height-sm">14:30</p>
-                </div>
-              </div>
-              <div class="d-flex justify-content-between align-items-center w-100 mb-16 mb-md-64">
-                <p class="text-gray-01  fs-16 fs-md-20 fw-medium line-height-sm">訂購日期</p>
-                <div class="text-gray-01 d-flex justify-content-center align-items-center ">
-                  <svg class="me-8" width="23" height="23" viewBox="0 0 26 26" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M1.3335 12.9998C1.3335 8.60034 1.3335 6.4 2.70083 5.03384C4.067 3.6665 6.26733 3.6665 10.6668 3.6665H15.3335C19.733 3.6665 21.9333 3.6665 23.2995 5.03384C24.6668 6.4 24.6668 8.60034 24.6668 12.9998V15.3332C24.6668 19.7327 24.6668 21.933 23.2995 23.2992C21.9333 24.6665 19.733 24.6665 15.3335 24.6665H10.6668C6.26733 24.6665 4.067 24.6665 2.70083 23.2992C1.3335 21.933 1.3335 19.7327 1.3335 15.3332V12.9998Z"
-                      stroke="#1E1E1E" stroke-width="2" />
-                    <path d="M7.16699 3.6665V1.9165M18.8337 3.6665V1.9165M1.91699 9.49984H24.0837" stroke="#1E1E1E"
-                      stroke-width="2" stroke-linecap="round" />
-                    <path
-                      d="M20 18.8333C20 19.1428 19.8771 19.4395 19.6583 19.6583C19.4395 19.8771 19.1428 20 18.8333 20C18.5239 20 18.2272 19.8771 18.0084 19.6583C17.7896 19.4395 17.6667 19.1428 17.6667 18.8333C17.6667 18.5239 17.7896 18.2272 18.0084 18.0084C18.2272 17.7896 18.5239 17.6667 18.8333 17.6667C19.1428 17.6667 19.4395 17.7896 19.6583 18.0084C19.8771 18.2272 20 18.5239 20 18.8333ZM20 14.1667C20 14.4761 19.8771 14.7728 19.6583 14.9916C19.4395 15.2104 19.1428 15.3333 18.8333 15.3333C18.5239 15.3333 18.2272 15.2104 18.0084 14.9916C17.7896 14.7728 17.6667 14.4761 17.6667 14.1667C17.6667 13.8572 17.7896 13.5605 18.0084 13.3417C18.2272 13.1229 18.5239 13 18.8333 13C19.1428 13 19.4395 13.1229 19.6583 13.3417C19.8771 13.5605 20 13.8572 20 14.1667ZM14.1667 18.8333C14.1667 19.1428 14.0437 19.4395 13.825 19.6583C13.6062 19.8771 13.3094 20 13 20C12.6906 20 12.3938 19.8771 12.175 19.6583C11.9562 19.4395 11.8333 19.1428 11.8333 18.8333C11.8333 18.5239 11.9562 18.2272 12.175 18.0084C12.3938 17.7896 12.6906 17.6667 13 17.6667C13.3094 17.6667 13.6062 17.7896 13.825 18.0084C14.0437 18.2272 14.1667 18.5239 14.1667 18.8333ZM14.1667 14.1667C14.1667 14.4761 14.0437 14.7728 13.825 14.9916C13.6062 15.2104 13.3094 15.3333 13 15.3333C12.6906 15.3333 12.3938 15.2104 12.175 14.9916C11.9562 14.7728 11.8333 14.4761 11.8333 14.1667C11.8333 13.8572 11.9562 13.5605 12.175 13.3417C12.3938 13.1229 12.6906 13 13 13C13.3094 13 13.6062 13.1229 13.825 13.3417C14.0437 13.5605 14.1667 13.8572 14.1667 14.1667ZM8.33333 18.8333C8.33333 19.1428 8.21042 19.4395 7.99162 19.6583C7.77283 19.8771 7.47609 20 7.16667 20C6.85725 20 6.5605 19.8771 6.34171 19.6583C6.12292 19.4395 6 19.1428 6 18.8333C6 18.5239 6.12292 18.2272 6.34171 18.0084C6.5605 17.7896 6.85725 17.6667 7.16667 17.6667C7.47609 17.6667 7.77283 17.7896 7.99162 18.0084C8.21042 18.2272 8.33333 18.5239 8.33333 18.8333ZM8.33333 14.1667C8.33333 14.4761 8.21042 14.7728 7.99162 14.9916C7.77283 15.2104 7.47609 15.3333 7.16667 15.3333C6.85725 15.3333 6.5605 15.2104 6.34171 14.9916C6.12292 14.7728 6 14.4761 6 14.1667C6 13.8572 6.12292 13.5605 6.34171 13.3417C6.5605 13.1229 6.85725 13 7.16667 13C7.47609 13 7.77283 13.1229 7.99162 13.3417C8.21042 13.5605 8.33333 13.8572 8.33333 14.1667Z"
-                      fill="#1E1E1E" />
-                  </svg>
-                  <p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm">08/11</p>
-                  <p class="fs-16 fs-md-20 fw-medium line-height-sm">10:30</p>
-                </div>
-              </div>
-              <p class="fs-md-20 text-brand-02 ">※ 您建立的揪團已經開放訂購！</p>
-            </div>
-            <div class="modal-footer border-0 w-100 d-flex justify-content-start">
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- modal 購物車 - 送出訂單 -->
-      <div class="modal fade" id="modal-shppingCart-order" data-bs-backdrop="static" data-bs-keyboard="false"
-        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-storeOrder-menu modal-content border-radius-24">
-            <div class="modal-header d-flex flex-column border-0 mb-20 mb-md-24 p-0 ">
-              <div class="modal-header-top d-flex justify-content-between align-items-center w-100 mb-16 mb-md-40">
-                <p class="fs-20 fs-md-24 line-height-sm fw-bold text-gray-01" id="staticBackdropLabel">茶源 ChaSource</p>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="d-flex justify-content-between align-items-center w-100 
-                mb-32 mb-md-40">
-                <p class="text-gray-01  fs-16 fs-md-20 fw-medium line-height-sm">享用日期</p>
-                <div class="text-gray-01 d-flex justify-content-center align-items-center ">
-                  <svg class="me-8" width="23" height="23" viewBox="0 0 26 26" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M1.3335 12.9998C1.3335 8.60034 1.3335 6.4 2.70083 5.03384C4.067 3.6665 6.26733 3.6665 10.6668 3.6665H15.3335C19.733 3.6665 21.9333 3.6665 23.2995 5.03384C24.6668 6.4 24.6668 8.60034 24.6668 12.9998V15.3332C24.6668 19.7327 24.6668 21.933 23.2995 23.2992C21.9333 24.6665 19.733 24.6665 15.3335 24.6665H10.6668C6.26733 24.6665 4.067 24.6665 2.70083 23.2992C1.3335 21.933 1.3335 19.7327 1.3335 15.3332V12.9998Z"
-                      stroke="#1E1E1E" stroke-width="2" />
-                    <path d="M7.16699 3.6665V1.9165M18.8337 3.6665V1.9165M1.91699 9.49984H24.0837" stroke="#1E1E1E"
-                      stroke-width="2" stroke-linecap="round" />
-                    <path
-                      d="M20 18.8333C20 19.1428 19.8771 19.4395 19.6583 19.6583C19.4395 19.8771 19.1428 20 18.8333 20C18.5239 20 18.2272 19.8771 18.0084 19.6583C17.7896 19.4395 17.6667 19.1428 17.6667 18.8333C17.6667 18.5239 17.7896 18.2272 18.0084 18.0084C18.2272 17.7896 18.5239 17.6667 18.8333 17.6667C19.1428 17.6667 19.4395 17.7896 19.6583 18.0084C19.8771 18.2272 20 18.5239 20 18.8333ZM20 14.1667C20 14.4761 19.8771 14.7728 19.6583 14.9916C19.4395 15.2104 19.1428 15.3333 18.8333 15.3333C18.5239 15.3333 18.2272 15.2104 18.0084 14.9916C17.7896 14.7728 17.6667 14.4761 17.6667 14.1667C17.6667 13.8572 17.7896 13.5605 18.0084 13.3417C18.2272 13.1229 18.5239 13 18.8333 13C19.1428 13 19.4395 13.1229 19.6583 13.3417C19.8771 13.5605 20 13.8572 20 14.1667ZM14.1667 18.8333C14.1667 19.1428 14.0437 19.4395 13.825 19.6583C13.6062 19.8771 13.3094 20 13 20C12.6906 20 12.3938 19.8771 12.175 19.6583C11.9562 19.4395 11.8333 19.1428 11.8333 18.8333C11.8333 18.5239 11.9562 18.2272 12.175 18.0084C12.3938 17.7896 12.6906 17.6667 13 17.6667C13.3094 17.6667 13.6062 17.7896 13.825 18.0084C14.0437 18.2272 14.1667 18.5239 14.1667 18.8333ZM14.1667 14.1667C14.1667 14.4761 14.0437 14.7728 13.825 14.9916C13.6062 15.2104 13.3094 15.3333 13 15.3333C12.6906 15.3333 12.3938 15.2104 12.175 14.9916C11.9562 14.7728 11.8333 14.4761 11.8333 14.1667C11.8333 13.8572 11.9562 13.5605 12.175 13.3417C12.3938 13.1229 12.6906 13 13 13C13.3094 13 13.6062 13.1229 13.825 13.3417C14.0437 13.5605 14.1667 13.8572 14.1667 14.1667ZM8.33333 18.8333C8.33333 19.1428 8.21042 19.4395 7.99162 19.6583C7.77283 19.8771 7.47609 20 7.16667 20C6.85725 20 6.5605 19.8771 6.34171 19.6583C6.12292 19.4395 6 19.1428 6 18.8333C6 18.5239 6.12292 18.2272 6.34171 18.0084C6.5605 17.7896 6.85725 17.6667 7.16667 17.6667C7.47609 17.6667 7.77283 17.7896 7.99162 18.0084C8.21042 18.2272 8.33333 18.5239 8.33333 18.8333ZM8.33333 14.1667C8.33333 14.4761 8.21042 14.7728 7.99162 14.9916C7.77283 15.2104 7.47609 15.3333 7.16667 15.3333C6.85725 15.3333 6.5605 15.2104 6.34171 14.9916C6.12292 14.7728 6 14.4761 6 14.1667C6 13.8572 6.12292 13.5605 6.34171 13.3417C6.5605 13.1229 6.85725 13 7.16667 13C7.47609 13 7.77283 13.1229 7.99162 13.3417C8.21042 13.5605 8.33333 13.8572 8.33333 14.1667Z"
-                      fill="#1E1E1E" />
-                  </svg>
-                  <p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm">08/12</p>
-                  <p class="fs-16 fs-md-20 fw-medium line-height-sm">14:30</p>
-                </div>
-              </div>
-              <div class="d-flex justify-content-between align-items-center w-100 mb-8 mb-md-16">
-                <p class="fs-16 fs-md-20 fw-medium line-height-sm">購物車內容</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- modal 購物車 - 下單成功 -->
-      <div class="modal fade" id="modal-successfullyOrdered" data-bs-backdrop="static" data-bs-keyboard="false"
-        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-storeOrder-menu modal-content border-radius-24">
-            <div class="modal-header d-flex flex-column border-0 mb-12 mb-md-40 p-0 ">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-0 mb-32 mb-md-40">
-              <div class="text-center mb-20 mb-md-40">
-                <p class="text-gray-01 fw-bold line-height-sm fs-20 fs-md-24">訂購成功</p>
-              </div>
-              <div class="d-flex justify-content-between align-items-center w-100 
-                mb-16 mb-md-20">
-                <p class="text-gray-01 fs-16 fs-md-20 fw-medium line-height-sm">享用日期</p>
-                <div class="text-gray-01 d-flex justify-content-center align-items-center ">
-                  <svg class="me-8" width="23" height="23" viewBox="0 0 26 26" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M1.3335 12.9998C1.3335 8.60034 1.3335 6.4 2.70083 5.03384C4.067 3.6665 6.26733 3.6665 10.6668 3.6665H15.3335C19.733 3.6665 21.9333 3.6665 23.2995 5.03384C24.6668 6.4 24.6668 8.60034 24.6668 12.9998V15.3332C24.6668 19.7327 24.6668 21.933 23.2995 23.2992C21.9333 24.6665 19.733 24.6665 15.3335 24.6665H10.6668C6.26733 24.6665 4.067 24.6665 2.70083 23.2992C1.3335 21.933 1.3335 19.7327 1.3335 15.3332V12.9998Z"
-                      stroke="#1E1E1E" stroke-width="2" />
-                    <path d="M7.16699 3.6665V1.9165M18.8337 3.6665V1.9165M1.91699 9.49984H24.0837" stroke="#1E1E1E"
-                      stroke-width="2" stroke-linecap="round" />
-                    <path
-                      d="M20 18.8333C20 19.1428 19.8771 19.4395 19.6583 19.6583C19.4395 19.8771 19.1428 20 18.8333 20C18.5239 20 18.2272 19.8771 18.0084 19.6583C17.7896 19.4395 17.6667 19.1428 17.6667 18.8333C17.6667 18.5239 17.7896 18.2272 18.0084 18.0084C18.2272 17.7896 18.5239 17.6667 18.8333 17.6667C19.1428 17.6667 19.4395 17.7896 19.6583 18.0084C19.8771 18.2272 20 18.5239 20 18.8333ZM20 14.1667C20 14.4761 19.8771 14.7728 19.6583 14.9916C19.4395 15.2104 19.1428 15.3333 18.8333 15.3333C18.5239 15.3333 18.2272 15.2104 18.0084 14.9916C17.7896 14.7728 17.6667 14.4761 17.6667 14.1667C17.6667 13.8572 17.7896 13.5605 18.0084 13.3417C18.2272 13.1229 18.5239 13 18.8333 13C19.1428 13 19.4395 13.1229 19.6583 13.3417C19.8771 13.5605 20 13.8572 20 14.1667ZM14.1667 18.8333C14.1667 19.1428 14.0437 19.4395 13.825 19.6583C13.6062 19.8771 13.3094 20 13 20C12.6906 20 12.3938 19.8771 12.175 19.6583C11.9562 19.4395 11.8333 19.1428 11.8333 18.8333C11.8333 18.5239 11.9562 18.2272 12.175 18.0084C12.3938 17.7896 12.6906 17.6667 13 17.6667C13.3094 17.6667 13.6062 17.7896 13.825 18.0084C14.0437 18.2272 14.1667 18.5239 14.1667 18.8333ZM14.1667 14.1667C14.1667 14.4761 14.0437 14.7728 13.825 14.9916C13.6062 15.2104 13.3094 15.3333 13 15.3333C12.6906 15.3333 12.3938 15.2104 12.175 14.9916C11.9562 14.7728 11.8333 14.4761 11.8333 14.1667C11.8333 13.8572 11.9562 13.5605 12.175 13.3417C12.3938 13.1229 12.6906 13 13 13C13.3094 13 13.6062 13.1229 13.825 13.3417C14.0437 13.5605 14.1667 13.8572 14.1667 14.1667ZM8.33333 18.8333C8.33333 19.1428 8.21042 19.4395 7.99162 19.6583C7.77283 19.8771 7.47609 20 7.16667 20C6.85725 20 6.5605 19.8771 6.34171 19.6583C6.12292 19.4395 6 19.1428 6 18.8333C6 18.5239 6.12292 18.2272 6.34171 18.0084C6.5605 17.7896 6.85725 17.6667 7.16667 17.6667C7.47609 17.6667 7.77283 17.7896 7.99162 18.0084C8.21042 18.2272 8.33333 18.5239 8.33333 18.8333ZM8.33333 14.1667C8.33333 14.4761 8.21042 14.7728 7.99162 14.9916C7.77283 15.2104 7.47609 15.3333 7.16667 15.3333C6.85725 15.3333 6.5605 15.2104 6.34171 14.9916C6.12292 14.7728 6 14.4761 6 14.1667C6 13.8572 6.12292 13.5605 6.34171 13.3417C6.5605 13.1229 6.85725 13 7.16667 13C7.47609 13 7.77283 13.1229 7.99162 13.3417C8.21042 13.5605 8.33333 13.8572 8.33333 14.1667Z"
-                      fill="#1E1E1E" />
-                  </svg>
-                  <p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm">08/12</p>
-                  <p class="fs-16 fs-md-20 fw-medium line-height-sm">14:30</p>
-                </div>
-              </div>
-              <div class="d-flex justify-content-between align-items-center w-100 mb-16 mb-md-64">
-                <p class="text-gray-01  fs-16 fs-md-20 fw-medium line-height-sm">訂購日期</p>
-                <div class="text-gray-01 d-flex justify-content-center align-items-center ">
-                  <svg class="me-8" width="23" height="23" viewBox="0 0 26 26" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M1.3335 12.9998C1.3335 8.60034 1.3335 6.4 2.70083 5.03384C4.067 3.6665 6.26733 3.6665 10.6668 3.6665H15.3335C19.733 3.6665 21.9333 3.6665 23.2995 5.03384C24.6668 6.4 24.6668 8.60034 24.6668 12.9998V15.3332C24.6668 19.7327 24.6668 21.933 23.2995 23.2992C21.9333 24.6665 19.733 24.6665 15.3335 24.6665H10.6668C6.26733 24.6665 4.067 24.6665 2.70083 23.2992C1.3335 21.933 1.3335 19.7327 1.3335 15.3332V12.9998Z"
-                      stroke="#1E1E1E" stroke-width="2" />
-                    <path d="M7.16699 3.6665V1.9165M18.8337 3.6665V1.9165M1.91699 9.49984H24.0837" stroke="#1E1E1E"
-                      stroke-width="2" stroke-linecap="round" />
-                    <path
-                      d="M20 18.8333C20 19.1428 19.8771 19.4395 19.6583 19.6583C19.4395 19.8771 19.1428 20 18.8333 20C18.5239 20 18.2272 19.8771 18.0084 19.6583C17.7896 19.4395 17.6667 19.1428 17.6667 18.8333C17.6667 18.5239 17.7896 18.2272 18.0084 18.0084C18.2272 17.7896 18.5239 17.6667 18.8333 17.6667C19.1428 17.6667 19.4395 17.7896 19.6583 18.0084C19.8771 18.2272 20 18.5239 20 18.8333ZM20 14.1667C20 14.4761 19.8771 14.7728 19.6583 14.9916C19.4395 15.2104 19.1428 15.3333 18.8333 15.3333C18.5239 15.3333 18.2272 15.2104 18.0084 14.9916C17.7896 14.7728 17.6667 14.4761 17.6667 14.1667C17.6667 13.8572 17.7896 13.5605 18.0084 13.3417C18.2272 13.1229 18.5239 13 18.8333 13C19.1428 13 19.4395 13.1229 19.6583 13.3417C19.8771 13.5605 20 13.8572 20 14.1667ZM14.1667 18.8333C14.1667 19.1428 14.0437 19.4395 13.825 19.6583C13.6062 19.8771 13.3094 20 13 20C12.6906 20 12.3938 19.8771 12.175 19.6583C11.9562 19.4395 11.8333 19.1428 11.8333 18.8333C11.8333 18.5239 11.9562 18.2272 12.175 18.0084C12.3938 17.7896 12.6906 17.6667 13 17.6667C13.3094 17.6667 13.6062 17.7896 13.825 18.0084C14.0437 18.2272 14.1667 18.5239 14.1667 18.8333ZM14.1667 14.1667C14.1667 14.4761 14.0437 14.7728 13.825 14.9916C13.6062 15.2104 13.3094 15.3333 13 15.3333C12.6906 15.3333 12.3938 15.2104 12.175 14.9916C11.9562 14.7728 11.8333 14.4761 11.8333 14.1667C11.8333 13.8572 11.9562 13.5605 12.175 13.3417C12.3938 13.1229 12.6906 13 13 13C13.3094 13 13.6062 13.1229 13.825 13.3417C14.0437 13.5605 14.1667 13.8572 14.1667 14.1667ZM8.33333 18.8333C8.33333 19.1428 8.21042 19.4395 7.99162 19.6583C7.77283 19.8771 7.47609 20 7.16667 20C6.85725 20 6.5605 19.8771 6.34171 19.6583C6.12292 19.4395 6 19.1428 6 18.8333C6 18.5239 6.12292 18.2272 6.34171 18.0084C6.5605 17.7896 6.85725 17.6667 7.16667 17.6667C7.47609 17.6667 7.77283 17.7896 7.99162 18.0084C8.21042 18.2272 8.33333 18.5239 8.33333 18.8333ZM8.33333 14.1667C8.33333 14.4761 8.21042 14.7728 7.99162 14.9916C7.77283 15.2104 7.47609 15.3333 7.16667 15.3333C6.85725 15.3333 6.5605 15.2104 6.34171 14.9916C6.12292 14.7728 6 14.4761 6 14.1667C6 13.8572 6.12292 13.5605 6.34171 13.3417C6.5605 13.1229 6.85725 13 7.16667 13C7.47609 13 7.77283 13.1229 7.99162 13.3417C8.21042 13.5605 8.33333 13.8572 8.33333 14.1667Z"
-                      fill="#1E1E1E" />
-                  </svg>
-                  <p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm">08/11</p>
-                  <p class="fs-16 fs-md-20 fw-medium line-height-sm">10:30</p>
-                </div>
-              </div>
-              <div class="d-flex justify-content-between align-items-center  w-100">
-                <p class="fw-md-bold fw-medium fs-16 fs-md-20 line-height-sm">總計金額</p>
-                <p class="fw-md-bold fw-medium fs-20 fs-md-24 line-height-sm">$65</p>
-              </div>
-            </div>
-            <div class="modal-footer p-0  border-0 text-brand-02 ">
-              <p class="fs-md-20">※ 若當日無請客人，請盡速與團主付款，謝謝您！</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- modal 看評價 - 寫評價 -->
-      <div class="modal fade" id="modal-WriteReview" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-storeOrder-menu modal-content border-radius-24">
-            <div class="modal-header-top d-flex justify-content-between align-items-center w-100 mb-24">
-              <p class="fs-20 fs-md-24 line-height-sm fw-bold text-gray-01" id="staticBackdropLabel">茶源 ChaSource</p>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body p-0 mb-8">
-              <div class="starInModal mb-8">
-                <span class="star" onclick="rateStar(1)">&#9733;</span>
-                <span class="star" onclick="rateStar(2)">&#9733;</span>
-                <span class="star" onclick="rateStar(3)">&#9733;</span>
-                <span class="star" onclick="rateStar(4)">&#9733;</span>
-                <span class="star" onclick="rateStar(5)">&#9733;</span>
-              </div>
-              <textarea placeholder="請輸入評價"
-                class="memberEvaluate mt-8 border-1 border-gray-04 rounded-1 w-100 bg-white text-dark "></textarea>
-              <div class="textareaLength mx-auto text-gray-02 fs-16 d-flex justify-content-end ">字數限制&ensp;0/100</div>
-            </div>
-            <div class="modal-footer border-0 w-100">
-              <button type="button" class="btn btn-brand-03 border-radius-40 py-12 px-24 text-white 
-                w-100">
-                <p class="text-white ">送出</p>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- 全部菜單 -->
-      <div class="layout-content pt-md-84 pb-md-80 py-32">
-        <div class="container">
-          <div class="allMenu mb-16 mb-sm-32">
-            <div class="allMenu-header d-flex justify-content-between  align-items-center mb-24 mb-sm-36">
-              <h2 class="fs-md-32 fs-24 fw-bold lh-sm">全部菜單</h2>
-              <button
-                class="shopping-cart d-sm-none d-flex justify-content-center align-items-center px-24 py-10 py-sm-14 border-radius-40 btn btn-brand-03 btn-hover-brand-01"
+                class="shopping-cart d-none d-sm-flex justify-content-center align-items-center  btn btn-brand-03 px-24 py-10 py-sm-14 border-radius-40 btn-hover-brand-01"
                 data-bs-toggle="modal" data-bs-target="#modal-shppingCart-order">
                 <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20"
                   height="20"></iconify-icon>
-                <p class="text-white word-break-keep-all">購物車</p>
+                <p class="text-white word-break-keep-all fs-sm-20 fs-16">購物車</p>
               </button>
             </div>
-            <div class="allMenu-content">
-              <div class="swiper mySwiper pe-1">
-                <div class="customMenu swiper-wrapper py-3">
-                  <!-- <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+          </div>
+        </div>
+
+        <!-- 開團中 collapse -->
+        <div class="collapse" id="collapseTogetherEvent">
+          <div class="py-md-80 pt-20 pb-32 mx-auto bg-bg-2 border-radius-md-020000 border-radius-010000">
+            <div class="layout-content container">
+              <!-- title & see more -->
+              <div class="d-flex justify-content-between mb-md-36 mb-16">
+                <h3 class="fs-md-32 fs-24 fw-bold lh-sm">開團中</h3>
+                <a class="see-more d-flex align-items-center fs-16 fs-md-20 lh-sm fw-medium text-gray-05" href="#">看更多
+                  <svg class="svg-hover" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 8 11"
+                    fill="none">
+                    <path
+                      d="M0.284731 9.00931L0.284731 1.99264C0.28433 1.71563 0.362386 1.44417 0.509864 1.20968C0.657341 0.975188 0.868211 0.787258 1.11806 0.66764C1.41452 0.527612 1.74434 0.47368 2.06995 0.511987C2.39557 0.550295 2.70387 0.679301 2.95973 0.884306L7.20973 4.39264C7.36859 4.53032 7.49599 4.70054 7.58331 4.89177C7.67063 5.08299 7.71582 5.29075 7.71582 5.50097C7.71582 5.71119 7.67063 5.91895 7.58331 6.11018C7.49599 6.30141 7.36859 6.47163 7.20973 6.60931L2.95973 10.1176C2.70387 10.3226 2.39557 10.4517 2.06995 10.49C1.74434 10.5283 1.41452 10.4743 1.11806 10.3343C0.86821 10.2147 0.657341 10.0268 0.509863 9.79227C0.362385 9.55778 0.28433 9.28632 0.284731 9.00931Z"
+                      fill="#8B8B8A" />
+                  </svg>
+                </a>
+              </div>
+              <!-- content -->
+              <div class="position-relative swiper-container">
+                <div class="swiper togetherEventSwiper">
+                  <ul class="swiper-wrapper">
+                    <!-- round 1 -->
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
+                            ChaSource</p>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
+                                height="26"></iconify-icon>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
+                            ChaSource</p>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
+                                height="26"></iconify-icon>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
+                            ChaSource</p>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
+                                height="26"></iconify-icon>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
+                            ChaSource</p>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
+                                height="26"></iconify-icon>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <!-- round 2 -->
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
+                            ChaSource</p>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
+                                height="26"></iconify-icon>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
+                            ChaSource</p>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
+                                height="26"></iconify-icon>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
+                            ChaSource</p>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
+                                height="26"></iconify-icon>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                    <li class="swiper-slide">
+                      <a href="#"
+                        class="d-flex flex-md-column align-items-center justify-content-center h-100 w-100 p-12 p-lg-16 bg-white border-radius-40401616 border-radius-md-80801616  border-hover-line">
+                        <img class="me-12 me-md-0 mb-md-20 flex-grow-1 event-img-RWD"
+                          src="../assets/images/store-logo/store-01-s.jpg" alt="togetherevetn-img">
+                        <div class="d-flex flex-column justify-content-between w-100 ">
+                          <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">茶源
+                            ChaSource</p>
+                          <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
+                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
+                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
+                              <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
+                                height="26"></iconify-icon>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">08/12</time>
+                              <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-md-20 ">14:30</time>
+                            </div>
+                          </div>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="position-absolute swiper-button-next pictures-replace-text d-none d-lg-block">
+                </div>
+                <div class="position-absolute swiper-button-prev pictures-replace-text d-none d-lg-block">
+                </div>
+                <div class="swiper-pagination position-absolute top-100 start-50 translate-middle d-none d-md-block">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- feedback collapse -->
+        <div class="collapse d-sm-none bg-bg-1 " id="feedbackTogetherEvent">
+          <%- include('./layout/store-order-feedback.ejs'); -%>
+        </div>
+        <!-- modal 點餐 -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-storeOrder-menu modal-content border-radius-24">
+              <div class="modal-header d-flex flex-column border-0 mb-32 mb-md-40 p-0 ">
+                <div class="modal-header-top d-flex justify-content-between align-items-center w-100 mb-8 mb-md-16">
+                  <h5 class="modal-title" id="staticBackdropLabel">翠綠</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="cold-hot d-flex  align-items-center w-100 mb-8 mb-md-16">
+                  <div class="cold d-flex justify-content-center align-items-center ">
+                    <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                    <span class="me-16">25</span>
+                  </div>
+                  <div class="hot d-flex justify-content-center align-items-center">
+                    <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                    <span class="">25</span>
+                  </div>
+                </div>
+                <p>以優質綠茶製成，滋味清爽宜人，是您健康生活的最佳夥伴。</p>
+              </div>
+              <div class="modal-body p-0 mb-40">
+                <h6 class="mb-12 text-gray-01 fs-20 line-height-sm">溫度選項</h6>
+                <ul class="mb-32 mb-md-40">
+                  <li
+                    class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                    <input class="input-radio-style" type="radio" name="temperature" id="normal_ice" value="正常冰"
+                      checked>
+                    <label for="normal_ice" class="fs-16 fs-md-20 radio-label">正常冰</label>
+                  </li>
+                  <li
+                    class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                    <input class="input-radio-style" type="radio" name="temperature" id="smal_ice" value="少冰（8 分冰）">
+                    <label for="smal_ice" class="fs-16 fs-md-20 radio-label">少冰（8 分冰）</label>
+                  </li>
+                  <li
+                    class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                    <input class="input-radio-style" type="radio" name="temperature" id="tiny_ice" value="微冰（3 分冰）">
+                    <label for="tiny_ice" class="fs-16 fs-md-20 radio-label">微冰（3 分冰）</label>
+                  </li>
+                  <li
+                    class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                    <input class="input-radio-style" type="radio" name="temperature" id="no_ice" value="去冰">
+                    <label for="no_ice" class="fs-16 fs-md-20 radio-label">去冰</label>
+                  </li>
+                  <li
+                    class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                    <input class="input-radio-style" type="radio" name="temperature" id="warm" value="溫">
+                    <label for="warm" class="fs-16 fs-md-20 radio-label">溫</label>
+                  </li>
+                  <li
+                    class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                    <input class="input-radio-style" type="radio" name="temperature" id="hot" value="熱">
+                    <label for="hot" class="fs-16 fs-md-20 radio-label">熱</label>
+                  </li>
+                </ul>
+                <h6 class="mb-12 text-gray-01 fs-20 line-height-sm">甜度選擇</h6>
+                <ul class="mb-32 mb-md-40">
+                  <li
+                    class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                    <input class="input-radio-style" type="radio" name="sweetness" id="standard_sweetness"
+                      value="標準（10 分糖）">
+                    <label for="standard_sweetness" class="fs-16 fs-md-20 radio-label">標準（10 分糖）</label>
+                  </li>
+                  <li
+                    class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                    <input class="input-radio-style" type="radio" name="sweetness" id="less_sugar" value="少糖（7 分糖）">
+                    <label for="less_sugar" class="fs-16 fs-md-20 radio-label">少糖（7 分糖）</label>
+                  </li>
+                  <li
+                    class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                    <input class="input-radio-style" type="radio" name="sweetness" id="half_sugar" value="半糖（5 分糖）"
+                      checked>
+                    <label for="half_sugar" class="fs-16 fs-md-20 radio-label">半糖（5 分糖）</label>
+                  </li>
+                  <li
+                    class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                    <input class="input-radio-style" type="radio" name="sweetness" id="slight_sugar" value="微糖（3 分糖）">
+                    <label for="slight_sugar" class="fs-16 fs-md-20 radio-label">微糖（3 分糖）</label>
+                  </li>
+                  <li
+                    class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                    <input class="input-radio-style" type="radio" name="sweetness" id="sugar_free" value="無糖">
+                    <label for="sugar_free" class="fs-16 fs-md-20 radio-label">無糖</label>
+                  </li>
+                </ul>
+                <h6 class="mb-12 text-gray-01 fs-20 line-height-sm">加料</h6>
+                <p class="mb-12 text-gray-02 fs-16 ">最多可選 2 個項目</p>
+                <ul class="mb-32 mb-md-40">
+                  <li
+                    class="py-12 d-flex justify-content-end order-1 align-items-center border-bottom border-1 border-gray-03 ">
+                    <label class="checkboxStyle-content fs-16 fs-md-20 d-flex  align-items-center "
+                      for="fresh_milk">升級鮮奶<span class="ms-16">+$10.00</span>
+                      <input class="checkboxStyle-checkbox bg-pink" type="checkbox" id="fresh_milk" name="subscribe">
+                      <span class="checkboxStyle-checkmark"></span>
+                    </label>
+                  </li>
+                  <li
+                    class="py-12 d-flex justify-content-end order-1 align-items-center border-bottom border-1 border-gray-03 ">
+                    <label class="checkboxStyle-content fs-16 fs-md-20 d-flex  align-items-center " for="pearl">珍珠<span
+                        class="ms-16">+$10.00</span>
+                      <input class="checkboxStyle-checkbox bg-pink" type="checkbox" id="pearl" name="subscribe">
+                      <span class="checkboxStyle-checkmark"></span>
+                    </label>
+                  </li>
+                  <li
+                    class="py-12 d-flex justify-content-end order-1 align-items-center border-bottom border-1 border-gray-03 ">
+                    <label class="checkboxStyle-content fs-16 fs-md-20 d-flex  align-items-center "
+                      for="brown_sugar">黑糖<span class="ms-16">+$10.00</span>
+                      <input class="checkboxStyle-checkbox bg-pink" type="checkbox" id="brown_sugar" name="subscribe">
+                      <span class="checkboxStyle-checkmark"></span>
+                    </label>
+                  </li>
+                  <li
+                    class="py-12 d-flex justify-content-end order-1 align-items-center border-bottom border-1 border-gray-03 ">
+                    <label class="checkboxStyle-content fs-16 fs-md-20 d-flex  align-items-center " for="agar">寒天晶球<span
+                        class="ms-16">+$10.00</span>
+                      <input class="checkboxStyle-checkbox bg-pink" type="checkbox" id="agar" name="subscribe">
+                      <span class="checkboxStyle-checkmark"></span>
+                    </label>
+                  </li>
+                </ul>
+                <div class="">
+                  <div class="">
+                    <label for="remark" class="mb-24 text-gray-01 fs-20 line-height-sm">備註</label>
+                    <textarea rows="3" cols="30"
+                      class="no-resize w-100 mb-32 mb-md-32 border-radius-4 border border-1 border-gray-03"
+                      name="adding_materials" id="remark"></textarea>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <label for="number" class="text-gray-01 fs-20 line-height-sm">數量</label>
+                    <div class="btn-group border-radius-40 border border-2 py-12 px-16" role="group"
+                      aria-label="Basic ">
+                      <button type="button" class="btn btn-white border-radius-400040">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path
+                            d="M18 12.998H6C5.73478 12.998 5.48043 12.8927 5.29289 12.7052C5.10536 12.5176 5 12.2633 5 11.998C5 11.7328 5.10536 11.4785 5.29289 11.2909C5.48043 11.1034 5.73478 10.998 6 10.998H18C18.2652 10.998 18.5196 11.1034 18.7071 11.2909C18.8946 11.4785 19 11.7328 19 11.998C19 12.2633 18.8946 12.5176 18.7071 12.7052C18.5196 12.8927 18.2652 12.998 18 12.998Z"
+                            fill="#8B8B8A" />
+                        </svg>
+                      </button>
+                      <input style="width: 35px;" type="text" class="text-brand-02 mx-8 text-center border border-0"
+                        value="1" id="number">
+                      <button type="button" class="btn btn-white border-radius-040400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path
+                            d="M18 12.998H13V17.998C13 18.2633 12.8946 18.5176 12.7071 18.7052C12.5196 18.8927 12.2652 18.998 12 18.998C11.7348 18.998 11.4804 18.8927 11.2929 18.7052C11.1054 18.5176 11 18.2633 11 17.998V12.998H6C5.73478 12.998 5.48043 12.8927 5.29289 12.7052C5.10536 12.5176 5 12.2633 5 11.998C5 11.7328 5.10536 11.4785 5.29289 11.2909C5.48043 11.1034 5.73478 10.998 6 10.998H11V5.99805C11 5.73283 11.1054 5.47848 11.2929 5.29094C11.4804 5.1034 11.7348 4.99805 12 4.99805C12.2652 4.99805 12.5196 5.1034 12.7071 5.29094C12.8946 5.47848 13 5.73283 13 5.99805V10.998H18C18.2652 10.998 18.5196 11.1034 18.7071 11.2909C18.8946 11.4785 19 11.7328 19 11.998C19 12.2633 18.8946 12.5176 18.7071 12.7052C18.5196 12.8927 18.2652 12.998 18 12.998Z"
+                            fill="#8B8B8A" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="modal-footer p-0  border-0 text-white ">
+                <button type="button" class="btn btn-brand-03 border-radius-40 py-12 px-24
+                d-flex justify-content-center align-items-center w-100 ">
+                  <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20"
+                    height="20"></iconify-icon>
+                  <p class="text-white me-4 me-sm-8">新增至購物車‧</p>
+                  <p class="text-white ">$25.00</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- modal 建立揪團 -->
+        <div class="modal fade" id="modal-CreateGroup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-storeOrder-menu modal-content border-radius-24">
+              <div class="modal-header d-flex flex-column border-0 mb-32 mb-md-40 p-0 ">
+                <div class="modal-header-top d-flex justify-content-between align-items-center w-100 mb-8 mb-md-16">
+                  <p class="fs-20 fs-md-24 line-height-sm fw-bold text-gray-01" id="staticBackdropLabel"><span
+                      class="">黃莉琳</span> 的開團</p>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="d-flex justify-content-between align-items-center w-100 mb-8 mb-md-16">
+                  <p class="text-gray-01  fw-normal">訂購店家</p>
+                  <p class="text-gray-01">茶源 ChaSource</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center w-100">
+                  <p class="text-gray-01">外送地點</p>
+                  <p class="text-gray-01">Fat Together Company</p>
+                </div>
+              </div>
+              <div class="modal-body p-0 mb-40">
+                <label class="mb-12 text-gray-01 fs-20 line-height-sm" for="enjoymentDate">享用日期</label>
+                <input
+                  class="dateControl w-100 mb-3 border-radius-16 border border-2 border-gray-04 px-14 py-12 mb-32 mb-md-40"
+                  type="text" id="enjoymentDate" name="enjoymentDate" placeholder="日期" style="height: 50px;">
+                <label class="mb-12 text-gray-01 fs-20 line-height-sm" for="orderTerm">訂購期限</label>
+                <input
+                  class="dateControl w-100 mb-3 border-radius-16 border border-2 border-gray-04 px-14 py-12 mb-32 mb-md-40"
+                  type="text" id="orderTerm" name="orderTerm" placeholder="日期" style="height: 50px;">
+                <label class="mb-12 text-gray-01 fs-20 line-height-sm" for="Payer">付款人</label>
+                <select
+                  class="select-payer text-gray-03 w-100 border-radius-16 border border-2 border-gray-04 px-14 py-12 mb-32 mb-md-40"
+                  id="Payer" name="Payer">
+                  <option class="" disabled selected>請選擇付款人</option>
+                  <option value="陳冠廷">陳冠廷</option>
+                  <option value="盧子晴">盧子晴</option>
+                  <option value="黃莉琳">黃莉琳</option>
+                </select>
+              </div>
+              <div class="modal-footer p-0  border-0 text-white ">
+                <button type="button" class="btn btn-brand-03 border-radius-40 py-12 px-24
+                d-flex justify-content-center align-items-center w-100 " data-bs-toggle="modal"
+                  data-bs-target="#modal-successfullyGroup">
+                  <p class="text-white ">建立開團</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- modal 開團 - 開團成功 -->
+        <div class="modal fade" id="modal-successfullyGroup" data-bs-backdrop="static" data-bs-keyboard="false"
+          tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-storeOrder-menu modal-content border-radius-24">
+              <div class="modal-header d-flex flex-column border-0 mb-12 mb-md-40 p-0 ">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body p-0 mb-32 mb-md-40">
+                <div class="text-center mb-20 mb-md-40">
+                  <p class="text-gray-01 fw-bold line-height-sm fs-20 fs-md-24">建立成功</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center w-100 
+                mb-16 mb-md-20">
+                  <p class="text-gray-01 fs-16 fs-md-20 fw-medium line-height-sm">享用日期</p>
+                  <div class="text-gray-01 d-flex justify-content-center align-items-center ">
+                    <svg class="me-8" width="23" height="23" viewBox="0 0 26 26" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1.3335 12.9998C1.3335 8.60034 1.3335 6.4 2.70083 5.03384C4.067 3.6665 6.26733 3.6665 10.6668 3.6665H15.3335C19.733 3.6665 21.9333 3.6665 23.2995 5.03384C24.6668 6.4 24.6668 8.60034 24.6668 12.9998V15.3332C24.6668 19.7327 24.6668 21.933 23.2995 23.2992C21.9333 24.6665 19.733 24.6665 15.3335 24.6665H10.6668C6.26733 24.6665 4.067 24.6665 2.70083 23.2992C1.3335 21.933 1.3335 19.7327 1.3335 15.3332V12.9998Z"
+                        stroke="#1E1E1E" stroke-width="2" />
+                      <path d="M7.16699 3.6665V1.9165M18.8337 3.6665V1.9165M1.91699 9.49984H24.0837" stroke="#1E1E1E"
+                        stroke-width="2" stroke-linecap="round" />
+                      <path
+                        d="M20 18.8333C20 19.1428 19.8771 19.4395 19.6583 19.6583C19.4395 19.8771 19.1428 20 18.8333 20C18.5239 20 18.2272 19.8771 18.0084 19.6583C17.7896 19.4395 17.6667 19.1428 17.6667 18.8333C17.6667 18.5239 17.7896 18.2272 18.0084 18.0084C18.2272 17.7896 18.5239 17.6667 18.8333 17.6667C19.1428 17.6667 19.4395 17.7896 19.6583 18.0084C19.8771 18.2272 20 18.5239 20 18.8333ZM20 14.1667C20 14.4761 19.8771 14.7728 19.6583 14.9916C19.4395 15.2104 19.1428 15.3333 18.8333 15.3333C18.5239 15.3333 18.2272 15.2104 18.0084 14.9916C17.7896 14.7728 17.6667 14.4761 17.6667 14.1667C17.6667 13.8572 17.7896 13.5605 18.0084 13.3417C18.2272 13.1229 18.5239 13 18.8333 13C19.1428 13 19.4395 13.1229 19.6583 13.3417C19.8771 13.5605 20 13.8572 20 14.1667ZM14.1667 18.8333C14.1667 19.1428 14.0437 19.4395 13.825 19.6583C13.6062 19.8771 13.3094 20 13 20C12.6906 20 12.3938 19.8771 12.175 19.6583C11.9562 19.4395 11.8333 19.1428 11.8333 18.8333C11.8333 18.5239 11.9562 18.2272 12.175 18.0084C12.3938 17.7896 12.6906 17.6667 13 17.6667C13.3094 17.6667 13.6062 17.7896 13.825 18.0084C14.0437 18.2272 14.1667 18.5239 14.1667 18.8333ZM14.1667 14.1667C14.1667 14.4761 14.0437 14.7728 13.825 14.9916C13.6062 15.2104 13.3094 15.3333 13 15.3333C12.6906 15.3333 12.3938 15.2104 12.175 14.9916C11.9562 14.7728 11.8333 14.4761 11.8333 14.1667C11.8333 13.8572 11.9562 13.5605 12.175 13.3417C12.3938 13.1229 12.6906 13 13 13C13.3094 13 13.6062 13.1229 13.825 13.3417C14.0437 13.5605 14.1667 13.8572 14.1667 14.1667ZM8.33333 18.8333C8.33333 19.1428 8.21042 19.4395 7.99162 19.6583C7.77283 19.8771 7.47609 20 7.16667 20C6.85725 20 6.5605 19.8771 6.34171 19.6583C6.12292 19.4395 6 19.1428 6 18.8333C6 18.5239 6.12292 18.2272 6.34171 18.0084C6.5605 17.7896 6.85725 17.6667 7.16667 17.6667C7.47609 17.6667 7.77283 17.7896 7.99162 18.0084C8.21042 18.2272 8.33333 18.5239 8.33333 18.8333ZM8.33333 14.1667C8.33333 14.4761 8.21042 14.7728 7.99162 14.9916C7.77283 15.2104 7.47609 15.3333 7.16667 15.3333C6.85725 15.3333 6.5605 15.2104 6.34171 14.9916C6.12292 14.7728 6 14.4761 6 14.1667C6 13.8572 6.12292 13.5605 6.34171 13.3417C6.5605 13.1229 6.85725 13 7.16667 13C7.47609 13 7.77283 13.1229 7.99162 13.3417C8.21042 13.5605 8.33333 13.8572 8.33333 14.1667Z"
+                        fill="#1E1E1E" />
+                    </svg>
+                    <p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm">08/12</p>
+                    <p class="fs-16 fs-md-20 fw-medium line-height-sm">14:30</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center w-100 mb-16 mb-md-64">
+                  <p class="text-gray-01  fs-16 fs-md-20 fw-medium line-height-sm">訂購日期</p>
+                  <div class="text-gray-01 d-flex justify-content-center align-items-center ">
+                    <svg class="me-8" width="23" height="23" viewBox="0 0 26 26" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1.3335 12.9998C1.3335 8.60034 1.3335 6.4 2.70083 5.03384C4.067 3.6665 6.26733 3.6665 10.6668 3.6665H15.3335C19.733 3.6665 21.9333 3.6665 23.2995 5.03384C24.6668 6.4 24.6668 8.60034 24.6668 12.9998V15.3332C24.6668 19.7327 24.6668 21.933 23.2995 23.2992C21.9333 24.6665 19.733 24.6665 15.3335 24.6665H10.6668C6.26733 24.6665 4.067 24.6665 2.70083 23.2992C1.3335 21.933 1.3335 19.7327 1.3335 15.3332V12.9998Z"
+                        stroke="#1E1E1E" stroke-width="2" />
+                      <path d="M7.16699 3.6665V1.9165M18.8337 3.6665V1.9165M1.91699 9.49984H24.0837" stroke="#1E1E1E"
+                        stroke-width="2" stroke-linecap="round" />
+                      <path
+                        d="M20 18.8333C20 19.1428 19.8771 19.4395 19.6583 19.6583C19.4395 19.8771 19.1428 20 18.8333 20C18.5239 20 18.2272 19.8771 18.0084 19.6583C17.7896 19.4395 17.6667 19.1428 17.6667 18.8333C17.6667 18.5239 17.7896 18.2272 18.0084 18.0084C18.2272 17.7896 18.5239 17.6667 18.8333 17.6667C19.1428 17.6667 19.4395 17.7896 19.6583 18.0084C19.8771 18.2272 20 18.5239 20 18.8333ZM20 14.1667C20 14.4761 19.8771 14.7728 19.6583 14.9916C19.4395 15.2104 19.1428 15.3333 18.8333 15.3333C18.5239 15.3333 18.2272 15.2104 18.0084 14.9916C17.7896 14.7728 17.6667 14.4761 17.6667 14.1667C17.6667 13.8572 17.7896 13.5605 18.0084 13.3417C18.2272 13.1229 18.5239 13 18.8333 13C19.1428 13 19.4395 13.1229 19.6583 13.3417C19.8771 13.5605 20 13.8572 20 14.1667ZM14.1667 18.8333C14.1667 19.1428 14.0437 19.4395 13.825 19.6583C13.6062 19.8771 13.3094 20 13 20C12.6906 20 12.3938 19.8771 12.175 19.6583C11.9562 19.4395 11.8333 19.1428 11.8333 18.8333C11.8333 18.5239 11.9562 18.2272 12.175 18.0084C12.3938 17.7896 12.6906 17.6667 13 17.6667C13.3094 17.6667 13.6062 17.7896 13.825 18.0084C14.0437 18.2272 14.1667 18.5239 14.1667 18.8333ZM14.1667 14.1667C14.1667 14.4761 14.0437 14.7728 13.825 14.9916C13.6062 15.2104 13.3094 15.3333 13 15.3333C12.6906 15.3333 12.3938 15.2104 12.175 14.9916C11.9562 14.7728 11.8333 14.4761 11.8333 14.1667C11.8333 13.8572 11.9562 13.5605 12.175 13.3417C12.3938 13.1229 12.6906 13 13 13C13.3094 13 13.6062 13.1229 13.825 13.3417C14.0437 13.5605 14.1667 13.8572 14.1667 14.1667ZM8.33333 18.8333C8.33333 19.1428 8.21042 19.4395 7.99162 19.6583C7.77283 19.8771 7.47609 20 7.16667 20C6.85725 20 6.5605 19.8771 6.34171 19.6583C6.12292 19.4395 6 19.1428 6 18.8333C6 18.5239 6.12292 18.2272 6.34171 18.0084C6.5605 17.7896 6.85725 17.6667 7.16667 17.6667C7.47609 17.6667 7.77283 17.7896 7.99162 18.0084C8.21042 18.2272 8.33333 18.5239 8.33333 18.8333ZM8.33333 14.1667C8.33333 14.4761 8.21042 14.7728 7.99162 14.9916C7.77283 15.2104 7.47609 15.3333 7.16667 15.3333C6.85725 15.3333 6.5605 15.2104 6.34171 14.9916C6.12292 14.7728 6 14.4761 6 14.1667C6 13.8572 6.12292 13.5605 6.34171 13.3417C6.5605 13.1229 6.85725 13 7.16667 13C7.47609 13 7.77283 13.1229 7.99162 13.3417C8.21042 13.5605 8.33333 13.8572 8.33333 14.1667Z"
+                        fill="#1E1E1E" />
+                    </svg>
+                    <p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm">08/11</p>
+                    <p class="fs-16 fs-md-20 fw-medium line-height-sm">10:30</p>
+                  </div>
+                </div>
+                <p class="fs-md-20 text-brand-02 ">※ 您建立的揪團已經開放訂購！</p>
+              </div>
+              <div class="modal-footer border-0 w-100 d-flex justify-content-start">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- modal 購物車 - 送出訂單 -->
+        <div class="modal fade" id="modal-shppingCart-order" data-bs-backdrop="static" data-bs-keyboard="false"
+          tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-storeOrder-menu modal-content border-radius-24">
+              <div class="modal-header d-flex flex-column border-0 mb-20 mb-md-24 p-0 ">
+                <div class="modal-header-top d-flex justify-content-between align-items-center w-100 mb-16 mb-md-40">
+                  <p class="fs-20 fs-md-24 line-height-sm fw-bold text-gray-01" id="staticBackdropLabel">茶源 ChaSource
+                  </p>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="d-flex justify-content-between align-items-center w-100 
+                mb-32 mb-md-40">
+                  <p class="text-gray-01  fs-16 fs-md-20 fw-medium line-height-sm">享用日期</p>
+                  <div class="text-gray-01 d-flex justify-content-center align-items-center ">
+                    <svg class="me-8" width="23" height="23" viewBox="0 0 26 26" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1.3335 12.9998C1.3335 8.60034 1.3335 6.4 2.70083 5.03384C4.067 3.6665 6.26733 3.6665 10.6668 3.6665H15.3335C19.733 3.6665 21.9333 3.6665 23.2995 5.03384C24.6668 6.4 24.6668 8.60034 24.6668 12.9998V15.3332C24.6668 19.7327 24.6668 21.933 23.2995 23.2992C21.9333 24.6665 19.733 24.6665 15.3335 24.6665H10.6668C6.26733 24.6665 4.067 24.6665 2.70083 23.2992C1.3335 21.933 1.3335 19.7327 1.3335 15.3332V12.9998Z"
+                        stroke="#1E1E1E" stroke-width="2" />
+                      <path d="M7.16699 3.6665V1.9165M18.8337 3.6665V1.9165M1.91699 9.49984H24.0837" stroke="#1E1E1E"
+                        stroke-width="2" stroke-linecap="round" />
+                      <path
+                        d="M20 18.8333C20 19.1428 19.8771 19.4395 19.6583 19.6583C19.4395 19.8771 19.1428 20 18.8333 20C18.5239 20 18.2272 19.8771 18.0084 19.6583C17.7896 19.4395 17.6667 19.1428 17.6667 18.8333C17.6667 18.5239 17.7896 18.2272 18.0084 18.0084C18.2272 17.7896 18.5239 17.6667 18.8333 17.6667C19.1428 17.6667 19.4395 17.7896 19.6583 18.0084C19.8771 18.2272 20 18.5239 20 18.8333ZM20 14.1667C20 14.4761 19.8771 14.7728 19.6583 14.9916C19.4395 15.2104 19.1428 15.3333 18.8333 15.3333C18.5239 15.3333 18.2272 15.2104 18.0084 14.9916C17.7896 14.7728 17.6667 14.4761 17.6667 14.1667C17.6667 13.8572 17.7896 13.5605 18.0084 13.3417C18.2272 13.1229 18.5239 13 18.8333 13C19.1428 13 19.4395 13.1229 19.6583 13.3417C19.8771 13.5605 20 13.8572 20 14.1667ZM14.1667 18.8333C14.1667 19.1428 14.0437 19.4395 13.825 19.6583C13.6062 19.8771 13.3094 20 13 20C12.6906 20 12.3938 19.8771 12.175 19.6583C11.9562 19.4395 11.8333 19.1428 11.8333 18.8333C11.8333 18.5239 11.9562 18.2272 12.175 18.0084C12.3938 17.7896 12.6906 17.6667 13 17.6667C13.3094 17.6667 13.6062 17.7896 13.825 18.0084C14.0437 18.2272 14.1667 18.5239 14.1667 18.8333ZM14.1667 14.1667C14.1667 14.4761 14.0437 14.7728 13.825 14.9916C13.6062 15.2104 13.3094 15.3333 13 15.3333C12.6906 15.3333 12.3938 15.2104 12.175 14.9916C11.9562 14.7728 11.8333 14.4761 11.8333 14.1667C11.8333 13.8572 11.9562 13.5605 12.175 13.3417C12.3938 13.1229 12.6906 13 13 13C13.3094 13 13.6062 13.1229 13.825 13.3417C14.0437 13.5605 14.1667 13.8572 14.1667 14.1667ZM8.33333 18.8333C8.33333 19.1428 8.21042 19.4395 7.99162 19.6583C7.77283 19.8771 7.47609 20 7.16667 20C6.85725 20 6.5605 19.8771 6.34171 19.6583C6.12292 19.4395 6 19.1428 6 18.8333C6 18.5239 6.12292 18.2272 6.34171 18.0084C6.5605 17.7896 6.85725 17.6667 7.16667 17.6667C7.47609 17.6667 7.77283 17.7896 7.99162 18.0084C8.21042 18.2272 8.33333 18.5239 8.33333 18.8333ZM8.33333 14.1667C8.33333 14.4761 8.21042 14.7728 7.99162 14.9916C7.77283 15.2104 7.47609 15.3333 7.16667 15.3333C6.85725 15.3333 6.5605 15.2104 6.34171 14.9916C6.12292 14.7728 6 14.4761 6 14.1667C6 13.8572 6.12292 13.5605 6.34171 13.3417C6.5605 13.1229 6.85725 13 7.16667 13C7.47609 13 7.77283 13.1229 7.99162 13.3417C8.21042 13.5605 8.33333 13.8572 8.33333 14.1667Z"
+                        fill="#1E1E1E" />
+                    </svg>
+                    <p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm">08/12</p>
+                    <p class="fs-16 fs-md-20 fw-medium line-height-sm">14:30</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center w-100 mb-8 mb-md-16">
+                  <p class="fs-16 fs-md-20 fw-medium line-height-sm">購物車內容</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- modal 購物車 - 下單成功 -->
+        <div class="modal fade" id="modal-successfullyOrdered" data-bs-backdrop="static" data-bs-keyboard="false"
+          tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-storeOrder-menu modal-content border-radius-24">
+              <div class="modal-header d-flex flex-column border-0 mb-12 mb-md-40 p-0 ">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body p-0 mb-32 mb-md-40">
+                <div class="text-center mb-20 mb-md-40">
+                  <p class="text-gray-01 fw-bold line-height-sm fs-20 fs-md-24">訂購成功</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center w-100 
+                mb-16 mb-md-20">
+                  <p class="text-gray-01 fs-16 fs-md-20 fw-medium line-height-sm">享用日期</p>
+                  <div class="text-gray-01 d-flex justify-content-center align-items-center ">
+                    <svg class="me-8" width="23" height="23" viewBox="0 0 26 26" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1.3335 12.9998C1.3335 8.60034 1.3335 6.4 2.70083 5.03384C4.067 3.6665 6.26733 3.6665 10.6668 3.6665H15.3335C19.733 3.6665 21.9333 3.6665 23.2995 5.03384C24.6668 6.4 24.6668 8.60034 24.6668 12.9998V15.3332C24.6668 19.7327 24.6668 21.933 23.2995 23.2992C21.9333 24.6665 19.733 24.6665 15.3335 24.6665H10.6668C6.26733 24.6665 4.067 24.6665 2.70083 23.2992C1.3335 21.933 1.3335 19.7327 1.3335 15.3332V12.9998Z"
+                        stroke="#1E1E1E" stroke-width="2" />
+                      <path d="M7.16699 3.6665V1.9165M18.8337 3.6665V1.9165M1.91699 9.49984H24.0837" stroke="#1E1E1E"
+                        stroke-width="2" stroke-linecap="round" />
+                      <path
+                        d="M20 18.8333C20 19.1428 19.8771 19.4395 19.6583 19.6583C19.4395 19.8771 19.1428 20 18.8333 20C18.5239 20 18.2272 19.8771 18.0084 19.6583C17.7896 19.4395 17.6667 19.1428 17.6667 18.8333C17.6667 18.5239 17.7896 18.2272 18.0084 18.0084C18.2272 17.7896 18.5239 17.6667 18.8333 17.6667C19.1428 17.6667 19.4395 17.7896 19.6583 18.0084C19.8771 18.2272 20 18.5239 20 18.8333ZM20 14.1667C20 14.4761 19.8771 14.7728 19.6583 14.9916C19.4395 15.2104 19.1428 15.3333 18.8333 15.3333C18.5239 15.3333 18.2272 15.2104 18.0084 14.9916C17.7896 14.7728 17.6667 14.4761 17.6667 14.1667C17.6667 13.8572 17.7896 13.5605 18.0084 13.3417C18.2272 13.1229 18.5239 13 18.8333 13C19.1428 13 19.4395 13.1229 19.6583 13.3417C19.8771 13.5605 20 13.8572 20 14.1667ZM14.1667 18.8333C14.1667 19.1428 14.0437 19.4395 13.825 19.6583C13.6062 19.8771 13.3094 20 13 20C12.6906 20 12.3938 19.8771 12.175 19.6583C11.9562 19.4395 11.8333 19.1428 11.8333 18.8333C11.8333 18.5239 11.9562 18.2272 12.175 18.0084C12.3938 17.7896 12.6906 17.6667 13 17.6667C13.3094 17.6667 13.6062 17.7896 13.825 18.0084C14.0437 18.2272 14.1667 18.5239 14.1667 18.8333ZM14.1667 14.1667C14.1667 14.4761 14.0437 14.7728 13.825 14.9916C13.6062 15.2104 13.3094 15.3333 13 15.3333C12.6906 15.3333 12.3938 15.2104 12.175 14.9916C11.9562 14.7728 11.8333 14.4761 11.8333 14.1667C11.8333 13.8572 11.9562 13.5605 12.175 13.3417C12.3938 13.1229 12.6906 13 13 13C13.3094 13 13.6062 13.1229 13.825 13.3417C14.0437 13.5605 14.1667 13.8572 14.1667 14.1667ZM8.33333 18.8333C8.33333 19.1428 8.21042 19.4395 7.99162 19.6583C7.77283 19.8771 7.47609 20 7.16667 20C6.85725 20 6.5605 19.8771 6.34171 19.6583C6.12292 19.4395 6 19.1428 6 18.8333C6 18.5239 6.12292 18.2272 6.34171 18.0084C6.5605 17.7896 6.85725 17.6667 7.16667 17.6667C7.47609 17.6667 7.77283 17.7896 7.99162 18.0084C8.21042 18.2272 8.33333 18.5239 8.33333 18.8333ZM8.33333 14.1667C8.33333 14.4761 8.21042 14.7728 7.99162 14.9916C7.77283 15.2104 7.47609 15.3333 7.16667 15.3333C6.85725 15.3333 6.5605 15.2104 6.34171 14.9916C6.12292 14.7728 6 14.4761 6 14.1667C6 13.8572 6.12292 13.5605 6.34171 13.3417C6.5605 13.1229 6.85725 13 7.16667 13C7.47609 13 7.77283 13.1229 7.99162 13.3417C8.21042 13.5605 8.33333 13.8572 8.33333 14.1667Z"
+                        fill="#1E1E1E" />
+                    </svg>
+                    <p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm">08/12</p>
+                    <p class="fs-16 fs-md-20 fw-medium line-height-sm">14:30</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center w-100 mb-16 mb-md-64">
+                  <p class="text-gray-01  fs-16 fs-md-20 fw-medium line-height-sm">訂購日期</p>
+                  <div class="text-gray-01 d-flex justify-content-center align-items-center ">
+                    <svg class="me-8" width="23" height="23" viewBox="0 0 26 26" fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1.3335 12.9998C1.3335 8.60034 1.3335 6.4 2.70083 5.03384C4.067 3.6665 6.26733 3.6665 10.6668 3.6665H15.3335C19.733 3.6665 21.9333 3.6665 23.2995 5.03384C24.6668 6.4 24.6668 8.60034 24.6668 12.9998V15.3332C24.6668 19.7327 24.6668 21.933 23.2995 23.2992C21.9333 24.6665 19.733 24.6665 15.3335 24.6665H10.6668C6.26733 24.6665 4.067 24.6665 2.70083 23.2992C1.3335 21.933 1.3335 19.7327 1.3335 15.3332V12.9998Z"
+                        stroke="#1E1E1E" stroke-width="2" />
+                      <path d="M7.16699 3.6665V1.9165M18.8337 3.6665V1.9165M1.91699 9.49984H24.0837" stroke="#1E1E1E"
+                        stroke-width="2" stroke-linecap="round" />
+                      <path
+                        d="M20 18.8333C20 19.1428 19.8771 19.4395 19.6583 19.6583C19.4395 19.8771 19.1428 20 18.8333 20C18.5239 20 18.2272 19.8771 18.0084 19.6583C17.7896 19.4395 17.6667 19.1428 17.6667 18.8333C17.6667 18.5239 17.7896 18.2272 18.0084 18.0084C18.2272 17.7896 18.5239 17.6667 18.8333 17.6667C19.1428 17.6667 19.4395 17.7896 19.6583 18.0084C19.8771 18.2272 20 18.5239 20 18.8333ZM20 14.1667C20 14.4761 19.8771 14.7728 19.6583 14.9916C19.4395 15.2104 19.1428 15.3333 18.8333 15.3333C18.5239 15.3333 18.2272 15.2104 18.0084 14.9916C17.7896 14.7728 17.6667 14.4761 17.6667 14.1667C17.6667 13.8572 17.7896 13.5605 18.0084 13.3417C18.2272 13.1229 18.5239 13 18.8333 13C19.1428 13 19.4395 13.1229 19.6583 13.3417C19.8771 13.5605 20 13.8572 20 14.1667ZM14.1667 18.8333C14.1667 19.1428 14.0437 19.4395 13.825 19.6583C13.6062 19.8771 13.3094 20 13 20C12.6906 20 12.3938 19.8771 12.175 19.6583C11.9562 19.4395 11.8333 19.1428 11.8333 18.8333C11.8333 18.5239 11.9562 18.2272 12.175 18.0084C12.3938 17.7896 12.6906 17.6667 13 17.6667C13.3094 17.6667 13.6062 17.7896 13.825 18.0084C14.0437 18.2272 14.1667 18.5239 14.1667 18.8333ZM14.1667 14.1667C14.1667 14.4761 14.0437 14.7728 13.825 14.9916C13.6062 15.2104 13.3094 15.3333 13 15.3333C12.6906 15.3333 12.3938 15.2104 12.175 14.9916C11.9562 14.7728 11.8333 14.4761 11.8333 14.1667C11.8333 13.8572 11.9562 13.5605 12.175 13.3417C12.3938 13.1229 12.6906 13 13 13C13.3094 13 13.6062 13.1229 13.825 13.3417C14.0437 13.5605 14.1667 13.8572 14.1667 14.1667ZM8.33333 18.8333C8.33333 19.1428 8.21042 19.4395 7.99162 19.6583C7.77283 19.8771 7.47609 20 7.16667 20C6.85725 20 6.5605 19.8771 6.34171 19.6583C6.12292 19.4395 6 19.1428 6 18.8333C6 18.5239 6.12292 18.2272 6.34171 18.0084C6.5605 17.7896 6.85725 17.6667 7.16667 17.6667C7.47609 17.6667 7.77283 17.7896 7.99162 18.0084C8.21042 18.2272 8.33333 18.5239 8.33333 18.8333ZM8.33333 14.1667C8.33333 14.4761 8.21042 14.7728 7.99162 14.9916C7.77283 15.2104 7.47609 15.3333 7.16667 15.3333C6.85725 15.3333 6.5605 15.2104 6.34171 14.9916C6.12292 14.7728 6 14.4761 6 14.1667C6 13.8572 6.12292 13.5605 6.34171 13.3417C6.5605 13.1229 6.85725 13 7.16667 13C7.47609 13 7.77283 13.1229 7.99162 13.3417C8.21042 13.5605 8.33333 13.8572 8.33333 14.1667Z"
+                        fill="#1E1E1E" />
+                    </svg>
+                    <p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm">08/11</p>
+                    <p class="fs-16 fs-md-20 fw-medium line-height-sm">10:30</p>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center  w-100">
+                  <p class="fw-md-bold fw-medium fs-16 fs-md-20 line-height-sm">總計金額</p>
+                  <p class="fw-md-bold fw-medium fs-20 fs-md-24 line-height-sm">$65</p>
+                </div>
+              </div>
+              <div class="modal-footer p-0  border-0 text-brand-02 ">
+                <p class="fs-md-20">※ 若當日無請客人，請盡速與團主付款，謝謝您！</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- modal 看評價 - 寫評價 -->
+        <div class="modal fade" id="modal-WriteReview" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-storeOrder-menu modal-content border-radius-24">
+              <div class="modal-header-top d-flex justify-content-between align-items-center w-100 mb-24">
+                <p class="fs-20 fs-md-24 line-height-sm fw-bold text-gray-01" id="staticBackdropLabel">茶源 ChaSource</p>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body p-0 mb-8">
+                <div class="starInModal mb-8">
+                  <span class="star" onclick="rateStar(1)">&#9733;</span>
+                  <span class="star" onclick="rateStar(2)">&#9733;</span>
+                  <span class="star" onclick="rateStar(3)">&#9733;</span>
+                  <span class="star" onclick="rateStar(4)">&#9733;</span>
+                  <span class="star" onclick="rateStar(5)">&#9733;</span>
+                </div>
+                <textarea placeholder="請輸入評價"
+                  class="memberEvaluate mt-8 border-1 border-gray-04 rounded-1 w-100 bg-white text-dark "></textarea>
+                <div class="textareaLength mx-auto text-gray-02 fs-16 d-flex justify-content-end ">字數限制&ensp;0/100</div>
+              </div>
+              <div class="modal-footer border-0 w-100">
+                <button type="button" class="btn btn-brand-03 border-radius-40 py-12 px-24 text-white 
+                w-100">
+                  <p class="text-white ">送出</p>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 全部菜單 -->
+        <div class="layout-content pt-md-84 pb-md-80 py-32">
+          <div class="container">
+            <div class="allMenu mb-16 mb-sm-32">
+              <div class="allMenu-header d-flex justify-content-between  align-items-center mb-24 mb-sm-36">
+                <h2 class="fs-md-32 fs-24 fw-bold lh-sm">全部菜單</h2>
+                <button
+                  class="shopping-cart d-sm-none d-flex justify-content-center align-items-center px-24 py-10 py-sm-14 border-radius-40 btn btn-brand-03 btn-hover-brand-01"
+                  data-bs-toggle="modal" data-bs-target="#modal-shppingCart-order">
+                  <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20"
+                    height="20"></iconify-icon>
+                  <p class="text-white word-break-keep-all">購物車</p>
+                </button>
+              </div>
+              <div class="allMenu-content">
+                <div class="swiper mySwiper pe-1">
+                  <div class="customMenu swiper-wrapper py-3">
+                    <!-- <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
                     <ul id="storeOrderMenuID">
                       <li class=" py-16 py-sm-24 border-bottom border-1 ">
                         <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -804,15 +807,15 @@
                       </li>
                     </ul>
                   </div> -->
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- pagination -->
-          <div id="paginationPagesMenu" class="d-flex justify-content-end mb-16 mb-sm-0"></div> 
+            <!-- pagination -->
+            <div id="paginationPagesMenu" class="d-flex justify-content-end mb-16 mb-sm-0"></div>
 
-          <!-- old pagination -->
-          <!-- <nav aria-label="Page navigation" class="">
+            <!-- old pagination -->
+            <!-- <nav aria-label="Page navigation" class="">
             <ul class="pagination w-100 d-flex justify-content-between justify-content-sm-end  ">
               <li class="page-item me-sm-8">
                 <a class="page-link p-10" href="#" aria-label="Next">
@@ -853,165 +856,165 @@
               </li>
             </ul>
           </nav> -->
+          </div>
+          <!-- 店家列表 -->
+          <div id="paginationContainerMenu" class="col-md-10 px-24 "></div>
         </div>
-        <!-- 店家列表 -->
-        <div id="paginationContainerMenu" class="col-md-10 px-24 "></div>
-      </div>
 
-      <!-- feedback -->
-      <div class="d-none d-sm-block ">
-        <%- include('./layout/store-order-feedback.ejs'); -%>
-      </div>
+        <!-- feedback -->
+        <div class="d-none d-sm-block ">
+          <%- include('./layout/store-order-feedback.ejs'); -%>
+        </div>
 
-      <!-- footer -->
-      <%- include('./layout/footer'); -%>
+        <!-- footer -->
+        <%- include('./layout/footer'); -%>
 
-      <!-- notification -->
-      <%- include('./layout/notification'); -%>
-          <!-- Swiper JS CDN -->
-          <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-          <!-- ICONGIFY -->
-          <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-          <!-- jQuery Import -->
-          <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-          <!-- 頁碼 pagination.js -->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js"></script>
-          <!-- JS -->
-          <script type="module" src="../main.js"></script>
-          <!-- AOS EFFECT -->
-          <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-          <script>
-            // AOS INIT
-            AOS.init({
-              // offset: 180,
-              duration: 800,
-              delay: 500,
-            })
+          <!-- notification -->
+          <%- include('./layout/notification'); -%>
+            <!-- Swiper JS CDN -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+            <!-- ICONGIFY -->
+            <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+            <!-- jQuery Import -->
+            <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+            <!-- 頁碼 pagination.js -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js"></script>
+            <!-- JS -->
+            <script type="module" src="../main.js"></script>
+            <!-- AOS EFFECT -->
+            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+            <script>
+              // AOS INIT
+              AOS.init({
+                // offset: 180,
+                duration: 800,
+                delay: 500,
+              })
 
-            // <!-- Swiper 開團中活動輪播 JS -->
-            var togetherEventSwiper = new Swiper(".togetherEventSwiper", {
-              slidesPerView: 1,
-              spaceBetween: 12,
-              clickable: true,
-              grid: {
-                rows: 2,
-                // fill: "row" 造成開團中卡片以奇數為縱列排列，故取消
-              },
-              breakpoints: {
-                // when window width is >= 768px
-                768: {
-                  slidesPerView: 2,
-                  spaceBetween: 12,
-                  grid: {
-                    rows: 1,
-                  },
-                },
-                1200: {
-                  slidesPerView: 3,
-                  spaceBetween: 12,
-                  grid: {
-                    rows: 1,
-                  },
-                },
-                1600: {
-                  slidesPerView: 4,
-                  spaceBetween: 24,
-                  grid: {
-                    rows: 1,
-                  },
-                },
-              },
-              navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              },
-              pagination: {
-                el: ".swiper-pagination",
+              // <!-- Swiper 開團中活動輪播 JS -->
+              var togetherEventSwiper = new Swiper(".togetherEventSwiper", {
+                slidesPerView: 1,
+                spaceBetween: 12,
                 clickable: true,
-              },
-            });
-            // 開團中按鈕開關切換、按鈕互動外觀變化 jQuery
-            $('.btnTogetherEvent').click(function (e) {
-              $(this).toggleClass('btn-active-brand-02');
-              $(this).find('.text-brand-02').toggleClass('text-white');
-              $(this).find('.arrowDown').toggleClass('d-none');
-              $(this).find('.arrowUp').toggleClass('d-none');
-            });
-            // feedback 按鈕開關切換、按鈕互動外觀變化 jQuery
-            $('.btnFeedbackTogetherEvent').click(function (e) {
-              console.log('feedbackTogetherEvent');
-              $(this).toggleClass('btn-active-brand-02');
-              $(this).find('.text-brand-02').toggleClass('text-white');
-              $(this).find('.arrowDown').toggleClass('d-none');
-              $(this).find('.arrowUp').toggleClass('d-none');
-            });
-            
-            // modal 建立揪團
-            const dateControls = document.querySelectorAll('.dateControl');
-            dateControls.forEach(dateControl => {
-              dateControl.addEventListener('click', function() {
-                  dateControl.type = "date";
+                grid: {
+                  rows: 2,
+                  // fill: "row" 造成開團中卡片以奇數為縱列排列，故取消
+                },
+                breakpoints: {
+                  // when window width is >= 768px
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 12,
+                    grid: {
+                      rows: 1,
+                    },
+                  },
+                  1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 12,
+                    grid: {
+                      rows: 1,
+                    },
+                  },
+                  1600: {
+                    slidesPerView: 4,
+                    spaceBetween: 24,
+                    grid: {
+                      rows: 1,
+                    },
+                  },
+                },
+                navigation: {
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+                },
               });
-            });
+              // 開團中按鈕開關切換、按鈕互動外觀變化 jQuery
+              $('.btnTogetherEvent').click(function (e) {
+                $(this).toggleClass('btn-active-brand-02');
+                $(this).find('.text-brand-02').toggleClass('text-white');
+                $(this).find('.arrowDown').toggleClass('d-none');
+                $(this).find('.arrowUp').toggleClass('d-none');
+              });
+              // feedback 按鈕開關切換、按鈕互動外觀變化 jQuery
+              $('.btnFeedbackTogetherEvent').click(function (e) {
+                console.log('feedbackTogetherEvent');
+                $(this).toggleClass('btn-active-brand-02');
+                $(this).find('.text-brand-02').toggleClass('text-white');
+                $(this).find('.arrowDown').toggleClass('d-none');
+                $(this).find('.arrowUp').toggleClass('d-none');
+              });
 
-            // <!-- 星等評價 -->
-            let selectedStars = 0;
-            function rateStar(star) {
-              selectedStars = star;
-              updateStars();
-            }
+              // modal 建立揪團
+              const dateControls = document.querySelectorAll('.dateControl');
+              dateControls.forEach(dateControl => {
+                dateControl.addEventListener('click', function () {
+                  dateControl.type = "date";
+                });
+              });
 
-            function updateStars() {
-              for (let i = 1; i <= 5; i++) {
-                const starInModal = document.querySelector(`.starInModal span:nth-child(${i})`);
-                if (i <= selectedStars) {
-                  starInModal.style.color = "#ffd43a";
-                } else {
-                  starInModal.style.color = "#c2c1bd";
+              // <!-- 星等評價 -->
+              let selectedStars = 0;
+              function rateStar(star) {
+                selectedStars = star;
+                updateStars();
+              }
+
+              function updateStars() {
+                for (let i = 1; i <= 5; i++) {
+                  const starInModal = document.querySelector(`.starInModal span:nth-child(${i})`);
+                  if (i <= selectedStars) {
+                    starInModal.style.color = "#ffd43a";
+                  } else {
+                    starInModal.style.color = "#c2c1bd";
+                  }
                 }
               }
-            }
 
-            // 字數統計
-            let memberEvaluate = document.querySelector(".memberEvaluate");
-            let textareaLength = document.querySelector(".textareaLength");
-            memberEvaluate.addEventListener("keyup", function () {
-              let inputText = memberEvaluate.value;
-              let inputLength = inputText.length
-              textareaLength.textContent = `字數限制 ${inputLength}/100`
-            })
+              // 字數統計
+              let memberEvaluate = document.querySelector(".memberEvaluate");
+              let textareaLength = document.querySelector(".textareaLength");
+              memberEvaluate.addEventListener("keyup", function () {
+                let inputText = memberEvaluate.value;
+                let inputLength = inputText.length
+                textareaLength.textContent = `字數限制 ${inputLength}/100`
+              })
 
-          </script>
-          <!-- menu -->
-          <script type="module">
-            // import 星級樣板
-            import showStars from '/assets/js/showStars.js';
+            </script>
+            <!-- menu -->
+            <script type="module">
+              // import 星級樣板
+              import showStars from '/assets/js/showStars.js';
 
-            $(function () {
-              (function () {
-                let container = $("#paginationPagesMenu");
-                let numberUID = '';
-                if(localStorage.getItem('UID')){
-                  numberUID = localStorage.getItem('UID');
-                }else{
-                  numberUID = 'B001';
-                }
-                console.log(numberUID)
-                console.log(numberUID)
-                let isMobile = window.innerWidth < 768; // 假設小於 768 像素的視窗寬度視為手機
-                // 發送 Ajax 請求獲取資料 
-                $.ajax({
-                  url: `https://teatimeapi-test.onrender.com/restaurants?UID=${numberUID}`,
-                  success: function (data) {
-                    console.log(data);
-                    let totalNumber = data.length; // 實際資料筆數
-                    let productData = data[0].products;
-                    let storeData = data[0];
-                    let pageSize = isMobile ? 5 : 10; // 根據裝置設定不同的 pageSize
-                    let storeTemplate = '';
-                    let stars = showStars(storeData.stars);
-                    // 店家獨立頁面 店家資訊
-                    storeTemplate += `
+              $(function () {
+                (function () {
+                  let container = $("#paginationPagesMenu");
+                  let numberUID = '';
+                  if (localStorage.getItem('UID')) {
+                    numberUID = localStorage.getItem('UID');
+                  } else {
+                    numberUID = 'B001';
+                  }
+                  console.log(numberUID)
+                  console.log(numberUID)
+                  let isMobile = window.innerWidth < 768; // 假設小於 768 像素的視窗寬度視為手機
+                  // 發送 Ajax 請求獲取資料 
+                  $.ajax({
+                    url: `https://teatimeapi-test.onrender.com/restaurants?UID=${numberUID}`,
+                    success: function (data) {
+                      console.log(data);
+                      let totalNumber = data.length; // 實際資料筆數
+                      let productData = data[0].products;
+                      let storeData = data[0];
+                      let pageSize = isMobile ? 5 : 10; // 根據裝置設定不同的 pageSize
+                      let storeTemplate = '';
+                      let stars = showStars(storeData.stars);
+                      // 店家獨立頁面 店家資訊
+                      storeTemplate += `
                     <div class="order-bg" style=" background: url(${storeData.storeBannerPhoto}) center top /cover;"></div>
                     <div class="order-content container ps-12 ps-md-42 d-sm-flex align-items-end">
                       <img src="${storeData.storeLogo}" alt="logo-cha source"
@@ -1025,31 +1028,31 @@
                       </div>
                     </div>
                     `;
-                    $('#storeOrder').html(storeTemplate);
-                    // menu 分頁
-                    container.pagination({
-                      dataSource: productData, // 實際資料來源
-                      locator: "items",
-                      totalNumber: totalNumber, // 實際資料總數
-                      pageSize: pageSize , // 每頁資料數
-                      showPageNumbers: true,
-                      showPrevious: true,
-                      showNext: true,
-                      callback: function (data, pagination) {
-                        const newData = JSON.parse(JSON.stringify(data));
-                        let firstFiveMenu = '';
-                        let lastFiveMenu = '';
-                        let template = '';
-                        let firstFive = newData.slice(0, 5); // 拆分前五
-                        let lastFive = newData.slice(5); // 拆分後五
-                        let lastFiveArray = [...lastFive]; // 類陣列轉純陣列
-                        firstFiveMenu += `
+                      $('#storeOrder').html(storeTemplate);
+                      // menu 分頁
+                      container.pagination({
+                        dataSource: productData, // 實際資料來源
+                        locator: "items",
+                        totalNumber: totalNumber, // 實際資料總數
+                        pageSize: pageSize, // 每頁資料數
+                        showPageNumbers: true,
+                        showPrevious: true,
+                        showNext: true,
+                        callback: function (data, pagination) {
+                          const newData = JSON.parse(JSON.stringify(data));
+                          let firstFiveMenu = '';
+                          let lastFiveMenu = '';
+                          let template = '';
+                          let firstFive = newData.slice(0, 5); // 拆分前五
+                          let lastFive = newData.slice(5); // 拆分後五
+                          let lastFiveArray = [...lastFive]; // 類陣列轉純陣列
+                          firstFiveMenu += `
                           <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
                           <ul id="storeOrderMenuID">
                         `;
 
-                        $.each(firstFive, function (index, data) {
-                          firstFiveMenu += `
+                          $.each(firstFive, function (index, data) {
+                            firstFiveMenu += `
                               <li class=" py-16 py-sm-24 border-bottom border-1 ">
                                 <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                   <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
@@ -1068,16 +1071,16 @@
                                   <p class="text-top-p">${data.商品描述}</p>
                                 </button>
                               </li>`;
-                        });
-                        firstFiveMenu +=`
+                          });
+                          firstFiveMenu += `
                             </ul>
                           </div>`;
-                        lastFiveMenu += `
+                          lastFiveMenu += `
                           <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
                           <ul id="storeOrderMenuID">
                         `;
-                        $.each(lastFiveArray, function (index, data) {
-                          lastFiveMenu += `
+                          $.each(lastFiveArray, function (index, data) {
+                            lastFiveMenu += `
                               <li class=" py-16 py-sm-24 border-bottom border-1 ">
                                 <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                   <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
@@ -1096,48 +1099,105 @@
                                   <p class="text-top-p">${data.商品描述}</p>
                                 </button>
                               </li>`;
-                        });
-                        lastFiveMenu +=`
+                          });
+                          lastFiveMenu += `
                             </ul>
                           </div>`;
-                        template += firstFiveMenu;
-                        if(pageSize == 5){
-                          // console.log(5);
-                          lastFiveMenu = "";
-                        }else{
-                          // console.log(10);
-                        }
-                        template += lastFiveMenu;
-                        // console.log(template);
-                        $(".customMenu").html(template);
-                        firstFive = [];
-                        lastFive = [];
-                        // 菜單滑動用
-                        var swiper = new Swiper(".mySwiper", {
-                          // spaceBetween: 30,
-                          breakpoints: {
-                            1: {
-                              slidesPerView: 1,
-                              spaceBetween: 10,
-                              centeredSlides: false
-                            },
-                            576: {
-                              slidesPerView: 2,
-                              spaceBetween: 24,
-                              centeredSlides: false
-                            }
+                          template += firstFiveMenu;
+                          if (pageSize == 5) {
+                            // console.log(5);
+                            lastFiveMenu = "";
+                          } else {
+                            // console.log(10);
                           }
-                        });
-                      }
-                    });
-                  },
-                  error: function (error) {
-                    console.error("error");
+                          template += lastFiveMenu;
+                          // console.log(template);
+                          $(".customMenu").html(template);
+                          firstFive = [];
+                          lastFive = [];
+                          // 菜單滑動用
+                          var swiper = new Swiper(".mySwiper", {
+                            // spaceBetween: 30,
+                            breakpoints: {
+                              1: {
+                                slidesPerView: 1,
+                                spaceBetween: 10,
+                                centeredSlides: false
+                              },
+                              576: {
+                                slidesPerView: 2,
+                                spaceBetween: 24,
+                                centeredSlides: false
+                              }
+                            }
+                          });
+                        }
+                      });
+                    },
+                    error: function (error) {
+                      console.error("error");
+                    }
+                  });
+                })();
+              });
+            </script>
+
+            <!-- Axios import -->
+            <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+            <script>
+              const _url = "https://teatimeapi-test.onrender.com";
+              const _rating = "/ratings";
+              const _sorting = "_sort=id&_order=desc";
+              let ratingInnerHTML = document.querySelector(".ratingInnerHTML");
+              let thisPageStoreName = "Leisurely Café"
+              let ratingData = [];
+              let ratingItems = "";
+
+              (function init(){
+                axios.get(`${_url}${_rating}?${_sorting}`)
+                .then(function (res) {
+                  console.log("抓到資料了");
+                  ratingData = res.data;
+                  showRating()
+                })
+              })()
+              
+              function showRating() {
+                ratingData.forEach(item => {
+                  if (item.reviewedRestaurant === thisPageStoreName) {
+                    ratingItems += item.id;
                   }
-                });
-              })();
-            });
-          </script>
+                })
+                console.log(ratingItems);
+                ratingInnerHTML.innerHTML=ratingItems
+              }
+              // <div class="feedback-style col-12 col-md-6 pt-32 pt-sm-48 ">
+              //   <div class="bg-brand-05 border-radius-16 px-12 px-sm-24 pb-12 pb-sm-24 custom-shadow-025">
+              //     <div class=" transform-32-sm-48 d-flex ">
+              //       <img class="people-img border-radius-24 border border-2 border-line me-16" src="/assets/images/user/female/user-female-16.jpg" alt="user-img">
+              //         <div class="feedback-content w-100 d-flex flex-column justify-content-end ">
+              //           <div class="d-flex">
+              //             <div class="d-flex flex-column justify-content-end ">
+              //               <div class="star-list mb-md-8">
+              //                 <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
+              //                 <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
+              //                 <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
+              //                 <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
+              //                 <iconify-icon icon="ic:round-star" class=" " style="color: #C2C1BD;" width="16"></iconify-icon>
+              //               </div>
+              //             </div>
+              //           </div>
+              //           <div class="d-flex justify-content-between align-items-center">
+              //             <p class="fs-16 fs-md-20 text-gray-02">黃莉琳</p>
+              //             <time datetime="2023-09-01" class="">2023/08/03</time>
+              //           </div>
+              //         </div>
+              //     </div>
+              //     <p class="line-clamp-2">大推柚香翠玉，香味清香撲鼻，茶味甘甜，入口醇郁濃厚，加上葡萄柚的酸爽，清涼退火。還有️淡雅桂花香和甘潤烏龍茶味，不僅養顏美容又醇厚好喝。還不趕緊跟著我立刻訂起來！</p>
+              //   </div>
+              // </div>
+            </script>
   </body>
 
 </html>

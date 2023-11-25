@@ -7,7 +7,6 @@
         align-items: center;
         z-index: 2;
         transition: 0.5s;
-        
     }
 }
 
@@ -45,12 +44,10 @@
 .findStore-card {
     border-radius: 16px;
     background: rgba(30, 30, 30, 0.6);
-    backdrop-filter: blur(4px);
+    // backdrop-filter: blur(4px);
     bottom: 12px;
     width: calc(100% - 24px);
     height: 64px;
-    // margin-right: auto;
-    // margin-left: auto;
     padding: 8px 12px;
     @media (max-width: 767.98px) {
         height: 52px;
@@ -71,7 +68,7 @@
         width: calc((100% - 24px) / 3);
     }
     @media (max-width: 767.98px) {
-        width: calc((100% - 12px) / 2);
+        width: calc((100% - 16px) / 2);
         height: 170px;
         border-radius: 40px 40px 16px 16px;
     }
