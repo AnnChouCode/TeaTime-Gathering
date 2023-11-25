@@ -30,9 +30,9 @@
   <!-- ICONS -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/findStore-76b1623a.js"></script>
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-7d481827.js">
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-085c5945.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/findStore-03b1f8af.js"></script>
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-4d2cfade.js">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-e0f1b5fa.css">
 </head>
     <body class="d-flex flex-column vh-100">
         <nav>
@@ -330,14 +330,10 @@
         $(this).toggleClass('nav-offcanvas-active');
     });
 </script>
-            <!--  -->
             <div class="layout-content py-32 py-lg-80 find-store">
                 <div class="d-flex justify-content-between align-items-center mb-18 mb-md-20">
                     <h2 class="fs-md-32 fs-24 fw-bold lh-sm" id="find-store">找店家</h2>
                 </div>
-
-                <!-- 新的 -->
-
 
                 <div class="d-block d-md-flex justify-content-between align-items-center">
                     <!-- search-bar  -->
@@ -350,18 +346,22 @@
                             placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
                     </div>
                     <!-- select-bar -->
-                    <ul class="select-bar d-flex text-center bg-brand-05 mt-20 mt-md-0 mb-16 mb-md-0 p-8 text-nowrap">
+                    <ul
+                        class="select-bar d-flex text-center bg-brand-05 mt-20 mt-md-0 mb-16 mb-md-0 me-16 p-8 mx-8 text-nowrap">
                         <li class="text-center w-100">
-                            <button onclick="toggleFilter('sort','newestStore')" type="button"
-                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 btn-active-bg-2 btn-hover-bg-2 btn-active-brand-02">最新店家</button>
+                            <button type="button"
+                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2 btn-active-brand-02 btnSortStore"
+                                data-sort-value="newestStore">最新店家</button>
                         </li>
                         <li class="text-center w-100">
-                            <button onclick="toggleFilter('sort','bestStore')" type="button"
-                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 btn-active-bg-2 btn-hover-bg-2 w-100">最高評價</button>
+                            <button type="button"
+                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2 btnSortStore"
+                                data-sort-value="bestStore">最高評價</button>
                         </li>
                         <li class="text-center w-100">
-                            <button onclick="toggleFilter('sort','worstStore')" type="button"
-                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 btn-active-bg-2 btn-hover-bg-2 w-100">最低評價</button>
+                            <button type="button"
+                                class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2 btnSortStore"
+                                data-sort-value="worstStore">最低評價</button>
                         </li>
 
                     </ul>
@@ -372,39 +372,44 @@
                     <div class="col-md-2  mb-16 mb-md-0">
                         <ul class=" x-slide d-flex d-md-block gap-md-5 text-nowrap">
                             <li>
-                                <button onclick="toggleFilter('category','全部')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 btn-active border-radius-16 btn-hover-gray-04 actived">
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 btn-active border-radius-16 btn-hover-gray-04 btnCategoryStore actived"
+                                    type="button" data-category-value="全部">
                                     <iconify-icon icon="fluent:food-24-regular" style="color: #8b8b8a;" width="32"
                                         height="32" class="me-md-8 me-0"></iconify-icon>
                                     <span class="fs-md-20 fs-16">全部</span>
                                 </button>
                             </li>
                             <li>
-                                <button onclick="toggleFilter('category','速食')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                    type="button" data-category-value="速食">
                                     <iconify-icon icon="mdi:food-outline" style="color: #8b8b8a;" width="32" height="32"
                                         class="me-md-8 me-0"></iconify-icon>
                                     <span class="fs-md-20 fs-16">速食</span></button>
                             </li>
                             <li>
-                                <button onclick="toggleFilter('category','飲料')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                    type="button" data-category-value="飲料">
                                     <iconify-icon icon="icon-park-outline:drink" style="color: #8b8b8a;" width="32"
                                         height="32" class="me-md-8 me-0"></iconify-icon>
                                     <span class="fs-md-20 fs-16">飲料</span>
                                 </button>
                             </li>
                             <li>
-                                <button onclick="toggleFilter('category','小吃')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                    type="button" data-category-value="小吃">
                                     <iconify-icon icon="ph:bowl-food" style="color: #8b8b8a;" width="32" height="32"
                                         class="me-md-8 me-0"></iconify-icon>
                                     <span class="fs-md-20 fs-16">小吃</span>
                                 </button>
                             </li>
                             <li>
-                                <button onclick="toggleFilter('category','甜點')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active">
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                    type="button" data-category-value="甜點">
                                     <iconify-icon icon="material-symbols:icecream-outline-rounded"
                                         style="color: #8b8b8a;" width="32" height="32"
                                         class="me-md-8 me-0"></iconify-icon>
@@ -412,16 +417,18 @@
                                 </button>
                             </li>
                             <li>
-                                <button onclick="toggleFilter('category','素食')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
-                                        icon="tabler:leaf" style="color: #8b8b8a;" width="32" height="32"
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                    type="button" data-category-value="素食"><iconify-icon icon="tabler:leaf"
+                                        style="color: #8b8b8a;" width="32" height="32"
                                         class="me-md-8 me-0"></iconify-icon>
                                     <span class="fs-md-20 fs-16">素食</span>
                                 </button>
                             </li>
                             <li>
-                                <button onclick="toggleFilter('category','咖啡')"
-                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active"><iconify-icon
+                                <button
+                                    class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 border-radius-16 btn-hover-gray-04 btn-active btnCategoryStore"
+                                    type="button" data-category-value="咖啡"><iconify-icon
                                         icon="icon-park-outline:tea-drink" style="color: #8b8b8a;" width="32"
                                         height="32" class="me-md-8 me-0"></iconify-icon>
                                     <span class="fs-md-20 fs-16">咖啡</span></button>
@@ -429,48 +436,14 @@
                             <li class="tab_slider"></li>
                         </ul>
                     </div>
-                    <div class="col-md-10 px-24 ">
-                        <ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul restaurantInfo">
-
-                        </ul>
+                    <!-- 店家列表 -->
+                    <div id="paginationContainer" class="col-md-10 px-24 ">
                     </div>
                 </div>
                 <div class="mt-16 mt-md-32"></div>
-                <nav aria-label="Page navigation ">
-                    <ul class="pagination justify-content-end gap-8">
-                        <li class="page-item">
-                            <a class="page-link rounded-3" href="#" aria-label="Previous">
-                                <iconify-icon aria-hidden="true" icon="ri:arrow-left-double-line" width="16"
-                                    height="16"></iconify-icon>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-3 " href="#" aria-label="Previous">
-                                <iconify-icon aria-hidden="true" icon="iconamoon:arrow-left-2" width="16"
-                                    height="16"></iconify-icon>
-                            </a>
-                        </li>
-                        <li class="page-item"><a class="page-link rounded-3" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link rounded-3" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link rounded-3" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link border-0 disabled bg-transparent " href="#">...</a>
-                        </li>
-                        <li class="page-item"><a class="page-link rounded-3" href="#">10</a></li>
-                        <li class="page-item">
-                            <a class="page-link rounded-3 " href="#" aria-label="Previous">
-                                <iconify-icon aria-hidden="true" icon="iconamoon:arrow-right-2" width="16"
-                                    height="16"></iconify-icon>
-                            </a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-3" href="#" aria-label="Next">
-                                <iconify-icon aria-hidden="true" icon="ri:arrow-right-double-line" width="16"
-                                    height="16"></iconify-icon>
-                            </a>
-                        </li>
+                <!-- pagination -->
+                <div id="paginationPages" class="d-flex justify-content-end mb-16 mb-sm-0"></div>
 
-                    </ul>
-                </nav>
             </div>
 
             <!-- footer -->
@@ -582,148 +555,27 @@
 </script>
                     <!-- ICONGIFY -->
                     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-                    <!-- JS -->
-                    
+
                     <!-- autocomplete -->
                     <script
                         src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
-                    <!-- restaurantInfo -->
-                    <script src="/assets/jsonDatas/restaurantInfo.js"></script>
+
+                    <!-- 頁碼 Pagination.js import -->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js"></script>
+
+                    <!-- moment.js import-->
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+                    <!-- JS -->
+                    
+
+
                     <script>
-                        // 點選按鈕後，此按鈕呈現灰色，其餘回復透明底
-                        let selectBar = document.querySelectorAll('.btn-active');
-                        selectBar.forEach(btnType => {
-                            btnType.addEventListener('click', () => {
-                                selectBar.forEach(btn => {
-                                    btn.classList.remove('actived');
-                                })
-                                btnType.classList.add('actived');
-                            })
-                        })
-
-                        // 最高、最低評價按鈕顏色動畫
-                        let selectBarBtn = document.querySelectorAll('.select-bar button');
-                        selectBarBtn.forEach(btnType => {
-                            btnType.addEventListener('click', () => {
-                                selectBarBtn.forEach(btn => {
-                                    btn.classList.remove('btn-active-brand-02');
-                                })
-                                btnType.classList.add('btn-active-brand-02');
-                            })
-                        })
-                        //        onclick="toggleFilter('sort','newestStore')"
-                        //        onclick="toggleFilter('category','甜點')"
-                        // 店家排序資料  
-
-                        // 共用變數
-                        const _url = "https://teatimeapi-test.onrender.com"
-                        const _user = "U004"
-
-                        let currentFilters = {
-                            category: "全部", // 初始分類
-                            sort: "", // 初始排序
-                            search: "" //初始搜尋
-                        };
-
-                        const sortType = {
-                            newestStore: "&_sort=id&_order=desc",
-                            bestStore: "&_sort=stars&_order=desc",
-                            worstStore: "&_sort=stars&_order=asc",
-                        }
-
-                        function toggleFilter(filterType, value) {
-                            switch (filterType) {
-                                case "category":
-                                    currentFilters[filterType] = value;
-                                    break;
-                                case "search":
-                                    currentFilters[filterType] = value.trim();
-                                    break;
-
-                                default:
-                                    currentFilters[filterType] = sortType[value];
-                            }
-                            // console.log(currentFilters[filterType])
-                            initRestaurantData(currentFilters.category, currentFilters.sort, currentFilters.search)
-                        }
-
-                        function initRestaurantData(category, sort, search) {
-                            let filterCategory = "";
-                            let sortStore = "";
-                            let searchStore = "";
-
-                            // 初始化運行設定
-                            if (category !== '全部' && category) {
-                                filterCategory = `category=${category}`;
-                            }
-                            if (sort) {
-                                sortStore = sort
-                            }
-                            if (search) {
-                                searchStore = `storeName_like=${search}`
-                            }
-                            let filterAPI = `${_url}/restaurants?${filterCategory}${sortStore}${searchStore}`;
-                            console.log(filterAPI)
-
-                            renderRestaurantCard(filterAPI)
-
-                        }
-                        initRestaurantData()
-
-
-                        //show 店家卡片
-                        function renderRestaurantCard(filterData) {
-
-                            const restaurantInfo = document.querySelector(".restaurantInfo")
-                            //店家類別 icon 對照
-                            const categoryIcon = {
-                                飲料: "icon-park-outline:drink",
-                                速食: "mdi:food-outline",
-                                素食: "tabler:leaf",
-                                小吃: "ph:bowl-food",
-                                甜點: "material-symbols:icecream-outline-rounded",
-                                咖啡: "icon-park-outline:tea-drink"
-                            }
-
-                            //星評樣板
-                            function showStars(num) {
-                                const starsTotal = 5
-                                const starsStates = {
-                                    isGoodStar: `<iconify-icon icon="ic:round-star" style="color: #ffd43a;"
-                                                width="16"></iconify-icon>`,
-                                    notGoodStar: `<iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
-                                                width="16"></iconify-icon>`
-                                }
-
-                                let resultStars = starsStates["isGoodStar"].repeat(num) + starsStates["notGoodStar"].repeat(starsTotal - num)
-                                return resultStars
-                            }
-                            restaurantInfo.innerHTML = filterData
-                        }
-
-                            //autocomplete 
-                            let restaurantAry = restaurantInfo.map(el => el.storeName)
-                            const autoCompleteJS = new autoComplete({
-                                placeHolder: "搜尋",
-                                data: {
-                                    src: restaurantAry,
-                                    cache: true,
-                                },
-                                resultItem: {
-                                    highlight: true
-                                },
-                                events: {
-                                    input: {
-                                        selection: (event) => {
-                                            const selection = event.detail.selection.value;
-                                            autoCompleteJS.input.value = selection;
-                                        }
-                                    }
-                                }
-                            })
-
 
                     </script>
+
+
+                    
     </body>
 
 </html>
