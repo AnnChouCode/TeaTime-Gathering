@@ -220,6 +220,8 @@
     //全頁共用變數
     const _url = "https://teatimeapi-test.onrender.com"
     const _user = "U004"
+    //儲存 API 回傳資料
+    let datas = []
 
     /* 開團投票事件資訊整理 ========================================== */
     function initEvents() {
@@ -229,21 +231,18 @@
 
         //API
         const groupings = axios.get(`${_url}/groupings?_expand=restaurant&deadlineDateTime_gte=${agoMonth}&deadlineDateTime_lte=${latterMonth}`)
-        const votings = axios.get(`${_url}/votings?_expand=restaurant&deadlineDateTime_gte=${agoMonth}&deadlineDateTime_lte=${latterMonth}`)
-
-        //儲存 API 回傳資料
-        let datas = []
+        const votings = axios.get(`${_url}/votings?_expand=restaurant&deadlineDateTime_gte=${agoMonth}&deadlineDateTime_lte=${latterMonth}`)        
 
         Promise.all([groupings, votings])
             .then(function (res) {
                 datas = datas.concat(res[0].data)
                 datas = datas.concat(res[1].data)
                 //整理用於渲染的資料
-                createEventData(datas)
+                createEventData()                
             }).catch(function (error) {
                 console.error(error.message);
             });
-
+            
     }
 
     initEvents()
@@ -252,7 +251,7 @@
     const calendarEventMap = {}
 
     //整理用於渲染的資料
-    function createEventData(datas) {
+    function createEventData() {
         //使用截止時間排序原始資料
         datas.sort((a, b) => {
             const dateA = new Date(a.deadlineDateTime);
@@ -382,8 +381,8 @@
             showDeadline = `<div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
                                     <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
                                         height="26"></iconify-icon>
-                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${deadlineDateTime.substring(5, 10)}</time>
-                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${deadlineDateTime.split(" ")[1]}</time>
+                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${showDateTime(deadlineDateTime)[0]}</time>
+                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${showDateTime(deadlineDateTime)[1]}</time>
                                 </div>`
         }
 
@@ -444,16 +443,28 @@
         const initiator = VotingModal.querySelector(".initiator")
         const invitees = VotingModal.querySelector(".invitees")
 
-        deadlineDateTime.innerHTML = `<span class="me-16">享用日期</span>
-                        <span class="me-8 ">${calendarEventMap[votingUID].deadlineDateTime.substring(5, 10)}</span>
-                        <span>${calendarEventMap[votingUID].deadlineDateTime.split(" ")[1]}</span>`
+        const event = calendarEventMap[votingUID]
 
-        eventDateTime.innerHTML = `<span class="me-16">截止時間</span>
-                          <span class="me-8">${calendarEventMap[votingUID].eventDateTime.substring(5, 10)}</span>
-                          <span>${calendarEventMap[votingUID].eventDateTime.split(" ")[1]}</span>`
+        deadlineDateTime.innerHTML = `<span class="me-16">截止日期</span>
+                        <span class="me-8 ">${showDateTime(event.deadlineDateTime)[0]}</span>
+                        <span>${showDateTime(event.deadlineDateTime)[1]}</span>`
 
-        initiator.textContent = calendarEventMap[votingUID].initiator
-        invitees.textContent = calendarEventMap[votingUID].invitees === "" ? "無" : calendarEventMap[votingUID].invitees
+        eventDateTime.innerHTML = `<span class="me-16">享用時間</span>
+                          <span class="me-8">${showDateTime(event.eventDateTime)[0]}</span>
+                          <span>${showDateTime(event.eventDateTime)[1]}</span>`
+
+        initiator.textContent = event.initiator
+        invitees.textContent = event.invitees === "" ? "無" : eventinvitees
+    }
+
+    //時間字串處理
+    function showDateTime(datetime){
+        //月份 & 日期
+        const date = datetime.substring(5, 10)
+        //時間
+        const time = datetime.split(" ")[1]
+  
+        return [date, time]
     }
 
     //render 投票 modal 選項店家資料
@@ -484,13 +495,13 @@
                           <div class="d-flex justify-content-between flex-column flex-lg-row">
                             <div class="d-flex align-items-center mb-8 mb-lg-0 ">
                               <span class="me-4 me-lg-16 text-gray-02 text-nowrap">成團目標</span>
-                              <div class="ts-progress is-tiny bg-gray-04 voting-progress">
+                              <div class="ts-progress is-tiny bg-gray-04 voting-progress" data-num="${data.id}">
                                 <div class="bar bg-brand-02" style="--value: ${calcGroupProgress(numVoters, numMinGroupSize)}">
                                   <div class="text-white">${calcGroupProgress(numVoters, numMinGroupSize) > 100 ? 100 : calcGroupProgress(numVoters, numMinGroupSize)}%</div>
                                 </div>
                               </div>
                             </div>
-                            ${btnVoteStatus(data.id, isPast, alreadyVoted)}
+                            ${btnVoteStates(data.id, isPast, alreadyVoted)}
                           </div>
                       </li>`
         })
@@ -508,7 +519,7 @@
     }
 
     //判斷 btnVoteThis 狀態
-    function btnVoteStatus(id, isPast, alreadyVoted) {
+    function btnVoteStates(id, isPast, alreadyVoted) {
         //過去事件，按鈕呈現禁用
         if (isPast) {
             return `<button class="py-4 px-16 btn-disable border-0 rounded-pill btnVoteThis" disabled type="button">已結束</button>`
@@ -523,6 +534,7 @@
     //btnVoteThis 投票動作判斷  
     function voteStore() {
         const btnVoteThis = VotingModal.querySelectorAll('.btnVoteThis')
+        
         btnVoteThis.forEach(btn => {
             btn.addEventListener('click', function () {
                 //含有指定 class 樣式的按鈕代表已投票過此店家
@@ -532,12 +544,12 @@
                 if (isVoted) {
                     //將 votings 資料庫 id 與動作輸入變更資料庫
                     updateVotingAPI(btn.dataset.num, "deleteVote")
-                    alert("投票已取消")
+                    //alert("投票已取消")
                 } else {
                     //未投票的店家 click，投票成功
                     //將 votings 資料庫 id 與動作輸入變更資料庫
                     updateVotingAPI(btn.dataset.num, "addVote");
-                    alert("投票成功")
+                    //alert("投票成功")
                 }
             });
         });
@@ -547,9 +559,11 @@
     //變更投票資料庫 API
     async function updateVotingAPI(id, status) {
         try {
-            //宣告變數存取目前參與投票者清單
-            const response = await axios.get(`${_url}/votings/${id}`)
-            const updatedVoters = response.data.currentVoters;
+            const progressElements = document.querySelector(`.ts-progress[data-num="${id}"]`);
+            progressElements.classList.add("is-processing")
+
+            //宣告變數存取目前參與投票者清單            
+            const updatedVoters = datas.filter( item => item.UID.startsWith("V")  && item.id == id)[0].currentVoters
 
             //依據動作處理投票者清單
             if (status === "addVote") {
@@ -566,6 +580,7 @@
                 .then(function (patchRes) {
                     //console.log(patchRes.data);
                     initModalVotingCard(patchRes.data.UID)
+                    progressElements.classList.remove("is-processing")
                 })
                 .catch(function (error) {
                     console.error(error.message);
