@@ -6,7 +6,7 @@
     <body class="d-flex flex-column vh-100">
         <%- include('./layout/nav'); -%>
 
-            <div class="layout-content py-32 py-lg-80 find-store">
+            <div class="pb-32 pt-64 py-md-80 layout-content container">
                 <div class="d-flex justify-content-between align-items-center mb-18 mb-md-20">
                     <h2 class="fs-md-32 fs-24 fw-bold lh-sm" id="find-store">找店家</h2>
                 </div>
@@ -22,8 +22,7 @@
                             placeholder="搜尋" aria-label="search" aria-describedby="basic-addon1">
                     </div>
                     <!-- select-bar -->
-                    <ul
-                        class="select-bar d-flex text-center bg-brand-05 mt-20 mt-md-0 mb-16 mb-md-0 me-16 p-8 mx-8 text-nowrap">
+                    <ul class="d-flex mt-20 mt-md-0 mb-16 mb-md-0 p-8 text-nowrap text-center bg-brand-05 rounded-pill">
                         <li class="text-center w-100">
                             <button type="button"
                                 class="select-bar-link d-inline-block fs-16 fs-md-20 fw-medium text-brand-02 py-10 py-md-8 px-sm-24 px-0 border-0 w-100 lh-sm btn-hover-bg-2 btn-active-brand-02 btnSortStore"
@@ -302,7 +301,7 @@
                         function renderPagination(paginatedData) {
 
 
-                            
+
                             //店家類別 icon 對照
                             const categoryIcon = {
                                 飲料: "icon-park-outline:drink",
@@ -313,7 +312,7 @@
                                 咖啡: "icon-park-outline:tea-drink"
                             }
 
-                            let dataHtml = '<ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul mx-8">';
+                            let dataHtml = '<ul class="row row-cols-2 gap-12 gap-xxl-24 findStore-ul">';
 
                             paginatedData.forEach((item, index) => {
                                 dataHtml += `
