@@ -38,10 +38,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <!-- 進度條 tocas progress -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/calendar-5952055b.js"></script>
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-00005955.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/axios-3a76d256.js">
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-7d2cb7bf.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/calendar-3a173527.js"></script>
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-a84cd557.js">
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/nav-7ac77614.js">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-2905a6c1.css">
 </head>
 
 <body>
@@ -154,16 +154,16 @@
                     </li>
                     <!-- 按鈕-登入 -->
                     <li class="btnLogin">
-                        <a href="#accountModal" data-bs-toggle="modal" class="nav-icon-hover"><iconify-icon
+                        <a href="#userLoginModal" data-bs-toggle="modal" class="nav-icon-hover"><iconify-icon
                                 class="p-8 bg-brand-04 rounded-circle" icon="line-md:account" style="color: #bfa373;"
                                 width="28"></iconify-icon></a>
                     </li>
                     <!-- 按鈕-使用者已登入選單 -->
-                    <li class="d-none btnUserLoggedIn">
+                    <!-- <li class="d-none btnUserLoggedIn">
                         <a href="overallSystem.html"
                             class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
                             style="width: 44px;height: 44px;">L</a>
-                    </li>
+                    </li> -->
                     <!-- 按鈕-登出 -->
                     <li class="d-none btnLogOut">
                         <a href="#" class="nav-icon-hover p-8 bg-brand-04 rounded-circle">
@@ -232,7 +232,7 @@
                             </li>
                             <!-- 登入按鈕 -->
                             <li class="btnLogin">
-                                <a href="#accountModal" class="nav-icon-hover" data-bs-toggle="modal"><iconify-icon
+                                <a href="#userLoginModal" class="nav-icon-hover" data-bs-toggle="modal"><iconify-icon
                                         class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
                                         style="color: #bfa373;" width="28"></iconify-icon></a>
                             </li>
@@ -259,14 +259,14 @@
         </div>
 </nav>
 
-<!-- nav account modal -->
-<div class="modal fade account-login-modal form-validated-effect" id="accountModal" tabindex="-1"
+<!-- 導覽 nav 會員登入 userLoginModal -->
+<div class="modal fade account-login-modal form-validated-effect" id="userLoginModal" tabindex="-1"
     aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-dialog-centered account-modal-dialog">
         <div class="d-flex modal-content border-radius-24">
             <div class="modal-header py-lg-24 px-lg-40 p-16 border-0">
                 <h5 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">登入</h5>
-                <a href="#accountModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
+                <a href="#userLoginModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
                         style="color: #8B8B8A;" width="32"></iconify-icon></a>
             </div>
             <div class="modal-body d-flex flex-column gap-lg-20 gap-12 p-lg-40 pt-lg-16 p-16 pt-8">
@@ -277,19 +277,19 @@
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
                             class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnSwitchIdentity"
-                            href="#">管理員登入</a></li>
+                            href="#adminLoginModal" class="nav-icon-hover" data-bs-toggle="modal">管理員登入</a></li>
                 </ul>
                 <!-- input - account & password -->
                 <form class="needs-validation" action="#" method="post" novalidate>
                     <div class="mb-lg-20 mb-12">
                         <input
                             class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginAccount"
-                            type="email" id="nav-account" name="nav-account" placeholder="請輸入信箱"
+                            type="email" id="user-account" name="user-account" placeholder="請輸入信箱"
                             aria-describedby="nav-account" value="ling-huang@fat-together.com" required>
                         <input
                             class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginPassword"
-                            type="password" id="nav-password" name="nav-password" placeholder="請輸入密碼"
-                            aria-describedby="nav-password" value="ling-huang" required>
+                            type="password" id="user-password" name="user-password" placeholder="請輸入密碼"
+                            aria-describedby="user-password" value="ling-huang" required>
                         <div class="invalid-feedback ms-16">
                             電子郵件帳號或密碼輸入錯誤
                         </div>
@@ -311,7 +311,51 @@
     </div>
 </div>
 
-<!-- notification modal in collapse -->
+<!-- 導覽 nav 管理員登入 adminLoginModal -->
+<div class="modal fade account-login-modal form-validated-effect" id="adminLoginModal" tabindex="-1"
+    aria-labelledby="adminLoginModal" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered account-modal-dialog">
+        <div class="d-flex modal-content border-radius-24">
+            <div class="modal-header py-lg-24 px-lg-40 p-16 border-0">
+                <h5 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">登入</h5>
+                <a href="#adminLoginModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
+                        style="color: #8B8B8A;" width="32"></iconify-icon></a>
+            </div>
+            <div class="modal-body d-flex flex-column gap-lg-20 gap-12 p-lg-40 pt-lg-16 p-16 pt-8">
+                <!-- switch user & admin login -->
+                <ul class="d-flex p-8 rounded-pill bg-brand-05">
+                    <li class="w-50"><a
+                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btn-active-brand-02 btnSwitchIdentity"
+                            href="#userLoginModal" class="nav-icon-hover" data-bs-toggle="modal">會員登入</a></li>
+                    <li class="w-50"><a
+                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnSwitchIdentity"
+                            href="#">管理員登入</a></li>
+                </ul>
+                <!-- input - account & password -->
+                <form class="needs-validation" action="#" method="post" novalidate>
+                    <div class="mb-lg-20 mb-12">
+                        <input
+                            class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginAccount"
+                            type="email" id="admin-account" name="admin-account" placeholder="請輸入信箱"
+                            aria-describedby="admin-account" required>
+                        <input
+                            class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginPassword"
+                            type="password" id="admin-password" name="admin-password" placeholder="請輸入密碼"
+                            aria-describedby="admin-password" required>
+                        <div class="invalid-feedback ms-16">
+                            電子郵件帳號或密碼輸入錯誤
+                        </div>
+                    </div>
+                    <!-- submit -->
+                    <button type="submit"
+                        class="p-lg-14 p-12 fs-20 fw-medium lh-sm rounded-pill text-white border-0 w-100 btn-brand-03 btn-hover-brand-01 btnLoginSubmit">登入</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 行動版 collapse menu 通知 modal -->
 <div class="modal fade account-login-modal" id="notificationCollapseModal" tabindex="-1"
     aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-dialog-centered account-modal-dialog">
@@ -385,51 +429,31 @@
 </div>
 
 <!-- jQuery Import -->
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <!-- 搜尋 autocomplete.js-->
 <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
 
+<!-- nav.js -->
 
-
-
-<!-- jQuery -->
-<script>
-    /* Validation 填寫檢驗 */
-    $('.needs-validation').each(function (index) {
-        $(this).on('submit', function (e) {
-            e.preventDefault();
-            $(this).addClass('was-validated');
-        });
-    });
-
-    /* 通知按鈕點擊切換通知提示圓點 */
-    $('.btnNotification').click(function (e) {
-        $('.btnNotificationAlert').addClass('d-none');
-    });
-
-    /* 登入會員/管理員 按鈕 active 狀態切換顯示 */
-    $('.btnSwitchIdentity').click(function (e) {
-        $('.btnSwitchIdentity').toggleClass('btn-active-brand-02');
-    });
-
-    /* navbar 摺疊 collapse 選單切換 active */
-    $('.offcanvas-list a').click(function (e) {
-        $('.offcanvas-list a').removeClass('nav-offcanvas-active');
-        $(this).toggleClass('nav-offcanvas-active');
-    });
-</script>      <div class="py-32 pt-64 py-md-80 layout-content container calendar">
+      <div class="py-32 pt-64 py-md-80 layout-content container calendar">
         <h2 class="mb-16 mb-md-32 fs-24 fs-md-32 fw-bold lh-sm">訂餐月曆</h2>
         <div class="row flex-column flex-md-row gy-48 g-md-24">
           <!-- 月曆 -->
           <div class="col col-md-5">
             <div id="calendar" class="mb-32"></div>
             <div class="d-flex gap-4">
-              <button type="button"
-                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-04 text-brand-01 d-flex justify-content-center align-items-center btn-hover-bg-1 w-50 fs-20 fw-medium "
+              <!-- <button type="button"
+                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-04 text-brand-01 d-flex justify-content-center align-items-center btn-hover-bg-1 w-50 fs-20 fw-medium btnCreateVoting"
                 data-bs-toggle="modal" data-bs-target="#modal-CreateVoting">
                 建立投票
-              </button>
+              </button> -->
+              <a tabindex="0" role="button"
+                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-04 text-brand-01 d-flex justify-content-center align-items-center btn-hover-bg-1 w-50 fs-20 fw-medium btnCreateVoting"
+                data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top"
+                data-bs-content="請先登入帳號">
+                建立投票
+              </a>
               <button type="button"
                 class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2 w-50 fs-20 fw-medium "
                 data-bs-toggle="modal" data-bs-target="#modal-CreateGroup">
@@ -499,7 +523,7 @@
                   <!-- 投票卡片 voting card -->
                   <div class="col col-lg-8 p-0">
                     <ul class="votingCard">
-                      <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                      <!-- <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
                         <img class="border-radius-32321616 votingcard-photo" src="#" alt="store-photo">
                         <div>
                           <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">#</h4>
@@ -518,7 +542,7 @@
                               class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
                               type="button">投票</button>
                           </div>
-                      </li>
+                      </li> -->
                     </ul>
                   </div>
                 </div>
@@ -564,7 +588,7 @@
                     </li>
                     <li>
                       <span class="me-16 mb-16 mb-md-12">發起人</span>
-                      <span>黃莉琳</span>
+                      <span id="votingInitiator">無</span>
                     </li>
                     <li>
                       <label for="votingInvitees" class="mb-16 mb-mb-12">請客人</label>
@@ -707,13 +731,16 @@
           <!-- moment.js import-->
           <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
+          <!-- jQuery Import -->
+          <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
           <!-- 時間選擇器 flatpickr import -->
           <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
           <!-- 進度條 tocas progress -->
           <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
 
-          <!-- 月曆 evo-calendar import -->          
+          <!-- 月曆 evo-calendar import -->
           <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
 
 
@@ -731,7 +758,7 @@
               minDate: moment().format('YYYY/MM/DD'),
             }
 
-            flatpickr(".dateSelector", config);
+            flatpickr(".dateSelector", config);            
           </script>
 
 
