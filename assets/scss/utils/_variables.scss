@@ -1519,8 +1519,10 @@ $form-feedback-tooltip-border-radius: $tooltip-border-radius !default;
 $popover-font-size: $font-size-sm !default;
 $popover-bg: var(--#{$prefix}body-bg) !default;
 $popover-max-width: 276px !default;
-$popover-border-width: var(--#{$prefix}border-width) !default;
-$popover-border-color: var(--#{$prefix}border-color-translucent) !default;
+// $popover-border-width: var(--#{$prefix}border-width) !default;
+$popover-border-width: 2px !default;
+// $popover-border-color: var(--#{$prefix}border-color-translucent) !default;
+$popover-border-color: $brand-02 !default;
 $popover-border-radius: var(--#{$prefix}border-radius-lg) !default;
 $popover-inner-border-radius: calc(#{$popover-border-radius} - #{$popover-border-width}) !default; // stylelint-disable-line function-disallowed-list
 $popover-box-shadow: $box-shadow !default;

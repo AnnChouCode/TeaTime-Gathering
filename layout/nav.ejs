@@ -28,16 +28,16 @@
                     </li>
                     <!-- 按鈕-登入 -->
                     <li class="btnLogin">
-                        <a href="#accountModal" data-bs-toggle="modal" class="nav-icon-hover"><iconify-icon
+                        <a href="#userLoginModal" data-bs-toggle="modal" class="nav-icon-hover"><iconify-icon
                                 class="p-8 bg-brand-04 rounded-circle" icon="line-md:account" style="color: #bfa373;"
                                 width="28"></iconify-icon></a>
                     </li>
                     <!-- 按鈕-使用者已登入選單 -->
-                    <li class="d-none btnUserLoggedIn">
+                    <!-- <li class="d-none btnUserLoggedIn">
                         <a href="overallSystem.html"
                             class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
                             style="width: 44px;height: 44px;">L</a>
-                    </li>
+                    </li> -->
                     <!-- 按鈕-登出 -->
                     <li class="d-none btnLogOut">
                         <a href="#" class="nav-icon-hover p-8 bg-brand-04 rounded-circle">
@@ -106,7 +106,7 @@
                             </li>
                             <!-- 登入按鈕 -->
                             <li class="btnLogin">
-                                <a href="#accountModal" class="nav-icon-hover" data-bs-toggle="modal"><iconify-icon
+                                <a href="#userLoginModal" class="nav-icon-hover" data-bs-toggle="modal"><iconify-icon
                                         class="p-8 bg-brand-04 rounded-circle" icon="line-md:account"
                                         style="color: #bfa373;" width="28"></iconify-icon></a>
                             </li>
@@ -133,14 +133,14 @@
         </div>
 </nav>
 
-<!-- nav account modal -->
-<div class="modal fade account-login-modal form-validated-effect" id="accountModal" tabindex="-1"
+<!-- 導覽 nav 會員登入 userLoginModal -->
+<div class="modal fade account-login-modal form-validated-effect" id="userLoginModal" tabindex="-1"
     aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-dialog-centered account-modal-dialog">
         <div class="d-flex modal-content border-radius-24">
             <div class="modal-header py-lg-24 px-lg-40 p-16 border-0">
                 <h5 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">登入</h5>
-                <a href="#accountModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
+                <a href="#userLoginModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
                         style="color: #8B8B8A;" width="32"></iconify-icon></a>
             </div>
             <div class="modal-body d-flex flex-column gap-lg-20 gap-12 p-lg-40 pt-lg-16 p-16 pt-8">
@@ -151,19 +151,19 @@
                             href="#">會員登入</a></li>
                     <li class="w-50"><a
                             class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnSwitchIdentity"
-                            href="#">管理員登入</a></li>
+                            href="#adminLoginModal" class="nav-icon-hover" data-bs-toggle="modal">管理員登入</a></li>
                 </ul>
                 <!-- input - account & password -->
                 <form class="needs-validation" action="#" method="post" novalidate>
                     <div class="mb-lg-20 mb-12">
                         <input
                             class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginAccount"
-                            type="email" id="nav-account" name="nav-account" placeholder="請輸入信箱"
+                            type="email" id="user-account" name="user-account" placeholder="請輸入信箱"
                             aria-describedby="nav-account" value="ling-huang@fat-together.com" required>
                         <input
                             class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginPassword"
-                            type="password" id="nav-password" name="nav-password" placeholder="請輸入密碼"
-                            aria-describedby="nav-password" value="ling-huang" required>
+                            type="password" id="user-password" name="user-password" placeholder="請輸入密碼"
+                            aria-describedby="user-password" value="ling-huang" required>
                         <div class="invalid-feedback ms-16">
                             電子郵件帳號或密碼輸入錯誤
                         </div>
@@ -185,7 +185,51 @@
     </div>
 </div>
 
-<!-- notification modal in collapse -->
+<!-- 導覽 nav 管理員登入 adminLoginModal -->
+<div class="modal fade account-login-modal form-validated-effect" id="adminLoginModal" tabindex="-1"
+    aria-labelledby="adminLoginModal" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered account-modal-dialog">
+        <div class="d-flex modal-content border-radius-24">
+            <div class="modal-header py-lg-24 px-lg-40 p-16 border-0">
+                <h5 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">登入</h5>
+                <a href="#adminLoginModal" data-bs-toggle="modal"><iconify-icon icon="ic:round-close"
+                        style="color: #8B8B8A;" width="32"></iconify-icon></a>
+            </div>
+            <div class="modal-body d-flex flex-column gap-lg-20 gap-12 p-lg-40 pt-lg-16 p-16 pt-8">
+                <!-- switch user & admin login -->
+                <ul class="d-flex p-8 rounded-pill bg-brand-05">
+                    <li class="w-50"><a
+                            class="d-block fw-medium py-lg-12 py-10 lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btn-active-brand-02 btnSwitchIdentity"
+                            href="#userLoginModal" class="nav-icon-hover" data-bs-toggle="modal">會員登入</a></li>
+                    <li class="w-50"><a
+                            class="d-block py-lg-12 py-10 fw-medium lh-sm text-center rounded-pill btn-brand-02 btn-hover-bg-2 btnSwitchIdentity"
+                            href="#">管理員登入</a></li>
+                </ul>
+                <!-- input - account & password -->
+                <form class="needs-validation" action="#" method="post" novalidate>
+                    <div class="mb-lg-20 mb-12">
+                        <input
+                            class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginAccount"
+                            type="email" id="admin-account" name="admin-account" placeholder="請輸入信箱"
+                            aria-describedby="admin-account" required>
+                        <input
+                            class="form-control custom-form-focus p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginPassword"
+                            type="password" id="admin-password" name="admin-password" placeholder="請輸入密碼"
+                            aria-describedby="admin-password" required>
+                        <div class="invalid-feedback ms-16">
+                            電子郵件帳號或密碼輸入錯誤
+                        </div>
+                    </div>
+                    <!-- submit -->
+                    <button type="submit"
+                        class="p-lg-14 p-12 fs-20 fw-medium lh-sm rounded-pill text-white border-0 w-100 btn-brand-03 btn-hover-brand-01 btnLoginSubmit">登入</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 行動版 collapse menu 通知 modal -->
 <div class="modal fade account-login-modal" id="notificationCollapseModal" tabindex="-1"
     aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-dialog-centered account-modal-dialog">
@@ -259,167 +303,10 @@
 </div>
 
 <!-- jQuery Import -->
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <!-- 搜尋 autocomplete.js-->
 <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
 
-
-<script type="module">
-    import axios from 'axios';
-
-    //全頁共用變數
-    const _url = "https://teatimeapi-test.onrender.com"
-
-    /* 搜尋 input autoComplete ===================================================*/
-    const autoCompleteJS = new autoComplete({
-        selector: "#navSearchAutoComplete",
-        //撈取 API 資料庫獲取選單內容
-        data: {
-            src: async (query) => {
-                try {
-                    //Fetch Data from external Source
-                    const source = await fetch(`${_url}/restaurants`);
-                    //Data should be an array of `Objects` or `Strings`
-                    const data = await source.json();
-
-                    return data;
-                } catch (error) {
-                    return error;
-                }
-            },
-            //Data source 'Object' key to be searched
-            keys: ["storeName"]
-        },
-        //寬鬆搜尋
-        searchEngine: "loose",
-        //選單符合條件自元 highlight
-        resultItem: {
-            highlight: true
-        },
-        //生成選單
-        resultsList: {
-            element: (list, data) => {
-                if (!data.results.length) {
-                    //Create "No Results" message element
-                    const message = document.createElement("div");
-                    //Add class to the created element
-                    message.setAttribute("class", "no_result px-8");
-                    //Add message text content
-                    message.innerHTML = `<span>Found No Results for "${data.query}"</span>`;
-                    //Append message element to the results list
-                    list.prepend(message);
-                }
-            },
-            noResults: true,
-        },
-        events: {
-            input: {
-                //選單偵測
-                selection: (event) => {
-                    const selectionValue = event.detail.selection.value;
-                    autoCompleteJS.input.value = selectionValue.storeName;
-                    console.log(selectionValue.storeName)                    
-                    window.location.href = `./store-order.html?UID=${selectionValue.UID}`
-                },
-                //輸入 enter 偵測
-                keydown: (event) => {
-                    if (event.keyCode === 13) {
-                        const searchValue = autoCompleteJS.input.value
-                        console.log(selectionValue.storeName)
-                        window.location.href = `./store-order.html?UID=${selectionValue.UID}`
-                    }
-                }
-            }
-        }
-    });
-
-
-    /* 登入/登出 狀態 icon 顯示切換  ===================================================*/
-    //form-帳密輸入表單
-    const loginForm = document.querySelector(".needs-validation");
-    //input-帳密輸入
-    const inputLoginAccount = document.querySelector(".inputLoginAccount");
-    const inputLoginPassword = document.querySelector(".inputLoginPassword");
-    //按鈕-登入資料送出
-    const btnLoginSubmit = document.querySelectorAll(".btnLoginSubmit");
-    //按鈕-navbar 登入、已登入、登出 icon
-    const btnLogin = document.querySelectorAll(".btnLogin")
-    const btnUserLoggedIn = document.querySelectorAll(".btnUserLoggedIn")
-    const btnLogOut = document.querySelectorAll(".btnLogOut")
-
-    //登入
-    btnLoginSubmit.forEach(btn => {
-        btn.addEventListener("click", () => {
-            //input-帳密輸入值
-            const accountValue = inputLoginAccount.value;
-            const passwordValue = inputLoginPassword.value;
-
-            //檢查 loginForm 通過驗證，失敗則為 ture，添加顯示樣式
-            if (!loginForm.checkValidity()) {
-                loginForm.classList.add('was-validated');
-            }
-
-            //Login 成功條件 & 失敗
-            if (accountValue === "ling-huang@fat-together.com" && passwordValue === "ling-huang") {
-                btnLogOut.forEach(btn => {
-                    btn.classList.remove("d-none");
-                });
-                btnUserLoggedIn.forEach(btn => {
-                    btn.classList.remove("d-none");
-                });
-                btnLogin.forEach(btn => {
-                    btn.classList.add("d-none");
-                });
-                $('#accountModal').modal('hide');
-            } else {
-                //登入失敗
-                const errorFeedback = document.querySelector(".invalid-feedback");
-                errorFeedback.style.display = 'block';
-            }
-
-        });
-    });
-
-    //登出
-    btnLogOut.forEach(btn => {
-        btn.addEventListener("click", () => {
-            btnLogOut.forEach(btn => {
-                btn.classList.add("d-none");
-            });
-            btnUserLoggedIn.forEach(btn => {
-                btn.classList.add("d-none");
-            });
-            btnLogin.forEach(btn => {
-                btn.classList.remove("d-none");
-            });;
-        })
-    })
-</script>
-
-<!-- jQuery -->
-<script>
-    /* Validation 填寫檢驗 */
-    $('.needs-validation').each(function (index) {
-        $(this).on('submit', function (e) {
-            e.preventDefault();
-            $(this).addClass('was-validated');
-        });
-    });
-
-    /* 通知按鈕點擊切換通知提示圓點 */
-    $('.btnNotification').click(function (e) {
-        $('.btnNotificationAlert').addClass('d-none');
-    });
-
-    /* 登入會員/管理員 按鈕 active 狀態切換顯示 */
-    $('.btnSwitchIdentity').click(function (e) {
-        $('.btnSwitchIdentity').toggleClass('btn-active-brand-02');
-    });
-
-    /* navbar 摺疊 collapse 選單切換 active */
-    $('.offcanvas-list a').click(function (e) {
-        $('.offcanvas-list a').removeClass('nav-offcanvas-active');
-        $(this).toggleClass('nav-offcanvas-active');
-    });
-</script>
+<!-- nav.js -->
+<script type="module" src="../assets/js/layout/nav.js"></script>
