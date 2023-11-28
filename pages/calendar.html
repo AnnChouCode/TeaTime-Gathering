@@ -52,11 +52,17 @@
           <div class="col col-md-5">
             <div id="calendar" class="mb-32"></div>
             <div class="d-flex gap-4">
-              <button type="button"
-                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-04 text-brand-01 d-flex justify-content-center align-items-center btn-hover-bg-1 w-50 fs-20 fw-medium "
+              <!-- <button type="button"
+                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-04 text-brand-01 d-flex justify-content-center align-items-center btn-hover-bg-1 w-50 fs-20 fw-medium btnCreateVoting"
                 data-bs-toggle="modal" data-bs-target="#modal-CreateVoting">
                 建立投票
-              </button>
+              </button> -->
+              <a tabindex="0" role="button"
+                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-04 text-brand-01 d-flex justify-content-center align-items-center btn-hover-bg-1 w-50 fs-20 fw-medium btnCreateVoting"
+                data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top"
+                data-bs-content="請先登入帳號">
+                建立投票
+              </a>
               <button type="button"
                 class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2 w-50 fs-20 fw-medium "
                 data-bs-toggle="modal" data-bs-target="#modal-CreateGroup">
@@ -126,7 +132,7 @@
                   <!-- 投票卡片 voting card -->
                   <div class="col col-lg-8 p-0">
                     <ul class="votingCard">
-                      <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                      <!-- <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
                         <img class="border-radius-32321616 votingcard-photo" src="#" alt="store-photo">
                         <div>
                           <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">#</h4>
@@ -145,7 +151,7 @@
                               class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
                               type="button">投票</button>
                           </div>
-                      </li>
+                      </li> -->
                     </ul>
                   </div>
                 </div>
@@ -191,7 +197,7 @@
                     </li>
                     <li>
                       <span class="me-16 mb-16 mb-md-12">發起人</span>
-                      <span>黃莉琳</span>
+                      <span id="votingInitiator">無</span>
                     </li>
                     <li>
                       <label for="votingInvitees" class="mb-16 mb-mb-12">請客人</label>
@@ -233,25 +239,32 @@
           <!-- moment.js import-->
           <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
+          <!-- jQuery Import -->
+          <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
           <!-- 時間選擇器 flatpickr import -->
           <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
           <!-- 進度條 tocas progress -->
           <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
 
-          <!-- 月曆 evo-calendar import -->          
+          <!-- 月曆 evo-calendar import -->
           <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
 
 
           <script type="module">
-            import axios from 'axios';             
+            import axios from 'axios';
+            import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
 
             // import 時間判斷是否為過去事件樣板
             import isPastEvent from '/assets/js/isPastEvent.js';
+            // import 判斷登入狀態樣板
+            import isLoggedIn from '/assets/js/isLoggedIn.js';
 
             //全頁共用變數
             const _url = "https://teatimeapi-test.onrender.com"
             const _user = "U004"
+            let _token = localStorage.getItem("token");
 
             /* 投票頁初始頁面 render init ================================*/
             //使用 moment 格式化日期
@@ -438,14 +451,6 @@
               calendarEvent.innerHTML = tempEventList;
             }
 
-            //判斷傳入時間是否早於今天（意即過去式事件）
-            // function isPastEvent(time) {
-            //   const eventDate = moment(time, 'YYYY/MM/DD HH:mm');
-            //   const result = moment().isAfter(eventDate)
-
-            //   return result
-            // }
-
             //投票、開團標籤
             function showEventStates(deadlineDateTime, uid) {
               //儲存要回傳的內容
@@ -465,7 +470,6 @@
             function calcGroupProgress(numParticipants, numMinGroupSize) {
               return Math.floor(numParticipants / numMinGroupSize * 100)
             }
-
 
 
             /* 投票檢索 modal & 投票動作 ===============================*/
@@ -496,6 +500,8 @@
               //可投票店家卡片資料初始化            
               initModalVotingCard(votingUID)
 
+              //判斷登入狀態
+              isLoggedIn(_token)
             })
 
             //render 投票 modal 活動資訊
@@ -521,7 +527,7 @@
                           <span>${showDateTime(event.eventDateTime)[1]}</span>`
 
               initiator.textContent = event.initiator
-              invitees.textContent = event.invitees === "" ? "無" : eventinvitees
+              invitees.textContent = event.invitees === "" ? "無" : event.invitees
             }
 
             //時間字串處理
@@ -586,7 +592,14 @@
                 return `<button class="py-4 px-16 btn-disable border-0 rounded-pill btnVoteThis" disabled type="button">已結束</button>`
               }
 
-              //是否已投票過此店家
+              //登入狀態判斷，若未登入，加入提示語法
+              if (!isLoggedIn(_token)) {
+                return `<button
+                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
+                              type="button" data-num=${id} data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="請先登入帳號">投票</button>`
+              }
+
+              //已登入狀態，顯示是否已投票過此店家
               return `<button
                               class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis ${alreadyVoted ? "btn-active-brand-02" : ""}"
                               type="button" data-num=${id}>${alreadyVoted ? "已投票" : "投票"}</button>`
@@ -595,9 +608,18 @@
             //btnVoteThis 投票動作判斷  
             function voteStore() {
               const btnVoteThis = VotingModal.querySelectorAll('.btnVoteThis')
+              const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
 
               btnVoteThis.forEach(btn => {
                 btn.addEventListener('click', function () {
+                  //若為未登入狀態，提示登入，並中斷執行後續動作
+                  if (!isLoggedIn(_token)) {
+                    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => {
+                      new bootstrap.Popover(popoverTriggerEl)
+                    })
+                    return
+                  }
+
                   //含有指定 class 樣式的按鈕代表已投票過此店家
                   const isVoted = btn.classList.contains("btn-active-brand-02")
 
@@ -654,13 +676,50 @@
 
 
             /* 建立投票 create voting event ========================================*/
+            const btnCreateVoting = document.querySelector(".btnCreateVoting")
+
+            btnCreateVoting.addEventListener("click", () => {
+              //若為未登入狀態，提示登入，並中斷執行後續動作
+              if (!isLoggedIn(_token)) {
+                btnCreateVoting.setAttribute("data-bs-toggle", "popover")
+                btnCreateVoting.removeAttribute("href")
+
+                // const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+                // const popoverList = [...popoverTriggerList].map(popoverTriggerEl => {
+                //   new bootstrap.Popover(popoverTriggerEl)
+                // })
+                const popover = new bootstrap.Popover('[data-bs-toggle="popover"]', {
+                  trigger: 'focus'
+                })
+                return
+              }
+
+
+
+              btnCreateVoting.setAttribute("data-bs-toggle", "modal")
+              btnCreateVoting.setAttribute("href", "#modal-CreateVoting")
+
+
+              //綁定 modal 內 DOM 元素
+              const votingInitiator = document.getElementById("votingInitiator")//發起人
+
+              //發起人名稱
+              axios.get(`${_url}/users?UID=${_user}`)
+                .then(function (res) {
+                  votingInitiator.textContent = res.data[0].userName
+                }).catch(function (error) {
+                  console.error(error);
+                })
+            })
+
+
             const modalCreateVoting = document.getElementById("modal-CreateVoting")
 
             modalCreateVoting.addEventListener("click", () => {
               //綁定 modal 內 DOM 元素
               const eventDateTimeInput = document.getElementById("eventDateTime") //享用日期
               const deadlineDateTimeInput = document.getElementById("deadlineDateTime") //截止日期
-              const votingInviteesSelect = document.getElementById("votingInvitees") //請客人
+              const votingInviteesSelect = document.getElementById("votingInvitees") //請客人            
 
               //獲取時間輸入格的值
               const selectedEventDateTime = eventDateTimeInput.value.trim();
@@ -714,7 +773,7 @@
               minDate: moment().format('YYYY/MM/DD'),
             }
 
-            flatpickr(".dateSelector", config);
+            flatpickr(".dateSelector", config);            
           </script>
 
 
