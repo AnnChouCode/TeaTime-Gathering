@@ -52,11 +52,17 @@
           <div class="col col-md-5">
             <div id="calendar" class="mb-32"></div>
             <div class="d-flex gap-4">
-              <button type="button"
-                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-04 text-brand-01 d-flex justify-content-center align-items-center btn-hover-bg-1 w-50 fs-20 fw-medium "
+              <!-- <button type="button"
+                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-04 text-brand-01 d-flex justify-content-center align-items-center btn-hover-bg-1 w-50 fs-20 fw-medium btnCreateVoting"
                 data-bs-toggle="modal" data-bs-target="#modal-CreateVoting">
                 建立投票
-              </button>
+              </button> -->
+              <a tabindex="0" role="button"
+                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-04 text-brand-01 d-flex justify-content-center align-items-center btn-hover-bg-1 w-50 fs-20 fw-medium btnCreateVoting"
+                data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top"
+                data-bs-content="請先登入帳號">
+                建立投票
+              </a>
               <button type="button"
                 class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2 w-50 fs-20 fw-medium "
                 data-bs-toggle="modal" data-bs-target="#modal-CreateGroup">
@@ -126,7 +132,7 @@
                   <!-- 投票卡片 voting card -->
                   <div class="col col-lg-8 p-0">
                     <ul class="votingCard">
-                      <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+                      <!-- <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
                         <img class="border-radius-32321616 votingcard-photo" src="#" alt="store-photo">
                         <div>
                           <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">#</h4>
@@ -145,7 +151,7 @@
                               class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
                               type="button">投票</button>
                           </div>
-                      </li>
+                      </li> -->
                     </ul>
                   </div>
                 </div>
@@ -155,7 +161,6 @@
             <div class="modal-footer px-16 px-lg-40 py-12 border-0"></div>
           </div>
         </div>
-      </div>
       </div>
 
       <!-- 建立投票 Modal -->
@@ -186,11 +191,13 @@
                       <input type="datetime-local"
                         class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
                         id="deadlineDateTime" name="deadlineDateTime" placeholder="日期" autocomplete="off">
-                      <p class="d-none mt-4 fs-14 ms-16 deadlineDateTimeAlert" style="color:#dc3545;">截止時間須至少提前於享用日期 24 時</p>
+                      <p class="d-none mt-4 fs-14 ms-16 deadlineDateTimeAlert" style="color:#dc3545;">截止時間須至少提前於享用日期
+                        24
+                        時</p>
                     </li>
                     <li>
                       <span class="me-16 mb-16 mb-md-12">發起人</span>
-                      <span>黃莉琳</span>
+                      <span id="votingInitiator">無</span>
                     </li>
                     <li>
                       <label for="votingInvitees" class="mb-16 mb-mb-12">請客人</label>
@@ -232,6 +239,9 @@
           <!-- moment.js import-->
           <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
+          <!-- jQuery Import -->
+          <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
           <!-- 時間選擇器 flatpickr import -->
           <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
@@ -239,20 +249,26 @@
           <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
 
           <!-- 月曆 evo-calendar import -->
-          <script src="https://www.jsdelivr.com/package/npm/evo-calendar"></script>
-          <!-- Add the evo-calendar.js for.. obviously, functionality! -->
           <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
 
 
           <script type="module">
             import axios from 'axios';
+            import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
 
+            // import 時間判斷是否為過去事件樣板
+            import isPastEvent from '/assets/js/isPastEvent.js';
+            // import 判斷登入狀態樣板
+            import isLoggedIn from '/assets/js/isLoggedIn.js';
+
+            //全頁共用變數
             const _url = "https://teatimeapi-test.onrender.com"
             const _user = "U004"
+            let _token = localStorage.getItem("token");
 
             /* 投票頁初始頁面 render init ================================*/
             //使用 moment 格式化日期
-            var now = moment().format('YYYY/MM/DD');
+            const today = moment().format('YYYY/MM/DD');
             //初步撈取的資料
             let datas = [];
             //整理過的事件 Data
@@ -302,7 +318,7 @@
               });
 
               createEvoCalendarData()
-              console.log(calendarEventMap)
+              //console.log(calendarEventMap)
               renderEvent()
             }
 
@@ -347,7 +363,7 @@
               const active_date = $('#calendar').evoCalendar('getActiveDate');
               //格式化日期
               const formatted_ActiveDate = moment(active_date, 'MM/DD/YYYY').format('YYYY/MM/DD');
-              console.log('滑鼠點擊的日期：', formatted_ActiveDate);
+              //console.log('滑鼠點擊的日期：', formatted_ActiveDate);
               //渲染活動卡片
               renderEvent(formatted_ActiveDate)
             });
@@ -358,10 +374,10 @@
             const calendarEvent = document.querySelector(".calendarEvent")
 
             //渲染活動卡片事件
-            function renderEvent(time = now) {
+            function renderEvent(time = today) {
               let tempEventList = "" //渲染資料暫存
 
-              //初始化顯示事件，取符合今天的事件
+              //初始化顯示事件，取符合今天或點選日期的事件
               const eventArray = Object.values(calendarEventMap);
               const filteredEvent = eventArray.filter(item => {
                 const dateTimeParts = item.deadlineDateTime.split(" ");
@@ -388,32 +404,30 @@
                     </h3>
                   </div>
                   <!-- 卡片活動類別 -->
-                  <div
-                    class="align-self-end py-4 py-md-8 order-last order-md-first ${e.UID.startsWith("V") ? "bg-brand-01" : "bg-brand-02"} rounded-pill text-white text-center"
-                    style="width:80px">${e.UID.startsWith("V") ? "投票中" : "開團中"}</div>
+                  ${showEventStates(e.deadlineDateTime, e.UID)}
                   <!-- 月曆卡片內容 -->
                   <ul class="row flex-column flex-xl-row g-4 g-md-8 p-0 fs-16 fs-md-20">
                     <li class="col col-xl-7">
                       <ul class="d-flex flex-column gap-4 gap-md-8">
                         <li>
                           <span class="me-16">享用日期</span>
-                          <span class="me-8">${e.eventDateTime.substring(5, 10)}</span>
-                          <span>${e.eventDateTime.split(" ")[1]}</span>
+                          <span class="me-8">${showDateTime(e.eventDateTime)[0]}</span>
+                          <span>${showDateTime(e.eventDateTime)[1]}</span>
                         </li>
                         <li>
                           <span class="me-16">截止時間</span>
-                          <span class="me-8">${e.deadlineDateTime.substring(5, 10)}</span>
-                          <span>${e.deadlineDateTime.split(" ")[1]}</span>
+                          <span class="me-8">${showDateTime(e.deadlineDateTime)[0]}</span>
+                          <span>${showDateTime(e.deadlineDateTime)[1]}</span>
                         </li>
                       </ul>
                     </li>
                     ${e.UID.startsWith("V") ? "" : `<li class="d-flex align-items-center order-1 order-md-end">
                       <span class="me-16">成團目標</span>                      
                       <div class="ts-progress is-tiny bg-gray-04" style="width: 120px;">
-    <div class="bar bg-brand-02" style="--value: ${Math.floor(e.minGroupSize / e.currentGroupCondition * 100)}">
-        <div class="text-white">${Math.floor(e.minGroupSize / e.currentGroupCondition * 100) > 100 ? 100 : Math.floor(e.minGroupSize / e.currentGroupCondition * 100)}%</div>
-    </div>
-</div></li>`}
+                        <div class="bar bg-brand-02" style="--value: ${calcGroupProgress(e.minGroupSize, e.currentGroupCondition)}">
+                            <div class="text-white">${calcGroupProgress(e.minGroupSize, e.currentGroupCondition) > 100 ? 100 : calcGroupProgress(e.minGroupSize, e.currentGroupCondition)}%</div>
+                        </div>
+                    </div></li>`}
                     <li class="col col-xl-5">
                       <ul class="d-flex flex-column gap-4 gap-md-8">
                         <li>
@@ -437,6 +451,25 @@
               calendarEvent.innerHTML = tempEventList;
             }
 
+            //投票、開團標籤
+            function showEventStates(deadlineDateTime, uid) {
+              //儲存要回傳的內容
+              let eventStates
+
+              //判斷事件是否早於今天，若為是（意即過去式事件），則顯示「投票/開團」已結束
+              if (isPastEvent(deadlineDateTime)) {
+                eventStates = `<div class="align-self-end py-4 py-md-8 order-last order-md-first rounded-pill text-center btn-disable" style="width:110px;">${uid.startsWith("V") ? "投票" : "開團"}已結束</div>`
+              } else {
+                eventStates = `<div class="align-self-end py-4 py-md-8 order-last order-md-first ${uid.startsWith("V") ? "bg-brand-01" : "bg-brand-02"} rounded-pill text-white text-center" style="width:80px">${uid.startsWith("V") ? "投票中" : "開團中"}</div>`
+              }
+
+              return eventStates
+            }
+
+            //計算成團、投票進度條
+            function calcGroupProgress(numParticipants, numMinGroupSize) {
+              return Math.floor(numParticipants / numMinGroupSize * 100)
+            }
 
 
             /* 投票檢索 modal & 投票動作 ===============================*/
@@ -467,6 +500,8 @@
               //可投票店家卡片資料初始化            
               initModalVotingCard(votingUID)
 
+              //判斷登入狀態
+              isLoggedIn(_token)
             })
 
             //render 投票 modal 活動資訊
@@ -481,25 +516,48 @@
               const initiator = VotingModal.querySelector(".initiator")
               const invitees = VotingModal.querySelector(".invitees")
 
-              deadlineDateTime.innerHTML = `<span class="me-16">享用日期</span>
-                        <span class="me-8 ">${calendarEventMap[votingUID].deadlineDateTime.substring(5, 10)}</span>
-                        <span>${calendarEventMap[votingUID].deadlineDateTime.split(" ")[1]}</span>`
+              const event = calendarEventMap[votingUID]
 
-              eventDateTime.innerHTML = `<span class="me-16">截止時間</span>
-                          <span class="me-8">${calendarEventMap[votingUID].eventDateTime.substring(5, 10)}</span>
-                          <span>${calendarEventMap[votingUID].eventDateTime.split(" ")[1]}</span>`
+              deadlineDateTime.innerHTML = `<span class="me-16">截止日期</span>
+                        <span class="me-8 ">${showDateTime(event.deadlineDateTime)[0]}</span>
+                        <span>${showDateTime(event.deadlineDateTime)[1]}</span>`
 
-              initiator.textContent = calendarEventMap[votingUID].initiator
-              invitees.textContent = calendarEventMap[votingUID].invitees === "" ? "無" : calendarEventMap[votingUID].invitees
+              eventDateTime.innerHTML = `<span class="me-16">享用時間</span>
+                          <span class="me-8">${showDateTime(event.eventDateTime)[0]}</span>
+                          <span>${showDateTime(event.eventDateTime)[1]}</span>`
+
+              initiator.textContent = event.initiator
+              invitees.textContent = event.invitees === "" ? "無" : event.invitees
+            }
+
+            //時間字串處理
+            function showDateTime(datetime) {
+              //月份 & 日期
+              const date = datetime.substring(5, 10)
+              //時間
+              const time = datetime.split(" ")[1]
+
+              return [date, time]
             }
 
             //render 投票 modal 選項店家資料
             function renderVotingCard(votingCardData) {
-              const votingCard = VotingModal.querySelector(".votingCard") //店家卡片渲染區域
-              let cardDataTemp = "" //暫時儲存要渲染的店家卡片資料
+              //店家卡片渲染區域
+              const votingCard = VotingModal.querySelector(".votingCard")
+              //當前事件是否為過去事件
+              const isPast = isPastEvent(votingCardData[0].deadlineDateTime)
+              //暫時儲存要渲染的店家卡片資料
+              let cardDataTemp = ""
 
               //生成要渲染的資料
               votingCardData.forEach(data => {
+                //當前用戶是否已投票
+                const alreadyVoted = data.currentVoters.includes(_user)
+                //當前店家已投票人數
+                const numVoters = data.currentVoters.length
+                //當前店家最小成團人數
+                const numMinGroupSize = data.restaurant.minGroupSize
+
                 cardDataTemp += `
                       <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
                         <img class="border-radius-32321616 votingcard-photo" src="${data.restaurant.storeCover}">
@@ -509,15 +567,13 @@
                           <div class="d-flex justify-content-between flex-column flex-lg-row">
                             <div class="d-flex align-items-center mb-8 mb-lg-0 ">
                               <span class="me-4 me-lg-16 text-gray-02 text-nowrap">成團目標</span>
-                              <div class="ts-progress is-tiny bg-gray-04 voting-progress">
-                                <div class="bar bg-brand-02" style="--value: ${Math.floor(data.currentVoters.length / data.restaurant.minGroupSize * 100)}">
-                                  <div class="text-white">${Math.floor(data.currentVoters.length / data.restaurant.minGroupSize * 100) > 100 ? 100 : Math.floor(data.currentVoters.length / data.restaurant.minGroupSize * 100)}%</div>
+                              <div class="ts-progress is-tiny bg-gray-04 voting-progress" data-num=${data.id}>
+                                <div class="bar bg-brand-02" style="--value: ${calcGroupProgress(numVoters, numMinGroupSize)}">
+                                  <div class="text-white">${calcGroupProgress(numVoters, numMinGroupSize) > 100 ? 100 : calcGroupProgress(numVoters, numMinGroupSize)}%</div>
                                 </div>
                               </div>
-                            </div>
-                            <button
-                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis ${data.currentVoters.includes(_user) ? "btn-active-brand-02" : ""}"
-                              type="button" data-num=${data.id}>投票</button>
+                            </div>                                                    
+                              ${btnVoteStates(data.id, isPast, alreadyVoted)}
                           </div>
                       </li>`
               })
@@ -529,11 +585,41 @@
               voteStore()
             }
 
+            //判斷 btnVoteThis 狀態
+            function btnVoteStates(id, isPast, alreadyVoted) {
+              //過去事件，按鈕呈現禁用
+              if (isPast) {
+                return `<button class="py-4 px-16 btn-disable border-0 rounded-pill btnVoteThis" disabled type="button">已結束</button>`
+              }
+
+              //登入狀態判斷，若未登入，加入提示語法
+              if (!isLoggedIn(_token)) {
+                return `<button
+                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
+                              type="button" data-num=${id} data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="請先登入帳號">投票</button>`
+              }
+
+              //已登入狀態，顯示是否已投票過此店家
+              return `<button
+                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis ${alreadyVoted ? "btn-active-brand-02" : ""}"
+                              type="button" data-num=${id}>${alreadyVoted ? "已投票" : "投票"}</button>`
+            }
+
             //btnVoteThis 投票動作判斷  
             function voteStore() {
               const btnVoteThis = VotingModal.querySelectorAll('.btnVoteThis')
+              const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+
               btnVoteThis.forEach(btn => {
                 btn.addEventListener('click', function () {
+                  //若為未登入狀態，提示登入，並中斷執行後續動作
+                  if (!isLoggedIn(_token)) {
+                    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => {
+                      new bootstrap.Popover(popoverTriggerEl)
+                    })
+                    return
+                  }
+
                   //含有指定 class 樣式的按鈕代表已投票過此店家
                   const isVoted = btn.classList.contains("btn-active-brand-02")
 
@@ -541,61 +627,99 @@
                   if (isVoted) {
                     //將 votings 資料庫 id 與動作輸入變更資料庫
                     updateVotingAPI(btn.dataset.num, "deleteVote")
-                    alert("投票已取消")
+                    //alert("投票已取消")
                   } else {
                     //未投票的店家 click，投票成功
                     //將 votings 資料庫 id 與動作輸入變更資料庫
                     updateVotingAPI(btn.dataset.num, "addVote");
-                    alert("投票成功")
+                    //alert("投票成功")
                   }
                 });
               });
-
             }
 
             //變更投票資料庫 API
-            function updateVotingAPI(id, status) {
-              //找到 votings 資料庫該對應 id
-              axios.get(`${_url}/votings/${id}`)
-                .then(function (res) {
-                  //宣告變數存取目前參與投票者清單
-                  const updatedVoters = res.data.currentVoters;
+            async function updateVotingAPI(id, status) {
+              try {
+                const progressElements = document.querySelector(`.ts-progress[data-num="${id}"]`);
+                progressElements.classList.add("is-processing")
 
-                  //依據動作處理投票者清單
-                  if (status === "addVote") {
-                    updatedVoters.push(`${_user}`);
-                  } else {
-                    const userIndex = updatedVoters.indexOf(`${_user}`)
-                    updatedVoters.splice(userIndex, 1)
-                  }
+                //宣告變數存取目前參與投票者清單            
+                const updatedVoters = datas.filter(item => item.UID.startsWith("V") && item.id == id)[0].currentVoters
 
-                  //修改資料庫中的數據
-                  axios.patch(`${_url}/votings/${id}`, {
-                    "currentVoters": updatedVoters
-                  })
-                    .then(function (patchRes) {
-                      //console.log(patchRes.data);
-                      initModalVotingCard(patchRes.data.UID)
-                    })
-                    .catch(function (error) {
-                      console.error(error);
-                    });
+                //依據動作處理投票者清單
+                if (status === "addVote") {
+                  updatedVoters.push(`${_user}`);
+                } else {
+                  const userIndex = updatedVoters.indexOf(`${_user}`)
+                  updatedVoters.splice(userIndex, 1)
+                }
+
+                //修改資料庫中的數據
+                axios.patch(`${_url}/votings/${id}`, {
+                  "currentVoters": updatedVoters
                 })
-                .catch(function (error) {
-                  console.error(error);
-                });
+                  .then(function (patchRes) {
+                    //console.log(patchRes.data);
+                    initModalVotingCard(patchRes.data.UID)
+                    progressElements.classList.remove("is-processing")
+                  })
+                  .catch(function (error) {
+                    console.error(error.message);
+                  });
+              } catch (err) {
+                console.log('錯誤:', err);
+                throw err;
+              }
             }
 
 
 
             /* 建立投票 create voting event ========================================*/
+            const btnCreateVoting = document.querySelector(".btnCreateVoting")
+
+            btnCreateVoting.addEventListener("click", () => {
+              //若為未登入狀態，提示登入，並中斷執行後續動作
+              if (!isLoggedIn(_token)) {
+                btnCreateVoting.setAttribute("data-bs-toggle", "popover")
+                btnCreateVoting.removeAttribute("href")
+
+                // const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+                // const popoverList = [...popoverTriggerList].map(popoverTriggerEl => {
+                //   new bootstrap.Popover(popoverTriggerEl)
+                // })
+                const popover = new bootstrap.Popover('[data-bs-toggle="popover"]', {
+                  trigger: 'focus'
+                })
+                return
+              }
+
+
+
+              btnCreateVoting.setAttribute("data-bs-toggle", "modal")
+              btnCreateVoting.setAttribute("href", "#modal-CreateVoting")
+
+
+              //綁定 modal 內 DOM 元素
+              const votingInitiator = document.getElementById("votingInitiator")//發起人
+
+              //發起人名稱
+              axios.get(`${_url}/users?UID=${_user}`)
+                .then(function (res) {
+                  votingInitiator.textContent = res.data[0].userName
+                }).catch(function (error) {
+                  console.error(error);
+                })
+            })
+
+
             const modalCreateVoting = document.getElementById("modal-CreateVoting")
 
             modalCreateVoting.addEventListener("click", () => {
               //綁定 modal 內 DOM 元素
               const eventDateTimeInput = document.getElementById("eventDateTime") //享用日期
               const deadlineDateTimeInput = document.getElementById("deadlineDateTime") //截止日期
-              const votingInviteesSelect = document.getElementById("votingInvitees") //請客人
+              const votingInviteesSelect = document.getElementById("votingInvitees") //請客人            
 
               //獲取時間輸入格的值
               const selectedEventDateTime = eventDateTimeInput.value.trim();
@@ -649,7 +773,7 @@
               minDate: moment().format('YYYY/MM/DD'),
             }
 
-            flatpickr(".dateSelector", config);
+            flatpickr(".dateSelector", config);            
           </script>
 
 
