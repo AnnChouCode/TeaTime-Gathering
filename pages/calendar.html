@@ -264,7 +264,7 @@
             //全頁共用變數
             const _url = "https://teatimeapi-test.onrender.com"
             const _user = "U004"
-            let _token = localStorage.getItem("token");
+            const _token = localStorage.getItem("token");
 
             /* 投票頁初始頁面 render init ================================*/
             //使用 moment 格式化日期
@@ -501,7 +501,7 @@
               initModalVotingCard(votingUID)
 
               //判斷登入狀態
-              isLoggedIn(_token)
+              //isLoggedIn(_token)
             })
 
             //render 投票 modal 活動資訊
@@ -594,9 +594,9 @@
 
               //登入狀態判斷，若未登入，加入提示語法
               if (!isLoggedIn(_token)) {
-                return `<button
-                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
-                              type="button" data-num=${id} data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="請先登入帳號">投票</button>`
+                return `<button type="button"
+                              class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02"
+                              data-bs-container="body" data-bs-toggle="popover"  data-bs-placement="top" data-bs-content="請先登入帳號">投票</a>`
               }
 
               //已登入狀態，顯示是否已投票過此店家
@@ -607,18 +607,20 @@
 
             //btnVoteThis 投票動作判斷  
             function voteStore() {
+              //若為未登入狀態，提示登入，並中斷執行後續動作
+              if (!isLoggedIn(_token)) {
+                const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+                const popoverList = [...popoverTriggerList].map(popoverTriggerEl => {
+                  new bootstrap.Popover(popoverTriggerEl)
+                })
+                return
+              }
+
+              //已登入狀態動作
               const btnVoteThis = VotingModal.querySelectorAll('.btnVoteThis')
-              const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
 
               btnVoteThis.forEach(btn => {
                 btn.addEventListener('click', function () {
-                  //若為未登入狀態，提示登入，並中斷執行後續動作
-                  if (!isLoggedIn(_token)) {
-                    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => {
-                      new bootstrap.Popover(popoverTriggerEl)
-                    })
-                    return
-                  }
 
                   //含有指定 class 樣式的按鈕代表已投票過此店家
                   const isVoted = btn.classList.contains("btn-active-brand-02")
@@ -627,12 +629,10 @@
                   if (isVoted) {
                     //將 votings 資料庫 id 與動作輸入變更資料庫
                     updateVotingAPI(btn.dataset.num, "deleteVote")
-                    //alert("投票已取消")
                   } else {
                     //未投票的店家 click，投票成功
                     //將 votings 資料庫 id 與動作輸入變更資料庫
                     updateVotingAPI(btn.dataset.num, "addVote");
-                    //alert("投票成功")
                   }
                 });
               });
@@ -676,30 +676,31 @@
 
 
             /* 建立投票 create voting event ========================================*/
-            const btnCreateVoting = document.querySelector(".btnCreateVoting")
+            // const btnCreateVoting = document.querySelector(".btnCreateVoting")
 
-            btnCreateVoting.addEventListener("click", () => {
-              //若為未登入狀態，提示登入，並中斷執行後續動作
-              if (!isLoggedIn(_token)) {
-                btnCreateVoting.setAttribute("data-bs-toggle", "popover")
-                btnCreateVoting.removeAttribute("href")
+            // const popover = new bootstrap.Popover('[data-bs-toggle="popover"]', {
+            //   trigger: 'focus'
+            // })
 
-                // const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-                // const popoverList = [...popoverTriggerList].map(popoverTriggerEl => {
-                //   new bootstrap.Popover(popoverTriggerEl)
-                // })
-                const popover = new bootstrap.Popover('[data-bs-toggle="popover"]', {
-                  trigger: 'focus'
-                })
-                return
+            document.addEventListener('DOMContentLoaded', function () {
+              const btnCreateVoting = document.querySelector(".btnCreateVoting")
+
+              if (isLoggedIn(_token)) {
+                btnCreateVoting.setAttribute('href', '#modal-CreateVoting'); // 已登入，設置 modal 顯示目標
+                btnCreateVoting.setAttribute("data-bs-toggle", "modal"); // 移除原本的 popover 屬性
+                //const myModal = new bootstrap.Modal(document.getElementById("modal-CreateVoting")); // 初始化 modal
+
+              } else {
+                btnCreateVoting.setAttribute('data-bs-toggle', 'popover'); // 未登入，設置 popover
+                btnCreateVoting.setAttribute('data-bs-content', '請先登入帳號'); // 設置 popover 內容
+                const popover = new bootstrap.Popover(btnCreateVoting); // 初始化 popover
               }
+            });
 
 
+            const createVotingModal = document.getElementById("modal-CreateVoting")
 
-              btnCreateVoting.setAttribute("data-bs-toggle", "modal")
-              btnCreateVoting.setAttribute("href", "#modal-CreateVoting")
-
-
+            createVotingModal.addEventListener('show.bs.modal', function (event) {
               //綁定 modal 內 DOM 元素
               const votingInitiator = document.getElementById("votingInitiator")//發起人
 
@@ -712,10 +713,7 @@
                 })
             })
 
-
-            const modalCreateVoting = document.getElementById("modal-CreateVoting")
-
-            modalCreateVoting.addEventListener("click", () => {
+            createVotingModal.addEventListener("click", () => {
               //綁定 modal 內 DOM 元素
               const eventDateTimeInput = document.getElementById("eventDateTime") //享用日期
               const deadlineDateTimeInput = document.getElementById("deadlineDateTime") //截止日期
