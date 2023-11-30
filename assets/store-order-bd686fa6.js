@@ -1,4 +1,4 @@
-import"./main-683b5b67.js";import"./nav-6adc6ebb.js";import{s as x}from"./showStars-385adb56.js";$(function(){(function(){let m=$("#paginationPagesMenu");const p=location.href.split("=")[1];let b=window.innerWidth<768;$.ajax({url:`https://teatimeapi-test.onrender.com/restaurants?UID=${p}`,success:function(o){let u=o.length,g=o[0].products,t=o[0],n=b?5:10,l="",h=x(t.stars);l+=`
+import"./main-652f9d08.js";import"./nav-87cf5d3e.js";import{s as x}from"./showStars-385adb56.js";$(function(){(function(){let m=$("#paginationPagesMenu");const p=location.href.split("=")[1];let b=window.innerWidth<768;$.ajax({url:`https://teatimeapi-test.onrender.com/restaurants?UID=${p}`,success:function(o){let u=o.length,g=o[0].products,t=o[0],n=b?5:10,l="",h=x(t.stars);l+=`
                     <div class="order-bg" style=" background: url(${t.storeBannerPhoto}) center top /cover;"></div>
                     <div class="order-content container ps-12 ps-md-42 d-sm-flex align-items-end">
                       <img src="${t.storeLogo}" alt="logo-cha source"
