@@ -1,4 +1,4 @@
-.animation-bounce{
+.animation-bounce-down{
     animation: bounce  1s infinite linear;
 }
 
@@ -10,4 +10,18 @@
   50% {
     transform: translateY(-10px); /* 向上移動 10px */
   }
+}
+
+.animation-bounce-x{
+  animation: bounce-x  2s infinite ease-out;
+}
+
+// 順時鐘旋轉
+@keyframes bounce-x  {
+0%, 100% {
+  transform: translateX(0);
+}
+50% {
+  transform: translateX(-10px); /* 向左移動 10px */
+}
 }

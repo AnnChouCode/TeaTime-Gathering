@@ -146,7 +146,33 @@
 
         <!-- feedback collapse -->
         <div class="collapse d-sm-none bg-bg-1 " id="feedbackTogetherEvent">
-          <%- include('./layout/store-order-feedback.ejs'); -%>
+          <!-- <%- include('./layout/store-order-feedback.ejs'); -%> -->
+          <div class="layout-content py-16 py-md-84">
+            <div class="container mb-16 mb-sm-32">
+              <div class=" d-flex justify-content-between align-items-center mb-8 mb-sm-24">
+                <h2 class="fs-md-32 fs-24 fw-bold lh-sm">看評價</h2>
+                <button
+                  class="d-flex justify-content-center align-items-center px-24 py-10 py-sm-14 border-radius-40 btn btn-brand-03 btn-hover-brand-01"
+                  data-bs-toggle="modal" data-bs-target="#modal-WriteReview">
+                  <p class="text-white word-break-keep-all">寫評價</p>
+                </button>
+              </div>
+              <div class="d-flex align-items-center ">
+
+                <p class="fs-sm-24 text-gray-02 me-36">對店家的最新評價</p>
+                <button class="ratingRWDToggleBtn border-0 bg-transparent ">
+                  <img src="/assets/images/icon/bxs-right-arrow .png" alt="bxs-right-arrow.png"
+                    class="animation-bounce-x">
+                </button>
+              </div>
+            </div>
+            <div class="container mb-sm-24">
+              <div class="rating-cards-RWD row flex-nowrap flex-md-wrap horizontal-scroll-a overflow-auto pb-8">
+              </div>
+            </div>
+            <div class="container text-center ">
+            </div>
+          </div>
         </div>
         <!-- modal 點餐 -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -674,7 +700,7 @@
             </div>
             <div class="container text-center d-none d-md-block">
               <button class="ratingToggleBtn border-0 bg-transparent">
-                <img src="/assets/images/icon/bxs-down-arrow.png" alt="bxs-down-arrow.png" class="animation-bounce">
+                <img src="/assets/images/icon/bxs-down-arrow.png" alt="bxs-down-arrow.png" class="animation-bounce-down">
               </button>
             </div>
           </div>
@@ -944,7 +970,7 @@
               const _rating = "/ratings";
               const _sorting = "_sort=id&_order=desc";
               let ratingInnerHTML = document.querySelector(".rating-cards");
-              // let ratingInnerHTML = document.querySelector(".testRating");
+              let ratingRWDInnerHTML = document.querySelector(".rating-cards-RWD");
               let thisPageStoreName = "Leisurely Café"
               let ratingData = [];
 
@@ -992,11 +1018,25 @@
                   }
                 })
                 // console.log(ratingItems);
-                ratingInnerHTML.innerHTML = ratingItems
+                ratingInnerHTML.innerHTML = ratingItems;
+                ratingRWDInnerHTML.innerHTML = ratingItems;
               }
+              // RWD留言右方按鈕，觸發toggle，呈現全部或者4則留言
+              let ratingRWDToggleBtn = document.querySelector(".ratingRWDToggleBtn");
+              let RWDshowAll = true;
+              ratingRWDToggleBtn.addEventListener("click", function () {
+                RWDshowAll = !RWDshowAll;
+                ratingRWDInnerHTML.innerHTML = "";
+                // 傳入全部或者4則留言
+                showRating(RWDshowAll == true ? 4 : ratingData.length);
+                ratingRWDToggleBtn.classList.toggle("transform180")
+              })
               // 留言下方按鈕，觸發toggle，呈現全部或者4則留言
               let ratingToggleBtn = document.querySelector(".ratingToggleBtn");
-              let showAll = true
+
+              let showAll = true;
+=======
+              
               ratingToggleBtn.addEventListener("click", function () {
                 showAll = !showAll;
                 ratingInnerHTML.innerHTML = "";
