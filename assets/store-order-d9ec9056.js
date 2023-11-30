@@ -1,14 +1,14 @@
-import"./main-683b5b67.js";import"./nav-a283da62.js";import{s as f}from"./showStars-385adb56.js";$(function(){(function(){let C=$("#paginationPagesMenu");const m=location.href.split("=")[1];let p=window.innerWidth<768;$.ajax({url:`https://teatimeapi-test.onrender.com/restaurants?UID=${m}`,success:function(i){let g=i.length,h=i[0].products,t=i[0],r=p?5:10,n="",u=f(t.stars);n+=`
-                    <div class="order-bg" style=" background: url(${t.storeBannerPhoto}) center top /cover;"></div>
+import"./main-5f9a53a8.js";import{a as D}from"./nav-08669667.js";import{s as M}from"./showStars-385adb56.js";import{s as f}from"./showDateTime-51bda516.js";$(function(){(function(){let l=$("#paginationPagesMenu");const s=location.href.split("=")[1];let i=window.innerWidth<768;$.ajax({url:`https://teatimeapi-test.onrender.com/restaurants?UID=${s}`,success:function(e){let n=e.length,b=e[0].products,r=e[0],g=i?5:10,p="",w=M(r.stars);p+=`
+                    <div class="order-bg" style=" background: url(${r.storeBannerPhoto}) center top /cover;"></div>
                     <div class="order-content container ps-12 ps-md-42 d-sm-flex align-items-end">
-                      <img src="${t.storeLogo}" alt="logo-cha source"
+                      <img src="${r.storeLogo}" alt="logo-cha source"
                         class="order-icon border border-2 border-line border-radius-24 me-sm-24 me-lg-37 mb-20 mb-sm-0 ">
                       <div class="order-textContent mb-16 mb-sm-0 me-sm-24 me-lg-37">
-                        <h2 class="fs-md-40 fs-24 fw-bold lh-sm">${t.storeName}</h2>
+                        <h2 class="fs-md-40 fs-24 fw-bold lh-sm">${r.storeName}</h2>
                         <div class="imgItems">
-                          ${u}
+                          ${w}
                         </div>
-                        <p class="order-content-p">${t.summary}</p>
+                        <p class="order-content-p">${r.summary}</p>
                       </div>
                       <div class="ms-auto">
                         <ul>
@@ -48,50 +48,72 @@ import"./main-683b5b67.js";import"./nav-a283da62.js";import{s as f}from"./showSt
                         </ul>
                       </div>
                     </div>
-                    `,$("#storeOrder").html(n),C.pagination({dataSource:h,locator:"items",totalNumber:g,pageSize:r,showPageNumbers:!0,showPrevious:!0,showNext:!0,callback:function(b,x){const a=JSON.parse(JSON.stringify(b));let o="",s="",l="",c=a.slice(0,5),d=a.slice(5),w=[...d];o+=`
+                    `,$("#storeOrder").html(p),l.pagination({dataSource:b,locator:"items",totalNumber:n,pageSize:g,showPageNumbers:!0,showPrevious:!0,showNext:!0,callback:function(v,I){const C=JSON.parse(JSON.stringify(v));let a="",o="",d="",h=C.slice(0,5),u=C.slice(5),x=[...u];a+=`
                           <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
                           <ul id="storeOrderMenuID">
-                        `,$.each(c,function(v,e){o+=`
+                        `,$.each(h,function(y,t){a+=`
                               <li class=" py-16 py-sm-24 border-bottom border-1 ">
                                 <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                   <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
-                                    <h3 class="store-order-h3">${e.品項}</h3>
+                                    <h3 class="store-order-h3">${t.品項}</h3>
                                     <div class="cold-hot d-flex justify-content-center align-items-center">
-                                      <div class="cold d-flex justify-content-center align-items-center ${e.冷?"":"hidden-block"}">
+                                      <div class="cold d-flex justify-content-center align-items-center ${t.冷?"":"hidden-block"}">
                                         <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
-                                        <span class="me-8">${e.價格}</span>
+                                        <span class="me-8">${t.價格}</span>
                                       </div>
-                                      <div class="hot d-flex justify-content-center align-items-center ${e.熱?"":"hidden-block"}">
+                                      <div class="hot d-flex justify-content-center align-items-center ${t.熱?"":"hidden-block"}">
                                         <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/hot.png?raw=true" alt="hot.png">
-                                        <span class="">${e.價格}</span>
+                                        <span class="">${t.價格}</span>
                                       </div>
                                     </div>
                                   </div>
-                                  <p class="text-top-p">${e.商品描述}</p>
+                                  <p class="text-top-p">${t.商品描述}</p>
+                                </button>
+                              </li>`}),a+=`
+                            </ul>
+                          </div>`,o+=`
+                          <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+                          <ul id="storeOrderMenuID">
+                        `,$.each(x,function(y,t){o+=`
+                              <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                                <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                  <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                                    <h3 class="store-order-h3">${t.品項}</h3>
+                                    <div class="cold-hot d-flex justify-content-center align-items-center">
+                                      <div class="cold d-flex justify-content-center align-items-center  ${t.冷?"":"hidden-block"}">
+                                        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
+                                        <span class="me-8">${t.價格}</span>
+                                      </div>
+                                      <div class="hot d-flex justify-content-center align-items-center ${t.熱?"":"hidden-block"}">
+                                        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/hot.png?raw=true" alt="hot.png">
+                                        <span class="">${t.價格}</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <p class="text-top-p">${t.商品描述}</p>
                                 </button>
                               </li>`}),o+=`
                             </ul>
-                          </div>`,s+=`
-                          <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
-                          <ul id="storeOrderMenuID">
-                        `,$.each(w,function(v,e){s+=`
-                              <li class=" py-16 py-sm-24 border-bottom border-1 ">
-                                <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                  <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
-                                    <h3 class="store-order-h3">${e.品項}</h3>
-                                    <div class="cold-hot d-flex justify-content-center align-items-center">
-                                      <div class="cold d-flex justify-content-center align-items-center  ${e.冷?"":"hidden-block"}">
-                                        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
-                                        <span class="me-8">${e.價格}</span>
-                                      </div>
-                                      <div class="hot d-flex justify-content-center align-items-center ${e.熱?"":"hidden-block"}">
-                                        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/hot.png?raw=true" alt="hot.png">
-                                        <span class="">${e.價格}</span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <p class="text-top-p">${e.商品描述}</p>
-                                </button>
-                              </li>`}),s+=`
-                            </ul>
-                          </div>`,l+=o,r==5&&(s=""),l+=s,$(".customMenu").html(l),c=[],d=[],new Swiper(".mySwiper",{breakpoints:{1:{slidesPerView:1,spaceBetween:10,centeredSlides:!1},576:{slidesPerView:2,spaceBetween:24,centeredSlides:!1}}})}})},error:function(i){console.error("error")}})})()});
+                          </div>`,d+=a,g==5&&(o=""),d+=o,$(".customMenu").html(d),h=[],u=[],new Swiper(".mySwiper",{breakpoints:{1:{slidesPerView:1,spaceBetween:10,centeredSlides:!1},576:{slidesPerView:2,spaceBetween:24,centeredSlides:!1}}})}})},error:function(e){console.error("error")}})})()});const k=moment().format("YYYY/MM/dd"),m=location.href.split("=")[1],E=document.querySelector(".btnTogetherEvent");E.addEventListener("click",T);let c;async function T(){await D.get(`https://teatimeapi-test.onrender.com/groupings?_expand=restaurant&_sort=deadlineDateTime&deadlineDateTime_gte=${k}`).then(function(l){c=l.data;let s,i;m.startsWith("G")?(s=c.filter(n=>n.UID===m),i=s[0].restaurantId):(s=c.filter(n=>n.restaurant.UID===m),i=s.length?s[0].restaurantId:"");const e=c.filter(n=>n.restaurantId===i);console.log(e),V(e)}).catch(function(l){console.error(l.message)})}function V(l){const s=document.querySelector(".calendarBlock");let i="";l.length?l.forEach(e=>{i+=`<div class="col-md-6 col-xl-4 col-xxxl-3 px-0 px-md-12">
+                        <a href="store-order.html?UID=${e.UID}"
+                            class="d-flex flex-lg-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line border-radius-40401616 border-radius-lg-80801616 h-100 w-100">
+                            <img class="event-img-RWD me-12 me-lg-0 mb-lg-20"
+                                src="${e.restaurantPhoto}"
+                                alt="calendar-img">
+                                <div class="d-flex flex-column justify-content-between w-60 w-lg-100 flex-grow-1">
+                        <p class="mb-8 mb-lg-16 fs-20 fs-lg-24 fw-bold lh-sm text-brand-03 single-ellipsis">${e.restaurantName}</p>
+                        <div class="d-flex justify-content-between align-items-center mb-8 mb-lg-16">
+                            <p class="fs-16 fs-lg-20 text-gray-05">開團中</p>
+                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
+                                    <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"></iconify-icon>
+                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${f(e.deadlineDateTime)[0]}</time>
+                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${f(e.deadlineDateTime)[1]}</time>
+                                </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-lg-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-lg-20 lh-sm fw-medium">${e.invitees?e.invitees:"無"}</span>
+                        </div>
+                    </div>
+                        </a>
+                    </div>`}):i="<p class='fs-16 fs-md-20 text-center'>目前沒有開團</p>",s.innerHTML=i}

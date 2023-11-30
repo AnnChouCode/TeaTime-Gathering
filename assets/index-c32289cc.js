@@ -1,4 +1,4 @@
-import{b as U}from"./main-683b5b67.js";import{a as E,i as L}from"./nav-a283da62.js";import{s as x}from"./showStars-385adb56.js";import{i as S}from"./isPastEvent-33573b9d.js";console.clear();let y=[];const D=new Date;let M=`${D.getFullYear()}/${D.getMonth()+1}/${D.getDate()}`;R();function R(e){let n=`https://teatimeapi-test.onrender.com/groupings?deadlineDateTime_like=${M}&isGroup=true`;e==1&&(n="https://teatimeapi-test.onrender.com/groupings?&isGroup=true&_limit=4"),E.get(n).then(function(s){const a=s.data;if(a=="")R(1);else if(a.forEach((t,l)=>{const[i,o]=t.deadlineDateTime.split(" ");t.datePart=i,t.timePart=o,i==M?t.todayGroupings=!0:t.todayGroupings=!1,y.push(t)}),y!=""){let t="";const l=document.querySelector(".bannerName");j(y).then(i=>{t+=`
+import{b as U}from"./main-5f9a53a8.js";import{a as E,i as L}from"./nav-08669667.js";import{s as x}from"./showStars-385adb56.js";import{i as S}from"./isPastEvent-33573b9d.js";import{s as u}from"./showDateTime-51bda516.js";console.clear();let y=[];const D=new Date;let M=`${D.getFullYear()}/${D.getMonth()+1}/${D.getDate()}`;R();function R(e){let n=`https://teatimeapi-test.onrender.com/groupings?deadlineDateTime_like=${M}&isGroup=true`;e==1&&(n="https://teatimeapi-test.onrender.com/groupings?&isGroup=true&_limit=4"),E.get(n).then(function(s){const a=s.data;if(a=="")R(1);else if(a.forEach((t,l)=>{const[i,o]=t.deadlineDateTime.split(" ");t.datePart=i,t.timePart=o,i==M?t.todayGroupings=!0:t.todayGroupings=!1,y.push(t)}),y!=""){let t="";const l=document.querySelector(".bannerName");j(y).then(i=>{t+=`
             <button class="banner-todaymeal-button 
             position-absolute top-0 start-50 translate-middle
             border-radius-36 bg-white px-12 py-8 
@@ -103,7 +103,7 @@ import{b as U}from"./main-683b5b67.js";import{a as E,i as L}from"./nav-a283da62.
     <span class="me-8 ">${u(i.deadlineDateTime)[0]}</span>
     <span>${u(i.deadlineDateTime)[1]}</span>`,a.innerHTML=`<span class="me-16">享用時間</span>
     <span class="me-8">${u(i.eventDateTime)[0]}</span>
-    <span>${u(i.eventDateTime)[1]}</span>`,t.textContent=i.initiator,l.textContent=i.invitees===""?"無":i.invitees}function u(e){const n=e.substring(5,10),s=e.split(" ")[1];return[n,s]}function W(e){const n=d.querySelector(".votingCard"),s=S(e[0].deadlineDateTime);let a="";e.forEach(t=>{const l=t.currentVoters.includes(I),i=t.currentVoters.length,o=t.restaurant.minGroupSize;a+=`
+    <span>${u(i.eventDateTime)[1]}</span>`,t.textContent=i.initiator,l.textContent=i.invitees===""?"無":i.invitees}function W(e){const n=d.querySelector(".votingCard"),s=S(e[0].deadlineDateTime);let a="";e.forEach(t=>{const l=t.currentVoters.includes(I),i=t.currentVoters.length,o=t.restaurant.minGroupSize;a+=`
     <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
         <img class="border-radius-32321616 votingcard-photo" src="${t.restaurant.storeCover}">
             <div class="flex-grow-1 d-flex flex-column">
