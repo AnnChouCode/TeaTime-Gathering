@@ -1,4 +1,6 @@
 import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
+// import axios
+import axios from 'axios';
 // import 時間判斷是否為過去事件樣板
 import isPastEvent from '/assets/js/isPastEvent.js';
 // import 判斷登入狀態樣板
