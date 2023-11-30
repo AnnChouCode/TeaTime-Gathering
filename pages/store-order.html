@@ -295,7 +295,33 @@
 
         <!-- feedback collapse -->
         <div class="collapse d-sm-none bg-bg-1 " id="feedbackTogetherEvent">
-          <%- include('./layout/store-order-feedback.ejs'); -%>
+          <!-- <%- include('./layout/store-order-feedback.ejs'); -%> -->
+          <div class="layout-content py-16 py-md-84">
+            <div class="container mb-16 mb-sm-32">
+              <div class=" d-flex justify-content-between align-items-center mb-8 mb-sm-24">
+                <h2 class="fs-md-32 fs-24 fw-bold lh-sm">看評價</h2>
+                <button
+                  class="d-flex justify-content-center align-items-center px-24 py-10 py-sm-14 border-radius-40 btn btn-brand-03 btn-hover-brand-01"
+                  data-bs-toggle="modal" data-bs-target="#modal-WriteReview">
+                  <p class="text-white word-break-keep-all">寫評價</p>
+                </button>
+              </div>
+              <div class="d-flex align-items-center ">
+
+                <p class="fs-sm-24 text-gray-02 me-36">對店家的最新評價</p>
+                <button class="ratingRWDToggleBtn border-0 bg-transparent ">
+                  <img src="/assets/images/icon/bxs-right-arrow .png" alt="bxs-right-arrow.png"
+                    class="animation-bounce-x">
+                </button>
+              </div>
+            </div>
+            <div class="container mb-sm-24">
+              <div class="rating-cards-RWD row flex-nowrap flex-md-wrap horizontal-scroll-a overflow-auto pb-8">
+              </div>
+            </div>
+            <div class="container text-center ">
+            </div>
+          </div>
         </div>
         <!-- modal 點餐 -->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -878,46 +904,11 @@
             </div>
             <div class="container mb-sm-24">
               <div class="rating-cards row flex-nowrap flex-md-wrap horizontal-scroll-a overflow-auto pb-8">
-
-
-
-                <!-- <div class="feedback-style col-12 col-md-6 pt-32 pt-sm-48 ">
-                  <div class="bg-brand-05 border-radius-16 px-12 px-sm-24 pb-12 pb-sm-24 custom-shadow-025">
-                    <div class=" transform-32-sm-48 d-flex ">
-                      <img class="people-img border-radius-24 border border-2 border-line me-16"
-                        src="/assets/images/user/female/user-female-16.jpg" alt="user-img">
-                      <div class="feedback-content w-100 d-flex flex-column justify-content-end ">
-                        <div class="d-flex">
-                          <div class="d-flex flex-column justify-content-end ">
-                            <div class="star-list mb-md-8">
-                              <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;"
-                                width="16"></iconify-icon>
-                              <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;"
-                                width="16"></iconify-icon>
-                              <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;"
-                                width="16"></iconify-icon>
-                              <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;"
-                                width="16"></iconify-icon>
-                              <iconify-icon icon="ic:round-star" class=" " style="color: #C2C1BD;"
-                                width="16"></iconify-icon>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                          <p class="fs-16 fs-md-20 text-gray-02">黃莉琳</p>
-                          <time datetime="2023-09-01" class="">2023/08/03</time>
-                        </div>
-                      </div>
-                    </div>
-                    <p class="line-clamp-2">
-                      大推柚香翠玉，香味清香撲鼻，茶味甘甜，入口醇郁濃厚，加上葡萄柚的酸爽，清涼退火。還有️淡雅桂花香和甘潤烏龍茶味，不僅養顏美容又醇厚好喝。還不趕緊跟著我立刻訂起來！</p>
-                  </div>
-                </div> -->
               </div>
             </div>
             <div class="container text-center d-none d-md-block">
               <button class="ratingToggleBtn border-0 bg-transparent">
-                <img src="/assets/images/icon/bxs-down-arrow.png" alt="bxs-down-arrow.png" class="animation-bounce">
+                <img src="/assets/images/icon/bxs-down-arrow.png" alt="bxs-down-arrow.png" class="animation-bounce-down">
               </button>
             </div>
           </div>
@@ -1208,7 +1199,7 @@
               const _rating = "/ratings";
               const _sorting = "_sort=id&_order=desc";
               let ratingInnerHTML = document.querySelector(".rating-cards");
-              // let ratingInnerHTML = document.querySelector(".testRating");
+              let ratingRWDInnerHTML = document.querySelector(".rating-cards-RWD");
               let thisPageStoreName = "Leisurely Café"
               let ratingData = [];
 
@@ -1220,12 +1211,12 @@
                     showRating()
                   })
               })()
-              function showRating(quantity=4) {               
+              function showRating(quantity = 4) {
                 let ratingItems = "";
 
-                ratingData.forEach((item,index) => {
+                ratingData.forEach((item, index) => {
                   // for(let item=0;item<ratingData.length;item++){
-                  if (item.reviewedRestaurant === thisPageStoreName && index<quantity) {
+                  if (item.reviewedRestaurant === thisPageStoreName && index < quantity) {
                     ratingItems += `
                   <div class="feedback-style col-12 col-md-6 pt-32 pt-sm-48 mb-md-32">
                     <div class="bg-brand-05 border-radius-16 px-12 px-sm-24 pb-12 pb-sm-24 custom-shadow-025">
@@ -1256,16 +1247,27 @@
                   }
                 })
                 // console.log(ratingItems);
-                ratingInnerHTML.innerHTML = ratingItems
+                ratingInnerHTML.innerHTML = ratingItems;
+                ratingRWDInnerHTML.innerHTML = ratingItems;
               }
+              // RWD留言右方按鈕，觸發toggle，呈現全部或者4則留言
+              let ratingRWDToggleBtn = document.querySelector(".ratingRWDToggleBtn");
+              let RWDshowAll = true;
+              ratingRWDToggleBtn.addEventListener("click", function () {
+                RWDshowAll = !RWDshowAll;
+                ratingRWDInnerHTML.innerHTML = "";
+                // 傳入全部或者4則留言
+                showRating(RWDshowAll == true ? 4 : ratingData.length);
+                ratingRWDToggleBtn.classList.toggle("transform180")
+              })
               // 留言下方按鈕，觸發toggle，呈現全部或者4則留言
-              let ratingToggleBtn =document.querySelector(".ratingToggleBtn");
-              let showAll = true
-              ratingToggleBtn.addEventListener("click",function(){
+              let ratingToggleBtn = document.querySelector(".ratingToggleBtn");
+              let showAll = true;
+              ratingToggleBtn.addEventListener("click", function () {
                 showAll = !showAll;
                 ratingInnerHTML.innerHTML = "";
                 // 傳入全部或者4則留言
-                showRating(showAll==true? 4 : ratingData.length);
+                showRating(showAll == true ? 4 : ratingData.length);
                 ratingToggleBtn.classList.toggle("transform180")
               })
             </script>
