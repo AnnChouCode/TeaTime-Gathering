@@ -6,8 +6,7 @@ import isLoggedIn from '/assets/js/isLoggedIn.js'; // import 判斷登入狀態�
 
 //全頁共用變數
 const _url = "https://teatimeapi-test.onrender.com"
-let _token = localStorage.getItem("token");
-
+const _token = localStorage.getItem("token");
 
 /* 判斷登入狀態 ================================== */
 function initUserLoginStates() {
@@ -153,8 +152,8 @@ function getLoginUserData(userDatas) {
         const ciphertext = AES.encrypt(successLoginData[0].UID, 'TeaTime-Gathering').toString();
         localStorage.setItem("token", ciphertext);
 
-        //登入成功按鈕變化
-        showLoginSuccess(successLoginData[0].userName)
+        //重新整理頁面，以更新 _token
+        window.location.reload();       
     }
 }
 
@@ -173,9 +172,6 @@ function showLoginSuccess(userName) {
 
     //關閉登入 modal
     $('#userLoginModal').modal('hide');
-
-    //更新 token 值
-    isLoggedIn(_token)
 }
 
 
@@ -183,7 +179,7 @@ function showLoginSuccess(userName) {
 
 /* 登出動作 ============================================*/
 btnLogOut.forEach(btn => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", (event) => {
         //避免頁面滾動
         event.preventDefault();
 
@@ -199,11 +195,28 @@ btnLogOut.forEach(btn => {
 
         //清除登入資訊
         localStorage.removeItem("token");
-        //更新 token 值
-        isLoggedIn(_token)
+
+        //重新整理頁面，以更新 _token
+        window.location.reload();
     })
 })
 
+
+/* 登入會員/管理員 按鈕 active 狀態切換顯示 */
+$('.btnSwitchIdentity').click(function (e) {
+    $('.btnSwitchIdentity').toggleClass('btn-active-brand-02');
+});
+
+/* collapse 內，通知按鈕點擊切換通知提示圓點 */
+$('.btnNotification').click(function (e) {
+    $('.btnNotificationAlert').addClass('d-none');
+});
+
+/* navbar 摺疊 collapse 選單切換 active */
+$('.offcanvas-list a').click(function (e) {
+    $('.offcanvas-list a').removeClass('nav-offcanvas-active');
+    $(this).toggleClass('nav-offcanvas-active');
+});
 
 /* Validation 填寫檢驗 */
 $('.needs-validation').each(function (index) {
@@ -211,20 +224,4 @@ $('.needs-validation').each(function (index) {
         e.preventDefault();
         $(this).addClass('was-validated');
     });
-});
-
-/* 通知按鈕點擊切換通知提示圓點 */
-$('.btnNotification').click(function (e) {
-    $('.btnNotificationAlert').addClass('d-none');
-});
-
-/* 登入會員/管理員 按鈕 active 狀態切換顯示 */
-$('.btnSwitchIdentity').click(function (e) {
-    $('.btnSwitchIdentity').toggleClass('btn-active-brand-02');
-});
-
-/* navbar 摺疊 collapse 選單切換 active */
-$('.offcanvas-list a').click(function (e) {
-    $('.offcanvas-list a').removeClass('nav-offcanvas-active');
-    $(this).toggleClass('nav-offcanvas-active');
 });

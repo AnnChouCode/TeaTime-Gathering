@@ -8,8 +8,6 @@
     <title>下午茶揪團去｜共享美味，打造回憶</title>
     <!-- Favicon -->
     <link rel="icon" href="../assets/images/logo/logo-favicon.png" type="image/x-icon" />
-    <!-- Swiper Css CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <!-- Open Graph Tag -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="下午茶揪團去">
@@ -249,7 +247,8 @@
             <div class="modal-dialog modal-dialog-centered mx-auto" style="max-width:416px;">
                 <div class="modal-content border-radius-24">
                     <div class="d-flex flex-column border-0 pt-12 pt-md-24 px-16 px-md-40 ms-auto">
-                        <button type="button" class="btn-close btnLinkToCalendar" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close btnLinkToCalendar" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                     </div>
                     <div class="modal-body p-16 pt-0 p-md-40">
                         <div class="mb-20 mb-md-40 text-center">
@@ -312,6 +311,9 @@
 
                 <script type="module">
                     import axios from 'axios';
+
+                    // import 星級樣板
+                    import showStars from '/assets/js/showStars.js';
 
                     /* 頁面基本資料取得 ===================================================*/
                     //全頁共用變數
@@ -411,7 +413,6 @@
                                     url: filteredData,
                                     success: function (filteredData) {
                                         //處理頁碼
-                                        console.log(container);
                                         handlePagination(filteredData, container)
                                     },
                                     error: function (error) {
@@ -491,20 +492,7 @@
 
                     }
 
-                    //星評樣板
-                    function showStars(num) {
-                        const starsTotal = 5
-                        const starsStates = {
-                            isGoodStar: `<iconify-icon icon="ic:round-star" style="color: #ffd43a;"
-                                                width="16"></iconify-icon>`,
-                            notGoodStar: `<iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
-                                                width="16"></iconify-icon>`
-                        }
 
-                        let resultStars = starsStates["isGoodStar"].repeat(num) + starsStates["notGoodStar"].repeat(starsTotal - num)
-
-                        return resultStars
-                    }
 
                     /* 處理選定店家 ========================================================*/
                     const checkedStoreList = {}; //選定店家儲存清單 
@@ -605,12 +593,12 @@
                             btn.addEventListener("click", function () {
                                 //獲取該刪除按鈕 uid
                                 const uid = this.getAttribute("data-uid")
-                                console.log(uid)
+                                //console.log(uid)
                                 //綁定該 uid 對應 checkbox
                                 const checkedCheckbox = document.querySelector(`input[data-uid=${uid}]`)
                                 checkedCheckbox.checked = false
                                 delete checkedStoreList[uid]
-                                console.log(checkedStoreList)
+                                //console.log(checkedStoreList)
                                 renderCheckedStore()
                             })
                         })
@@ -950,14 +938,14 @@
                                 selection: (event) => {
                                     const selectionValue = event.detail.selection.value;
                                     autoCompleteJS.input.value = selectionValue.storeName;
-                                    console.log(selectionValue)
+                                    //console.log(selectionValue)
                                     toggleFilter("search", selectionValue.storeName)
                                 },
                                 //輸入 enter 偵測
                                 keydown: (event) => {
                                     if (event.keyCode === 13) {
                                         const searchValue = autoCompleteJS.input.value
-                                        console.log(`這是 ${searchValue}`)
+                                        //console.log(`這是 ${searchValue}`)
                                         toggleFilter("search", searchValue)
                                     }
                                 }
@@ -999,7 +987,6 @@
                         minDate: moment().format('YYYY/MM/DD'),
                     });              
                 </script>
-
 
 
 </body>

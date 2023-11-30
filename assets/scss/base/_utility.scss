@@ -58,6 +58,10 @@ $utilities: map-merge(
   z-index: 2;
 }
 
+.z-index-3 {
+  z-index: 3;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -159,6 +163,12 @@ $utilities: map-merge(
 
   .border-radius-md-020000 {
     border-radius: 0px 200px 0px 0px;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .border-radius-lg-80801616 {
+    border-radius: 80px 80px 16px 16px;
   }
 }
 

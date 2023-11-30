@@ -3,10 +3,12 @@ import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
 import isPastEvent from '/assets/js/isPastEvent.js';
 // import 判斷登入狀態樣板
 import isLoggedIn from '/assets/js/isLoggedIn.js';
+//活動時間字串處理
+import showDateTime from '/assets/js/showDateTime.js';
 
 //全頁共用變數
 const _url = "https://teatimeapi-test.onrender.com"
-let _token = localStorage.getItem("token");
+const _token = localStorage.getItem("token");
 const _user = "U004"
 //儲存 API 回傳資料
 let datas = []
@@ -63,15 +65,11 @@ function createEventData() {
                 invitees: data.invitees, //請客人
                 restaurantList: data.UID.startsWith('V') ? [] : [data.restaurantName],
                 restaurantPhoto: data.restaurant.storeCover,
-                minGroupSize: data.restaurant.minGroupSize, //最小成團數
-                currentGroupCondition: data.currentGroupCondition, //目前點餐人數
             };
         }
 
         if (data.UID.startsWith('V')) {
             calendarEventMap[data.UID].restaurantList.push(data.restaurantName);
-            delete calendarEventMap[data.UID].currentGroupCondition
-            delete calendarEventMap[data.UID].minGroupSize
         }
     })
 
@@ -243,16 +241,6 @@ function renderVotingModalInfo(votingUID) {
     invitees.textContent = event.invitees === "" ? "無" : event.invitees
 }
 
-//時間字串處理
-function showDateTime(datetime) {
-    //月份 & 日期
-    const date = datetime.substring(5, 10)
-    //時間
-    const time = datetime.split(" ")[1]
-
-    return [date, time]
-}
-
 //render 投票 modal 選項店家資料
 function renderVotingCard(votingCardData) {
     //店家卡片渲染區域 
@@ -314,7 +302,7 @@ function btnVoteStates(id, isPast, alreadyVoted) {
     //登入狀態判斷，若未登入，加入提示語法
     if (!isLoggedIn(_token)) {
         return `<button
-                      class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02 btnVoteThis"
+                      class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02"
                       type="button" data-num=${id} data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="請先登入帳號">投票</button>`
     }
 
@@ -324,21 +312,22 @@ function btnVoteStates(id, isPast, alreadyVoted) {
             type="button" data-num=${id}>${alreadyVoted ? "已投票" : "投票"}</button>`
 }
 
+
+
 //btnVoteThis 投票動作判斷  
 function voteStore() {
+    if (!isLoggedIn(_token)) {
+        //若為未登入狀態，提示登入，並中斷執行後續動作
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => {
+            new bootstrap.Popover(popoverTriggerEl)
+        })
+    }
+
     const btnVoteThis = VotingModal.querySelectorAll('.btnVoteThis')
-    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
 
     btnVoteThis.forEach(btn => {
         btn.addEventListener('click', function () {
-            //若為未登入狀態，提示登入，並中斷執行後續動作
-            if (!isLoggedIn(_token)) {
-                const popoverList = [...popoverTriggerList].map(popoverTriggerEl => {
-                    new bootstrap.Popover(popoverTriggerEl)
-                })
-                return
-            }
-
             //含有指定 class 樣式的按鈕代表已投票過此店家
             const isVoted = btn.classList.contains("btn-active-brand-02")
 

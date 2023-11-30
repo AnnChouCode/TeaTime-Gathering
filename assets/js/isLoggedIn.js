@@ -1,6 +1,4 @@
 function isLoggedIn(_token){
-    _token = localStorage.getItem("token");
-
     //如果 token 內無值，則返回未登入
     if (!_token){return false}
 
