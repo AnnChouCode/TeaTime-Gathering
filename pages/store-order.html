@@ -1040,9 +1040,10 @@
 
                     //如果頁面 UID 傳入 "G" 開頭 UID，則表開團 UID，若否則表餐廳 UID
                     if (currentUID.startsWith("G")) {
-                      filteredData = groupingDatas.filter(data => data.UID === currentUID)
+                      //篩選符合開團 UID 的 data，若無則返回 []
+                      filteredData = groupingDatas.filter(data => data.UID === currentUID)                      
                       //取當前頁面的餐廳 id
-                      currentRestaurantId = filteredData[0].restaurantId
+                      currentRestaurantId = filteredData.length ? filteredData[0].restaurantId : ""
                     } else {
                       //若該餐廳無開團，則取回 []
                       filteredData = groupingDatas.filter(data => data.restaurant.UID === currentUID)
