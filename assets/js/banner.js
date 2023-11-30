@@ -111,7 +111,7 @@ function getTodayGroupings(todayIsGroup) {
                       <div class="swiper-comment-personal d-flex align-items-center justify-content-center ">
                         <img class="border-radius-20 me-16" src="${item.reviewedRestaurant[2].reviewerPhoto}"
                           alt="user-img">
-                        <p class="fs-20 fs-md-16 fs-xxl-20 text-gray-02">${item.reviewedRestaurant[1].reviewer}</p>
+                        <p class="fs-20 fs-md-16 fs-xxl-20 text-gray-02">${item.reviewedRestaurant[2].reviewer}</p>
                       </div>
                       <div class="swiper-comment-date">
                       <time datetime="2023-08-03" class="text-gray-02">${item.reviewedRestaurant[2].reviewDateTime}</time>
