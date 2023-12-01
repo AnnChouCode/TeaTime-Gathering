@@ -166,6 +166,12 @@ $utilities: map-merge(
   }
 }
 
+@include media-breakpoint-up(lg) {
+  .border-radius-lg-80801616 {
+    border-radius: 80px 80px 16px 16px;
+  }
+}
+
 /* CUSTOM border-radius END*/
 
 /* CUSTOM 文字 */

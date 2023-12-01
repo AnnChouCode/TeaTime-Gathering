@@ -3,6 +3,8 @@ import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
 import isPastEvent from '/assets/js/isPastEvent.js';
 // import 判斷登入狀態樣板
 import isLoggedIn from '/assets/js/isLoggedIn.js';
+//活動時間字串處理
+import showDateTime from '/assets/js/showDateTime.js';
 
 //全頁共用變數
 const _url = "https://teatimeapi-test.onrender.com"
@@ -237,16 +239,6 @@ function renderVotingModalInfo(votingUID) {
 
     initiator.textContent = event.initiator
     invitees.textContent = event.invitees === "" ? "無" : event.invitees
-}
-
-//時間字串處理
-function showDateTime(datetime) {
-    //月份 & 日期
-    const date = datetime.substring(5, 10)
-    //時間
-    const time = datetime.split(" ")[1]
-
-    return [date, time]
 }
 
 //render 投票 modal 選項店家資料

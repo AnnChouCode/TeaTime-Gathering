@@ -322,6 +322,24 @@
               renderEvent()
             }
 
+
+
+            /* 視登入狀態更改「建立投票」按鈕功能 ================================*/
+            document.addEventListener('DOMContentLoaded', function () {
+              const btnCreateVoting = document.querySelector(".btnCreateVoting")
+
+              if (isLoggedIn(_token)) {
+                btnCreateVoting.setAttribute('href', '#modal-CreateVoting'); // 已登入，設置 modal 顯示目標
+                btnCreateVoting.setAttribute("data-bs-toggle", "modal"); // 移除原本的 popover 屬性
+              } else {
+                btnCreateVoting.setAttribute('data-bs-toggle', 'popover'); // 未登入，設置 popover
+                btnCreateVoting.setAttribute('data-bs-content', '請先登入帳號'); // 設置 popover 內容
+                const popover = new bootstrap.Popover(btnCreateVoting); // 初始化 popover
+              }
+            });
+
+
+
             /* 渲染操作月曆 evoCalendar ======================================*/
             //建立能被 evoCalendar 讀取的格式
             function createEvoCalendarData() {
@@ -641,6 +659,7 @@
             //變更投票資料庫 API
             async function updateVotingAPI(id, status) {
               try {
+                //該投票的進度條加入動畫
                 const progressElements = document.querySelector(`.ts-progress[data-num="${id}"]`);
                 progressElements.classList.add("is-processing")
 
@@ -662,6 +681,7 @@
                   .then(function (patchRes) {
                     //console.log(patchRes.data);
                     initModalVotingCard(patchRes.data.UID)
+                    //該投票的進度條移除動畫
                     progressElements.classList.remove("is-processing")
                   })
                   .catch(function (error) {
@@ -676,30 +696,9 @@
 
 
             /* 建立投票 create voting event ========================================*/
-            // const btnCreateVoting = document.querySelector(".btnCreateVoting")
-
-            // const popover = new bootstrap.Popover('[data-bs-toggle="popover"]', {
-            //   trigger: 'focus'
-            // })
-
-            document.addEventListener('DOMContentLoaded', function () {
-              const btnCreateVoting = document.querySelector(".btnCreateVoting")
-
-              if (isLoggedIn(_token)) {
-                btnCreateVoting.setAttribute('href', '#modal-CreateVoting'); // 已登入，設置 modal 顯示目標
-                btnCreateVoting.setAttribute("data-bs-toggle", "modal"); // 移除原本的 popover 屬性
-                //const myModal = new bootstrap.Modal(document.getElementById("modal-CreateVoting")); // 初始化 modal
-
-              } else {
-                btnCreateVoting.setAttribute('data-bs-toggle', 'popover'); // 未登入，設置 popover
-                btnCreateVoting.setAttribute('data-bs-content', '請先登入帳號'); // 設置 popover 內容
-                const popover = new bootstrap.Popover(btnCreateVoting); // 初始化 popover
-              }
-            });
-
-
             const createVotingModal = document.getElementById("modal-CreateVoting")
 
+            //當 modal 出現，獲取當前登入人的的姓名作為發起人
             createVotingModal.addEventListener('show.bs.modal', function (event) {
               //綁定 modal 內 DOM 元素
               const votingInitiator = document.getElementById("votingInitiator")//發起人
@@ -713,6 +712,7 @@
                 })
             })
 
+            //點擊 modla 則操作儲存格
             createVotingModal.addEventListener("click", () => {
               //綁定 modal 內 DOM 元素
               const eventDateTimeInput = document.getElementById("eventDateTime") //享用日期
