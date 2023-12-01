@@ -9,8 +9,6 @@
             <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;" width="24"></iconify-icon>
             <a href="overallSystem.html" class="memberSystem-a  text-gray-02">總覽</a>
         </li>
-
-        </li>
         <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
                 icon="material-symbols:order-approve-outline" style="color: #1e1e1e;" width="24"></iconify-icon><a
                 href="orderSystem.html" class="memberSystem-a  text-gray-02">訂單管理</a></li>
@@ -40,7 +38,7 @@
             activeIndex = 3;
             break;
     }
-    if (activeIndex!==-1){
+    if (activeIndex !== -1) {
         memberSystemPage[activeIndex].classList.add("memberSystem-active")
     }
 
@@ -59,5 +57,16 @@
         width: 247px;
         height: 40px;
         background-size: cover;
+        left: 0;
+
+    }
+
+    @media (max-width:992px) {
+        .indexLogo {
+
+            max-width: 200px;
+            max-height: 32px;
+
+        }
     }
 </style>
