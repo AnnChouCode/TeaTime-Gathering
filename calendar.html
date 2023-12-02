@@ -38,11 +38,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <!-- 進度條 tocas progress -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/calendar-e5ff566c.js"></script>
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-5f9a53a8.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/nav-08669667.js">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/calendar-968a8355.js"></script>
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-18dd99f5.js">
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/axios-3a76d256.js">
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/notification-78aba570.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/isPastEvent-33573b9d.js">
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-28352f34.css">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-b13df0bb.css">
 </head>
 
 <body>
@@ -211,11 +212,11 @@
                                 <a href="#notificationCollapseModal"
                                     class="position-relative d-block notification-hover btnNotification"
                                     data-bs-toggle="modal">
-                                    <iconify-icon class="p-8 bg-brand-02 rounded-circle"
+                                    <iconify-icon id="modalNews" class="p-8 bg-brand-02 rounded-circle"
                                         icon="ion:notifications-outline" style="color: white;" width="28"
                                         height="28"></iconify-icon>
                                     <div
-                                        class="btn-notification-alert rounded-circle bg-brand-01 border border-brand-04 border-1  position-absolute btnNotificationAlert">
+                                        class="btn-notification-alert rounded-circle bg-brand-01 border border-brand-04 border-1  position-absolute btnNotificationAlert d-none">
                                     </div>
                                 </a>
                             </li>
@@ -367,8 +368,8 @@
                         style="color: #8B8B8A;" width="32"></iconify-icon></a>
             </div>
             <div class="modal-body px-md-20 py-md-24 p-16">
-                <ul class=" notification-messages">
-                    <li><a href="#" class="d-block">
+                <ul class=" notification-messages modalMessages">
+                    <!-- <li><a href="#" class="d-block">
                             <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
                             <div class="d-flex justify-content-between mb-8">
                                 <span class="text-gray-02">店家</span>
@@ -422,7 +423,7 @@
                                 <span class="text-gray-02">預定訂購時間</span>
                                 <time>2023/08/18</time>
                             </div>
-                        </a></li>
+                        </a></li> -->
                 </ul>
             </div>
         </div>
@@ -635,11 +636,12 @@
     </div>
 </footer>
         <!-- notification -->
-        <a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover btnNotification"
-    id="notificationToastBtn">
-    <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline" style="color: white;"
-        width="28" height="28"></iconify-icon>
-    <div class="btn-notification-alert rounded-circle bg-brand-01 border border-brand-04 border-1  position-absolute btnNotificationAlert"></div>
+        <a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover btnNotification" id="btnToastNotification">
+    <iconify-icon id="toastNews" class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline"
+        style="color: white;" width="28" height="28"></iconify-icon>
+    <div
+        class="btn-notification-alert rounded-circle bg-brand-01 border border-brand-04 border-1 position-absolute btnNotificationAlert d-none">
+    </div>
 </a>
 
 <!-- notification-container -->
@@ -654,8 +656,8 @@
             </a>
         </div>
         <div class="px-md-20 py-md-24 p-16">
-            <ul class="notification-messages">
-                <li><a href="#" class="d-block">
+            <ul class="notification-messages toastMessages">
+                <!-- <li><a href="#" class="d-block">
                         <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
                         <div class="d-flex justify-content-between mb-8">
                             <span class="text-gray-02">店家</span>
@@ -709,11 +711,16 @@
                             <span class="text-gray-02">預定訂購時間</span>
                             <time>2023/08/18</time>
                         </div>
-                    </a></li>
+                    </a></li> -->
             </ul>
         </div>
     </div>
 </div>
+
+<!-- moment.js import-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<!-- notification.js -->
+
 
 <!-- jQuery -->
 <script>

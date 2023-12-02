@@ -11,8 +11,10 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title>投票管理</title>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-5f9a53a8.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-28352f34.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/voteSystem-b4c23406.js"></script>
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-18dd99f5.js">
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/axios-3a76d256.js">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-b13df0bb.css">
   <link rel="stylesheet" href="/TeaTime-Gathering/assets/_memberSystem-36b8fb63.css">
 </head>
 
@@ -30,8 +32,6 @@
         <li class="d-flex align-items-center ">
             <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;" width="24"></iconify-icon>
             <a href="overallSystem.html" class="memberSystem-a  text-gray-02">總覽</a>
-        </li>
-
         </li>
         <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
                 icon="material-symbols:order-approve-outline" style="color: #1e1e1e;" width="24"></iconify-icon><a
@@ -62,7 +62,7 @@
             activeIndex = 3;
             break;
     }
-    if (activeIndex!==-1){
+    if (activeIndex !== -1) {
         memberSystemPage[activeIndex].classList.add("memberSystem-active")
     }
 
@@ -81,6 +81,17 @@
         width: 247px;
         height: 40px;
         background-size: cover;
+        left: 0;
+
+    }
+
+    @media (max-width:992px) {
+        .indexLogo {
+
+            max-width: 200px;
+            max-height: 32px;
+
+        }
     }
 </style>                <!-- 右側欄位 -->
 
@@ -91,8 +102,8 @@
                             aria-controls="memberOffcanvas">
                             <iconify-icon width="24" icon="mingcute:menu-fill"></iconify-icon>
                         </a>
-                        <a href="index.html" class="ms-auto"><iconify-icon  icon="icon-park-outline:shop" width="24"
-                            height="24"></iconify-icon></a>
+                        <a href="index.html" class="ms-auto"><iconify-icon icon="icon-park-outline:shop" width="24"
+                                height="24"></iconify-icon></a>
                     </div>
                     <h2 class=" fw-bold mt-32 mt-lg-42 fs-32 px-12">投票管理</h2>
                     <ul class="member-ul mt-32 d-flex fw-bolder px-12 px-lg-0">
@@ -158,7 +169,8 @@
     <!-- offcanvas -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="memberOffcanvas" aria-labelledby="memberOffcanvasLabel">
         <div class="offcanvas-header pb-0">
-            <img src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="" width="150">
+            <!-- <img src="/assets/images/logo/logo-teatime.svg" alt="" width="150"> -->
+            <a href="index.html" class="indexLogo"></a>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body pt-0">
@@ -166,18 +178,18 @@
                 <li class="d-flex align-items-center ">
                     <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
                         width="24"></iconify-icon>
-                    <a href="orderSystem.html" class="text-gray-02">總覽</a>
-                </li>
+                    <a href="overallSystem.html" class="memberSystem-a text-gray-02">總覽</a>
                 </li>
                 <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
                         icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
-                        width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">訂單管理</a></li>
+                        width="24"></iconify-icon><a href="orderSystem.html"
+                        class="memberSystem-a  text-gray-02">訂單管理</a></li>
                 <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
                         style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html"
-                        class="text-gray-02">投票管理</a></li>
+                        class="memberSystem-a text-gray-02 memberSystem-active">投票管理</a></li>
                 <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
                         icon="material-symbols:account-box" style="color: #1e1e1e;" width="24"></iconify-icon><a
-                        href="orderSystem.html" class="text-gray-02">個人資料</a></li>
+                        href="memberInfo.html" class="memberSystem-a text-gray-02">個人資料</a></li>
             </ul>
         </div>
     </div>
@@ -191,19 +203,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 <!-- 時間選擇器 flatpickr import -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script>
-
-    flatpickr(".dateSelector", config = {
-        enableTime: true,
-        dateFormat: "Y/m/d H:i",
-        time_24hr: true,
-        minuteIncrement: 15,
-        allowInput: true,
-        minDate: moment().format('YYYY/MM/DD'),
-        maxDate: moment().add(1, 'months').format('YYYY/MM/DD'),
-    }); 
-</script>
-
 
 <script>
 
@@ -212,47 +211,7 @@
     let initiatePoll = document.querySelector(".initiatePoll");
     let memberbtn = document.querySelectorAll('.memberbtn');
 
-    let votingHTML = `
-    <li class="p-24 border-bottom border-brand-03">
-                            <div class="d-flex flex-column flex-lg-row">
-                                <aside class="me-40 d-flex justify-content-between align-items-center">
-                                    <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
-                                    <span class="ms-auto d-block d-lg-none">
-                                        <a href=""
-                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">檢視投票</a>
-                                    </span>
-                                </aside>
 
-                                <main>
-                                    <h2 class="fs-24 fw-bold text-brand-03">茶源 ChaSource、下午喝茶</h2>
-                                    <ul class="mt-12 fs-20">
-                                        <li>
-                                            <ul class="text-gray-02">
-                                                <li class="d-flex mb-8">
-                                                    <p>享用日期<span class="ms-16">8/12 14:30</span></p>
-                                                </li>
-                                                <li class="d-flex mb-8">
-                                                    <p>截止日期<span class="ms-16">8/12 14:30</span></p>
-                                                </li>
-                                                <li class="d-flex mb-8 d-flex align-items-center ">
-                                                    <p>成團目標</p>
-                                                    <div class="ts-progress is-small ms-16 w-50 bg-gray-04">
-                                                        <div class="bar bg-brand-02" style="--value: 50">
-                                                            <div class="text text-white">50%</div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </main>
-                                <span class="ms-auto d-none d-lg-block">
-                                    <a href=""
-                                        class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">檢視投票</a>
-                                </span>
-                            </div>
-                        </li>
-    `
     let initiatePollHTML = `<li class="p-24 border-bottom border-brand-03">
                             <div class="d-flex flex-column flex-lg-row  ">
                                 <aside class="me-40 d-flex justify-content-between align-items-center ">
@@ -292,34 +251,15 @@
                                 </span>
                             </div>
                         </li>`;
-    window.onload = function () {
-        takePartVoting.innerHTML = votingHTML
-    }
-
-    memberbtn.forEach(btnType => {
-        btnType.addEventListener('click', () => {
-            memberbtn.forEach(btn => {
-                btn.classList.remove('memberbtn-actived');
-            })
-            btnType.classList.add('memberbtn-actived');
-
-            if (memberbtn[0] === btnType) {
-                initiatePoll.innerHTML = "";
-                takePartVoting.innerHTML = votingHTML
-            }
-            else if (memberbtn[1] === btnType) {
-                takePartVoting.innerHTML = "";
-                initiatePoll.innerHTML = initiatePollHTML;
-            }
-        })
-    });
-
-
-
-
+    // window.onload = function () {
+    //     takePartVoting.innerHTML = votingHTML
+    // }
 
 
 
 </script>
+
+
+
 
 </html>

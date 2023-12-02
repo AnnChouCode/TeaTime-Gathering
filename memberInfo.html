@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
     
     <title>投票管理</title>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-5f9a53a8.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-28352f34.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-18dd99f5.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-b13df0bb.css">
   <link rel="stylesheet" href="/TeaTime-Gathering/assets/_memberSystem-36b8fb63.css">
 </head>
 
@@ -27,8 +27,6 @@
         <li class="d-flex align-items-center ">
             <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;" width="24"></iconify-icon>
             <a href="overallSystem.html" class="memberSystem-a  text-gray-02">總覽</a>
-        </li>
-
         </li>
         <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
                 icon="material-symbols:order-approve-outline" style="color: #1e1e1e;" width="24"></iconify-icon><a
@@ -59,7 +57,7 @@
             activeIndex = 3;
             break;
     }
-    if (activeIndex!==-1){
+    if (activeIndex !== -1) {
         memberSystemPage[activeIndex].classList.add("memberSystem-active")
     }
 
@@ -78,6 +76,17 @@
         width: 247px;
         height: 40px;
         background-size: cover;
+        left: 0;
+
+    }
+
+    @media (max-width:992px) {
+        .indexLogo {
+
+            max-width: 200px;
+            max-height: 32px;
+
+        }
     }
 </style>                <!-- 右側欄位 -->
 
@@ -173,7 +182,8 @@
     <!-- offcanvas -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="memberOffcanvas" aria-labelledby="memberOffcanvasLabel">
         <div class="offcanvas-header pb-0">
-            <img src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="" width="150">
+            <!-- <img src="/assets/images/logo/logo-teatime.svg" alt="" width="150"> -->
+            <a href="index.html" class="indexLogo"></a>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body pt-0">
@@ -181,18 +191,18 @@
                 <li class="d-flex align-items-center ">
                     <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
                         width="24"></iconify-icon>
-                    <a href="orderSystem.html" class="text-gray-02">總覽</a>
-                </li>
+                    <a href="overallSystem.html" class="memberSystem-a text-gray-02 ">總覽</a>
                 </li>
                 <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
                         icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
-                        width="24"></iconify-icon><a href="orderSystem.html" class="text-gray-02">訂單管理</a></li>
+                        width="24"></iconify-icon><a href="orderSystem.html"
+                        class="memberSystem-a  text-gray-02">訂單管理</a></li>
                 <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
                         style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html"
-                        class="text-gray-02">投票管理</a></li>
+                        class="memberSystem-a text-gray-02">投票管理</a></li>
                 <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
                         icon="material-symbols:account-box" style="color: #1e1e1e;" width="24"></iconify-icon><a
-                        href="orderSystem.html" class="text-gray-02">個人資料</a></li>
+                        href="memberInfo.html" class="memberSystem-a text-gray-02 memberSystem-active">個人資料</a></li>
             </ul>
 
 
