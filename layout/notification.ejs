@@ -1,8 +1,9 @@
-<a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover btnNotification"
-    id="notificationToastBtn">
-    <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline" style="color: white;"
-        width="28" height="28"></iconify-icon>
-    <div class="btn-notification-alert rounded-circle bg-brand-01 border border-brand-04 border-1  position-absolute btnNotificationAlert"></div>
+<a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover btnNotification" id="btnToastNotification">
+    <iconify-icon id="toastNews" class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline"
+        style="color: white;" width="28" height="28"></iconify-icon>
+    <div
+        class="btn-notification-alert rounded-circle bg-brand-01 border border-brand-04 border-1 position-absolute btnNotificationAlert d-none">
+    </div>
 </a>
 
 <!-- notification-container -->
@@ -17,8 +18,8 @@
             </a>
         </div>
         <div class="px-md-20 py-md-24 p-16">
-            <ul class="notification-messages">
-                <li><a href="#" class="d-block">
+            <ul class="notification-messages toastMessages">
+                <!-- <li><a href="#" class="d-block">
                         <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
                         <div class="d-flex justify-content-between mb-8">
                             <span class="text-gray-02">店家</span>
@@ -72,11 +73,16 @@
                             <span class="text-gray-02">預定訂購時間</span>
                             <time>2023/08/18</time>
                         </div>
-                    </a></li>
+                    </a></li> -->
             </ul>
         </div>
     </div>
 </div>
+
+<!-- moment.js import-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<!-- notification.js -->
+<script type="module" src="../assets/js/layout/notification.js"></script>
 
 <!-- jQuery -->
 <script>

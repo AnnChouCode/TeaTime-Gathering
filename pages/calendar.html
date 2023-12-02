@@ -257,9 +257,9 @@
             import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
 
             // import 時間判斷是否為過去事件樣板
-            import isPastEvent from '/assets/js/isPastEvent.js';
+            import isPastEvent from '/assets/js/components/isPastEvent.js';
             // import 判斷登入狀態樣板
-            import isLoggedIn from '/assets/js/isLoggedIn.js';
+            import isLoggedIn from '/assets/js/components/isLoggedIn.js';
 
             //全頁共用變數
             const _url = "https://teatimeapi-test.onrender.com"
@@ -276,7 +276,7 @@
 
             //開團 & 投票事件撈取
             function init() {
-              const groupings = axios.get(`${_url}/groupings?_expand=restaurant`);
+              const groupings = axios.get(`${_url}/groupings?_expand=restaurant&_expand=order`);
               const votings = axios.get(`${_url}/votings?_expand=restaurant`);
 
               Promise.all([groupings, votings])
@@ -302,10 +302,10 @@
                     eventDateTime: data.eventDateTime, //享用時間
                     initiator: data.initiator, //舉辦人
                     invitees: data.invitees, //請客人
-                    restaurantList: data.UID.startsWith('V') ? [] : [data.restaurantName],
+                    restaurantList: data.UID.startsWith('V') ? [] : [data.restaurant.storeName],
                     restaurantPhoto: data.restaurant.storeCover,
                     minGroupSize: data.restaurant.minGroupSize, //最小成團數
-                    currentGroupCondition: data.currentGroupCondition, //目前點餐人數
+                    currentGroupCondition: data.UID.startsWith('V') ? 0 : data.order.orderDetail.length, //目前點餐數量                    
                   };
                 }
 
@@ -313,12 +313,11 @@
                   calendarEventMap[data.UID].restaurantList.push(data.restaurantName);
                   delete calendarEventMap[data.UID].currentGroupCondition
                   delete calendarEventMap[data.UID].minGroupSize
-                }
+                }              
 
               });
 
               createEvoCalendarData()
-              //console.log(calendarEventMap)
               renderEvent()
             }
 
@@ -381,7 +380,7 @@
               const active_date = $('#calendar').evoCalendar('getActiveDate');
               //格式化日期
               const formatted_ActiveDate = moment(active_date, 'MM/DD/YYYY').format('YYYY/MM/DD');
-              //console.log('滑鼠點擊的日期：', formatted_ActiveDate);
+
               //渲染活動卡片
               renderEvent(formatted_ActiveDate)
             });
@@ -442,8 +441,8 @@
                     ${e.UID.startsWith("V") ? "" : `<li class="d-flex align-items-center order-1 order-md-end">
                       <span class="me-16">成團目標</span>                      
                       <div class="ts-progress is-tiny bg-gray-04" style="width: 120px;">
-                        <div class="bar bg-brand-02" style="--value: ${calcGroupProgress(e.minGroupSize, e.currentGroupCondition)}">
-                            <div class="text-white">${calcGroupProgress(e.minGroupSize, e.currentGroupCondition) > 100 ? 100 : calcGroupProgress(e.minGroupSize, e.currentGroupCondition)}%</div>
+                        <div class="bar bg-brand-02" style="--value: ${calcGroupProgress(e.currentGroupCondition,e.minGroupSize)}">
+                            <div class="text-white">${calcGroupProgress(e.currentGroupCondition,e.minGroupSize) > 100 ? 100 : calcGroupProgress(e.currentGroupCondition,e.minGroupSize)}%</div>
                         </div>
                     </div></li>`}
                     <li class="col col-xl-5">
@@ -614,7 +613,7 @@
               if (!isLoggedIn(_token)) {
                 return `<button type="button"
                               class="py-4 px-16 btn-brand-05 btn-hover-bg-1 border-0 rounded-pill text-brand-02"
-                              data-bs-container="body" data-bs-toggle="popover"  data-bs-placement="top" data-bs-content="請先登入帳號">投票</a>`
+                              data-bs-container="body" data-bs-toggle="popover"  data-bs-placement="top" data-bs-content="請先登入帳號">投票</button>`
               }
 
               //已登入狀態，顯示是否已投票過此店家
@@ -679,7 +678,6 @@
                   "currentVoters": updatedVoters
                 })
                   .then(function (patchRes) {
-                    //console.log(patchRes.data);
                     initModalVotingCard(patchRes.data.UID)
                     //該投票的進度條移除動畫
                     progressElements.classList.remove("is-processing")

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import AES from 'crypto-js/aes'; //加密
 import encUtf8 from 'crypto-js/enc-utf8'; //解密
-import isLoggedIn from '/assets/js/isLoggedIn.js'; // import 判斷登入狀態樣板
+import isLoggedIn from '/assets/js/components/isLoggedIn.js'; // import 判斷登入狀態樣板
 
 
 //全頁共用變數
@@ -13,7 +13,6 @@ function initUserLoginStates() {
     // 解密
     const bytes = AES.decrypt(_token, 'TeaTime-Gathering');
     const originalText = bytes.toString(encUtf8);
-    //console.log(originalText)
 
     //Login 成功條件 & 失敗
     axios.get(`${_url}/users?UID=${originalText}`)
@@ -77,14 +76,12 @@ const autoCompleteJS = new autoComplete({
             selection: (event) => {
                 const selectionValue = event.detail.selection.value;
                 autoCompleteJS.input.value = selectionValue.storeName;
-                console.log(selectionValue.storeName)
                 window.location.href = `./store-order.html?UID=${selectionValue.UID}`
             },
             //輸入 enter 偵測
             keydown: (event) => {
                 if (event.keyCode === 13) {
                     const searchValue = autoCompleteJS.input.value
-                    console.log(selectionValue.storeName)
                     window.location.href = `./store-order.html?UID=${selectionValue.UID}`
                 }
             }
