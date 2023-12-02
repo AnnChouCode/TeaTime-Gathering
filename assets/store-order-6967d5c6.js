@@ -1,4 +1,26 @@
-import"./main-18dd99f5.js";import"./notification-78aba570.js";import{s as D}from"./showStars-385adb56.js";import{a as M}from"./axios-3a76d256.js";import{s as b}from"./showDateTime-51bda516.js";$(function(){(function(){let n=$("#paginationPagesMenu");const i=location.href.split("=")[1];let s=window.innerWidth<768;$.ajax({url:`https://teatimeapi-test.onrender.com/restaurants?UID=${i}`,success:function(e){let d=e.length,l=e[0].products,r=e[0],p=s?5:10,C="",w=D(r.stars);C+=`
+import"./main-18dd99f5.js";import"./notification-78aba570.js";import{a as D}from"./axios-3a76d256.js";import{s as b}from"./showDateTime-51bda516.js";import{s as M}from"./showStars-385adb56.js";const k=moment().format("YYYY/MM/DD"),g=location.href.split("=")[1],E=document.querySelector(".btnTogetherEvent");E.addEventListener("click",T);let c;async function T(){const n=`_sort=deadlineDateTime&deadlineDateTime_gte=${k}`;await D.get(`https://teatimeapi-test.onrender.com/groupings?_expand=restaurant&${n}`).then(function(i){c=i.data;let s,e;g.startsWith("G")?(s=c.filter(l=>l.UID===g),e=s.length?s[0].restaurantId:""):(s=c.filter(l=>l.restaurant.UID===g),e=s.length?s[0].restaurantId:"");const d=c.filter(l=>l.restaurantId===e);V(d)}).catch(function(i){console.error(i.message)})}function V(n){const i=document.querySelector(".calendarBlock");let s="";n.length?n.forEach(e=>{s+=`<div class="col-md-6 col-xl-4 col-xxxl-3 px-0 px-md-12">
+                        <a href="store-order.html?UID=${e.UID}"
+                            class="d-flex flex-lg-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line border-radius-40401616 border-radius-lg-80801616 h-100 w-100">
+                            <img class="event-img-RWD me-12 me-lg-0 mb-lg-20"
+                                src="${e.restaurant.storeCover}"
+                                alt="calendar-img">
+                                <div class="d-flex flex-column justify-content-between w-60 w-lg-100 flex-grow-1">
+                        <p class="mb-8 mb-lg-16 fs-20 fs-lg-24 fw-bold lh-sm text-brand-03 single-ellipsis">${e.restaurant.storeName}</p>
+                        <div class="d-flex justify-content-between align-items-center mb-8 mb-lg-16">
+                            <p class="fs-16 fs-lg-20 text-gray-05">開團中</p>
+                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
+                                    <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"></iconify-icon>
+                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${b(e.deadlineDateTime)[0]}</time>
+                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${b(e.deadlineDateTime)[1]}</time>
+                                </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="fs-16 fs-lg-20 text-gray-05">請客人</p>
+                            <span class="fs-16 fs-lg-20 lh-sm fw-medium">${e.invitees?e.invitees:"無"}</span>
+                        </div>
+                    </div>
+                        </a>
+                    </div>`}):s="<p class='fs-16 fs-md-20 text-center'>目前沒有開團</p>",i.innerHTML=s}$(function(){(function(){let n=$("#paginationPagesMenu");const i=location.href.split("=")[1];let s=window.innerWidth<768;$.ajax({url:`https://teatimeapi-test.onrender.com/restaurants?UID=${i}`,success:function(e){let d=e.length,l=e[0].products,r=e[0],p=s?5:10,C="",w=M(r.stars);C+=`
                     <div class="order-bg" style=" background: url(${r.storeBannerPhoto}) center top /cover;"></div>
                     <div class="order-content container ps-12 ps-md-42 d-sm-flex align-items-end">
                       <img src="${r.storeLogo}" alt="logo-cha source"
@@ -48,10 +70,10 @@ import"./main-18dd99f5.js";import"./notification-78aba570.js";import{s as D}from
                         </ul>
                       </div>
                     </div>
-                    `,$("#storeOrder").html(C),n.pagination({dataSource:l,locator:"items",totalNumber:d,pageSize:p,showPageNumbers:!0,showPrevious:!0,showNext:!0,callback:function(v,I){const h=JSON.parse(JSON.stringify(v));let a="",o="",m="",u=h.slice(0,5),f=h.slice(5),x=[...f];a+=`
+                    `,$("#storeOrder").html(C),n.pagination({dataSource:l,locator:"items",totalNumber:d,pageSize:p,showPageNumbers:!0,showPrevious:!0,showNext:!0,callback:function(v,I){const u=JSON.parse(JSON.stringify(v));let a="",o="",m="",h=u.slice(0,5),f=u.slice(5),x=[...f];a+=`
                           <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
                           <ul id="storeOrderMenuID">
-                        `,$.each(u,function(y,t){a+=`
+                        `,$.each(h,function(y,t){a+=`
                               <li class=" py-16 py-sm-24 border-bottom border-1 ">
                                 <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                   <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
@@ -94,26 +116,4 @@ import"./main-18dd99f5.js";import"./notification-78aba570.js";import{s as D}from
                                 </button>
                               </li>`}),o+=`
                             </ul>
-                          </div>`,m+=a,p==5&&(o=""),m+=o,$(".customMenu").html(m),u=[],f=[],new Swiper(".mySwiper",{breakpoints:{1:{slidesPerView:1,spaceBetween:10,centeredSlides:!1},576:{slidesPerView:2,spaceBetween:24,centeredSlides:!1}}})}})},error:function(e){console.error("error")}})})()});const k=moment().format("YYYY/MM/DD"),g=location.href.split("=")[1],E=document.querySelector(".btnTogetherEvent");E.addEventListener("click",T);let c;async function T(){const n=`_sort=deadlineDateTime&deadlineDateTime_gte=${k}`;await M.get(`https://teatimeapi-test.onrender.com/groupings?_expand=restaurant&${n}`).then(function(i){c=i.data;let s,e;g.startsWith("G")?(s=c.filter(l=>l.UID===g),e=s.length?s[0].restaurantId:""):(s=c.filter(l=>l.restaurant.UID===g),e=s.length?s[0].restaurantId:"");const d=c.filter(l=>l.restaurantId===e);V(d)}).catch(function(i){console.error(i.message)})}function V(n){const i=document.querySelector(".calendarBlock");let s="";n.length?n.forEach(e=>{s+=`<div class="col-md-6 col-xl-4 col-xxxl-3 px-0 px-md-12">
-                        <a href="store-order.html?UID=${e.UID}"
-                            class="d-flex flex-lg-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line border-radius-40401616 border-radius-lg-80801616 h-100 w-100">
-                            <img class="event-img-RWD me-12 me-lg-0 mb-lg-20"
-                                src="${e.restaurantPhoto}"
-                                alt="calendar-img">
-                                <div class="d-flex flex-column justify-content-between w-60 w-lg-100 flex-grow-1">
-                        <p class="mb-8 mb-lg-16 fs-20 fs-lg-24 fw-bold lh-sm text-brand-03 single-ellipsis">${e.restaurantName}</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-lg-16">
-                            <p class="fs-16 fs-lg-20 text-gray-05">開團中</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                    <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"></iconify-icon>
-                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${b(e.deadlineDateTime)[0]}</time>
-                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${b(e.deadlineDateTime)[1]}</time>
-                                </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-lg-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-lg-20 lh-sm fw-medium">${e.invitees?e.invitees:"無"}</span>
-                        </div>
-                    </div>
-                        </a>
-                    </div>`}):s="<p class='fs-16 fs-md-20 text-center'>目前沒有開團</p>",i.innerHTML=s}
+                          </div>`,m+=a,p==5&&(o=""),m+=o,$(".customMenu").html(m),h=[],f=[],new Swiper(".mySwiper",{breakpoints:{1:{slidesPerView:1,spaceBetween:10,centeredSlides:!1},576:{slidesPerView:2,spaceBetween:24,centeredSlides:!1}}})}})},error:function(e){console.error("error")}})})()});
