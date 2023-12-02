@@ -13,7 +13,6 @@ function initUserLoginStates() {
     // 解密
     const bytes = AES.decrypt(_token, 'TeaTime-Gathering');
     const originalText = bytes.toString(encUtf8);
-    //console.log(originalText)
 
     //Login 成功條件 & 失敗
     axios.get(`${_url}/users?UID=${originalText}`)
@@ -77,14 +76,12 @@ const autoCompleteJS = new autoComplete({
             selection: (event) => {
                 const selectionValue = event.detail.selection.value;
                 autoCompleteJS.input.value = selectionValue.storeName;
-                console.log(selectionValue.storeName)
                 window.location.href = `./store-order.html?UID=${selectionValue.UID}`
             },
             //輸入 enter 偵測
             keydown: (event) => {
                 if (event.keyCode === 13) {
                     const searchValue = autoCompleteJS.input.value
-                    console.log(selectionValue.storeName)
                     window.location.href = `./store-order.html?UID=${selectionValue.UID}`
                 }
             }
