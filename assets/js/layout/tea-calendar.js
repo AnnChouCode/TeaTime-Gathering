@@ -2,11 +2,11 @@ import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
 // import axios
 import axios from 'axios';
 // import 時間判斷是否為過去事件樣板
-import isPastEvent from '/assets/js/isPastEvent.js';
+import isPastEvent from '/assets/js/components/isPastEvent.js';
 // import 判斷登入狀態樣板
-import isLoggedIn from '/assets/js/isLoggedIn.js';
+import isLoggedIn from '/assets/js/components/isLoggedIn.js';
 //活動時間字串處理
-import showDateTime from '/assets/js/showDateTime.js';
+import showDateTime from '/assets/js/components/showDateTime.js';
 
 //全頁共用變數
 const _url = "https://teatimeapi-test.onrender.com"

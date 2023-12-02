@@ -1,7 +1,7 @@
 import axios from 'axios';
 import AES from 'crypto-js/aes'; //加密
 import encUtf8 from 'crypto-js/enc-utf8'; //解密
-import isLoggedIn from '/assets/js/isLoggedIn.js'; // import 判斷登入狀態樣板
+import isLoggedIn from '/assets/js/components/isLoggedIn.js'; // import 判斷登入狀態樣板
 
 
 //全頁共用變數
