@@ -316,7 +316,7 @@
                         </svg>
                       </button>
                       <input style="width: 35px;" type="text" class="text-brand-02 mx-8 text-center border border-0"
-                        value="1" id="number">
+                        value="1">
                       <button type="button" class="btn btn-white border-radius-040400">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                           <path
@@ -502,7 +502,7 @@
                         </span>
                       </button>
                       <input style="width: 35px;" type="text"
-                        class=" border border-2 text-brand-02 mx-8 text-center border border-0" value="1" id="number">
+                        class=" border border-2 text-brand-02 mx-8 text-center border border-0" value="1" >
                       <button type="button"
                         class="d-flex justify-content-center align-items-center btn btn-white border-radius-040400"
                         style="width: 24px;height: 24px;">
@@ -533,7 +533,7 @@
                         </span>
                       </button>
                       <input style="width: 35px;" type="text"
-                        class=" border border-2 text-brand-02 mx-8 text-center border border-0" value="1" id="number">
+                        class=" border border-2 text-brand-02 mx-8 text-center border border-0" value="1" >
                       <button type="button"
                         class="d-flex justify-content-center align-items-center btn btn-white border-radius-040400"
                         style="width: 24px;height: 24px;">
@@ -723,7 +723,7 @@
             <!-- moment.js import-->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
             <!-- JS -->
-            <script type="module" src="../main.js"></script>            
+            <script type="module" src="../main.js"></script>
             <script>
               // 開團中按鈕開關切換、按鈕互動外觀變化 jQuery
               $('.btnTogetherEvent').click(function (e) {
@@ -786,7 +786,7 @@
                 (function () {
                   let container = $("#paginationPagesMenu");
                   const UID = location.href.split("=")[1]
-                  // console.log(UID);
+                  console.log(UID);
                   let isMobile = window.innerWidth < 768; // 假設小於 768 像素的視窗寬度視為手機
                   // 發送 Ajax 請求獲取資料 
                   $.ajax({
@@ -1035,7 +1035,7 @@
               let ratingToggleBtn = document.querySelector(".ratingToggleBtn");
 
               let showAll = true;
-=======
+
               
               ratingToggleBtn.addEventListener("click", function () {
                 showAll = !showAll;
