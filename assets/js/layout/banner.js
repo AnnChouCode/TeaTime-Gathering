@@ -8,9 +8,8 @@ let todayDateString = `${today.getFullYear()}/${
   today.getMonth() + 1
 }/${today.getDate()}`;
 // console.log(todayDateString);
-// todayDateString = "2023/12/05";
-// todayDateString = "2023/11/29";
-// todayDateString = "2023/11/28";
+// todayDateString = "2023/12/05"; // 有一筆開團
+// todayDateString = "2023/11/28"; // 無開團，取 4 筆
 getTodayGroupings();
 function getTodayGroupings(todayIsGroup) {
   let url = `https://teatimeapi-test.onrender.com/groupings?deadlineDateTime_like=${todayDateString}&isGroup=true`;
@@ -30,7 +29,7 @@ function getTodayGroupings(todayIsGroup) {
         // console.log("今日有開團");
         // console.log(data);
         data.forEach((item, index) => {
-          // console.log(item,index)
+          // console.log(item)
           const [datePart, timePart] = item.deadlineDateTime.split(" ");
           item.datePart = datePart;
           item.timePart = timePart;
@@ -66,6 +65,7 @@ function getTodayGroupings(todayIsGroup) {
             <div class="swiper-wrapper">
             `;
             res.forEach(item=>{
+              // console.log(item);
               templateBanner += `
               <div class="swiper-slide">
                 <div class="swiper-bg-Style swiper01 text-white p-12 px-md-40 py-md-24 border-radius-80804040 
@@ -76,51 +76,10 @@ function getTodayGroupings(todayIsGroup) {
                     <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">${item.summary}</p>
                   </div>
                   <button data-uid="${item.storeUID}" 
-                    class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0">點餐去</button>
+                    class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0">點餐去
+                  </button>
                 </div>
-                <div class="d-none d-xl-flex justify-content-between p-24">
-                  <div class="swiper-comment bg-white p-24 border-radius-16161640">
-                    <div class="mb-12 d-flex align-items-center justify-content-between ">
-                      <div class="swiper-comment-personal d-flex align-items-center justify-content-center ">
-                        <img class="border-radius-20 me-16" src="${item.reviewedRestaurant[0].reviewerPhoto}" alt="user-img">
-                        <p class="fs-20 fs-md-16 fs-xxl-20 text-gray-02">${item.reviewedRestaurant[0].reviewer}</p>
-                      </div>
-                      <div class="swiper-comment-date">
-                        <time datetime="2023-08-03" class="text-gray-02">${item.reviewedRestaurant[0].reviewDateTime}</time>
-                      </div>
-                    </div>
-                    <div class="mb-12">${showStars(item.reviewedRestaurant[0].starRating)}</div>
-                    <p class="swiper-comment-p fs-20">${item.reviewedRestaurant[0].feedbackText}</p>
-                  </div>
-                  <div class="swiper-comment bg-white p-24 border-radius-16">
-                    <div class="mb-12 d-flex align-items-center justify-content-between ">
-                      <div class="swiper-comment-personal d-flex align-items-center justify-content-center ">
-                        <img class="border-radius-20 me-16" src="${item.reviewedRestaurant[1].reviewerPhoto}"
-                          alt="user-img">
-                        <p class="fs-20 fs-md-16 fs-xxl-20 text-gray-02">${item.reviewedRestaurant[1].reviewer}</p>
-                      </div>
-                      <div class="swiper-comment-date">
-                        <time datetime="2023-08-03" class="text-gray-02">${item.reviewedRestaurant[1].reviewDateTime}</time>
-                      </div>
-                    </div>
-                    <div class="mb-12">${showStars(item.reviewedRestaurant[1].starRating)}</div>
-                    <p class="swiper-comment-p fs-20">${item.reviewedRestaurant[1].feedbackText}</p>
-                  </div>
-                  <div class="swiper-comment bg-white p-24 border-radius-16164016">
-                    <div class="mb-12 d-flex align-items-center justify-content-between ">
-                      <div class="swiper-comment-personal d-flex align-items-center justify-content-center ">
-                        <img class="border-radius-20 me-16" src="${item.reviewedRestaurant[2].reviewerPhoto}"
-                          alt="user-img">
-                        <p class="fs-20 fs-md-16 fs-xxl-20 text-gray-02">${item.reviewedRestaurant[1].reviewer}</p>
-                      </div>
-                      <div class="swiper-comment-date">
-                      <time datetime="2023-08-03" class="text-gray-02">${item.reviewedRestaurant[2].reviewDateTime}</time>
-                      </div>
-                    </div>
-                    <div class="mb-12">${showStars(item.reviewedRestaurant[2].starRating)}</div>
-                    <p class="swiper-comment-p fs-20">${item.reviewedRestaurant[2].feedbackText}</p>
-                  </div>
-                </div>
+                ${bannerEvaluate(item.reviewedRestaurant)}
               </div>
               `;
             })
@@ -199,24 +158,36 @@ function getTodayGroupings(todayIsGroup) {
 function bannerRender(bannerData) {
   return new Promise((resolve, reject) => {
     const promises = bannerData.map((item) => {
-      let restaurantName = item.restaurantName;
+      let restaurantId = item.restaurantId;
       let newBannerData = item;
-
+      // console.log(newBannerData,"newBannerData");
+      
+      // 取得 店家資訊
       return axios
         .get(
-          `https://teatimeapi-test.onrender.com/restaurants?storeName=${restaurantName}`
+          `https://teatimeapi-test.onrender.com/restaurants?id=${restaurantId}`
         )
         .then((res1) => {
-          const { summary, storeBannerPhoto, UID } = res1.data[0];
+          // console.log(res1);
+          const { summary, storeBannerPhoto, UID, storeName, category } = res1.data[0];
+          newBannerData.restaurantName = storeName;
+          newBannerData.category = category;
           newBannerData.summary = summary;
           newBannerData.storeBannerPhoto = storeBannerPhoto;
           newBannerData.storeUID = UID;
+          // console.log(UID);
+          // console.log(newBannerData);
           return axios.get(
-            `https://teatimeapi-test.onrender.com/ratings?_sort=reviewDateTime&_order=desc&reviewedRestaurant=${restaurantName}&_limit=3`
+            `https://teatimeapi-test.onrender.com/ratings?_sort=reviewDateTime&_order=desc&restaurantUID=${UID}&_limit=3`
           );
         })
         .then((res2) => {
+          // console.log(res2.data);
           newBannerData.reviewedRestaurant = res2.data;
+          // console.log(newBannerData);
+          if(newBannerData.category != "飲料"){
+            // newBannerData = '';
+          }
           return newBannerData;
         })
         .catch((error) => {
@@ -226,6 +197,7 @@ function bannerRender(bannerData) {
 
     Promise.all(promises)
       .then((completedData) => {
+        console.log(completedData);
         resolve(completedData);
       })
       .catch((error) => {
@@ -234,3 +206,92 @@ function bannerRender(bannerData) {
   });
 }
 
+function bannerEvaluate(reviewedRestaurant){
+  // reviewedRestaurant.length = 3;
+  let template = '';
+
+  if(reviewedRestaurant.length == 2){
+    template += `<div class="d-none d-xl-flex p-24">`;
+  }else if(reviewedRestaurant.length == 0){
+    template += `<div class="d-none d-xl-flex p-24">`;
+  }else{
+    template += `<div class="d-none d-xl-flex justify-content-between p-24">`;
+  }
+
+  if(reviewedRestaurant.length == 0){
+    template += `
+          <div class="bg-white border-radius-16404016 w-100 h-100 text-center">
+            <p class="fs-20 " style="padding-top:98px;padding-bottom:98px">此店家尚無評價</p>
+          </div>
+          `;
+  }else{
+    template += `
+        <div class="swiper-comment bg-white p-24 border-radius-16161640">
+          <div class="mb-12 d-flex align-items-center justify-content-between ">
+            <div class="swiper-comment-personal d-flex align-items-center justify-content-center ">
+              <img class="border-radius-20 me-16" src="${reviewedRestaurant[0].reviewerPhoto}" alt="user-img">
+              <p class="fs-20 fs-md-16 fs-xxl-20 text-gray-02">${reviewedRestaurant[0].reviewer}</p>
+            </div>
+            <div class="swiper-comment-date">
+              <time datetime="2023-08-03" class="text-gray-02">${reviewedRestaurant[0].reviewDateTime}</time>
+            </div>
+          </div>
+          <div class="mb-12">${showStars(reviewedRestaurant[0].starRating)}</div>
+          <p class="swiper-comment-p fs-20">${reviewedRestaurant[0].feedbackText}</p>
+        </div>
+      `;
+      if(reviewedRestaurant.length == 2){
+        template += `
+            <div class="swiper-comment bg-white p-24 border-radius-16 ms-24">
+            <div class="mb-12 d-flex align-items-center justify-content-between ">
+              <div class="swiper-comment-personal d-flex align-items-center justify-content-center ">
+                <img class="border-radius-20 me-16" src="${reviewedRestaurant[1].reviewerPhoto}"
+                  alt="user-img">
+                <p class="fs-20 fs-md-16 fs-xxl-20 text-gray-02">${reviewedRestaurant[1].reviewer}</p>
+              </div>
+              <div class="swiper-comment-date">
+                <time datetime="2023-08-03" class="text-gray-02">${reviewedRestaurant[1].reviewDateTime}</time>
+              </div>
+            </div>
+            <div class="mb-12">${showStars(reviewedRestaurant[1].starRating)}</div>
+            <p class="swiper-comment-p fs-20">${reviewedRestaurant[1].feedbackText}</p>
+          </div>
+          `;
+      }else if(reviewedRestaurant.length == 3){
+        template += `
+            <div class="swiper-comment bg-white p-24 border-radius-16">
+            <div class="mb-12 d-flex align-items-center justify-content-between ">
+              <div class="swiper-comment-personal d-flex align-items-center justify-content-center ">
+                <img class="border-radius-20 me-16" src="${reviewedRestaurant[1].reviewerPhoto}"
+                  alt="user-img">
+                <p class="fs-20 fs-md-16 fs-xxl-20 text-gray-02">${reviewedRestaurant[1].reviewer}</p>
+              </div>
+              <div class="swiper-comment-date">
+                <time datetime="2023-08-03" class="text-gray-02">${reviewedRestaurant[1].reviewDateTime}</time>
+              </div>
+            </div>
+            <div class="mb-12">${showStars(reviewedRestaurant[1].starRating)}</div>
+            <p class="swiper-comment-p fs-20">${reviewedRestaurant[1].feedbackText}</p>
+          </div>
+          `;
+        template += `
+          <div class="swiper-comment bg-white p-24 border-radius-16164016">
+          <div class="mb-12 d-flex align-items-center justify-content-between ">
+            <div class="swiper-comment-personal d-flex align-items-center justify-content-center ">
+              <img class="border-radius-20 me-16" src="${reviewedRestaurant[2].reviewerPhoto}"
+                alt="user-img">
+              <p class="fs-20 fs-md-16 fs-xxl-20 text-gray-02">${reviewedRestaurant[2].reviewer}</p>
+            </div>
+            <div class="swiper-comment-date">
+            <time datetime="2023-08-03" class="text-gray-02">${reviewedRestaurant[2].reviewDateTime}</time>
+            </div>
+          </div>
+          <div class="mb-12">${showStars(reviewedRestaurant[2].starRating)}</div>
+          <p class="swiper-comment-p fs-20">${reviewedRestaurant[2].feedbackText}</p>
+        </div>
+          `;
+        }
+      }
+    template += `</div>`;
+    return template
+}
