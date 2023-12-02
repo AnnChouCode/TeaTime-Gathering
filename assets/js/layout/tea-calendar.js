@@ -22,10 +22,12 @@ function initEvents() {
     //定義資料時間範圍，目前暫定當下前後一個月（避免事件數量不夠，因此以 3 個月範圍）                    
     const latterMonth = moment().add(2, 'month').format('YYYY/MM')
     const agoMonth = moment().subtract(1, 'month').format('YYYY/MM')
+    //API 時間範圍
+    const timeRange = `deadlineDateTime_gte=${agoMonth}&deadlineDateTime_lte=${latterMonth}`
 
     //API
-    const groupings = axios.get(`${_url}/groupings?_expand=restaurant&deadlineDateTime_gte=${agoMonth}&deadlineDateTime_lte=${latterMonth}`)
-    const votings = axios.get(`${_url}/votings?_expand=restaurant&deadlineDateTime_gte=${agoMonth}&deadlineDateTime_lte=${latterMonth}`)
+    const groupings = axios.get(`${_url}/groupings?_expand=restaurant&${timeRange}`)
+    const votings = axios.get(`${_url}/votings?_expand=restaurant&${timeRange}`)
 
     Promise.all([groupings, votings])
         .then(function (res) {
@@ -53,7 +55,7 @@ function createEventData() {
         const dateB = new Date(b.deadlineDateTime);
         return dateA - dateB;
     })
-    //console.log(datas)
+
 
     //整理原始資料
     datas.forEach(data => {
@@ -65,7 +67,7 @@ function createEventData() {
                 eventDateTime: data.eventDateTime, //享用時間
                 initiator: data.initiator, //舉辦人
                 invitees: data.invitees, //請客人
-                restaurantList: data.UID.startsWith('V') ? [] : [data.restaurantName],
+                restaurantList: data.UID.startsWith('V') ? [] : [data.restaurant.storeName],
                 restaurantPhoto: data.restaurant.storeCover,
             };
         }
@@ -75,7 +77,6 @@ function createEventData() {
         }
     })
 
-    //console.log(calendarEventMap)
     handleDataToBeRendered()
 };
 
@@ -371,7 +372,6 @@ async function updateVotingAPI(id, status) {
             "currentVoters": updatedVoters
         })
             .then(function (patchRes) {
-                //console.log(patchRes.data);
                 initModalVotingCard(patchRes.data.UID)
                 progressElements.classList.remove("is-processing")
             })
