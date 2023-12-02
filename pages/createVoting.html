@@ -357,7 +357,6 @@
                         }
 
                         let filterAPI = `${_url}/restaurants?${filterCategory}${sortStores}${searchStore}`
-                        //console.log(filterAPI);
 
                         renderFilteredData(filterAPI)
                     }
@@ -460,7 +459,6 @@
                         $.each(paginatedData, function (index, item) {
 
                             const isChecked = checkedStoreList.hasOwnProperty(item.UID);
-                            //console.log(`是否已被選取${isChecked}, 目前的清單 ${checkedStoreList}`)
 
                             dataHtml += `<li class="findStore-img position-relative" style="background-image: url(${item.storeCover});"> 
                         <!-- select-store-checkbox --> 
@@ -593,12 +591,12 @@
                             btn.addEventListener("click", function () {
                                 //獲取該刪除按鈕 uid
                                 const uid = this.getAttribute("data-uid")
-                                //console.log(uid)
+
                                 //綁定該 uid 對應 checkbox
                                 const checkedCheckbox = document.querySelector(`input[data-uid=${uid}]`)
                                 checkedCheckbox.checked = false
                                 delete checkedStoreList[uid]
-                                //console.log(checkedStoreList)
+
                                 renderCheckedStore()
                             })
                         })
@@ -938,14 +936,14 @@
                                 selection: (event) => {
                                     const selectionValue = event.detail.selection.value;
                                     autoCompleteJS.input.value = selectionValue.storeName;
-                                    //console.log(selectionValue)
+                                    
                                     toggleFilter("search", selectionValue.storeName)
                                 },
                                 //輸入 enter 偵測
                                 keydown: (event) => {
                                     if (event.keyCode === 13) {
                                         const searchValue = autoCompleteJS.input.value
-                                        //console.log(`這是 ${searchValue}`)
+                                        
                                         toggleFilter("search", searchValue)
                                     }
                                 }
