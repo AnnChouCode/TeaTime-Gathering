@@ -1,5 +1,5 @@
 console.clear();
-import showStars from '/assets/js/showStars.js';
+import showStars from '/assets/js/components/showStars.js';
 import axios from 'axios';
 let bannerData = [];
 let templateBanner = "";
