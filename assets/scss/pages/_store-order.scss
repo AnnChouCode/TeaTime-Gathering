@@ -81,6 +81,15 @@
 }
 
 .allMenu {
+  .store-order-h3{
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      @include media-breakpoint-down(xl) {
+        max-width: 168px;
+      }
+  }
   .customMenu button{
     color: #1E1E1E !important;
   }

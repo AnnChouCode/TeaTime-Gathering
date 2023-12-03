@@ -178,11 +178,11 @@ function storeInformationData(isGroupings,UID,id){
                     // console.log(menuUid);
                     // console.log(item);
                     // console.log(item.品項);
-                    // console.log(item.熱);
                     let coldHotFalse = false;
                     if(item.冷 == false && item.熱 == false){
                       coldHotFalse = true; // 無冷無熱
                     }
+                    // console.log(coldHotFalse);
                     templateProduct += `
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                       <div class="modal-storeOrder-menu modal-content border-radius-24">
@@ -252,7 +252,7 @@ function storeInformationData(isGroupings,UID,id){
                               <label for="hot" class="fs-16 fs-md-20 radio-label">熱</label>
                             </li>
                           </ul>
-                          <h6 class="mb-12 text-gray-01 fs-20 line-height-sm ${coldHotFalse?'d-none':''}">甜度選擇</h6>
+                          <h6 class="mb-12 text-gray-01 fs-20 line-height-sm ${coldHotFalse?'d-none':''} ${category==='飲料'?'':'d-none'}">甜度選擇</h6>
                           <ul class="mb-32 mb-md-40 ${category==='飲料'?'':'d-none'}">
                             <li
                               class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
@@ -329,7 +329,7 @@ function storeInformationData(isGroupings,UID,id){
                               <label for="number" class="text-gray-01 fs-20 line-height-sm">數量</label>
                               <div class="btn-group border-radius-40 border border-2 py-12 px-16" role="group"
                                 aria-label="Basic ">
-                                <button type="button" class="btn btn-white border-radius-400040">
+                                <button type="button" class="btn btn-white border-radius-400040" id="numberSub">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path
                                       d="M18 12.998H6C5.73478 12.998 5.48043 12.8927 5.29289 12.7052C5.10536 12.5176 5 12.2633 5 11.998C5 11.7328 5.10536 11.4785 5.29289 11.2909C5.48043 11.1034 5.73478 10.998 6 10.998H18C18.2652 10.998 18.5196 11.1034 18.7071 11.2909C18.8946 11.4785 19 11.7328 19 11.998C19 12.2633 18.8946 12.5176 18.7071 12.7052C18.5196 12.8927 18.2652 12.998 18 12.998Z"
@@ -337,8 +337,8 @@ function storeInformationData(isGroupings,UID,id){
                                   </svg>
                                 </button>
                                 <input style="width: 35px;" type="text" class="text-brand-02 mx-8 text-center border border-0"
-                                  value="1">
-                                <button type="button" class="btn btn-white border-radius-040400">
+                                  value="1" id="numberInput">
+                                <button type="button" class="btn btn-white border-radius-040400" id="numberAdd">
                                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                                     <path
                                       d="M18 12.998H13V17.998C13 18.2633 12.8946 18.5176 12.7071 18.7052C12.5196 18.8927 12.2652 18.998 12 18.998C11.7348 18.998 11.4804 18.8927 11.2929 18.7052C11.1054 18.5176 11 18.2633 11 17.998V12.998H6C5.73478 12.998 5.48043 12.8927 5.29289 12.7052C5.10536 12.5176 5 12.2633 5 11.998C5 11.7328 5.10536 11.4785 5.29289 11.2909C5.48043 11.1034 5.73478 10.998 6 10.998H11V5.99805C11 5.73283 11.1054 5.47848 11.2929 5.29094C11.4804 5.1034 11.7348 4.99805 12 4.99805C12.2652 4.99805 12.5196 5.1034 12.7071 5.29094C12.8946 5.47848 13 5.73283 13 5.99805V10.998H18C18.2652 10.998 18.5196 11.1034 18.7071 11.2909C18.8946 11.4785 19 11.7328 19 11.998C19 12.2633 18.8946 12.5176 18.7071 12.7052C18.5196 12.8927 18.2652 12.998 18 12.998Z"
@@ -356,18 +356,51 @@ function storeInformationData(isGroupings,UID,id){
                             <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20"
                               height="20"></iconify-icon>
                             <p class="text-white me-4 me-sm-8">新增至購物車‧</p>
-                            <p class="text-white ">$25.00</p>
+                            <p class="text-white" id="mealPrice">${item.價格}</p>
                           </button>
                         </div>
                       </div>
                     </div>
                     `
                     $('#staticBackdrop').html(templateProduct);
+                    let numberSub = $('#numberSub'), numberInput = $('#numberInput'), numberAdd = $('#numberAdd');
+                    let originalPrice = item.價格;
+
+                    // 計算價格
+                    function calculatePrice() {
+                      let currentValue = parseInt(numberInput.val()) || 0;
+                      if (currentValue < 0) {
+                        numberInput.val(0);
+                        currentValue = parseInt(numberInput.val()) || 0;
+                      } else if (currentValue > 999) {
+                        numberInput.val(999);
+                        currentValue = parseInt(numberInput.val()) || 0;
+                      }
+                      let price = currentValue * originalPrice;
+                      // 更新 #mealPrice 的內容
+                      $("#mealPrice").text(price);
+                    }
+
+                    // 數量減 1
+                    numberSub.on('click', function() {
+                      let currentValue = parseInt(numberInput.val()) || 0;
+                      if (currentValue > 0) {
+                          numberInput.val(currentValue - 1);
+                          calculatePrice();
+                      }
+                    });
+                    // 數量加 1
+                    numberAdd.on('click', function() {
+                      let currentValue = parseInt(numberInput.val()) || 0;
+                      if (currentValue < 999) {
+                          numberInput.val(currentValue + 1);
+                          calculatePrice();
+                      }
+                    });
+                    numberInput.on('input', calculatePrice);
                   }
                 })
-                  // console.log('menuUid:', menuUid);
                 });
-                // console.log(newData);
               });
 
               firstFive = [];
