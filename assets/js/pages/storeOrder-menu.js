@@ -125,20 +125,7 @@ function storeInformationData(isGroupings,UID,id){
                                   <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                     <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
                                       <h3 class="store-order-h3">${data.品項}</h3>
-                                      <div class="cold-hot d-flex justify-content-center align-items-center">
-                                        <div class="cold d-flex justify-content-center align-items-center ${
-                                          data.冷 ? "" : "hidden-block"
-                                        }">
-                                          <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
-                                          <span class="me-8">${data.價格}</span>
-                                        </div>
-                                        <div class="hot d-flex justify-content-center align-items-center ${
-                                          data.熱 ? "" : "hidden-block"
-                                        }">
-                                          <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/hot.png?raw=true" alt="hot.png">
-                                          <span class="">${data.價格}</span>
-                                        </div>
-                                      </div>
+                                      ${coldHotTemplate(data.冷,data.熱,data.價格)}
                                     </div>
                                     <p class="text-top-p">${data.商品描述}</p>
                                   </button>
@@ -157,20 +144,7 @@ function storeInformationData(isGroupings,UID,id){
                                   <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                     <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
                                       <h3 class="store-order-h3">${data.品項}</h3>
-                                      <div class="cold-hot d-flex justify-content-center align-items-center">
-                                        <div class="cold d-flex justify-content-center align-items-center  ${
-                                          data.冷 ? "" : "hidden-block"
-                                        }">
-                                          <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
-                                          <span class="me-8">${data.價格}</span>
-                                        </div>
-                                        <div class="hot d-flex justify-content-center align-items-center ${
-                                          data.熱 ? "" : "hidden-block"
-                                        }">
-                                          <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/hot.png?raw=true" alt="hot.png">
-                                          <span class="">${data.價格}</span>
-                                        </div>
-                                      </div>
+                                      ${coldHotTemplate(data.冷,data.熱,data.價格)}
                                     </div>
                                     <p class="text-top-p">${data.商品描述}</p>
                                   </button>
@@ -211,4 +185,43 @@ function storeInformationData(isGroupings,UID,id){
           console.error("error");
         },
       });
+}
+
+function coldHotTemplate(cold,hot,price){
+
+  let template = '';
+  if(cold == false && hot == false){
+    template +=`
+      <div class="cold-hot d-flex justify-content-center align-items-center">
+      <div class="cold d-flex justify-content-center align-items-center  ${
+        cold ? "" : "hidden-block"
+      }">
+        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
+        <span class="me-8">${price}</span>
+      </div>
+      <div class="hot d-flex justify-content-center align-items-center ">
+        <span class="">$ ${price}</span>
+      </div>
+    </div>
+    `;
+
+  }else{
+    template +=`
+      <div class="cold-hot d-flex justify-content-center align-items-center">
+      <div class="cold d-flex justify-content-center align-items-center  ${
+        cold ? "" : "hidden-block"
+      }">
+        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
+        <span class="me-8">${price}</span>
+      </div>
+      <div class="hot d-flex justify-content-center align-items-center ${
+        hot ? "" : "hidden-block"
+      }">
+        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/hot.png?raw=true" alt="hot.png">
+        <span class="">${price}</span>
+      </div>
+    </div>
+    `;
+  }
+  return template
 }
