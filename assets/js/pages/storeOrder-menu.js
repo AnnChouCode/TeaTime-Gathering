@@ -11,7 +11,7 @@ $(function () {
     if(isGroupings){
       axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${UID}`)
       .then(res=>{
-        console.log(res.data[0]);
+        // console.log(res.data[0]);
         const {restaurantId} = res.data[0];
         id = restaurantId;
         storeInformationData(isGroupings,UID,id)
@@ -36,10 +36,9 @@ function storeInformationData(isGroupings,UID,id){
       $.ajax({
         url: `https://teatimeapi-test.onrender.com/restaurants?${searchCriteria}`,
         success: function (data) {
-          // console.log(data);
           let container = $("#paginationPagesMenu");
           let isMobile = window.innerWidth < 768; // 假設小於 768 像素的視窗寬度視為手機
-          const {products,stars} = data[0];
+          const {products,stars,category} = data[0];
           let totalNumber = data.length; // 實際資料筆數
           let pageSize = isMobile ? 5 : 10; // 根據裝置設定不同的 pageSize
           let storeTemplate = "";
@@ -116,13 +115,14 @@ function storeInformationData(isGroupings,UID,id){
               let lastFiveArray = [...lastFive]; // 類陣列轉純陣列
               firstFiveMenu += `
                             <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
-                            <ul id="storeOrderMenuID">
+                            <ul id="">
                           `;
   
               $.each(firstFive, function (index, data) {
+                // console.log(data);
                 firstFiveMenu += `
                                 <li class=" py-16 py-sm-24 border-bottom border-1 ">
-                                  <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                  <button type="button" class="menu-button border-0 bg-white text-start w-100" data-menuUID="${data.UID}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                     <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
                                       <h3 class="store-order-h3">${data.品項}</h3>
                                       ${coldHotTemplate(data.冷,data.熱,data.價格)}
@@ -136,12 +136,12 @@ function storeInformationData(isGroupings,UID,id){
                             </div>`;
               lastFiveMenu += `
                             <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
-                            <ul id="storeOrderMenuID">
+                            <ul id="">
                           `;
               $.each(lastFiveArray, function (index, data) {
                 lastFiveMenu += `
                                 <li class=" py-16 py-sm-24 border-bottom border-1 ">
-                                  <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                  <button type="button" class="menu-button border-0 bg-white text-start w-100" data-menuUID="${data.UID}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                     <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
                                       <h3 class="store-order-h3">${data.品項}</h3>
                                       ${coldHotTemplate(data.冷,data.熱,data.價格)}
@@ -160,6 +160,216 @@ function storeInformationData(isGroupings,UID,id){
               template += lastFiveMenu;
               // console.log(template);
               $(".customMenu").html(template);
+
+              // 取得所有 class 為 menu-button 的按鈕
+              const menuButtons = document.querySelectorAll('.menu-button');
+
+              // 為每個按鈕添加 click 事件監聽器
+              menuButtons.forEach(button => {
+                let UID = '';
+                let templateProduct = '';
+                button.addEventListener('click', function() {
+                  // 獲取 data-menuuid 的值
+                  const menuUid = this.getAttribute('data-menuuid');
+                  UID = menuUid;
+                  // 在這裡你可以使用 menuUid 的值進行其他操作
+                  newData.forEach(item=>{
+                    if(item.UID == menuUid){
+                    // console.log(menuUid);
+                    // console.log(item);
+                    // console.log(item.品項);
+                    // console.log(item.熱);
+                    let coldHotFalse = false;
+                    if(item.冷 == false && item.熱 == false){
+                      coldHotFalse = true; // 無冷無熱
+                    }
+                    templateProduct += `
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                      <div class="modal-storeOrder-menu modal-content border-radius-24">
+                        <div class="modal-header d-flex flex-column border-0 mb-32 mb-md-40 p-0 ">
+                          <div class="modal-header-top d-flex justify-content-between align-items-center w-100 mb-8 mb-md-16">
+                            <h5 class="modal-title" id="staticBackdropLabel">${item.品項}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          `
+                  if(coldHotFalse){
+                    templateProduct += `
+                      <div class="cold-hot d-flex  align-items-center w-100 mb-8 mb-md-16 ">
+                        <div class="hot d-flex justify-content-center align-items-center ">
+                          <span class="">$ ${item.價格}</span>
+                        </div>
+                      </div>
+                    `
+                  }else{
+                    templateProduct += `
+                            <div class="cold-hot d-flex  align-items-center w-100 mb-8 mb-md-16 ${item.冷? '':'d-none'}">
+                              <div class="cold d-flex justify-content-center align-items-center ">
+                                <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                <span class="me-16">${item.價格}</span>
+                              </div>
+                              <div class="hot d-flex justify-content-center align-items-center ${item.熱? 'd-none':'d-none'}">
+                                <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                                <span class="">${item.價格}</span>
+                              </div>
+                            </div>
+                            `
+                  }
+                  templateProduct += `
+                          <p>${item.商品描述}</p>
+                        </div>
+                        <div class="modal-body p-0 mb-40">
+                          <h6 class="mb-12 text-gray-01 fs-20 line-height-sm ${coldHotFalse?'d-none':''} ${category==='飲料'?'':'d-none'}">溫度選項</h6>
+                          <ul class="mb-32 mb-md-40 ${coldHotFalse?'d-none':''} ${category==='飲料'?'':'d-none'}">
+                            <li
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${item.冷?'':'d-none'} ">
+                              <input class="input-radio-style" type="radio" name="temperature" id="normal_ice" value="正常冰"
+                                checked>
+                              <label for="normal_ice" class="fs-16 fs-md-20 radio-label">正常冰</label>
+                            </li>
+                            <li
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${item.冷?'':'d-none'}">
+                              <input class="input-radio-style" type="radio" name="temperature" id="smal_ice" value="少冰（8 分冰）">
+                              <label for="smal_ice" class="fs-16 fs-md-20 radio-label">少冰（8 分冰）</label>
+                            </li>
+                            <li
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${item.冷?'':'d-none'}">
+                              <input class="input-radio-style" type="radio" name="temperature" id="tiny_ice" value="微冰（3 分冰）">
+                              <label for="tiny_ice" class="fs-16 fs-md-20 radio-label">微冰（3 分冰）</label>
+                            </li>
+                            <li
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${item.冷?'':'d-none'}">
+                              <input class="input-radio-style" type="radio" name="temperature" id="no_ice" value="去冰">
+                              <label for="no_ice" class="fs-16 fs-md-20 radio-label">去冰</label>
+                            </li>
+                            <li
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${item.熱?'':'d-none'}">
+                              <input class="input-radio-style" type="radio" name="temperature" id="warm" value="溫">
+                              <label for="warm" class="fs-16 fs-md-20 radio-label">溫</label>
+                            </li>
+                            <li
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${item.熱?'':'d-none'}">
+                              <input class="input-radio-style" type="radio" name="temperature" id="hot" value="熱">
+                              <label for="hot" class="fs-16 fs-md-20 radio-label">熱</label>
+                            </li>
+                          </ul>
+                          <h6 class="mb-12 text-gray-01 fs-20 line-height-sm ${coldHotFalse?'d-none':''}">甜度選擇</h6>
+                          <ul class="mb-32 mb-md-40 ${category==='飲料'?'':'d-none'}">
+                            <li
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                              <input class="input-radio-style" type="radio" name="sweetness" id="standard_sweetness"
+                                value="標準（10 分糖）">
+                              <label for="standard_sweetness" class="fs-16 fs-md-20 radio-label">標準（10 分糖）</label>
+                            </li>
+                            <li
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                              <input class="input-radio-style" type="radio" name="sweetness" id="less_sugar" value="少糖（7 分糖）">
+                              <label for="less_sugar" class="fs-16 fs-md-20 radio-label">少糖（7 分糖）</label>
+                            </li>
+                            <li
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                              <input class="input-radio-style" type="radio" name="sweetness" id="half_sugar" value="半糖（5 分糖）"
+                                checked>
+                              <label for="half_sugar" class="fs-16 fs-md-20 radio-label">半糖（5 分糖）</label>
+                            </li>
+                            <li
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                              <input class="input-radio-style" type="radio" name="sweetness" id="slight_sugar" value="微糖（3 分糖）">
+                              <label for="slight_sugar" class="fs-16 fs-md-20 radio-label">微糖（3 分糖）</label>
+                            </li>
+                            <li
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
+                              <input class="input-radio-style" type="radio" name="sweetness" id="sugar_free" value="無糖">
+                              <label for="sugar_free" class="fs-16 fs-md-20 radio-label">無糖</label>
+                            </li>
+                          </ul>
+                          <h6 class="mb-12 text-gray-01 fs-20 line-height-sm ${category==='飲料'?'':'d-none'}">加料</h6>
+                          <p class="mb-12 text-gray-02 fs-16 ${category==='飲料'?'':'d-none'}">最多可選 2 個項目</p>
+                          <ul class="mb-32 mb-md-40 ${category==='飲料'?'':'d-none'}">
+                            <li
+                              class="py-12 d-flex justify-content-end order-1 align-items-center border-bottom border-1 border-gray-03 ">
+                              <label class="checkboxStyle-content fs-16 fs-md-20 d-flex  align-items-center "
+                                for="fresh_milk">升級鮮奶<span class="ms-16">+$10.00</span>
+                                <input class="checkboxStyle-checkbox bg-pink" type="checkbox" id="fresh_milk" name="subscribe">
+                                <span class="checkboxStyle-checkmark"></span>
+                              </label>
+                            </li>
+                            <li
+                              class="py-12 d-flex justify-content-end order-1 align-items-center border-bottom border-1 border-gray-03 ">
+                              <label class="checkboxStyle-content fs-16 fs-md-20 d-flex  align-items-center " for="pearl">珍珠<span
+                                  class="ms-16">+$10.00</span>
+                                <input class="checkboxStyle-checkbox bg-pink" type="checkbox" id="pearl" name="subscribe">
+                                <span class="checkboxStyle-checkmark"></span>
+                              </label>
+                            </li>
+                            <li
+                              class="py-12 d-flex justify-content-end order-1 align-items-center border-bottom border-1 border-gray-03 ">
+                              <label class="checkboxStyle-content fs-16 fs-md-20 d-flex  align-items-center "
+                                for="brown_sugar">黑糖<span class="ms-16">+$10.00</span>
+                                <input class="checkboxStyle-checkbox bg-pink" type="checkbox" id="brown_sugar" name="subscribe">
+                                <span class="checkboxStyle-checkmark"></span>
+                              </label>
+                            </li>
+                            <li
+                              class="py-12 d-flex justify-content-end order-1 align-items-center border-bottom border-1 border-gray-03 ">
+                              <label class="checkboxStyle-content fs-16 fs-md-20 d-flex  align-items-center " for="agar">寒天晶球<span
+                                  class="ms-16">+$10.00</span>
+                                <input class="checkboxStyle-checkbox bg-pink" type="checkbox" id="agar" name="subscribe">
+                                <span class="checkboxStyle-checkmark"></span>
+                              </label>
+                            </li>
+                          </ul>
+                          <div class="">
+                            <div class="">
+                              <label for="remark" class="mb-24 text-gray-01 fs-20 line-height-sm">備註</label>
+                              <textarea rows="3" cols="30"
+                                class="no-resize w-100 mb-32 mb-md-32 border-radius-4 border border-1 border-gray-03"
+                                name="adding_materials" id="remark"></textarea>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <label for="number" class="text-gray-01 fs-20 line-height-sm">數量</label>
+                              <div class="btn-group border-radius-40 border border-2 py-12 px-16" role="group"
+                                aria-label="Basic ">
+                                <button type="button" class="btn btn-white border-radius-400040">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                      d="M18 12.998H6C5.73478 12.998 5.48043 12.8927 5.29289 12.7052C5.10536 12.5176 5 12.2633 5 11.998C5 11.7328 5.10536 11.4785 5.29289 11.2909C5.48043 11.1034 5.73478 10.998 6 10.998H18C18.2652 10.998 18.5196 11.1034 18.7071 11.2909C18.8946 11.4785 19 11.7328 19 11.998C19 12.2633 18.8946 12.5176 18.7071 12.7052C18.5196 12.8927 18.2652 12.998 18 12.998Z"
+                                      fill="#8B8B8A" />
+                                  </svg>
+                                </button>
+                                <input style="width: 35px;" type="text" class="text-brand-02 mx-8 text-center border border-0"
+                                  value="1">
+                                <button type="button" class="btn btn-white border-radius-040400">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                      d="M18 12.998H13V17.998C13 18.2633 12.8946 18.5176 12.7071 18.7052C12.5196 18.8927 12.2652 18.998 12 18.998C11.7348 18.998 11.4804 18.8927 11.2929 18.7052C11.1054 18.5176 11 18.2633 11 17.998V12.998H6C5.73478 12.998 5.48043 12.8927 5.29289 12.7052C5.10536 12.5176 5 12.2633 5 11.998C5 11.7328 5.10536 11.4785 5.29289 11.2909C5.48043 11.1034 5.73478 10.998 6 10.998H11V5.99805C11 5.73283 11.1054 5.47848 11.2929 5.29094C11.4804 5.1034 11.7348 4.99805 12 4.99805C12.2652 4.99805 12.5196 5.1034 12.7071 5.29094C12.8946 5.47848 13 5.73283 13 5.99805V10.998H18C18.2652 10.998 18.5196 11.1034 18.7071 11.2909C18.8946 11.4785 19 11.7328 19 11.998C19 12.2633 18.8946 12.5176 18.7071 12.7052C18.5196 12.8927 18.2652 12.998 18 12.998Z"
+                                      fill="#8B8B8A" />
+                                  </svg>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="modal-footer p-0  border-0 text-white ">
+                          <button type="button" class="btn btn-brand-03 border-radius-40 py-12 px-24
+                          d-flex justify-content-center align-items-center w-100 ">
+                            <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20"
+                              height="20"></iconify-icon>
+                            <p class="text-white me-4 me-sm-8">新增至購物車‧</p>
+                            <p class="text-white ">$25.00</p>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    `
+                    $('#staticBackdrop').html(templateProduct);
+                  }
+                })
+                  // console.log('menuUid:', menuUid);
+                });
+                // console.log(newData);
+              });
+
               firstFive = [];
               lastFive = [];
               // 菜單滑動用
@@ -188,7 +398,6 @@ function storeInformationData(isGroupings,UID,id){
 }
 
 function coldHotTemplate(cold,hot,price){
-
   let template = '';
   if(cold == false && hot == false){
     template +=`
