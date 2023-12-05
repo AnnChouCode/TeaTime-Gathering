@@ -1,4 +1,4 @@
-import"./main-ed97c786.js";import"./notification-98983fc9.js";import{a as D}from"./axios-3a76d256.js";import{s as b}from"./showDateTime-51bda516.js";import{s as M}from"./showStars-385adb56.js";const k=moment().format("YYYY/MM/DD"),g=location.href.split("=")[1],E=document.querySelector(".btnTogetherEvent");E.addEventListener("click",T);let c;async function T(){const n=`_sort=deadlineDateTime&deadlineDateTime_gte=${k}`;await D.get(`https://teatimeapi-test.onrender.com/groupings?_expand=restaurant&${n}`).then(function(i){c=i.data;let s,e;g.startsWith("G")?(s=c.filter(l=>l.UID===g),e=s.length?s[0].restaurantId:""):(s=c.filter(l=>l.restaurant.UID===g),e=s.length?s[0].restaurantId:"");const d=c.filter(l=>l.restaurantId===e);V(d)}).catch(function(i){console.error(i.message)})}function V(n){const i=document.querySelector(".calendarBlock");let s="";n.length?n.forEach(e=>{s+=`<div class="col-md-6 col-xl-4 col-xxxl-3 px-0 px-md-12">
+import{b as D}from"./main-37b85e29.js";import{i as M}from"./notification-a1a02d09.js";import{a as E}from"./axios-3a76d256.js";import{s as f}from"./showDateTime-51bda516.js";import{s as k}from"./showStars-385adb56.js";const A=localStorage.getItem("token");document.addEventListener("DOMContentLoaded",function(){const r=document.querySelector(".btnCreateGrouping"),o=document.querySelectorAll(".btnCart"),t=document.querySelectorAll(".btnWriteReview");M(A)?(r.setAttribute("href","#modal-CreateGroup"),r.setAttribute("data-bs-toggle","modal"),o.forEach(e=>{e.setAttribute("href","#modal-shppingCart-order"),e.setAttribute("data-bs-toggle","modal")}),t.forEach(e=>{e.setAttribute("href","#modal-WriteReview"),e.setAttribute("data-bs-toggle","modal")})):(r.setAttribute("data-bs-toggle","popover"),r.setAttribute("data-bs-content","請先登入帳號"),o.forEach(i=>{i.setAttribute("data-bs-toggle","popover"),i.setAttribute("data-bs-content","請先登入帳號")}),t.forEach(i=>{i.setAttribute("data-bs-toggle","popover"),i.setAttribute("data-bs-content","請先登入帳號")}),[...document.querySelectorAll('[data-bs-toggle="popover"]')].map(i=>{new D.Popover(i)}))});const T=moment().format("YYYY/MM/DD"),S="https://teatimeapi-test.onrender.com",g=location.href.split("=")[1],I=document.querySelector(".btnTogetherEvent");I.addEventListener("click",V);let d;function V(){const r=`_sort=deadlineDateTime&deadlineDateTime_gte=${T}`;E.get(`${S}/groupings?_expand=restaurant&${r}`).then(function(o){d=o.data;let t,e;g.startsWith("G")?(t=d.filter(l=>l.UID===g),e=t.length?t[0].restaurantId:""):(t=d.filter(l=>l.restaurant.UID===g),e=t.length?t[0].restaurantId:"");const i=d.filter(l=>l.restaurantId===e);j(i)}).catch(function(o){console.error(o.message)})}function j(r){const o=document.querySelector(".calendarBlock");let t="";r.length?r.forEach(e=>{t+=`<div class="col-md-6 col-xl-4 col-xxxl-3 px-0 px-md-12">
                         <a href="store-order.html?UID=${e.UID}"
                             class="d-flex flex-lg-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line border-radius-40401616 border-radius-lg-80801616 h-100 w-100">
                             <img class="event-img-RWD me-12 me-lg-0 mb-lg-20"
@@ -10,8 +10,8 @@ import"./main-ed97c786.js";import"./notification-98983fc9.js";import{a as D}from
                             <p class="fs-16 fs-lg-20 text-gray-05">開團中</p>
                             <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
                                     <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26" height="26"></iconify-icon>
-                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${b(e.deadlineDateTime)[0]}</time>
-                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${b(e.deadlineDateTime)[1]}</time>
+                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${f(e.deadlineDateTime)[0]}</time>
+                                    <time class="fw-medium lh-sm fs-16 fs-lg-20">${f(e.deadlineDateTime)[1]}</time>
                                 </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
@@ -20,17 +20,17 @@ import"./main-ed97c786.js";import"./notification-98983fc9.js";import{a as D}from
                         </div>
                     </div>
                         </a>
-                    </div>`}):s="<p class='fs-16 fs-md-20 text-center'>目前沒有開團</p>",i.innerHTML=s}$(function(){(function(){let n=$("#paginationPagesMenu");const i=location.href.split("=")[1];console.log(i);let s=window.innerWidth<768;$.ajax({url:`https://teatimeapi-test.onrender.com/restaurants?UID=${i}`,success:function(e){let d=e.length,l=e[0].products,r=e[0],p=s?5:10,C="",w=M(r.stars);C+=`
-                    <div class="order-bg" style=" background: url(${r.storeBannerPhoto}) center top /cover;"></div>
+                    </div>`}):t="<p class='fs-16 fs-md-20 text-center'>目前沒有開團</p>",o.innerHTML=t}$(function(){(function(){let r=$("#paginationPagesMenu");const o=location.href.split("=")[1];console.log(o);let t=window.innerWidth<768;$.ajax({url:`https://teatimeapi-test.onrender.com/restaurants?UID=${o}`,success:function(e){let i=e.length,l=e[0].products,n=e[0],p=t?5:10,u="",v=k(n.stars);u+=`
+                    <div class="order-bg" style=" background: url(${n.storeBannerPhoto}) center top /cover;"></div>
                     <div class="order-content container ps-12 ps-md-42 d-sm-flex align-items-end">
-                      <img src="${r.storeLogo}" alt="logo-cha source"
+                      <img src="${n.storeLogo}" alt="logo-cha source"
                         class="order-icon border border-2 border-line border-radius-24 me-sm-24 me-lg-37 mb-20 mb-sm-0 ">
                       <div class="order-textContent mb-16 mb-sm-0 me-sm-24 me-lg-37">
-                        <h2 class="fs-md-40 fs-24 fw-bold lh-sm">${r.storeName}</h2>
+                        <h2 class="fs-md-40 fs-24 fw-bold lh-sm">${n.storeName}</h2>
                         <div class="imgItems">
-                          ${w}
+                          ${v}
                         </div>
-                        <p class="order-content-p">${r.summary}</p>
+                        <p class="order-content-p">${n.summary}</p>
                       </div>
                       <div class="ms-auto">
                         <ul>
@@ -70,50 +70,50 @@ import"./main-ed97c786.js";import"./notification-98983fc9.js";import{a as D}from
                         </ul>
                       </div>
                     </div>
-                    `,$("#storeOrder").html(C),n.pagination({dataSource:l,locator:"items",totalNumber:d,pageSize:p,showPageNumbers:!0,showPrevious:!0,showNext:!0,callback:function(v,I){const u=JSON.parse(JSON.stringify(v));let a="",o="",m="",h=u.slice(0,5),f=u.slice(5),x=[...f];a+=`
+                    `,$("#storeOrder").html(u),r.pagination({dataSource:l,locator:"items",totalNumber:i,pageSize:p,showPageNumbers:!0,showPrevious:!0,showNext:!0,callback:function(w,L){const C=JSON.parse(JSON.stringify(w));let c="",a="",m="",b=C.slice(0,5),h=C.slice(5),x=[...h];c+=`
                           <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
                           <ul id="storeOrderMenuID">
-                        `,$.each(h,function(y,t){a+=`
+                        `,$.each(b,function(y,s){c+=`
                               <li class=" py-16 py-sm-24 border-bottom border-1 ">
                                 <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                   <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
-                                    <h3 class="store-order-h3">${t.品項}</h3>
+                                    <h3 class="store-order-h3">${s.品項}</h3>
                                     <div class="cold-hot d-flex justify-content-center align-items-center">
-                                      <div class="cold d-flex justify-content-center align-items-center ${t.冷?"":"hidden-block"}">
+                                      <div class="cold d-flex justify-content-center align-items-center ${s.冷?"":"hidden-block"}">
                                         <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
-                                        <span class="me-8">${t.價格}</span>
+                                        <span class="me-8">${s.價格}</span>
                                       </div>
-                                      <div class="hot d-flex justify-content-center align-items-center ${t.熱?"":"hidden-block"}">
+                                      <div class="hot d-flex justify-content-center align-items-center ${s.熱?"":"hidden-block"}">
                                         <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/hot.png?raw=true" alt="hot.png">
-                                        <span class="">${t.價格}</span>
+                                        <span class="">${s.價格}</span>
                                       </div>
                                     </div>
                                   </div>
-                                  <p class="text-top-p">${t.商品描述}</p>
+                                  <p class="text-top-p">${s.商品描述}</p>
+                                </button>
+                              </li>`}),c+=`
+                            </ul>
+                          </div>`,a+=`
+                          <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
+                          <ul id="storeOrderMenuID">
+                        `,$.each(x,function(y,s){a+=`
+                              <li class=" py-16 py-sm-24 border-bottom border-1 ">
+                                <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                  <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
+                                    <h3 class="store-order-h3">${s.品項}</h3>
+                                    <div class="cold-hot d-flex justify-content-center align-items-center">
+                                      <div class="cold d-flex justify-content-center align-items-center  ${s.冷?"":"hidden-block"}">
+                                        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
+                                        <span class="me-8">${s.價格}</span>
+                                      </div>
+                                      <div class="hot d-flex justify-content-center align-items-center ${s.熱?"":"hidden-block"}">
+                                        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/hot.png?raw=true" alt="hot.png">
+                                        <span class="">${s.價格}</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <p class="text-top-p">${s.商品描述}</p>
                                 </button>
                               </li>`}),a+=`
                             </ul>
-                          </div>`,o+=`
-                          <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
-                          <ul id="storeOrderMenuID">
-                        `,$.each(x,function(y,t){o+=`
-                              <li class=" py-16 py-sm-24 border-bottom border-1 ">
-                                <button type="button" class="menu-button border-0 bg-white text-start w-100" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                  <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
-                                    <h3 class="store-order-h3">${t.品項}</h3>
-                                    <div class="cold-hot d-flex justify-content-center align-items-center">
-                                      <div class="cold d-flex justify-content-center align-items-center  ${t.冷?"":"hidden-block"}">
-                                        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
-                                        <span class="me-8">${t.價格}</span>
-                                      </div>
-                                      <div class="hot d-flex justify-content-center align-items-center ${t.熱?"":"hidden-block"}">
-                                        <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/hot.png?raw=true" alt="hot.png">
-                                        <span class="">${t.價格}</span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <p class="text-top-p">${t.商品描述}</p>
-                                </button>
-                              </li>`}),o+=`
-                            </ul>
-                          </div>`,m+=a,p==5&&(o=""),m+=o,$(".customMenu").html(m),h=[],f=[],new Swiper(".mySwiper",{breakpoints:{1:{slidesPerView:1,spaceBetween:10,centeredSlides:!1},576:{slidesPerView:2,spaceBetween:24,centeredSlides:!1}}})}})},error:function(e){console.error("error")}})})()});
+                          </div>`,m+=c,p==5&&(a=""),m+=a,$(".customMenu").html(m),b=[],h=[],new Swiper(".mySwiper",{breakpoints:{1:{slidesPerView:1,spaceBetween:10,centeredSlides:!1},576:{slidesPerView:2,spaceBetween:24,centeredSlides:!1}}})}})},error:function(e){console.error("error")}})})()});
