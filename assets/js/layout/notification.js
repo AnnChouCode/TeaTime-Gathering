@@ -69,10 +69,13 @@ function getCurrentUserName() {
         .then(function (res) {
             //獲取目前登入者姓名
             currentUserName = res.data[0].userName
+        })
+        .then(function (res) {
             //獲取通知事件資料
             getNotificationDatas()
-        }).catch(function (error) {
-            console.error(error.message);
+        })
+        .catch(function (err) {
+            console.error(err.message);
         });
 }
 
@@ -98,18 +101,18 @@ function getNotificationDatas() {
             const votingDatas = res[1].data
 
             handleEventMap(groupingDatas, votingDatas)
-        }).catch(function (error) {
-            console.error(error);
+        }).catch(function (err) {
+            console.error(err.message);
         });
 }
 
 //處理通知事件資料
 function handleEventMap(groupings, votings) {
     //登入者有參與的開團
-    const participatingGroupings = groupings.filter(data => data.initiatorId == currentUserId || data.order.orderDetail.filter(item => item.name = currentUserName).length)
+    const participatingGroupings = groupings.filter(data => data.initiatorId == currentUserId || data.order.orderDetail.filter(item => item.name = currentUserName).length)    
     //登入者有參與的投票
     const participatingVotings = votings.filter(data => data.initiatorId == currentUserId || data.currentVoters.includes(_user))
-
+    
     //合併以上資料
     const datas = participatingGroupings.concat(participatingVotings)
     //以截止時間降冪排序
@@ -171,15 +174,20 @@ function showMessage() {
     const showArea = showNotificationArea()
 
     // 綁定訊息渲染區域
-    const notificationMessages = document.querySelector(showArea)    
+    const notificationMessages = document.querySelector(showArea)
     //已登入狀態，渲染程式碼存放
     let template = ""
 
     //未登入
     if (!isLoggedIn(_token)) {
         notificationMessages.innerHTML = `<li class="text-center fs-20">請先登入帳號</li>`
+    } else if (!Object.keys(eventMap).length){
+        //已登入，但無通知
+        notificationMessages.innerHTML = `<li class="text-center fs-20">
+        <p>目前尚無通知</p><p>馬上一起吃吃喝喝吧！</p>
+        </li>`
     } else {
-        //已登入
+        //已登入，有通知
         Object.values(eventMap).forEach(data => {
             //事件類型
             const eventType = data.UID[0]
@@ -320,6 +328,13 @@ function showNotificationArea() {
 }
 
 //清除 EventMap，避免投票店家名稱累積
-function clearEventMap(){
+function clearEventMap() {
     eventMap = {}
 }
+
+
+/* 通知按鈕點擊切換通知提示圓點 ========================== */
+$('.btnNotification').click(function (e) {
+    $('.btnNotificationAlert').addClass('d-none');
+    $('#notificationToast').toast('hide')
+});

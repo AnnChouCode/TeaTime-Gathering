@@ -35,8 +35,8 @@ function initEvents() {
             datas = datas.concat(res[1].data)
             //整理用於渲染的資料
             createEventData()
-        }).catch(function (error) {
-            console.error(error.message);
+        }).catch(function (err) {
+            console.error(err.message);
         });
 
 }
@@ -197,8 +197,8 @@ function initModalVotingCard(votingUID) {
         .then(function (res) {
             votingCardData = res.data
             renderVotingCard(votingCardData)
-        }).catch(function (error) {
-            console.error(error);
+        }).catch(function (err) {
+            console.error(err.message);
         });
 }
 
@@ -375,8 +375,8 @@ async function updateVotingAPI(id, status) {
                 initModalVotingCard(patchRes.data.UID)
                 progressElements.classList.remove("is-processing")
             })
-            .catch(function (error) {
-                console.error(error.message);
+            .catch(function (err) {
+                console.error(err.message);
             });
     } catch (err) {
         console.log('錯誤:', err);
