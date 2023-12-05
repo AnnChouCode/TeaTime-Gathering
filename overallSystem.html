@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/TeaTime-Gathering/assets/logo-favicon-a850431b.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
-    
+    <!-- <link rel="stylesheet" href="/assets/scss/pages/_memberSystem.scss"> -->
     <title>會員管理系統-總覽</title>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-37b85e29.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-fcb4755f.css">
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/_memberSystem-36b8fb63.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-f70f762a.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-79892a5d.css">
 </head>
 
 <body>
@@ -82,10 +81,8 @@
 
     @media (max-width:992px) {
         .indexLogo {
-
             max-width: 200px;
             max-height: 32px;
-
         }
     }
 </style>                <!-- 右側欄位 -->
@@ -97,8 +94,8 @@
                             aria-controls="memberOffcanvas">
                             <iconify-icon width="24" icon="mingcute:menu-fill"></iconify-icon>
                         </a>
-                        <a href="index.html" class="ms-auto"><iconify-icon  icon="icon-park-outline:shop" width="24"
-                            height="24"></iconify-icon></a>
+                        <a href="index.html" class="ms-auto"><iconify-icon icon="icon-park-outline:shop" width="24"
+                                height="24"></iconify-icon></a>
                     </div>
                     <h2 class=" fw-bold mt-32 mt-lg-42 fs-32 px-12">正在進行的活動</h2>
                     <div class="row mt-16 mt-lg-32 mx-12">
@@ -180,6 +177,10 @@
 <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 <!-- Chart js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- moment.js import-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
 <script>
     // 顯示分類按鈕底線，並將相對應的
@@ -187,6 +188,7 @@
 
     // 初步撈取的資料
     let datas = [];
+    let datasForChart = [];
     // 整理過的事件 Data
     const calendarEventMap = {};
 
@@ -194,16 +196,16 @@
     function init() {
         const groupingDatas = axios.get('https://teatimeapi-test.onrender.com/groupings');
         const votingDatas = axios.get('https://teatimeapi-test.onrender.com/votings');
+        const orderDatas = axios.get('https://teatimeapi-test.onrender.com/groupings?_expand=order');
 
-        Promise.all([groupingDatas, votingDatas])
+        Promise.all([groupingDatas, votingDatas, orderDatas])
             .then(function (res) {
                 datas = [...res[0].data, ...res[1].data];
-                // console.log(datas)
-                // 上述為合併兩個陣列，同下兩句語法
-                // datas = datas.concat(res[0].data)
-                // datas = datas.concat(res[1].data)
-                statisticalData()
+                datasForChart = [...res[2].data];
+                statisticalData();
+                chartJS()
             });
+        // console.log(datas);
     }
     init();
 
@@ -259,41 +261,88 @@
 
 
     // Chart js 統計表
-    const ctx = document.getElementById('myChart');
+    function chartJS() {
+        const ctx = document.getElementById('myChart');
 
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['11/7', '11/14', '11/21', '11/28', '12/5', '12/12', '12/17'],
-            datasets: [{
-                label: '每周消費紀錄',
-                data: [12, 19, 30, 50, 25, 45, 90],
-                borderWidth: 1,
-                backgroundColor: ['#FD909F']
-            }],
-            borderWidth:5,
-            barThickness:6
-        },
-        options: {
-            responsive: true,
+        // 抓出當周的禮拜一當作起點
+        const currentDate = moment();
+        const MondayOnWeek = currentDate.clone().day("Monday");
 
-            scales: {
-                y: {
-                    min: 10,
-                    max: 90,
-                }
-            },
-            plugins: {
-                legend: {
-                    position: 'top',
-                },
-                title: {
-                    display: true,
-                    text: "王莉琳 有多愛吃"
-                }
-            },
+        // 往前推八周的周一當作X軸
+        let twoMonthData = [];
+        for (let i = 0; i < 8; i++) {
+            twoMonthData.push(currentDate.format("MM/DD"));
+            currentDate.subtract(1, "week")
         }
-    });
+        twoMonthData = twoMonthData.reverse();
+
+        let everyWeekData = []
+        // 針對每周資料做迴圈，並將資料庫的deadlineDateTime在第N周~第N+1周的資料放進陣列的第N中
+        for (let i = 0; i < (twoMonthData.length); i++) {
+            let tempCount = 0;
+            datasForChart.forEach(item => {
+                let tempData = [];
+                if (moment(item.deadlineDateTime).format("YYYY/MM/DD") > moment(twoMonthData[i]).format("2023/MM/DD") &&
+                    moment(item.deadlineDateTime).format("YYYY/MM/DD") < moment(twoMonthData[i + 1]).format("2023/MM/DD")) {
+                    tempData.push(item.order.orderDetail)
+                    // 陣列中的物件，名稱為黃莉琳，並加總點餐金額
+                    tempData[0].forEach(i => {
+                        if (i.name == "黃莉琳") {
+                            tempCount += i.totalAmount
+                        }
+                    })
+                }
+            })
+            // console.log(everyWeekData);
+            everyWeekData.push(tempCount !== "" ? tempCount : 0)
+        }
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: twoMonthData,
+                datasets: [{
+                    label: '每周消費紀錄',
+                    data: everyWeekData,
+                    borderWidth: 4,
+                    backgroundColor: ['#FD909F'],
+                    borderColor: "#FD909F",
+                    pointRadius: 6,
+                    pointHoverRadius: 10,
+                }],
+                barThickness: 2
+            },
+            options: {
+                responsive: true,
+                display: true,
+                scales: {
+                    x: {
+                        ticks: {
+                            autoSkip: false,
+                            maxRotation: 30,
+                            minRotation: 30
+                        }
+                    },
+                    y: {
+                        min: 0,
+                        max: Math.max(...everyWeekData) + 30,
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    datalabels: {
+                        display: true,
+                        align: 'top',
+                        anchor: 'center',
+                        color: 'black', // 數值顏色
+                        font: {
+                            size: 12
+                        }
+                    }
+                }
+
+            }
+        });
+    }
 </script>
 
 </html>

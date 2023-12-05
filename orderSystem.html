@@ -8,11 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
-    
+    <!-- <link rel="stylesheet" href="/assets/scss/pages/_memberSystem.scss"> -->
     <title>訂單管理</title>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-37b85e29.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-fcb4755f.css">
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/_memberSystem-36b8fb63.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-f70f762a.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-79892a5d.css">
 </head>
 
 <body>
@@ -84,10 +83,8 @@
 
     @media (max-width:992px) {
         .indexLogo {
-
             max-width: 200px;
             max-height: 32px;
-
         }
     }
 </style>                <!-- 右側欄位 -->
@@ -216,6 +213,7 @@
     const _order = "/orders";
     const _groupings = "/groupings";
     const _restaurants = "/restaurants";
+    const _expand = "?_expand=restaurant&_expand=order";
     let orderData = [];
     let groupingsData = [];
     let filteredStoreName = [];
@@ -227,7 +225,7 @@
     <li class="filterBar px-24 py-12">
         <div class="d-flex justify-content-between mt-12">
             <div class="autoComplete_wrapper">
-                <input id="test" type="search" autocomplete="off" autocapitalize="off" class="border border-2 border-gray-04 border-radius-28" placeholder="搜尋">
+                <input id="autocomplete" type="search" autocomplete="off" autocapitalize="off" class="border border-2 border-gray-04 border-radius-28" placeholder="搜尋">
             </div>
             <ul class="d-flex">
                 <li class="dropdown position-relative  me-8 ">
@@ -254,25 +252,20 @@
     (function init() {
         // 抓訂單資料
         axios
-            .get(_url + _order)
+            .get(`${_url}${_groupings}${_expand}`)
             .then(function (res) {
-                orderData = res.data
-                filteredStoreName = orderData.map(item => item.restaurant)
-                // console.log(orderData);
-                renderOrderData()
+                orderData = res.data;
+                orderData = orderData.sort((a, b) => {
+                    return (moment(a.deadlineDateTime, "YYYY/MM/DD")) - (moment(b.deadlineDateTime, "YYYY/MM/DD"))
+                });
+                console.log(orderData);
+                renderData(orderData);
+                renderGroupings(orderData)
             })
             .catch(error => console.log("未抓到資料~"))
 
-        // 抓訂單資料
-        axios
-            .get(_url + _groupings)
-            .then(function (res) {
-                groupingsData = res.data
-                renderGroupings()
-            })
-            .catch(error => console.log("未抓到資料~"))
 
-        // 抓訂單資料
+        // 抓餐廳資料
         axios
             .get(_url + _restaurants)
             .then(function (res) {
@@ -283,135 +276,143 @@
     })()
 
     // 跟團中 & 歷史訂單
-    function renderOrderData(arr = orderData) {
-
+    function renderData(arr) {
         if (arr.length) {
             arr.forEach((obj) => {
                 let followUpOrderItems = "";
-                const { id, restaurant, restaurantPhoto, eventDateTime, initiator, invitees, orderDetail } = obj
+                const { id, UID, restaurant, eventDateTime, deadlineTime, initiator, invitees, order } = obj
+                // console.log(UID);
                 eventDateTimeFormat = moment(eventDateTime, "YYYY/MM/DD HH:mm").format("YYYY/MM/DD");
-                // 
-                orderDetail.forEach((order) => {
-                    // 搜尋"黃莉琳"點餐的品項
-                    if (order.name === "黃莉琳") {
-                        followUpOrderItems +=
-                            `
-                        <li class="d-flex mb-12" >
-                            <div class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">1
-                            </div>
-                            <div>
-                                <h3 class="fs-24 mb-4 text-gray-01 fw-bolder">${order.orderItem}<span class="ms-8 fs-16 p-4 border rounded-2 border-white ${order.isPay == true ? "bg-brand-05 text-gray-03" : "bg-brand-02 text-white"}">${order.isPay == true ? "已付款" : "未付款"}</span></h3>
-                                <ul class="text-gray-02">
-                                    <li class="d-flex mb-4">
-                                        <p>選項<span class="ms-16">${order.ice}、${order.sugar}</span></p>
-                                    </li>
-                                    <li class="d-flex mb-4">
-                                        <p>備註<span class="ms-16">${order.comments}</span></p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    `;
-                    }
-                })
-                // 跟團中訂單卡片
-                followUpHTML += `
-                         <li class="p-24 border-bottom border-brand-03">
-                            <div class="d-flex">
-                                <aside class="me-40">
-                                    <img class="border border-2 rounded-24 border-line" src="${restaurantPhoto}" alt="" width="96">
-                                </aside>
-                                <main>
-                                    <nav>
-                                        <h2 class="fs-24 fw-bold text-brand-03">${restaurant}</h2>
-                                        <p class="mt-4 text-gray-02">享用日期 ${eventDateTimeFormat} &nbsp; 付款人：${invitees == "" ? "黃莉琳" : invitees}</p>
-                                    </nav>
-                                    <ul class="mt-12">${followUpOrderItems}</ul>
-                                </main>
-                            </div>
-                        </li>                        
+                // 判斷 享用日期 是否大於 今天
+                if (moment(eventDateTime, 'YYYY-MM-DD') > moment()) {
+                    order.orderDetail.forEach((item) => {
+                        // 搜尋"黃莉琳"點餐的品項
+                        if (item.name === "黃莉琳") {
+                            followUpOrderItems +=
+                                `
+                            <li class="d-flex mb-12" >
+                                <div class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">1
+                                </div>
+                                <div>
+                                    <h3 class="fs-24 mb-4 text-gray-01 fw-bolder">${item.orderItem}<span class="ms-8 fs-16 p-4 border rounded-2 border-white ${item.isPay == true ? "bg-brand-05 text-gray-03" : "bg-brand-02 text-white"}">${item.isPay == true ? "已付款" : "未付款"}</span></h3>
+                                    <ul class="text-gray-02">
+                                        <li class="d-flex mb-4">
+                                            <p>選項<span class="ms-16">${item.ice}、${item.sugar}</span></p>
+                                        </li>
+                                        <li class="d-flex mb-4">
+                                            <p>備註<span class="ms-16">${item.comments}</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
                         `;
-                // 歷史訂單卡片
-                historicalHTML +=
-                    `
-                        <li class="d-flex flex-column flex-lg-row p-24 border-bottom border-brand-03"  data-restaurant="${restaurant}">
-                            <aside class="me-40 d-flex justify-content-between align-items-lg-start ">
-                                <img class="border border-2 rounded-24 border-line" src=${restaurantPhoto} alt="" width="96">
-                                <span class="ms-auto d-block d-lg-none">
-                                    <a href="" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
-                                </span>
-                            </aside>
-                            <div class="d-flex justify-content-between w-100">
-                            <div onclick="toggleContent(this)">
-                                <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">${restaurant}</h2>
-                                <p class="mt-4 text-gray-02">享用日期${eventDateTimeFormat}‧付款人：${invitees == "" ? "黃莉琳" : invitees}</p>
-                                <div class="starInRwd${id} ms-auto  fs-24 d-flex align-items-center d-lg-none" data-rating-star=5>
-                                    <div class="lh-sm">
-                                        <span class="star" onclick="rateStar(${id} ,1, this)">&#9733;</span>
-                                        <span class="star" onclick="rateStar(${id} ,2, this)">&#9733;</span>
-                                        <span class="star" onclick="rateStar(${id} ,3, this)">&#9733;</span>
-                                        <span class="star" onclick="rateStar(${id} ,4, this)">&#9733;</span>
-                                        <span class="star" onclick="rateStar(${id} ,5, this)">&#9733;</span>
+                        }
+                    })
+                    // 跟團中訂單卡片
+                    followUpHTML += `
+                                 <li class="p-24 border-bottom border-brand-03">
+                                    <div class="d-flex">
+                                        <aside class="me-40">
+                                            <img class="border border-2 rounded-24 border-line" src="${restaurant.storeLogo}" alt="" width="96">
+                                        </aside>
+                                        <main>
+                                            <nav>
+                                                <h2 class="fs-24 fw-bold text-brand-03">${restaurant.storeName}</h2>
+                                                <p class="mt-4 text-gray-02">享用日期 ${eventDateTimeFormat} &nbsp; 付款人：${invitees == "" ? "黃莉琳" : invitees}</p>
+                                            </nav>
+                                            <ul class="mt-12">${followUpOrderItems}</ul>
+                                        </main>
                                     </div>
-                                    <div class="ms-4 "><a href="" class="shareRating fs-16 text-gray-02" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="RatingShare(this)">分享評價</a></div>
-                                </div>
-                                <ul class="mt-12">
-                                    ${followUpOrderItems}
-                                </ul>
-                            </div>
-                            <div class="starInMember${id} ms-auto  fs-24 d-none d-lg-block" data-rating-star=5>
-                                <div class="lh-sm">
-                                    <span class="star" onclick="rateStar(${id} ,1 ,this)">&#9733;</span>
-                                    <span class="star" onclick="rateStar(${id} ,2 ,this)">&#9733;</span>
-                                    <span class="star" onclick="rateStar(${id} ,3 ,this)">&#9733;</span>
-                                    <span class="star" onclick="rateStar(${id} ,4 ,this)">&#9733;</span>
-                                    <span class="star" onclick="rateStar(${id} ,5 ,this)">&#9733;</span>
-                                </div>
-                                <div class="d-flex justify-content-end "><a href="" class="shareRating fs-16 text-gray-02" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="RatingShare(this)">分享評價</a></div>
-                            </div>
-                            <span class="ms-auto d-none d-lg-block">
-                                <a href="store-order.html" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
-                            </span>
-                        </li>`;
+                                </li>                        
+                                `;
+                }
+                // 歷史訂單卡片
+                if (followUpOrderItems != "") {
+                    // 給autoComplete使用
+                    filteredStoreName.push(restaurant.storeName)
+                    // console.log(filteredStoreName)
+                    historicalHTML +=
+                        `
+                                <li class="d-flex flex-column flex-lg-row p-24 border-bottom border-brand-03"  data-restaurant="${restaurant.storeName}">
+                                    <aside class="me-40 d-flex justify-content-between align-items-lg-start ">
+                                        <img class="border border-2 rounded-24 border-line" src=${restaurant.storeLogo} alt="" width="96">
+                                        <span class="ms-auto d-block d-lg-none">
+                                            <a href="" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
+                                        </span>
+                                    </aside>
+                                    <div class="d-flex justify-content-between w-100">
+                                    <div onclick="toggleContent(this)">
+                                        <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">${restaurant.storeName}</h2>
+                                        <p class="mt-4 text-gray-02">享用日期${eventDateTimeFormat}‧付款人：${invitees == "" ? "黃莉琳" : invitees}</p>
+                                        <div class="starInRwd${id} ms-auto  fs-24 d-flex align-items-center d-lg-none" data-rating-star=5>
+                                            <div class="lh-sm">
+                                                <span class="star" onclick="rateStar(${id} ,1, this)">&#9733;</span>
+                                                <span class="star" onclick="rateStar(${id} ,2, this)">&#9733;</span>
+                                                <span class="star" onclick="rateStar(${id} ,3, this)">&#9733;</span>
+                                                <span class="star" onclick="rateStar(${id} ,4, this)">&#9733;</span>
+                                                <span class="star" onclick="rateStar(${id} ,5, this)">&#9733;</span>
+                                            </div>
+                                            <div class="ms-4 "><a href="" class="shareRating fs-16 text-gray-02" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="RatingShare(this)">分享評價</a></div>
+                                        </div>
+                                        <ul class="mt-12">
+                                            ${followUpOrderItems}
+                                        </ul>
+                                    </div>
+                                    <div class="starInMember${id} ms-auto  fs-24 d-none d-lg-block" data-rating-star=5>
+                                        <div class="lh-sm">
+                                            <span class="star" onclick="rateStar(${id} ,1 ,this)">&#9733;</span>
+                                            <span class="star" onclick="rateStar(${id} ,2 ,this)">&#9733;</span>
+                                            <span class="star" onclick="rateStar(${id} ,3 ,this)">&#9733;</span>
+                                            <span class="star" onclick="rateStar(${id} ,4 ,this)">&#9733;</span>
+                                            <span class="star" onclick="rateStar(${id} ,5 ,this)">&#9733;</span>
+                                        </div>
+                                        <div class="d-flex justify-content-end "><a href="" class="shareRating fs-16 text-gray-02" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="RatingShare(this)">分享評價</a></div>
+                                    </div>
+                                    <span class="ms-auto d-none d-lg-block">
+                                        <a href="store-order.html?UID=${restaurant.UID}" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
+                                    </span>
+                                </li>`;
+                }
             })
         }
         followUpOrder.innerHTML = followUpHTML;
     }
     // 發起的開團
-    function renderGroupings(arr = groupingsData) {
+    function renderGroupings(arr) {
         if (arr.length) {
-            // console.log(arr.length);
+            // console.log(arr);
             arr.forEach((obj) => {
-                let followUpOrderItems = "";
-                const { restaurantName, restaurantPhoto, eventDateTime, initiator, invitees, currentGroupCondition, targetGroupCondition, isGroup } = obj
-                // console.log(restaurantName);
+                // let initialOrderItems = "";
+                const { id, restaurant, initiator, invitees, order, eventDateTime } = obj
+                eventDateTimeFormat = moment(eventDateTime, "YYYY/MM/DD HH:mm").format("YYYY/MM/DD");
+                console.log(restaurant);
 
                 // 發起的開團卡片
-                if (initiator === "黃莉琳") {
+                if (initiator === "黃莉琳" && moment(eventDateTime, 'YYYY-MM-DD') > moment()) {
                     initiateGroupHTML += `
                         <li class="p-24 border-bottom border-brand-03">
                             <div class="d-flex flex-column flex-lg-row  ">
                                 <aside class="me-40 d-flex justify-content-between align-items-lg-start ">
                                     <div>
-                                        <img class="border border-2 rounded-24 border-line" src="${restaurantPhoto}" alt="" width="96">
+                                        <img class="border border-2 rounded-24 border-line" src="${restaurant.storeLogo}" alt="" width="96">
                                         <p
-                                            class="${currentGroupCondition > targetGroupCondition ? "bg-brand-02 text-white" : "bg-brand-05 text-brand-02"} py-4 mt-10 ms-auto d-flex justify-content-center rounded-1 ">
-                                            <span class="fw-bold fs-16">${currentGroupCondition > targetGroupCondition ? "已成團" : "未成團"}</span>
+                                            class="${order.orderDetail.length > restaurant.minGroupSize ? "bg-brand-02 text-white" : "bg-brand-05 text-brand-02"} py-4 mt-10 ms-auto d-flex justify-content-center rounded-1 ">
+                                            <span class="fw-bold fs-16">${order.orderDetail.length >= restaurant.minGroupSize ? "已成團" : "未成團"}</span>
                                         </p>
                                     </div>
                                     <span class="ms-auto d-block d-lg-none">
-                                        <a href=""
+                                        <a href="store-order.html?UID=${restaurant.UID}" 
                                             class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">管理訂單</a>
                                     </span>
                                 </aside>
 
                                 <div>
                                     <nav>
-                                        <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">${restaurantName}</h2>
+                                        <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">${restaurant.storeName}</h2>
                                     </nav>
                                     <ul class="fs-20 mt-12">
                                         <li>
-                                            <p>享用日期:<span class="ms-16 me-8">${eventDateTime}</p>
+                                            <p>享用日期:<span class="ms-16 me-8">${eventDateTimeFormat}</p>
                                         </li>
                                         <li class="mt-8">
                                             <p>請客人:<span class="ms-16 me-8">${invitees}</span></p>
@@ -420,15 +421,15 @@
                                         <li class="d-flex mt-8 d-flex align-items-center ">
                                             <p>成團目標</p>
                                             <div class="ts-progress is-small ms-16 w-50 bg-gray-04">
-                                                <div class="bar bg-brand-02" style="--value: ${currentGroupCondition > targetGroupCondition ? "100" : (currentGroupCondition / targetGroupCondition) * 100}">
-                                                    <div class="text text-white">${currentGroupCondition > targetGroupCondition ? "100" : (currentGroupCondition / targetGroupCondition) * 100}%</div>
+                                                <div class="bar bg-brand-02" style="--value: ${order.orderDetail.length >= restaurant.minGroupSize ? "100" : (order.orderDetail.length / restaurant.minGroupSize) * 100}">
+                                                    <div class="text text-white">${order.orderDetail.length >= restaurant.minGroupSize ? "100" : (order.orderDetail.length / restaurant.minGroupSize) * 100}%</div>
                                                 </div>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
                                 <span class="ms-auto d-none d-lg-block">
-                                    <a href=""
+                                    <a href="store-order.html?UID=${restaurant.UID}" 
                                         class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">管理訂單</a>
                                 </span>
                             </div>
@@ -521,7 +522,7 @@
                     restaurantUID: item.UID,
                     reviewDateTime: moment().format('YYYY/MM/DD')
                 }
-
+                console.log(updataObj);
                 axios.post('https://teatimeapi-test.onrender.com/ratings', updataObj).
                     then(function (res) {
                         alert("留言評價成功");
@@ -529,18 +530,18 @@
                     })
             }
         })
-        // console.log(restaurantData);
     }
 
     // autocomplete
     function autocomplete() {
+        console.log(orderData);
         const autoCompleteJS = new autoComplete({
-            selector: "#test",
+            selector: "#autocomplete",
             placeHolder: "Search for Food...",
             data: {
-                src: orderData,
+                src: filteredStoreName,
                 cache: true,
-                keys: ["restaurant"]
+                // keys: ["storeName"]
             },
             resultsList: {
                 element: (list, data) => {
@@ -567,8 +568,9 @@
                     selection: (event) => {
                         const selection = event.detail.selection.value;
                         const historicalOrderLis = document.querySelector(".historicalOrderLis");
+                        console.log(selection)
                         let RestaurantLists = document.querySelectorAll("[data-restaurant]");
-                        autoCompleteJS.input.value = selection.restaurant;
+                        autoCompleteJS.input.value = selection;
                         RestaurantLists.forEach((item) => {
                             if (item.dataset["restaurant"] !== autoCompleteJS.input.value) {
                                 item.classList.add("d-none");
@@ -581,7 +583,6 @@
                         if (event.keyCode === 13 || event.keyCode === 8) {
                             let searchValue = autoCompleteJS.input.value;
                             searchValue = searchValue.replace(/\s/g, "");
-                            console.log(searchValue);
                             if (searchValue === "") {
                                 RestaurantLists.forEach((item) => {
                                     item.classList.remove("d-none");
@@ -593,6 +594,14 @@
                 }
             }
         });
+        // 搜尋後，按下"X" ， 顯示全部結果
+        const inputACvalue = document.getElementById("autocomplete")
+        inputACvalue.addEventListener("input", function (e) {
+            let RestaurantLists = document.querySelectorAll("[data-restaurant]");
+            RestaurantLists.forEach((item) => {
+                item.classList.remove("d-none");
+            });
+        })
     }
 
     // 字數統計
