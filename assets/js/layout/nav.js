@@ -18,8 +18,8 @@ function initUserLoginStates() {
     axios.get(`${_url}/users?UID=${originalText}`)
         .then(function (res) {
             showLoginSuccess(res.data[0].userName)
-        }).catch(function (error) {
-            console.error(error.message);
+        }).catch(function (err) {
+            console.error(err.message);
         });
 }
 
@@ -113,8 +113,8 @@ userLoginModal.addEventListener('show.bs.modal', function (event) {
                     userDatas = res.data
                     //會員帳號輸入判斷，若成功則儲存該會員資料在 localStorage
                     getLoginUserData(userDatas)
-                }).catch(function (error) {
-                    console.error(error.message);
+                }).catch(function (err) {
+                    console.error(err.message);
                 });
         });
     });

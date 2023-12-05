@@ -8,8 +8,6 @@
   <title>下午茶揪團去｜共享美味，打造回憶</title>
   <!-- Favicon -->
   <link rel="icon" href="../assets/images/logo/logo-favicon.png" type="image/x-icon" />
-  <!-- Swiper Css CDN -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
   <!-- Open Graph Tag -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="下午茶揪團去">
@@ -284,8 +282,8 @@
                   datas = datas.concat(res[0].data)
                   datas = datas.concat(res[1].data)
                   createEventData()
-                }).catch(function (error) {
-                  console.error(error);
+                }).catch(function (err) {
+                  console.error(err.message);
                 });
             }
 
@@ -500,8 +498,8 @@
                 .then(function (res) {
                   votingCardData = res.data
                   renderVotingCard(votingCardData)
-                }).catch(function (error) {
-                  console.error(error);
+                }).catch(function (err) {
+                  console.error(err.message);
                 });
             }
 
@@ -682,8 +680,8 @@
                     //該投票的進度條移除動畫
                     progressElements.classList.remove("is-processing")
                   })
-                  .catch(function (error) {
-                    console.error(error.message);
+                  .catch(function (err) {
+                    console.error(err.message);
                   });
               } catch (err) {
                 console.log('錯誤:', err);
@@ -705,8 +703,8 @@
               axios.get(`${_url}/users?UID=${_user}`)
                 .then(function (res) {
                   votingInitiator.textContent = res.data[0].userName
-                }).catch(function (error) {
-                  console.error(error);
+                }).catch(function (err) {
+                  console.error(err.message);
                 })
             })
 
