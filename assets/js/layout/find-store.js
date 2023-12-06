@@ -159,7 +159,7 @@ function renderPagination(paginatedData) {
                         <li class="findStore-img position-relative px-0" style="background-image: url(${item.storeCover});">
                             <a href="store-order.html?UID=${item.UID}" class="d-flex justify-content-center w-100 h-100 ">
                                 <!-- restaurant info -->
-                                <div class="position-absolute d-flex justify-content-between findStore-card w-100">
+                                <div class="position-absolute d-flex justify-content-between findStore-card">
                                     <div class="d-flex flex-column justify-content-center overflow-hidden">
                                         <p class="mb-8 fs-md-20 fs-16 lh-sm text-white" style="white-space:nowrap">${item.storeName}</p>
                                         <!-- 星評 -->
