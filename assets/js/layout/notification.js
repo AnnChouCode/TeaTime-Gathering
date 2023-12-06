@@ -12,8 +12,7 @@ const currentUserId = _user.match(/U(\d+)/)[1]
 let currentUserName = ""
 
 
-const btnNotifications = document.querySelectorAll(".btnNotification iconify-icon")
-
+const btnNotifications = document.querySelectorAll(".btnNotification")
 document.addEventListener('DOMContentLoaded', function () {
     const btnNotificationAlerts = document.querySelectorAll(".btnNotificationAlert")
 
@@ -37,9 +36,13 @@ let btnId = ""
 
 btnNotifications.forEach(btn => {
     btn.addEventListener("click", function (e) {
-        //獲取點擊通知按鈕的 id
-        btnId = e.target.id
+        //針對 btn 最外層含有 ".btnNotification" 樣式的父元素綁定
+        const clickedElement = e.target
+        const closestBtnNotification = clickedElement.closest(".btnNotification")
 
+        //獲取點擊通知按鈕的 id
+        btnId = closestBtnNotification.id
+        
         //若未登入，直接前往渲染函式
         if (!isLoggedIn(_token)) {
             showMessage()
@@ -69,8 +72,6 @@ function getCurrentUserName() {
         .then(function (res) {
             //獲取目前登入者姓名
             currentUserName = res.data[0].userName
-        })
-        .then(function (res) {
             //獲取通知事件資料
             getNotificationDatas()
         })
@@ -109,10 +110,10 @@ function getNotificationDatas() {
 //處理通知事件資料
 function handleEventMap(groupings, votings) {
     //登入者有參與的開團
-    const participatingGroupings = groupings.filter(data => data.initiatorId == currentUserId || data.order.orderDetail.filter(item => item.name = currentUserName).length)    
+    const participatingGroupings = groupings.filter(data => data.initiatorId == currentUserId || data.order.orderDetail.filter(item => item.name = currentUserName).length)
     //登入者有參與的投票
     const participatingVotings = votings.filter(data => data.initiatorId == currentUserId || data.currentVoters.includes(_user))
-    
+
     //合併以上資料
     const datas = participatingGroupings.concat(participatingVotings)
     //以截止時間降冪排序
@@ -162,7 +163,7 @@ function handleEventMap(groupings, votings) {
         }
 
     })
-    
+
     //渲染通知
     showMessage()
 }
@@ -177,11 +178,11 @@ function showMessage() {
     const notificationMessages = document.querySelector(showArea)
     //已登入狀態，渲染程式碼存放
     let template = ""
-
+    
     //未登入
     if (!isLoggedIn(_token)) {
         notificationMessages.innerHTML = `<li class="text-center fs-20">請先登入帳號</li>`
-    } else if (!Object.keys(eventMap).length){
+    } else if (!Object.keys(eventMap).length) {
         //已登入，但無通知
         notificationMessages.innerHTML = `<li class="text-center fs-20">
         <p>目前尚無通知</p><p>馬上一起吃吃喝喝吧！</p>
@@ -320,9 +321,9 @@ function showMessage() {
 
 //判斷點擊按鈕，回傳渲染目的地
 function showNotificationArea() {
-    if (btnId === "toastNews") {
+    if (btnId === "btnToastNotification") {
         return ".toastMessages"
-    } else {
+    } else if (btnId === "btnModalNotification") {
         return ".modalMessages"
     }
 }
