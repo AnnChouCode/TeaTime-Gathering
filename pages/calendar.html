@@ -258,11 +258,13 @@
             import isPastEvent from '/assets/js/components/isPastEvent.js';
             // import 判斷登入狀態樣板
             import isLoggedIn from '/assets/js/components/isLoggedIn.js';
+            // import 解密 token 樣板
+            import cryptoToken from '/assets/js/components/cryptoToken.js'; 
 
             //全頁共用變數
-            const _url = "https://teatimeapi-test.onrender.com"
-            const _user = "U004"
+            const _url = "https://teatimeapi-test.onrender.com"            
             const _token = localStorage.getItem("token");
+            const _user = cryptoToken(_token)
 
             /* 投票頁初始頁面 render init ================================*/
             //使用 moment 格式化日期
@@ -311,7 +313,7 @@
                   calendarEventMap[data.UID].restaurantList.push(data.restaurantName);
                   delete calendarEventMap[data.UID].currentGroupCondition
                   delete calendarEventMap[data.UID].minGroupSize
-                }              
+                }
 
               });
 
@@ -439,8 +441,8 @@
                     ${e.UID.startsWith("V") ? "" : `<li class="d-flex align-items-center order-1 order-md-end">
                       <span class="me-16">成團目標</span>                      
                       <div class="ts-progress is-tiny bg-gray-04" style="width: 120px;">
-                        <div class="bar bg-brand-02" style="--value: ${calcGroupProgress(e.currentGroupCondition,e.minGroupSize)}">
-                            <div class="text-white">${calcGroupProgress(e.currentGroupCondition,e.minGroupSize) > 100 ? 100 : calcGroupProgress(e.currentGroupCondition,e.minGroupSize)}%</div>
+                        <div class="bar bg-brand-02" style="--value: ${calcGroupProgress(e.currentGroupCondition, e.minGroupSize)}">
+                            <div class="text-white">${calcGroupProgress(e.currentGroupCondition, e.minGroupSize) > 100 ? 100 : calcGroupProgress(e.currentGroupCondition, e.minGroupSize)}%</div>
                         </div>
                     </div></li>`}
                     <li class="col col-xl-5">
@@ -636,6 +638,11 @@
 
               btnVoteThis.forEach(btn => {
                 btn.addEventListener('click', function () {
+                  //3 秒內按鈕禁用
+                  this.disabled = true
+                  setTimeout(() => {
+                    this.disabled = false
+                  }, 3000)
 
                   //含有指定 class 樣式的按鈕代表已投票過此店家
                   const isVoted = btn.classList.contains("btn-active-brand-02")
