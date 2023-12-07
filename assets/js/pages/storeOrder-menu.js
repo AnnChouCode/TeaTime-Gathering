@@ -167,8 +167,8 @@ function storeInformationData(isGroupings,UID,id){
               // 為每個按鈕添加 click 事件監聽器
               menuButtons.forEach(button => {
                 let UID = '';
-                let templateProduct = '';
                 button.addEventListener('click', function() {
+                  let templateProduct = '';
                   // 獲取 data-menuuid 的值
                   const menuUid = this.getAttribute('data-menuuid');
                   UID = menuUid;
