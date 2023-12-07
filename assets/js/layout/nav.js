@@ -1,18 +1,19 @@
 import axios from 'axios';
 import AES from 'crypto-js/aes'; //加密
-import encUtf8 from 'crypto-js/enc-utf8'; //解密
-import isLoggedIn from '/assets/js/components/isLoggedIn.js'; // import 判斷登入狀態樣板
-
+// import 判斷登入狀態樣板
+import isLoggedIn from '/assets/js/components/isLoggedIn.js';
+// import 解密 token 樣板
+import cryptoToken from '/assets/js/components/cryptoToken.js';
 
 //全頁共用變數
 const _url = "https://teatimeapi-test.onrender.com"
 const _token = localStorage.getItem("token");
 
+
 /* 判斷登入狀態 ================================== */
 function initUserLoginStates() {
-    // 解密
-    const bytes = AES.decrypt(_token, 'TeaTime-Gathering');
-    const originalText = bytes.toString(encUtf8);
+    // 將 token 解密成 userUID
+    const originalText = cryptoToken(_token)
 
     //Login 成功條件 & 失敗
     axios.get(`${_url}/users?UID=${originalText}`)
@@ -50,7 +51,9 @@ const autoCompleteJS = new autoComplete({
     },
     //寬鬆搜尋
     searchEngine: "loose",
-    //選單符合條件自元 highlight
+    //止抖,
+    debounce: 300,
+    //選單符合條件字元 highlight
     resultItem: {
         highlight: true
     },
@@ -99,30 +102,33 @@ const btnLogOut = document.querySelectorAll(".btnLogOut") //登出
 
 userLoginModal.addEventListener('show.bs.modal', function (event) {
     //按鈕-登入資料送出
-    const btnLoginSubmit = userLoginModal.querySelectorAll(".btnLoginSubmit");
+    const btnLoginSubmit = userLoginModal.querySelector(".btnLoginSubmit");
 
-    //會員登入
-    btnLoginSubmit.forEach(btn => {
-        btn.addEventListener("click", () => {
-            //儲存會員資料
-            let userDatas
+    //會員登入    
+    btnLoginSubmit.addEventListener("click", function () {
+        //儲存會員資料
+        let userDatas
 
-            //Login 成功條件 & 失敗
-            axios.get(`https://teatimeapi-test.onrender.com/users`)
-                .then(function (res) {
-                    userDatas = res.data
-                    //會員帳號輸入判斷，若成功則儲存該會員資料在 localStorage
-                    getLoginUserData(userDatas)
-                }).catch(function (err) {
-                    console.error(err.message);
-                });
-        });
+        //Login 成功條件 & 失敗
+        axios.get(`https://teatimeapi-test.onrender.com/users`)
+            .then(function (res) {
+                userDatas = res.data
+                //會員帳號輸入判斷，若成功則儲存該會員資料在 localStorage
+                getLoginUserData(userDatas)
+            }).catch(function (err) {
+                console.error(err.message);
+            });
     });
+
 })
+
+//追蹤登入嘗試次數
+let loginAttempts = 0;
+//限制短時間嘗試多次登入秒數
+let loginCountdown = 10
 
 //會員帳號輸入判斷
 function getLoginUserData(userDatas) {
-    //const loginForm = userLoginModal.querySelector(".needs-validation")
     //input-帳密輸入
     const inputLoginAccount = userLoginModal.querySelector(".inputLoginAccount");
     const inputLoginPassword = userLoginModal.querySelector(".inputLoginPassword");
@@ -131,26 +137,68 @@ function getLoginUserData(userDatas) {
     const passwordValue = inputLoginPassword.value.trim();
     //登入錯誤提示文字
     const errorFeedback = document.querySelector(".invalid-feedback");
+    //按鈕-登入資料送出
+    const btnLoginSubmit = userLoginModal.querySelector(".btnLoginSubmit");
 
     //登入的用戶 data，若無符合條件的用戶則回傳 []
     const successLoginData = userDatas.filter(data => data.email === accountValue && data.password === passwordValue)
 
     //若輸入帳密錯誤，顯示錯誤訊息
     if (!successLoginData.length) {
-        errorFeedback.style.display = 'block';
-        //BS 驗證只判斷有無填寫，所以只能手動加入框線顏色
-        // inputLoginAccount.setAttribute("style", "outline:2px solid #fd909f");
-        // inputLoginPassword.setAttribute("style", "outline:2px solid #fd909f");
+        loginAttempts++
+        errorFeedback.style.display = 'block'
+
+        //限制短時間內登入，若在限制時間外才達成嘗試登入次數，則不會進入禁用
+        let loginCountdownInterval=setInterval(function () {
+            loginCountdown --
+
+            //當秒數歸零
+            if (loginCountdown <= 0) {
+                //終止倒數
+                clearInterval(loginCountdownInterval)
+                //復原秒數
+                loginCountdown = 10
+                //登入嘗試次數歸零
+                loginAttempts = 0
+            }
+        }, 1000)
+
+
+        //帳密錯誤 3 次，禁用登入按鈕
+        if (loginAttempts >= 3) {
+            //禁用按鈕
+            btnLoginSubmit.disabled = true
+
+            //倒數秒數
+            let countdown = 5            
+
+            let countdownInterval = setInterval(function () {
+                countdown --
+                errorFeedback.textContent = `帳號或密碼輸入錯誤太多次，請等待 ${countdown} 秒後再試`
+
+                //當秒數歸零
+                if (countdown <= 0) {
+                    //終止倒數
+                    clearInterval(countdownInterval)
+                    //登入嘗試次數歸零
+                    loginAttempts = 0
+                    errorFeedback.style.display = 'none'
+                    errorFeedback.textContent = "電子郵件帳號或密碼輸入錯誤"
+                    btnLoginSubmit.disabled = false;
+                }
+            }, 1000);
+
+        }
     } else {
         //若輸入帳密正確，儲存會員資料
-        errorFeedback.style.display = 'none';
+        errorFeedback.style.display = 'none'
 
         //將 UID 加密儲存，當成 token 使用
-        const ciphertext = AES.encrypt(successLoginData[0].UID, 'TeaTime-Gathering').toString();
-        localStorage.setItem("token", ciphertext);
+        const ciphertext = AES.encrypt(successLoginData[0].UID, 'TeaTime-Gathering').toString()
+        localStorage.setItem("token", ciphertext)
 
         //重新整理頁面，以更新 _token
-        window.location.reload();       
+        window.location.reload();
     }
 }
 

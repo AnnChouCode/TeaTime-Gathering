@@ -85,7 +85,7 @@
             <div class="row my-24 my-md-40">
                 <!-- 店家分類 -->
                 <div class="col-md-2 mb-16 mb-md-0">
-                    <ul class="x-slide d-flex d-md-block gap-md-5 text-nowrap categoryStoreBar">
+                    <ul class="x-slide d-flex flex-md-column flex-row gap-md-5 text-nowrap gap-8 gap-md-12">
                         <li>
                             <button
                                 class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 btn-active border-radius-16 btn-hover-gray-04 btnCategoryStore actived"
@@ -201,7 +201,7 @@
                                         </li>
                                         <li>
                                             <span class="me-16 mb-16 mb-md-12">發起人</span>
-                                            <span>黃莉琳</span>
+                                            <span class="votingInitiator">無</span>
                                         </li>
                                         <li>
                                             <label for="votingInvitees" class="mb-16 mb-mb-12">請客人</label>
@@ -305,6 +305,8 @@
                 <!-- moment.js import-->
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
+
+
                 <!-- 時間選擇器 flatpickr import -->
                 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
@@ -314,14 +316,30 @@
 
                     // import 星級樣板
                     import showStars from '/assets/js/components/showStars.js';
+                    // import 判斷登入狀態樣板
+                    import isLoggedIn from '/assets/js/components/isLoggedIn.js';
+                    // import 解密 token 樣板
+                    import cryptoToken from '/assets/js/components/cryptoToken.js';
+
 
                     /* 頁面基本資料取得 ===================================================*/
                     //全頁共用變數
                     const _url = "https://teatimeapi-test.onrender.com"
-                    const _user = "U004"
+                    const _token = localStorage.getItem("token");
+                    const _user = cryptoToken(_token)
 
                     //使用 moment 格式化日期
                     var now = moment().format('YYYY/MM/DD');
+
+
+                    /* 登入狀態判斷，防止用戶先登入後再登出操作 ===========================*/
+                    if (!isLoggedIn(_token)) {
+                        //未登入狀態，回到月曆頁
+                        window.location.href = "./calendar.html"
+                    } else {
+                        //登入狀態才開始執行以下程式碼
+                        initRestaurantData()
+                    }
 
 
                     /* 店家清冊資料處理 =====================================================*/
@@ -360,8 +378,6 @@
 
                         renderFilteredData(filterAPI)
                     }
-
-                    initRestaurantData()
 
 
                     //店家排序按鈕偵測
@@ -640,7 +656,10 @@
                     const btnCreateVoting = document.querySelector(".btnCreateVoting")
 
                     //建立投票 modal 初始顯示資料設定                    
-                    createVotingModal.addEventListener('show.bs.modal', function (event) {
+                    createVotingModal.addEventListener('show.bs.modal', async function (event) {
+                        //取得使用者資料
+                        const userData = await axios.get(`${_url}/users?UID=${_user}`)
+                        userName = userData.data[0].userName
                         //要渲染的參與投票店家清單
                         const datas = Object.values(checkedStoreList)
                         //渲染建立投票基本資料                      
@@ -649,8 +668,15 @@
                         renderVotingCards(datas)
                     })
 
+                    //當前使用者（發起人）姓名
+                    let userName = ""
+
                     //渲染建立投票基本資料                     
-                    function renderVotingBasicInfo(datas) {
+                    async function renderVotingBasicInfo(datas) {
+                        //獲取使用者資料，渲染發起人姓名
+                        const votingInitiator = document.querySelector(".votingInitiator")
+                        votingInitiator.textContent = userName
+
                         //渲染 modal 標題                        
                         const restaurantNames = datas.map(item => item.restaurantName)
                         modalTitle.textContent = restaurantNames.join("、")
@@ -764,8 +790,8 @@
                             newData["UID"] = votingDataUID
                             newData["deadlineDateTime"] = deadlineDateTimeInput.value
                             newData["eventDateTime"] = eventDateTimeInput.value
-                            newData["initiator"] = "黃莉玲"
-                            newData["invitees"] = votingInviteesSelect.value === "has-invitees" ? "黃莉玲" : ""
+                            newData["initiator"] = userName
+                            newData["invitees"] = votingInviteesSelect.value === "has-invitees" ? userName : ""
                             newData["currentVoters"] = []
 
                             //將處理好的資料打包
@@ -863,9 +889,9 @@
                     }
 
 
-                    /* 投票成功 modal ======================================== */
+                    /* 建立投票成功 modal ======================================== */
                     const createdSuccessModal = document.getElementById('modal-createdSuccess')
-                    //投票成功 modal 顯示資料                    
+                    //建立投票成功 modal 顯示資料                    
                     createdSuccessModal.addEventListener('show.bs.modal', function (event) {
                         const eventDateTimeValue = eventDateTimeInput.value
                         const deadlineDateTimeValue = deadlineDateTimeInput.value
@@ -910,6 +936,8 @@
                         },
                         //寬鬆搜尋
                         searchEngine: "loose",
+                        //止抖,
+                        debounce: 300,
                         //選單符合條件自元 highlight
                         resultItem: {
                             highlight: true
@@ -936,20 +964,26 @@
                                 selection: (event) => {
                                     const selectionValue = event.detail.selection.value;
                                     autoCompleteJS.input.value = selectionValue.storeName;
-                                    
+
                                     toggleFilter("search", selectionValue.storeName)
                                 },
                                 //輸入 enter 偵測
                                 keydown: (event) => {
                                     if (event.keyCode === 13) {
                                         const searchValue = autoCompleteJS.input.value
-                                        
+
                                         toggleFilter("search", searchValue)
                                     }
                                 }
                             }
                         }
                     });
+
+                    //點擊搜尋框 x 按鈕，恢復全部店家列表
+                    const inputAutoComplete = document.getElementById("autoComplete")
+                    inputAutoComplete.addEventListener("input", function (e) {
+                        toggleFilter("search", "")
+                    })
                 </script>
 
                 <!-- jQuery -->
