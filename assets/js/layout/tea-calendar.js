@@ -5,13 +5,16 @@ import axios from 'axios';
 import isPastEvent from '/assets/js/components/isPastEvent.js';
 // import 判斷登入狀態樣板
 import isLoggedIn from '/assets/js/components/isLoggedIn.js';
-//活動時間字串處理
+// import 活動時間字串處理
 import showDateTime from '/assets/js/components/showDateTime.js';
+// import 解密 token 樣板
+import cryptoToken from '/assets/js/components/cryptoToken.js'; 
 
 //全頁共用變數
 const _url = "https://teatimeapi-test.onrender.com"
-const _token = localStorage.getItem("token");
-const _user = "U004"
+const _token = localStorage.getItem("token")
+const _user = cryptoToken(_token)
+
 //儲存 API 回傳資料
 let datas = []
 
@@ -35,8 +38,8 @@ function initEvents() {
             datas = datas.concat(res[1].data)
             //整理用於渲染的資料
             createEventData()
-        }).catch(function (error) {
-            console.error(error.message);
+        }).catch(function (err) {
+            console.error(err.message);
         });
 
 }
@@ -51,9 +54,9 @@ const calendarEventMap = {}
 function createEventData() {
     //使用截止時間排序原始資料
     datas.sort((a, b) => {
-        const dateA = new Date(a.deadlineDateTime);
-        const dateB = new Date(b.deadlineDateTime);
-        return dateA - dateB;
+        const dateA = new Date(a.deadlineDateTime)
+        const dateB = new Date(b.deadlineDateTime)
+        return dateA - dateB
     })
 
 
@@ -73,12 +76,12 @@ function createEventData() {
         }
 
         if (data.UID.startsWith('V')) {
-            calendarEventMap[data.UID].restaurantList.push(data.restaurantName);
+            calendarEventMap[data.UID].restaurantList.push(data.restaurantName)
         }
     })
 
     handleDataToBeRendered()
-};
+}
 
 
 
@@ -104,7 +107,7 @@ function handleDataToBeRendered(category = "groupings") {
     //判斷未來活動的數量，避免要渲染的事件量不足
     const futureData = filteredData.filter(data => {
         //判斷事件是否晚於今天
-        const eventDateTime = moment(data.deadlineDateTime, 'YYYY/MM/DD HH:mm');
+        const eventDateTime = moment(data.deadlineDateTime, 'YYYY/MM/DD HH:mm')
         return moment().isBefore(eventDateTime)
     })
 
@@ -197,8 +200,8 @@ function initModalVotingCard(votingUID) {
         .then(function (res) {
             votingCardData = res.data
             renderVotingCard(votingCardData)
-        }).catch(function (error) {
-            console.error(error);
+        }).catch(function (err) {
+            console.error(err.message);
         });
 }
 
@@ -331,6 +334,12 @@ function voteStore() {
 
     btnVoteThis.forEach(btn => {
         btn.addEventListener('click', function () {
+            //3 秒內按鈕禁用
+            this.disabled = true
+            setTimeout(() => {
+                this.disabled = false
+            }, 3000)
+
             //含有指定 class 樣式的按鈕代表已投票過此店家
             const isVoted = btn.classList.contains("btn-active-brand-02")
 
@@ -338,22 +347,21 @@ function voteStore() {
             if (isVoted) {
                 //將 votings 資料庫 id 與動作輸入變更資料庫
                 updateVotingAPI(btn.dataset.num, "deleteVote")
-                //alert("投票已取消")
             } else {
                 //未投票的店家 click，投票成功
                 //將 votings 資料庫 id 與動作輸入變更資料庫
-                updateVotingAPI(btn.dataset.num, "addVote");
-                //alert("投票成功")
+                updateVotingAPI(btn.dataset.num, "addVote")
             }
-        });
-    });
+        })
+    })
 
 }
 
 //變更投票資料庫 API
 async function updateVotingAPI(id, status) {
     try {
-        const progressElements = document.querySelector(`.ts-progress[data-num="${id}"]`);
+        //進度條加入等待動畫
+        const progressElements = document.querySelector(`.ts-progress[data-num="${id}"]`)
         progressElements.classList.add("is-processing")
 
         //宣告變數存取目前參與投票者清單            
@@ -361,7 +369,7 @@ async function updateVotingAPI(id, status) {
 
         //依據動作處理投票者清單
         if (status === "addVote") {
-            updatedVoters.push(`${_user}`);
+            updatedVoters.push(`${_user}`)
         } else {
             const userIndex = updatedVoters.indexOf(`${_user}`)
             updatedVoters.splice(userIndex, 1)
@@ -373,10 +381,11 @@ async function updateVotingAPI(id, status) {
         })
             .then(function (patchRes) {
                 initModalVotingCard(patchRes.data.UID)
+                //進度條加入移除動畫
                 progressElements.classList.remove("is-processing")
             })
-            .catch(function (error) {
-                console.error(error.message);
+            .catch(function (err) {
+                console.error(err.message);
             });
     } catch (err) {
         console.log('錯誤:', err);
@@ -388,5 +397,5 @@ async function updateVotingAPI(id, status) {
 
 /* 分類按鈕 active 狀態切換顯示 ====================*/
 $('.btnfilterEvent').click(function (e) {
-    $('.btnfilterEvent').toggleClass('btn-active-brand-02');
-});
+    $('.btnfilterEvent').toggleClass('btn-active-brand-02')
+})

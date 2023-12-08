@@ -1,31 +1,32 @@
 import axios from 'axios';
 import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
-import isLoggedIn from '/assets/js/components/isLoggedIn.js'; // import 判斷登入狀態樣板
-
+// import 判斷登入狀態樣板
+import isLoggedIn from '/assets/js/components/isLoggedIn.js'; 
+// import 解密 token 樣板
+import cryptoToken from '/assets/js/components/cryptoToken.js'; 
 
 //全頁共用變數
 const _url = "https://teatimeapi-test.onrender.com"
-const _token = localStorage.getItem("token");
+const _token = localStorage.getItem("token")
 //目前登入者資訊
-const _user = "U004"
-const currentUserId = _user.match(/U(\d+)/)[1]
+const _user = cryptoToken(_token)
+let currentUserId = ""
 let currentUserName = ""
 
 
-const btnNotifications = document.querySelectorAll(".btnNotification iconify-icon")
-
+const btnNotifications = document.querySelectorAll(".btnNotification")
 document.addEventListener('DOMContentLoaded', function () {
     const btnNotificationAlerts = document.querySelectorAll(".btnNotificationAlert")
 
     //未登入狀態的新通知提示
     if (!isLoggedIn(_token)) {
         btnNotificationAlerts.forEach(alert => {
-            alert.classList.add("d-none");
+            alert.classList.add("d-none")
         })
     } else {
         //已登入狀態的新通知提示
         btnNotificationAlerts.forEach(alert => {
-            alert.classList.remove("d-none");
+            alert.classList.remove("d-none")
         })
     }
 })
@@ -37,9 +38,13 @@ let btnId = ""
 
 btnNotifications.forEach(btn => {
     btn.addEventListener("click", function (e) {
-        //獲取點擊通知按鈕的 id
-        btnId = e.target.id
+        //針對 btn 最外層含有 ".btnNotification" 樣式的父元素綁定
+        const clickedElement = e.target
+        const closestBtnNotification = clickedElement.closest(".btnNotification")
 
+        //獲取點擊通知按鈕的 id
+        btnId = closestBtnNotification.id
+        
         //若未登入，直接前往渲染函式
         if (!isLoggedIn(_token)) {
             showMessage()
@@ -51,13 +56,13 @@ btnNotifications.forEach(btn => {
 })
 
 //通知按鈕-訊息 Bootstrap Toasts 初始化
-const toastTrigger = document.getElementById("btnToastNotification");
-const toastLiveContent = document.getElementById("notificationToast");
+const toastTrigger = document.getElementById("btnToastNotification")
+const toastLiveContent = document.getElementById("notificationToast")
 if (toastTrigger) {
     toastTrigger.addEventListener("click", function () {
         let toast = new bootstrap.Toast(toastLiveContent);
-        toast.show();
-    });
+        toast.show()
+    })
 }
 
 
@@ -67,19 +72,22 @@ if (toastTrigger) {
 function getCurrentUserName() {
     axios.get(`${_url}/users?UID=${_user}`)
         .then(function (res) {
+            //獲取目前登入者Id
+            currentUserId = _user.match(/U(\d+)/)[1]
             //獲取目前登入者姓名
             currentUserName = res.data[0].userName
             //獲取通知事件資料
             getNotificationDatas()
-        }).catch(function (error) {
-            console.error(error.message);
+        })
+        .catch(function (err) {
+            console.error(err.message);
         });
 }
 
 //使用 moment 格式化日期
-const today = moment().format('YYYY/MM/DD HH:mm');
+const today = moment().format('YYYY/MM/DD HH:mm')
 //整理過的事件
-let eventMap = {};
+let eventMap = {}
 
 //獲取通知事件資料
 function getNotificationDatas() {
@@ -88,8 +96,8 @@ function getNotificationDatas() {
     //API 時間範圍
     const timeRange = `deadlineDateTime_gte=${agoMonth}&deadlineDateTime_lte=${today}`
 
-    const groupings = axios.get(`${_url}/groupings?_expand=restaurant&_expand=order&${timeRange}`);
-    const votings = axios.get(`${_url}/votings?_expand=restaurant&${timeRange}`);
+    const groupings = axios.get(`${_url}/groupings?_expand=restaurant&_expand=order&${timeRange}`)
+    const votings = axios.get(`${_url}/votings?_expand=restaurant&${timeRange}`)
 
     Promise.all([groupings, votings])
         .then(function (res) {
@@ -98,8 +106,8 @@ function getNotificationDatas() {
             const votingDatas = res[1].data
 
             handleEventMap(groupingDatas, votingDatas)
-        }).catch(function (error) {
-            console.error(error);
+        }).catch(function (err) {
+            console.error(err.message);
         });
 }
 
@@ -114,9 +122,9 @@ function handleEventMap(groupings, votings) {
     const datas = participatingGroupings.concat(participatingVotings)
     //以截止時間降冪排序
     const sortedDatas = datas.sort((a, b) => {
-        const dateA = new Date(a.deadlineDateTime);
-        const dateB = new Date(b.deadlineDateTime);
-        return dateB - dateA;
+        const dateA = new Date(a.deadlineDateTime)
+        const dateB = new Date(b.deadlineDateTime)
+        return dateB - dateA
     })
 
     //使用排序後資料重新整理，將相同 UID 歸類
@@ -155,11 +163,11 @@ function handleEventMap(groupings, votings) {
 
         //補充 voting 店名
         if (data.UID.startsWith("V")) {
-            eventMap[data.UID].restaurantList.push(data.restaurantName);
+            eventMap[data.UID].restaurantList.push(data.restaurantName)
         }
 
     })
-    
+
     //渲染通知
     showMessage()
 }
@@ -171,15 +179,20 @@ function showMessage() {
     const showArea = showNotificationArea()
 
     // 綁定訊息渲染區域
-    const notificationMessages = document.querySelector(showArea)    
+    const notificationMessages = document.querySelector(showArea)
     //已登入狀態，渲染程式碼存放
     let template = ""
-
+    
     //未登入
     if (!isLoggedIn(_token)) {
         notificationMessages.innerHTML = `<li class="text-center fs-20">請先登入帳號</li>`
+    } else if (!Object.keys(eventMap).length) {
+        //已登入，但無通知
+        notificationMessages.innerHTML = `<li class="text-center fs-20">
+        <p>目前尚無通知</p><p>馬上一起吃吃喝喝吧！</p>
+        </li>`
     } else {
-        //已登入
+        //已登入，有通知
         Object.values(eventMap).forEach(data => {
             //事件類型
             const eventType = data.UID[0]
@@ -312,14 +325,21 @@ function showMessage() {
 
 //判斷點擊按鈕，回傳渲染目的地
 function showNotificationArea() {
-    if (btnId === "toastNews") {
+    if (btnId === "btnToastNotification") {
         return ".toastMessages"
-    } else {
+    } else if (btnId === "btnModalNotification") {
         return ".modalMessages"
     }
 }
 
 //清除 EventMap，避免投票店家名稱累積
-function clearEventMap(){
+function clearEventMap() {
     eventMap = {}
 }
+
+
+/* 通知按鈕點擊切換通知提示圓點 ========================== */
+$('.btnNotification').click(function (e) {
+    $('.btnNotificationAlert').addClass('d-none')
+    $('#notificationToast').toast('hide')
+})

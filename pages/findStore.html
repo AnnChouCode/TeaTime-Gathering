@@ -45,7 +45,7 @@
 
                 <div class="row mt-md-32 mt-0">
                     <div class="col-md-2  mb-16 mb-md-0">
-                        <ul class=" x-slide d-flex d-md-block gap-md-5 text-nowrap">
+                        <ul class="x-slide d-flex flex-md-column flex-row text-nowrap gap-8 gap-md-12">
                             <li>
                                 <button
                                     class="d-flex flex-md-row flex-column align-items-center p-12 p-xl-16 me-md-0 me-8 w-100 text-start border-0 bg-transparent text-gray-02 btn-active border-radius-16 btn-hover-gray-04 btnCategoryStore actived"
@@ -144,11 +144,6 @@
                     <script type="module" src="../main.js"></script>
 
 
-                    <script>
-
-                    </script>
-
-
                     <script type="module">
                         import axios from 'axios';
                         // import { showStars, btnCategoryStore } from '/assets/js/storeCard.js';
@@ -156,7 +151,7 @@
 
 
                         // 最高、最低評價按鈕顏色動畫
-                        let selectBarBtn = document.querySelectorAll('.select-bar button');
+                        let selectBarBtn = document.querySelectorAll('.select-bar-link');
                         selectBarBtn.forEach(btnType => {
                             btnType.addEventListener('click', () => {
                                 selectBarBtn.forEach(btn => {
@@ -403,13 +398,19 @@
                                     keydown: (event) => {
                                         if (event.keyCode === 13) {
                                             const searchValue = autoCompleteJS.input.value
-                                            console.log(`這是 ${searchValue}`)
                                             toggleFilter("search", searchValue)
                                         }
                                     }
                                 }
-                            }
+                            },
+
                         });
+                        // 搜尋後，按下"X" ，搜尋全部結果
+                        const inputACvalue = document.getElementById("autoComplete")
+                        inputACvalue.addEventListener("input", function (e) {
+                            toggleFilter("search", "")
+
+                        })
                     </script>
     </body>
 

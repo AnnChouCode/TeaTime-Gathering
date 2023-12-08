@@ -16,11 +16,11 @@ btnTogetherEvent.addEventListener("click", getGroupingDatas)
 //所有開團中事件資料
 let groupingDatas
 
-async function getGroupingDatas() {
+function getGroupingDatas() {
     //撈取尚未截止的開團事件，並使用截止時間排序
     const dataGetRule = `_sort=deadlineDateTime&deadlineDateTime_gte=${now}`
 
-    await axios.get(`https://teatimeapi-test.onrender.com/groupings?_expand=restaurant&${dataGetRule}`)
+    axios.get(`${_url}/groupings?_expand=restaurant&${dataGetRule}`)
         .then(function (res) {
             //所有開團中事件資料
             groupingDatas = res.data
@@ -47,8 +47,8 @@ async function getGroupingDatas() {
 
             showGroupingEvent(grouingDatasToBeRendered)
 
-        }).catch(function (error) {
-            console.error(error.message);
+        }).catch(function (err) {
+            console.error(err.message);
         });
 }
 
