@@ -5,6 +5,8 @@ $(function () {
   (function () {
     let UID = location.href.split("=")[1];;
     let id = '';
+    // 初始化 localStorage Carts
+    // localStorage.setItem('Carts', '');
     // UID = 'G003'
     // console.log(UID);
     const isGroupings = UID.startsWith("G") ? true : false; // 判斷 UID 是否 G 開頭，G 開頭表示當前有開團
@@ -14,6 +16,7 @@ $(function () {
         // console.log(res.data[0]);
         const {restaurantId} = res.data[0];
         id = restaurantId;
+        // console.log(isGroupings,UID,id)
         storeInformationData(isGroupings,UID,id)
       })
       .catch(err=>{console.log(err);})
@@ -26,6 +29,7 @@ $(function () {
 
 
 function storeInformationData(isGroupings,UID,id){
+  // console.log(isGroupings,UID,id);
   let searchCriteria = '';
   if(id){
     searchCriteria += `id=${id}`
@@ -352,7 +356,7 @@ function storeInformationData(isGroupings,UID,id){
                         </div>
                         <div class="modal-footer p-0  border-0 text-white ">
                           <button type="button" class="btn btn-brand-03 border-radius-40 py-12 px-24
-                          d-flex justify-content-center align-items-center w-100 ">
+                          d-flex justify-content-center align-items-center w-100" id="addProductToCarts">
                             <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20"
                               height="20"></iconify-icon>
                             <p class="text-white me-4 me-sm-8">新增至購物車‧</p>
@@ -362,8 +366,10 @@ function storeInformationData(isGroupings,UID,id){
                       </div>
                     </div>
                     `
+                    // console.log(isGroupings,UID,id);
+                    // console.log(templateProduct);
                     $('#staticBackdrop').html(templateProduct);
-                    let numberSub = $('#numberSub'), numberInput = $('#numberInput'), numberAdd = $('#numberAdd');
+                    let numberSub = $('#numberSub'), numberInput = $('#numberInput'), numberAdd = $('#numberAdd'), addProductToCarts = $('#addProductToCarts');
                     let originalPrice = item.價格;
 
                     // 計算價格
@@ -398,6 +404,59 @@ function storeInformationData(isGroupings,UID,id){
                       }
                     });
                     numberInput.on('input', calculatePrice);
+
+                    addProductToCarts.on('click',function(){
+                      let jsonString = '';
+                      let storageCarts = [];
+                      let productsToCartsData = {};
+                      const customization = [];
+                      productsToCartsData.orderItem = $('#staticBackdropLabel').text();
+                      productsToCartsData.quantity = $('#numberInput').val();
+                      
+                      // console.log(category);
+                      // 飲料類別處理
+                      if(category == '飲料'){
+                        // const temperature = ;
+                        productsToCartsData.ice = $('[name="temperature"]:checked').val();
+                        productsToCartsData.sugar = $('[name="sweetness"]:checked').val();
+                        const fresh_milk = $('#fresh_milk'),pearl = $('#pearl'),brown_sugar = $('#brown_sugar'),agar = $('#agar');
+                        if (fresh_milk.is(':checked')) {customization.push('升級鮮奶')}
+                        if (pearl.is(':checked')) {customization.push('珍珠')}
+                        if (brown_sugar.is(':checked')) {customization.push('黑糖')}
+                        if (agar.is(':checked')) {customization.push('寒天晶球')}
+                      }
+                      productsToCartsData.comments = $('#remark').val();
+                      productsToCartsData.totalAmount = $("#mealPrice").text();
+                      productsToCartsData.customization = customization;
+                      // console.log(productsToCartsData);
+                      // 判斷 localStorage Carts 有無資料
+                      if(localStorage.getItem('Carts')){
+                        let isRepeat = 0;
+                        // console.log('有資料');
+                        const getStorageCarts = JSON.parse(localStorage.getItem('Carts'));
+                        // 判斷 Carts 是否有相同品項
+                        getStorageCarts.forEach((item,index)=>{
+                          if(item.orderItem === $('#staticBackdropLabel').text()){
+                            // console.log('相同');
+                            isRepeat += 1;
+                            getStorageCarts[index] = productsToCartsData;
+                          }
+                        })
+                        if(isRepeat==0){
+                          getStorageCarts.push(productsToCartsData);
+                        }
+                        console.log(getStorageCarts);
+                        // localStorage.setItem('Carts', ''); // 清空 localStorage Carts
+                        jsonString = JSON.stringify(getStorageCarts);
+                        localStorage.setItem('Carts', jsonString);
+                      }else{
+                        // console.log('無資料');
+                        storageCarts.push(productsToCartsData);
+                        jsonString = JSON.stringify(storageCarts);
+                        localStorage.setItem('Carts', jsonString);
+                      }
+                      location.reload();
+                    })
                   }
                 })
                 });
