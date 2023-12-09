@@ -37,7 +37,7 @@ const autoCompleteJS = new autoComplete({
         src: async (query) => {
             try {
                 //Fetch Data from external Source
-                const source = await fetch(`https://teatimeapi-test.onrender.com/restaurants`);
+                const source = await fetch(`${_url}/restaurants`);
                 //Data should be an array of `Objects` or `Strings`
                 const data = await source.json();
 
@@ -103,18 +103,24 @@ const btnLogOut = document.querySelectorAll(".btnLogOut") //登出
 userLoginModal.addEventListener('show.bs.modal', function (event) {
     //按鈕-登入資料送出
     const btnLoginSubmit = userLoginModal.querySelector(".btnLoginSubmit");
+    //登入 loading spinner
+    const loginSpinner = userLoginModal.querySelector(".loginSpinner")
 
     //會員登入    
     btnLoginSubmit.addEventListener("click", function () {
+        //顯示 loading
+        loginSpinner.classList.remove("d-none")
         //儲存會員資料
         let userDatas
 
         //Login 成功條件 & 失敗
-        axios.get(`https://teatimeapi-test.onrender.com/users`)
+        axios.get(`${_url}/users`)
             .then(function (res) {
                 userDatas = res.data
                 //會員帳號輸入判斷，若成功則儲存該會員資料在 localStorage
                 getLoginUserData(userDatas)
+                //隱藏 loading
+                loginSpinner.classList.add("d-none")
             }).catch(function (err) {
                 console.error(err.message);
             });
@@ -149,8 +155,8 @@ function getLoginUserData(userDatas) {
         errorFeedback.style.display = 'block'
 
         //限制短時間內登入，若在限制時間外才達成嘗試登入次數，則不會進入禁用
-        let loginCountdownInterval=setInterval(function () {
-            loginCountdown --
+        let loginCountdownInterval = setInterval(function () {
+            loginCountdown--
 
             //當秒數歸零
             if (loginCountdown <= 0) {
@@ -170,10 +176,10 @@ function getLoginUserData(userDatas) {
             btnLoginSubmit.disabled = true
 
             //倒數秒數
-            let countdown = 5            
+            let countdown = 5
 
             let countdownInterval = setInterval(function () {
-                countdown --
+                countdown--
                 errorFeedback.textContent = `帳號或密碼輸入錯誤太多次，請等待 ${countdown} 秒後再試`
 
                 //當秒數歸零
@@ -197,6 +203,9 @@ function getLoginUserData(userDatas) {
         const ciphertext = AES.encrypt(successLoginData[0].UID, 'TeaTime-Gathering').toString()
         localStorage.setItem("token", ciphertext)
 
+        //關閉登入 modal
+        $('#userLoginModal').modal('hide');
+
         //重新整理頁面，以更新 _token
         window.location.reload();
     }
@@ -214,9 +223,6 @@ function showLoginSuccess(userName) {
                             class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
                             style="width: 44px;height: 44px;">${userName[0]}</a>`
     });
-
-    //關閉登入 modal
-    $('#userLoginModal').modal('hide');
 }
 
 

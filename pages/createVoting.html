@@ -430,8 +430,8 @@
                                         //處理頁碼
                                         handlePagination(filteredData, container)
                                     },
-                                    error: function (error) {
-                                        console.error(error);
+                                    error: function (err) {
+                                        console.error(err.message);
                                     }
                                 });
                             })('Pages');
@@ -538,7 +538,7 @@
                                                 //渲染選中的清單
                                                 renderCheckedStore();
                                             }).catch((err) => {
-                                                console.log('錯誤:', err);
+                                                console.error(err.message);
                                             });
                                     } else {
                                         //刪除清單中該屬性與值
@@ -743,7 +743,7 @@
                             $('#modal-createdSuccess').modal('show');
 
                         } catch (err) {
-                            console.log('錯誤:', err);
+                            console.error('錯誤:', err);
                         }
 
                     }
@@ -767,7 +767,7 @@
                                 return newUID;
                             }
                         } catch (err) {
-                            console.log('錯誤:', err);
+                            console.error('錯誤:', err);
                             throw err;
                         }
                     }
@@ -814,9 +814,8 @@
                                         sendPost(packagedDatas[i])
                                     }
 
-                                    console.log("success")
                                 }).catch((err) => {
-                                    console.log('錯誤:', err);
+                                    console.error(err.message);
                                 });
                         }
 
@@ -938,7 +937,7 @@
                         searchEngine: "loose",
                         //止抖,
                         debounce: 300,
-                        //選單符合條件自元 highlight
+                        //選單符合條件字元 highlight
                         resultItem: {
                             highlight: true
                         },
