@@ -13,9 +13,8 @@
 https://annchoucode.github.io/TeaTime-Gathering/
 
 # 頁面
-首頁、點餐頁、忘記密碼頁
+首頁、店家頁、點餐頁、訂餐月曆、建立投票頁、使用者後台
 
-# 畫面
 [![DEMO](http://img.youtube.com/vi/iudtBVr1Y8g/0.jpg)](https://www.youtube.com/watch?v=iudtBVr1Y8g "Front End Project｜下午茶揪團去 TeaTime Gathering")
 
 # 安裝
@@ -26,7 +25,7 @@ https://annchoucode.github.io/TeaTime-Gathering/
 `git clone https://github.com/AnnChouCode/TeaTime-Gathering.git`
 
 ## 安裝套件
-`npm install i bootstrap` - 初次下載該範例專案後，需要使用 npm install 來安裝 Bootstrap 套件
+`npm install i` - 初次下載該範例專案後，需要使用 npm install 安裝套件
 
 ## 運行套件
 - `npm run dev` - 執行開發模式
@@ -34,17 +33,38 @@ https://annchoucode.github.io/TeaTime-Gathering/
 
 
 # 專案技術
+前端技術
+  - HTML5
+  - CSS3
+  - JavaScript
+開發工具
   - Vite
   - Github Flow
-  - Bootstrap 5 + 部分客製化 scss
-  - Swiper
-  - AOS Animate
-  - jQuery
-  - JavaScript
+預處理器
+  - Sass
+框架與套件
+  - Bootstrap 5
+  - AXIOS：API 操作
+  - jQuery：API 操作、套件控制、按鈕互動效果控制
+  - Moment：時間處理
+  - flatpickr：時間選擇器
+  - autoComplete：搜尋關鍵字聯想
+  - Pagination：頁碼
+  - Swiper：跑馬燈輪播
+  - AOS：動畫效果
+  - Tocas UI：progress 進度條與處理 loading 動畫
+  - evocalendar：月曆
+  - Chart：圖表數據視覺
+設計工具
   - Figma
+
 
 # 作者
   - Ann Chou [github](https://github.com/AnnChouCode)
   - Billy Ti [github](https://github.com/Billy-Ti)
   - Mark [github](https://github.com/Mark-JJchen)
   - WA [github](https://github.com/ldddl)
+
+# 設計師
+  - Selina
+  - Ann Chou
