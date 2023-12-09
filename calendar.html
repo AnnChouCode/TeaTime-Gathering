@@ -36,10 +36,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <!-- 進度條 tocas progress -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/calendar-b59743b7.js"></script>
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/calendar-f4cb377d.js"></script>
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-2d6d9da0.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/axios-3a76d256.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/notification-30254737.js">
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/notification-74288832.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/isPastEvent-33573b9d.js">
   <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-f4e52da5.css">
 </head>
@@ -157,13 +157,7 @@
                         <a href="#userLoginModal" data-bs-toggle="modal" class="nav-icon-hover"><iconify-icon
                                 class="p-8 bg-brand-04 rounded-circle" icon="line-md:account" style="color: #bfa373;"
                                 width="28"></iconify-icon></a>
-                    </li>
-                    <!-- 按鈕-使用者已登入選單 -->
-                    <!-- <li class="d-none btnUserLoggedIn">
-                        <a href="overallSystem.html"
-                            class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
-                            style="width: 44px;height: 44px;">L</a>
-                    </li> -->
+                    </li>                    
                     <!-- 按鈕-登出 -->
                     <li class="d-none btnLogOut">
                         <a href="#" class="nav-icon-hover p-8 bg-brand-04 rounded-circle">
@@ -199,8 +193,7 @@
                     </div>
                     <div class="offcanvas-body d-flex flex-column justify-content-between py-24 px-12">
                         <ul class="fs-32 offcanvas-list">
-                            <li><a class="p-16 fw-bold d-block" href="findStore.html">點餐</a></li>
-                            <!-- <li><a class="p-16 fw-bold d-block" href="#">投票</a></li> -->
+                            <li><a class="p-16 fw-bold d-block" href="findStore.html">點餐</a></li>                            
                             <li><a class="p-16 fw-bold d-block" href="calendar.html">訂餐月曆</a></li>
                             <li><a class="p-16 fw-bold d-block" href="#">訂單</a></li>
                         </ul>
@@ -281,7 +274,7 @@
                 </ul>
                 <!-- input - account & password -->
                 <form class="needs-validation" action="#" method="post" novalidate>
-                    <div class="mb-lg-20 mb-12">
+                    <div class="mb-lg-20 mb-12  position-relative">
                         <input
                             class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginAccount"
                             type="email" id="user-account" name="user-account" placeholder="請輸入信箱"
@@ -292,6 +285,12 @@
                             aria-describedby="user-password" value="ling-huang" required>
                         <div class="invalid-feedback ms-16">
                             電子郵件帳號或密碼輸入錯誤
+                        </div>
+                        <!-- loginSpinner -->
+                        <div class="position-absolute top-50 start-50 translate-middle d-none loginSpinner">
+                            <div class="spinner-border text-brand-01" role="status" style="width: 3rem; height: 3rem;">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
                         </div>
                     </div>
                     <!-- option -->
@@ -306,6 +305,7 @@
                     <button type="submit"
                         class="p-lg-14 p-12 fs-20 fw-medium lh-sm rounded-pill text-white border-0 w-100 btn-brand-03 btn-hover-brand-01 btnLoginSubmit">登入</button>
                 </form>
+
             </div>
         </div>
     </div>
@@ -378,17 +378,7 @@
                                 <time>2023/08/14</time>
                             </div>
                         </a></li>
-                    <li><a href="#" class="d-block">
-                            <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的跟團已確認成團！請盡速向團主付款</p>
-                            <div class="d-flex justify-content-between mb-8">
-                                <span class="text-gray-02">店家</span>
-                                <span>飛餐</span>
-                            </div>
-                            <div class="d-flex justify-content-between ">
-                                <span class="text-gray-02">預定訂購時間</span>
-                                <time>2023/08/12</time>
-                            </div>
-                        </a></li> -->
+                     -->
                 </ul>
             </div>
         </div>
@@ -402,7 +392,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
 
 <!-- nav.js -->
-
       <div class="py-32 pt-64 py-md-80 layout-content container calendar">
         <h2 class="mb-16 mb-md-32 fs-24 fs-md-32 fw-bold lh-sm">訂餐月曆</h2>
         <div class="row flex-column flex-md-row gy-48 g-md-24">
@@ -633,50 +622,7 @@
                             <time>2023/08/14</time>
                         </div>
                     </a></li>
-                <li><a href="#" class="d-block">
-                        <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的跟團已確認成團！請盡速向團主付款</p>
-                        <div class="d-flex justify-content-between mb-8">
-                            <span class="text-gray-02">店家</span>
-                            <span>飛餐</span>
-                        </div>
-                        <div class="d-flex justify-content-between ">
-                            <span class="text-gray-02">預定訂購時間</span>
-                            <time>2023/08/12</time>
-                        </div>
-                    </a></li>
-                <li><a href="#" class="d-block">
-                        <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您主辦的開團失敗！謝謝您的發起</p>
-                        <div class="d-flex justify-content-between mb-8">
-                            <span class="text-gray-02">店家</span>
-                            <span>速食窩</span>
-                        </div>
-                        <div class="d-flex justify-content-between ">
-                            <span class="text-gray-02">預定訂購時間</span>
-                            <time>無</time>
-                        </div>
-                    </a></li>
-                <li><a href="#" class="d-block">
-                        <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">跟團訂單「編號 11111」已付款</p>
-                        <div class="d-flex justify-content-between mb-8">
-                            <span class="text-gray-02">店家</span>
-                            <span>飛餐</span>
-                        </div>
-                        <div class="d-flex justify-content-between ">
-                            <span class="text-gray-02">預定訂購時間</span>
-                            <time>2023/08/12</time>
-                        </div>
-                    </a></li>
-                <li><a href="#" class="d-block">
-                        <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
-                        <div class="d-flex justify-content-between mb-8">
-                            <span class="text-gray-02">店家</span>
-                            <span>茶源 ChaSource</span>
-                        </div>
-                        <div class="d-flex justify-content-between ">
-                            <span class="text-gray-02">預定訂購時間</span>
-                            <time>2023/08/18</time>
-                        </div>
-                    </a></li> -->
+                -->
             </ul>
         </div>
     </div>

@@ -35,10 +35,10 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- 進度條 tocas progress -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/index-98e1600f.js"></script>
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/index-4c56d7d3.js"></script>
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-2d6d9da0.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/axios-3a76d256.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/notification-30254737.js">
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/notification-74288832.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/showStars-385adb56.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/isPastEvent-33573b9d.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/showDateTime-51bda516.js">
@@ -158,13 +158,7 @@
                         <a href="#userLoginModal" data-bs-toggle="modal" class="nav-icon-hover"><iconify-icon
                                 class="p-8 bg-brand-04 rounded-circle" icon="line-md:account" style="color: #bfa373;"
                                 width="28"></iconify-icon></a>
-                    </li>
-                    <!-- 按鈕-使用者已登入選單 -->
-                    <!-- <li class="d-none btnUserLoggedIn">
-                        <a href="overallSystem.html"
-                            class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
-                            style="width: 44px;height: 44px;">L</a>
-                    </li> -->
+                    </li>                    
                     <!-- 按鈕-登出 -->
                     <li class="d-none btnLogOut">
                         <a href="#" class="nav-icon-hover p-8 bg-brand-04 rounded-circle">
@@ -200,8 +194,7 @@
                     </div>
                     <div class="offcanvas-body d-flex flex-column justify-content-between py-24 px-12">
                         <ul class="fs-32 offcanvas-list">
-                            <li><a class="p-16 fw-bold d-block" href="findStore.html">點餐</a></li>
-                            <!-- <li><a class="p-16 fw-bold d-block" href="#">投票</a></li> -->
+                            <li><a class="p-16 fw-bold d-block" href="findStore.html">點餐</a></li>                            
                             <li><a class="p-16 fw-bold d-block" href="calendar.html">訂餐月曆</a></li>
                             <li><a class="p-16 fw-bold d-block" href="#">訂單</a></li>
                         </ul>
@@ -282,7 +275,7 @@
                 </ul>
                 <!-- input - account & password -->
                 <form class="needs-validation" action="#" method="post" novalidate>
-                    <div class="mb-lg-20 mb-12">
+                    <div class="mb-lg-20 mb-12  position-relative">
                         <input
                             class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginAccount"
                             type="email" id="user-account" name="user-account" placeholder="請輸入信箱"
@@ -293,6 +286,12 @@
                             aria-describedby="user-password" value="ling-huang" required>
                         <div class="invalid-feedback ms-16">
                             電子郵件帳號或密碼輸入錯誤
+                        </div>
+                        <!-- loginSpinner -->
+                        <div class="position-absolute top-50 start-50 translate-middle d-none loginSpinner">
+                            <div class="spinner-border text-brand-01" role="status" style="width: 3rem; height: 3rem;">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
                         </div>
                     </div>
                     <!-- option -->
@@ -307,6 +306,7 @@
                     <button type="submit"
                         class="p-lg-14 p-12 fs-20 fw-medium lh-sm rounded-pill text-white border-0 w-100 btn-brand-03 btn-hover-brand-01 btnLoginSubmit">登入</button>
                 </form>
+
             </div>
         </div>
     </div>
@@ -379,17 +379,7 @@
                                 <time>2023/08/14</time>
                             </div>
                         </a></li>
-                    <li><a href="#" class="d-block">
-                            <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的跟團已確認成團！請盡速向團主付款</p>
-                            <div class="d-flex justify-content-between mb-8">
-                                <span class="text-gray-02">店家</span>
-                                <span>飛餐</span>
-                            </div>
-                            <div class="d-flex justify-content-between ">
-                                <span class="text-gray-02">預定訂購時間</span>
-                                <time>2023/08/12</time>
-                            </div>
-                        </a></li> -->
+                     -->
                 </ul>
             </div>
         </div>
@@ -403,7 +393,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
 
 <!-- nav.js -->
-
 
       <div class="layout-content z-index-3">
         <!-- banner -->
@@ -779,84 +768,8 @@
                         </div>
                     </div>
                 </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="500">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-03-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Fruit Fusion
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">方雅雯</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="600">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-04-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">阿婆米餅</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">無</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-4 col-xxxl-3">
-                <a href="#"
-                    class="event-rounded h-100 w-100 d-flex flex-md-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line"
-                    data-aos="flip-left" data-aos-delay="700">
-                    <img class="event-pic me-12 me-md-0 mb-md-20 flex-grow-1"
-                        src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/store-logo/store-06-s.jpg?raw=true"
-                        alt="calendar-img">
-                    <div class="d-flex flex-column justify-content-between w-100 ">
-                        <p class="mb-8 mb-md-16 fs-20 fs-md-24 fw-bold lh-sm text-brand-03 single-ellipsis">Flavorful
-                            oasis</p>
-                        <div class="d-flex justify-content-between align-items-center mb-8 mb-md-16">
-                            <p class="fs-16 fs-md-20 text-gray-05">開團中</p>
-                            <div class="d-flex align-items-center ms-8 gap-md-8 gap-4">
-                                <iconify-icon icon="solar:calendar-linear" style="color: #1e1e1e;" width="26"
-                                    height="26"></iconify-icon>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">08/12</time>
-                                <time datetime="2023-08-12" class="fw-medium lh-sm fs-16 fs-lg-20 ">14:30</time>
-                            </div>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <p class="fs-16 fs-md-20 text-gray-05">請客人</p>
-                            <span class="fs-16 fs-md-20 lh-sm fw-medium">張雅琪</span>
-                        </div>
-                    </div>
-                </a>
-            </div> -->
+            </div>            
+             -->
         </div>
     </div>
 </div>
@@ -1241,316 +1154,8 @@
                                 </div>
                             </div>
                             <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">在巷口芬芳香，飲料店誘人妝。加入下午茶行列，味蕾共享暢快妙。</p>
-
                         </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/female/user-female-01.jpg" alt="user-female-01">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">關品妍</span>
-                                    <time datetime="2023-08-06"
-                                        class="user-date fs-16 d-block ms-auto ">2023/08/06</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">希望 08/10 的下午茶可以早半小時送到，我要開會，我不想錯過下午茶 QQ</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/female/user-female-03.jpg" alt="user-female-03">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">張雅琪</span>
-                                    <time datetime="2023-08-06"
-                                        class="user-date fs-16 d-block ms-auto ">2023/08/06</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">超好吃的，最喜歡這種酸酸甜甜的味道，謝謝 Emy 推薦</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/male/user-male-02.jpg" alt="user-male-02">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">陳瑋</span>
-                                    <time datetime="2023-02-15"
-                                        class="user-date fs-16 d-block ms-auto ">2023/02/15</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">如果提供一些茶飲試喝的機會，更能了解不同茶葉的風味會更好</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/female/user-female-04.jpg" alt="user-female-04">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">徐欣怡</span>
-                                    <time datetime="2023-09-22"
-                                        class="user-date fs-16 d-block ms-auto ">2023/09/22</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">希望網站店家多一點，不然都沒有我要的</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/female/user-female-05.jpg" alt="user-female-05">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">梅嘉欣</span>
-                                    <time datetime="2023-11-11"
-                                        class="user-date fs-16 d-block ms-auto ">2022/11/11</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">設計網站的人好棒，給一個讚，繼續加油</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/male/user-male-03.jpg" alt="user-male-03">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">William Thompson</span>
-                                    <time datetime="2023-05-07"
-                                        class="user-date fs-16 d-block ms-auto ">2023/05/07</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">增加一些冰品選項，例如冰淇淋茶飲或冰涼水果沙拉，在夏天也能夠享受到下午茶的清涼感受</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/female/user-female-06.jpg" alt="user-female-06">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">張雨菲</span>
-                                    <time datetime="2023-03-15"
-                                        class="user-date fs-16 d-block ms-auto ">2023/03/15</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">可以考慮提供一些茶飲試喝的機會，讓我們更能了解不同茶葉的風味</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/male/user-male-04.jpg" alt="user-male-04">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">Malina Chanbers</span>
-                                    <time datetime="2023-02-04"
-                                        class="user-date fs-16 d-block ms-auto ">2023/02/04</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">希望能有一個專門的活動頁面或平台，讓我們可以事先查看活動詳情</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/female/user-female-07.jpg" alt="user-female-07">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">陳雨潔</span>
-                                    <time datetime="2023-05-21"
-                                        class="user-date fs-16 d-block ms-auto ">2023/05/21</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">希望公司提供一個舒適的休息區，讓大家可以愉快的享受下午茶</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/male/user-male-05.jpg" alt="user-male-05">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">James Williams</span>
-                                    <time datetime="2023-08-31"
-                                        class="user-date fs-16 d-block ms-auto ">2023/08/31</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">想要有更多素食或低糖點心選擇</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/male/user-male-06.jpg" alt="user-male-06">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">劉建宇</span>
-                                    <time datetime="2023-09-13"
-                                        class="user-date fs-16 d-block ms-auto ">2023/09/13</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">考慮提供一些下午茶專屬的乾果和堅果，增加茶飲搭配的多樣性</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/male/user-male-07.jpg" alt="user-male-07">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">Benjamin Davis</span>
-                                    <time datetime="2023-01-27"
-                                        class="user-date fs-16 d-block ms-auto ">2023/01/27</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">增加一些茶飲或點心的家鄉特色，讓我們能夠品味到異國風味</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/female/user-female-08.jpg" alt="user-female-08">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">王雨萱</span>
-                                    <time datetime="2023-06-01"
-                                        class="user-date fs-16 d-block ms-auto ">2023/06/01</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">有沒有一些特別的茶飲配對套餐，讓我們可以一次品嚐多種風味</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/female/user-female-09.jpg" alt="user-female-09">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">林晨曦</span>
-                                    <time datetime="2023-08-05"
-                                        class="user-date fs-16 d-block ms-auto ">2023/08/05</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">可以增加一些有機茶葉的選項，符合現代人對健康飲品的需求</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/female/user-female-10.jpg" alt="user-female-10">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">林雨</span>
-                                    <time datetime="2023-04-12"
-                                        class="user-date fs-16 d-block ms-auto ">2023/04/12</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">許願一些特別適合慶祝活動的下午茶套餐，例如生日或婚禮慶祝套餐</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/male/user-male-08.jpg" alt="user-male-08">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">Daniel Brown</span>
-                                    <time datetime="2023-09-29"
-                                        class="user-date fs-16 d-block ms-auto ">2023/09/29</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">許願提供一些茶雞尾酒選項，讓我們能夠在下午茶活動中享受到一些獨特的混合口味</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/female/user-female-11.jpg" alt="user-female-11">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">Mia Lin</span>
-                                    <time datetime="2023-07-16"
-                                        class="user-date fs-16 d-block ms-auto ">2023/07/16</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">推出一些麵包或三明治選擇，讓我們可以在下午茶中品嚐到更多不同的口味</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/male/user-male-09.jpg" alt="user-male-09">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">Daniel Chen</span>
-                                    <time datetime="2023-03-02"
-                                        class="user-date fs-16 d-block ms-auto ">2023/03/02</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">想要折扣啦，有沒有呢XD</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/male/user-male-10.jpg" alt="user-male-10">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">John Krius</span>
-                                    <time datetime="2023-01-09"
-                                        class="user-date fs-16 d-block ms-auto ">2023/01/09</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">如果有一些糖尿病或特殊飲食需求的選項，讓我能夠安心享受下午茶的美味</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/female/user-female-12.jpg" alt="user-female-12">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">林慧娟</span>
-                                    <time datetime="2023-09-04"
-                                        class="user-date fs-16 d-block ms-auto ">2023/09/04</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">在茶飲中加入一些新鮮水果或花草蜜，提供更多飽滿的口感和香氣</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/female/user-female-13.jpg" alt="user-female-13">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">陳怡妤</span>
-                                    <time datetime="2023-05-28"
-                                        class="user-date fs-16 d-block ms-auto ">2023/05/28</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">只能說，店家可以再多一點</p>
-                        </li>
-                        <li
-                            class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0 d-lg-none pb-12 pb-md-24">
-                            <div class="d-flex mb-12 mb-md-16">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/user/female/user-female-14.jpg" alt="user-female-14">
-                                <div
-                                    class="evaluate-user d-flex justify-content-between  align-items-center pt-8 pt-md-10 w-100">
-                                    <span class="user-name fs-16 fs-md-20">張菲比</span>
-                                    <time datetime="2023-02-22"
-                                        class="user-date fs-16 d-block ms-auto ">2023/02/22</time>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">陳怡妤 說明天她要請客</p>
-                        </li> -->
+                         -->
                     </ul>
                 </div>
             </div>
@@ -1559,48 +1164,6 @@
 </div>
 
 
-
-<!-- <script>
-    let evaluate = document.querySelector('.evaluate');
-
-    function controlResize() {
-        if (window.innerWidth < 992) {
-            evaluate.classList.remove('z-n1');
-        }
-        else {
-            evaluate.classList.add('z-n1');
-        }
-    }
-    // 打開頁面時先 init 一次
-    controlResize();
-    window.addEventListener("resize", controlResize);
-
-
-    // 愛心累加
-    let isLike1 = false;
-    let likeCount1 = 5;
-    function toggleLike() {
-        let heartIcon1 = document.querySelector(".heartIcon1");
-        let likeCountText1 = document.querySelector(".likeCount1");
-        if (isLike1) {
-            heartIcon1.innerHTML = `<iconify-icon icon="material-symbols:favorite-outline" style="color: #c2c1bd;"
-                                        ></iconify-icon>`;
-            likeCount1--;
-        } else {
-            heartIcon1.innerHTML = `<iconify-icon icon="ic:baseline-favorite" style="color: #fd909f;"
-                                        ></iconify-icon>`;
-
-            likeCount1++;
-        }
-        isLike1 = !isLike1;
-        likeCountText1.textContent = likeCount1
-    }
-    document.addEventListener('DOMContentLoaded', function updateLikeCount() {
-        let likeCountText1 = document.querySelector(".likeCount1");
-        likeCountText1.textContent = likeCount1;
-    });
-
-</script> -->
           <!-- novice Teaching -->
           <div class="layout-content">
             <div class="container py-32 py-lg-80" id="novice-teaching">
@@ -1807,50 +1370,7 @@
                             <time>2023/08/14</time>
                         </div>
                     </a></li>
-                <li><a href="#" class="d-block">
-                        <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的跟團已確認成團！請盡速向團主付款</p>
-                        <div class="d-flex justify-content-between mb-8">
-                            <span class="text-gray-02">店家</span>
-                            <span>飛餐</span>
-                        </div>
-                        <div class="d-flex justify-content-between ">
-                            <span class="text-gray-02">預定訂購時間</span>
-                            <time>2023/08/12</time>
-                        </div>
-                    </a></li>
-                <li><a href="#" class="d-block">
-                        <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您主辦的開團失敗！謝謝您的發起</p>
-                        <div class="d-flex justify-content-between mb-8">
-                            <span class="text-gray-02">店家</span>
-                            <span>速食窩</span>
-                        </div>
-                        <div class="d-flex justify-content-between ">
-                            <span class="text-gray-02">預定訂購時間</span>
-                            <time>無</time>
-                        </div>
-                    </a></li>
-                <li><a href="#" class="d-block">
-                        <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">跟團訂單「編號 11111」已付款</p>
-                        <div class="d-flex justify-content-between mb-8">
-                            <span class="text-gray-02">店家</span>
-                            <span>飛餐</span>
-                        </div>
-                        <div class="d-flex justify-content-between ">
-                            <span class="text-gray-02">預定訂購時間</span>
-                            <time>2023/08/12</time>
-                        </div>
-                    </a></li>
-                <li><a href="#" class="d-block">
-                        <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
-                        <div class="d-flex justify-content-between mb-8">
-                            <span class="text-gray-02">店家</span>
-                            <span>茶源 ChaSource</span>
-                        </div>
-                        <div class="d-flex justify-content-between ">
-                            <span class="text-gray-02">預定訂購時間</span>
-                            <time>2023/08/18</time>
-                        </div>
-                    </a></li> -->
+                -->
             </ul>
         </div>
     </div>
