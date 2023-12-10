@@ -31,13 +31,7 @@
                         <a href="#userLoginModal" data-bs-toggle="modal" class="nav-icon-hover"><iconify-icon
                                 class="p-8 bg-brand-04 rounded-circle" icon="line-md:account" style="color: #bfa373;"
                                 width="28"></iconify-icon></a>
-                    </li>
-                    <!-- 按鈕-使用者已登入選單 -->
-                    <!-- <li class="d-none btnUserLoggedIn">
-                        <a href="overallSystem.html"
-                            class="p-8 bg-brand-04 rounded-circle fs-20 text-brand-03 text-center fw-medium lh-sm nav-icon-hover"
-                            style="width: 44px;height: 44px;">L</a>
-                    </li> -->
+                    </li>                    
                     <!-- 按鈕-登出 -->
                     <li class="d-none btnLogOut">
                         <a href="#" class="nav-icon-hover p-8 bg-brand-04 rounded-circle">
@@ -73,8 +67,7 @@
                     </div>
                     <div class="offcanvas-body d-flex flex-column justify-content-between py-24 px-12">
                         <ul class="fs-32 offcanvas-list">
-                            <li><a class="p-16 fw-bold d-block" href="findStore.html">點餐</a></li>
-                            <!-- <li><a class="p-16 fw-bold d-block" href="#">投票</a></li> -->
+                            <li><a class="p-16 fw-bold d-block" href="findStore.html">點餐</a></li>                            
                             <li><a class="p-16 fw-bold d-block" href="calendar.html">訂餐月曆</a></li>
                             <li><a class="p-16 fw-bold d-block" href="#">訂單</a></li>
                         </ul>
@@ -155,7 +148,7 @@
                 </ul>
                 <!-- input - account & password -->
                 <form class="needs-validation" action="#" method="post" novalidate>
-                    <div class="mb-lg-20 mb-12">
+                    <div class="mb-lg-20 mb-12  position-relative">
                         <input
                             class="form-control custom-form-focus mb-lg-20 mb-12 p-16 border border-2 border-gray-04 border-radius-28 login-bar inputLoginAccount"
                             type="email" id="user-account" name="user-account" placeholder="請輸入信箱"
@@ -166,6 +159,12 @@
                             aria-describedby="user-password" value="ling-huang" required>
                         <div class="invalid-feedback ms-16">
                             電子郵件帳號或密碼輸入錯誤
+                        </div>
+                        <!-- loginSpinner -->
+                        <div class="position-absolute top-50 start-50 translate-middle d-none loginSpinner">
+                            <div class="spinner-border text-brand-01" role="status" style="width: 3rem; height: 3rem;">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
                         </div>
                     </div>
                     <!-- option -->
@@ -180,6 +179,7 @@
                     <button type="submit"
                         class="p-lg-14 p-12 fs-20 fw-medium lh-sm rounded-pill text-white border-0 w-100 btn-brand-03 btn-hover-brand-01 btnLoginSubmit">登入</button>
                 </form>
+
             </div>
         </div>
     </div>
@@ -252,17 +252,7 @@
                                 <time>2023/08/14</time>
                             </div>
                         </a></li>
-                    <li><a href="#" class="d-block">
-                            <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的跟團已確認成團！請盡速向團主付款</p>
-                            <div class="d-flex justify-content-between mb-8">
-                                <span class="text-gray-02">店家</span>
-                                <span>飛餐</span>
-                            </div>
-                            <div class="d-flex justify-content-between ">
-                                <span class="text-gray-02">預定訂購時間</span>
-                                <time>2023/08/12</time>
-                            </div>
-                        </a></li> -->
+                     -->
                 </ul>
             </div>
         </div>
