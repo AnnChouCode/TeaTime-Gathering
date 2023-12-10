@@ -270,7 +270,7 @@ function orderEstablished(data){
   $('#eventDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="eventDate">${formattedEventDate}</p>`)
   $('#eventDateTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="eventDateTime">${eventDateTimePart}</p>`)
   
-  // localStorage.setItem('Carts', ''); // 清空 localStorage Carts
+  localStorage.setItem('Carts', ''); // 清空 localStorage Carts
 }
 function storeInformationData(isGroupings,UID,id){
   // console.log(isGroupings,UID,id);

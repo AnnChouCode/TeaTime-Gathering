@@ -4,18 +4,18 @@ import axios from 'axios';
 let bannerData = [];
 let templateBanner = "";
 const today = new Date();
-let todayDateString = `${today.getFullYear()}/${
-  today.getMonth() + 1
-}/${today.getDate()}`;
+let todayDateString = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;
 // console.log(todayDateString);
 // todayDateString = "2023/12/05"; // 有一筆開團
-// todayDateString = "2023/11/28"; // 無開團，取 4 筆
+todayDateString = "2023/11/28"; // 無開團，取 4 筆
 getTodayGroupings();
 function getTodayGroupings(todayIsGroup) {
+  console.log(todayDateString);
   let url = `https://teatimeapi-test.onrender.com/groupings?deadlineDateTime_like=${todayDateString}&isGroup=true`;
   if (todayIsGroup == 1) {
     url = `https://teatimeapi-test.onrender.com/groupings?&isGroup=true&_limit=4`;
   }
+  console.log(url);
   // console.log(todayIsGroup);
   axios
     .get(url)
@@ -26,8 +26,8 @@ function getTodayGroupings(todayIsGroup) {
         // console.log("今日無開團，重新取得 4筆 近期開團資料");
         getTodayGroupings(1);
       } else {
-        // console.log("今日有開團");
-        // console.log(data);
+        console.log("今日有開團");
+        console.log(data);
         data.forEach((item, index) => {
           // console.log(item)
           const [datePart, timePart] = item.deadlineDateTime.split(" ");
@@ -75,7 +75,7 @@ function getTodayGroupings(todayIsGroup) {
                     <h2 class="fs-28 fs-md-40 fw-bold custom-shadow mb-16">${item.restaurantName}</h2>
                     <p class="swiper-bg-p custom-shadow mb-12 mb-md-0 fs-md-24">${item.summary}</p>
                   </div>
-                  <button data-uid="${item.storeUID}" 
+                  <button data-uid="${todayIsGroup == 1? `${item.storeUID}`:`${item.UID}`}" 
                     class="order-btn fs-20 fw-medium text-white border-radius-40 px-24 py-12 bg-brand-03 border-0">點餐去
                   </button>
                 </div>
