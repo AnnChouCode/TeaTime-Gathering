@@ -13,12 +13,10 @@
     }
 }
 
-// 總覽
-
+// 總覽頁
 .overall-text {
     color: #f0bd68;
 }
-
 
 .memberSystem-active {
     color: black !important;
@@ -28,7 +26,6 @@
 // 投票管理頁
 
 // 訂餐管理頁
-
 .rounded-24 {
     border-radius: 24px;
 }
@@ -37,6 +34,7 @@
     width: 30px;
     height: 30px;
 }
+
 .star {
     color: #c2c1bd;
     cursor: pointer;
@@ -54,31 +52,35 @@
 }
 
 textarea:focus {
+    // 點選時，邊框改為灰色
     outline: 1px solid #c2c1bd !important;
-    /* 设置获得焦点时的边框颜色为灰色 */
 }
 
 .memberbtn-actived {
     border-bottom: 4px solid #dfd3be;
 }
 
-.collapsed ul{
+.collapsed ul {
     display: none;
 }
 
-// 個人資料
+.commentBtn:hover {
+    color: black;
+}
 
+// 個人資料頁
 .input-error {
     transition: none;
-    outline: 2px solid #FD909F;
+    outline: 2px solid #fd909f;
     outline-offset: -2px;
     animation: shakeX 0.8s;
     &::placeholder {
         color: red !important;
-        font-size:16px;
+        font-size: 16px;
     }
 }
 
+// 輸入錯誤，動畫
 @keyframes shakeX {
     0%,
     to {
@@ -105,7 +107,6 @@ textarea:focus {
 }
 
 // 下拉選單
-
 .dropdown {
     z-index: 100;
     border: none;
@@ -131,6 +132,7 @@ button:hover {
     right: 0px;
     margin-top: 10px;
 }
+
 .first-option {
     width: 100px;
 }
@@ -153,6 +155,3 @@ button:hover {
     background-color: #ddd;
     border-radius: 5px;
 }
-
-
-
