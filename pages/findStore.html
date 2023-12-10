@@ -118,7 +118,6 @@
                 <div class="mt-16 mt-md-32"></div>
                 <!-- pagination -->
                 <div id="paginationPages" class="d-flex justify-content-end mb-16 mb-sm-0"></div>
-
             </div>
 
             <!-- footer -->
@@ -146,9 +145,6 @@
 
                     <script type="module">
                         import axios from 'axios';
-                        // import { showStars, btnCategoryStore } from '/assets/js/storeCard.js';
-
-
 
                         // 最高、最低評價按鈕顏色動畫
                         let selectBarBtn = document.querySelectorAll('.select-bar-link');
@@ -203,8 +199,7 @@
                             }
 
                             let filterAPI = `${_url}/restaurants?${filterCategory}${sortStores}${searchStore}`
-                            console.log(filterAPI);
-
+                            // console.log(filterAPI);
                             renderFilteredData(filterAPI)
                         }
                         initRestaurantData()

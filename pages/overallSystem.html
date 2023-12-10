@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ZH-TW">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../assets/images/logo/logo-favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
-    <!-- <link rel="stylesheet" href="/assets/scss/pages/_memberSystem.scss"> -->
     <title>會員管理系統-總覽</title>
 </head>
 
@@ -67,36 +66,10 @@
                 <div class="p-24  "></div>
                 <div class="p-24 d-lg-none "></div>
                 <div class="p-24 d-lg-none "></div>
-
         </div>
     </div>
     <!-- offcanvas -->
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="memberOffcanvas" aria-labelledby="memberOffcanvasLabel">
-        <div class="offcanvas-header pb-0">
-            <!-- <img src="/assets/images/logo/logo-teatime.svg" alt="" width="150"> -->
-            <a href="index.html" class="indexLogo"></a>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body pt-0">
-            <ul class="mt-40 fs-20 fw-bolder gap-12">
-                <li class="d-flex align-items-center ">
-                    <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
-                        width="24"></iconify-icon>
-                    <a href="overallSystem.html" class="memberSystem-a text-gray-02 memberSystem-active">總覽</a>
-                </li>
-                <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
-                        icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
-                        width="24"></iconify-icon><a href="orderSystem.html"
-                        class="memberSystem-a  text-gray-02">訂單管理</a></li>
-                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
-                        style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html"
-                        class="memberSystem-a text-gray-02">投票管理</a></li>
-                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
-                        icon="material-symbols:account-box" style="color: #1e1e1e;" width="24"></iconify-icon><a
-                        href="memberInfo.html" class="memberSystem-a text-gray-02">個人資料</a></li>
-            </ul>
-        </div>
-    </div>
+    <%- include("./layout/member-offcanvas"); -%>
 
 
 </body>
@@ -113,8 +86,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
 <script>
-    // 顯示分類按鈕底線，並將相對應的
-    let takePartVoting = document.querySelector(".takePartVoting");
 
     // 初步撈取的資料
     let datas = [];
@@ -123,7 +94,7 @@
     const calendarEventMap = {};
 
     /* 開團 & 投票事件撈取 */
-    function init() {
+    (function init() {
         const groupingDatas = axios.get('https://teatimeapi-test.onrender.com/groupings');
         const votingDatas = axios.get('https://teatimeapi-test.onrender.com/votings');
         const orderDatas = axios.get('https://teatimeapi-test.onrender.com/groupings?_expand=order');
@@ -135,13 +106,11 @@
                 statisticalData();
                 chartJS()
             });
-        // console.log(datas);
-    }
-    init();
+    })()
 
     // 總覽頁面，四項統計數據
     function statisticalData() {
-        // 解構賦值
+
         let groupOrder = 0;
         let launchedGroup = 0;
         let participatingVote = 0;
@@ -161,37 +130,15 @@
                 launchedVote++;
             }
         }
-        // return [initiatorCount, inviteesCount]
         document.querySelector(".group-order-container").innerHTML = groupOrder;
         document.querySelector(".launched-group-container").innerHTML = launchedGroup;
         document.querySelector(".participating-votes-container").innerHTML = participatingVote;
         document.querySelector(".launched-vote-container").innerHTML = launchedVote;
     }
 
-    // 先備註起來，不然會一直被post上去
-    // function ratingit(tryits,stars) {
-    //     axios.post('https://teatimeapi-test.onrender.com/ratings', {
-    //         UID: "R029",
-    //         reviewer: "Daniel Brown",
-    //         reviewerPhoto: "https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/user/male/user-male-10.jpg?raw=true",
-    //         starRating: stars,
-    //         feedbackText: tryits,
-    //         reviewedRestaurant: "Leisurely Café",
-    //         reviewDateTime: "2023/12/31"
-    //     })
-    //         .then(function (response) {
-    //             console.log(response);
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });
-    // }
-    // ratingit("測試看看會不會被寫進去", 5)
-
-
-
     // Chart js 統計表
     function chartJS() {
+        let everyWeekData = [];
         const ctx = document.getElementById('myChart');
 
         // 抓出當周的禮拜一當作起點
@@ -206,14 +153,14 @@
         }
         twoMonthData = twoMonthData.reverse();
 
-        let everyWeekData = []
         // 針對每周資料做迴圈，並將資料庫的deadlineDateTime在第N周~第N+1周的資料放進陣列的第N中
         for (let i = 0; i < (twoMonthData.length); i++) {
             let tempCount = 0;
             datasForChart.forEach(item => {
                 let tempData = [];
-                if (moment(item.deadlineDateTime).format("YYYY/MM/DD") > moment(twoMonthData[i]).format("2023/MM/DD") &&
-                    moment(item.deadlineDateTime).format("YYYY/MM/DD") < moment(twoMonthData[i + 1]).format("2023/MM/DD")) {
+                if (moment(item.deadlineDateTime, 'YYYY/MM/DD HH:mm').format("YYYY/MM/DD") > moment(twoMonthData[i], 'MM/DD HH:mm').format("2023/MM/DD") &&
+                    moment(item.deadlineDateTime, 'YYYY/MM/DD HH:mm').format("YYYY/MM/DD") < moment(twoMonthData[i + 1], 'MM/DD HH:mm').format("2023/MM/DD")
+                ) {
                     tempData.push(item.order.orderDetail)
                     // 陣列中的物件，名稱為黃莉琳，並加總點餐金額
                     tempData[0].forEach(i => {
@@ -223,9 +170,9 @@
                     })
                 }
             })
-            // console.log(everyWeekData);
             everyWeekData.push(tempCount !== "" ? tempCount : 0)
         }
+
         new Chart(ctx, {
             type: 'line',
             data: {
@@ -269,10 +216,14 @@
                         }
                     }
                 }
-
             }
         });
     }
+
+    // 手機板offcanvs，此頁字體呈現黑色
+    let offcanvsStyle = document.querySelectorAll(".offcanvas-body li a")
+    offcanvsStyle[0].classList.add("memberSystem-active")
+
 </script>
 
 </html>

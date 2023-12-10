@@ -1,3 +1,7 @@
+// import 星級樣板
+import showStars from "/assets/js/components/showStars.js";
+
+
 // 最高、最低評價按鈕顏色動畫
 let selectBarBtn = document.querySelectorAll('.select-bar-link');
 selectBarBtn.forEach(btnType => {
@@ -51,7 +55,7 @@ function initRestaurantData(category, sort, search) {
     }
 
     let filterAPI = `${_url}/restaurants?${filterCategory}${sortStores}${searchStore}`
-    console.log(filterAPI);
+    // console.log(filterAPI);
 
     renderFilteredData(filterAPI)
 }
@@ -77,7 +81,6 @@ btnCategoryStore.forEach(btn => {
         })
         toggleFilter("category", isCategory);
         btn.classList.add('actived');
-
     });
 });
 
@@ -121,7 +124,7 @@ function renderFilteredData(filteredData) {
     });
 }
 
-// //處理頁碼
+//處理頁碼
 function handlePagination(filteredData, container) {
     container.pagination({
         dataSource: filteredData, //全部或篩選過的資料來源
@@ -136,7 +139,6 @@ function handlePagination(filteredData, container) {
             renderPagination(paginatedData)
         }
     });
-
 }
 
 //渲染頁碼與監聽換頁
@@ -156,41 +158,30 @@ function renderPagination(paginatedData) {
 
     paginatedData.forEach((item, index) => {
         dataHtml += `
-                        <li class="findStore-img position-relative px-0" style="background-image: url(${item.storeCover});">
-                            <a href="store-order.html?UID=${item.UID}" class="d-flex justify-content-center w-100 h-100 ">
-                                <!-- restaurant info -->
-                                <div class="position-absolute d-flex justify-content-between findStore-card">
-                                    <div class="d-flex flex-column justify-content-center overflow-hidden">
-                                        <p class="mb-8 fs-md-20 fs-16 lh-sm text-white" style="white-space:nowrap">${item.storeName}</p>
-                                        <!-- 星評 -->
-                                        <div class="d-flex ">
-                                            ${showStars(item.stars)}
-                                        </div>
-                                    </div>
-                                    <!-- restaurant sort -->
-                                    <iconify-icon icon="${categoryIcon[item.category]}"
-                                        style="color: #8b8b8a;" width="24" height="24"
-                                        class="ms-4 findStore-card-img"></iconify-icon>
-                                </div>
-                            </a>
-                        </li>
-                        `
+            <li class="findStore-img position-relative px-0" style="background-image: url(${item.storeCover});">
+                <a href="store-order.html?UID=${item.UID}" class="d-flex justify-content-center w-100 h-100 ">
+                    <!-- restaurant info -->
+                    <div class="position-absolute d-flex justify-content-between findStore-card">
+                        <div class="d-flex flex-column justify-content-center overflow-hidden">
+                            <p class="mb-8 fs-md-20 fs-16 lh-sm text-white" style="white-space:nowrap">${item.storeName}</p>
+                            <!-- 星評 -->
+                            <div class="d-flex ">
+                                ${showStars(item.stars)}
+                            </div>
+                        </div>
+                        <!-- restaurant sort -->
+                        <iconify-icon icon="${categoryIcon[item.category]}"
+                            style="color: #8b8b8a;" width="24" height="24"
+                            class="ms-4 findStore-card-img"></iconify-icon>
+                    </div>
+                </a>
+            </li>
+        `
     })
 
     dataHtml += '</ul>';
     document.querySelector("#paginationContainer").innerHTML = dataHtml
 
-}
-function showStars(num) {
-    const starsTotal = 5
-    const starsStates = {
-        isGoodStar: `<iconify-icon icon="ic:round-star" style="color: #ffd43a;"
-                        width="16"></iconify-icon>`,
-        notGoodStar: `<iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
-                        width="16"></iconify-icon>`
-    }
-    let resultStars = starsStates["isGoodStar"].repeat(num) + starsStates["notGoodStar"].repeat(starsTotal - num)
-    return resultStars
 }
 
 /* autoComplete */
@@ -245,7 +236,6 @@ const autoCompleteJS = new autoComplete({
             keydown: (event) => {
                 if (event.keyCode === 13) {
                     const searchValue = autoCompleteJS.input.value
-                    console.log(`這是 ${searchValue}`)
                     toggleFilter("search", searchValue)
                 }
             }
