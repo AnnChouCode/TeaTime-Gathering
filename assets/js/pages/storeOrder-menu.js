@@ -152,21 +152,29 @@ function shoppingCarts(data){
         })
         modalCartsInput.addEventListener('input',function(){
           const inputValue = parseInt(modalCartsInput.value);
-          if (inputValue < 1000 && inputValue > 0) {
+
+          if (inputValue < 1000 && inputValue >= 0) {
           }else if(inputValue > 1000){
             modalCartsInput.value = 999;
           }else{
             modalCartsInput.value = 0;
           }
+          
           modalCartsLis = document.querySelectorAll('.modalCartsLis');
-          let total = 0;
+          let toMenuTotal = 0;
           modalCartsLis.forEach(item=>{
+            const modalCartsName = item.querySelector('.modalCartsName'); // 商品名稱
+            const originalPrice = parseInt(modalCartsName.dataset.originalprice); // 商品原始單價
             const modalCartsInputValue = item.querySelector('.modalCartsInput').value;
-            total += parseInt(modalCartsInputValue) * parseInt(originalPrice);
+            console.log(originalPrice);
+            toMenuTotal += parseInt(modalCartsInputValue) * parseInt(originalPrice);
+            console.log(toMenuTotal);
           })
           modalCartsTotalAmount.textContent = `$${originalPrice * parseInt(modalCartsInput.value)}`;
-          menuTotal.textContent = `$${total}`;
+          menuTotal.textContent = `$${toMenuTotal}`;
           const newInputValue = parseInt(modalCartsInput.value); // 新的 input value
+          console.log(newInputValue,toMenuTotal);
+          let total = originalPrice * parseInt(modalCartsInput.value);
           orderCartsRevision(newInputValue,total,cartsData,productName);
         })
         modalCartsAddBtn.addEventListener('click',function(){
