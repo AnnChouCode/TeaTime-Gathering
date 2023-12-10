@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ZH-TW">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -8,17 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <!-- 月曆 evo calendar -->
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css" />
-    <!-- 時間選擇器 flatpickr -->
+    <!-- <link rel="stylesheet" href="/assets/scss/pages/_memberSystem.scss"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title>投票管理</title>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/voteSystem-ae00ed5b.js"></script>
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-80fe0f8b.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/enc-utf8-bce97f65.js">
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-12f3060d.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/voteSystem-3535d7d0.js"></script>
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-097a04cd.js">
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/axios-3a76d256.js">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-608ac117.css">
 </head>
 
 <body>
@@ -159,7 +155,7 @@
                             </ul>
                             <button
                                 class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-100 btnLinkToCreateVoting"
-                                type="button">確認修改</button>
+                                type="button">選擇店家</button>
                         </div>
                     </div>
                 </div>
@@ -169,32 +165,32 @@
 
     <!-- offcanvas -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="memberOffcanvas" aria-labelledby="memberOffcanvasLabel">
-    <div class="offcanvas-header pb-0">
-        <!-- <img src="/assets/images/logo/logo-teatime.svg" alt="" width="150"> -->
-        <a href="index.html" class="indexLogo"></a>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <div class="offcanvas-header pb-0">
+            <!-- <img src="/assets/images/logo/logo-teatime.svg" alt="" width="150"> -->
+            <a href="index.html" class="indexLogo"></a>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body pt-0">
+            <ul class="mt-40 fs-20 fw-bolder gap-12">
+                <li class="d-flex align-items-center ">
+                    <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
+                        width="24"></iconify-icon>
+                    <a href="overallSystem.html" class="memberSystem-a text-gray-02">總覽</a>
+                </li>
+                <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
+                        icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
+                        width="24"></iconify-icon><a href="orderSystem.html"
+                        class="memberSystem-a  text-gray-02">訂單管理</a></li>
+                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
+                        style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html"
+                        class="memberSystem-a text-gray-02 memberSystem-active">投票管理</a></li>
+                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
+                        icon="material-symbols:account-box" style="color: #1e1e1e;" width="24"></iconify-icon><a
+                        href="memberInfo.html" class="memberSystem-a text-gray-02">個人資料</a></li>
+            </ul>
+        </div>
     </div>
-    <div class="offcanvas-body pt-0">
-        <ul class="mt-40 fs-20 fw-bolder gap-12">
-            <li class="d-flex align-items-center ">
-                <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;" width="24"></iconify-icon>
-                <a href="overallSystem.html" class="memberSystem-a  text-gray-02">總覽</a>
-            </li>
-            <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
-                    icon="material-symbols:order-approve-outline" style="color: #1e1e1e;" width="24"></iconify-icon>
-                <a href="orderSystem.html" class="memberSystem-a  text-gray-02">訂單管理</a>
-            </li>
-            <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
-                    style="color: #1e1e1e;" width="24"></iconify-icon>
-                <a href="voteSystem.html" class="memberSystem-a text-gray-02">投票管理</a>
-            </li>
-            <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="material-symbols:account-box"
-                    style="color: #1e1e1e;" width="24"></iconify-icon>
-                <a href="memberInfo.html" class="memberSystem-a text-gray-02">個人資料</a>
-            </li>
-        </ul>
-    </div>
-</div>
+
 
 </body>
 
@@ -205,6 +201,60 @@
 <!-- 時間選擇器 flatpickr import -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+<script>
+
+    // 顯示分類按鈕底線，並將相對應的
+    let takePartVoting = document.querySelector(".takePartVoting");
+    let initiatePoll = document.querySelector(".initiatePoll");
+    let memberbtn = document.querySelectorAll('.memberbtn');
+
+
+    let initiatePollHTML = `<li class="p-24 border-bottom border-brand-03">
+                            <div class="d-flex flex-column flex-lg-row  ">
+                                <aside class="me-40 d-flex justify-content-between align-items-center ">
+                                    <img src="/assets/images/banner/beverage/beverage-1-logo.jpg" alt="" width="96">
+                                    <span class="ms-auto d-block d-lg-none">
+                                        <a href="" data-bs-toggle="modal" data-bs-target="#voteModal"
+                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">編輯投票時間</a>
+                                    </span>
+                                </aside>
+
+                                <main>
+                                    <h2 class="fs-24 fw-bold text-brand-03">茶源 ChaSource、下午喝茶</h2>
+                                    <ul class="mt-12 fs-20">
+                                        <li>
+                                            <ul class="text-gray-02">
+                                                <li class="d-flex mb-8">
+                                                    <p>享用日期<span class="ms-16">8/12 14:30</span></p>
+                                                </li>
+                                                <li class="d-flex mb-8">
+                                                    <p>截止日期<span class="ms-16">8/12 14:30</span></p>
+                                                </li>
+                                                <li class="d-flex mb-8 d-flex align-items-center ">
+                                                    <p>成團目標</p>
+                                                    <div class="ts-progress is-small ms-16 w-50 bg-gray-04">
+                                                        <div class="bar bg-brand-02" style="--value: 80">
+                                                            <div class="text text-white">80%</div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </main>
+                                <span class="ms-auto d-none d-lg-block">
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#voteModal"
+                                        class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">編輯投票時間</a>
+                                </span>
+                            </div>
+                        </li>`;
+    // window.onload = function () {
+    //     takePartVoting.innerHTML = votingHTML
+    // }
+
+
+
+</script>
 
 
 
