@@ -404,7 +404,7 @@
     const updateRatingBtn = document.getElementById('updateRatingBtn');
     updateRatingBtn.addEventListener('click', updateRating);
 
-    function updateRating() {
+    function updateRating(e) {
         let updataObj = {};
         let storeNameinModal = updateRatingBtn.closest('.modal-content').querySelector('h5').innerText;
         let starinModal = updateRatingBtn.parentElement.previousElementSibling.querySelector("[data-rating-star]").dataset.ratingStar;
@@ -415,7 +415,7 @@
                 updataObj = {
                     UID: "R004",
                     reviewer: "黃莉琳",
-                    reviewerPhoto: "https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/user/female/user-female-09.jpg?raw=true",
+                    reviewerPhoto: "https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/user/female/user-female-03.jpg",
                     starRating: Number(starinModal),
                     feedbackText: memberEvaluate.value,
                     reviewedRestaurant: item.storeName,
@@ -424,16 +424,24 @@
                 }
                 axios.post('https://teatimeapi-test.onrender.com/ratings', updataObj).
                     then(function (res) {
-                        alert("留言評價成功");
                         memberEvaluate.value = "";
+                        // 成功後觸發 "X"的按鈕
+                        const closeButton = document.querySelector('.btn-close');
+                        closeButton.click();
+                        setTimeout(() => {
+                            alert("留言評價成功");
+                        }, 100)
                     })
             }
         })
+
     }
+
+
+
 
     // autocomplete
     function autocomplete() {
-        console.log(orderData);
         const autoCompleteJS = new autoComplete({
             selector: "#autocomplete",
             placeHolder: "Search for Food...",

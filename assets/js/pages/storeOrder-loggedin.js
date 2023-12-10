@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
         btnCreateGrouping.setAttribute("data-bs-toggle", "modal");
 
         btnCart.forEach(btn => {
-            btn.setAttribute('href', '#modal-shppingCart-order');
-            btn.setAttribute("data-bs-toggle", "modal");
+            // btn.setAttribute('href', '#modal-shppingCart-order');
+            // btn.setAttribute("data-bs-toggle", "modal");
         })        
 
         btnWriteReview.forEach(btn => {
