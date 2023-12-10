@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ZH-TW">
 
 <head>
     <meta charset="UTF-8">
@@ -10,8 +10,8 @@
         href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
     <!-- <link rel="stylesheet" href="/assets/scss/pages/_memberSystem.scss"> -->
     <title>訂單管理</title>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-2d6d9da0.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-f4e52da5.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-80fe0f8b.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-12f3060d.css">
 </head>
 
 <body>
@@ -153,7 +153,8 @@
                     </div>
                 </div>
                 <div class="modal-footer border-top-0">
-                    <button type="button" class="btn btn-brand-03 text-white w-100" id="updateRatingBtn">送出</button>
+                    <button type="button" class="commentBtn btn btn-brand-03 text-white w-100"
+                        id="updateRatingBtn">送出</button>
                 </div>
             </div>
         </div>
@@ -162,31 +163,32 @@
 
     <!-- offcanvas -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="memberOffcanvas" aria-labelledby="memberOffcanvasLabel">
-        <div class="offcanvas-header pb-0">
-            <!-- <img src="/assets/images/logo/logo-teatime.svg" alt="" width="150"> -->
-            <a href="index.html" class="indexLogo"></a>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body pt-0">
-            <ul class="mt-40 fs-20 fw-bolder gap-12">
-                <li class="d-flex align-items-center ">
-                    <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
-                        width="24"></iconify-icon>
-                    <a href="overallSystem.html" class="memberSystem-a  text-gray-02">總覽</a>
-                </li>
-                <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
-                        icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
-                        width="24"></iconify-icon><a href="orderSystem.html"
-                        class="memberSystem-a  text-gray-02 memberSystem-active">訂單管理</a></li>
-                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
-                        style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html"
-                        class="memberSystem-a text-gray-02">投票管理</a></li>
-                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
-                        icon="material-symbols:account-box" style="color: #1e1e1e;" width="24"></iconify-icon><a
-                        href="memberInfo.html" class="memberSystem-a text-gray-02">個人資料</a></li>
-            </ul>
-        </div>
+    <div class="offcanvas-header pb-0">
+        <!-- <img src="/assets/images/logo/logo-teatime.svg" alt="" width="150"> -->
+        <a href="index.html" class="indexLogo"></a>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
+    <div class="offcanvas-body pt-0">
+        <ul class="mt-40 fs-20 fw-bolder gap-12">
+            <li class="d-flex align-items-center ">
+                <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;" width="24"></iconify-icon>
+                <a href="overallSystem.html" class="memberSystem-a  text-gray-02">總覽</a>
+            </li>
+            <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
+                    icon="material-symbols:order-approve-outline" style="color: #1e1e1e;" width="24"></iconify-icon>
+                <a href="orderSystem.html" class="memberSystem-a  text-gray-02">訂單管理</a>
+            </li>
+            <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
+                    style="color: #1e1e1e;" width="24"></iconify-icon>
+                <a href="voteSystem.html" class="memberSystem-a text-gray-02">投票管理</a>
+            </li>
+            <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="material-symbols:account-box"
+                    style="color: #1e1e1e;" width="24"></iconify-icon>
+                <a href="memberInfo.html" class="memberSystem-a text-gray-02">個人資料</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
 </body>
 
@@ -200,14 +202,13 @@
 
 
 <script>
-
     // 設定變數
     let followUpOrder = document.querySelector(".followUpOrder");
     let initiateGroup = document.querySelector(".initiateGroup");
     let historicalOrder = document.querySelector(".historicalOrder");
     let historicalOrderLis = document.querySelector(".historicalOrderLis");
-
     let memberbtn = document.querySelectorAll('.memberbtn');
+
     // 共用變數
     const _url = "https://teatimeapi-test.onrender.com";
     const _order = "/orders";
@@ -224,8 +225,8 @@
         `
     <li class="filterBar px-24 py-12">
         <div class="d-flex justify-content-between mt-12">
-            <div class="autoComplete_wrapper">
-                <input id="autocomplete" type="search" autocomplete="off" autocapitalize="off" class="border border-2 border-gray-04 border-radius-28" placeholder="搜尋">
+            <div class="autoComplete_wrapper w-50 w-md-50">
+                <input id="autocomplete" type="search" autocomplete="off" autocapitalize="off" class="border border-2 border-gray-04 border-radius-28 w-100" placeholder="搜尋" >
             </div>
             <ul class="d-flex">
                 <li class="dropdown position-relative  me-8 ">
@@ -258,12 +259,11 @@
                 orderData = orderData.sort((a, b) => {
                     return (moment(a.deadlineDateTime, "YYYY/MM/DD")) - (moment(b.deadlineDateTime, "YYYY/MM/DD"))
                 });
-                console.log(orderData);
+                // console.log(orderData);
                 renderData(orderData);
                 renderGroupings(orderData)
             })
             .catch(error => console.log("未抓到資料~"))
-
 
         // 抓餐廳資料
         axios
@@ -272,7 +272,6 @@
                 restaurantData = res.data
             })
             .catch(error => console.log("未抓到資料~"))
-
     })()
 
     // 跟團中 & 歷史訂單
@@ -281,7 +280,6 @@
             arr.forEach((obj) => {
                 let followUpOrderItems = "";
                 const { id, UID, restaurant, eventDateTime, deadlineTime, initiator, invitees, order } = obj
-                // console.log(UID);
                 eventDateTimeFormat = moment(eventDateTime, "YYYY/MM/DD HH:mm").format("YYYY/MM/DD");
                 // 判斷 享用日期 是否大於 今天
                 if (moment(eventDateTime, 'YYYY-MM-DD') > moment()) {
@@ -309,69 +307,69 @@
                         }
                     })
                     // 跟團中訂單卡片
-                    followUpHTML += `
-                                 <li class="p-24 border-bottom border-brand-03">
-                                    <div class="d-flex">
-                                        <aside class="me-40">
-                                            <img class="border border-2 rounded-24 border-line" src="${restaurant.storeLogo}" alt="" width="96">
-                                        </aside>
-                                        <main>
-                                            <nav>
-                                                <h2 class="fs-24 fw-bold text-brand-03">${restaurant.storeName}</h2>
-                                                <p class="mt-4 text-gray-02">享用日期 ${eventDateTimeFormat} &nbsp; 付款人：${invitees == "" ? "黃莉琳" : invitees}</p>
-                                            </nav>
-                                            <ul class="mt-12">${followUpOrderItems}</ul>
-                                        </main>
-                                    </div>
-                                </li>                        
-                                `;
+                    followUpHTML +=
+                        `
+                    <li class="p-24 border-bottom border-brand-03">
+                        <div class="d-flex">
+                            <aside class="me-40">
+                                <img class="border border-2 rounded-24 border-line" src="${restaurant.storeLogo}" alt="" width="96">
+                            </aside>
+                            <main>
+                                <nav>
+                                    <h2 class="fs-24 fw-bold text-brand-03">${restaurant.storeName}</h2>
+                                    <p class="mt-4 text-gray-02">享用日期 ${eventDateTimeFormat} &nbsp; 付款人：${invitees == "" ? "黃莉琳" : invitees}</p>
+                                </nav>
+                                <ul class="mt-12">${followUpOrderItems}</ul>
+                            </main>
+                        </div>
+                    </li>                        
+                    `;
                 }
                 // 歷史訂單卡片
                 if (followUpOrderItems != "") {
                     // 給autoComplete使用
                     filteredStoreName.push(restaurant.storeName)
-                    // console.log(filteredStoreName)
                     historicalHTML +=
                         `
-                                <li class="d-flex flex-column flex-lg-row p-24 border-bottom border-brand-03"  data-restaurant="${restaurant.storeName}">
-                                    <aside class="me-40 d-flex justify-content-between align-items-lg-start ">
-                                        <img class="border border-2 rounded-24 border-line" src=${restaurant.storeLogo} alt="" width="96">
-                                        <span class="ms-auto d-block d-lg-none">
-                                            <a href="" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
-                                        </span>
-                                    </aside>
-                                    <div class="d-flex justify-content-between w-100">
-                                    <div onclick="toggleContent(this)">
-                                        <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">${restaurant.storeName}</h2>
-                                        <p class="mt-4 text-gray-02">享用日期${eventDateTimeFormat}‧付款人：${invitees == "" ? "黃莉琳" : invitees}</p>
-                                        <div class="starInRwd${id} ms-auto  fs-24 d-flex align-items-center d-lg-none" data-rating-star=5>
-                                            <div class="lh-sm">
-                                                <span class="star" onclick="rateStar(${id} ,1, this)">&#9733;</span>
-                                                <span class="star" onclick="rateStar(${id} ,2, this)">&#9733;</span>
-                                                <span class="star" onclick="rateStar(${id} ,3, this)">&#9733;</span>
-                                                <span class="star" onclick="rateStar(${id} ,4, this)">&#9733;</span>
-                                                <span class="star" onclick="rateStar(${id} ,5, this)">&#9733;</span>
-                                            </div>
-                                            <div class="ms-4 "><a href="" class="shareRating fs-16 text-gray-02" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="RatingShare(this)">分享評價</a></div>
-                                        </div>
-                                        <ul class="mt-12">
-                                            ${followUpOrderItems}
-                                        </ul>
-                                    </div>
-                                    <div class="starInMember${id} ms-auto  fs-24 d-none d-lg-block" data-rating-star=5>
-                                        <div class="lh-sm">
-                                            <span class="star" onclick="rateStar(${id} ,1 ,this)">&#9733;</span>
-                                            <span class="star" onclick="rateStar(${id} ,2 ,this)">&#9733;</span>
-                                            <span class="star" onclick="rateStar(${id} ,3 ,this)">&#9733;</span>
-                                            <span class="star" onclick="rateStar(${id} ,4 ,this)">&#9733;</span>
-                                            <span class="star" onclick="rateStar(${id} ,5 ,this)">&#9733;</span>
-                                        </div>
-                                        <div class="d-flex justify-content-end "><a href="" class="shareRating fs-16 text-gray-02" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="RatingShare(this)">分享評價</a></div>
-                                    </div>
-                                    <span class="ms-auto d-none d-lg-block">
-                                        <a href="store-order.html?UID=${restaurant.UID}" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
+                            <li class="d-flex flex-column flex-lg-row p-24 border-bottom border-brand-03"  data-restaurant="${restaurant.storeName}">
+                                <aside class="me-40 d-flex justify-content-between align-items-lg-start ">
+                                    <img class="border border-2 rounded-24 border-line" src=${restaurant.storeLogo} alt="" width="96">
+                                    <span class="ms-auto d-block d-lg-none">
+                                        <a href="" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
                                     </span>
-                                </li>`;
+                                </aside>
+                                <div class="d-flex justify-content-between w-100">
+                                <div onclick="toggleContent(this)">
+                                    <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">${restaurant.storeName}</h2>
+                                    <p class="mt-4 text-gray-02">享用日期${eventDateTimeFormat}‧付款人：${invitees == "" ? "黃莉琳" : invitees}</p>
+                                    <div class="starInRwd${id} ms-auto  fs-24 d-flex align-items-center d-lg-none" data-rating-star=5>
+                                        <div class="lh-sm">
+                                            <span class="star" onclick="rateStar(${id} ,1, this)">&#9733;</span>
+                                            <span class="star" onclick="rateStar(${id} ,2, this)">&#9733;</span>
+                                            <span class="star" onclick="rateStar(${id} ,3, this)">&#9733;</span>
+                                            <span class="star" onclick="rateStar(${id} ,4, this)">&#9733;</span>
+                                            <span class="star" onclick="rateStar(${id} ,5, this)">&#9733;</span>
+                                        </div>
+                                        <div class="ms-4 "><a href="" class="shareRating fs-16 text-gray-02" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="RatingShare(this)">分享評價</a></div>
+                                    </div>
+                                    <ul class="mt-12">
+                                        ${followUpOrderItems}
+                                    </ul>
+                                </div>
+                                <div class="starInMember${id} ms-auto  fs-24 d-none d-lg-block" data-rating-star=5>
+                                    <div class="lh-sm">
+                                        <span class="star" onclick="rateStar(${id} ,1 ,this)">&#9733;</span>
+                                        <span class="star" onclick="rateStar(${id} ,2 ,this)">&#9733;</span>
+                                        <span class="star" onclick="rateStar(${id} ,3 ,this)">&#9733;</span>
+                                        <span class="star" onclick="rateStar(${id} ,4 ,this)">&#9733;</span>
+                                        <span class="star" onclick="rateStar(${id} ,5 ,this)">&#9733;</span>
+                                    </div>
+                                    <div class="d-flex justify-content-end "><a href="" class="shareRating fs-16 text-gray-02" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="RatingShare(this)">分享評價</a></div>
+                                </div>
+                                <span class="ms-auto d-none d-lg-block">
+                                    <a href="store-order.html?UID=${restaurant.UID}" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
+                                </span>
+                            </li>`;
                 }
             })
         }
@@ -380,12 +378,10 @@
     // 發起的開團
     function renderGroupings(arr) {
         if (arr.length) {
-            // console.log(arr);
             arr.forEach((obj) => {
                 // let initialOrderItems = "";
                 const { id, restaurant, initiator, invitees, order, eventDateTime } = obj
                 eventDateTimeFormat = moment(eventDateTime, "YYYY/MM/DD HH:mm").format("YYYY/MM/DD");
-                console.log(restaurant);
 
                 // 發起的開團卡片
                 if (initiator === "黃莉琳" && moment(eventDateTime, 'YYYY-MM-DD') > moment()) {
@@ -437,8 +433,8 @@
                 }
             })
         }
-        // initiateGroup.innerHTML = initiateGroupHTML
     };
+
     // 三個大分類的按鈕，點擊後出現下底線
     memberbtn.forEach(btnType => {
         btnType.addEventListener('click', () => {
@@ -509,20 +505,18 @@
         let starinModal = updateRatingBtn.parentElement.previousElementSibling.querySelector("[data-rating-star]").dataset.ratingStar;
         let memberEvaluate = document.querySelector(".memberEvaluate");
 
-        // let resName = "茶源 ChaSource";
         restaurantData.forEach(item => {
             if (item.storeName === storeNameinModal && memberEvaluate.value !== "") {
                 updataObj = {
                     UID: "R004",
                     reviewer: "黃莉琳",
-                    userPhoto: "https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/user/female/user-female-09.jpg?raw=true",
+                    reviewerPhoto: "https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/user/female/user-female-09.jpg?raw=true",
                     starRating: Number(starinModal),
                     feedbackText: memberEvaluate.value,
                     reviewedRestaurant: item.storeName,
                     restaurantUID: item.UID,
                     reviewDateTime: moment().format('YYYY/MM/DD')
                 }
-                console.log(updataObj);
                 axios.post('https://teatimeapi-test.onrender.com/ratings', updataObj).
                     then(function (res) {
                         alert("留言評價成功");
@@ -568,7 +562,6 @@
                     selection: (event) => {
                         const selection = event.detail.selection.value;
                         const historicalOrderLis = document.querySelector(".historicalOrderLis");
-                        console.log(selection)
                         let RestaurantLists = document.querySelectorAll("[data-restaurant]");
                         autoCompleteJS.input.value = selection;
                         RestaurantLists.forEach((item) => {
@@ -625,12 +618,10 @@
         starInModal.innerHTML = fiveStar.outerHTML
     }
 
-</script>
+    // 手機板offcanvs，此頁字體呈現黑色
+    let offcanvsStyle = document.querySelectorAll(".offcanvas-body li a")
+    offcanvsStyle[1].classList.add("memberSystem-active")
 
-<style>
-    button:hover {
-        color: black;
-    }
-</style>
+</script>
 
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ZH-TW">
 
 <head>
     <meta charset="UTF-8">
@@ -7,9 +7,9 @@
     <link rel="icon" href="/TeaTime-Gathering/assets/logo-favicon-a850431b.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
     <!-- <link rel="stylesheet" href="/assets/scss/pages/_memberSystem.scss"> -->
-    <title>投票管理</title>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-2d6d9da0.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-f4e52da5.css">
+    <title>個人資料</title>
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-80fe0f8b.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-12f3060d.css">
 </head>
 
 <body>
@@ -105,9 +105,7 @@
                     </div>
 
                     <div class="mt-32 px-12">
-
                         <div class="row">
-
                             <div class="col-lg-3">
                                 <div class="row">
                                     <h3 class="fs-20 fw-bolder text-brand-03 mb-32">個人資料</h3>
@@ -127,7 +125,6 @@
                                             class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16"
                                             id="depart" aria-describedby="depart" value="ling-huang@fat-together.com"
                                             disabled>
-
                                     </div>
                                     <div class="col-4"></div>
                                 </div>
@@ -143,7 +140,6 @@
                                                 class="form-label fw-bolder fs-20 my-0">新密碼</label></div>
                                         <div class="mt-12 mb-42"><label for="comfirmNewPW"
                                                 class="form-label fw-bolder fs-20 my-0">確認密碼</label></div>
-
                                     </div>
                                     <div class="newPWinputs col-8 ">
                                         <input type="text"
@@ -155,81 +151,76 @@
                                         <input type="email"
                                             class="form-control bg-gray-04 text-gray-02 p-12 rounded-3 fs-16 mb-32 border"
                                             id="comfirmNewPW" aria-describedby="depart">
-
                                         <button type="submit"
                                             class="btn-submit d-none d-lg-block  btn btn-brand-03 rounded-pill px-36 py-12 text-white fw-bolder ">確認修改</button>
                                     </div>
-
                                 </div>
                                 <div class="col-4"></div>
                             </div>
-
                         </div>
                         <button type="submit"
                             class="d-block d-lg-none btn btn-brand-03 rounded-pill px-36 py-12 text-white fw-bolder w-100 mb-32">確認修改</button>
-
                     </div>
-
                 </div>
-
         </div>
-    </div>
     </div>
 
     <!-- offcanvas -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="memberOffcanvas" aria-labelledby="memberOffcanvasLabel">
-        <div class="offcanvas-header pb-0">
-            <!-- <img src="/assets/images/logo/logo-teatime.svg" alt="" width="150"> -->
-            <a href="index.html" class="indexLogo"></a>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body pt-0">
-            <ul class="mt-40 fs-20 fw-bolder gap-12">
-                <li class="d-flex align-items-center ">
-                    <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;"
-                        width="24"></iconify-icon>
-                    <a href="overallSystem.html" class="memberSystem-a text-gray-02 ">總覽</a>
-                </li>
-                <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
-                        icon="material-symbols:order-approve-outline" style="color: #1e1e1e;"
-                        width="24"></iconify-icon><a href="orderSystem.html"
-                        class="memberSystem-a  text-gray-02">訂單管理</a></li>
-                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
-                        style="color: #1e1e1e;" width="24"></iconify-icon><a href="voteSystem.html"
-                        class="memberSystem-a text-gray-02">投票管理</a></li>
-                <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10"
-                        icon="material-symbols:account-box" style="color: #1e1e1e;" width="24"></iconify-icon><a
-                        href="memberInfo.html" class="memberSystem-a text-gray-02 memberSystem-active">個人資料</a></li>
-            </ul>
-
-
-        </div>
+    <div class="offcanvas-header pb-0">
+        <!-- <img src="/assets/images/logo/logo-teatime.svg" alt="" width="150"> -->
+        <a href="index.html" class="indexLogo"></a>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
+    <div class="offcanvas-body pt-0">
+        <ul class="mt-40 fs-20 fw-bolder gap-12">
+            <li class="d-flex align-items-center ">
+                <iconify-icon class="me-10" icon="pajamas:overview" style="color: #1e1e1e;" width="24"></iconify-icon>
+                <a href="overallSystem.html" class="memberSystem-a  text-gray-02">總覽</a>
+            </li>
+            <li class="mt-40 d-flex align-items-center "><iconify-icon class="me-10"
+                    icon="material-symbols:order-approve-outline" style="color: #1e1e1e;" width="24"></iconify-icon>
+                <a href="orderSystem.html" class="memberSystem-a  text-gray-02">訂單管理</a>
+            </li>
+            <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="mdi:vote"
+                    style="color: #1e1e1e;" width="24"></iconify-icon>
+                <a href="voteSystem.html" class="memberSystem-a text-gray-02">投票管理</a>
+            </li>
+            <li class="mt-40 d-flex align-items-center"><iconify-icon class="me-10" icon="material-symbols:account-box"
+                    style="color: #1e1e1e;" width="24"></iconify-icon>
+                <a href="memberInfo.html" class="memberSystem-a text-gray-02">個人資料</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
+        
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
 
-    
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
-
-    <script>
-        let btnSubmit = document.querySelector(".btn-submit");
-        let inputs = document.querySelectorAll(".newPWinputs input")
-        // console.log(inputs);
-        btnSubmit.addEventListener("click", function () {
-            inputs.forEach(input => {
-                input.classList.remove("input-error");
-                if (input.value == "") {
-                    setTimeout(() => {
-                        input.placeholder = "不要空白0.0";
-                        input.classList.add("input-error");
-                    }, 100);
-                } else {
+        <script>
+            let btnSubmit = document.querySelector(".btn-submit");
+            let inputs = document.querySelectorAll(".newPWinputs input")
+            // console.log(inputs);
+            btnSubmit.addEventListener("click", function () {
+                inputs.forEach(input => {
                     input.classList.remove("input-error");
-                }
+                    if (input.value == "") {
+                        setTimeout(() => {
+                            input.placeholder = "不要空白0.0";
+                            input.classList.add("input-error");
+                        }, 100);
+                    } else {
+                        input.classList.remove("input-error");
+                    }
+                })
             })
-        })
 
-    </script>
+            // 手機板offcanvs，此頁字體呈現黑色
+            let offcanvsStyle = document.querySelectorAll(".offcanvas-body li a")
+            offcanvsStyle[3].classList.add("memberSystem-active")
+        </script>
+
 </body>
 
 </html>
