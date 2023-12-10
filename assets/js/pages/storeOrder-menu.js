@@ -1,33 +1,277 @@
 // import 星級樣板
 import showStars from "/assets/js/components/showStars.js";
+// import 判斷登入狀態樣板
+import isLoggedIn from '/assets/js/components/isLoggedIn.js';
+// import 解密 token 樣板
+import cryptoToken from '/assets/js/components/cryptoToken.js';
+import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
+import axios from "axios";
+
+// 登入狀態 token
+let _token = localStorage.getItem("token");
+const _user = cryptoToken(_token)
+// 清空 localStorage Carts
+// localStorage.setItem('Carts', '');
+localStorage.setItem('category', '');
+const shoppingCart = document.querySelector('.shopping-cart');
+const modalCartsSendOrder = document.getElementById('modalCartsSendOrder');
+
 
 $(function () {
   (function () {
+    const modalShppingCartOrder = new bootstrap.Modal(document.getElementById('modal-shppingCart-order'));
+    const staticBackdrop = document.getElementById('staticBackdrop');
     let UID = location.href.split("=")[1];;
     let id = '';
-    // 初始化 localStorage Carts
-    // localStorage.setItem('Carts', '');
     // UID = 'G003'
     // console.log(UID);
     const isGroupings = UID.startsWith("G") ? true : false; // 判斷 UID 是否 G 開頭，G 開頭表示當前有開團
     if(isGroupings){
+      // console.log('已開團');      
+      shoppingCart.setAttribute('href', '#modal-shppingCart-order');
+      shoppingCart.setAttribute("data-bs-toggle", "modal");
       axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${UID}`)
       .then(res=>{
-        // console.log(res.data[0]);
         const {restaurantId} = res.data[0];
         id = restaurantId;
-        // console.log(isGroupings,UID,id)
         storeInformationData(isGroupings,UID,id)
+        // console.log(res.data[0]);
+        shoppingCarts(res.data[0])
       })
       .catch(err=>{console.log(err);})
-
     }else{
+      // console.log('未開團');
+      // 初始化 Popover
+      const popover = new bootstrap.Popover(shoppingCart, {
+        content: '選擇開團中或建立揪團',
+      });
       storeInformationData(isGroupings,UID,id)
     }
   })();
 });
 
+function shoppingCarts(data){
+  $('.shopping-cart').on('click',function(){
+    const category = localStorage.getItem('category');
+    data.storeName = $('#storeNameID').text();
+    const [yymmdd, time] = data.eventDateTime.split(" ");
+    const originalDateObject = new Date(data.eventDateTime);
+    const date = originalDateObject.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric' });
+    let templateShoppingCarts = '';
+    data.yymmdd = yymmdd;
+    data.date = date;
+    data.time = time;
+    $('#modalShppingCartOrderTitle').html(`<p class="fs-20 fs-md-24 line-height-sm fw-bold text-gray-01" id="modalShppingCartOrderTitle">${data.storeName}</p>`)
+    $('#dateCarts').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="dateCarts">${date}</p>`)
+    $('#timeCarts').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="timeCarts">${time}</p>`)
+    const getStorageCarts =  localStorage.getItem('Carts');
+    // 判斷 localStorage Carts 有無資料
+    if(getStorageCarts.length !== 0){
+      $('.modalCartsFooter').show(); // 當有資料時，開啟 modal
+      const cartsData = JSON.parse(getStorageCarts); // 將字串轉成陣列
+      // console.log(cartsData); // 餐點內容
+      let total = 0; // 計算金額
+      cartsData.forEach(item=>{
+        // console.log(item); // 每一筆點餐內容
+        // console.log(item.originalPrice); // 每一筆點餐內容
+        total += parseInt(item.totalAmount);
+        let resultString = '';
+        if(item.customization.length !== 0){
+          resultString= item.customization.join(', ');
+        }
+        templateShoppingCarts += `
+        <li class="modalCartsLis mb-12 border-bottom border-1 border-gray-03">
+                      <div class="d-flex justify-content-between align-items-center w-100 mb-md-16">
+                        <p class="text-gray-01 fs-md-20 modalCartsName" data-originalPrice="${item.originalPrice}">${item.orderItem}</p>
+                        <p class="text-gray-01 fs-md-20 modalCartsTotalAmount">$${item.totalAmount}</p>
+                      </div>
+                      <div class="mb-16">
+                        ${item.ice?`<p class="text-gray-02">溫度：<span>${item.ice}</span></p>`:''}
+                        ${item.sugar?`<p class="text-gray-02">甜度：<span>${item.sugar}</span></p>`:''}
+                        ${item.customization.length==0? '':`<p class="text-gray-02">加料：<span>${resultString}</span></p>`}
+                        ${item.comments?`<p class="text-gray-02">備註：<span>${item.comments}</span></p>`:''}
+                      </div>
+                      <div class="modalCartsBtns btn-group border-radius-40 border border-2
+                      py-12 px-16 mb-8 mb-md-12 d-flex justify-content-center align-items-center" role="group"
+                        aria-label="Basic" style="max-width: 131px;">
+                        <button type="button"
+                          class="modalCartsRemoveBtn d-flex justify-content-center align-items-center btn btn-white border-radius-400040"
+                          style="width: 24px;height: 24px;">
+                          <span class="material-symbols-outlined text-gray-02 ">
+                            remove
+                          </span>
+                        </button>
+                        <input style="width: 35px;" type="text"
+                          class="modalCartsInput border border-2 text-brand-02 mx-8 text-center border border-0" value="${item.quantity}" >
+                        <button type="button"
+                          class="modalCartsAddBtn d-flex justify-content-center align-items-center btn btn-white border-radius-040400"
+                          style="width: 24px;height: 24px;">
+                          <span class="material-symbols-outlined text-gray-02 ">
+                            add
+                          </span>
+                        </button>
+                      </div>
+                    </li>
+        `
+      })
+      // console.log(templateShoppingCarts);
+      $('#menuListUl').html(templateShoppingCarts);
+      $('#menuTotal').html(`<p class="fw-md-bold fw-medium fs-20 fs-md-24 line-height-sm" id="menuTotal">$${total}</p>`)
 
+      let modalCartsLis = document.querySelectorAll('.modalCartsLis');
+      const menuTotal = document.getElementById('menuTotal');
+      // 處理 購物車 所有按鈕
+      modalCartsLis.forEach(item => {
+        // console.log(item);
+        const modalCartsRemoveBtn = item.querySelector('.modalCartsRemoveBtn'); // 減號按鈕
+        const modalCartsInput = item.querySelector('.modalCartsInput'); // input 按鈕
+        const modalCartsAddBtn = item.querySelector('.modalCartsAddBtn'); // 加號按鈕
+        const modalCartsTotalAmount = item.querySelector('.modalCartsTotalAmount'); // 小計金額
+        const modalCartsName = item.querySelector('.modalCartsName'); // 商品名稱
+        const originalPrice = parseInt(modalCartsName.dataset.originalprice); // 商品原始單價
+        const productName = modalCartsName.textContent;
+        const inputValue = parseInt(modalCartsInput.value); // input 的值
+        modalCartsRemoveBtn.addEventListener('click',function(){
+          const priceNumber = parseInt(menuTotal.textContent.replace('$', ''));
+          const newInputValue = parseInt(modalCartsInput.value); // 新的 input value
+          console.log(newInputValue);
+          console.log(newInputValue-1);
+          if (newInputValue-1 >= 0) {
+            const inputValue = parseInt(modalCartsInput.value);
+            modalCartsInput.value = inputValue - 1;
+            modalCartsTotalAmount.textContent = `$${originalPrice * modalCartsInput.value}`;
+            menuTotal.textContent = `$${parseInt(priceNumber) - parseInt(originalPrice)}`;
+            const newInputValue = parseInt(modalCartsInput.value); // 新的 input value
+            const total = originalPrice * newInputValue;
+            orderCartsRevision(newInputValue,total,cartsData,productName);
+          }else{
+            console.log('數量為0以下');
+            const modalCartsInput = item.querySelector('.modalCartsInput'); // input 按鈕
+            modalCartsInput.value = 0;
+          }
+        })
+        modalCartsInput.addEventListener('input',function(){
+          const inputValue = parseInt(modalCartsInput.value);
+          if (inputValue < 1000 && inputValue > 0) {
+          }else if(inputValue > 1000){
+            modalCartsInput.value = 999;
+          }else{
+            modalCartsInput.value = 0;
+          }
+          modalCartsLis = document.querySelectorAll('.modalCartsLis');
+          let total = 0;
+          modalCartsLis.forEach(item=>{
+            const modalCartsInputValue = item.querySelector('.modalCartsInput').value;
+            total += parseInt(modalCartsInputValue) * parseInt(originalPrice);
+          })
+          modalCartsTotalAmount.textContent = `$${originalPrice * parseInt(modalCartsInput.value)}`;
+          menuTotal.textContent = `$${total}`;
+          const newInputValue = parseInt(modalCartsInput.value); // 新的 input value
+          orderCartsRevision(newInputValue,total,cartsData,productName);
+        })
+        modalCartsAddBtn.addEventListener('click',function(){
+          const inputValue = parseInt(modalCartsInput.value);
+          const priceNumber = parseInt(menuTotal.textContent.replace('$', ''));
+          // console.log(modalCartsAddBtn);
+          if (inputValue < 999) {
+            modalCartsInput.value = inputValue + 1;
+            const newInputValue = parseInt(modalCartsInput.value);
+            // console.log(modalCartsInput.value);
+            modalCartsTotalAmount.textContent = `$${originalPrice * modalCartsInput.value}`;
+            // console.log(originalPrice * modalCartsInput.value);
+            menuTotal.textContent = `$${parseInt(priceNumber) + parseInt(originalPrice)}`;
+            // console.log(parseInt(priceNumber) + parseInt(originalPrice));
+            const total = originalPrice * newInputValue;
+            orderCartsRevision(newInputValue,total,cartsData,productName);
+          }else{
+            modalCartsInput.value = 999;
+          }
+        })
+      });
+    }else{
+      templateShoppingCarts = `
+      <li class="mb-12 border-bottom border-top border-1 border-gray-03 py-12 mb-40">
+        <p class="text-gray-01 fs-md-20">購物車目前空蕩蕩，選點下午茶吧！</p>
+      </li>
+      `
+      $('#menuListUl').html(templateShoppingCarts);
+      $('.modalCartsFooter').hide();
+    }   
+    
+  })
+  modalCartsSendOrder.addEventListener('click',function(){
+    sendCarts(data);
+  });
+}
+
+function sendCarts(data){
+  const menuTotal = document.getElementById('menuTotal');
+  const cartsData = JSON.parse(localStorage.getItem('Carts'));
+  console.log(cartsData);
+  const priceNumber = parseInt(menuTotal.textContent.replace('$', ''));
+  data.orderPriceTotal = priceNumber;
+  data.orderUserId = _user;
+  // console.log('data',data);
+  axios.get(`https://teatimeapi-test.onrender.com/users?UID=${_user}`)
+  .then(res => {
+    const userName = res.data[0].userName;
+    data.userName = userName;
+    console.log(data);
+    // return axios.get(``)
+  })
+  .catch(err => {
+    console.log(err);
+  })
+  // if(category == '飲料'){
+  //   console.log('飲料類送單');
+    
+  // }else{
+  //   console.log('非飲料類送單');
+
+  // }
+  orderEstablished(data); // 訂單成立
+}
+
+// 購物車調整值
+function orderCartsRevision(quantity,total,cartsData,productName){
+  console.log(quantity,total,cartsData,productName);
+  
+  if(quantity < 1000 && quantity >= 0){
+    cartsData.forEach((item,index)=>{
+      if(item.orderItem == productName) {
+        console.log(item.orderItem);
+          cartsData[index].quantity = quantity;
+          cartsData[index].totalAmount = total;
+      }
+    })
+    console.log(cartsData);
+    localStorage.setItem('Carts', JSON.stringify(cartsData));
+  }else{
+    alert('點餐數量請介於0-999間')
+  }
+}
+
+// 訂購成功 modal
+function orderEstablished(data){
+  // console.log(data);
+  $('#orderTotal').html(`<p class="fw-md-bold fw-medium fs-20 fs-md-24 line-height-sm">$${data.orderPriceTotal}</p>`);
+  // 使用 split 方法分割日期和時間
+  const [deadlineDatePart, deadlineTimePart] = data.deadlineDateTime.split(' ');
+  const [eventDateDatePart, eventDateTimePart] = data.eventDateTime.split(' ');
+
+  // 進一步處理日期部分，轉換格式等
+  const deadlineArray = deadlineDatePart.split('/');
+  const formattedDeadline = `${deadlineArray[1]}/${deadlineArray[2]}`;
+  const eventDateArray = eventDateDatePart.split('/');
+  const formattedEventDate = `${eventDateArray[1]}/${eventDateArray[2]}`;
+  console.log(formattedEventDate,eventDateTimePart);
+  $('#deadlineDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineDate">${formattedDeadline}</p>`)
+  $('#deadlineTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineTime">${deadlineTimePart}</p>`)
+  $('#eventDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="eventDate">${formattedEventDate}</p>`)
+  $('#eventDateTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="eventDateTime">${eventDateTimePart}</p>`)
+  
+  // localStorage.setItem('Carts', ''); // 清空 localStorage Carts
+}
 function storeInformationData(isGroupings,UID,id){
   // console.log(isGroupings,UID,id);
   let searchCriteria = '';
@@ -40,9 +284,11 @@ function storeInformationData(isGroupings,UID,id){
       $.ajax({
         url: `https://teatimeapi-test.onrender.com/restaurants?${searchCriteria}`,
         success: function (data) {
+          // console.log(data);
           let container = $("#paginationPagesMenu");
           let isMobile = window.innerWidth < 768; // 假設小於 768 像素的視窗寬度視為手機
           const {products,stars,category} = data[0];
+          localStorage.setItem('category', category); // localStorage 新增 category
           let totalNumber = data.length; // 實際資料筆數
           let pageSize = isMobile ? 5 : 10; // 根據裝置設定不同的 pageSize
           let storeTemplate = "";
@@ -53,7 +299,7 @@ function storeInformationData(isGroupings,UID,id){
                         <img src="${data[0].storeLogo}" alt="logo-cha source"
                           class="order-icon border border-2 border-line border-radius-24 me-sm-24 me-lg-37 mb-20 mb-sm-0 ">
                         <div class="order-textContent mb-16 mb-sm-0 me-sm-24 me-lg-37">
-                          <h2 class="fs-md-40 fs-24 fw-bold lh-sm">${data[0].storeName}</h2>
+                          <h2 class="fs-md-40 fs-24 fw-bold lh-sm" id="storeNameID">${data[0].storeName}</h2>
                           <div class="imgItems">
                             ${showStars(stars)}
                           </div>
@@ -147,7 +393,7 @@ function storeInformationData(isGroupings,UID,id){
                                 <li class=" py-16 py-sm-24 border-bottom border-1 ">
                                   <button type="button" class="menu-button border-0 bg-white text-start w-100" data-menuUID="${data.UID}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                     <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
-                                      <h3 class="store-order-h3">${data.品項}</h3>
+                                      <h3 class="productName store-order-h3" data-originalPrice="">${data.品項}</h3>
                                       ${coldHotTemplate(data.冷,data.熱,data.價格)}
                                     </div>
                                     <p class="text-top-p">${data.商品描述}</p>
@@ -180,7 +426,7 @@ function storeInformationData(isGroupings,UID,id){
                   newData.forEach(item=>{
                     if(item.UID == menuUid){
                     // console.log(menuUid);
-                    // console.log(item);
+                    console.log(item);
                     // console.log(item.品項);
                     let coldHotFalse = false;
                     if(item.冷 == false && item.熱 == false){
@@ -192,11 +438,11 @@ function storeInformationData(isGroupings,UID,id){
                       <div class="modal-storeOrder-menu modal-content border-radius-24">
                         <div class="modal-header d-flex flex-column border-0 mb-32 mb-md-40 p-0 ">
                           <div class="modal-header-top d-flex justify-content-between align-items-center w-100 mb-8 mb-md-16">
-                            <h5 class="modal-title" id="staticBackdropLabel">${item.品項}</h5>
+                            <h5 class="modal-title" id="modalOrderTitle" data-originalPrice="${item.價格}">${item.品項}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           `
-                  if(coldHotFalse){
+                    if(coldHotFalse){
                     templateProduct += `
                       <div class="cold-hot d-flex  align-items-center w-100 mb-8 mb-md-16 ">
                         <div class="hot d-flex justify-content-center align-items-center ">
@@ -204,8 +450,8 @@ function storeInformationData(isGroupings,UID,id){
                         </div>
                       </div>
                     `
-                  }else{
-                    templateProduct += `
+                   }else{
+                      templateProduct += `
                             <div class="cold-hot d-flex  align-items-center w-100 mb-8 mb-md-16 ${item.冷? '':'d-none'}">
                               <div class="cold d-flex justify-content-center align-items-center ">
                                 <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
@@ -217,8 +463,8 @@ function storeInformationData(isGroupings,UID,id){
                               </div>
                             </div>
                             `
-                  }
-                  templateProduct += `
+                    }
+                   templateProduct += `
                           <p>${item.商品描述}</p>
                         </div>
                         <div class="modal-body p-0 mb-40">
@@ -368,7 +614,7 @@ function storeInformationData(isGroupings,UID,id){
                     `
                     // console.log(isGroupings,UID,id);
                     // console.log(templateProduct);
-                    $('#staticBackdrop').html(templateProduct);
+                    staticBackdrop.innerHTML = templateProduct;
                     let numberSub = $('#numberSub'), numberInput = $('#numberInput'), numberAdd = $('#numberAdd'), addProductToCarts = $('#addProductToCarts');
                     let originalPrice = item.價格;
 
@@ -390,9 +636,11 @@ function storeInformationData(isGroupings,UID,id){
                     // 數量減 1
                     numberSub.on('click', function() {
                       let currentValue = parseInt(numberInput.val()) || 0;
-                      if (currentValue > 0) {
+                      if (currentValue > 1) {
                           numberInput.val(currentValue - 1);
                           calculatePrice();
+                      }else{
+                        numberInput.val(1);
                       }
                     });
                     // 數量加 1
@@ -401,16 +649,17 @@ function storeInformationData(isGroupings,UID,id){
                       if (currentValue < 999) {
                           numberInput.val(currentValue + 1);
                           calculatePrice();
+                      }else{
+                        numberInput.val(999);
                       }
                     });
                     numberInput.on('input', calculatePrice);
 
                     addProductToCarts.on('click',function(){
-                      let jsonString = '';
                       let storageCarts = [];
                       let productsToCartsData = {};
                       const customization = [];
-                      productsToCartsData.orderItem = $('#staticBackdropLabel').text();
+                      productsToCartsData.orderItem = $('#modalOrderTitle').text();
                       productsToCartsData.quantity = $('#numberInput').val();
                       
                       // console.log(category);
@@ -426,36 +675,38 @@ function storeInformationData(isGroupings,UID,id){
                         if (agar.is(':checked')) {customization.push('寒天晶球')}
                       }
                       productsToCartsData.comments = $('#remark').val();
-                      productsToCartsData.totalAmount = $("#mealPrice").text();
+                      productsToCartsData.totalAmount = parseInt($("#mealPrice").text());
                       productsToCartsData.customization = customization;
+                      productsToCartsData.originalPrice = item.價格;
                       // console.log(productsToCartsData);
                       // 判斷 localStorage Carts 有無資料
                       if(localStorage.getItem('Carts')){
-                        let isRepeat = 0;
-                        // console.log('有資料');
+                        let isRepeat = 0; // 判斷有無重複
                         const getStorageCarts = JSON.parse(localStorage.getItem('Carts'));
-                        // 判斷 Carts 是否有相同品項
+                        // 處理 Carts 相同品項資料
                         getStorageCarts.forEach((item,index)=>{
-                          if(item.orderItem === $('#staticBackdropLabel').text()){
-                            // console.log('相同');
+                          if(item.orderItem === $('#modalOrderTitle').text()){
+                            // console.log('有資料重複');
                             isRepeat += 1;
                             getStorageCarts[index] = productsToCartsData;
                           }
                         })
                         if(isRepeat==0){
+                          // console.log('無相同品項資料，將資料 productsToCartsData 存進 getStorageCarts');
                           getStorageCarts.push(productsToCartsData);
                         }
-                        console.log(getStorageCarts);
-                        // localStorage.setItem('Carts', ''); // 清空 localStorage Carts
-                        jsonString = JSON.stringify(getStorageCarts);
-                        localStorage.setItem('Carts', jsonString);
-                      }else{
-                        // console.log('無資料');
-                        storageCarts.push(productsToCartsData);
-                        jsonString = JSON.stringify(storageCarts);
-                        localStorage.setItem('Carts', jsonString);
+                        // console.log('productsToCartsData',productsToCartsData);
+                        // console.log('getStorageCarts',getStorageCarts);
+                        localStorage.setItem('Carts', JSON.stringify(getStorageCarts)); // 將字串存進 localStorage Carts
                       }
-                      location.reload();
+                      else{
+                        // Carts 內無資料，直接存進 Carts 中
+                        storageCarts.push(productsToCartsData);
+                        console.log(productsToCartsData);
+                        console.log(storageCarts);
+                        localStorage.setItem('Carts', JSON.stringify(storageCarts));
+                      }
+                      $('#staticBackdrop').modal('hide');
                     })
                   }
                 })

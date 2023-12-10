@@ -1,4 +1,4 @@
-console.clear();
+// console.clear();
 import showStars from '/assets/js/components/showStars.js';
 import axios from 'axios';
 let bannerData = [];
@@ -197,7 +197,7 @@ function bannerRender(bannerData) {
 
     Promise.all(promises)
       .then((completedData) => {
-        console.log(completedData);
+        // console.log(completedData);
         resolve(completedData);
       })
       .catch((error) => {
