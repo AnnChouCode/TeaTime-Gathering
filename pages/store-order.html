@@ -77,49 +77,23 @@
                   <iconify-icon icon="bxs:down-arrow" style="color:#fd909f;" class="arrowDown"></iconify-icon>
                   <iconify-icon icon="bxs:up-arrow" style="color: #fdf1ef;" class="arrowUp d-none"></iconify-icon>
                 </button>
-                <<<<<<< HEAD <!-- <button type="button"
-                  class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2"
-                  data-bs-toggle="modal" data-bs-target="#modal-CreateGroup">
+                <a tabindex="0"
+                  class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2 btnCreateGrouping"
+                  role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom"
+                  data-bs-content="請先登入帳號">
                   <iconify-icon icon="mdi:account-add" style="color: #fd909f;" class="me-8" width="24"
                     height="24"></iconify-icon>
                   <p class="text-nowrap">建立揪團</p>
-                  </button> -->
-                  <a tabindex="0"
-                    class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2 btnCreateGrouping"
-                    role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom"
-                    data-bs-content="請先登入帳號">
-                    =======
-                    <a tabindex="0"
-                      class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2 btnCreateGrouping"
-                      role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom"
-                      data-bs-content="請先登入帳號">
-                      >>>>>>> 1ddb4d90935ebebf9074cdbb0247539b0487aaa8
-                      <iconify-icon icon="mdi:account-add" style="color: #fd909f;" class="me-8" width="24"
-                        height="24"></iconify-icon>
-                      <p class="text-nowrap">建立揪團</p>
-                    </a>
+                </a>
               </div>
-              <<<<<<< HEAD <!-- <button type="button"
-                class="shopping-cart d-none d-sm-flex justify-content-center align-items-center  btn btn-brand-03 px-24 py-10 py-sm-14 border-radius-40 btn-hover-brand-01"
-                data-bs-toggle="modal" data-bs-target="#modal-shppingCart-order">
+              <a tabindex="0"
+                class="shopping-cart d-none d-sm-flex justify-content-center align-items-center btn btn-brand-03 px-24 py-10 py-sm-14 border-radius-40 btn-hover-brand-01 btnCart"
+                role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom"
+                data-bs-content="請先登入帳號">
                 <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20"
                   height="20"></iconify-icon>
                 <p class="text-white word-break-keep-all fs-sm-20 fs-16">購物車</p>
-                </button> -->
-                <a tabindex="0"
-                  class="shopping-cart d-none d-sm-flex justify-content-center align-items-center  btn btn-brand-03 px-24 py-10 py-sm-14 border-radius-40 btn-hover-brand-01 btnCart"
-                  role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom"
-                  data-bs-content="請先登入帳號">
-                  =======
-                  <a tabindex="0"
-                    class="shopping-cart d-none d-sm-flex justify-content-center align-items-center btn btn-brand-03 px-24 py-10 py-sm-14 border-radius-40 btn-hover-brand-01 btnCart"
-                    role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom"
-                    data-bs-content="請先登入帳號">
-                    >>>>>>> 1ddb4d90935ebebf9074cdbb0247539b0487aaa8
-                    <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20"
-                      height="20"></iconify-icon>
-                    <p class="text-white word-break-keep-all fs-sm-20 fs-16">購物車</p>
-                  </a>
+              </a>
             </div>
           </div>
         </div>
@@ -752,6 +726,8 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.6.0/pagination.min.js"></script>
             <!-- moment.js import-->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+            <!-- Axios import -->
+            <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 
             <!-- JS -->
             <script type="module" src="../main.js"></script>
@@ -762,6 +738,8 @@
             <script type="module" src="../assets/js/pages/storeOrder-grouping.js"></script>
             <!-- menu -->
             <script type="module" src="../assets/js/pages/storeOrder-menu.js"></script>
+            <!-- 評價 -->
+            <script type="module" src="../assets/js/pages/storeOrder-evaluate.js"></script>
 
             <script>
               // 開團中按鈕開關切換、按鈕互動外觀變化 jQuery
@@ -773,7 +751,6 @@
               });
               // feedback 按鈕開關切換、按鈕互動外觀變化 jQuery
               $('.btnFeedbackTogetherEvent').click(function (e) {
-                console.log('feedbackTogetherEvent');
                 $(this).toggleClass('btn-active-brand-02');
                 $(this).find('.text-brand-02').toggleClass('text-white');
                 $(this).find('.arrowDown').toggleClass('d-none');
@@ -815,91 +792,6 @@
                 textareaLength.textContent = `字數限制 ${inputLength}/100`
               })
 
-            </script>
-
-
-            <!-- Axios import -->
-            <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-
-            <script>
-              const _url = "https://teatimeapi-test.onrender.com";
-              const _rating = "/ratings";
-              const _sorting = "_sort=id&_order=desc";
-              let ratingInnerHTML = document.querySelector(".rating-cards");
-              let ratingRWDInnerHTML = document.querySelector(".rating-cards-RWD");
-              let thisPageStoreName = "胖小吃";
-              // let thisPageStoreName = document.querySelector("#storeNameID").textContent
-              let ratingData = [];
-
-              (function init() {
-                axios.get(`${_url}${_rating}?${_sorting}`)
-                  .then(function (res) {
-                    console.log("抓到資料了");
-                    ratingData = res.data;
-                    showRating()
-                  })
-              })()
-              function showRating(quantity = 4) {
-                let ratingItems = "";
-
-                ratingData.forEach((item, index) => {
-                  console.log(item.reviewedRestaurant)
-                  if (item.reviewedRestaurant == thisPageStoreName && index < quantity) {
-                    ratingItems += `
-                  <div class="feedback-style col-12 col-md-6 pt-32 pt-sm-48 mb-md-32">
-                    <div class="bg-brand-05 border-radius-16 px-12 px-sm-24 pb-12 pb-sm-24 custom-shadow-025">
-                      <div class=" transform-32-sm-48 d-flex ">
-                        <img class="people-img border-radius-24 border border-2 border-line me-16" src=${item.reviewerPhoto} alt="user-img">
-                          <div class="feedback-content w-100 d-flex flex-column justify-content-end ">
-                            <div class="d-flex">
-                              <div class="d-flex flex-column justify-content-end ">
-                                <div class="star-list mb-md-8">
-                                  <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
-                                  <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
-                                  <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
-                                  <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
-                                  <iconify-icon icon="ic:round-star" class=" " style="color: #C2C1BD;" width="16"></iconify-icon>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="d-flex justify-content-between align-items-center">
-                              <p class="fs-16 fs-md-20 text-gray-02">${item.reviewer}</p>
-                              <time datetime="2023-09-01" class="">${item.reviewDateTime}</time>
-                            </div>
-                          </div>
-                      </div>
-                      <p class="line-clamp-2">${item.feedbackText}</p>
-                    </div>
-                  </div>
-                    `;
-                  }
-                })
-                // console.log(ratingItems);
-                ratingInnerHTML.innerHTML = ratingItems;
-                ratingRWDInnerHTML.innerHTML = ratingItems;
-              }
-              // RWD留言右方按鈕，觸發toggle，呈現全部或者4則留言
-              let ratingRWDToggleBtn = document.querySelector(".ratingRWDToggleBtn");
-              let RWDshowAll = true;
-              ratingRWDToggleBtn.addEventListener("click", function () {
-                RWDshowAll = !RWDshowAll;
-                ratingRWDInnerHTML.innerHTML = "";
-                // 傳入全部或者4則留言
-                showRating(RWDshowAll == true ? 4 : ratingData.length);
-                ratingRWDToggleBtn.classList.toggle("transform180")
-              })
-              // 留言下方按鈕，觸發toggle，呈現全部或者4則留言
-              let ratingToggleBtn = document.querySelector(".ratingToggleBtn");
-
-              let showAll = true;
-
-              ratingToggleBtn.addEventListener("click", function () {
-                showAll = !showAll;
-                ratingInnerHTML.innerHTML = "";
-                // 傳入全部或者4則留言
-                showRating(showAll == true ? 4 : ratingData.length);
-                ratingToggleBtn.classList.toggle("transform180")
-              })
             </script>
 
   </body>
