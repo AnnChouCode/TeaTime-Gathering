@@ -68,7 +68,7 @@ function renderFeedBack() {
                                     </p>
                                     <div
                                         class="evaluate-user d-flex justify-content-between align-items-center pt-12 pt-md-24">
-                                        <span class="user-name fs-16 fs-md-20">${data.reviewer
+                                        <span class="user-name fs-16 fs-md-20">${data.reviewedRestaurant
             }</span>
                                         <time datetime="2023-08-04" class="user-date fs-16">${data.reviewDateTime
             }</time>
