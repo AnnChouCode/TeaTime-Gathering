@@ -231,9 +231,36 @@
                     `;
                 }
                 // 歷史訂單卡片
-                if (followUpOrderItems != "") {
+                // if (followUpOrderItems != "") {
+
+                if (moment(eventDateTime, 'YYYY-MM-DD') < moment()) {
+                    let historicalOrderItems = "";
+                    order.orderDetail.forEach((item) => {
+                        // 搜尋"黃莉琳"點餐的品項
+                        if (item.name === "黃莉琳") {
+                            historicalOrderItems +=
+                                `
+                            <li class="d-flex mb-12" >
+                                <div class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">1
+                                </div>
+                                <div>
+                                    <h3 class="fs-24 mb-4 text-gray-01 fw-bolder">${item.orderItem}<span class="ms-8 fs-16 p-4 border rounded-2 border-white ${item.isPay == true ? "bg-brand-05 text-gray-03" : "bg-brand-02 text-white"}">${item.isPay == true ? "已付款" : "未付款"}</span></h3>
+                                    <ul class="text-gray-02">
+                                        <li class="d-flex mb-4">
+                                            <p>選項<span class="ms-16">${item.ice}、${item.sugar}</span></p>
+                                        </li>
+                                        <li class="d-flex mb-4">
+                                            <p>備註<span class="ms-16">${item.comments}</span></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        `;
+                        }
+                    })
                     // 給autoComplete使用
                     filteredStoreName.push(restaurant.storeName)
+                    console.log(filteredStoreName)
                     historicalHTML +=
                         `
                             <li class="d-flex flex-column flex-lg-row p-24 border-bottom border-brand-03"  data-restaurant="${restaurant.storeName}">
@@ -258,7 +285,7 @@
                                         <div class="ms-4 "><a href="" class="shareRating fs-16 text-gray-02" data-bs-toggle="modal" data-bs-target="#memberModal" onclick="RatingShare(this)">分享評價</a></div>
                                     </div>
                                     <ul class="mt-12">
-                                        ${followUpOrderItems}
+                                        ${historicalOrderItems}
                                     </ul>
                                 </div>
                                 <div class="starInMember${id} ms-auto  fs-24 d-none d-lg-block" data-rating-star=5>

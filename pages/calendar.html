@@ -240,9 +240,6 @@
           <!-- jQuery Import -->
           <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-          <!-- 時間選擇器 flatpickr import -->
-          <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
           <!-- 進度條 tocas progress -->
           <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
 
@@ -253,16 +250,18 @@
           <script type="module">
             import axios from 'axios';
             import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
+            // import 時間選擇器
+            import flatpickr from "flatpickr";
 
             // import 時間判斷是否為過去事件元件
             import isPastEvent from '/assets/js/components/isPastEvent.js';
             // import 判斷登入狀態元件
             import isLoggedIn from '/assets/js/components/isLoggedIn.js';
             // import 解密 token 元件
-            import cryptoToken from '/assets/js/components/cryptoToken.js'; 
+            import cryptoToken from '/assets/js/components/cryptoToken.js';
 
             //全頁共用變數
-            const _url = "https://teatimeapi-test.onrender.com"            
+            const _url = "https://teatimeapi-test.onrender.com"
             const _token = localStorage.getItem("token");
             const _user = cryptoToken(_token)
 
@@ -730,21 +729,25 @@
 
               //若「享用時間」輸入格有值，則進行時間格式化
               if (selectedEventDateTime) {
-                formattedEventDateTime = moment(eventDateTimeInput.value, "YYYY/MM/DD HH:mm");
+                formattedEventDateTime = moment(selectedEventDateTime, "YYYY/MM/DD HH:mm");
               }
 
               //若「截止時間」輸入格有值，則進行時間格式化
               if (selectedDeadlineDateTime) {
-                formattedDeadlineDateTime = moment(deadlineDateTimeInput.value, "YYYY/MM/DD HH:mm");
+                formattedDeadlineDateTime = moment(selectedDeadlineDateTime, "YYYY/MM/DD HH:mm");
               }
 
               //若時間輸入格均有值，判定截止時間需早於享用時間至少 24 時
               if (formattedEventDateTime && formattedDeadlineDateTime) {
+                //時間差
                 const diffInHours = formattedEventDateTime.diff(formattedDeadlineDateTime, 'hours');
+                //提示訊息
+                const deadlineDateTimeAlert = document.querySelector(".deadlineDateTimeAlert")
+                
                 if (diffInHours < 24) {
-                  const deadlineDateTimeAlert = document.querySelector(".deadlineDateTimeAlert").classList.remove("d-none")
+                  deadlineDateTimeAlert.classList.remove("d-none")
                 } else {
-                  const deadlineDateTimeAlert = document.querySelector(".deadlineDateTimeAlert").classList.add("d-none")
+                  deadlineDateTimeAlert.classList.add("d-none")
                 }
               }
 
@@ -760,12 +763,10 @@
             btnLinkToCreateVoting.addEventListener("click", function () {
               window.location.href = "./createVoting.html"
             })
-          </script>
 
 
-          <!-- 時間選擇器 flatpickr -->
-          <script>
-            config = {
+            /* 時間選擇器初始化 ================*/
+            const config = {
               enableTime: true,
               dateFormat: "Y/m/d H:i",
               time_24hr: true,
