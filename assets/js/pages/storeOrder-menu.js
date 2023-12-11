@@ -214,18 +214,116 @@ function shoppingCarts(data){
 
 function sendCarts(data){
   const menuTotal = document.getElementById('menuTotal');
-  const cartsData = JSON.parse(localStorage.getItem('Carts'));
+  const priceNumber = parseInt(menuTotal.textContent.replace('$', '')); // 總計金額
+  const cartsData = JSON.parse(localStorage.getItem('Carts')); // 購物車內容
   console.log(cartsData);
-  const priceNumber = parseInt(menuTotal.textContent.replace('$', ''));
   data.orderPriceTotal = priceNumber;
   data.orderUserId = _user;
+  console.log('priceNumber',priceNumber);
+  // console.log('_user',_user);
   // console.log('data',data);
   axios.get(`https://teatimeapi-test.onrender.com/users?UID=${_user}`)
   .then(res => {
-    const userName = res.data[0].userName;
+    const {userName} = res.data[0];
+    const {orderId} = data;
     data.userName = userName;
-    console.log(data);
-    // return axios.get(``)
+    // console.log(data);
+    console.log('orderId',orderId);
+    return axios.get(`https://teatimeapi-test.onrender.com/orders?id=${orderId}`)
+    .then(res=>{
+      const orderData = res.data[0];
+      const {orderDetail} = orderData;
+      // console.log(orderDetail);
+      // console.log(userName);
+    //   const orderDetail = [
+    //     {
+    //         "name": "黃莉琳",
+    //         "orderItem": "柔霧",
+    //         "quantity": 1,
+    //         "ice": "去冰",
+    //         "sugar": "全糖",
+    //         "customization": "珍珠、椰果",
+    //         "comments": "越甜越好",
+    //         "totalAmount": 35,
+    //         "isPay": true,
+    //         "ratingID": "R009"
+    //     },
+    //     {
+    //         "name": "dd",
+    //         "orderItem": "柔霧",
+    //         "quantity": 1,
+    //         "ice": "去冰",
+    //         "sugar": "全糖",
+    //         "customization": "粉條",
+    //         "comments": "酸一點",
+    //         "totalAmount": 65,
+    //         "isPay": true,
+    //         "ratingID": ""
+    //     },
+    //     {
+    //         "name": "黃莉琳",
+    //         "orderItem": "蜜香",
+    //         "quantity": 1,
+    //         "ice": "去冰",
+    //         "sugar": "全糖",
+    //         "customization": "蜂蜜",
+    //         "comments": "蜂蜜多一點",
+    //         "totalAmount": 85,
+    //         "isPay": true,
+    //         "ratingID": ""
+    //     }
+    // ]
+      let isOrderFood = 0;
+      const array = []; // 帶入 orderDetail 要刪除的陣列位置
+      // 判斷 orders 使用者有無點餐
+      orderDetail.forEach((item,index)=>{
+        if(item.name == userName){
+          array.push(index)
+          console.log(index);
+          isOrderFood = 1;
+          // 
+        }
+      })
+      // 原本有點餐資料時，透過 userName 刪除原本訂購菜單
+      if(isOrderFood == 1){
+        const reArray = array.reverse(); // 反轉目的為，由後往前刪，才不會讓陣列資料錯誤
+        if(reArray.length > 0){
+          reArray.forEach(item=>{
+            orderDetail.splice(item, 1);
+          })
+        }
+      }
+      console.log(orderDetail);
+
+      // 處理購物車內容，並 put 到 orders 中
+      const sendOrderData = [];
+      cartsData.forEach(item=>{
+        let resultString = '';
+        // 當 customization 有值時，陣列轉字串，並以"、"分割
+        if(item.customization.length != 0){
+          resultString = item.customization.join('、');
+        }
+        console.log(resultString);
+        let sendOrderObject = {
+          name: userName,
+          orderItem: item.orderItem,
+          quantity: item.quantity,
+          ice: item.ice?`${item.ice}`:'',
+          sugar: item.sugar?`${item.sugar}`:'',
+          customization: item.customization?`${resultString}`:'',
+          comments: item.comments,
+          totalAmount: item.totalAmount,
+          isPay: false,
+          ratingID: ""
+          }
+        sendOrderData.push(sendOrderObject)
+      })
+      console.log(sendOrderData);
+      const newOrderDetail = [...orderDetail,...sendOrderData];
+      console.log(newOrderDetail);
+
+    })
+    .catch(err=>{console.log(err);})
   })
   .catch(err => {
     console.log(err);
@@ -272,13 +370,13 @@ function orderEstablished(data){
   const formattedDeadline = `${deadlineArray[1]}/${deadlineArray[2]}`;
   const eventDateArray = eventDateDatePart.split('/');
   const formattedEventDate = `${eventDateArray[1]}/${eventDateArray[2]}`;
-  console.log(formattedEventDate,eventDateTimePart);
+  // console.log(formattedEventDate,eventDateTimePart);
   $('#deadlineDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineDate">${formattedDeadline}</p>`)
   $('#deadlineTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineTime">${deadlineTimePart}</p>`)
   $('#eventDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="eventDate">${formattedEventDate}</p>`)
   $('#eventDateTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="eventDateTime">${eventDateTimePart}</p>`)
   
-  localStorage.setItem('Carts', ''); // 清空 localStorage Carts
+  // localStorage.setItem('Carts', ''); // 清空 localStorage Carts
 }
 function storeInformationData(isGroupings,UID,id){
   // console.log(isGroupings,UID,id);
