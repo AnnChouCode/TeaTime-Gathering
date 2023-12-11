@@ -134,8 +134,6 @@ function shoppingCarts(data){
         modalCartsRemoveBtn.addEventListener('click',function(){
           const priceNumber = parseInt(menuTotal.textContent.replace('$', ''));
           const newInputValue = parseInt(modalCartsInput.value); // 新的 input value
-          console.log(newInputValue);
-          console.log(newInputValue-1);
           if (newInputValue-1 >= 0) {
             const inputValue = parseInt(modalCartsInput.value);
             modalCartsInput.value = inputValue - 1;
@@ -216,10 +214,12 @@ function sendCarts(data){
   const menuTotal = document.getElementById('menuTotal');
   const priceNumber = parseInt(menuTotal.textContent.replace('$', '')); // 總計金額
   const cartsData = JSON.parse(localStorage.getItem('Carts')); // 購物車內容
-  console.log(cartsData);
+  const cartsDataHandle = JSON.parse(JSON.stringify(cartsData)); // 購物車內容(深層拷貝)
+
+  // console.log(cartsData);
   data.orderPriceTotal = priceNumber;
   data.orderUserId = _user;
-  console.log('priceNumber',priceNumber);
+  // console.log('priceNumber',priceNumber);
   // console.log('_user',_user);
   // console.log('data',data);
   axios.get(`https://teatimeapi-test.onrender.com/users?UID=${_user}`)
@@ -228,129 +228,104 @@ function sendCarts(data){
     const {orderId} = data;
     data.userName = userName;
     // console.log(data);
-    console.log('orderId',orderId);
+    // console.log('orderId',orderId);
     return axios.get(`https://teatimeapi-test.onrender.com/orders?id=${orderId}`)
     .then(res=>{
       const orderData = res.data[0];
-      const {orderDetail} = orderData;
-      // console.log(orderDetail);
-      // console.log(userName);
-    //   const orderDetail = [
-    //     {
-    //         "name": "黃莉琳",
-    //         "orderItem": "柔霧",
-    //         "quantity": 1,
-    //         "ice": "去冰",
-    //         "sugar": "全糖",
-    //         "customization": "珍珠、椰果",
-    //         "comments": "越甜越好",
-    //         "totalAmount": 35,
-    //         "isPay": true,
-    //         "ratingID": "R009"
-    //     },
-    //     {
-    //         "name": "dd",
-    //         "orderItem": "柔霧",
-    //         "quantity": 1,
-    //         "ice": "去冰",
-    //         "sugar": "全糖",
-    //         "customization": "粉條",
-    //         "comments": "酸一點",
-    //         "totalAmount": 65,
-    //         "isPay": true,
-    //         "ratingID": ""
-    //     },
-    //     {
-    //         "name": "黃莉琳",
-    //         "orderItem": "蜜香",
-    //         "quantity": 1,
-    //         "ice": "去冰",
-    //         "sugar": "全糖",
-    //         "customization": "蜂蜜",
-    //         "comments": "蜂蜜多一點",
-    //         "totalAmount": 85,
-    //         "isPay": true,
-    //         "ratingID": ""
-    //     }
-    // ]
-      let isOrderFood = 0;
-      const array = []; // 帶入 orderDetail 要刪除的陣列位置
-      // 判斷 orders 使用者有無點餐
+      // console.log(orderData);
+      const {orderDetail,groupingId,restaurantId,UID} = orderData;
+      const orderDataRestaurantId = restaurantId;
+      const orderDataUID = UID;
+      
+      const cartsDataDuplicate = []; // 紀錄 cartsData 陣列以重複位置
+      
+      let resultString = '';
+      // 處理重複的點餐內容
       orderDetail.forEach((item,index)=>{
-        if(item.name == userName){
-          array.push(index)
-          console.log(index);
-          isOrderFood = 1;
-          // 
-        }
+        cartsData.forEach((itemCartsData,cartsDataIndex) => {
+          // console.log(item);
+          // 當 customization 有值時，陣列轉字串，並以"、"分割
+          if(itemCartsData.customization.length != 0){
+            resultString = itemCartsData.customization.join('、');
+          }
+          if(item.name == userName && item.orderItem == itemCartsData.orderItem){
+            cartsDataDuplicate.push(cartsDataIndex); // 紀錄重複的陣列位置
+            orderDetail[index] = {
+              name: userName,
+              orderItem: itemCartsData.orderItem,
+              quantity: parseInt(itemCartsData.quantity),
+              ice: itemCartsData.ice?`${itemCartsData.ice}`:'',
+              sugar: itemCartsData.sugar?`${itemCartsData.sugar}`:'',
+              customization: itemCartsData.customization?`${resultString}`:'',
+              comments: itemCartsData.comments,
+              totalAmount: itemCartsData.totalAmount,
+              isPay: item.isPay,
+              ratingID: item.ratingID
+            }
+          }
+        })
       })
-      // 原本有點餐資料時，透過 userName 刪除原本訂購菜單
-      if(isOrderFood == 1){
-        const reArray = array.reverse(); // 反轉目的為，由後往前刪，才不會讓陣列資料錯誤
-        if(reArray.length > 0){
-          reArray.forEach(item=>{
-            orderDetail.splice(item, 1);
-          })
-        }
-      }
-      console.log(orderDetail);
+      // console.log(cartsDataDuplicate);
+      // console.log(orderDetail);
 
-      // 處理購物車內容，並 put 到 orders 中
-      const sendOrderData = [];
-      cartsData.forEach(item=>{
+      // 刪除每個 cartsDataHandle 重複的筆數
+      if(cartsDataDuplicate.length > 0){
+        const reCartsDataDuplicate = cartsDataDuplicate.reverse();
+        reCartsDataDuplicate.forEach(item=>{
+          // console.log(item);
+          cartsDataHandle.splice(item, 1);
+        })
+      }
+      // 將剩餘的購物車資料寫進 orderDetail
+      cartsDataHandle.forEach(item=>{        
         let resultString = '';
         // 當 customization 有值時，陣列轉字串，並以"、"分割
         if(item.customization.length != 0){
           resultString = item.customization.join('、');
         }
-        console.log(resultString);
-        let sendOrderObject = {
+        const object = {  
           name: userName,
           orderItem: item.orderItem,
-          quantity: item.quantity,
+          quantity: parseInt(item.quantity),
           ice: item.ice?`${item.ice}`:'',
           sugar: item.sugar?`${item.sugar}`:'',
           customization: item.customization?`${resultString}`:'',
           comments: item.comments,
           totalAmount: item.totalAmount,
           isPay: false,
-          ratingID: ""
-          }
-        sendOrderData.push(sendOrderObject)
+          ratingID: ''
+        }
+        orderDetail.push(object);
       })
-      console.log(sendOrderData);
-      const newOrderDetail = [...orderDetail,...sendOrderData];
-      console.log(newOrderDetail);
-
+      // console.log(orderDetail);
+      return axios.patch(`https://teatimeapi-test.onrender.com/orders/${orderId}`,{orderDetail:orderDetail})
+      .then(res => {
+        // console.log(res);
+        return;
+      })
+      .catch(err => { console.log(err) })
     })
     .catch(err=>{console.log(err);})
   })
   .catch(err => {
     console.log(err);
   })
-  // if(category == '飲料'){
-  //   console.log('飲料類送單');
-    
-  // }else{
-  //   console.log('非飲料類送單');
-
-  // }
   orderEstablished(data); // 訂單成立
 }
 
 // 購物車調整值
 function orderCartsRevision(quantity,total,cartsData,productName){
-  console.log(quantity,total,cartsData,productName);
+  // console.log(quantity,total,cartsData,productName);
   
   if(quantity < 1000 && quantity >= 0){
     cartsData.forEach((item,index)=>{
       if(item.orderItem == productName) {
-        console.log(item.orderItem);
-          cartsData[index].quantity = quantity;
-          cartsData[index].totalAmount = total;
+        // console.log(item.orderItem);
+        cartsData[index].quantity = quantity;
+        cartsData[index].totalAmount = total;
       }
     })
-    console.log(cartsData);
+    // console.log(cartsData);
     localStorage.setItem('Carts', JSON.stringify(cartsData));
   }else{
     alert('點餐數量請介於0-999間')
@@ -376,7 +351,7 @@ function orderEstablished(data){
   $('#eventDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="eventDate">${formattedEventDate}</p>`)
   $('#eventDateTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="eventDateTime">${eventDateTimePart}</p>`)
   
-  // localStorage.setItem('Carts', ''); // 清空 localStorage Carts
+  localStorage.setItem('Carts', ''); // 清空 localStorage Carts
 }
 function storeInformationData(isGroupings,UID,id){
   // console.log(isGroupings,UID,id);
@@ -517,10 +492,8 @@ function storeInformationData(isGroupings,UID,id){
               // console.log(template);
               $(".customMenu").html(template);
 
-              // 取得所有 class 為 menu-button 的按鈕
               const menuButtons = document.querySelectorAll('.menu-button');
 
-              // 為每個按鈕添加 click 事件監聽器
               menuButtons.forEach(button => {
                 let UID = '';
                 button.addEventListener('click', function() {
@@ -528,11 +501,10 @@ function storeInformationData(isGroupings,UID,id){
                   // 獲取 data-menuuid 的值
                   const menuUid = this.getAttribute('data-menuuid');
                   UID = menuUid;
-                  // 在這裡你可以使用 menuUid 的值進行其他操作
                   newData.forEach(item=>{
                     if(item.UID == menuUid){
                     // console.log(menuUid);
-                    console.log(item);
+                    // console.log(item);
                     // console.log(item.品項);
                     let coldHotFalse = false;
                     if(item.冷 == false && item.熱 == false){
@@ -808,8 +780,8 @@ function storeInformationData(isGroupings,UID,id){
                       else{
                         // Carts 內無資料，直接存進 Carts 中
                         storageCarts.push(productsToCartsData);
-                        console.log(productsToCartsData);
-                        console.log(storageCarts);
+                        // console.log(productsToCartsData);
+                        // console.log(storageCarts);
                         localStorage.setItem('Carts', JSON.stringify(storageCarts));
                       }
                       $('#staticBackdrop').modal('hide');
