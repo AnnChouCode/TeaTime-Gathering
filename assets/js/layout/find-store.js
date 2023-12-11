@@ -204,6 +204,7 @@ const autoCompleteJS = new autoComplete({
     },
     //寬鬆搜尋
     searchEngine: "loose",
+    debounce: 300,
     //選單符合條件自元 highlight
     resultItem: {
         highlight: true
