@@ -61,7 +61,7 @@ figma：[https://www.figma.com/TeaTimeGathering](https://www.figma.com/file/HO7t
   - AXIOS 1.6.1：API 操作
   - jQuery 3.7.1：API 操作、套件控制、按鈕互動效果控制
   - Moment 2.29.4：時間處理
-  - flatpickr 4：時間選擇器
+  - flatpickr 4.6.13：時間選擇器
   - autoComplete 10.2.7：搜尋關鍵字聯想
   - Pagination 2.6.0：頁碼
   - Swiper 10：跑馬燈輪播
