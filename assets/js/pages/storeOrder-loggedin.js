@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
-// import 判斷登入狀態樣板
+// import 判斷登入狀態元件
 import isLoggedIn from '/assets/js/components/isLoggedIn.js';
 
 //全頁共用變數

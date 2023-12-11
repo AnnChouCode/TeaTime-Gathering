@@ -1,8 +1,8 @@
 import axios from 'axios';
 import AES from 'crypto-js/aes'; //加密
-// import 判斷登入狀態樣板
+// import 判斷登入狀態元件
 import isLoggedIn from '/assets/js/components/isLoggedIn.js';
-// import 解密 token 樣板
+// import 解密 token 元件
 import cryptoToken from '/assets/js/components/cryptoToken.js';
 
 //全頁共用變數

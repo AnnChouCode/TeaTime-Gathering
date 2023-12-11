@@ -1,13 +1,13 @@
 import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
 // import axios
 import axios from 'axios';
-// import 時間判斷是否為過去事件樣板
+// import 時間判斷是否為過去事件元件
 import isPastEvent from '/assets/js/components/isPastEvent.js';
-// import 判斷登入狀態樣板
+// import 判斷登入狀態元件
 import isLoggedIn from '/assets/js/components/isLoggedIn.js';
 // import 活動時間字串處理
 import showDateTime from '/assets/js/components/showDateTime.js';
-// import 解密 token 樣板
+// import 解密 token 元件
 import cryptoToken from '/assets/js/components/cryptoToken.js'; 
 
 //全頁共用變數
