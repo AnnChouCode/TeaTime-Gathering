@@ -729,21 +729,25 @@
 
               //若「享用時間」輸入格有值，則進行時間格式化
               if (selectedEventDateTime) {
-                formattedEventDateTime = moment(eventDateTimeInput.value, "YYYY/MM/DD HH:mm");
+                formattedEventDateTime = moment(selectedEventDateTime, "YYYY/MM/DD HH:mm");
               }
 
               //若「截止時間」輸入格有值，則進行時間格式化
               if (selectedDeadlineDateTime) {
-                formattedDeadlineDateTime = moment(deadlineDateTimeInput.value, "YYYY/MM/DD HH:mm");
+                formattedDeadlineDateTime = moment(selectedDeadlineDateTime, "YYYY/MM/DD HH:mm");
               }
 
               //若時間輸入格均有值，判定截止時間需早於享用時間至少 24 時
               if (formattedEventDateTime && formattedDeadlineDateTime) {
+                //時間差
                 const diffInHours = formattedEventDateTime.diff(formattedDeadlineDateTime, 'hours');
+                //提示訊息
+                const deadlineDateTimeAlert = document.querySelector(".deadlineDateTimeAlert")
+                
                 if (diffInHours < 24) {
-                  const deadlineDateTimeAlert = document.querySelector(".deadlineDateTimeAlert").classList.remove("d-none")
+                  deadlineDateTimeAlert.classList.remove("d-none")
                 } else {
-                  const deadlineDateTimeAlert = document.querySelector(".deadlineDateTimeAlert").classList.add("d-none")
+                  deadlineDateTimeAlert.classList.add("d-none")
                 }
               }
 
