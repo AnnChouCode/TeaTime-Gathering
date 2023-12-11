@@ -1,4 +1,4 @@
-import{b as U}from"./main-91b5cbf3.js";import{i as Q,c as X}from"./notification-93dbf0dc.js";import{a as q}from"./enc-utf8-05a2ad8c.js";import{s as Z}from"./showDateTime-51bda516.js";import{s as ee}from"./showStars-385adb56.js";const te=localStorage.getItem("token");document.addEventListener("DOMContentLoaded",function(){const e=document.querySelector(".btnCreateGrouping"),l=document.querySelectorAll(".btnCart"),t=document.querySelectorAll(".btnWriteReview");Q(te)?(e.setAttribute("href","#modal-CreateGroup"),e.setAttribute("data-bs-toggle","modal"),t.forEach(s=>{s.setAttribute("href","#modal-WriteReview"),s.setAttribute("data-bs-toggle","modal")})):(e.setAttribute("data-bs-toggle","popover"),e.setAttribute("data-bs-content","請先登入帳號"),l.forEach(a=>{a.setAttribute("data-bs-toggle","popover"),a.setAttribute("data-bs-content","請先登入帳號")}),t.forEach(a=>{a.setAttribute("data-bs-toggle","popover"),a.setAttribute("data-bs-content","請先登入帳號")}),[...document.querySelectorAll('[data-bs-toggle="popover"]')].map(a=>{new U.Popover(a)}))});const se=moment().format("YYYY/MM/DD"),ae="https://teatimeapi-test.onrender.com",N=location.href.split("=")[1],le=document.querySelector(".btnTogetherEvent");le.addEventListener("click",re);let _;function re(){const e=`_sort=deadlineDateTime&deadlineDateTime_gte=${se}`;q.get(`${ae}/groupings?_expand=restaurant&${e}`).then(function(l){_=l.data;let t,s;N.startsWith("G")?(t=_.filter(o=>o.UID===N),s=t.length?t[0].restaurantId:""):(t=_.filter(o=>o.restaurant.UID===N),s=t.length?t[0].restaurantId:"");const a=_.filter(o=>o.restaurantId===s);ne(a)}).catch(function(l){console.error(l.message)})}function ne(e){const l=document.querySelector(".calendarBlock");let t="";e.length?e.forEach(s=>{t+=`<div class="col-md-6 col-xl-4 col-xxxl-3 px-0 px-md-12">
+import{b as z}from"./main-097a04cd.js";import{i as Q,c as X}from"./notification-03ff7098.js";import{a as _}from"./axios-3a76d256.js";import{s as Z}from"./showDateTime-51bda516.js";import{s as ee}from"./showStars-385adb56.js";const te=localStorage.getItem("token");document.addEventListener("DOMContentLoaded",function(){const e=document.querySelector(".btnCreateGrouping"),l=document.querySelectorAll(".btnCart"),t=document.querySelectorAll(".btnWriteReview");Q(te)?(e.setAttribute("href","#modal-CreateGroup"),e.setAttribute("data-bs-toggle","modal"),l.forEach(s=>{}),t.forEach(s=>{s.setAttribute("href","#modal-WriteReview"),s.setAttribute("data-bs-toggle","modal")})):(e.setAttribute("data-bs-toggle","popover"),e.setAttribute("data-bs-content","請先登入帳號"),l.forEach(a=>{a.setAttribute("data-bs-toggle","popover"),a.setAttribute("data-bs-content","請先登入帳號")}),t.forEach(a=>{a.setAttribute("data-bs-toggle","popover"),a.setAttribute("data-bs-content","請先登入帳號")}),[...document.querySelectorAll('[data-bs-toggle="popover"]')].map(a=>{new z.Popover(a)}))});const se=moment().format("YYYY/MM/DD"),ae="https://teatimeapi-test.onrender.com",O=location.href.split("=")[1],re=document.querySelector(".btnTogetherEvent");re.addEventListener("click",le);let V;function le(){const e=`_sort=deadlineDateTime&deadlineDateTime_gte=${se}`;_.get(`${ae}/groupings?_expand=restaurant&${e}`).then(function(l){V=l.data;let t,s;O.startsWith("G")?(t=V.filter(o=>o.UID===O),s=t.length?t[0].restaurantId:""):(t=V.filter(o=>o.restaurant.UID===O),s=t.length?t[0].restaurantId:"");const a=V.filter(o=>o.restaurantId===s);ne(a)}).catch(function(l){console.error(l.message)})}function ne(e){const l=document.querySelector(".calendarBlock");let t="";e.length?e.forEach(s=>{t+=`<div class="col-md-6 col-xl-4 col-xxxl-3 px-0 px-md-12">
                         <a href="store-order.html?UID=${s.UID}"
                             class="d-flex flex-lg-column p-12 p-lg-16 align-items-center justify-content-center bg-white border-hover-line border-radius-40401616 border-radius-lg-80801616 h-100 w-100">
                             <img class="event-img-RWD me-12 me-lg-0 mb-lg-20"
@@ -20,17 +20,17 @@ import{b as U}from"./main-91b5cbf3.js";import{i as Q,c as X}from"./notification-
                         </div>
                     </div>
                         </a>
-                    </div>`}):t="<p class='fs-16 fs-md-20 text-center'>目前沒有開團</p>",l.innerHTML=t}let oe=localStorage.getItem("token");const G=X(oe);localStorage.setItem("category","");const L=document.querySelector(".shopping-cart"),ie=document.getElementById("modalCartsSendOrder");$(function(){(function(){new U.Modal(document.getElementById("modal-shppingCart-order")),document.getElementById("staticBackdrop");let e=location.href.split("=")[1],l="";const t=!!e.startsWith("G");t?(L.setAttribute("href","#modal-shppingCart-order"),L.setAttribute("data-bs-toggle","modal"),q.get(`https://teatimeapi-test.onrender.com/groupings?UID=${e}`).then(s=>{const{restaurantId:a}=s.data[0];l=a,R(t,e,l),ce(s.data[0])}).catch(s=>{console.log(s)})):(new U.Popover(L,{content:"選擇開團中或建立揪團"}),R(t,e,l))})()});function ce(e){$(".shopping-cart").on("click",function(){localStorage.getItem("category"),e.storeName=$("#storeNameID").text();const[l,t]=e.eventDateTime.split(" "),a=new Date(e.eventDateTime).toLocaleDateString("en-US",{month:"numeric",day:"numeric"});let o="";e.yymmdd=l,e.date=a,e.time=t,$("#modalShppingCartOrderTitle").html(`<p class="fs-20 fs-md-24 line-height-sm fw-bold text-gray-01" id="modalShppingCartOrderTitle">${e.storeName}</p>`),$("#dateCarts").html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="dateCarts">${a}</p>`),$("#timeCarts").html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="timeCarts">${t}</p>`);const T=localStorage.getItem("Carts");if(T.length!==0){$(".modalCartsFooter").show();const C=JSON.parse(T);let y=0;C.forEach(r=>{y+=parseInt(r.totalAmount);let x="";r.customization.length!==0&&(x=r.customization.join(", ")),o+=`
+                    </div>`}):t="<p class='fs-16 fs-md-20 text-center'>目前沒有開團</p>",l.innerHTML=t}let oe=localStorage.getItem("token");const G=X(oe);localStorage.setItem("category","");const U=document.querySelector(".shopping-cart"),ie=document.getElementById("modalCartsSendOrder");$(function(){(function(){new z.Modal(document.getElementById("modal-shppingCart-order")),document.getElementById("staticBackdrop");let e=location.href.split("=")[1],l="";const t=!!e.startsWith("G");t?(U.setAttribute("href","#modal-shppingCart-order"),U.setAttribute("data-bs-toggle","modal"),_.get(`https://teatimeapi-test.onrender.com/groupings?UID=${e}`).then(s=>{const{restaurantId:a}=s.data[0];l=a,R(t,e,l),ce(s.data[0])}).catch(s=>{console.log(s)})):(new z.Popover(U,{content:"選擇開團中或建立揪團"}),R(t,e,l))})()});function ce(e){$(".shopping-cart").on("click",function(){localStorage.getItem("category"),e.storeName=$("#storeNameID").text();const[l,t]=e.eventDateTime.split(" "),a=new Date(e.eventDateTime).toLocaleDateString("en-US",{month:"numeric",day:"numeric"});let o="";e.yymmdd=l,e.date=a,e.time=t,$("#modalShppingCartOrderTitle").html(`<p class="fs-20 fs-md-24 line-height-sm fw-bold text-gray-01" id="modalShppingCartOrderTitle">${e.storeName}</p>`),$("#dateCarts").html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="dateCarts">${a}</p>`),$("#timeCarts").html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="timeCarts">${t}</p>`);const v=localStorage.getItem("Carts");if(v.length!==0){$(".modalCartsFooter").show();const h=JSON.parse(v);let w=0;h.forEach(n=>{w+=parseInt(n.totalAmount);let S="";n.customization.length!==0&&(S=n.customization.join(", ")),o+=`
         <li class="modalCartsLis mb-12 border-bottom border-1 border-gray-03">
                       <div class="d-flex justify-content-between align-items-center w-100 mb-md-16">
-                        <p class="text-gray-01 fs-md-20 modalCartsName" data-originalPrice="${r.originalPrice}">${r.orderItem}</p>
-                        <p class="text-gray-01 fs-md-20 modalCartsTotalAmount">$${r.totalAmount}</p>
+                        <p class="text-gray-01 fs-md-20 modalCartsName" data-originalPrice="${n.originalPrice}">${n.orderItem}</p>
+                        <p class="text-gray-01 fs-md-20 modalCartsTotalAmount">$${n.totalAmount}</p>
                       </div>
                       <div class="mb-16">
-                        ${r.ice?`<p class="text-gray-02">溫度：<span>${r.ice}</span></p>`:""}
-                        ${r.sugar?`<p class="text-gray-02">甜度：<span>${r.sugar}</span></p>`:""}
-                        ${r.customization.length==0?"":`<p class="text-gray-02">加料：<span>${x}</span></p>`}
-                        ${r.comments?`<p class="text-gray-02">備註：<span>${r.comments}</span></p>`:""}
+                        ${n.ice?`<p class="text-gray-02">溫度：<span>${n.ice}</span></p>`:""}
+                        ${n.sugar?`<p class="text-gray-02">甜度：<span>${n.sugar}</span></p>`:""}
+                        ${n.customization.length==0?"":`<p class="text-gray-02">加料：<span>${S}</span></p>`}
+                        ${n.comments?`<p class="text-gray-02">備註：<span>${n.comments}</span></p>`:""}
                       </div>
                       <div class="modalCartsBtns btn-group border-radius-40 border border-2
                       py-12 px-16 mb-8 mb-md-12 d-flex justify-content-center align-items-center" role="group"
@@ -43,7 +43,7 @@ import{b as U}from"./main-91b5cbf3.js";import{i as Q,c as X}from"./notification-
                           </span>
                         </button>
                         <input style="width: 35px;" type="text"
-                          class="modalCartsInput border border-2 text-brand-02 mx-8 text-center border border-0" value="${r.quantity}" >
+                          class="modalCartsInput border border-2 text-brand-02 mx-8 text-center border border-0" value="${n.quantity}" >
                         <button type="button"
                           class="modalCartsAddBtn d-flex justify-content-center align-items-center btn btn-white border-radius-040400"
                           style="width: 24px;height: 24px;">
@@ -53,11 +53,11 @@ import{b as U}from"./main-91b5cbf3.js";import{i as Q,c as X}from"./notification-
                         </button>
                       </div>
                     </li>
-        `}),$("#menuListUl").html(o),$("#menuTotal").html(`<p class="fw-md-bold fw-medium fs-20 fs-md-24 line-height-sm" id="menuTotal">$${y}</p>`);let p=document.querySelectorAll(".modalCartsLis");const v=document.getElementById("menuTotal");p.forEach(r=>{const x=r.querySelector(".modalCartsRemoveBtn"),i=r.querySelector(".modalCartsInput"),H=r.querySelector(".modalCartsAddBtn"),w=r.querySelector(".modalCartsTotalAmount"),I=r.querySelector(".modalCartsName"),m=parseInt(I.dataset.originalprice),k=I.textContent;parseInt(i.value),x.addEventListener("click",function(){const f=parseInt(v.textContent.replace("$","")),b=parseInt(i.value);if(console.log(b),console.log(b-1),b-1>=0){const h=parseInt(i.value);i.value=h-1,w.textContent=`$${m*i.value}`,v.textContent=`$${parseInt(f)-parseInt(m)}`;const S=parseInt(i.value),D=m*S;O(S,D,C,k)}else{console.log("數量為0以下");const h=r.querySelector(".modalCartsInput");h.value=0}}),i.addEventListener("input",function(){const f=parseInt(i.value);f<1e3&&f>0||(f>1e3?i.value=999:i.value=0),p=document.querySelectorAll(".modalCartsLis");let b=0;p.forEach(S=>{const D=S.querySelector(".modalCartsInput").value;b+=parseInt(D)*parseInt(m)}),w.textContent=`$${m*parseInt(i.value)}`,v.textContent=`$${b}`;const h=parseInt(i.value);O(h,b,C,k)}),H.addEventListener("click",function(){const f=parseInt(i.value),b=parseInt(v.textContent.replace("$",""));if(f<999){i.value=f+1;const h=parseInt(i.value);w.textContent=`$${m*i.value}`,v.textContent=`$${parseInt(b)+parseInt(m)}`;const S=m*h;O(h,S,C,k)}else i.value=999})})}else o=`
+        `}),$("#menuListUl").html(o),$("#menuTotal").html(`<p class="fw-md-bold fw-medium fs-20 fs-md-24 line-height-sm" id="menuTotal">$${w}</p>`);let p=document.querySelectorAll(".modalCartsLis");const y=document.getElementById("menuTotal");p.forEach(n=>{const S=n.querySelector(".modalCartsRemoveBtn"),d=n.querySelector(".modalCartsInput"),E=n.querySelector(".modalCartsAddBtn"),I=n.querySelector(".modalCartsTotalAmount"),r=n.querySelector(".modalCartsName"),m=parseInt(r.dataset.originalprice),i=r.textContent;parseInt(d.value),S.addEventListener("click",function(){const g=parseInt(y.textContent.replace("$",""));if(parseInt(d.value)-1>=0){const x=parseInt(d.value);d.value=x-1,I.textContent=`$${m*d.value}`,y.textContent=`$${parseInt(g)-parseInt(m)}`;const T=parseInt(d.value),D=m*T;H(T,D,h,i)}else{console.log("數量為0以下");const x=n.querySelector(".modalCartsInput");x.value=0}}),d.addEventListener("input",function(){const g=parseInt(d.value);g<1e3&&g>=0||(g>1e3?d.value=999:d.value=0),p=document.querySelectorAll(".modalCartsLis");let k=0;p.forEach(D=>{const u=D.querySelector(".modalCartsName"),P=parseInt(u.dataset.originalprice),c=D.querySelector(".modalCartsInput").value;console.log(P),k+=parseInt(c)*parseInt(P),console.log(k)}),I.textContent=`$${m*parseInt(d.value)}`,y.textContent=`$${k}`;const x=parseInt(d.value);console.log(x,k);let T=m*parseInt(d.value);H(x,T,h,i)}),E.addEventListener("click",function(){const g=parseInt(d.value),k=parseInt(y.textContent.replace("$",""));if(g<999){d.value=g+1;const x=parseInt(d.value);I.textContent=`$${m*d.value}`,y.textContent=`$${parseInt(k)+parseInt(m)}`;const T=m*x;H(x,T,h,i)}else d.value=999})})}else o=`
       <li class="mb-12 border-bottom border-top border-1 border-gray-03 py-12 mb-40">
         <p class="text-gray-01 fs-md-20">購物車目前空蕩蕩，選點下午茶吧！</p>
       </li>
-      `,$("#menuListUl").html(o),$(".modalCartsFooter").hide()}),ie.addEventListener("click",function(){de(e)})}function de(e){const l=document.getElementById("menuTotal"),t=JSON.parse(localStorage.getItem("Carts"));console.log(t);const s=parseInt(l.textContent.replace("$",""));e.orderPriceTotal=s,e.orderUserId=G,q.get(`https://teatimeapi-test.onrender.com/users?UID=${G}`).then(a=>{const o=a.data[0].userName;e.userName=o,console.log(e)}).catch(a=>{console.log(a)}),me(e)}function O(e,l,t,s){console.log(e,l,t,s),e<1e3&&e>=0?(t.forEach((a,o)=>{a.orderItem==s&&(console.log(a.orderItem),t[o].quantity=e,t[o].totalAmount=l)}),console.log(t),localStorage.setItem("Carts",JSON.stringify(t))):alert("點餐數量請介於0-999間")}function me(e){$("#orderTotal").html(`<p class="fw-md-bold fw-medium fs-20 fs-md-24 line-height-sm">$${e.orderPriceTotal}</p>`);const[l,t]=e.deadlineDateTime.split(" "),[s,a]=e.eventDateTime.split(" "),o=l.split("/"),T=`${o[1]}/${o[2]}`,C=s.split("/"),y=`${C[1]}/${C[2]}`;console.log(y,a),$("#deadlineDate").html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineDate">${T}</p>`),$("#deadlineTime").html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineTime">${t}</p>`),$("#eventDate").html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="eventDate">${y}</p>`),$("#eventDateTime").html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="eventDateTime">${a}</p>`),localStorage.setItem("Carts","")}function R(e,l,t){let s="";t?s+=`id=${t}`:s+=`UID=${l}`,$.ajax({url:`https://teatimeapi-test.onrender.com/restaurants?${s}`,success:function(a){let o=$("#paginationPagesMenu"),T=window.innerWidth<768;const{products:C,stars:y,category:p}=a[0];localStorage.setItem("category",p);let v=a.length,r=T?5:10,x="";x+=`
+      `,$("#menuListUl").html(o),$(".modalCartsFooter").hide()}),ie.addEventListener("click",function(){de(e)})}function de(e){const l=document.getElementById("menuTotal"),t=parseInt(l.textContent.replace("$","")),s=JSON.parse(localStorage.getItem("Carts")),a=JSON.parse(JSON.stringify(s));e.orderPriceTotal=t,e.orderUserId=G,_.get(`https://teatimeapi-test.onrender.com/users?UID=${G}`).then(o=>{const{userName:v}=o.data[0],{orderId:h}=e;return e.userName=v,_.get(`https://teatimeapi-test.onrender.com/orders?id=${h}`).then(w=>{const p=w.data[0],{orderDetail:y,groupingId:n,restaurantId:S,UID:d}=p,E=[];let I="";return y.forEach((r,m)=>{s.forEach((i,g)=>{i.customization.length!=0&&(I=i.customization.join("、")),r.name==v&&r.orderItem==i.orderItem&&(E.push(g),y[m]={name:v,orderItem:i.orderItem,quantity:parseInt(i.quantity),ice:i.ice?`${i.ice}`:"",sugar:i.sugar?`${i.sugar}`:"",customization:i.customization?`${I}`:"",comments:i.comments,totalAmount:i.totalAmount,isPay:r.isPay,ratingID:r.ratingID})})}),E.length>0&&E.reverse().forEach(m=>{a.splice(m,1)}),a.forEach(r=>{let m="";r.customization.length!=0&&(m=r.customization.join("、"));const i={name:v,orderItem:r.orderItem,quantity:parseInt(r.quantity),ice:r.ice?`${r.ice}`:"",sugar:r.sugar?`${r.sugar}`:"",customization:r.customization?`${m}`:"",comments:r.comments,totalAmount:r.totalAmount,isPay:!1,ratingID:""};y.push(i)}),_.patch(`https://teatimeapi-test.onrender.com/orders/${h}`,{orderDetail:y}).then(r=>{}).catch(r=>{console.log(r)})}).catch(w=>{console.log(w)})}).catch(o=>{console.log(o)}),me(e)}function H(e,l,t,s){e<1e3&&e>=0?(t.forEach((a,o)=>{a.orderItem==s&&(t[o].quantity=e,t[o].totalAmount=l)}),localStorage.setItem("Carts",JSON.stringify(t))):alert("點餐數量請介於0-999間")}function me(e){$("#orderTotal").html(`<p class="fw-md-bold fw-medium fs-20 fs-md-24 line-height-sm">$${e.orderPriceTotal}</p>`);const[l,t]=e.deadlineDateTime.split(" "),[s,a]=e.eventDateTime.split(" "),o=l.split("/"),v=`${o[1]}/${o[2]}`,h=s.split("/"),w=`${h[1]}/${h[2]}`;$("#deadlineDate").html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineDate">${v}</p>`),$("#deadlineTime").html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineTime">${t}</p>`),$("#eventDate").html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="eventDate">${w}</p>`),$("#eventDateTime").html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="eventDateTime">${a}</p>`),localStorage.setItem("Carts","")}function R(e,l,t){let s="";t?s+=`id=${t}`:s+=`UID=${l}`,$.ajax({url:`https://teatimeapi-test.onrender.com/restaurants?${s}`,success:function(a){let o=$("#paginationPagesMenu"),v=window.innerWidth<768;const{products:h,stars:w,category:p}=a[0];localStorage.setItem("category",p);let y=a.length,n=v?5:10,S="";S+=`
                       <div class="order-bg" style=" background: url(${a[0].storeBannerPhoto}) center top /cover;"></div>
                       <div class="order-content container ps-12 ps-md-42 d-sm-flex align-items-end">
                         <img src="${a[0].storeLogo}" alt="logo-cha source"
@@ -65,7 +65,7 @@ import{b as U}from"./main-91b5cbf3.js";import{i as Q,c as X}from"./notification-
                         <div class="order-textContent mb-16 mb-sm-0 me-sm-24 me-lg-37">
                           <h2 class="fs-md-40 fs-24 fw-bold lh-sm" id="storeNameID">${a[0].storeName}</h2>
                           <div class="imgItems">
-                            ${ee(y)}
+                            ${ee(w)}
                           </div>
                           <p class="order-content-p">${a[0].summary}</p>
                         </div>
@@ -108,98 +108,98 @@ import{b as U}from"./main-91b5cbf3.js";import{i as Q,c as X}from"./notification-
                           </ul>
                         </div>
                       </div>
-                      `,$("#storeOrder").html(x),o.pagination({dataSource:C,locator:"items",totalNumber:v,pageSize:r,showPageNumbers:!0,showPrevious:!0,showNext:!0,callback:function(i,H){const w=JSON.parse(JSON.stringify(i));let I="",m="",k="",f=w.slice(0,5),b=w.slice(5),h=[...b];I+=`
+                      `,$("#storeOrder").html(S),o.pagination({dataSource:h,locator:"items",totalNumber:y,pageSize:n,showPageNumbers:!0,showPrevious:!0,showNext:!0,callback:function(d,E){const I=JSON.parse(JSON.stringify(d));let r="",m="",i="",g=I.slice(0,5),k=I.slice(5),x=[...k];r+=`
                             <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
                             <ul id="">
-                          `,$.each(f,function(D,c){I+=`
+                          `,$.each(g,function(D,u){r+=`
                                 <li class=" py-16 py-sm-24 border-bottom border-1 ">
-                                  <button type="button" class="menu-button border-0 bg-white text-start w-100" data-menuUID="${c.UID}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                  <button type="button" class="menu-button border-0 bg-white text-start w-100" data-menuUID="${u.UID}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                     <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
-                                      <h3 class="store-order-h3">${c.品項}</h3>
-                                      ${F(c.冷,c.熱,c.價格)}
+                                      <h3 class="store-order-h3">${u.品項}</h3>
+                                      ${F(u.冷,u.熱,u.價格)}
                                     </div>
-                                    <p class="text-top-p">${c.商品描述}</p>
+                                    <p class="text-top-p">${u.商品描述}</p>
                                   </button>
-                                </li>`}),I+=`
+                                </li>`}),r+=`
                               </ul>
                             </div>`,m+=`
                             <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
                             <ul id="">
-                          `,$.each(h,function(D,c){m+=`
+                          `,$.each(x,function(D,u){m+=`
                                 <li class=" py-16 py-sm-24 border-bottom border-1 ">
-                                  <button type="button" class="menu-button border-0 bg-white text-start w-100" data-menuUID="${c.UID}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                  <button type="button" class="menu-button border-0 bg-white text-start w-100" data-menuUID="${u.UID}" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                     <div class="text-top d-flex justify-content-between align-items-center mb-8 mb-sm-16">
-                                      <h3 class="productName store-order-h3" data-originalPrice="">${c.品項}</h3>
-                                      ${F(c.冷,c.熱,c.價格)}
+                                      <h3 class="productName store-order-h3" data-originalPrice="">${u.品項}</h3>
+                                      ${F(u.冷,u.熱,u.價格)}
                                     </div>
-                                    <p class="text-top-p">${c.商品描述}</p>
+                                    <p class="text-top-p">${u.商品描述}</p>
                                   </button>
                                 </li>`}),m+=`
                               </ul>
-                            </div>`,k+=I,r==5&&(m=""),k+=m,$(".customMenu").html(k),document.querySelectorAll(".menu-button").forEach(D=>{D.addEventListener("click",function(){let c="";const z=this.getAttribute("data-menuuid");w.forEach(n=>{if(n.UID==z){let V=function(){let d=parseInt(g.val())||0;d<0?(g.val(0),d=parseInt(g.val())||0):d>999&&(g.val(999),d=parseInt(g.val())||0);let u=d*K;$("#mealPrice").text(u)};console.log(n);let j=!1;n.冷==!1&&n.熱==!1&&(j=!0),c+=`
+                            </div>`,i+=r,n==5&&(m=""),i+=m,$(".customMenu").html(i),document.querySelectorAll(".menu-button").forEach(D=>{D.addEventListener("click",function(){let u="";const P=this.getAttribute("data-menuuid");I.forEach(c=>{if(c.UID==P){let M=function(){let b=parseInt(C.val())||0;b<0?(C.val(0),b=parseInt(C.val())||0):b>999&&(C.val(999),b=parseInt(C.val())||0);let f=b*K;$("#mealPrice").text(f)},A=!1;c.冷==!1&&c.熱==!1&&(A=!0),u+=`
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                       <div class="modal-storeOrder-menu modal-content border-radius-24">
                         <div class="modal-header d-flex flex-column border-0 mb-32 mb-md-40 p-0 ">
                           <div class="modal-header-top d-flex justify-content-between align-items-center w-100 mb-8 mb-md-16">
-                            <h5 class="modal-title" id="modalOrderTitle" data-originalPrice="${n.價格}">${n.品項}</h5>
+                            <h5 class="modal-title" id="modalOrderTitle" data-originalPrice="${c.價格}">${c.品項}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          `,j?c+=`
+                          `,A?u+=`
                       <div class="cold-hot d-flex  align-items-center w-100 mb-8 mb-md-16 ">
                         <div class="hot d-flex justify-content-center align-items-center ">
-                          <span class="">$ ${n.價格}</span>
+                          <span class="">$ ${c.價格}</span>
                         </div>
                       </div>
-                    `:c+=`
-                            <div class="cold-hot d-flex  align-items-center w-100 mb-8 mb-md-16 ${n.冷?"":"d-none"}">
+                    `:u+=`
+                            <div class="cold-hot d-flex  align-items-center w-100 mb-8 mb-md-16 ${c.冷?"":"d-none"}">
                               <div class="cold d-flex justify-content-center align-items-center ">
                                 <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
-                                <span class="me-16">${n.價格}</span>
+                                <span class="me-16">${c.價格}</span>
                               </div>
-                              <div class="hot d-flex justify-content-center align-items-center ${n.熱,"d-none"}">
+                              <div class="hot d-flex justify-content-center align-items-center ${c.熱,"d-none"}">
                                 <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
-                                <span class="">${n.價格}</span>
+                                <span class="">${c.價格}</span>
                               </div>
                             </div>
-                            `,c+=`
-                          <p>${n.商品描述}</p>
+                            `,u+=`
+                          <p>${c.商品描述}</p>
                         </div>
                         <div class="modal-body p-0 mb-40">
-                          <h6 class="mb-12 text-gray-01 fs-20 line-height-sm ${j?"d-none":""} ${p==="飲料"?"":"d-none"}">溫度選項</h6>
-                          <ul class="mb-32 mb-md-40 ${j?"d-none":""} ${p==="飲料"?"":"d-none"}">
+                          <h6 class="mb-12 text-gray-01 fs-20 line-height-sm ${A?"d-none":""} ${p==="飲料"?"":"d-none"}">溫度選項</h6>
+                          <ul class="mb-32 mb-md-40 ${A?"d-none":""} ${p==="飲料"?"":"d-none"}">
                             <li
-                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${n.冷?"":"d-none"} ">
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${c.冷?"":"d-none"} ">
                               <input class="input-radio-style" type="radio" name="temperature" id="normal_ice" value="正常冰"
                                 checked>
                               <label for="normal_ice" class="fs-16 fs-md-20 radio-label">正常冰</label>
                             </li>
                             <li
-                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${n.冷?"":"d-none"}">
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${c.冷?"":"d-none"}">
                               <input class="input-radio-style" type="radio" name="temperature" id="smal_ice" value="少冰（8 分冰）">
                               <label for="smal_ice" class="fs-16 fs-md-20 radio-label">少冰（8 分冰）</label>
                             </li>
                             <li
-                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${n.冷?"":"d-none"}">
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${c.冷?"":"d-none"}">
                               <input class="input-radio-style" type="radio" name="temperature" id="tiny_ice" value="微冰（3 分冰）">
                               <label for="tiny_ice" class="fs-16 fs-md-20 radio-label">微冰（3 分冰）</label>
                             </li>
                             <li
-                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${n.冷?"":"d-none"}">
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${c.冷?"":"d-none"}">
                               <input class="input-radio-style" type="radio" name="temperature" id="no_ice" value="去冰">
                               <label for="no_ice" class="fs-16 fs-md-20 radio-label">去冰</label>
                             </li>
                             <li
-                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${n.熱?"":"d-none"}">
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${c.熱?"":"d-none"}">
                               <input class="input-radio-style" type="radio" name="temperature" id="warm" value="溫">
                               <label for="warm" class="fs-16 fs-md-20 radio-label">溫</label>
                             </li>
                             <li
-                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${n.熱?"":"d-none"}">
+                              class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ${c.熱?"":"d-none"}">
                               <input class="input-radio-style" type="radio" name="temperature" id="hot" value="熱">
                               <label for="hot" class="fs-16 fs-md-20 radio-label">熱</label>
                             </li>
                           </ul>
-                          <h6 class="mb-12 text-gray-01 fs-20 line-height-sm ${j?"d-none":""} ${p==="飲料"?"":"d-none"}">甜度選擇</h6>
+                          <h6 class="mb-12 text-gray-01 fs-20 line-height-sm ${A?"d-none":""} ${p==="飲料"?"":"d-none"}">甜度選擇</h6>
                           <ul class="mb-32 mb-md-40 ${p==="飲料"?"":"d-none"}">
                             <li
                               class="py-12 d-flex justify-content-between align-items-center border-bottom border-1 border-gray-03 ">
@@ -303,12 +303,12 @@ import{b as U}from"./main-91b5cbf3.js";import{i as Q,c as X}from"./notification-
                             <iconify-icon class="me-4 me-sm-8" icon="mdi:cart" style="color: white;" width="20"
                               height="20"></iconify-icon>
                             <p class="text-white me-4 me-sm-8">新增至購物車‧</p>
-                            <p class="text-white" id="mealPrice">${n.價格}</p>
+                            <p class="text-white" id="mealPrice">${c.價格}</p>
                           </button>
                         </div>
                       </div>
                     </div>
-                    `,staticBackdrop.innerHTML=c;let J=$("#numberSub"),g=$("#numberInput"),W=$("#numberAdd"),Y=$("#addProductToCarts"),K=n.價格;J.on("click",function(){let d=parseInt(g.val())||0;d>1?(g.val(d-1),V()):g.val(1)}),W.on("click",function(){let d=parseInt(g.val())||0;d<999?(g.val(d+1),V()):g.val(999)}),g.on("input",V),Y.on("click",function(){let d=[],u={};const A=[];if(u.orderItem=$("#modalOrderTitle").text(),u.quantity=$("#numberInput").val(),p=="飲料"){u.ice=$('[name="temperature"]:checked').val(),u.sugar=$('[name="sweetness"]:checked').val();const B=$("#fresh_milk"),E=$("#pearl"),M=$("#brown_sugar"),P=$("#agar");B.is(":checked")&&A.push("升級鮮奶"),E.is(":checked")&&A.push("珍珠"),M.is(":checked")&&A.push("黑糖"),P.is(":checked")&&A.push("寒天晶球")}if(u.comments=$("#remark").val(),u.totalAmount=parseInt($("#mealPrice").text()),u.customization=A,u.originalPrice=n.價格,localStorage.getItem("Carts")){let B=0;const E=JSON.parse(localStorage.getItem("Carts"));E.forEach((M,P)=>{M.orderItem===$("#modalOrderTitle").text()&&(B+=1,E[P]=u)}),B==0&&E.push(u),localStorage.setItem("Carts",JSON.stringify(E))}else d.push(u),console.log(u),console.log(d),localStorage.setItem("Carts",JSON.stringify(d));$("#staticBackdrop").modal("hide")})}})})}),f=[],b=[],new Swiper(".mySwiper",{breakpoints:{1:{slidesPerView:1,spaceBetween:10,centeredSlides:!1},576:{slidesPerView:2,spaceBetween:24,centeredSlides:!1}}})}})},error:function(a){console.error("error")}})}function F(e,l,t){let s="";return e==!1&&l==!1?s+=`
+                    `,staticBackdrop.innerHTML=u;let J=$("#numberSub"),C=$("#numberInput"),W=$("#numberAdd"),Y=$("#addProductToCarts"),K=c.價格;J.on("click",function(){let b=parseInt(C.val())||0;b>1?(C.val(b-1),M()):C.val(1)}),W.on("click",function(){let b=parseInt(C.val())||0;b<999?(C.val(b+1),M()):C.val(999)}),C.on("input",M),Y.on("click",function(){let b=[],f={};const B=[];if(f.orderItem=$("#modalOrderTitle").text(),f.quantity=$("#numberInput").val(),p=="飲料"){f.ice=$('[name="temperature"]:checked').val(),f.sugar=$('[name="sweetness"]:checked').val();const N=$("#fresh_milk"),j=$("#pearl"),L=$("#brown_sugar"),q=$("#agar");N.is(":checked")&&B.push("升級鮮奶"),j.is(":checked")&&B.push("珍珠"),L.is(":checked")&&B.push("黑糖"),q.is(":checked")&&B.push("寒天晶球")}if(f.comments=$("#remark").val(),f.totalAmount=parseInt($("#mealPrice").text()),f.customization=B,f.originalPrice=c.價格,localStorage.getItem("Carts")){let N=0;const j=JSON.parse(localStorage.getItem("Carts"));j.forEach((L,q)=>{L.orderItem===$("#modalOrderTitle").text()&&(N+=1,j[q]=f)}),N==0&&j.push(f),localStorage.setItem("Carts",JSON.stringify(j))}else b.push(f),localStorage.setItem("Carts",JSON.stringify(b));$("#staticBackdrop").modal("hide")})}})})}),g=[],k=[],new Swiper(".mySwiper",{breakpoints:{1:{slidesPerView:1,spaceBetween:10,centeredSlides:!1},576:{slidesPerView:2,spaceBetween:24,centeredSlides:!1}}})}})},error:function(a){console.error("error")}})}function F(e,l,t){let s="";return e==!1&&l==!1?s+=`
       <div class="cold-hot d-flex justify-content-center align-items-center">
       <div class="cold d-flex justify-content-center align-items-center  ${e?"":"hidden-block"}">
         <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
