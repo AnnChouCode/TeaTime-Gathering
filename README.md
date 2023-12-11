@@ -10,29 +10,43 @@
 
 
 # 下午茶揪團去 TeaTime Gathering
-https://annchoucode.github.io/TeaTime-Gathering/
+pages：https://annchoucode.github.io/TeaTime-Gathering/
+figma：[https://www.figma.com/TeaTimeGathering](https://www.figma.com/file/HO7tXforqKlJOZdAJpM38c/%239-%E6%8F%AA%E5%9C%98%E4%B8%8B%E5%8D%88%E8%8C%B6-(Selina-%26-Ann-Chou)?type=design&node-id=115%3A981&mode=design&t=ai1CirSJIcsfLl5K-1)
 
-# 頁面
+## 頁面
 首頁、店家頁、點餐頁、訂餐月曆、建立投票頁、使用者後台
+
+## 功能
+- [x] 登入、登出
+- [x] 當日揪團活動閱覽
+- [x] 揪團、投票活動月曆檢索
+- [x] 店家列表檢索
+- [x] 點餐跟團既有活動
+- [x] 建立訂單
+- [x] 投票既有活動
+- [x] 建立投票活動
+- [x] 撰寫評價
+- [x] 評價、留言閱覽
+- [x] 使用者後台閱覽
 
 [![DEMO](http://img.youtube.com/vi/iudtBVr1Y8g/0.jpg)](https://www.youtube.com/watch?v=iudtBVr1Y8g "Front End Project｜下午茶揪團去 TeaTime Gathering")
 
-# 安裝
+## 安裝
 以下將會引導你如何安裝此專案到你的電腦上。
   - 專案的 Node.js 版本需為 v16 以上
 
-## 取得專案
+### 取得專案
 `git clone https://github.com/AnnChouCode/TeaTime-Gathering.git`
 
-## 安裝套件
-`npm install i` - 初次下載該範例專案後，需要使用 npm install 安裝套件
+### 安裝套件
+`npm install` - 初次下載該範例專案後，需要使用 npm install 安裝套件
 
 ## 運行套件
 - `npm run dev` - 執行開發模式
 - 若沒有自動開啟瀏覽器，可嘗試手動在瀏覽器上輸入 `http://localhost:5173/TeaTime-Gathering/pages/index.html`
 
 
-# 專案技術
+## 專案技術
 前端技術
   - HTML5
   - CSS3
@@ -43,28 +57,29 @@ https://annchoucode.github.io/TeaTime-Gathering/
 預處理器
   - Sass
 框架與套件
-  - Bootstrap 5
-  - AXIOS：API 操作
-  - jQuery：API 操作、套件控制、按鈕互動效果控制
-  - Moment：時間處理
-  - flatpickr：時間選擇器
-  - autoComplete：搜尋關鍵字聯想
-  - Pagination：頁碼
-  - Swiper：跑馬燈輪播
-  - AOS：動畫效果
-  - Tocas UI：progress 進度條與處理 loading 動畫
-  - evocalendar：月曆
-  - Chart：圖表數據視覺
+  - Bootstrap 5.3.1
+  - AXIOS 1.6.1：API 操作
+  - jQuery 3.7.1：API 操作、套件控制、按鈕互動效果控制
+  - Moment 2.29.4：時間處理
+  - flatpickr 4：時間選擇器
+  - autoComplete 10.2.7：搜尋關鍵字聯想
+  - Pagination 2.6.0：頁碼
+  - Swiper 10：跑馬燈輪播
+  - AOS 2.3.1：動畫效果
+  - Tocas UI 4.2.5：progress 進度條與處理 loading 動畫
+  - evocalendar 1.1.2：月曆
+  - Chart 4.0：圖表數據視覺
+  - Crypto-js 4.2.0：加密解密 token
 設計工具
   - Figma
 
 
-# 作者
+## 作者
   - Ann Chou [github](https://github.com/AnnChouCode)
   - Billy Ti [github](https://github.com/Billy-Ti)
   - Mark [github](https://github.com/Mark-JJchen)
   - WA [github](https://github.com/ldddl)
 
-# 設計師
-  - Selina
-  - Ann Chou
+## 設計師
+  - Selina：首頁、設計規範
+  - Ann Chou：其他頁面
