@@ -259,6 +259,8 @@
             import isLoggedIn from '/assets/js/components/isLoggedIn.js';
             // import 解密 token 元件
             import cryptoToken from '/assets/js/components/cryptoToken.js';
+            //活動時間字串處理
+            import showDateTime from '/assets/js/components/showDateTime.js';
 
             //全頁共用變數
             const _url = "https://teatimeapi-test.onrender.com"
@@ -546,16 +548,6 @@
               invitees.textContent = event.invitees === "" ? "無" : event.invitees
             }
 
-            //時間字串處理
-            function showDateTime(datetime) {
-              //月份 & 日期
-              const date = datetime.substring(5, 10)
-              //時間
-              const time = datetime.split(" ")[1]
-
-              return [date, time]
-            }
-
             //render 投票 modal 選項店家資料
             function renderVotingCard(votingCardData) {
               //店家卡片渲染區域
@@ -743,7 +735,7 @@
                 const diffInHours = formattedEventDateTime.diff(formattedDeadlineDateTime, 'hours');
                 //提示訊息
                 const deadlineDateTimeAlert = document.querySelector(".deadlineDateTimeAlert")
-                
+
                 if (diffInHours < 24) {
                   deadlineDateTimeAlert.classList.remove("d-none")
                 } else {

@@ -260,8 +260,8 @@
                                 <iconify-icon class="me-8" icon="solar:calendar-linear" style="color: #1e1e1e;"
                                     width="26" height="26"></iconify-icon>
                                 <span
-                                    class="me-8 fs-16 fs-md-20 fw-medium line-height-sm eventDateTime-Date">08/12</span>
-                                <span class="fs-16 fs-md-20 fw-medium line-height-sm eventDateTime-Time">14:30</span>
+                                    class="me-8 fs-16 fs-md-20 fw-medium line-height-sm eventDateTime-Date">00/00</span>
+                                <span class="fs-16 fs-md-20 fw-medium line-height-sm eventDateTime-Time">00:00</span>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center mb-32 mb-md-40">
@@ -270,8 +270,8 @@
                                 <iconify-icon class="me-8" icon="solar:calendar-linear" style="color: #1e1e1e;"
                                     width="26" height="26"></iconify-icon>
                                 <span
-                                    class="me-8 fs-16 fs-md-20 fw-medium line-height-sm deadlineDateTime-Date">08/11</span>
-                                <span class="fs-16 fs-md-20 fw-medium line-height-sm deadlineDateTime-Time">10:30</span>
+                                    class="me-8 fs-16 fs-md-20 fw-medium line-height-sm deadlineDateTime-Date">00/00</span>
+                                <span class="fs-16 fs-md-20 fw-medium line-height-sm deadlineDateTime-Time">00:00</span>
                             </div>
                         </div>
                         <p class="fs-md-20 text-brand-02">※ 您建立的投票活動已經開放投票！</p>
@@ -306,13 +306,10 @@
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
 
-
-                <!-- 時間選擇器 flatpickr import -->
-                <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-
                 <script type="module">
                     import axios from 'axios';
+                    // import 時間選擇器
+                    import flatpickr from "flatpickr";
 
                     // import 星級樣板
                     import showStars from '/assets/js/components/showStars.js';
@@ -320,6 +317,8 @@
                     import isLoggedIn from '/assets/js/components/isLoggedIn.js';
                     // import 解密 token 元件
                     import cryptoToken from '/assets/js/components/cryptoToken.js';
+                    //活動時間字串處理
+                    import showDateTime from '/assets/js/components/showDateTime.js';
 
 
                     /* 頁面基本資料取得 ===================================================*/
@@ -837,16 +836,16 @@
                         let formattedDeadlineDateTime = ""
 
                         //獲取時間輸入格的值
-                        const selectedEventDateTime = document.getElementById("eventDateTime").value.trim();
-                        const selectedDeadlineDateTime = document.getElementById("deadlineDateTime").value.trim();
+                        const selectedEventDateTime = eventDateTimeInput.value.trim();
+                        const selectedDeadlineDateTime = deadlineDateTimeInput.value.trim();
 
                         //若「享用時間」輸入格有值，則進行時間格式化
                         if (selectedEventDateTime) {
-                            formattedEventDateTime = moment(eventDateTimeInput.value, "YYYY/MM/DD HH:mm");
+                            formattedEventDateTime = moment(selectedEventDateTime, "YYYY/MM/DD HH:mm");
                         }
                         //若「截止時間」輸入格有值，則進行時間格式化
                         if (selectedDeadlineDateTime) {
-                            formattedDeadlineDateTime = moment(deadlineDateTimeInput.value, "YYYY/MM/DD HH:mm");
+                            formattedDeadlineDateTime = moment(selectedDeadlineDateTime, "YYYY/MM/DD HH:mm");
                         }
 
                         //判斷輸入格是否有未填
@@ -892,13 +891,13 @@
                     const createdSuccessModal = document.getElementById('modal-createdSuccess')
                     //建立投票成功 modal 顯示資料                    
                     createdSuccessModal.addEventListener('show.bs.modal', function (event) {
-                        const eventDateTimeValue = eventDateTimeInput.value
-                        const deadlineDateTimeValue = deadlineDateTimeInput.value
-
-                        document.querySelector(".eventDateTime-Date").textContent = eventDateTimeValue.substring(5, 10)
-                        document.querySelector(".eventDateTime-Time").textContent = eventDateTimeValue.split(" ")[1]
-                        document.querySelector(".deadlineDateTime-Date").textContent = deadlineDateTimeValue.substring(5, 10)
-                        document.querySelector(".deadlineDateTime-Time").textContent = deadlineDateTimeValue.split(" ")[1]
+                        const eventDateTimeValue = eventDateTimeInput.value.trim()
+                        const deadlineDateTimeValue = deadlineDateTimeInput.value.trim()
+                        
+                        document.querySelector(".eventDateTime-Date").textContent = showDateTime(eventDateTimeValue)[0]
+                        document.querySelector(".eventDateTime-Time").textContent = showDateTime(eventDateTimeValue)[1]
+                        document.querySelector(".deadlineDateTime-Date").textContent = showDateTime(deadlineDateTimeValue)[0]
+                        document.querySelector(".deadlineDateTime-Time").textContent = showDateTime(deadlineDateTimeValue)[1]
                     })
 
                     // btn 關閉投票成功 modal
@@ -983,23 +982,9 @@
                     inputAutoComplete.addEventListener("input", function (e) {
                         toggleFilter("search", "")
                     })
-                </script>
 
-                <!-- jQuery -->
-                <script>
-                    /* select-bar 排序篩選按鈕 active 狀態切換顯示 */
-                    $('.btnSortStore').click(function (e) {
-                        $('.btnSortStore').removeClass('btn-active-brand-02');
-                        $(this).addClass('btn-active-brand-02');
-                    });
-                    $('.categoryStoreBar button').click(function (e) {
-                        $('.categoryStoreBar button').removeClass('actived');
-                        $(this).addClass('actived');
-                    });
-                </script>
 
-                <!-- 時間選擇器 flatpickr -->
-                <script>
+                    /* 時間選擇器 flatpickr 初始化 ===================*/
                     //時間輸入格格式化
                     const eventDateTime = flatpickr("#eventDateTime", {
                         enableTime: true,
@@ -1016,7 +1001,18 @@
                         minuteIncrement: 15,
                         allowInput: true,
                         minDate: moment().format('YYYY/MM/DD'),
-                    });              
+                    });
+
+
+                    /* select-bar 排序篩選按鈕 active 狀態切換顯示 =============*/
+                    $('.btnSortStore').click(function (e) {
+                        $('.btnSortStore').removeClass('btn-active-brand-02');
+                        $(this).addClass('btn-active-brand-02');
+                    });
+                    $('.categoryStoreBar button').click(function (e) {
+                        $('.categoryStoreBar button').removeClass('actived');
+                        $(this).addClass('actived');
+                    });                               
                 </script>
 
 
