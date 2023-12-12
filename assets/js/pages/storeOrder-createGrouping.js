@@ -76,7 +76,7 @@ addGrouping.addEventListener('click',function (params) {
         return
     }
     if(groupingInvitees.value == ''){
-        console.log('請選擇付款人');
+        // console.log('請選擇付款人');
         return
     }else{
         // console.log(groupingInvitees.value);
@@ -137,7 +137,7 @@ function sendAddGroup(payer){
                 .then(groupingsPostRes=>{
                     $('#modal-CreateGroup').modal('hide');
                     $('#modal-successfullyGroup').modal('show');
-                    console.log('新增成功');
+                    // console.log('新增成功');
                     window.location.href = `store-order.html?UID=${groupData.UID}`;
                 })
                 .catch(err=>{console.log(err);})
