@@ -22,7 +22,7 @@ let datas = []
 
 /* 開團投票事件資訊整理 ========================================== */
 function initEvents() {
-    //定義資料時間範圍，目前暫定當下前後一個月（避免事件數量不夠，因此以 3 個月範圍）                    
+    //定義資料時間範圍，目前暫定當下前後一個月                    
     const latterMonth = moment().add(2, 'month').format('YYYY/MM')
     const agoMonth = moment().subtract(1, 'month').format('YYYY/MM')
     //API 時間範圍
@@ -41,7 +41,6 @@ function initEvents() {
         }).catch(function (err) {
             console.error(err.message);
         });
-
 }
 
 initEvents()
@@ -126,6 +125,12 @@ function handleDataToBeRendered(category = "groupings") {
 
 //渲染事件
 function renderEvent(dataToBeRendered) {
+    //如果沒有事件
+    if (!dataToBeRendered.length){
+        calendarBlock.innerHTML = "<div class='fs-16 fs-md-20 text-center'><p>目前沒有活動</p><p>歡迎建立開團與投票</p></div>"
+        return
+    }
+    
     //活動卡片渲染來源
     let strTemplate = ""
 

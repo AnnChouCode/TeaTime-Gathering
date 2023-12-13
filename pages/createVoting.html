@@ -274,7 +274,7 @@
                                 <span class="fs-16 fs-md-20 fw-medium line-height-sm deadlineDateTime-Time">00:00</span>
                             </div>
                         </div>
-                        <p class="fs-md-20 text-brand-02">※ 您建立的投票活動已經開放投票！</p>
+                        <p class="fs-md-20 text-brand-02">※ 您建立的投票活動已經開放投票，邀請夥伴來參加吧！</p>
                     </div>
                 </div>
             </div>
@@ -724,6 +724,8 @@
 
 
                     btnCreateVoting.addEventListener("click", createVoting)
+                    //即將建立的投票 UID
+                    let votingDataUID = ""
 
                     //「建立投票」按鈕動作
                     async function createVoting() {
@@ -740,7 +742,7 @@
 
                         try {
                             //獲取新投票事件 UID
-                            const votingDataUID = await getNewVotingUID()
+                            votingDataUID = await getNewVotingUID()
                             //包裝可傳入 votings API 的檔案                         
                             packageData(votingDataUID)
                             //控制 modal 切換                             
@@ -910,8 +912,8 @@
                         const btnLinkToCalendar = document.querySelector(".btnLinkToCalendar")
 
                         btnLinkToCalendar.addEventListener("click", function () {
-                            //超連結回到月曆頁
-                            window.location.href = "./calendar.html"
+                            //超連結回到月曆頁，並開啟投票事件
+                            window.location.href = `./calendar.html?UID=${votingDataUID}`
                         })
                     });
 
