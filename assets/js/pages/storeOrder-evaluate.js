@@ -6,9 +6,9 @@ let ratingRWDInnerHTML = document.querySelector(".rating-cards-RWD");
 let ratingToggleBtn = document.querySelector(".ratingToggleBtn");
 let ratingRWDToggleBtn = document.querySelector(".ratingRWDToggleBtn");
 
-// let thisPageStoreName = "Leisurely Café"
 let ratingData = [];
 let ratingArys = [];
+
 // 找到網址路徑的搜尋範圍 如:?UID=B001  ，在抓出最後的4碼店家代號
 let currentUrlSearch = (window.location.search).slice(-4,);
 
@@ -71,6 +71,8 @@ function showRating(quantity = 4) {
 
     }
 }
+
+
 // RWD留言右方按鈕，觸發toggle，呈現全部或者4則留言
 let RWDshowAll = true;
 ratingRWDToggleBtn.addEventListener("click", function () {
@@ -80,9 +82,10 @@ ratingRWDToggleBtn.addEventListener("click", function () {
     showRating(RWDshowAll == true ? 4 : ratingData.length);
     ratingRWDToggleBtn.classList.toggle("transform180")
 })
+
+
 // 留言下方按鈕，觸發toggle，呈現全部或者4則留言
 let showAll = true;
-
 ratingToggleBtn.addEventListener("click", function () {
     showAll = !showAll;
     ratingInnerHTML.innerHTML = "";
@@ -90,3 +93,45 @@ ratingToggleBtn.addEventListener("click", function () {
     showRating(showAll == true ? 4 : ratingData.length);
     ratingToggleBtn.classList.toggle("transform180")
 })
+
+// 評價上傳
+const updateRatingBtn = document.getElementById('updateRatingBtn');
+updateRatingBtn.addEventListener('click', updateRating);
+
+function updateRating(e) {
+    let updataObj = {};
+    const modalTitle = document.querySelector(".modal-title")
+    modalTitle.textContent = document.querySelector("#storeNameID").textContent;
+
+    let storeNameinModal = updateRatingBtn.closest('.modal-content').querySelector('h5').innerText;
+    let starinModal = document.querySelector("[data-rating-star]").dataset.ratingStar;
+    let memberEvaluate = document.querySelector(".memberEvaluate");
+
+
+    let storeUrl = "https://teatimeapi-test.onrender.com/groupings?UID=G001&_expand=restaurant";
+
+    // restaurantData.forEach(item => {
+    //     if (item.storeName === storeNameinModal && memberEvaluate.value !== "") {
+    //         updataObj = {
+    //             UID: "R004",
+    //             reviewer: "黃莉琳",
+    //             reviewerPhoto: "https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/user/female/user-female-03.jpg",
+    //             starRating: Number(starinModal),
+    //             feedbackText: memberEvaluate.value,
+    //             reviewedRestaurant: item.storeName,
+    //             restaurantUID: item.UID,
+    //             reviewDateTime: moment().format('YYYY/MM/DD')
+    //         }
+    //         axios.post('https://teatimeapi-test.onrender.com/ratings', updataObj).
+    //             then(function (res) {
+    //                 memberEvaluate.value = "";
+    //                 // 成功後觸發 "X"的按鈕
+    //                 const closeButton = document.querySelector('.btn-close');
+    //                 closeButton.click();
+    //                 setTimeout(() => {
+    //                     alert("留言評價成功");
+    //                 }, 100)
+    //             })
+    //     }
+    // })
+}
