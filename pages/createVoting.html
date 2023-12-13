@@ -609,7 +609,12 @@
 
                                 //綁定該 uid 對應 checkbox
                                 const checkedCheckbox = document.querySelector(`input[data-uid=${uid}]`)
-                                checkedCheckbox.checked = false
+                                //如果有綁定到該 checkbox 才執行取消 checked
+                                if (checkedCheckbox){
+                                    checkedCheckbox.checked = false
+                                }
+
+                                //刪除清單中的店家
                                 delete checkedStoreList[uid]
 
                                 renderCheckedStore()
