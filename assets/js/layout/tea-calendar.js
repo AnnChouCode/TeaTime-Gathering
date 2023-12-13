@@ -265,7 +265,7 @@ function renderVotingCard(votingCardData) {
         const numVoters = data.currentVoters.length
         //當前店家最小成團人數
         const numMinGroupSize = data.restaurant.minGroupSize
-
+        
         cardDataTemp += `
     <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
         <img class="border-radius-32321616 votingcard-photo" src="${data.restaurant.storeCover}">

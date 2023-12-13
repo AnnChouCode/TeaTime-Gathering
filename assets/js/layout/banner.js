@@ -2,6 +2,8 @@
 import showStars from '/assets/js/components/showStars.js';
 import axios from 'axios';
 let bannerData = [];
+
+localStorage.setItem('Carts', ''); // 清空購物車
 let templateBanner = "";
 const today = new Date();
 let todayDateString = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;

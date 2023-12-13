@@ -13,7 +13,7 @@ let enjoyTime = '' // 享用日期
 let orderTime = '' // 訂購期限
 let timeInsufficient = false; // 享用日期 是否大於 訂購期限 24hr
 let usersName = ''; // 使用者姓名
-let usersId = ''; // 使用者姓名
+let usersId = ''; // 使用者id
 
 /* 選擇建立揪團資料 ================================*/
 //綁定建立揪團按鈕
@@ -34,7 +34,7 @@ if(isGroupings){
 }else{
     axios.get(`https://teatimeapi-test.onrender.com/restaurants?UID=${UID}`)
     .then(res=>{
-        console.log(res);
+        // console.log(res);
         newRestaurantId = res.data[0].id;
     })
     .catch(err=>{console.log(err);})
@@ -51,32 +51,44 @@ addGrouping.addEventListener('click',function (params) {
     let payer = '';
     if(enjoyTime == ''){
         // console.log('未選擇 享用日期');
+        $('.EnjoyFillAlert').addClass('shake-element')
+        setTimeout(function() {
+            $('.EnjoyFillAlert').removeClass('shake-element');
+        }, 2000); // 停止搖動後的 2 秒鐘內移除
         return
     }else{
         let dateTimeEnjoy = new Date(enjoyTime);
         const datePartEnjoy = `${dateTimeEnjoy.getMonth() + 1}/${dateTimeEnjoy.getDate()}`;
         const timePartEnjoy = `${dateTimeEnjoy.getHours()}:${String(dateTimeEnjoy.getMinutes()).padStart(2, '0')}`;
-        console.log(datePartEnjoy,timePartEnjoy);
+        // console.log(datePartEnjoy,timePartEnjoy);
         $('#groupEnjoyDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="groupEnjoyDate">${datePartEnjoy}</p>`)
         $('#groupEnjoyTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="groupEnjoyTime">${timePartEnjoy}</p>`)
     }
     if(orderTime == ''){
         // console.log('未選擇 訂購時間');
+        $('.orderFillAlert').addClass('shake-element')
+        setTimeout(function() {
+            $('.orderFillAlert').removeClass('shake-element');
+        }, 2000); // 停止搖動後的 2 秒鐘內移除
         return
     }else{
         let dateTimeDeadline = new Date(orderTime);
         const datePartDeadline = `${dateTimeDeadline.getMonth() + 1}/${dateTimeDeadline.getDate()}`;
         const timePartDeadline = `${dateTimeDeadline.getHours()}:${String(dateTimeDeadline.getMinutes()).padStart(2, '0')}`;
-        console.log(datePartDeadline,timePartDeadline);
+        // console.log(datePartDeadline,timePartDeadline);
         $('#groupDeadlineDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="groupEnjoyDate">${datePartDeadline}</p>`)
         $('#groupDeadlineTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="groupEnjoyTime">${timePartDeadline}</p>`)
     }
     if(timeInsufficient){
-        // console.log('時間不足24');
+        // console.log('時間不足 24');
         return
     }
     if(groupingInvitees.value == ''){
         // console.log('請選擇付款人');
+        $('.inviteesFillAlert').addClass('shake-element')
+        setTimeout(function() {
+            $('.inviteesFillAlert').removeClass('shake-element');
+        }, 2000); // 停止搖動後的 2 秒鐘內移除
         return
     }else{
         // console.log(groupingInvitees.value);
@@ -93,7 +105,7 @@ function sendAddGroup(payer){
     // console.log('訂購時間',orderTime.toString());
     // console.log('享用日期',enjoyTime.toString());
     // console.log('付款人 userUID',_user);
-    console.log(usersId);
+    // console.log(usersId);
     let orderData = {
         restaurantId: newRestaurantId,
         orderDetail: [ ]
@@ -186,7 +198,6 @@ function handleDate(ordersLength, groupingsLength){
 modalCreateGroup.addEventListener("show.bs.modal", function (event) {
     //綁定發起人
     const groupingInitiator = document.querySelector(".groupingInitiator")
-    console.log();
     const storeName = $('#storeNameID').html()
 
     $('#orderStoreId').html(`<p class="text-gray-01" id="orderStoreId">${storeName}</p>`)
@@ -230,7 +241,8 @@ modalCreateGroup.addEventListener("click", function (event) {
     //若時間輸入格均有值，判定訂購期限需早於享用時間至少 24 時
     if (formattedEnjoymentDate && formattedOrderTerm ) {
         const diffInHours = formattedEnjoymentDate.diff(formattedOrderTerm, 'hours')
-        const orderTermAlert = document.querySelector(".orderTermAlert")
+        const orderTermAlert = document.querySelector(".orderTermAlert") // 訂購期限
+
 
         if (diffInHours < 24) {
             orderTermAlert.classList.remove("d-none")
@@ -239,6 +251,21 @@ modalCreateGroup.addEventListener("click", function (event) {
             orderTermAlert.classList.add("d-none")
         }
     }
+
+    if(formattedEnjoymentDate){
+        $('.EnjoyFillAlert').addClass('d-none')
+    }
+    if(formattedOrderTerm){
+        $('.orderFillAlert').addClass('d-none')
+    }
+    $("#groupingInvitees").change(function() {
+        var selectedValue = $(this).val();
+        if (selectedValue === "") {
+          $(".inviteesFillAlert").show();  // 顯示提示
+        } else {
+          $(".inviteesFillAlert").hide();  // 隱藏提示
+        }
+      });
 })
 
 

@@ -1,6 +1,10 @@
 .animation-bounce-down{
     animation: bounce  1s infinite linear;
 }
+/* 將動畫應用到元素 */
+.shake-element {
+  animation: shake 2s forwards; /* 可以調整持續時間和次數 */
+}
 
   // 順時鐘旋轉
 @keyframes bounce  {
@@ -24,4 +28,17 @@
 50% {
   transform: translateX(-10px); /* 向左移動 10px */
 }
+}
+
+/* 定義左右搖晃的動畫 */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25%, 75% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
 }
