@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <!-- 進度條 tocas progress -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/calendar-8de804fc.js"></script>
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/calendar-c90ab908.js"></script>
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-91b5cbf3.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/enc-utf8-05a2ad8c.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/notification-93dbf0dc.js">
@@ -566,6 +566,28 @@
                 <div class="col col-lg-8 d-none d-lg-block">
                   <p class="fs-16 fs-md-20 text-center">尚未選擇店家</p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 當前 UID 網址已過期提示 Modal -->
+      <div class="modal" id="modal-eventExpired" aria-hidden="true" aria-labelledby="modal-eventExpired" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered mx-auto px-12 px-sm-0" style="max-width:416px;">
+          <div class="modal-content border-radius-24">
+            <div class="d-flex flex-column border-0 pt-12 pt-md-24 px-16 px-md-40 ms-auto">
+              <button type="button" class="btn-close btnLinkToCalendar" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-16 pt-0 p-md-40">
+              <div class="mb-20 mb-md-40 text-center">
+                <p class="text-gray-01 fw-bold line-height-sm fs-20 fs-md-24">※ 找不到您指定的投票活動</p>
+            </div>
+              <div class="fs-md-20">
+                <p>請確認您的網址是否正確？</p>
+                <p>若為正確網址，可能是由於您持有的網址為測試版本，將於一定時間內過期無法使用。</p>
+                <p>請『使用現有活動投票』，或是『建立投票』。</p>
               </div>
             </div>
           </div>
