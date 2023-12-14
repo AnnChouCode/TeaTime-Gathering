@@ -221,6 +221,28 @@
         </div>
       </div>
 
+      <!-- 當前 UID 網址已過期提示 Modal -->
+      <div class="modal" id="modal-eventExpired" aria-hidden="true" aria-labelledby="modal-eventExpired" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered mx-auto px-12 px-sm-0" style="max-width:416px;">
+          <div class="modal-content border-radius-24">
+            <div class="d-flex flex-column border-0 pt-12 pt-md-24 px-16 px-md-40 ms-auto">
+              <button type="button" class="btn-close btnLinkToCalendar" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-16 pt-0 p-md-40">
+              <div class="mb-20 mb-md-40 text-center">
+                <p class="text-gray-01 fw-bold line-height-sm fs-20 fs-md-24">※ 找不到您指定的投票活動</p>
+            </div>
+              <div class="fs-md-20">
+                <p>請確認您的網址是否正確？</p>
+                <p>若為正確網址，可能是由於您持有的網址為測試版本，將於一定時間內過期無法使用。</p>
+                <p>請『使用現有活動投票』，或是『建立投票』。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <!-- footer -->
       <%- include('./layout/footer'); -%>
@@ -259,6 +281,8 @@
             import isLoggedIn from '/assets/js/components/isLoggedIn.js';
             // import 解密 token 元件
             import cryptoToken from '/assets/js/components/cryptoToken.js';
+            //活動時間字串處理
+            import showDateTime from '/assets/js/components/showDateTime.js';
 
             //全頁共用變數
             const _url = "https://teatimeapi-test.onrender.com"
@@ -266,6 +290,8 @@
             const _user = cryptoToken(_token)
 
             /* 投票頁初始頁面 render init ================================*/
+            //辨識當前網頁 UID
+            let currentUID = ""
             //使用 moment 格式化日期
             const today = moment().format('YYYY/MM/DD');
             //初步撈取的資料
@@ -283,12 +309,21 @@
                   datas = datas.concat(res[0].data)
                   datas = datas.concat(res[1].data)
                   createEventData()
-                }).catch(function (err) {
+                }).then(success=> {
+                  //建立月曆 data
+                  createEvoCalendarData()
+                  //渲染事件
+                  renderEvent()
+                  //辨識當前網頁是否帶 UID，若有則以顯示該投票活動為優先
+                  initCurrentUID()
+                })
+                .catch(function (err) {
                   console.error(err.message);
                 });
             }
 
             init();
+
 
             //整理事件 Data，以 UID 做分類
             function createEventData() {
@@ -316,8 +351,6 @@
 
               });
 
-              createEvoCalendarData()
-              renderEvent()
             }
 
 
@@ -488,6 +521,32 @@
             }
 
 
+
+            /* 當前網頁 UID 辨識 ==================================*/
+            function initCurrentUID() {
+              //辨識當前網頁是否帶 UID，若有則以顯示該投票活動為優先
+              currentUID = location.href.split("=")[1]
+
+              //有 UID 也找的到相關事件
+              if (currentUID.startsWith("V") && calendarEventMap[currentUID]) {
+                $("#modal-VotingModal").modal("show");
+              } else if (currentUID) {
+                //有 UID，但找不到相關事件，代表連結錯誤或已過期
+                $("#modal-eventExpired").modal("show");
+              }
+            }
+
+            // 當前網頁 UID 過期提醒 modal
+            const expiredModal = document.getElementById('modal-eventExpired')
+
+            //modal 資料顯示
+            expiredModal.addEventListener('hidden.bs.modal', function (event) {
+              //超連結回到月曆頁
+              window.location.href = `./calendar.html`
+            })
+
+
+
             /* 投票檢索 modal & 投票動作 ===============================*/
             const VotingModal = document.getElementById('modal-VotingModal')
 
@@ -508,16 +567,13 @@
             VotingModal.addEventListener('show.bs.modal', function (event) {
               //從投票事件卡片獲取 data-bs-votingUID 編號
               const modalData = event.relatedTarget
-              const votingUID = modalData.getAttribute('data-bs-votingUID')
+              const votingUID = !modalData ? currentUID : modalData.getAttribute('data-bs-votingUID')
 
               //render 投票活動資訊
               renderVotingModalInfo(votingUID)
 
               //可投票店家卡片資料初始化            
               initModalVotingCard(votingUID)
-
-              //判斷登入狀態
-              //isLoggedIn(_token)
             })
 
             //render 投票 modal 活動資訊
@@ -544,16 +600,6 @@
 
               initiator.textContent = event.initiator
               invitees.textContent = event.invitees === "" ? "無" : event.invitees
-            }
-
-            //時間字串處理
-            function showDateTime(datetime) {
-              //月份 & 日期
-              const date = datetime.substring(5, 10)
-              //時間
-              const time = datetime.split(" ")[1]
-
-              return [date, time]
             }
 
             //render 投票 modal 選項店家資料
@@ -743,7 +789,7 @@
                 const diffInHours = formattedEventDateTime.diff(formattedDeadlineDateTime, 'hours');
                 //提示訊息
                 const deadlineDateTimeAlert = document.querySelector(".deadlineDateTimeAlert")
-                
+
                 if (diffInHours < 24) {
                   deadlineDateTimeAlert.classList.remove("d-none")
                 } else {
