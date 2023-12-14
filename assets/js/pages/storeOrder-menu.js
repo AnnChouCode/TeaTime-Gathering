@@ -8,6 +8,12 @@ import timeForCarts from '/assets/js/components/timeForCarts.js';
 import calcGroupProgress from '/assets/js/components/calcGroupProgress.js';
 // import 解密 token 樣板
 import cryptoToken from '/assets/js/components/cryptoToken.js';
+// import 時間判斷 樣板
+import isPastEvent from '/assets/js/components/isPastEvent.js';
+// import 活動時間 字串處理
+import showDateTime from '/assets/js/components/showDateTime.js';
+// import 判斷開團時間 
+import isGroupTime from '/assets/js/components/isGroupTime.js';
 import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
 import axios from "axios";
 
@@ -32,14 +38,23 @@ $(function () {
     const isGroupings = UID.startsWith("G") ? true : false; // 判斷 UID 是否 G 開頭，G 開頭表示當前有開團
     if(isGroupings){
       // console.log('已開團');
-      if(_user){
-        shoppingCart.setAttribute('href', '#modal-shppingCart-order');
-        shoppingCart.setAttribute("data-bs-toggle", "modal");
-      }
+
       axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${UID}&_expand=restaurant&_expand=order`)
       .then(res=>{
         // console.log(res.data[0]);
-        const {restaurantId} = res.data[0];
+        const {restaurantId,deadlineDateTime} = res.data[0];
+        const isGroupTimeTrue = isGroupTime(deadlineDateTime);
+        // console.log(isGroupTimeTrue);
+        if(isGroupTimeTrue){
+          const popover = new bootstrap.Popover(shoppingCart, {
+            content: '揪團活動已截止',
+          });
+        }else{
+          if(_user){
+            shoppingCart.setAttribute('href', '#modal-shppingCart-order');
+            shoppingCart.setAttribute("data-bs-toggle", "modal");
+          }
+        }        
         id = restaurantId;
         storeInformationData(isGroupings,UID,id,res.data[0])
         shoppingCarts(res.data[0])
@@ -220,7 +235,7 @@ function shoppingCarts(data){
     
   })
   modalCartsSendOrder.addEventListener('click',function(){
-    // sendCarts(data);
+    sendCarts(data);
   });
 }
 
@@ -236,7 +251,7 @@ function sendCarts(data){
   const cartsData = JSON.parse(localStorage.getItem('Carts')); // 購物車內容
   const cartsDataHandle = JSON.parse(JSON.stringify(cartsData)); // 購物車內容(深層拷貝)
 
-  console.log(cartsData);
+  // console.log(cartsData);
   data.orderPriceTotal = priceNumber;
   data.orderUserId = _user;
   // console.log('priceNumber',priceNumber);
@@ -319,15 +334,16 @@ function sendCarts(data){
         orderDetail.push(object);
       })
       // console.log(orderDetail);
+      
       // 購物車 patch orders API
-      // return axios.patch(`https://teatimeapi-test.onrender.com/orders/${orderId}`,{orderDetail:orderDetail})
-      // .then(res => {
-      //   // console.log(res);
-      //   // console.log(groupingUID);
-      //   renderProgressBar(groupingUID)
-      //   return;
-      // })
-      // .catch(err => { console.log(err) })
+      return axios.patch(`https://teatimeapi-test.onrender.com/orders/${orderId}`,{orderDetail:orderDetail})
+      .then(res => {
+        // console.log(res);
+        // console.log(groupingUID);
+        renderProgressBar(groupingUID)
+        return;
+      })
+      .catch(err => { console.log(err) })
     })
     .catch(err=>{console.log(err);})
   })
@@ -385,7 +401,7 @@ function orderEstablished(data){
   $('#deadlineDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineDate">${timeData.deadlineDateTime.date}</p>`)
   $('#deadlineTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineTime">${timeData.deadlineDateTime.time}</p>`)
   
-  // localStorage.setItem('Carts', ''); // 清空 localStorage Carts
+  localStorage.setItem('Carts', ''); // 清空 localStorage Carts
 }
 
 // 渲染畫面
@@ -829,10 +845,9 @@ function storeInformationData(isGroupings,UID,id,storeData = ''){
                         }
                       }
                       productsToCartsData.comments = $('#remark').val();
-                      // productsToCartsData.totalAmount = parseInt($("#mealPrice").text());
                       productsToCartsData.customization = customization;
                       productsToCartsData.originalPrice = item.價格;
-                      console.log(productsToCartsData);
+                      // console.log(productsToCartsData);
                       // 判斷 localStorage Carts 有無資料
                       if(localStorage.getItem('Carts')){
                         let isRepeat = 0; // 判斷有無重複
