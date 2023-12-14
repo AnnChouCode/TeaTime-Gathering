@@ -15,7 +15,7 @@ import axios from "axios";
 let _token = localStorage.getItem("token");
 const _user = cryptoToken(_token)
 // 清空 localStorage Carts
-localStorage.setItem('Carts', '');
+// localStorage.setItem('Carts', '');
 localStorage.setItem('category', '');
 const shoppingCart = document.querySelector('.shopping-cart');
 const modalCartsSendOrder = document.getElementById('modalCartsSendOrder');
@@ -56,6 +56,7 @@ $(function () {
   })();
 });
 
+// 購物車
 function shoppingCarts(data){
   $('.shopping-cart').on('click',function(){
     const category = localStorage.getItem('category');
@@ -219,10 +220,11 @@ function shoppingCarts(data){
     
   })
   modalCartsSendOrder.addEventListener('click',function(){
-    sendCarts(data);
+    // sendCarts(data);
   });
 }
 
+// 送出購物車
 function sendCarts(data){
   if(!_user){
     return;
@@ -234,7 +236,7 @@ function sendCarts(data){
   const cartsData = JSON.parse(localStorage.getItem('Carts')); // 購物車內容
   const cartsDataHandle = JSON.parse(JSON.stringify(cartsData)); // 購物車內容(深層拷貝)
 
-  // console.log(cartsData);
+  console.log(cartsData);
   data.orderPriceTotal = priceNumber;
   data.orderUserId = _user;
   // console.log('priceNumber',priceNumber);
@@ -318,14 +320,14 @@ function sendCarts(data){
       })
       // console.log(orderDetail);
       // 購物車 patch orders API
-      return axios.patch(`https://teatimeapi-test.onrender.com/orders/${orderId}`,{orderDetail:orderDetail})
-      .then(res => {
-        // console.log(res);
-        // console.log(groupingUID);
-        renderProgressBar(groupingUID)
-        return;
-      })
-      .catch(err => { console.log(err) })
+      // return axios.patch(`https://teatimeapi-test.onrender.com/orders/${orderId}`,{orderDetail:orderDetail})
+      // .then(res => {
+      //   // console.log(res);
+      //   // console.log(groupingUID);
+      //   renderProgressBar(groupingUID)
+      //   return;
+      // })
+      // .catch(err => { console.log(err) })
     })
     .catch(err=>{console.log(err);})
   })
@@ -383,7 +385,7 @@ function orderEstablished(data){
   $('#deadlineDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineDate">${timeData.deadlineDateTime.date}</p>`)
   $('#deadlineTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineTime">${timeData.deadlineDateTime.time}</p>`)
   
-  localStorage.setItem('Carts', ''); // 清空 localStorage Carts
+  // localStorage.setItem('Carts', ''); // 清空 localStorage Carts
 }
 
 // 渲染畫面
@@ -742,6 +744,19 @@ function storeInformationData(isGroupings,UID,id,storeData = ''){
                     staticBackdrop.innerHTML = templateProduct;
                     let numberSub = $('#numberSub'), numberInput = $('#numberInput'), numberAdd = $('#numberAdd'), addProductToCarts = $('#addProductToCarts');
                     let originalPrice = item.價格;
+                    let productPrice = 0;
+                    productPrice = parseInt(originalPrice);
+
+                    if(category == '飲料'){
+                      $("[name='subscribe']").change(function() {
+                        if($(this).is(":checked")){
+                          productPrice += 10;
+                        }else{
+                          productPrice -= 10;
+                        }               
+                        $("#mealPrice").text(`${productPrice * numberInput.val()}`);       
+                      });
+                    }
 
                     // 計算價格
                     function calculatePrice() {
@@ -753,7 +768,7 @@ function storeInformationData(isGroupings,UID,id,storeData = ''){
                         numberInput.val(999);
                         currentValue = parseInt(numberInput.val()) || 0;
                       }
-                      let price = currentValue * originalPrice;
+                      let price = currentValue * productPrice;
                       // 更新 #mealPrice 的內容
                       $("#mealPrice").text(price);
                     }
@@ -790,21 +805,34 @@ function storeInformationData(isGroupings,UID,id,storeData = ''){
                       
                       // console.log(category);
                       // 飲料類別處理
+                      productsToCartsData.totalAmount = $('#numberInput').val() * productPrice;
                       if(category == '飲料'){
                         // const temperature = ;
                         productsToCartsData.ice = $('[name="temperature"]:checked').val();
                         productsToCartsData.sugar = $('[name="sweetness"]:checked').val();
                         const fresh_milk = $('#fresh_milk'),pearl = $('#pearl'),brown_sugar = $('#brown_sugar'),agar = $('#agar');
-                        if (fresh_milk.is(':checked')) {customization.push('升級鮮奶')}
-                        if (pearl.is(':checked')) {customization.push('珍珠')}
-                        if (brown_sugar.is(':checked')) {customization.push('黑糖')}
-                        if (agar.is(':checked')) {customization.push('寒天晶球')}
+                        // 處理鮮奶
+                        if (fresh_milk.is(':checked')) {
+                          customization.push('升級鮮奶');
+                        }
+                        // 珍珠
+                        if (pearl.is(':checked')) {
+                          customization.push('珍珠')
+                        }
+                        // 黑糖
+                        if (brown_sugar.is(':checked')) {
+                          customization.push('黑糖')
+                        }
+                        // 寒天晶球
+                        if (agar.is(':checked')) {
+                          customization.push('寒天晶球')
+                        }
                       }
                       productsToCartsData.comments = $('#remark').val();
-                      productsToCartsData.totalAmount = parseInt($("#mealPrice").text());
+                      // productsToCartsData.totalAmount = parseInt($("#mealPrice").text());
                       productsToCartsData.customization = customization;
                       productsToCartsData.originalPrice = item.價格;
-                      // console.log(productsToCartsData);
+                      console.log(productsToCartsData);
                       // 判斷 localStorage Carts 有無資料
                       if(localStorage.getItem('Carts')){
                         let isRepeat = 0; // 判斷有無重複
