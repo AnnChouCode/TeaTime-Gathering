@@ -2,8 +2,18 @@
 import showStars from "/assets/js/components/showStars.js";
 // import 判斷登入狀態樣板
 import isLoggedIn from '/assets/js/components/isLoggedIn.js';
+// 處理購物車時間(享用時間、訂購期限)
+import timeForCarts from '/assets/js/components/timeForCarts.js';
+// 計算成團、投票進度條
+import calcGroupProgress from '/assets/js/components/calcGroupProgress.js';
 // import 解密 token 樣板
 import cryptoToken from '/assets/js/components/cryptoToken.js';
+// import 時間判斷 樣板
+import isPastEvent from '/assets/js/components/isPastEvent.js';
+// import 活動時間 字串處理
+import showDateTime from '/assets/js/components/showDateTime.js';
+// import 判斷開團時間 
+import isGroupTime from '/assets/js/components/isGroupTime.js';
 import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
 import axios from "axios";
 
@@ -27,15 +37,26 @@ $(function () {
     // console.log(UID);
     const isGroupings = UID.startsWith("G") ? true : false; // 判斷 UID 是否 G 開頭，G 開頭表示當前有開團
     if(isGroupings){
-      // console.log('已開團');      
-      shoppingCart.setAttribute('href', '#modal-shppingCart-order');
-      shoppingCart.setAttribute("data-bs-toggle", "modal");
-      axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${UID}`)
+      // console.log('已開團');
+
+      axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${UID}&_expand=restaurant&_expand=order`)
       .then(res=>{
-        const {restaurantId} = res.data[0];
-        id = restaurantId;
-        storeInformationData(isGroupings,UID,id)
         // console.log(res.data[0]);
+        const {restaurantId,deadlineDateTime} = res.data[0];
+        const isGroupTimeTrue = isGroupTime(deadlineDateTime);
+        // console.log(isGroupTimeTrue);
+        if(isGroupTimeTrue){
+          const popover = new bootstrap.Popover(shoppingCart, {
+            content: '揪團活動已截止',
+          });
+        }else{
+          if(_user){
+            shoppingCart.setAttribute('href', '#modal-shppingCart-order');
+            shoppingCart.setAttribute("data-bs-toggle", "modal");
+          }
+        }        
+        id = restaurantId;
+        storeInformationData(isGroupings,UID,id,res.data[0])
         shoppingCarts(res.data[0])
       })
       .catch(err=>{console.log(err);})
@@ -43,27 +64,29 @@ $(function () {
       // console.log('未開團');
       // 初始化 Popover
       const popover = new bootstrap.Popover(shoppingCart, {
-        content: '選擇開團中或建立揪團',
+        content: '目前您未選擇揪團活動，請先選擇揪團中或建立揪團',
       });
-      storeInformationData(isGroupings,UID,id)
+      storeInformationData(isGroupings,UID,id,'')
     }
   })();
 });
 
+// 購物車
 function shoppingCarts(data){
   $('.shopping-cart').on('click',function(){
     const category = localStorage.getItem('category');
-    data.storeName = $('#storeNameID').text();
-    const [yymmdd, time] = data.eventDateTime.split(" ");
-    const originalDateObject = new Date(data.eventDateTime);
-    const date = originalDateObject.toLocaleDateString('en-US', { month: 'numeric', day: 'numeric' });
     let templateShoppingCarts = '';
-    data.yymmdd = yymmdd;
-    data.date = date;
-    data.time = time;
+    data.storeName = $('#storeNameID').text();
+    const timeData = timeForCarts(data.eventDateTime,'')
+    data.yymmdd = timeData.eventDateTime.yymmdd;
+    data.date = timeData.eventDateTime.date;
+    data.time = timeData.eventDateTime.time;
+    // console.log(data);
+
     $('#modalShppingCartOrderTitle').html(`<p class="fs-20 fs-md-24 line-height-sm fw-bold text-gray-01" id="modalShppingCartOrderTitle">${data.storeName}</p>`)
-    $('#dateCarts').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="dateCarts">${date}</p>`)
-    $('#timeCarts').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="timeCarts">${time}</p>`)
+    $('#dateCarts').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="dateCarts">${timeData.eventDateTime.date}</p>`)
+    $('#timeCarts').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="timeCarts">${timeData.eventDateTime.time}</p>`)
+
     const getStorageCarts =  localStorage.getItem('Carts');
     // 判斷 localStorage Carts 有無資料
     if(getStorageCarts.length !== 0){
@@ -131,6 +154,8 @@ function shoppingCarts(data){
         const originalPrice = parseInt(modalCartsName.dataset.originalprice); // 商品原始單價
         const productName = modalCartsName.textContent;
         const inputValue = parseInt(modalCartsInput.value); // input 的值
+
+        // 購物車 modal 減號
         modalCartsRemoveBtn.addEventListener('click',function(){
           const priceNumber = parseInt(menuTotal.textContent.replace('$', ''));
           const newInputValue = parseInt(modalCartsInput.value); // 新的 input value
@@ -148,6 +173,8 @@ function shoppingCarts(data){
             modalCartsInput.value = 0;
           }
         })
+
+        // 購物車 modal input
         modalCartsInput.addEventListener('input',function(){
           const inputValue = parseInt(modalCartsInput.value);
 
@@ -175,6 +202,8 @@ function shoppingCarts(data){
           let total = originalPrice * parseInt(modalCartsInput.value);
           orderCartsRevision(newInputValue,total,cartsData,productName);
         })
+
+        // 購物車 modal 加號
         modalCartsAddBtn.addEventListener('click',function(){
           const inputValue = parseInt(modalCartsInput.value);
           const priceNumber = parseInt(menuTotal.textContent.replace('$', ''));
@@ -210,7 +239,13 @@ function shoppingCarts(data){
   });
 }
 
+// 送出購物車
 function sendCarts(data){
+  if(!_user){
+    return;
+  }
+  $('#modal-shppingCart-order').modal('hide') // 關閉 modal
+  $('#modal-successfullyOrdered').modal('show') // 開啟 modal
   const menuTotal = document.getElementById('menuTotal');
   const priceNumber = parseInt(menuTotal.textContent.replace('$', '')); // 總計金額
   const cartsData = JSON.parse(localStorage.getItem('Carts')); // 購物車內容
@@ -225,7 +260,8 @@ function sendCarts(data){
   axios.get(`https://teatimeapi-test.onrender.com/users?UID=${_user}`)
   .then(res => {
     const {userName} = res.data[0];
-    const {orderId} = data;
+    const {orderId,UID} = data;
+    const groupingUID = UID;
     data.userName = userName;
     // console.log(data);
     // console.log('orderId',orderId);
@@ -298,9 +334,13 @@ function sendCarts(data){
         orderDetail.push(object);
       })
       // console.log(orderDetail);
+      
+      // 購物車 patch orders API
       return axios.patch(`https://teatimeapi-test.onrender.com/orders/${orderId}`,{orderDetail:orderDetail})
       .then(res => {
         // console.log(res);
+        // console.log(groupingUID);
+        renderProgressBar(groupingUID)
         return;
       })
       .catch(err => { console.log(err) })
@@ -310,12 +350,31 @@ function sendCarts(data){
   .catch(err => {
     console.log(err);
   })
-  orderEstablished(data); // 訂單成立
+  orderEstablished(data); // 訂單成立，處理訂單
+}
+
+// 重新渲染開團進度
+function renderProgressBar(groupingUID){
+  // console.log(groupingUID);
+  axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${groupingUID}&_expand=restaurant&_expand=order`)
+  .then(res=>{
+    const data = res.data[0];
+    let calcGroupProgressNum = 0; // 取得開團進度
+    calcGroupProgressNum = calcGroupProgress(data.order.orderDetail.length,data.restaurant.minGroupSize)
+    
+    $('#groupingProgressBar').html(`
+      <div class="bar bg-brand-02" style="--value: ${calcGroupProgressNum}">
+        <div class="text-white">${calcGroupProgressNum > 100 ? 100 : calcGroupProgressNum}%</div>
+      </div>
+    `)
+  })
+  .catch(err=>{console.log(err);})
 }
 
 // 購物車調整值
 function orderCartsRevision(quantity,total,cartsData,productName){
   // console.log(quantity,total,cartsData,productName);
+  // 數量、小計、購物車 data、產品名稱
   
   if(quantity < 1000 && quantity >= 0){
     cartsData.forEach((item,index)=>{
@@ -335,26 +394,27 @@ function orderCartsRevision(quantity,total,cartsData,productName){
 // 訂購成功 modal
 function orderEstablished(data){
   // console.log(data);
-  $('#orderTotal').html(`<p class="fw-md-bold fw-medium fs-20 fs-md-24 line-height-sm">$${data.orderPriceTotal}</p>`);
-  // 使用 split 方法分割日期和時間
-  const [deadlineDatePart, deadlineTimePart] = data.deadlineDateTime.split(' ');
-  const [eventDateDatePart, eventDateTimePart] = data.eventDateTime.split(' ');
-
-  // 進一步處理日期部分，轉換格式等
-  const deadlineArray = deadlineDatePart.split('/');
-  const formattedDeadline = `${deadlineArray[1]}/${deadlineArray[2]}`;
-  const eventDateArray = eventDateDatePart.split('/');
-  const formattedEventDate = `${eventDateArray[1]}/${eventDateArray[2]}`;
-  // console.log(formattedEventDate,eventDateTimePart);
-  $('#deadlineDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineDate">${formattedDeadline}</p>`)
-  $('#deadlineTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineTime">${deadlineTimePart}</p>`)
-  $('#eventDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="eventDate">${formattedEventDate}</p>`)
-  $('#eventDateTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="eventDateTime">${eventDateTimePart}</p>`)
+  $('#orderTotal').html(`<p class="fw-md-bold fw-medium fs-20 fs-md-24 line-height-sm">$${data.orderPriceTotal}</p>`);  
+  const timeData = timeForCarts(data.eventDateTime,data.deadlineDateTime);
+  $('#eventDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="eventDate">${timeData.eventDateTime.date}</p>`)
+  $('#eventDateTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="eventDateTime">${timeData.eventDateTime.time}</p>`)
+  $('#deadlineDate').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineDate">${timeData.deadlineDateTime.date}</p>`)
+  $('#deadlineTime').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="deadlineTime">${timeData.deadlineDateTime.time}</p>`)
   
   localStorage.setItem('Carts', ''); // 清空 localStorage Carts
 }
-function storeInformationData(isGroupings,UID,id){
+
+// 渲染畫面
+function storeInformationData(isGroupings,UID,id,storeData = ''){
   // console.log(isGroupings,UID,id);
+  // console.log(storeData);
+  let calcGroupProgressNum = 0; // 取得開團進度
+  if(storeData){
+    // 目前點餐數量，最小開團人數
+    calcGroupProgressNum = calcGroupProgress(storeData.order.orderDetail.length,storeData.restaurant.minGroupSize)
+  }
+
+  // 是否開團、UID、id
   let searchCriteria = '';
   if(id){
     searchCriteria += `id=${id}`
@@ -370,9 +430,13 @@ function storeInformationData(isGroupings,UID,id){
           let isMobile = window.innerWidth < 768; // 假設小於 768 像素的視窗寬度視為手機
           const {products,stars,category} = data[0];
           localStorage.setItem('category', category); // localStorage 新增 category
-          let totalNumber = data.length; // 實際資料筆數
-          let pageSize = isMobile ? 5 : 10; // 根據裝置設定不同的 pageSize
+          let totalNumber = data.length; // restaurants 資料總筆數
+          let pageSize = isMobile ? 5 : 10; // 根據裝置設定不同的 pageSize，5 為手機板(一頁顯示 5 筆資料)、10 為電腦版(一頁顯示 10 筆資料)
           let storeTemplate = "";
+          // console.log(storeData);
+          const timeData = timeForCarts(storeData.eventDateTime,'');
+
+
           // 店家獨立頁面 店家資訊
           storeTemplate += `
                       <div class="order-bg" style=" background: url(${data[0].storeBannerPhoto}) center top /cover;"></div>
@@ -395,8 +459,8 @@ function storeInformationData(isGroupings,UID,id){
                                 <path d="M7.16699 3.6665V1.9165M18.8337 3.6665V1.9165M1.91699 9.49984H24.0837" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"/>
                                 <path d="M20 18.8333C20 19.1428 19.8771 19.4395 19.6583 19.6583C19.4395 19.8771 19.1428 20 18.8333 20C18.5239 20 18.2272 19.8771 18.0084 19.6583C17.7896 19.4395 17.6667 19.1428 17.6667 18.8333C17.6667 18.5239 17.7896 18.2272 18.0084 18.0084C18.2272 17.7896 18.5239 17.6667 18.8333 17.6667C19.1428 17.6667 19.4395 17.7896 19.6583 18.0084C19.8771 18.2272 20 18.5239 20 18.8333ZM20 14.1667C20 14.4761 19.8771 14.7728 19.6583 14.9916C19.4395 15.2104 19.1428 15.3333 18.8333 15.3333C18.5239 15.3333 18.2272 15.2104 18.0084 14.9916C17.7896 14.7728 17.6667 14.4761 17.6667 14.1667C17.6667 13.8572 17.7896 13.5605 18.0084 13.3417C18.2272 13.1229 18.5239 13 18.8333 13C19.1428 13 19.4395 13.1229 19.6583 13.3417C19.8771 13.5605 20 13.8572 20 14.1667ZM14.1667 18.8333C14.1667 19.1428 14.0437 19.4395 13.825 19.6583C13.6062 19.8771 13.3094 20 13 20C12.6906 20 12.3938 19.8771 12.175 19.6583C11.9562 19.4395 11.8333 19.1428 11.8333 18.8333C11.8333 18.5239 11.9562 18.2272 12.175 18.0084C12.3938 17.7896 12.6906 17.6667 13 17.6667C13.3094 17.6667 13.6062 17.7896 13.825 18.0084C14.0437 18.2272 14.1667 18.5239 14.1667 18.8333ZM14.1667 14.1667C14.1667 14.4761 14.0437 14.7728 13.825 14.9916C13.6062 15.2104 13.3094 15.3333 13 15.3333C12.6906 15.3333 12.3938 15.2104 12.175 14.9916C11.9562 14.7728 11.8333 14.4761 11.8333 14.1667C11.8333 13.8572 11.9562 13.5605 12.175 13.3417C12.3938 13.1229 12.6906 13 13 13C13.3094 13 13.6062 13.1229 13.825 13.3417C14.0437 13.5605 14.1667 13.8572 14.1667 14.1667ZM8.33333 18.8333C8.33333 19.1428 8.21042 19.4395 7.99162 19.6583C7.77283 19.8771 7.47609 20 7.16667 20C6.85725 20 6.5605 19.8771 6.34171 19.6583C6.12292 19.4395 6 19.1428 6 18.8333C6 18.5239 6.12292 18.2272 6.34171 18.0084C6.5605 17.7896 6.85725 17.6667 7.16667 17.6667C7.47609 17.6667 7.77283 17.7896 7.99162 18.0084C8.21042 18.2272 8.33333 18.5239 8.33333 18.8333ZM8.33333 14.1667C8.33333 14.4761 8.21042 14.7728 7.99162 14.9916C7.77283 15.2104 7.47609 15.3333 7.16667 15.3333C6.85725 15.3333 6.5605 15.2104 6.34171 14.9916C6.12292 14.7728 6 14.4761 6 14.1667C6 13.8572 6.12292 13.5605 6.34171 13.3417C6.5605 13.1229 6.85725 13 7.16667 13C7.47609 13 7.77283 13.1229 7.99162 13.3417C8.21042 13.5605 8.33333 13.8572 8.33333 14.1667Z" fill="#1E1E1E"/>
                               /svg>
-                              <p class="me-16 me-sm-8">08/12</p>
-                              <p class="">14:30</p>
+                              <p class="me-16 me-sm-8">${timeData.eventDateTime.date}</p>
+                              <p class="">${timeData.eventDateTime.time}</p>
                             </li>
                             <li class="d-flex align-items-center mb-16">
                               <svg class="me-8" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -405,22 +469,16 @@ function storeInformationData(isGroupings,UID,id){
                                 </g>
                                 </svg>
                               <p class="me-16 me-sm-8 word-break-keep-all">請客人</p>
-                              <p>張雅琪</p>
+                              <p class='word-break-keep-all'>${storeData.invitees ? storeData.invitees : '無'}</p>
                             </li>
                             <li class="d-flex align-items-center">
-                              <svg class="me-8" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g id="ic:round-group">
-                                <path id="Vector" d="M16 11C17.66 11 18.99 9.66 18.99 8C18.99 6.34 17.66 5 16 5C14.34 5 13 6.34 13 8C13 9.66 14.34 11 16 11ZM8 11C9.66 11 10.99 9.66 10.99 8C10.99 6.34 9.66 5 8 5C6.34 5 5 6.34 5 8C5 9.66 6.34 11 8 11ZM8 13C5.67 13 1 14.17 1 16.5V18C1 18.55 1.45 19 2 19H14C14.55 19 15 18.55 15 18V16.5C15 14.17 10.33 13 8 13ZM16 13C15.71 13 15.38 13.02 15.03 13.05C15.05 13.06 15.06 13.08 15.07 13.09C16.21 13.92 17 15.03 17 16.5V18C17 18.35 16.93 18.69 16.82 19H22C22.55 19 23 18.55 23 18V16.5C23 14.17 18.33 13 16 13Z" fill="#1E1E1E"/>
-                                </g>
-                                </svg>
-                              <p class="me-16 me-sm-8 word-break-keep-all">成團目標</p>
-                              <svg class="me-4" width="101" height="12" viewBox="0 0 101 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g id="Group 6">
-                                <rect id="Rectangle 26" width="101" height="12" rx="4" fill="#D9D9D9"/>
-                                <rect id="Rectangle 27" width="88.9308" height="12" rx="4" fill="#FD909F"/>
-                                </g>
-                              </svg>
-                              <p style="color: #FD909F;">90%</p>                      
+                            <iconify-icon icon="ic:round-group" style="color: #1e1e1e;" width="24" height="24" class="me-8"></iconify-icon>
+                            <p class="me-16 me-sm-8 word-break-keep-all">成團目標</p>
+                              <div class="ts-progress is-tiny bg-gray-04" style="width: 120px;" id="groupingProgressBar">
+                                <div class="bar bg-brand-02" style="--value: ${calcGroupProgressNum}">
+                                    <div class="text-white">${calcGroupProgressNum > 100 ? 100 : calcGroupProgressNum}%</div>
+                                </div>
+                              </div>
                             </li>
                           </ul>
                         </div>
@@ -441,9 +499,10 @@ function storeInformationData(isGroupings,UID,id){
               let firstFiveMenu = "";
               let lastFiveMenu = "";
               let template = "";
-              let firstFive = newData.slice(0, 5); // 拆分前五
-              let lastFive = newData.slice(5); // 拆分後五
-              let lastFiveArray = [...lastFive]; // 類陣列轉純陣列
+              let firstFive = newData.slice(0, 5); // 拆分資料，菜單前五筆(左邊頁面)
+              let lastFive = newData.slice(5); // 拆分資料，菜單後五筆(右邊頁面)
+              let lastFiveArray = [...lastFive]; // 類陣列 轉 純陣列
+               // 拆分前五(左邊頁面)
               firstFiveMenu += `
                             <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
                             <ul id="">
@@ -462,9 +521,13 @@ function storeInformationData(isGroupings,UID,id){
                                   </button>
                                 </li>`;
               });
+
+              
               firstFiveMenu += `
                               </ul>
                             </div>`;
+
+              // 拆分後五(右邊頁面))
               lastFiveMenu += `
                             <div class="swiper-slide border border-1 border-brand-03 p-12 p-sm-40">
                             <ul id="">
@@ -485,6 +548,8 @@ function storeInformationData(isGroupings,UID,id){
                               </ul>
                             </div>`;
               template += firstFiveMenu;
+
+              // 頁面為手機板時，清除右邊選單
               if (pageSize == 5) {
                 lastFiveMenu = "";
               }
@@ -532,7 +597,7 @@ function storeInformationData(isGroupings,UID,id){
                       templateProduct += `
                             <div class="cold-hot d-flex  align-items-center w-100 mb-8 mb-md-16 ${item.冷? '':'d-none'}">
                               <div class="cold d-flex justify-content-center align-items-center ">
-                                <img class="me-4" src="/assets/images/icon/cold.png" alt="cold.png">
+                                <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
                                 <span class="me-16">${item.價格}</span>
                               </div>
                               <div class="hot d-flex justify-content-center align-items-center ${item.熱? 'd-none':'d-none'}">
@@ -695,6 +760,19 @@ function storeInformationData(isGroupings,UID,id){
                     staticBackdrop.innerHTML = templateProduct;
                     let numberSub = $('#numberSub'), numberInput = $('#numberInput'), numberAdd = $('#numberAdd'), addProductToCarts = $('#addProductToCarts');
                     let originalPrice = item.價格;
+                    let productPrice = 0;
+                    productPrice = parseInt(originalPrice);
+
+                    if(category == '飲料'){
+                      $("[name='subscribe']").change(function() {
+                        if($(this).is(":checked")){
+                          productPrice += 10;
+                        }else{
+                          productPrice -= 10;
+                        }               
+                        $("#mealPrice").text(`${productPrice * numberInput.val()}`);       
+                      });
+                    }
 
                     // 計算價格
                     function calculatePrice() {
@@ -706,7 +784,7 @@ function storeInformationData(isGroupings,UID,id){
                         numberInput.val(999);
                         currentValue = parseInt(numberInput.val()) || 0;
                       }
-                      let price = currentValue * originalPrice;
+                      let price = currentValue * productPrice;
                       // 更新 #mealPrice 的內容
                       $("#mealPrice").text(price);
                     }
@@ -721,6 +799,7 @@ function storeInformationData(isGroupings,UID,id){
                         numberInput.val(1);
                       }
                     });
+
                     // 數量加 1
                     numberAdd.on('click', function() {
                       let currentValue = parseInt(numberInput.val()) || 0;
@@ -742,18 +821,30 @@ function storeInformationData(isGroupings,UID,id){
                       
                       // console.log(category);
                       // 飲料類別處理
+                      productsToCartsData.totalAmount = $('#numberInput').val() * productPrice;
                       if(category == '飲料'){
                         // const temperature = ;
                         productsToCartsData.ice = $('[name="temperature"]:checked').val();
                         productsToCartsData.sugar = $('[name="sweetness"]:checked').val();
                         const fresh_milk = $('#fresh_milk'),pearl = $('#pearl'),brown_sugar = $('#brown_sugar'),agar = $('#agar');
-                        if (fresh_milk.is(':checked')) {customization.push('升級鮮奶')}
-                        if (pearl.is(':checked')) {customization.push('珍珠')}
-                        if (brown_sugar.is(':checked')) {customization.push('黑糖')}
-                        if (agar.is(':checked')) {customization.push('寒天晶球')}
+                        // 處理鮮奶
+                        if (fresh_milk.is(':checked')) {
+                          customization.push('升級鮮奶');
+                        }
+                        // 珍珠
+                        if (pearl.is(':checked')) {
+                          customization.push('珍珠')
+                        }
+                        // 黑糖
+                        if (brown_sugar.is(':checked')) {
+                          customization.push('黑糖')
+                        }
+                        // 寒天晶球
+                        if (agar.is(':checked')) {
+                          customization.push('寒天晶球')
+                        }
                       }
                       productsToCartsData.comments = $('#remark').val();
-                      productsToCartsData.totalAmount = parseInt($("#mealPrice").text());
                       productsToCartsData.customization = customization;
                       productsToCartsData.originalPrice = item.價格;
                       // console.log(productsToCartsData);
@@ -791,9 +882,10 @@ function storeInformationData(isGroupings,UID,id){
                 });
               });
 
+              // 清空菜單
               firstFive = [];
               lastFive = [];
-              // 菜單滑動用
+              // 菜單滑動用 swiper
               var swiper = new Swiper(".mySwiper", {
                 // spaceBetween: 30,
                 breakpoints: {
@@ -818,6 +910,7 @@ function storeInformationData(isGroupings,UID,id){
       });
 }
 
+// 菜單冷熱處理
 function coldHotTemplate(cold,hot,price){
   let template = '';
   if(cold == false && hot == false){
