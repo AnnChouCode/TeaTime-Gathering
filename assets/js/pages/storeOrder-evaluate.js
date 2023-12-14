@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const _url = "https://teatimeapi-test.onrender.com";
 const _rating = "/ratings";
 const _sorting = "_sort=id&_order=desc";
@@ -12,6 +14,13 @@ let ratingArys = [];
 // 找到網址路徑的搜尋範圍 如:?UID=B001  ，在抓出最後的4碼店家代號
 let currentUrlSearch = (window.location.search).slice(-4,);
 
+if (currentUrlSearch.startsWith("G")) {
+    const res = await Promise.all([axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${currentUrlSearch}&_expand=restaurant`)]);
+    currentUrlSearch = (res[0].data)[0].restaurant.UID;
+} else {
+    currentUrlSearch = currentUrlSearch;
+}
+
 (function init() {
     axios.get(`${_url}${_rating}?${_sorting}`)
         .then(function (res) {
@@ -24,8 +33,6 @@ let currentUrlSearch = (window.location.search).slice(-4,);
 function showRating(quantity = 4) {
     let ratingItems = "";
     ratingArys.forEach((item, index) => {
-        // for(let item=0;item<ratingData.length;item++){
-        // restaurantUID
         if (item.restaurantUID === currentUrlSearch && index < quantity) {
             ratingItems += `
         <div class="feedback-style col-12 col-md-6 pt-32 pt-sm-48 mb-md-32">
@@ -94,44 +101,50 @@ ratingToggleBtn.addEventListener("click", function () {
     ratingToggleBtn.classList.toggle("transform180")
 })
 
+
 // 評價上傳
 const updateRatingBtn = document.getElementById('updateRatingBtn');
 updateRatingBtn.addEventListener('click', updateRating);
 
-function updateRating(e) {
+async function updateRating() {
     let updataObj = {};
-    const modalTitle = document.querySelector(".modal-title")
-    modalTitle.textContent = document.querySelector("#storeNameID").textContent;
-
     let storeNameinModal = updateRatingBtn.closest('.modal-content').querySelector('h5').innerText;
     let starinModal = document.querySelector("[data-rating-star]").dataset.ratingStar;
     let memberEvaluate = document.querySelector(".memberEvaluate");
+    const modalTitle = document.querySelector(".modal-title")
+    modalTitle.textContent = document.querySelector("#storeNameID").textContent;
 
+    // 判斷現在在地網址是否為"G"開頭的，如果是G開頭就要去抓下列網址的資料做處理，不是的話直接抓網址的最後四碼
+    // let restaurantUID = "";
+    // if (currentUrlSearch.startsWith("G")) {
+    //     const res = await Promise.all([axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${currentUrlSearch}&_expand=restaurant`)]);
+    //     restaurantUID = (res[0].data)[0].restaurant.UID;
+    // } else {
+    //     restaurantUID = currentUrlSearch;
+    // }
 
-    let storeUrl = "https://teatimeapi-test.onrender.com/groupings?UID=G001&_expand=restaurant";
-
-    // restaurantData.forEach(item => {
-    //     if (item.storeName === storeNameinModal && memberEvaluate.value !== "") {
-    //         updataObj = {
-    //             UID: "R004",
-    //             reviewer: "黃莉琳",
-    //             reviewerPhoto: "https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/user/female/user-female-03.jpg",
-    //             starRating: Number(starinModal),
-    //             feedbackText: memberEvaluate.value,
-    //             reviewedRestaurant: item.storeName,
-    //             restaurantUID: item.UID,
-    //             reviewDateTime: moment().format('YYYY/MM/DD')
-    //         }
-    //         axios.post('https://teatimeapi-test.onrender.com/ratings', updataObj).
-    //             then(function (res) {
-    //                 memberEvaluate.value = "";
-    //                 // 成功後觸發 "X"的按鈕
-    //                 const closeButton = document.querySelector('.btn-close');
-    //                 closeButton.click();
-    //                 setTimeout(() => {
-    //                     alert("留言評價成功");
-    //                 }, 100)
-    //             })
-    //     }
-    // })
+    if (memberEvaluate.value !== "") {
+        updataObj = {
+            UID: "R004",
+            reviewer: "黃莉琳",
+            reviewerPhoto: "https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/user/female/user-female-03.jpg",
+            starRating: Number(starinModal),
+            feedbackText: memberEvaluate.value,
+            reviewedRestaurant: storeNameinModal,
+            restaurantUID: currentUrlSearch,
+            reviewDateTime: moment().format('YYYY/MM/DD')
+        }
+        axios.post('https://teatimeapi-test.onrender.com/ratings', updataObj).
+            then(function (res) {
+                memberEvaluate.value = "";
+                // 成功後觸發 "X"的按鈕
+                const closeButton = document.querySelector('#modal-WriteReview .btn-close');
+                closeButton.click();
+                setTimeout(() => {
+                    alert("留言評價成功");
+                }, 100)
+            })
+    }
 }
+
+
