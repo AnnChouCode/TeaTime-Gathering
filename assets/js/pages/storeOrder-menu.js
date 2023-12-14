@@ -21,7 +21,7 @@ import axios from "axios";
 let _token = localStorage.getItem("token");
 const _user = cryptoToken(_token)
 // 清空 localStorage Carts
-// localStorage.setItem('Carts', '');
+localStorage.setItem('Carts', '');
 localStorage.setItem('category', '');
 const shoppingCart = document.querySelector('.shopping-cart');
 const modalCartsSendOrder = document.getElementById('modalCartsSendOrder');
