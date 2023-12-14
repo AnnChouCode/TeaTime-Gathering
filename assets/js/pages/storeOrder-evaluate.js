@@ -107,12 +107,11 @@ updateRatingBtn.addEventListener('click', updateRating);
 
 async function updateRating() {
     let updataObj = {};
-    let storeNameinModal = updateRatingBtn.closest('.modal-content').querySelector('h5').innerText;
+    // let storeNameinModal = updateRatingBtn.closest('.modal-content').querySelector('h5').innerText;
     let starinModal = document.querySelector("[data-rating-star]").dataset.ratingStar;
     let memberEvaluate = document.querySelector(".memberEvaluate");
-    const modalTitle = document.querySelector(".modal-title")
-    modalTitle.textContent = document.querySelector("#storeNameID").textContent;
-
+    const modalTitle = document.querySelector("#memberModalLabel");
+    // modalTitle.textContent = document.querySelector("#storeNameID").textContent;
     if (memberEvaluate.value !== "") {
         updataObj = {
             UID: "R004",
@@ -120,7 +119,7 @@ async function updateRating() {
             reviewerPhoto: "https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/user/female/user-female-03.jpg",
             starRating: Number(starinModal),
             feedbackText: memberEvaluate.value,
-            reviewedRestaurant: storeNameinModal,
+            reviewedRestaurant: modalTitle.textContent,
             restaurantUID: currentUrlSearch,
             reviewDateTime: moment().format('YYYY/MM/DD')
         }
@@ -134,6 +133,7 @@ async function updateRating() {
                     alert("留言評價成功");
                 }, 100)
             })
+        // console.log(updataObj);
     }
 }
 
