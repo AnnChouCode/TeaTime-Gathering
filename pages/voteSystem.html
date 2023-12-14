@@ -150,9 +150,7 @@
                 // datas = datas.concat(res[1].data)
                 createEventData()
             })
-            .catch(function (error) {
-                console.error(error);
-            });
+        // .catch(error => console.log("未抓到資料~"))
     })()
 
     //整理事件 Data，以 UID 做分類
@@ -180,7 +178,6 @@
         takePartVote();
         initiatePoll();
     }
-
     function takePartVote() {
         let votingHTML = "";
         for (const id in voteEventMap) {
@@ -193,7 +190,7 @@
                         <aside class="me-lg-40 d-flex justify-content-between align-items-center mb-16 ">
                             <img src="${e.restaurantPhoto}" alt="" width="96">
                             <span class="ms-auto d-block d-lg-none">
-                                <a href=""
+                                <a href="calendar.html?UID=${e.UID}"
                                     class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">檢視投票</a>
                             </span>
                         </aside>
@@ -214,7 +211,7 @@
                             </ul>
                         </main>
                         <span class="ms-auto d-none d-lg-block">
-                            <a href=""
+                            <a href="calendar.html?UID=${e.UID}"
                                 class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">檢視投票</a>
                         </span>
                     </div>
