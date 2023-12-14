@@ -2,6 +2,8 @@
 import showStars from '/assets/js/components/showStars.js';
 import axios from 'axios';
 let bannerData = [];
+
+localStorage.setItem('Carts', ''); // 清空購物車
 let templateBanner = "";
 const today = new Date();
 let todayDateString = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;
@@ -146,7 +148,7 @@ function getTodayGroupings(todayIsGroup) {
             updateCountdown();
           })
         } else {
-          console.log("bannerData 為空值");
+          // console.log("bannerData 為空值");
         }
       }
     })

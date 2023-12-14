@@ -59,8 +59,7 @@ function showRating(quantity = 4) {
                 </div>
                 <p class="line-clamp-2">${item.feedbackText}</p>
             </div>
-        </div>
-      `;
+        </div>`;
         }
     })
 
@@ -113,15 +112,6 @@ async function updateRating() {
     let memberEvaluate = document.querySelector(".memberEvaluate");
     const modalTitle = document.querySelector(".modal-title")
     modalTitle.textContent = document.querySelector("#storeNameID").textContent;
-
-    // 判斷現在在地網址是否為"G"開頭的，如果是G開頭就要去抓下列網址的資料做處理，不是的話直接抓網址的最後四碼
-    // let restaurantUID = "";
-    // if (currentUrlSearch.startsWith("G")) {
-    //     const res = await Promise.all([axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${currentUrlSearch}&_expand=restaurant`)]);
-    //     restaurantUID = (res[0].data)[0].restaurant.UID;
-    // } else {
-    //     restaurantUID = currentUrlSearch;
-    // }
 
     if (memberEvaluate.value !== "") {
         updataObj = {
