@@ -15,7 +15,7 @@ import axios from "axios";
 let _token = localStorage.getItem("token");
 const _user = cryptoToken(_token)
 // 清空 localStorage Carts
-// localStorage.setItem('Carts', '');
+localStorage.setItem('Carts', '');
 localStorage.setItem('category', '');
 const shoppingCart = document.querySelector('.shopping-cart');
 const modalCartsSendOrder = document.getElementById('modalCartsSendOrder');
@@ -36,7 +36,7 @@ $(function () {
         shoppingCart.setAttribute('href', '#modal-shppingCart-order');
         shoppingCart.setAttribute("data-bs-toggle", "modal");
       }
-      axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${UID}`)
+      axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${UID}&_expand=restaurant&_expand=order`)
       .then(res=>{
         // console.log(res.data[0]);
         const {restaurantId} = res.data[0];
@@ -243,7 +243,8 @@ function sendCarts(data){
   axios.get(`https://teatimeapi-test.onrender.com/users?UID=${_user}`)
   .then(res => {
     const {userName} = res.data[0];
-    const {orderId} = data;
+    const {orderId,UID} = data;
+    const groupingUID = UID;
     data.userName = userName;
     // console.log(data);
     // console.log('orderId',orderId);
@@ -320,6 +321,8 @@ function sendCarts(data){
       return axios.patch(`https://teatimeapi-test.onrender.com/orders/${orderId}`,{orderDetail:orderDetail})
       .then(res => {
         // console.log(res);
+        // console.log(groupingUID);
+        renderProgressBar(groupingUID)
         return;
       })
       .catch(err => { console.log(err) })
@@ -330,6 +333,24 @@ function sendCarts(data){
     console.log(err);
   })
   orderEstablished(data); // 訂單成立，處理訂單
+}
+
+// 重新渲染開團進度
+function renderProgressBar(groupingUID){
+  // console.log(groupingUID);
+  axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${groupingUID}&_expand=restaurant&_expand=order`)
+  .then(res=>{
+    const data = res.data[0];
+    let calcGroupProgressNum = 0; // 取得開團進度
+    calcGroupProgressNum = calcGroupProgress(data.order.orderDetail.length,data.restaurant.minGroupSize)
+    
+    $('#groupingProgressBar').html(`
+      <div class="bar bg-brand-02" style="--value: ${calcGroupProgressNum}">
+        <div class="text-white">${calcGroupProgressNum > 100 ? 100 : calcGroupProgressNum}%</div>
+      </div>
+    `)
+  })
+  .catch(err=>{console.log(err);})
 }
 
 // 購物車調整值
@@ -365,8 +386,16 @@ function orderEstablished(data){
   localStorage.setItem('Carts', ''); // 清空 localStorage Carts
 }
 
+// 渲染畫面
 function storeInformationData(isGroupings,UID,id,storeData = ''){
   // console.log(isGroupings,UID,id);
+  // console.log(storeData);
+  let calcGroupProgressNum = 0; // 取得開團進度
+  if(storeData){
+    // 目前點餐數量，最小開團人數
+    calcGroupProgressNum = calcGroupProgress(storeData.order.orderDetail.length,storeData.restaurant.minGroupSize)
+  }
+
   // 是否開團、UID、id
   let searchCriteria = '';
   if(id){
@@ -387,9 +416,8 @@ function storeInformationData(isGroupings,UID,id,storeData = ''){
           let pageSize = isMobile ? 5 : 10; // 根據裝置設定不同的 pageSize，5 為手機板(一頁顯示 5 筆資料)、10 為電腦版(一頁顯示 10 筆資料)
           let storeTemplate = "";
           // console.log(storeData);
-          const timeData = timeForCarts(storeData.eventDateTime,'')
-          const calcGroupProgressNum = calcGroupProgress(1,4)  // 參與者人數、最小組人數
-          console.log(calcGroupProgressNum);
+          const timeData = timeForCarts(storeData.eventDateTime,'');
+
 
           // 店家獨立頁面 店家資訊
           storeTemplate += `
@@ -423,19 +451,16 @@ function storeInformationData(isGroupings,UID,id,storeData = ''){
                                 </g>
                                 </svg>
                               <p class="me-16 me-sm-8 word-break-keep-all">請客人</p>
-                              <p>${storeData.invitees ? storeData.invitees : '無'}</p>
+                              <p class='word-break-keep-all'>${storeData.invitees ? storeData.invitees : '無'}</p>
                             </li>
                             <li class="d-flex align-items-center">
-                              <svg class="me-8" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g id="ic:round-group">
-                                <path id="Vector" d="M16 11C17.66 11 18.99 9.66 18.99 8C18.99 6.34 17.66 5 16 5C14.34 5 13 6.34 13 8C13 9.66 14.34 11 16 11ZM8 11C9.66 11 10.99 9.66 10.99 8C10.99 6.34 9.66 5 8 5C6.34 5 5 6.34 5 8C5 9.66 6.34 11 8 11ZM8 13C5.67 13 1 14.17 1 16.5V18C1 18.55 1.45 19 2 19H14C14.55 19 15 18.55 15 18V16.5C15 14.17 10.33 13 8 13ZM16 13C15.71 13 15.38 13.02 15.03 13.05C15.05 13.06 15.06 13.08 15.07 13.09C16.21 13.92 17 15.03 17 16.5V18C17 18.35 16.93 18.69 16.82 19H22C22.55 19 23 18.55 23 18V16.5C23 14.17 18.33 13 16 13Z" fill="#1E1E1E"/>
-                                </g>
-                                </svg>
-                              <p class="me-16 me-sm-8 word-break-keep-all">成團目標</p>
-                              <div class="progress me-4" style="width: 101px;">
-                                  <div class="progress-bar bg-brand-02" role="progressbar" style="width: ${calcGroupProgressNum > 100 ? 100 : calcGroupProgressNum}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <iconify-icon icon="ic:round-group" style="color: #1e1e1e;" width="24" height="24" class="me-8"></iconify-icon>
+                            <p class="me-16 me-sm-8 word-break-keep-all">成團目標</p>
+                              <div class="ts-progress is-tiny bg-gray-04" style="width: 120px;" id="groupingProgressBar">
+                                <div class="bar bg-brand-02" style="--value: ${calcGroupProgressNum}">
+                                    <div class="text-white">${calcGroupProgressNum > 100 ? 100 : calcGroupProgressNum}%</div>
+                                </div>
                               </div>
-                              <p class="" style="color: #FD909F;">${calcGroupProgressNum}%</p>
                             </li>
                           </ul>
                         </div>

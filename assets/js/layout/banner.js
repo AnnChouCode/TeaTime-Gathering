@@ -148,7 +148,7 @@ function getTodayGroupings(todayIsGroup) {
             updateCountdown();
           })
         } else {
-          console.log("bannerData 為空值");
+          // console.log("bannerData 為空值");
         }
       }
     })

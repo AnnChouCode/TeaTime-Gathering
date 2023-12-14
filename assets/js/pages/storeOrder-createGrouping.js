@@ -40,14 +40,8 @@ if(isGroupings){
     .catch(err=>{console.log(err);})
 }
 
-// 監聽 addGrouping 按鈕
+// 監聽 addGrouping 按鈕，once: true 確保事件只被綁定一次
 addGrouping.addEventListener('click',function (params) {
-
-    // console.log(newRestaurantId);
-    // enjoyTime = '2023/12/19 12:00'
-    // orderTime = '2023/12/12 12:00'
-    // console.log(enjoyTime);
-    // console.log(orderTime);
     let payer = '';
     if(enjoyTime == ''){
         // console.log('未選擇 享用日期');
@@ -98,7 +92,7 @@ addGrouping.addEventListener('click',function (params) {
     // $('#modal-CreateGroup').modal('hide'); // 測試用未來可刪
     // $('#modal-successfullyGroup').modal('show'); // 測試用未來可刪
     sendAddGroup(payer);
-})
+}, { once: true })
 
 // 發送訂單
 function sendAddGroup(payer){
