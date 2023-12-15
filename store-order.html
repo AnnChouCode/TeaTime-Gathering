@@ -35,14 +35,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <!-- 進度條 tocas progress -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/store-order-5379a20f.js"></script>
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-96991ec2.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/enc-utf8-c5181946.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/notification-39e0ad74.js">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/store-order-521cfc43.js"></script>
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-e0cad254.js">
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/enc-utf8-11b5c098.js">
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/notification-de19b203.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/showDateTime-51bda516.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/showStars-385adb56.js">
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/calcGroupProgress-88a8cbd6.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/index-a4e39586.js">
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-d985f7b8.css">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-0036cbb7.css">
 </head>
 
 <body class="pt-64 pt-md-82">
@@ -131,10 +132,8 @@
             <div class="d-flex align-items-center justify-content-between gap-8 py-lg-16 py-8 container">
                 <!-- nav list left -->
                 <ul class="d-lg-flex d-none gap-xxl-48 gap-16">
-                    <li><a class="nav-list" href="findStore.html">點餐</a></li>
-                    <!-- <li><a class="nav-list" href="#">投票</a></li> -->
-                    <li><a class="nav-list" href="calendar.html">訂餐月曆</a></li>
-                    <li><a class="nav-list" href="#">訂單</a></li>
+                    <li><a class="nav-list" href="findStore.html">點餐</a></li>                    
+                    <li><a class="nav-list" href="calendar.html">訂餐月曆</a></li>                    
                 </ul>
                 <!-- nav logo -->
                 <h1 class="position-absolute me-lg-8 nav-logo"><a href="index.html">下午茶揪團去</a></h1>
@@ -195,8 +194,7 @@
                     <div class="offcanvas-body d-flex flex-column justify-content-between py-24 px-12">
                         <ul class="fs-32 offcanvas-list">
                             <li><a class="p-16 fw-bold d-block" href="findStore.html">點餐</a></li>                            
-                            <li><a class="p-16 fw-bold d-block" href="calendar.html">訂餐月曆</a></li>
-                            <li><a class="p-16 fw-bold d-block" href="#">訂單</a></li>
+                            <li><a class="p-16 fw-bold d-block" href="calendar.html">訂餐月曆</a></li>                            
                         </ul>
                         <ul class="d-flex justify-content-center gap-20">
                             <!-- 通知按鈕 -->
@@ -368,6 +366,13 @@
             </div>
             <div class="modal-body px-md-20 py-md-24 p-16">
                 <ul class=" notification-messages modalMessages">
+                    <li>
+                        <div class="d-flex align-items-center justify-content-center gap-16">                
+    <div class="spinner-border text-brand-02 spinner-border-sm" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class='fs-16 fs-md-20'>資料讀取中，請稍等一下！</p>
+</div>                    </li>
                     <!-- <li><a href="#" class="d-block">
                             <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
                             <div class="d-flex justify-content-between mb-8">
@@ -1432,6 +1437,13 @@
         </div>
         <div class="px-md-20 py-md-24 p-16">
             <ul class="notification-messages toastMessages">
+                <li>
+                    <div class="d-flex align-items-center justify-content-center gap-16">                
+    <div class="spinner-border text-brand-02 spinner-border-sm" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <p class='fs-16 fs-md-20'>資料讀取中，請稍等一下！</p>
+</div>                </li>
                 <!-- <li><a href="#" class="d-block">
                         <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
                         <div class="d-flex justify-content-between mb-8">
