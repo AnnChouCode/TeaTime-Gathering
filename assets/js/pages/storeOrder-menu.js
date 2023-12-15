@@ -33,7 +33,6 @@ $(function () {
     const staticBackdrop = document.getElementById('staticBackdrop');
     let UID = location.href.split("=")[1];;
     let id = '';
-    // UID = 'G003'
     // console.log(UID);
     const isGroupings = UID.startsWith("G") ? true : false; // 判斷 UID 是否 G 開頭，G 開頭表示當前有開團
     if(isGroupings){
@@ -42,6 +41,14 @@ $(function () {
       axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${UID}&_expand=restaurant&_expand=order`)
       .then(res=>{
         // console.log(res.data[0]);
+        if(!res.data[0]){
+          console.log('no');
+          $('#modal-storeOrder-eventExpired').modal('show')
+          $('#storeOrderClose').on('click',function(){
+            window.location.href = 'https://annchoucode.github.io/TeaTime-Gathering';
+          })
+          return
+        }
         const {restaurantId,deadlineDateTime} = res.data[0];
         const isGroupTimeTrue = isGroupTime(deadlineDateTime);
         // console.log(isGroupTimeTrue);
@@ -102,6 +109,7 @@ function shoppingCarts(data){
         if(item.customization.length !== 0){
           resultString= item.customization.join(', ');
         }
+        // console.log(item);
         templateShoppingCarts += `
         <li class="modalCartsLis mb-12 border-bottom border-1 border-gray-03">
                       <div class="d-flex justify-content-between align-items-center w-100 mb-md-16">
@@ -125,7 +133,8 @@ function shoppingCarts(data){
                           </span>
                         </button>
                         <input style="width: 35px;" type="text"
-                          class="modalCartsInput border border-2 text-brand-02 mx-8 text-center border border-0" value="${item.quantity}" >
+                          class="modalCartsInput border border-2 text-brand-02 mx-8 text-center border border-0" data-totalamount="${item.totalAmount
+                          }" value="${item.quantity}" >
                         <button type="button"
                           class="modalCartsAddBtn d-flex justify-content-center align-items-center btn btn-white border-radius-040400"
                           style="width: 24px;height: 24px;">
@@ -142,82 +151,52 @@ function shoppingCarts(data){
       $('#menuTotal').html(`<p class="fw-md-bold fw-medium fs-20 fs-md-24 line-height-sm" id="menuTotal">$${total}</p>`)
 
       let modalCartsLis = document.querySelectorAll('.modalCartsLis');
-      const menuTotal = document.getElementById('menuTotal');
+
       // 處理 購物車 所有按鈕
       modalCartsLis.forEach(item => {
         // console.log(item);
+        const modalCartsAddBtn = item.querySelector('.modalCartsAddBtn'); // 加號按鈕
         const modalCartsRemoveBtn = item.querySelector('.modalCartsRemoveBtn'); // 減號按鈕
         const modalCartsInput = item.querySelector('.modalCartsInput'); // input 按鈕
-        const modalCartsAddBtn = item.querySelector('.modalCartsAddBtn'); // 加號按鈕
-        const modalCartsTotalAmount = item.querySelector('.modalCartsTotalAmount'); // 小計金額
-        const modalCartsName = item.querySelector('.modalCartsName'); // 商品名稱
-        const originalPrice = parseInt(modalCartsName.dataset.originalprice); // 商品原始單價
-        const productName = modalCartsName.textContent;
+        const modalCartsTotalAmount = item.querySelector('.modalCartsTotalAmount'); // 個別金額
+        const productName = item.querySelector('.modalCartsName').textContent; // 商品名稱
         const inputValue = parseInt(modalCartsInput.value); // input 的值
 
         // 購物車 modal 減號
         modalCartsRemoveBtn.addEventListener('click',function(){
-          const priceNumber = parseInt(menuTotal.textContent.replace('$', ''));
-          const newInputValue = parseInt(modalCartsInput.value); // 新的 input value
-          if (newInputValue-1 >= 0) {
+          const totalAmountValue = parseInt(modalCartsInput.getAttribute('data-totalamount'));
+          if (parseInt(modalCartsInput.value)-1 >= 1) {
             const inputValue = parseInt(modalCartsInput.value);
             modalCartsInput.value = inputValue - 1;
-            modalCartsTotalAmount.textContent = `$${originalPrice * modalCartsInput.value}`;
-            menuTotal.textContent = `$${parseInt(priceNumber) - parseInt(originalPrice)}`;
-            const newInputValue = parseInt(modalCartsInput.value); // 新的 input value
-            const total = originalPrice * newInputValue;
-            orderCartsRevision(newInputValue,total,cartsData,productName);
+            const newInputValue = parseInt(modalCartsInput.value);
+            const total = totalAmountValue * newInputValue;
+            modalCartsTotalAmount.textContent = `$${total}`;
+            orderCartsRevision(newInputValue,cartsData,productName);
           }else{
-            console.log('數量為0以下');
+            // console.log('數量為1以下');
             const modalCartsInput = item.querySelector('.modalCartsInput'); // input 按鈕
-            modalCartsInput.value = 0;
+            modalCartsInput.value = 1;
           }
         })
 
         // 購物車 modal input
-        modalCartsInput.addEventListener('input',function(){
-          const inputValue = parseInt(modalCartsInput.value);
-
-          if (inputValue < 1000 && inputValue >= 0) {
-          }else if(inputValue > 1000){
-            modalCartsInput.value = 999;
-          }else{
-            modalCartsInput.value = 0;
-          }
-          
-          modalCartsLis = document.querySelectorAll('.modalCartsLis');
-          let toMenuTotal = 0;
-          modalCartsLis.forEach(item=>{
-            const modalCartsName = item.querySelector('.modalCartsName'); // 商品名稱
-            const originalPrice = parseInt(modalCartsName.dataset.originalprice); // 商品原始單價
-            const modalCartsInputValue = item.querySelector('.modalCartsInput').value;
-            console.log(originalPrice);
-            toMenuTotal += parseInt(modalCartsInputValue) * parseInt(originalPrice);
-            console.log(toMenuTotal);
-          })
-          modalCartsTotalAmount.textContent = `$${originalPrice * parseInt(modalCartsInput.value)}`;
-          menuTotal.textContent = `$${toMenuTotal}`;
-          const newInputValue = parseInt(modalCartsInput.value); // 新的 input value
-          console.log(newInputValue,toMenuTotal);
-          let total = originalPrice * parseInt(modalCartsInput.value);
-          orderCartsRevision(newInputValue,total,cartsData,productName);
-        })
-
+        modalCartsInput.addEventListener('input', function(event) {
+          const totalAmountValue = parseInt(modalCartsInput.getAttribute('data-totalamount'));
+          modalCartsTotalAmount.textContent = `$${event.target.value*totalAmountValue}`;
+          orderCartsRevision(event.target.value,cartsData,productName);
+        });
+        
         // 購物車 modal 加號
         modalCartsAddBtn.addEventListener('click',function(){
-          const inputValue = parseInt(modalCartsInput.value);
-          const priceNumber = parseInt(menuTotal.textContent.replace('$', ''));
-          // console.log(modalCartsAddBtn);
-          if (inputValue < 999) {
+          if (inputValue < 999) {            
+            const totalAmountValue = parseInt(modalCartsInput.getAttribute('data-totalamount')); // 取得 data-totalamount 的值
+            // console.log(totalAmountValue);
+            const inputValue = parseInt(modalCartsInput.value);
             modalCartsInput.value = inputValue + 1;
             const newInputValue = parseInt(modalCartsInput.value);
-            // console.log(modalCartsInput.value);
-            modalCartsTotalAmount.textContent = `$${originalPrice * modalCartsInput.value}`;
-            // console.log(originalPrice * modalCartsInput.value);
-            menuTotal.textContent = `$${parseInt(priceNumber) + parseInt(originalPrice)}`;
-            // console.log(parseInt(priceNumber) + parseInt(originalPrice));
-            const total = originalPrice * newInputValue;
-            orderCartsRevision(newInputValue,total,cartsData,productName);
+            const total = totalAmountValue * newInputValue;
+            modalCartsTotalAmount.textContent = `$${total}`;
+            orderCartsRevision(newInputValue,cartsData,productName);
           }else{
             modalCartsInput.value = 999;
           }
@@ -231,8 +210,7 @@ function shoppingCarts(data){
       `
       $('#menuListUl').html(templateShoppingCarts);
       $('.modalCartsFooter').hide();
-    }   
-    
+    }
   })
   modalCartsSendOrder.addEventListener('click',function(){
     sendCarts(data);
@@ -251,7 +229,7 @@ function sendCarts(data){
   const cartsData = JSON.parse(localStorage.getItem('Carts')); // 購物車內容
   const cartsDataHandle = JSON.parse(JSON.stringify(cartsData)); // 購物車內容(深層拷貝)
 
-  // console.log(cartsData);
+  console.log(cartsData);
   data.orderPriceTotal = priceNumber;
   data.orderUserId = _user;
   // console.log('priceNumber',priceNumber);
@@ -372,18 +350,20 @@ function renderProgressBar(groupingUID){
 }
 
 // 購物車調整值
-function orderCartsRevision(quantity,total,cartsData,productName){
-  // console.log(quantity,total,cartsData,productName);
+function orderCartsRevision(quantity,cartsData,productName){
+  // console.log(quantity,cartsData,productName);
   // 數量、小計、購物車 data、產品名稱
-  
+  const menuTotal = document.getElementById('menuTotal');
   if(quantity < 1000 && quantity >= 0){
     cartsData.forEach((item,index)=>{
       if(item.orderItem == productName) {
-        // console.log(item.orderItem);
         cartsData[index].quantity = quantity;
-        cartsData[index].totalAmount = total;
       }
     })
+    let totalAll = 0;
+    cartsData.forEach(item=>{totalAll += item.totalAmount * item.quantity})
+    menuTotal.textContent = `$${totalAll}`;
+
     // console.log(cartsData);
     localStorage.setItem('Carts', JSON.stringify(cartsData));
   }else{
@@ -579,7 +559,7 @@ function storeInformationData(isGroupings,UID,id,storeData = ''){
                     templateProduct += `
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                       <div class="modal-storeOrder-menu modal-content border-radius-24">
-                        <div class="modal-header d-flex flex-column border-0 mb-32 mb-md-40 p-0 ">
+                        <div class=" d-flex flex-column border-0 mb-32 mb-md-40 p-0 ">
                           <div class="modal-header-top d-flex justify-content-between align-items-center w-100 mb-8 mb-md-16">
                             <h5 class="modal-title" id="modalOrderTitle" data-originalPrice="${item.價格}">${item.品項}</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -595,13 +575,13 @@ function storeInformationData(isGroupings,UID,id,storeData = ''){
                     `
                    }else{
                       templateProduct += `
-                            <div class="cold-hot d-flex  align-items-center w-100 mb-8 mb-md-16 ${item.冷? '':'d-none'}">
-                              <div class="cold d-flex justify-content-center align-items-center ">
+                            <div class="cold-hot d-flex  align-items-center w-100 mb-8 mb-md-16">
+                              <div class="cold d-flex justify-content-center align-items-center ${item.冷? '':'d-none'}">
                                 <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
                                 <span class="me-16">${item.價格}</span>
                               </div>
-                              <div class="hot d-flex justify-content-center align-items-center ${item.熱? 'd-none':'d-none'}">
-                                <img class="me-4" src="/assets/images/icon/hot.png" alt="hot.png">
+                              <div class="hot d-flex justify-content-center align-items-center ${item.熱? '':'d-none'}">
+                                <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/hot.png?raw=true" alt="hot.png">
                                 <span class="">${item.價格}</span>
                               </div>
                             </div>

@@ -720,6 +720,26 @@
         <!-- 店家列表 -->
         <div id="paginationContainerMenu" class="col-md-10 px-24 "></div>
       </div>
+      <!-- 當前 UID 網址已過期提示 Modal -->
+      <div class="modal" id="modal-storeOrder-eventExpired" aria-hidden="true" aria-labelledby="modal-eventExpired" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered mx-auto px-12 px-sm-0" style="max-width:416px;">
+          <div class="modal-content border-radius-24">
+            <div class="d-flex flex-column border-0 pt-12 pt-md-24 px-16 px-md-40 ms-auto">
+              <button type="button" id="storeOrderClose" class="btn-close btnLinkToCalendar" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-16 pt-0 p-md-40">
+              <div class="mb-20 mb-md-40 text-center">
+                <p class="text-gray-01 fw-bold line-height-sm fs-20 fs-md-24">※ 找不到您指定的開團活動</p>
+            </div>
+              <div class="fs-md-20">
+                <p>請確認您的網址是否正確？</p>
+                <p>若為正確網址，可能是由於您持有的網址為測試版本，將於一定時間內過期無法使用。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- feedback -->
       <div class="d-none d-sm-block ">

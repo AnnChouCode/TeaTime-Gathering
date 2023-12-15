@@ -8,7 +8,7 @@ let templateBanner = "";
 const today = new Date();
 let todayDateString = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;
 let deadlineDateTime = ''
-console.log(todayDateString);
+// console.log(todayDateString);
 // todayDateString = "2023/12/05"; // 有一筆開團
 // todayDateString = "2023/11/28"; // 無開團，取 4 筆
 getTodayGroupings();
@@ -28,9 +28,9 @@ function getTodayGroupings(todayIsGroup) {
         getTodayGroupings(1); // 今日無開團，重新取得 4筆 近期開團資料
       } else {
         // 今日有開團
-        console.log(data);
+        // console.log(data);
         deadlineDateTime = data[0].deadlineDateTime
-        console.log(deadlineDateTime);
+        // console.log(deadlineDateTime);
         data.forEach((item, index) => {
           // console.log(item)
           const [datePart, timePart] = item.deadlineDateTime.split(" ");
@@ -128,7 +128,7 @@ function getTodayGroupings(todayIsGroup) {
               // 倒數計時器
               // 設定目標時間(結束時間)
               const targetDay = new Date(deadlineDateTime).getTime();
-              console.log(targetDay);
+              // console.log(targetDay);
               // 抓取現在時間
               const currentDay = new Date().getTime();
               // 剩下的時間(毫秒為單位)
