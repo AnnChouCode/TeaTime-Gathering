@@ -42,7 +42,6 @@ $(function () {
       .then(res=>{
         // console.log(res.data[0]);
         if(!res.data[0]){
-          console.log('no');
           $('#modal-storeOrder-eventExpired').modal('show')
           $('#storeOrderClose').on('click',function(){
             window.location.href = 'https://annchoucode.github.io/TeaTime-Gathering';
@@ -229,7 +228,7 @@ function sendCarts(data){
   const cartsData = JSON.parse(localStorage.getItem('Carts')); // 購物車內容
   const cartsDataHandle = JSON.parse(JSON.stringify(cartsData)); // 購物車內容(深層拷貝)
 
-  console.log(cartsData);
+  // console.log(cartsData);
   data.orderPriceTotal = priceNumber;
   data.orderUserId = _user;
   // console.log('priceNumber',priceNumber);
