@@ -18,12 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // 已登入，設置 modal 顯示目標
         // 移除原本的 popover 屬性
         btnCreateGrouping.setAttribute('href', '#modal-CreateGroup');
-        btnCreateGrouping.setAttribute("data-bs-toggle", "modal");
-
-        btnCart.forEach(btn => {
-            // btn.setAttribute('href', '#modal-shppingCart-order');
-            // btn.setAttribute("data-bs-toggle", "modal");
-        })        
+        btnCreateGrouping.setAttribute("data-bs-toggle", "modal");      
 
         btnWriteReview.forEach(btn => {
             btn.setAttribute('href', '#modal-WriteReview');
