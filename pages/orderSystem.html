@@ -168,7 +168,7 @@
                 renderData(orderData);
                 renderGroupings(orderData)
             })
-            .catch(error => console.log("未抓到資料~"))
+        // .catch(error => console.log("未抓到資料~"))
 
         // 抓餐廳資料
         axios
@@ -176,7 +176,7 @@
             .then(function (res) {
                 restaurantData = res.data
             })
-            .catch(error => console.log("未抓到資料~"))
+        // .catch(error => console.log("未抓到資料~"))
     })()
 
     // 跟團中 & 歷史訂單
@@ -260,18 +260,18 @@
                     })
                     // 給autoComplete使用
                     filteredStoreName.push(restaurant.storeName)
-                    console.log(filteredStoreName)
+                    // console.log(filteredStoreName)
                     historicalHTML +=
                         `
                             <li class="d-flex flex-column flex-lg-row p-24 border-bottom border-brand-03"  data-restaurant="${restaurant.storeName}">
-                                <aside class="me-40 d-flex justify-content-between align-items-lg-start ">
+                                <aside class="me-0 me-lg-40 d-flex justify-content-between align-items-lg-start ">
                                     <img class="border border-2 rounded-24 border-line" src=${restaurant.storeLogo} alt="" width="96">
                                     <span class="ms-auto d-block d-lg-none">
-                                        <a href="" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
+                                        <a href="store-order.html?UID=${restaurant.UID}" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示店家</a>
                                     </span>
                                 </aside>
                                 <div class="d-flex justify-content-between w-100">
-                                <div onclick="toggleContent(this)">
+                                <div onclick="toggleContent(this)" class="cursor-pointer">
                                     <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0">${restaurant.storeName}</h2>
                                     <p class="mt-4 text-gray-02">享用日期${eventDateTimeFormat}‧付款人：${invitees == "" ? "黃莉琳" : invitees}</p>
                                     <div class="starInRwd${id} ms-auto  fs-24 d-flex align-items-center d-lg-none" data-rating-star=5>
@@ -312,7 +312,7 @@
         if (arr.length) {
             arr.forEach((obj) => {
                 // let initialOrderItems = "";
-                const { id, restaurant, initiator, invitees, order, eventDateTime } = obj
+                const { id, UID, restaurant, initiator, invitees, order, eventDateTime } = obj
                 eventDateTimeFormat = moment(eventDateTime, "YYYY/MM/DD HH:mm").format("YYYY/MM/DD");
 
                 // 發起的開團卡片
@@ -320,7 +320,7 @@
                     initiateGroupHTML += `
                         <li class="p-24 border-bottom border-brand-03">
                             <div class="d-flex flex-column flex-lg-row  ">
-                                <aside class="me-40 d-flex justify-content-between align-items-lg-start ">
+                                <aside class="me-0 me-lg-40 d-flex justify-content-between align-items-lg-start ">
                                     <div>
                                         <img class="border border-2 rounded-24 border-line" src="${restaurant.storeLogo}" alt="" width="96">
                                         <p
@@ -329,8 +329,8 @@
                                         </p>
                                     </div>
                                     <span class="ms-auto d-block d-lg-none">
-                                        <a href="store-order.html?UID=${restaurant.UID}" 
-                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">管理訂單</a>
+                                        <a href="store-order.html?UID=${UID}" 
+                                            class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示開團</a>
                                     </span>
                                 </aside>
 
@@ -349,16 +349,16 @@
                                         <li class="d-flex mt-8 d-flex align-items-center ">
                                             <p>成團目標</p>
                                             <div class="ts-progress is-small ms-16 w-50 bg-gray-04">
-                                                <div class="bar bg-brand-02" style="--value: ${order.orderDetail.length >= restaurant.minGroupSize ? "100" : (order.orderDetail.length / restaurant.minGroupSize) * 100}">
-                                                    <div class="text text-white">${order.orderDetail.length >= restaurant.minGroupSize ? "100" : (order.orderDetail.length / restaurant.minGroupSize) * 100}%</div>
+                                                <div class="bar bg-brand-02" style="--value: ${order.orderDetail.length >= restaurant.minGroupSize ? "100" : Math.ceil((order.orderDetail.length / restaurant.minGroupSize) * 100)}">
+                                                    <div class="text text-white">${order.orderDetail.length >= restaurant.minGroupSize ? "100" : ((order.orderDetail.length / restaurant.minGroupSize) * 100)}%</div>
                                                 </div>
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
                                 <span class="ms-auto d-none d-lg-block">
-                                    <a href="store-order.html?UID=${restaurant.UID}" 
-                                        class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">管理訂單</a>
+                                    <a href="store-order.html?UID=${UID}" 
+                                        class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示開團</a>
                                 </span>
                             </div>
                         </li>`
@@ -461,7 +461,6 @@
                     })
             }
         })
-
     }
 
 
