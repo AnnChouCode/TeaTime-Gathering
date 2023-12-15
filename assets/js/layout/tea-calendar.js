@@ -9,6 +9,9 @@ import isLoggedIn from '/assets/js/components/isLoggedIn.js';
 import showDateTime from '/assets/js/components/showDateTime.js';
 // import 解密 token 元件
 import cryptoToken from '/assets/js/components/cryptoToken.js'; 
+// import 開團投票進度計算 元件
+import calcGroupProgress from '/assets/js/components/calcGroupProgress.js'; 
+
 
 //全頁共用變數
 const _url = "https://teatimeapi-test.onrender.com"
@@ -270,6 +273,9 @@ function renderVotingCard(votingCardData) {
         const numVoters = data.currentVoters.length
         //當前店家最小成團人數
         const numMinGroupSize = data.restaurant.minGroupSize
+        //取得投票進度
+        let calcGroupProgressNum = 0; 
+        calcGroupProgressNum = calcGroupProgress(numVoters,numMinGroupSize)
         
         cardDataTemp += `
     <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
@@ -281,8 +287,8 @@ function renderVotingCard(votingCardData) {
                     <div class="d-flex align-items-center mb-8 mb-lg-0 ">
                         <span class="me-4 me-lg-16 text-gray-02 text-nowrap">成團目標</span>
                         <div class="ts-progress is-tiny bg-gray-04 voting-progress" data-num="${data.id}">
-                            <div class="bar bg-brand-02" style="--value: ${calcGroupProgress(numVoters, numMinGroupSize)}">
-                                <div class="text-white">${calcGroupProgress(numVoters, numMinGroupSize) > 100 ? 100 : calcGroupProgress(numVoters, numMinGroupSize)}%</div>
+                            <div class="bar bg-brand-02" style="--value: ${calcGroupProgressNum}">
+                                <div class="text-white">${calcGroupProgressNum > 100 ? 100 : calcGroupProgressNum}%</div>
                             </div>
                         </div>
                     </div>
@@ -298,10 +304,6 @@ function renderVotingCard(votingCardData) {
     voteStore()
 }
 
-//計算成團、投票進度條
-function calcGroupProgress(numParticipants, numMinGroupSize) {
-    return Math.floor(numParticipants / numMinGroupSize * 100)
-}
 
 //判斷 btnVoteThis 狀態
 function btnVoteStates(id, isPast, alreadyVoted) {
