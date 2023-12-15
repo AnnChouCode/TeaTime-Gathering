@@ -35,14 +35,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <!-- 進度條 tocas progress -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/store-order-e3980d07.js"></script>
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-96991ec2.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/enc-utf8-c5181946.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/notification-39e0ad74.js">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/store-order-658ed098.js"></script>
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-2018fec3.js">
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/enc-utf8-2021e559.js">
+  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/notification-ac19cf8c.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/showDateTime-51bda516.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/showStars-385adb56.js">
   <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/index-a4e39586.js">
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-d985f7b8.css">
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-2e3c5037.css">
 </head>
 
 <body class="pt-64 pt-md-82">
@@ -648,7 +648,7 @@
               <a tabindex="0"
                 class="d-flex justify-content-center align-items-center px-24 py-10 py-sm-14 border-radius-40 btn btn-brand-03 btn-hover-brand-01 btnWriteReview"
                 role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom"
-                data-bs-content="請先登入帳號">
+                data-bs-content="請先登入帳號" onclick="RatingShare(this)">
                 <p class="text-white word-break-keep-all">寫評價</p>
               </a>
             </div>
@@ -681,11 +681,15 @@
               </div>
               <div class="cold-hot d-flex  align-items-center w-100 mb-8 mb-md-16">
                 <div class="cold d-flex justify-content-center align-items-center ">
-                  <img class="me-4" src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true" alt="cold.png">
+                  <img class="me-4"
+                    src="https://github.com/AnnChouCode/TeaTime-Gathering/blob/main/assets/images/icon/cold.png?raw=true"
+                    alt="cold.png">
                   <span class="me-16">25</span>
                 </div>
                 <div class="hot d-flex justify-content-center align-items-center">
-                  <img class="me-4" src="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/icon/hot.png?raw=true" alt="hot.png">
+                  <img class="me-4"
+                    src="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/icon/hot.png?raw=true"
+                    alt="hot.png">
                   <span class="">25</span>
                 </div>
               </div>
@@ -857,28 +861,27 @@
             <div class="modal-body p-0 mb-40">
               <div class="mb-32 mb-md-40">
                 <label class="mb-12 text-gray-01 fs-20 line-height-sm" for="enjoymentDate">享用日期</label>
-                <input
-                  class="w-100 mb-3 border-radius-16 border border-2 border-gray-04 px-14 py-12 dateSelector"
-                  type="datetime-local" id="enjoymentDate" name="enjoymentDate" placeholder="日期" style="height: 50px;"  autocomplete="off">
-                  <p class="mt-4 fs-14 ms-16 EnjoyFillAlert" style="color:#dc3545;">必填</p>
-                </div>
-                <div class="mb-32 mb-md-40">
-                  <label class="mb-12 text-gray-01 fs-20 line-height-sm" for="orderTerm">訂購期限</label>
-                  <input
-                  class="w-100 mb-3 border-radius-16 border border-2 border-gray-04 px-14 py-12 dateSelector"
-                  type="datetime-local" id="orderTerm" name="orderTerm" placeholder="日期" style="height: 50px;"  autocomplete="off">
-                  <p class="mt-4 fs-14 ms-16 orderFillAlert" style="color:#dc3545;">必填</p>
-                  <p class="d-none mt-4 fs-14 ms-16 orderTermAlert" style="color:#dc3545;">訂購期限須至少提前於享用日期
-                    24
-                    時</p>
+                <input class="w-100 mb-3 border-radius-16 border border-2 border-gray-04 px-14 py-12 dateSelector"
+                  type="datetime-local" id="enjoymentDate" name="enjoymentDate" placeholder="日期" style="height: 50px;"
+                  autocomplete="off">
+                <p class="mt-4 fs-14 ms-16 EnjoyFillAlert" style="color:#dc3545;">必填</p>
+              </div>
+              <div class="mb-32 mb-md-40">
+                <label class="mb-12 text-gray-01 fs-20 line-height-sm" for="orderTerm">訂購期限</label>
+                <input class="w-100 mb-3 border-radius-16 border border-2 border-gray-04 px-14 py-12 dateSelector"
+                  type="datetime-local" id="orderTerm" name="orderTerm" placeholder="日期" style="height: 50px;"
+                  autocomplete="off">
+                <p class="mt-4 fs-14 ms-16 orderFillAlert" style="color:#dc3545;">必填</p>
+                <p class="d-none mt-4 fs-14 ms-16 orderTermAlert" style="color:#dc3545;">訂購期限須至少提前於享用日期
+                  24
+                  時</p>
               </div>
               <label class="mb-12 text-gray-01 fs-20 line-height-sm" for="groupingInvitees">付款人</label>
               <div class=" mb-32 mb-md-40">
-                <select
-                  class="select-payer w-100 border-radius-16 border border-2 border-gray-04 px-14 py-12"
+                <select class="select-payer w-100 border-radius-16 border border-2 border-gray-04 px-14 py-12"
                   id="groupingInvitees" name="groupingInvitees">
                   <option class="text-gray-03" value="" disabled selected>請選擇付款人</option>
-                  <option  value="no-invitees">各自付款</option>
+                  <option value="no-invitees">各自付款</option>
                   <option value="has-invitees">由我請客</option>
                 </select>
                 <p class="mt-4 fs-14 ms-16 inviteesFillAlert" style="color:#dc3545;">必填</p>
@@ -1134,11 +1137,11 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-storeOrder-menu modal-content border-radius-24">
             <div class="modal-header-top d-flex justify-content-between align-items-center w-100 mb-24">
-              <p class="fs-20 fs-md-24 line-height-sm fw-bold text-gray-01" id="staticBackdropLabel">茶源 ChaSource</p>
+              <h5 class="modal-title fw-bold fs-24" id="memberModalLabel"></h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body p-0 mb-8">
-              <div class="starInModal mb-8">
+              <div class="starInModal mb-8" data-rating-star=5>
                 <span class="star" onclick="rateStar(1)">&#9733;</span>
                 <span class="star" onclick="rateStar(2)">&#9733;</span>
                 <span class="star" onclick="rateStar(3)">&#9733;</span>
@@ -1149,10 +1152,9 @@
                 class="memberEvaluate mt-8 border-1 border-gray-04 rounded-1 w-100 bg-white text-dark "></textarea>
               <div class="textareaLength mx-auto text-gray-02 fs-16 d-flex justify-content-end ">字數限制&ensp;0/100</div>
             </div>
-            <div class="modal-footer border-0 w-100">
-              <button type="button" class="btn btn-brand-03 border-radius-40 py-12 px-24 text-white 
-                w-100">
-                <p class="text-white ">送出</p>
+            <div class="modal-footer border-0 p-0 ">
+              <button type="button" class="commentBtn btn btn-brand-03 text-white w-100"
+                id="updateRatingBtn">送出</button>
               </button>
             </div>
           </div>
@@ -1192,6 +1194,26 @@
         </div>
         <!-- 店家列表 -->
         <div id="paginationContainerMenu" class="col-md-10 px-24 "></div>
+      </div>
+      <!-- 當前 UID 網址已過期提示 Modal -->
+      <div class="modal" id="modal-storeOrder-eventExpired" aria-hidden="true" aria-labelledby="modal-eventExpired" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered mx-auto px-12 px-sm-0" style="max-width:416px;">
+          <div class="modal-content border-radius-24">
+            <div class="d-flex flex-column border-0 pt-12 pt-md-24 px-16 px-md-40 ms-auto">
+              <button type="button" id="storeOrderClose" class="btn-close btnLinkToCalendar" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-16 pt-0 p-md-40">
+              <div class="mb-20 mb-md-40 text-center">
+                <p class="text-gray-01 fw-bold line-height-sm fs-20 fs-md-24">※ 找不到您指定的開團活動</p>
+            </div>
+              <div class="fs-md-20">
+                <p>請確認您的網址是否正確？</p>
+                <p>若為正確網址，可能是由於您持有的網址為測試版本，將於一定時間內過期無法使用。</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- feedback -->
@@ -1331,7 +1353,7 @@
               <a tabindex="0"
                 class="d-flex justify-content-center align-items-center px-24 py-10 py-sm-14 border-radius-40 btn btn-brand-03 btn-hover-brand-01 btnWriteReview"
                 role="button" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="bottom"
-                data-bs-content="請先登入帳號">
+                data-bs-content="請先登入帳號" onclick="RatingShare(this)">
                 <p class="text-white word-break-keep-all">寫評價</p>
               </a>
             </div>
@@ -1471,6 +1493,8 @@
             let selectedStars = 0;
             function rateStar(star) {
               selectedStars = star;
+              let ratingData = document.querySelector('[data-rating-star]');
+              ratingData.dataset["ratingStar"] = star;
               updateStars();
             }
 
@@ -1493,6 +1517,13 @@
               let inputLength = inputText.length
               textareaLength.textContent = `字數限制 ${inputLength}/100`
             })
+
+            // 點擊寫評價按鈕
+            function RatingShare(btn) {
+              let modalTitle = document.querySelector("#memberModalLabel");
+              const storeName = document.querySelector(".order-textContent h2").textContent;
+              modalTitle.textContent = storeName;
+            }
 
           </script>
 
