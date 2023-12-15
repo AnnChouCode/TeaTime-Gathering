@@ -56,10 +56,12 @@ $(function () {
           const popover = new bootstrap.Popover(shoppingCart, {
             content: '揪團活動已截止',
           });
+        }else{
+          
         }
         id = restaurantId;
         storeInformationData(isGroupings,UID,id,res.data[0])
-        shoppingCarts(res.data[0])
+        shoppingCarts(res.data[0],isGroupTimeTrue)
       })
       .catch(err=>{console.log(err);})
     }else{
@@ -74,10 +76,10 @@ $(function () {
 });
 
 // 購物車
-function shoppingCarts(data){
+function shoppingCarts(data,isGroupTimeTrue){
   $('.shopping-cart').on('click',function(){
-    if(_user){
-      $('#modal-shppingCart-order').modal('show')      
+    if(_user && !isGroupTimeTrue){
+      $('#modal-shppingCart-order').modal('show')
     }else{
       // 無登入使用者
       return
