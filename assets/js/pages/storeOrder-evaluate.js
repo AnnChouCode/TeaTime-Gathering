@@ -29,7 +29,6 @@ function init() {
         .then(function (res) {
             ratingData = res.data;
             ratingArys = ratingData.filter(item => item.restaurantUID === currentUrlSearch);
-            console.log(currentUrlSearch);
             showRating();
         })
 }
@@ -130,11 +129,10 @@ async function updateRating() {
                 const closeButton = document.querySelector('#modal-WriteReview .btn-close');
                 closeButton.click();
                 setTimeout(() => {
-                    alert("留言評價成功");
+                    alert("留言評價成功 ,,・ω・,, ");
+                    location.reload()
                 }, 100)
             })
-        // console.log(updataObj);
     }
 }
-
 
