@@ -33,15 +33,17 @@
             <ul class="px-md-24 px-12 pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">如何點餐（跟團）</h3>
                 <p class="mt-24">您可藉由以下三種路徑查看開團中項目</p>
-                <li class="mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-20">1. 『首頁 / 午茶行事曆』區塊</li>
                 <li class="mt-4">2. 『點餐』頁面</li>
-                <li class="mt-4">3. 『點餐月曆』</li>
+                <li class="mt-4">3. 『訂餐月曆』</li>
+                <li class="mt-4">4. 午茶夥伴的邀請網址</li>
             </ul>
             <ul class="px-md-24 px-12 pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">如何邀請他人點餐（開團）</h3>
-                <p class="mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後，點選「我要開團」按鈕</p>
-                <li class="mt-20">1. 『首頁/找店家』區塊</li>
+                <p class="mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後，點選「建立揪團」按鈕</p>
+                <li class="mt-20">1. 『首頁 / 找店家』區塊</li>
                 <li class="mt-4">2. 『點餐』頁面</li>
+                <p class="mt-20">建立揪團成功後，將獲得揪團網址，快分享給午茶夥伴們吧！</p>
             </ul>
         </div>
         <div id="instructions"></div>
@@ -96,29 +98,33 @@
                 showAns.innerHTML = `<ul class="QA-ul px-md-24 px-12 pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">如何點餐（跟團）</h3>
                 <p class="mt-24">您可藉由以下三種路徑查看開團中項目</p>
-                <li class="mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-20">1. 『首頁 / 午茶行事曆』區塊</li>
                 <li class="mt-4">2. 『點餐』頁面</li>
-                <li class="mt-4">3. 『點餐月曆』</li>
+                <li class="mt-4">3. 『訂餐月曆』</li>
+                <li class="mt-4">4. 午茶夥伴的邀請網址</li>
             </ul>
             <ul class="QA-ul px-md-24 px-12 pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">如何邀請他人點餐（開團）</h3>
-                <p class="mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後,點選「我要開團」按鈕</p>
-                <li class="mt-20">1. 『首頁/找店家』區塊</li>
+                <p class="mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後，點選「建立揪團」按鈕</p>
+                <li class="mt-20">1. 『首頁 / 找店家』區塊</li>
                 <li class="mt-4">2. 『點餐』頁面</li>
+                <p class="mt-20">建立揪團成功後，將獲得揪團網址，快分享給午茶夥伴們吧！</p>
             </ul>`
             } else if (button === QA2) {
                 showAns.innerHTML = `<ul class=" QA-ul px-md-24 px-12 pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">我想投票</h3>
                 <p class="mt-24">您可藉由以下三種路徑查看投票中的項目</p>
-                <li class="mt-20">1. 『首頁/點餐月曆』區塊</li>
+                <li class="mt-20">1. 『首頁 / 午茶行事曆』區塊</li>
                 <li class="mt-4">2. 『投票』頁面</li>
-                <li class="mt-4">3. 『點餐月曆』頁面</li>
+                <li class="mt-4">3. 『訂餐月曆』頁面</li>
+                <li class="mt-4">4. 午茶夥伴的邀請網址</li>
             </ul>
             <ul class="QA-ul px-md-24 px-12 pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">我想舉辦投票</h3>
                 <p class="mt-24">您可藉由以下兩種路徑，尋找喜愛的店家，進入店家專頁後，點選「舉辦投票」按鈕</p>
-                <li class="mt-20">1. 『首頁/找店家』區塊</li>
+                <li class="mt-20">1. 『首頁 / 找店家』區塊</li>
                 <li class="mt-4">2. 『點餐』頁面</li>
+                <p class="mt-20">建立投票成功後，將獲得投票網址，快分享給午茶夥伴們吧！</p>
             </ul>`
             } else if (button === QA3) {
                 showAns.innerHTML = `<ul class="QA-ul px-md-24 px-12 pb-md-40 pb-24 fs-md-20 fs-16">
@@ -127,11 +133,11 @@
             } else if (button === QA4) {
                 showAns.innerHTML = `<ul class="QA-ul px-md-24 px-12 pb-md-40 pb-24 border-bottom border-1 border-brand-03 fs-md-20 fs-16">
                 <h3 class="fs-md-24 fs-20 text-brand-03">如何查看訂單歷史記錄？</h3>
-                <p class="mt-24">至『首頁』上方點選『訂單』可查看跟團中訂單以及歷史訂單</p>
+                <p class="mt-24">登入後，可至使用者後台，查看跟團中訂單以及歷史訂單</p>
                 </ul>
                 <ul class=" QA-ul px-md-24 px-12 pb-md-40 pb-24 mt-md-40 mt-24 fs-md-20 fs-16">
-                <h3 class="tfs-md-24 fs-20 text-brand-03">如何取消或修改已經下單的訂單？</h3>
-                <li class="mt-20">1. 至『首頁』上方點選『訂單』即可看到『修改訂單』</li>
+                <h3 class="fs-md-24 fs-20 text-brand-03">如何取消或修改已經下單的訂單？</h3>
+                <li class="mt-20">1. 至使用者後台點選『訂單』即可看到『修改訂單』</li>
                 <li class="mt-4">2. 請注意 : 僅於點餐期限截止前仍可取消 or 修改已送出的內容，截止後恕不異動</li>
             </ul>
                 `
