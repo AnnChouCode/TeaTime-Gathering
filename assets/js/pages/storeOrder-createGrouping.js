@@ -88,18 +88,16 @@ addGrouping.addEventListener('click',function (params) {
         // console.log(groupingInvitees.value);
         payer = groupingInvitees.value.toString() == 'no-invitees' ? `` : `${usersName}`
     }
-    // console.log(payer);
-    // $('#modal-CreateGroup').modal('hide'); // 測試用未來可刪
-    // $('#modal-successfullyGroup').modal('show'); // 測試用未來可刪
+
     sendAddGroup(payer);
-}, { once: true })
+})
 
 // 發送訂單
 function sendAddGroup(payer){
     // console.log('訂購時間',orderTime.toString());
     // console.log('享用日期',enjoyTime.toString());
     // console.log('付款人 userUID',_user);
-    // console.log(usersId);
+
     let orderData = {
         restaurantId: newRestaurantId,
         orderDetail: [ ]
@@ -131,12 +129,6 @@ function sendAddGroup(payer){
             // console.log(result);
             orderData.UID = result.ordersUID;
             groupData.UID = result.groupingsUID;
-            // console.log(orderData);
-            // console.log(groupData);
-            // $('#modal-CreateGroup').modal('hide');
-            // $('#modal-successfullyGroup').modal('show');
-
-            // 將資料新增至 API : orders、groupings
             axios.post(`https://teatimeapi-test.onrender.com/orders`,orderData)
             .then(ordersPostRes=>{
                 return axios.post(`https://teatimeapi-test.onrender.com/groupings`,groupData)
@@ -243,6 +235,7 @@ modalCreateGroup.addEventListener("click", function (event) {
             timeInsufficient = true;
         } else {
             orderTermAlert.classList.add("d-none")
+            timeInsufficient = false;
         }
     }
 
@@ -298,7 +291,7 @@ const orderTermInstance = flatpickr("#orderTerm", {
     enableTime: true,
     dateFormat: "Y/m/d H:i",
     time_24hr: true,
-    minuteIncrement: 15,
+    minuteIncrement: 5,
     allowInput: true,
     minDate: moment().format('YYYY/MM/DD'),
     onClose: function(selectedDates, dateStr, instance) {
