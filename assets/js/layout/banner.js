@@ -7,13 +7,14 @@ localStorage.setItem('Carts', ''); // 清空購物車
 let templateBanner = "";
 const today = new Date();
 let todayDateString = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;
+let deadlineDateTime = ''
 // console.log(todayDateString);
 // todayDateString = "2023/12/05"; // 有一筆開團
 // todayDateString = "2023/11/28"; // 無開團，取 4 筆
 getTodayGroupings();
 function getTodayGroupings(todayIsGroup) {
   // console.log(todayDateString);
-  let url = `https://teatimeapi-test.onrender.com/groupings?deadlineDateTime_like=${todayDateString}&isGroup=true`;
+  let url = `https://teatimeapi-test.onrender.com/groupings?deadlineDateTime_like=${todayDateString}&_sort=id&_order=desc`;
   if (todayIsGroup == 1) {
     url = `https://teatimeapi-test.onrender.com/groupings?&isGroup=true&_limit=4`;
   }
@@ -24,12 +25,12 @@ function getTodayGroupings(todayIsGroup) {
     .then(function (res) {
       const data = res.data;
       if (data == "") {
-        // 今日無開團
-        // console.log("今日無開團，重新取得 4筆 近期開團資料");
-        getTodayGroupings(1);
+        getTodayGroupings(1); // 今日無開團，重新取得 4筆 近期開團資料
       } else {
-        // console.log("今日有開團");
+        // 今日有開團
         // console.log(data);
+        deadlineDateTime = data[0].deadlineDateTime
+        // console.log(deadlineDateTime);
         data.forEach((item, index) => {
           // console.log(item)
           const [datePart, timePart] = item.deadlineDateTime.split(" ");
@@ -59,7 +60,7 @@ function getTodayGroupings(todayIsGroup) {
               <span class="text-brand-02">:</span>
               <span class="text-white border-radius-40 bg-brand-02 px-12 py-8 mx-8" id="min">59</span>
               <span class="text-brand-02">:</span>
-              <span class="text-white border-radius-40 bg-brand-02 px-12 py-8 mx-8" id="sec">49</span>
+              <span class="text-white border-radius-40 bg-brand-02 px-12 py-8 mx-8" id="sec">59</span>
             </button>
             `;
             templateBanner += `
@@ -121,10 +122,13 @@ function getTodayGroupings(todayIsGroup) {
               });
             });
 
-            // 倒數計時器
-            // 設定目標時間(結束時間)
-            const targetDay = new Date("2023-12-31 23:59").getTime();
             function updateCountdown() {
+              // console.log(deadlineDateTime);
+              // deadlineDateTime = '2023/12/14 23:05'
+              // 倒數計時器
+              // 設定目標時間(結束時間)
+              const targetDay = new Date(deadlineDateTime).getTime();
+              // console.log(targetDay);
               // 抓取現在時間
               const currentDay = new Date().getTime();
               // 剩下的時間(毫秒為單位)
@@ -135,6 +139,13 @@ function getTodayGroupings(todayIsGroup) {
               const mins = Math.floor((remainTime % (1000 * 60 * 60)) / (1000 * 60));
               const secs = Math.floor((remainTime % (1000 * 60)) / (1000));
               // console.log(days, hours, mins, secs);
+              if(hours < 0 && mins < 0 && secs < 0){
+                document.getElementById('hour').innerHTML = `00`;
+                document.getElementById('min').innerHTML = `00`;
+                document.getElementById('sec').innerHTML = `00`;
+                clearInterval(interval);
+                return
+              }
 
               // 放進元素內時間
               // var countday = days < 10 ? document.getElementById('day').innerHTML = "0" + days : document.getElementById('day').innerHTML = days;
@@ -145,7 +156,7 @@ function getTodayGroupings(todayIsGroup) {
             // 每秒更新一次倒數計時器
             const interval = setInterval(updateCountdown, 1000);
 
-            updateCountdown();
+            updateCountdown(deadlineDateTime);
           })
         } else {
           // console.log("bannerData 為空值");
