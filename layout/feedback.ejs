@@ -13,8 +13,8 @@
                     </div>
                     <!-- evaluate scroll-bar -->
                     <div class="horizontal-scroll d-flex flex-nowrap overflow-auto ratingsContainer">
-                        <!-- evaluate first page -->
-                        <div
+                        <%- include('./layout/wait-message'); -%>
+                        <!-- <div
                             class="evaluate-card bg-white position-relative mt-32 mt-md-64 me-12 me-lg-0 pb-12 pb-md-24 ">
                             <div class="d-flex mb-12 mb-md-16 w-100">
                                 <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
@@ -39,70 +39,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">超好吃的，最喜歡這種酸酸甜甜的味道，謝謝 Emy 推薦</p>
-                            <!-- <a class="pb-24 px-12 px-md-24 d-flex align-items-center" onclick="toggleLike()">
-                                <div class="heartIcon1">
-                                    <iconify-icon icon="material-symbols:favorite-outline" style="color: #c2c1bd;"
-                                        ></iconify-icon>
-                                </div>
-                                <div class="likeCount1 ms-4 fs-24"></div>
-                            </a> -->
-                        </div>
-                        <div
-                            class="evaluate-card bg-white position-relative mt-32 mt-md-64 me-12 me-lg-0 pb-12 pb-md-24 ">
-                            <div class="d-flex mb-12 mb-md-16 w-100">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/store-logo/Green Bakery.jpg" alt="Green Bakery 店家logo圖">
-                                <div class="d-flex w-100 justify-content-between ">
-                                    <p class="star-group mb-4 mb-md-8">
-                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
-                                            ></iconify-icon>
-                                        <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
-                                            ></iconify-icon>
-                                        <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
-                                            ></iconify-icon>
-                                        <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
-                                            ></iconify-icon>
-                                        <iconify-icon icon="ic:round-star" style="color: #c2c1bd;"
-                                            ></iconify-icon>
-                                    </p>
-                                    <div
-                                        class="evaluate-user d-flex justify-content-between   align-items-center pt-12 pt-md-24">
-                                        <span class="user-name fs-16 fs-md-20">盧子晴</span>
-                                        <time datetime="2023-08-04" class="user-date fs-16">2023/08/04</time>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">加錯料還沒有補償，打電話過去提醒還被嗆，也太扯了吧，聯合抵制啦！
-                            </p>
-                        </div>
-                        <div
-                            class="evaluate-card bg-white position-relative mt-32 mt-md-64 me-12 me-lg-0 pb-12 pb-md-24 ">
-                            <div class="d-flex mb-12 mb-md-16 w-100">
-                                <img class="evaluate-store w-100 d-block border border-2 border-line position-absolute"
-                                    src="../assets/images/store-logo/store-beverage-1.jpg" alt="茶源 店家logo圖">
-                                <div class="d-flex w-100 justify-content-between ">
-                                    <p class="star-group mb-4 mb-md-8">
-                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
-                                            ></iconify-icon>
-                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
-                                            ></iconify-icon>
-                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
-                                            ></iconify-icon>
-                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
-                                            ></iconify-icon>
-                                        <iconify-icon icon="ic:round-star" style="color: #ffd43a;"
-                                            ></iconify-icon>
-                                    </p>
-                                    <div
-                                        class="evaluate-user d-flex justify-content-between   align-items-center pt-12 pt-md-24">
-                                        <span class="user-name fs-16 fs-md-20">陳冠廷</span>
-                                        <time datetime="2023-08-03" class="user-date fs-16">2023/08/03</time>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">我今天的幸福都在這裡了，謝謝團主大大!</p>
-                        </div>                        
+                            <p class="px-12 px-md-24 lh-lg doubleline-ellipsis">超好吃的，最喜歡這種酸酸甜甜的味道，謝謝 Emy 推薦</p>                            
+                        </div>                                         -->
                     </div>
                 </div>
             </div>
@@ -131,6 +69,9 @@
                     </div>
                     <!-- user message scroll-bar -->
                     <ul class="horizontal-scroll d-flex flex-nowrap overflow-auto messagesContainer">
+                        <li>
+                            <%- include('./layout/wait-message'); -%>
+                        </li>
                         <!-- <li
                             class="evaluate-card message-card bg-white mt-32 mt-md-64 mb-24 mb-md-32 position-relative me-12 me-lg-0">
                             <div class="d-flex mb-12 mb-md-16">
