@@ -1,4 +1,5 @@
 import axios from "axios";
+import showStars from "../components/showStars";
 
 const _url = "https://teatimeapi-test.onrender.com";
 const _rating = "/ratings";
@@ -14,26 +15,30 @@ let ratingArys = [];
 // 找到網址路徑的搜尋範圍 如:?UID=B001  ，在抓出最後的4碼店家代號
 let currentUrlSearch = (window.location.search).slice(-4,);
 
-if (currentUrlSearch.startsWith("G")) {
-    const res = await Promise.all([axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${currentUrlSearch}&_expand=restaurant`)]);
-    currentUrlSearch = (res[0].data)[0].restaurant.UID;
-} else {
-    currentUrlSearch = currentUrlSearch;
-}
+(async function judgeUrl() {
+    if (currentUrlSearch.startsWith("G")) {
+        const res = await Promise.all([axios.get(`https://teatimeapi-test.onrender.com/groupings?UID=${currentUrlSearch}&_expand=restaurant`)]);
+        currentUrlSearch = (res[0].data)[0].restaurant.UID;
+    }
+    init()
+})()
 
-(function init() {
+
+function init() {
     axios.get(`${_url}${_rating}?${_sorting}`)
         .then(function (res) {
             ratingData = res.data;
             ratingArys = ratingData.filter(item => item.restaurantUID === currentUrlSearch);
             showRating();
         })
-})()
+}
+
 
 function showRating(quantity = 4) {
     let ratingItems = "";
     ratingArys.forEach((item, index) => {
         if (item.restaurantUID === currentUrlSearch && index < quantity) {
+            let stars = showStars(item.starRating);
             ratingItems += `
         <div class="feedback-style col-12 col-md-6 pt-32 pt-sm-48 mb-md-32">
             <div class="bg-brand-05 border-radius-16 px-12 px-sm-24 pb-12 pb-sm-24 custom-shadow-025">
@@ -43,11 +48,7 @@ function showRating(quantity = 4) {
                     <div class="d-flex">
                         <div class="d-flex flex-column justify-content-end ">
                         <div class="star-list mb-md-8">
-                            <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
-                            <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
-                            <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
-                            <iconify-icon icon="ic:round-star" class="me-4" style="color: #ffd43a;" width="16"></iconify-icon>
-                            <iconify-icon icon="ic:round-star" class=" " style="color: #C2C1BD;" width="16"></iconify-icon>
+                            ${stars}
                         </div>
                         </div>
                     </div>
@@ -64,7 +65,6 @@ function showRating(quantity = 4) {
     })
 
     if (ratingItems !== "") {
-
         ratingInnerHTML.innerHTML = ratingItems;
         ratingRWDInnerHTML.innerHTML = ratingItems;
     } else {
@@ -74,14 +74,13 @@ function showRating(quantity = 4) {
         // 手機板
         ratingRWDInnerHTML.innerHTML = `<div class="d-flex justify-content-center fs-16 fw-bolder text-brand-03"> 此店家目前無評價</div>`;
         ratingRWDToggleBtn.classList.add("d-none");
-
     }
 }
 
 
 // RWD留言右方按鈕，觸發toggle，呈現全部或者4則留言
-let RWDshowAll = true;
 ratingRWDToggleBtn.addEventListener("click", function () {
+    let RWDshowAll = true;
     RWDshowAll = !RWDshowAll;
     ratingRWDInnerHTML.innerHTML = "";
     // 傳入全部或者4則留言
@@ -130,11 +129,10 @@ async function updateRating() {
                 const closeButton = document.querySelector('#modal-WriteReview .btn-close');
                 closeButton.click();
                 setTimeout(() => {
-                    alert("留言評價成功");
+                    alert("留言評價成功 ,,・ω・,, ");
+                    location.reload()
                 }, 100)
             })
-        // console.log(updataObj);
     }
 }
-
 
