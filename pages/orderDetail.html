@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/images/logo/logo-favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <title>團員明細</title>
+</head>
+
+<body>
+
+    <div class="container-fluid bg-white">
+        <div class="row">
+            <!-- 左側欄位 -->
+            <%- include("./layout/memberSystem"); -%>
+                <!-- 右側欄位 -->
+
+                <div class="col pt-lg-24 px-0 px-lg-80">
+                    <div
+                        class="memberNav d-flex justify-content-between align-items-center  bg-gray-04 bg-lg-transparent p-12 py-lg-0 ">
+                        <a class="btn d-lg-none" data-bs-toggle="offcanvas" href="#memberOffcanvas" role="button"
+                            aria-controls="memberOffcanvas">
+                            <iconify-icon width="24" icon="mingcute:menu-fill"></iconify-icon>
+                        </a>
+                        <a href="index.html" class="ms-auto"><iconify-icon icon="icon-park-outline:shop" width="24"
+                                height="24"></iconify-icon></a>
+                    </div>
+                    <h2 class=" fw-bold mt-32 mt-lg-42 fs-32 px-12">發起的開團 / <span class="storeName"></span>
+                    </h2>
+                    <div class=" my-16 my-lg-32 mx-12 d-flex flex-lg-row">
+                        <aside class="me-0 me-lg-40 d-flex justify-content-between align-items-lg-start ">
+                            <div class="banner">
+                            </div>
+                        </aside>
+
+                        <div class="w-100">
+                            <nav>
+                                <h2 class="fs-24 fw-bold text-brand-03 mt-12 mt-lg-0"></h2>
+                            </nav>
+                            <ul class="fs-20 mt-12 fw-bolder ">
+                                <li>
+                                    <p>享用日期:<span class="eatDate ms-16 me-8"></span></p>
+                                </li>
+                                <li class="mt-8">
+                                    <p>請客人:<span class="invitees ms-16 me-8"></span></p>
+                                </li>
+                                <li class="mt-8">
+                                    <p>已付款人數:<span class="isPayMember ms-16 me-8"></span></p>
+                                </li>
+                                <li class="mt-8">
+                                    <p>訂單金額<span class="totalAccount ms-16 me-8 text-brand-02"></span></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <span class="fs-20 fw-bolder mb-36 border-bottom border-2 border-brand-03">團員明細</span>
+                    <div class="">
+                        <ul class="orderList">
+
+                        </ul>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!-- offcanvas -->
+    <%- include("./layout/member-offcanvas"); -%>
+
+</body>
+
+<script type="module" src="../main.js"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<!-- Axios import -->
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+<script>
+    (function init() {
+        const location = (window.location.search).slice(-4,);
+        axios
+            // 先實測這一筆
+            .get(`https://teatimeapi-test.onrender.com/groupings?UID=${location}&_expand=restaurant&_expand=order`)
+            .then((res) => {
+                let data = res.data;
+                startIt(data);
+            });
+    })()
+
+
+    function startIt(datas = data) {
+
+        // 先把所有人名抓出來
+        // 若人名沒有重複，創建一個obj放點餐內容
+        // 人名重複則把obj加入現有的陣列中
+        let arys = [];
+        let obj = {};
+        let amount = 0;
+        let isPayAry = [];
+
+        datas[0].order.orderDetail.forEach(item => {
+            // 統計人員點了幾項 {"陳大添": 1, "張三峰": 1,"黃莉琳": 2,"劉語柔": 1}
+            if (obj[item.name] === undefined) {
+                obj[item.name] = 1;
+            } else {
+                obj[item.name] += 1
+            }
+            // 
+            if (obj[item.name] == 1) {
+                orders = {
+                    name: item.name,
+                    items: [{
+                        orderItem: item.orderItem,
+                        quantity: item.quantity,
+                        totalAmount: item.totalAmount,
+                        customization: item.customization,
+                        comments: item.comments,
+                        isPay: item.isPay,
+                    }]
+                }
+                arys.push(orders)
+
+            } else {
+                arys.forEach(findName => {
+                    // 點的內容多於1個，就把點餐資訊加到現有的陣列裡
+                    if (findName.name == item.name) {
+                        findName.items.push({
+                            orderItem: item.orderItem,
+                            quantity: item.quantity,
+                            totalAmount: item.totalAmount,
+                            customization: item.customization,
+                            comments: item.comments,
+                            isPay: item.isPay,
+                        })
+                    }
+                })
+            }
+        })
+
+        // 整筆訂單的金額，及付款比例
+        arys.forEach(outer => {
+            outer.items.forEach(inner => {
+                amount += inner.totalAmount;
+                isPayAry.push(inner.isPay)
+            })
+        })
+        let payed = isPayAry.filter(i => i == true).length
+        // banner 資訊渲染
+        document.querySelector(".storeName").textContent = datas[0].restaurant.storeName;
+        document.querySelector(".eatDate").textContent = datas[0].deadlineDateTime;
+        document.querySelector(".invitees").textContent = (datas[0].invitees !== "" ? datas[0].invitees : "無");
+        document.querySelector(".isPayMember").textContent = `${payed} / ${isPayAry.length}`;
+        document.querySelector(".totalAccount").textContent = `NT$ ${amount}`;
+        document.querySelector(".banner").innerHTML = `
+        <img class="border border-2 rounded-24 border-line"
+            src="${datas[0].restaurant.storeLogo}"
+            alt="" width="96">
+        <p class=" py-4 mt-10 ms-auto d-flex
+            justify-content-center rounded-1 ">
+            <span class=" fw-bold fs-16 bg-brand-02 text-white py-4 px-12  rounded-1">已成團</span>
+        </p>
+
+        `;
+        renderHTML(arys);
+    }
+
+    function renderHTML(arys = arys) {
+        let orderList = document.querySelector(".orderList");
+        // 個餐點細項
+        let outerinfo = "";
+        let isPay = false
+        arys.forEach(event => {
+            // 人名及數量加總欄
+            let innerinfo = "";
+            let totalAmounts = 0;
+            event.items.forEach(innerAry => {
+                // 每個成員訂單的加總
+                totalAmounts += innerAry.totalAmount;
+                // 是否付款
+                isPay = innerAry.isPay;
+                innerinfo += `
+                <li class="d-flex mb-12">
+                    <div class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">${innerAry.quantity}</div>
+                    <ul class="orderItems w-100">
+                        <li>
+                            <div class="title d-flex justify-content-between align-items-center">
+                                <h3 class="fs-20 mb-4 text-gray-01 fw-bolder w-100">${innerAry.orderItem}</h3>
+                                <p class="ms-8 fs-20 border rounded-2 border-white border-0">$${innerAry.totalAmount}</p>
+                            </div>
+
+                            <ul class="text-gray-02 mt-4 ">
+                                <li class="d-flex mb-4">
+                                    <p>選項<span class="ms-16">${innerAry.customization}</span></p>
+                                </li>
+                                <li class="d-flex mb-4">
+                                    <p>備註<span class="ms-16">${innerAry.comments}</span></p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                `
+            })
+
+            // orderItems.innerHTML = info
+            outerinfo += `
+            <ul class="row py-24 border-bottom ">
+                <li class="col-3 fs-20 text-brand-03">${event.name}</li>
+                <li class="col-6">
+                    <div
+                        class="totalCount mb-40 d-flex justify-content-between pt-4 fs-20 text-brand-03">
+                        <p>總數:${(event.items).length}</p>
+                        <p class="p-0">$${totalAmounts}</p>
+                    </div>
+                    <ul class="orderItems">
+                        ${innerinfo}
+                    </ul>
+                </li>
+                <li class="col-3 ms-auto d-flex  justify-content-end ">
+                    <div>
+                        <select name="isPay" 
+                            class="isPaySelect bg-transparent border border-brand-03 text-brand-03 px-12 py-4 rounded-2">
+                            <option value="false">未付款</option>
+                            <option value="true" ${isPay === true ? "selected" : ""}>已付款</option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+            `
+        })
+        orderList.innerHTML = outerinfo
+    }
+
+</script>
+
+</html>
