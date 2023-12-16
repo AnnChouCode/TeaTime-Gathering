@@ -10,8 +10,8 @@
 
 
 # 下午茶揪團去 TeaTime Gathering
-pages：https://annchoucode.github.io/TeaTime-Gathering/
-figma：[https://www.figma.com/TeaTimeGathering](https://www.figma.com/file/HO7tXforqKlJOZdAJpM38c/%239-%E6%8F%AA%E5%9C%98%E4%B8%8B%E5%8D%88%E8%8C%B6-(Selina-%26-Ann-Chou)?type=design&node-id=115%3A981&mode=design&t=ai1CirSJIcsfLl5K-1)
+- pages：https://annchoucode.github.io/TeaTime-Gathering/
+- figma：[https://www.figma.com/TeaTimeGathering](https://www.figma.com/file/HO7tXforqKlJOZdAJpM38c/%239-%E6%8F%AA%E5%9C%98%E4%B8%8B%E5%8D%88%E8%8C%B6-(Selina-%26-Ann-Chou)?type=design&node-id=115%3A981&mode=design&t=ai1CirSJIcsfLl5K-1)
 
 ## 頁面
 首頁、店家頁、點餐頁、訂餐月曆、建立投票頁、使用者後台

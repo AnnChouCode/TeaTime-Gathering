@@ -24,6 +24,7 @@ const _user = cryptoToken(_token)
 localStorage.setItem('Carts', '');
 localStorage.setItem('category', '');
 const shoppingCart = document.querySelector('.shopping-cart');
+const shoppingCartMobile = document.querySelector('.shopping-cart-mobile ');
 const modalCartsSendOrder = document.getElementById('modalCartsSendOrder');
 
 
@@ -56,14 +57,11 @@ $(function () {
             content: '揪團活動已截止',
           });
         }else{
-          if(_user){
-            shoppingCart.setAttribute('href', '#modal-shppingCart-order');
-            shoppingCart.setAttribute("data-bs-toggle", "modal");
-          }
-        }        
+          
+        }
         id = restaurantId;
         storeInformationData(isGroupings,UID,id,res.data[0])
-        shoppingCarts(res.data[0])
+        shoppingCarts(res.data[0],isGroupTimeTrue)
       })
       .catch(err=>{console.log(err);})
     }else{
@@ -78,12 +76,18 @@ $(function () {
 });
 
 // 購物車
-function shoppingCarts(data){
+function shoppingCarts(data,isGroupTimeTrue){
   $('.shopping-cart').on('click',function(){
+    if(_user && !isGroupTimeTrue){
+      $('#modal-shppingCart-order').modal('show')
+    }else{
+      // 無登入使用者
+      return
+    }
     const category = localStorage.getItem('category');
     let templateShoppingCarts = '';
     data.storeName = $('#storeNameID').text();
-    const timeData = timeForCarts(data.eventDateTime,'')
+    const timeData = timeForCarts(data.eventDateTime,data.deadlineDateTime)
     data.yymmdd = timeData.eventDateTime.yymmdd;
     data.date = timeData.eventDateTime.date;
     data.time = timeData.eventDateTime.time;
@@ -92,6 +96,8 @@ function shoppingCarts(data){
     $('#modalShppingCartOrderTitle').html(`<p class="fs-20 fs-md-24 line-height-sm fw-bold text-gray-01" id="modalShppingCartOrderTitle">${data.storeName}</p>`)
     $('#dateCarts').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="dateCarts">${timeData.eventDateTime.date}</p>`)
     $('#timeCarts').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="timeCarts">${timeData.eventDateTime.time}</p>`)
+    $('#dateCartsOrder').html(`<p class="me-8 fs-16 fs-md-20 fw-medium line-height-sm" id="dateCartsOrder">${timeData.deadlineDateTime.date}</p>`)
+    $('#timeCartsOrder').html(`<p class="fs-16 fs-md-20 fw-medium line-height-sm" id="timeCartsOrder">${timeData.deadlineDateTime.time}</p>`)
 
     const getStorageCarts =  localStorage.getItem('Carts');
     // 判斷 localStorage Carts 有無資料
@@ -413,8 +419,7 @@ function storeInformationData(isGroupings,UID,id,storeData = ''){
           let pageSize = isMobile ? 5 : 10; // 根據裝置設定不同的 pageSize，5 為手機板(一頁顯示 5 筆資料)、10 為電腦版(一頁顯示 10 筆資料)
           let storeTemplate = "";
           // console.log(storeData);
-          const timeData = timeForCarts(storeData.eventDateTime,'');
-
+          const timeData = timeForCarts(storeData.eventDateTime,storeData.deadlineDateTime);
 
           // 店家獨立頁面 店家資訊
           storeTemplate += `
@@ -438,8 +443,8 @@ function storeInformationData(isGroupings,UID,id,storeData = ''){
                                 <path d="M7.16699 3.6665V1.9165M18.8337 3.6665V1.9165M1.91699 9.49984H24.0837" stroke="#1E1E1E" stroke-width="2" stroke-linecap="round"/>
                                 <path d="M20 18.8333C20 19.1428 19.8771 19.4395 19.6583 19.6583C19.4395 19.8771 19.1428 20 18.8333 20C18.5239 20 18.2272 19.8771 18.0084 19.6583C17.7896 19.4395 17.6667 19.1428 17.6667 18.8333C17.6667 18.5239 17.7896 18.2272 18.0084 18.0084C18.2272 17.7896 18.5239 17.6667 18.8333 17.6667C19.1428 17.6667 19.4395 17.7896 19.6583 18.0084C19.8771 18.2272 20 18.5239 20 18.8333ZM20 14.1667C20 14.4761 19.8771 14.7728 19.6583 14.9916C19.4395 15.2104 19.1428 15.3333 18.8333 15.3333C18.5239 15.3333 18.2272 15.2104 18.0084 14.9916C17.7896 14.7728 17.6667 14.4761 17.6667 14.1667C17.6667 13.8572 17.7896 13.5605 18.0084 13.3417C18.2272 13.1229 18.5239 13 18.8333 13C19.1428 13 19.4395 13.1229 19.6583 13.3417C19.8771 13.5605 20 13.8572 20 14.1667ZM14.1667 18.8333C14.1667 19.1428 14.0437 19.4395 13.825 19.6583C13.6062 19.8771 13.3094 20 13 20C12.6906 20 12.3938 19.8771 12.175 19.6583C11.9562 19.4395 11.8333 19.1428 11.8333 18.8333C11.8333 18.5239 11.9562 18.2272 12.175 18.0084C12.3938 17.7896 12.6906 17.6667 13 17.6667C13.3094 17.6667 13.6062 17.7896 13.825 18.0084C14.0437 18.2272 14.1667 18.5239 14.1667 18.8333ZM14.1667 14.1667C14.1667 14.4761 14.0437 14.7728 13.825 14.9916C13.6062 15.2104 13.3094 15.3333 13 15.3333C12.6906 15.3333 12.3938 15.2104 12.175 14.9916C11.9562 14.7728 11.8333 14.4761 11.8333 14.1667C11.8333 13.8572 11.9562 13.5605 12.175 13.3417C12.3938 13.1229 12.6906 13 13 13C13.3094 13 13.6062 13.1229 13.825 13.3417C14.0437 13.5605 14.1667 13.8572 14.1667 14.1667ZM8.33333 18.8333C8.33333 19.1428 8.21042 19.4395 7.99162 19.6583C7.77283 19.8771 7.47609 20 7.16667 20C6.85725 20 6.5605 19.8771 6.34171 19.6583C6.12292 19.4395 6 19.1428 6 18.8333C6 18.5239 6.12292 18.2272 6.34171 18.0084C6.5605 17.7896 6.85725 17.6667 7.16667 17.6667C7.47609 17.6667 7.77283 17.7896 7.99162 18.0084C8.21042 18.2272 8.33333 18.5239 8.33333 18.8333ZM8.33333 14.1667C8.33333 14.4761 8.21042 14.7728 7.99162 14.9916C7.77283 15.2104 7.47609 15.3333 7.16667 15.3333C6.85725 15.3333 6.5605 15.2104 6.34171 14.9916C6.12292 14.7728 6 14.4761 6 14.1667C6 13.8572 6.12292 13.5605 6.34171 13.3417C6.5605 13.1229 6.85725 13 7.16667 13C7.47609 13 7.77283 13.1229 7.99162 13.3417C8.21042 13.5605 8.33333 13.8572 8.33333 14.1667Z" fill="#1E1E1E"/>
                               /svg>
-                              <p class="me-16 me-sm-8">${timeData.eventDateTime.date}</p>
-                              <p class="">${timeData.eventDateTime.time}</p>
+                              <p class="me-16 me-sm-8">${timeData.deadlineDateTime.date}</p>
+                              <p class="">${timeData.deadlineDateTime.time}</p>
                             </li>
                             <li class="d-flex align-items-center mb-16">
                               <svg class="me-8" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

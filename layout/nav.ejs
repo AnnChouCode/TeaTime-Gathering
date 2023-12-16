@@ -4,10 +4,8 @@
             <div class="d-flex align-items-center justify-content-between gap-8 py-lg-16 py-8 container">
                 <!-- nav list left -->
                 <ul class="d-lg-flex d-none gap-xxl-48 gap-16">
-                    <li><a class="nav-list" href="findStore.html">點餐</a></li>
-                    <!-- <li><a class="nav-list" href="#">投票</a></li> -->
-                    <li><a class="nav-list" href="calendar.html">訂餐月曆</a></li>
-                    <li><a class="nav-list" href="#">訂單</a></li>
+                    <li><a class="nav-list" href="findStore.html">點餐</a></li>                    
+                    <li><a class="nav-list" href="calendar.html">訂餐月曆</a></li>                    
                 </ul>
                 <!-- nav logo -->
                 <h1 class="position-absolute me-lg-8 nav-logo"><a href="index.html">下午茶揪團去</a></h1>
@@ -68,8 +66,7 @@
                     <div class="offcanvas-body d-flex flex-column justify-content-between py-24 px-12">
                         <ul class="fs-32 offcanvas-list">
                             <li><a class="p-16 fw-bold d-block" href="findStore.html">點餐</a></li>                            
-                            <li><a class="p-16 fw-bold d-block" href="calendar.html">訂餐月曆</a></li>
-                            <li><a class="p-16 fw-bold d-block" href="#">訂單</a></li>
+                            <li><a class="p-16 fw-bold d-block" href="calendar.html">訂餐月曆</a></li>                            
                         </ul>
                         <ul class="d-flex justify-content-center gap-20">
                             <!-- 通知按鈕 -->
@@ -241,6 +238,9 @@
             </div>
             <div class="modal-body px-md-20 py-md-24 p-16">
                 <ul class=" notification-messages modalMessages">
+                    <li>
+                        <%- include('./layout/wait-message'); -%>
+                    </li>
                     <!-- <li><a href="#" class="d-block">
                             <p class="mb-12 text-brand-02 fw-medium fs-md-20 fs-16 lh-sm">您的投票結果已開票！請前往跟團點餐</p>
                             <div class="d-flex justify-content-between mb-8">
