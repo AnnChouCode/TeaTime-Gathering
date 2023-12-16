@@ -10,8 +10,8 @@
         href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/css/autoComplete.min.css">
     <!-- <link rel="stylesheet" href="/assets/scss/pages/_memberSystem.scss"> -->
     <title>訂單管理</title>
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-e0cad254.js"></script>
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-0036cbb7.css">
+  <script type="module" crossorigin src="/TeaTime-Gathering/assets/main-2018fec3.js"></script>
+  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-2e3c5037.css">
 </head>
 
 <body>
@@ -326,7 +326,6 @@
                     `;
                 }
                 // 歷史訂單卡片
-                // if (followUpOrderItems != "") {
 
                 if (moment(eventDateTime, 'YYYY-MM-DD') < moment()) {
                     let historicalOrderItems = "";
@@ -451,9 +450,13 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <span class="ms-auto d-none d-lg-block">
-                                    <a href="store-order.html?UID=${UID}" 
-                                        class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示開團</a>
+                                <span class="ms-auto d-none d-lg-block d-flex flex-column">
+                                    <div class="mb-12">
+                                        <a href="store-order.html?UID=${UID}" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">顯示開團</a>
+                                    </div>
+                                    <div>
+                                        <a href="orderDetail.html?UID=${UID}" class="text-brand-01 border border-brand-01 rounded-1  px-10 py-4">訂單細節</a>
+                                    </div>
                                 </span>
                             </div>
                         </li>`
