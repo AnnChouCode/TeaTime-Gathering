@@ -107,7 +107,6 @@
             } else {
                 obj[item.name] += 1
             }
-            console.log(obj);
             // 
             if (obj[item.name] == 1) {
                 orders = {
@@ -139,8 +138,6 @@
                 })
             }
         })
-
-        console.log(arys);
 
         // 整筆訂單的金額，及付款比例
         arys.forEach(outer => {
@@ -183,7 +180,6 @@
                 totalAmounts += innerAry.totalAmount;
                 // 是否付款
                 isPay = innerAry.isPay;
-                console.log(isPay);
                 innerinfo += `
                 <li class="d-flex mb-12">
                     <div class="count border border-1 border-dark rounded-1 px-10 py-4 me-8">${innerAry.quantity}</div>
@@ -191,7 +187,7 @@
                         <li>
                             <div class="title d-flex justify-content-between align-items-center">
                                 <h3 class="fs-20 mb-4 text-gray-01 fw-bolder w-100">${innerAry.orderItem}</h3>
-                                <p class="ms-8 fs-20 border rounded-2 border-white border-0">${innerAry.totalAmount}</p>
+                                <p class="ms-8 fs-20 border rounded-2 border-white border-0">$${innerAry.totalAmount}</p>
                             </div>
 
                             <ul class="text-gray-02 mt-4 ">
