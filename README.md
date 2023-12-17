@@ -29,7 +29,7 @@
 - [x] 評價、留言閱覽
 - [x] 使用者後台閱覽
 
-[![DEMO](http://img.youtube.com/vi/iudtBVr1Y8g/0.jpg)]("https://www.youtube.com/watch?v=YFYuM5q4Mi4")
+[![DEMO](https://img.youtube.com/vi/YFYuM5q4Mi4/0.jpg)](https://www.youtube.com/watch?v=YFYuM5q4Mi4)
 
 ## 安裝
 以下將會引導你如何安裝此專案到你的電腦上。
