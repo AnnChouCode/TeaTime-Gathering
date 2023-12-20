@@ -47,16 +47,16 @@
 
 
 ## 專案技術
-前端技術
+- 前端技術
   - HTML5
   - CSS3
   - JavaScript
-開發工具
+- 開發工具
   - Vite
   - Github Flow
-預處理器
+- 預處理器
   - Sass
-框架與套件
+- 框架與套件
   - Bootstrap 5.3.1
   - AXIOS 1.6.1：API 操作
   - jQuery 3.7.1：API 操作、套件控制、按鈕互動效果控制
@@ -70,7 +70,7 @@
   - evocalendar 1.1.2：月曆
   - Chart 4.0：圖表數據視覺
   - Crypto-js 4.2.0：加密解密 token
-設計工具
+- 設計工具
   - Figma
 
 
