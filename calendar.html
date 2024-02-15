@@ -1,55 +1,82 @@
 <!DOCTYPE html>
 <html lang="en" class="is-light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>下午茶揪團去｜共享美味，打造回憶</title>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="/TeaTime-Gathering/assets/logo-favicon-a850431b.png"
+      type="image/x-icon"
+    />
+    <!-- Open Graph Tag -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="下午茶揪團去" />
+    <meta property="og:description" content="共享美味，打造回憶" />
+    <meta
+      property="og:url"
+      content="https://annchoucode.github.io/TeaTime-Gathering/"
+    />
+    <meta
+      property="og:image"
+      content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-logo/store-01.jpg"
+    />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="下午茶揪團去" />
+    <meta name="twitter:description" content="共享美味，打造回憶" />
+    <meta
+      name="twitter:image"
+      content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-logo/store-01.jpg"
+    />
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- ICONS -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <!-- 月曆 evo calendar -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"
+    />
+    <!-- 時間選擇器 flatpickr -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <!-- 進度條 tocas progress -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css"
+    />
+    <script type="module" crossorigin src="/TeaTime-Gathering/assets/calendar-1deb08f4.js"></script>
+    <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-e0cad254.js">
+    <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/enc-utf8-11b5c098.js">
+    <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/notification-a4430703.js">
+    <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/index-a4e39586.js">
+    <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/calcGroupProgress-e070f845.js">
+    <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/showDateTime-51bda516.js">
+    <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/initializeDateTimePicker-55c7f59f.js">
+    <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-0036cbb7.css">
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>下午茶揪團去｜共享美味，打造回憶</title>
-  <!-- Favicon -->
-  <link rel="icon" href="/TeaTime-Gathering/assets/logo-favicon-a850431b.png" type="image/x-icon" />
-  <!-- Open Graph Tag -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="下午茶揪團去">
-  <meta property="og:description" content="共享美味，打造回憶">
-  <meta property="og:url" content="https://annchoucode.github.io/TeaTime-Gathering/">
-  <meta property="og:image"
-    content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-logo/store-01.jpg" />
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="下午茶揪團去" />
-  <meta name="twitter:description" content="共享美味，打造回憶" />
-  <meta name="twitter:image"
-    content="https://raw.githubusercontent.com/AnnChouCode/TeaTime-Gathering/main/assets/images/store-logo/store-01.jpg" />
-  <!-- FONTS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- ICONS -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-  <!-- 月曆 evo calendar -->
-  <link rel="stylesheet" type="text/css"
-    href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css" />
-  <!-- 時間選擇器 flatpickr -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-  <!-- 進度條 tocas progress -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.css" />
-  <script type="module" crossorigin src="/TeaTime-Gathering/assets/calendar-dd3b4729.js"></script>
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/main-2018fec3.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/enc-utf8-2021e559.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/notification-ac19cf8c.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/index-a4e39586.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/isPastEvent-33573b9d.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/showDateTime-51bda516.js">
-  <link rel="modulepreload" crossorigin href="/TeaTime-Gathering/assets/calcGroupProgress-88a8cbd6.js">
-  <link rel="stylesheet" href="/TeaTime-Gathering/assets/main-2e3c5037.css">
-</head>
-
-<body>
-  <!-- loading -->
-  <style>
+  <body>
+    <!-- loading -->
+    <style>
   .animation-bounceIn{
     animation: bounceIn 1s infinite;
     transform: rotate(0deg) scale(1) translateZ(0);
@@ -126,8 +153,7 @@
     
     // 初始化你的应用程序，可以开始加载其他资源
   });
-</script>
-    <nav>
+</script> <nav>
     <div class="fixed-top bg-white">
         <div class="position-relative layout-content">
             <div class="d-flex align-items-center justify-content-between gap-8 py-lg-16 py-8 container">
@@ -140,19 +166,19 @@
                 <h1 class="position-absolute me-lg-8 nav-logo"><a href="index.html">下午茶揪團去</a></h1>
                 <!-- nav-icon right-->
                 <ul class="d-lg-flex d-none gap-lg-16 gap-8">
-                    <!-- 按鈕-通知 -->
-                    <li>
+                    <!-- 按鈕-通知 未製作頁面-->
+                    <!-- <li>
                         <a class="nav-icon-hover" href="#">
                             <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ant-design:message-outlined"
                                 style="color: #bfa373;" width="28"></iconify-icon>
                         </a>
-                    </li>
-                    <!-- 按鈕-新手教學 -->
-                    <li>
+                    </li> -->
+                    <!-- 按鈕-新手教學 未製作頁面 -->
+                    <!-- <li>
                         <a href="#" class="nav-icon-hover">
                             <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ion:help" style="color: #bfa373;"
                                 width="28"></iconify-icon></a>
-                    </li>
+                    </li> -->
                     <!-- 按鈕-登入 -->
                     <li class="btnLogin">
                         <a href="#userLoginModal" data-bs-toggle="modal" class="nav-icon-hover"><iconify-icon
@@ -211,18 +237,18 @@
                                     </div>
                                 </a>
                             </li>
-                            <!-- 留言按鈕 -->
-                            <li>
+                            <!-- 留言按鈕 未製作頁面 -->
+                            <!-- <li>
                                 <a href="#" class="nav-icon-hover"><iconify-icon class="p-8 bg-brand-04 rounded-circle"
                                         icon="ant-design:message-outlined" style="color: #bfa373;"
                                         width="28"></iconify-icon></a>
-                            </li>
-                            <!-- 新手教學按鈕 -->
-                            <li>
+                            </li> -->
+                            <!-- 新手教學按鈕 未製作頁面 -->
+                            <!-- <li>
                                 <a href="#" class="nav-icon-hover">
                                     <iconify-icon class="p-8 bg-brand-04 rounded-circle" icon="ion:help"
                                         style="color: #bfa373;" width="28"></iconify-icon></a>
-                            </li>
+                            </li> -->
                             <!-- 登入按鈕 -->
                             <li class="btnLogin">
                                 <a href="#userLoginModal" class="nav-icon-hover" data-bs-toggle="modal"><iconify-icon
@@ -399,101 +425,139 @@
 <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.7/dist/autoComplete.min.js"></script>
 
 <!-- nav.js -->
-      <div class="py-32 pt-64 py-md-80 layout-content container calendar">
-        <h2 class="mb-16 mb-md-32 fs-24 fs-md-32 fw-bold lh-sm">訂餐月曆</h2>
-        <div class="row flex-column flex-md-row gy-48 g-md-24">
-          <!-- 月曆 -->
-          <div class="col col-md-5">
-            <div id="calendar" class="mb-32"></div>
-            <div class="d-flex gap-4">
-              <!-- <button type="button"
-                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-04 text-brand-01 d-flex justify-content-center align-items-center btn-hover-bg-1 w-50 fs-20 fw-medium btnCreateVoting"
-                data-bs-toggle="modal" data-bs-target="#modal-CreateVoting">
-                建立投票
-              </button> -->
-              <a tabindex="0" role="button"
-                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-04 text-brand-01 d-flex justify-content-center align-items-center btn-hover-bg-1 w-50 fs-20 fw-medium btnCreateVoting"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-placement="top"
-                data-bs-content="請先登入帳號">
-                建立投票
-              </a>
-              <button type="button"
-                class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2 w-50 fs-20 fw-medium "
-                data-bs-toggle="modal" data-bs-target="#modal-CreateGroup">
-                建立揪團
-              </button>
-            </div>
+    <div class="py-32 pt-64 py-md-80 layout-content container calendar">
+      <h2 class="mb-16 mb-md-32 fs-24 fs-md-32 fw-bold lh-sm">訂餐月曆</h2>
+      <div class="row flex-column flex-md-row gy-48 g-md-24">
+        <!-- 月曆 -->
+        <div class="col col-md-5">
+          <div id="calendar" class="mb-32"></div>
+          <div class="d-flex gap-4">
+            <a
+              tabindex="0"
+              role="button"
+              class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-04 text-brand-01 d-flex justify-content-center align-items-center btn-hover-bg-1 w-50 fs-20 fw-medium btnCreateVoting"
+              data-bs-container="body"
+              data-bs-toggle="popover"
+              data-bs-trigger="focus"
+              data-bs-placement="top"
+              data-bs-content="請先登入帳號"
+            >
+              建立投票
+            </a>
+            <button
+              type="button"
+              class="px-16 py-10 px-sm-23 py-sm-14 border-radius-40 border-0 btn btn-brand-05 text-brand-02 d-flex justify-content-center align-items-center btn-hover-bg-2 w-50 fs-20 fw-medium"
+              data-bs-toggle="modal"
+              data-bs-target="#modal-CreateGroup"
+            >
+              建立揪團
+            </button>
           </div>
-          <!-- 活動內容 -->
-          <ul class="col col-md-7 d-flex flex-column gap-48 gap-md-72 pt-32 pt-md-48 calendarEvent">
-            <li>              
-            <div class="d-flex align-items-center justify-content-center gap-16">                
+        </div>
+        <!-- 活動內容 -->
+        <ul
+          class="col col-md-7 d-flex flex-column gap-48 gap-md-72 pt-32 pt-md-48 calendarEvent"
+        >
+          <li><div class="d-flex align-items-center justify-content-center gap-16">                
     <div class="spinner-border text-brand-02 spinner-border-sm" role="status">
         <span class="visually-hidden">Loading...</span>
     </div>
     <p class='fs-16 fs-md-20'>資料讀取中，請稍等一下！</p>
-</div>            </li>
-          </ul>
-        </div>
+</div></li>
+        </ul>
       </div>
+    </div>
 
-      <!-- 建立揪團 Modal -->
-      <div class="modal fade" id="modal-CreateGroup" tabindex="-1" aria-labelledby="modal-CreateGroup"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header border-0">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body text-center fs-20 fw-medium py-40">
-              <p>請前往<a class="text-brand-02 btn-hover-underline-brand-02" href="./findStore.html">『找店家』</a></p>
-              <p>選擇建立揪團的店家</p>
-            </div>
+    <!-- 建立揪團 Modal -->
+    <div
+      class="modal fade"
+      id="modal-CreateGroup"
+      tabindex="-1"
+      aria-labelledby="modal-CreateGroup"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body text-center fs-20 fw-medium py-40">
+            <p>
+              請前往<a
+                class="text-brand-02 btn-hover-underline-brand-02"
+                href="./findStore.html"
+                >『找店家』</a
+              >
+            </p>
+            <p>選擇建立揪團的店家</p>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- 投票檢索 & 投票 Modal -->
-      <div class="modal fade" id="modal-VotingModal" tabindex="-1" aria-labelledby="modal-VotingModal"
-        aria-hidden="true" data-backdrop="false">
-        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-          <div class="d-flex modal-content border-radius-24">
-            <!-- modal header -->
-            <div class="modal-header py-16 py-lg-24 px-16 px-lg-40 border-0">
-              <h3 class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium "></h3>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <!-- modal body -->
-            <div class="modal-body px-16 px-lg-40 pt-8 pt-lg-16">
-              <div class="container-fluid">
-                <div class="row flex-column flex-lg-row">
-                  <!-- 活動資訊 voting info -->
-                  <div class="col col-lg-4 p-0">
-                    <ul class="d-flex flex-column gap-4 gap-md-8 mb-32 mb-lg-0 fs-16 fs-md-20">
-                      <li class="eventDateTime">
-                        <span class="me-16">享用日期</span>
-                        <span class="me-8 ">00/00</span>
-                        <span>00:00</span>
-                      </li>
-                      <li class="deadlineDateTime">
-                        <span class="me-16">截止時間</span>
-                        <span class="me-8">00/00</span>
-                        <span>00:00</span>
-                      </li>
-                      <li>
-                        <span class="me-16">發起人</span>
-                        <span class="initiator"></span>
-                      </li>
-                      <li>
-                        <span class="me-16">請客人</span>
-                        <span class="invitees"></span>
-                      </li>
-                    </ul>
-                  </div>
-                  <!-- 投票卡片 voting card -->
-                  <div class="col col-lg-8 p-0">
-                    <ul class="votingCard">
-                      <!-- <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
+    <!-- 投票檢索 & 投票 Modal -->
+    <div
+      class="modal fade"
+      id="modal-VotingModal"
+      tabindex="-1"
+      aria-labelledby="modal-VotingModal"
+      aria-hidden="true"
+      data-backdrop="false"
+    >
+      <div
+        class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
+      >
+        <div class="d-flex modal-content border-radius-24">
+          <!-- modal header -->
+          <div class="modal-header py-16 py-lg-24 px-16 px-lg-40 border-0">
+            <h3
+              class="modal-title fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium"
+            ></h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- modal body -->
+          <div class="modal-body px-16 px-lg-40 pt-8 pt-lg-16">
+            <div class="container-fluid">
+              <div class="row flex-column flex-lg-row">
+                <!-- 活動資訊 voting info -->
+                <div class="col col-lg-4 p-0">
+                  <ul
+                    class="d-flex flex-column gap-4 gap-md-8 mb-32 mb-lg-0 fs-16 fs-md-20"
+                  >
+                    <li class="eventDateTime">
+                      <span class="me-16">享用日期</span>
+                      <span class="me-8">00/00</span>
+                      <span>00:00</span>
+                    </li>
+                    <li class="deadlineDateTime">
+                      <span class="me-16">截止時間</span>
+                      <span class="me-8">00/00</span>
+                      <span>00:00</span>
+                    </li>
+                    <li>
+                      <span class="me-16">發起人</span>
+                      <span class="initiator"></span>
+                    </li>
+                    <li>
+                      <span class="me-16">請客人</span>
+                      <span class="invitees"></span>
+                    </li>
+                  </ul>
+                </div>
+                <!-- 投票卡片 voting card -->
+                <div class="col col-lg-8 p-0">
+                  <ul class="votingCard">
+                    <!-- <li class="d-flex gap-12 p-12 mb-12 border border-brand-03 border-radius-40401616">
                         <img class="border-radius-32321616 votingcard-photo" src="#" alt="store-photo">
                         <div>
                           <h4 class="mb-8 fs-16 fs-md-20 lh-sm text-brand-03">#</h4>
@@ -513,102 +577,161 @@
                               type="button">投票</button>
                           </div>
                       </li> -->
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- modal footer -->
-            <div class="modal-footer px-16 px-lg-40 py-12 border-0"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 建立投票 Modal -->
-      <div class="modal fade" id="modal-CreateVoting" tabindex="-1" aria-labelledby="modal-CreateVoting"
-        aria-hidden="true" data-backdrop="false">
-        <div class="modal-dialog modal-xl modal-dialog-centered">
-          <div class="d-flex modal-content border-radius-24">
-            <!-- modal header -->
-            <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
-              <h3 class="fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium ">建立投票
-              </h3>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <!-- modal body -->
-            <div class="modal-body d-flex pb-16 pt-8 pt-lg-16 px-16 px-lg-40 pb-lg-40 container justify-content-center">
-              <div class="row flex-column flex-lg-row w-100">
-                <!-- 建立活動資訊 create voting info -->
-                <div class="col col-lg-4 p-0">
-                  <ul class="d-flex flex-column gap-32 mb-12 mb-lg-32 fs-16 fs-md-20">
-                    <li>
-                      <label for="eventDateTime" class="mb-16 mb-md-12">享用日期</label>
-                      <input type="datetime-local"
-                        class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
-                        id="eventDateTime" name="eventDateTime" placeholder="日期" autocomplete="off">
-                    </li>
-                    <li>
-                      <label for="deadlineDateTime" class="mb-16 mb-md-12">截止時間</label>
-                      <input type="datetime-local"
-                        class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
-                        id="deadlineDateTime" name="deadlineDateTime" placeholder="日期" autocomplete="off">
-                      <p class="d-none mt-4 fs-14 ms-16 deadlineDateTimeAlert" style="color:#dc3545;">截止時間須至少提前於享用日期
-                        24
-                        時</p>
-                    </li>
-                    <li>
-                      <span class="me-16 mb-16 mb-md-12">發起人</span>
-                      <span id="votingInitiator">無</span>
-                    </li>
-                    <li>
-                      <label for="votingInvitees" class="mb-16 mb-mb-12">請客人</label>
-                      <select id="votingInvitees" name="votingInvitees"
-                        class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 select-payer">
-                        <option class="text-gray-03" value="" disabled selected>請選擇付款人</option>
-                        <option value="no-invitees">各自付款</option>
-                        <option value="has-invitees">由我請客</option>
-                      </select>
-                    </li>
                   </ul>
-                  <button
-                    class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-100 btnLinkToCreateVoting"
-                    type="button">選擇店家</button>
                 </div>
-                <!-- 投票卡片 voting card -->
-                <div class="col col-lg-8 d-none d-lg-block">
-                  <p class="fs-16 fs-md-20 text-center">尚未選擇店家</p>
-                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modal footer -->
+          <div class="modal-footer px-16 px-lg-40 py-12 border-0"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 建立投票 Modal -->
+    <div
+      class="modal fade"
+      id="modal-CreateVoting"
+      tabindex="-1"
+      aria-labelledby="modal-CreateVoting"
+      aria-hidden="true"
+      data-backdrop="false"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="d-flex modal-content border-radius-24">
+          <!-- modal header -->
+          <div class="modal-header p-16 pb-lg-40 pt-lg-24 px-lg-40 border-0">
+            <h3 class="fs-lg-24 fw-lg-bold lh-sm fs-20 fw-medium">建立投票</h3>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <!-- modal body -->
+          <div
+            class="modal-body d-flex pb-16 pt-8 pt-lg-16 px-16 px-lg-40 pb-lg-40 container justify-content-center"
+          >
+            <div class="row flex-column flex-lg-row w-100">
+              <!-- 建立活動資訊 create voting info -->
+              <div class="col col-lg-4 p-0">
+                <ul
+                  class="d-flex flex-column gap-32 mb-12 mb-lg-32 fs-16 fs-md-20"
+                >
+                  <li>
+                    <label for="eventDateTime" class="mb-16 mb-md-12"
+                      >享用日期</label
+                    >
+                    <input
+                      type="datetime-local"
+                      class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
+                      id="eventDateTime"
+                      name="eventDateTime"
+                      placeholder="日期"
+                      autocomplete="off"
+                    />
+                  </li>
+                  <li>
+                    <label for="deadlineDateTime" class="mb-16 mb-md-12"
+                      >截止時間</label
+                    >
+                    <input
+                      type="datetime-local"
+                      class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 dateSelector"
+                      id="deadlineDateTime"
+                      name="deadlineDateTime"
+                      placeholder="日期"
+                      autocomplete="off"
+                    />
+                    <p
+                      class="d-none mt-4 fs-14 ms-16 deadlineDateTimeAlert"
+                      style="color: #dc3545"
+                    >
+                      截止時間須至少提前於享用日期 24 時
+                    </p>
+                  </li>
+                  <li>
+                    <span class="me-16 mb-16 mb-md-12">發起人</span>
+                    <span id="votingInitiator">無</span>
+                  </li>
+                  <li>
+                    <label for="votingInvitees" class="mb-16 mb-mb-12"
+                      >請客人</label
+                    >
+                    <select
+                      id="votingInvitees"
+                      name="votingInvitees"
+                      class="px-14 py-12 w-100 border-radius-16 border border-2 border-gray-04 fs-16 select-payer"
+                    >
+                      <option class="text-gray-03" value="" disabled selected>
+                        請選擇付款人
+                      </option>
+                      <option value="no-invitees">各自付款</option>
+                      <option value="has-invitees">由我請客</option>
+                    </select>
+                  </li>
+                </ul>
+                <button
+                  class="py-12 py-md-14 px-16 btn-brand-03 btn-hover-brand-01 border-0 rounded-pill text-white fs-16 fs-md-20 w-100 btnLinkToCreateVoting"
+                  type="button"
+                >
+                  選擇店家
+                </button>
+              </div>
+              <!-- 投票卡片 voting card -->
+              <div class="col col-lg-8 d-none d-lg-block">
+                <p class="fs-16 fs-md-20 text-center">尚未選擇店家</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- 當前 UID 網址已過期提示 Modal -->
-      <div class="modal" id="modal-eventExpired" aria-hidden="true" aria-labelledby="modal-eventExpired" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered mx-auto px-12 px-sm-0" style="max-width:416px;">
-          <div class="modal-content border-radius-24">
-            <div class="d-flex flex-column border-0 pt-12 pt-md-24 px-16 px-md-40 ms-auto">
-              <button type="button" class="btn-close btnLinkToCalendar" data-bs-dismiss="modal"
-                aria-label="Close"></button>
+    <!-- 當前 UID 網址已過期提示 Modal -->
+    <div
+      class="modal"
+      id="modal-eventExpired"
+      aria-hidden="true"
+      aria-labelledby="modal-eventExpired"
+      tabindex="-1"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered mx-auto px-12 px-sm-0"
+        style="max-width: 416px"
+      >
+        <div class="modal-content border-radius-24">
+          <div
+            class="d-flex flex-column border-0 pt-12 pt-md-24 px-16 px-md-40 ms-auto"
+          >
+            <button
+              type="button"
+              class="btn-close btnLinkToCalendar"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body p-16 pt-0 p-md-40">
+            <div class="mb-20 mb-md-40 text-center">
+              <p class="text-gray-01 fw-bold line-height-sm fs-20 fs-md-24">
+                ※ 找不到您指定的投票活動
+              </p>
             </div>
-            <div class="modal-body p-16 pt-0 p-md-40">
-              <div class="mb-20 mb-md-40 text-center">
-                <p class="text-gray-01 fw-bold line-height-sm fs-20 fs-md-24">※ 找不到您指定的投票活動</p>
-              </div>
-              <div class="fs-md-20">
-                <p>請確認您的網址是否正確？</p>
-                <p>若為正確網址，可能是由於您持有的網址為測試版本，將於一定時間內過期無法使用。</p>
-                <p>請『使用現有活動投票』，或是『建立投票』。</p>
-              </div>
+            <div class="fs-md-20">
+              <p>請確認您的網址是否正確？</p>
+              <p>
+                若為正確網址，可能是由於您持有的網址為測試版本，將於一定時間內過期無法使用。
+              </p>
+              <p>請『使用現有活動投票』，或是『建立投票』。</p>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-
-      <!-- footer -->
-      <footer class="pt-md-48 pb-md-32 py-32 bg-bg-1 text-gray-02 footer-radius">
+    <!-- footer -->
+    <footer class="pt-md-48 pb-md-32 py-32 bg-bg-1 text-gray-02 footer-radius">
     <div class="d-flex flex-column align-items-center">
         <img class="mb-md-24 mb-16 footer-logo" src="/TeaTime-Gathering/assets/logo-teatime-79c8d1bd.svg" alt="logo">
         <p class="mb-md-24 mb-16 lh-sm fw-medium">管理員：Ann Chou、Billy Ti、Mark、WA</p>
@@ -625,8 +748,8 @@
         </div>
     </div>
 </footer>
-        <!-- notification -->
-        <a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover btnNotification" id="btnToastNotification">
+    <!-- notification -->
+    <a class="btn-notification position-fixed z-1 d-block cursor-pointer notification-hover btnNotification" id="btnToastNotification">
     <iconify-icon class="p-8 bg-brand-02 rounded-circle" icon="ion:notifications-outline"
         style="color: white;" width="28" height="28"></iconify-icon>
     <div
@@ -676,28 +799,24 @@
 
 <!-- notification.js -->
 
-          <!-- ICONGIFY import -->
-          <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <!-- ICONGIFY import -->
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
-          <!-- JS -->
-          
+    <!-- JS -->
+    
 
-          <!-- moment.js import-->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <!-- moment.js import-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
-          <!-- jQuery Import -->
-          <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- jQuery Import -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-          <!-- 進度條 tocas progress -->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
+    <!-- 進度條 tocas progress -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocas/4.2.5/tocas.min.js"></script>
 
-          <!-- 月曆 evo-calendar import -->
-          <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
+    <!-- 月曆 evo-calendar import -->
+    <script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
 
-
-          
-
-
-</body>
-
+    
+  </body>
 </html>
