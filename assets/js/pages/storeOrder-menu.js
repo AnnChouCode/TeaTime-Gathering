@@ -1,19 +1,13 @@
 // import 星級樣板
 import showStars from "/assets/js/components/showStars.js";
-// import 判斷登入狀態樣板
-import isLoggedIn from '/assets/js/components/isLoggedIn.js';
 // 處理購物車時間(享用時間、訂購期限)
 import timeForCarts from '/assets/js/components/timeForCarts.js';
 // 計算成團、投票進度條
 import calcGroupProgress from '/assets/js/components/calcGroupProgress.js';
 // import 解密 token 樣板
 import cryptoToken from '/assets/js/components/cryptoToken.js';
-// import 時間判斷 樣板
+// import 判斷事件是否過期
 import isPastEvent from '/assets/js/components/isPastEvent.js';
-// import 活動時間 字串處理
-import showDateTime from '/assets/js/components/showDateTime.js';
-// import 判斷開團時間 
-import isGroupTime from '/assets/js/components/isGroupTime.js';
 import * as bootstrap from "bootstrap/dist/js/bootstrap.min.js";
 import axios from "axios";
 
@@ -50,7 +44,7 @@ $(function () {
           return
         }
         const {restaurantId,deadlineDateTime} = res.data[0];
-        const isGroupTimeTrue = isGroupTime(deadlineDateTime);
+        const isGroupTimeTrue = isPastEvent(deadlineDateTime);
         // console.log(isGroupTimeTrue);
         if(isGroupTimeTrue){
           const popover = new bootstrap.Popover(shoppingCart, {
