@@ -13,7 +13,6 @@ const _user = cryptoToken(_token)
 let currentUserId = ""
 let currentUserName = ""
 
-
 const btnNotifications = document.querySelectorAll(".btnNotification")
 document.addEventListener('DOMContentLoaded', function () {
     const btnNotificationAlerts = document.querySelectorAll(".btnNotificationAlert")
@@ -73,7 +72,7 @@ function getCurrentUserName() {
     axios.get(`${_url}/users?UID=${_user}`)
         .then(function (res) {
             //獲取目前登入者Id
-            currentUserId = _user.match(/U(\d+)/)[1]
+            currentUserId = parseInt(_user.match(/U(\d{3})/)[1])
             //獲取目前登入者姓名
             currentUserName = res.data[0].userName
             //獲取通知事件資料
@@ -114,7 +113,8 @@ function getNotificationDatas() {
 //處理通知事件資料
 function handleEventMap(groupings, votings) {
     //登入者有參與的開團
-    const participatingGroupings = groupings.filter(data => data.initiatorId == currentUserId || data.order.orderDetail.filter(item => item.name = currentUserName).length)
+    const participatingGroupings = groupings.filter(data => data.initiatorId == currentUserId || data.order.orderDetail.filter(item => item.name === currentUserName))
+
     //登入者有參與的投票
     const participatingVotings = votings.filter(data => data.initiatorId == currentUserId || data.currentVoters.includes(_user))
 
