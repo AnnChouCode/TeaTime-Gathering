@@ -45,7 +45,7 @@ function renderFeedBack() {
   //複製原始資料
   let ratings = JSON.parse(JSON.stringify(ratingsDatas))
   let messages = JSON.parse(JSON.stringify(messagesDatas))
-  console.log(ratings)
+
   //行動版只擷取前四項資料
   if (!isMobile) {
     ratings = ratings.slice(0, 4)
